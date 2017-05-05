@@ -1,0 +1,17 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Source,121,70,5,5,31,17,13,6,8,6
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,ObjectFactory,38,0,0,0,9,0,8,0,8,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,IndicatorElement,158,264,9,9,43,60,19,18,10,18
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Topics,143,77,19,13,31,16,21,10,9,6
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,IndicatorsElement_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Topics_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,IndicatorsElement,265,179,26,14,59,40,32,15,13,14
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,SourceName,261,0,4,0,28,0,8,0,6,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,IndicatorElement_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Source_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Topic,121,77,5,5,31,20,13,8,8,8
+model.external.worldbank.indicators.impl,com.hack23.cia.model.external.worldbank.indicators.impl,Topic_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.indicators.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.worldbank.indicators.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
+model.external.worldbank.indicators.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0

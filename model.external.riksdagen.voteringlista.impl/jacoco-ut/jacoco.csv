@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,ObjectFactory,26,0,0,0,6,0,5,0,5,0
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,VoteListContainerElement,239,149,24,14,52,34,29,14,12,12
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,BallotDocumentElement,360,6,16,0,88,2,31,2,23,2
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,BallotDocumentElement_,3,0,0,0,1,0,1,0,1,0
+model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,VoteListContainerElement_,3,0,0,0,1,0,1,0,1,0
+model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
+model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
+model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0

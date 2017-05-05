@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WorldBankDataWorkGeneratorImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service.component.agent.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.component.agent.impl.worldbank.workgenerator</a> &gt; <span class="el_source">WorldBankDataWorkGeneratorImpl.java</span></div><h1>WorldBankDataWorkGeneratorImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.component.agent.impl.worldbank.workgenerator;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.jms.Destination;
+import javax.jms.JMSException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.model.external.worldbank.indicators.impl.IndicatorElement;
+import com.hack23.cia.model.internal.application.data.impl.WorldBankDataSources;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationConfiguration;
+import com.hack23.cia.model.internal.application.system.impl.ConfigurationGroup;
+import com.hack23.cia.service.data.api.ApplicationConfigurationService;
+
+/**
+ * The Class WorldBankDataWorkGeneratorImpl.
+ */
+@Service(&quot;WorldBankDataWorkGeneratorImpl&quot;)
+final class WorldBankDataWorkGeneratorImpl extends AbstractWorldBankDataSourcesWorkGenerator {
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(WorldBankDataWorkGeneratorImpl.class);</span>
+
+	/** The data workdestination. */
+	@Autowired
+	@Qualifier(&quot;com.hack23.cia.model.external.worldbank.data.impl.Data&quot;)
+	private Destination dataWorkdestination;
+
+	/** The application configuration service. */
+	@Autowired
+	private ApplicationConfigurationService applicationConfigurationService;
+
+	/**
+	 * Instantiates a new world bank data work generator impl.
+	 */
+	public WorldBankDataWorkGeneratorImpl() {
+<span class="fc" id="L63">		super(WorldBankDataSources.DATA);</span>
+<span class="fc" id="L64">	}</span>
+
+	@Override
+	public void generateWorkOrders() {
+
+		try {
+<span class="fc" id="L70">			final ApplicationConfiguration importDataForCountries = applicationConfigurationService.checkValueOrLoadDefault(&quot;Countries to import data from worldbank (isocode) alt comma separated list&quot;, &quot;Load worldbank data for countries&quot;, ConfigurationGroup.AGENT, WorldBankCountryWorkGeneratorImpl.class.getSimpleName(), &quot;Worldbank country data loading&quot;, &quot;Responsible import worldlbank country data&quot;, &quot;agent.worldbank.country.data.loadCountries&quot;, &quot;SE&quot;);</span>
+
+<span class="fc" id="L72">			final List&lt;IndicatorElement&gt; indicatorlist = getImportService().getAllIndicators();</span>
+<span class="fc" id="L73">			final Map&lt;String, String&gt; currentSaved = getImportService().getWorldBankDataMap();</span>
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">			for (final String country : getImportService().getWorldBankCountryMap().keySet()) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">				if (importDataForCountries.getPropertyValue().equalsIgnoreCase(country)) {</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">					for (final IndicatorElement indicator : indicatorlist) {</span>
+<span class="fc" id="L78">						sendCountryIndicatorWorkOrder(currentSaved, indicator, country);</span>
+<span class="fc" id="L79">					}</span>
+				}
+<span class="fc" id="L81">			}</span>
+
+<span class="nc" id="L83">		} catch (final JMSException exception) {</span>
+<span class="nc" id="L84">			LOGGER.warn(&quot;jms&quot;, exception);</span>
+<span class="fc" id="L85">		}</span>
+<span class="fc" id="L86">	}</span>
+
+	/**
+	 * Send country indicator work order.
+	 *
+	 * @param currentSaved
+	 *            the current saved
+	 * @param indicator
+	 *            the indicator
+	 * @param country
+	 *            the country
+	 * @throws JMSException
+	 *             the exception
+	 */
+	private void sendCountryIndicatorWorkOrder(final Map&lt;String, String&gt; currentSaved, final IndicatorElement indicator,
+			final String countryIso2Code) throws JMSException {
+<span class="pc bpc" id="L102" title="2 of 4 branches missed.">		if (countryIso2Code != null &amp;&amp; countryIso2Code.length() &gt; 0</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">				&amp;&amp; !currentSaved.containsKey(countryIso2Code + '.' + indicator.getId())) {</span>
+<span class="fc" id="L104">			final List&lt;String&gt; load = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L105">			load.add(countryIso2Code);</span>
+<span class="fc" id="L106">			load.add(indicator.getId());</span>
+<span class="fc" id="L107">			getJmsSender().send(dataWorkdestination, (Serializable) load);</span>
+		}
+<span class="fc" id="L109">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

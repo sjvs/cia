@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>WorldbankIndicatorApiImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service.component.agent.impl</a> &gt; <a href="../index.html" class="el_bundle">service.external.worldbank</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.external.worldbank.impl</a> &gt; <span class="el_source">WorldbankIndicatorApiImpl.java</span></div><h1>WorldbankIndicatorApiImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.external.worldbank.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.oxm.Unmarshaller;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.model.external.worldbank.indicators.impl.IndicatorElement;
+import com.hack23.cia.model.external.worldbank.indicators.impl.IndicatorsElement;
+import com.hack23.cia.service.external.worldbank.api.DataFailureException;
+import com.hack23.cia.service.external.worldbank.api.WorldBankIndicatorApi;
+
+/**
+ * The Class WorldbankIndicatorApiImpl.
+ */
+@Component
+final class WorldbankIndicatorApiImpl extends AbstractWorldBankApiImpl implements WorldBankIndicatorApi {
+
+	/** The Constant LOGGER. */
+<span class="nc" id="L43">	private static final Logger LOGGER = LoggerFactory.getLogger(WorldbankIndicatorApiImpl.class);</span>
+
+	/** The Constant INDICATORS. */
+	private static final String INDICATORS = &quot;http://api.worldbank.org/indicators?per_page=5000&quot;;
+
+	private static final String PAGE_NUMBER = &quot;&amp;page=&quot;;
+
+	/** The Constant PROBLEM_GETTING_WORLDBANK_INDICATOR_LIST. */
+	private static final String PROBLEM_GETTING_WORLDBANK_INDICATOR_LIST = &quot;Problem getting worldbank indicator list&quot;;
+
+	private static final int SECOND_PAGE = 2;
+
+	/**
+	 * The Constant
+	 * XMLNS_WB_HTTP_INDICATORS_WORLDBANK_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL.
+	 */
+	private static final String XMLNS_WB_HTTP_INDICATORS_WORLDBANK_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL = &quot;xmlns:wb=\&quot;http://indicators.worldbank.external.model.cia.hack23.com/impl\&quot;&quot;;
+
+
+	/** The indicators unmarshaller. */
+	@Autowired
+	@Qualifier(&quot;worldbankOrgIndicatorsMarshaller&quot;)
+	private Unmarshaller indicatorsUnmarshaller;
+
+	/**
+	 * Instantiates a new worldbank indicator api impl.
+	 */
+	public WorldbankIndicatorApiImpl() {
+<span class="nc" id="L71">		super();</span>
+<span class="nc" id="L72">	}</span>
+
+	/* (non-Javadoc)
+	 * @see com.hack23.cia.service.external.worldbank.api.WorldBankIndicatorApi#getIndicators()
+	 */
+	@Override
+	public List&lt;IndicatorElement&gt; getIndicators() throws DataFailureException {
+<span class="nc" id="L79">		final List&lt;IndicatorElement&gt; result = new ArrayList&lt;&gt;();</span>
+
+		try {
+<span class="nc" id="L82">			final IndicatorsElement firstPage = (IndicatorsElement) getXmlAgent().unmarshallXml(indicatorsUnmarshaller,</span>
+					INDICATORS, null, XMLNS_WB_HTTP_WWW_WORLDBANK_ORG,
+					XMLNS_WB_HTTP_INDICATORS_WORLDBANK_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL);
+<span class="nc" id="L85">			result.addAll(firstPage.getIndicator());</span>
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			for (int pageNumber = SECOND_PAGE; pageNumber &lt; firstPage.getPages().intValue(); pageNumber++) {</span>
+<span class="nc" id="L88">				final IndicatorsElement otherPageResult = (IndicatorsElement) getXmlAgent().unmarshallXml(indicatorsUnmarshaller,</span>
+						INDICATORS + PAGE_NUMBER + pageNumber, null, XMLNS_WB_HTTP_WWW_WORLDBANK_ORG,
+						XMLNS_WB_HTTP_INDICATORS_WORLDBANK_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL);
+<span class="nc" id="L91">				result.addAll(otherPageResult.getIndicator());</span>
+			}
+
+<span class="nc" id="L94">		} catch (final Exception e) {</span>
+<span class="nc" id="L95">			LOGGER.warn(PROBLEM_GETTING_WORLDBANK_INDICATOR_LIST);</span>
+<span class="nc" id="L96">			throw new DataFailureException(e);</span>
+<span class="nc" id="L97">		}</span>
+
+<span class="nc" id="L99">		return result;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

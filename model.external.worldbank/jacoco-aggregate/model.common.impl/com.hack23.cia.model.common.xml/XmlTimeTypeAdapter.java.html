@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>XmlTimeTypeAdapter.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">model.external.worldbank</a> &gt; <a href="../index.html" class="el_bundle">model.common.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.model.common.xml</a> &gt; <span class="el_source">XmlTimeTypeAdapter.java</span></div><h1>XmlTimeTypeAdapter.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.model.common.xml;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import javax.xml.bind.DatatypeConverter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * The Class XmlTimeTypeAdapter.
+ */
+public final class XmlTimeTypeAdapter {
+
+	private static final String YYYY_MM_DD_HH_MM_SS = &quot;2001-01-01 00:00:00&quot;;
+
+	/** The Constant YYYY_MM_DD. */
+	private static final String YYYY_MM_DD = &quot;yyyy-MM-dd&quot;;
+
+<span class="nc" id="L42">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L43">			.getLogger(XmlTimeTypeAdapter.class);</span>
+
+
+	/**
+	 * Instantiates a new xml time type adapter.
+	 */
+	private XmlTimeTypeAdapter() {
+<span class="nc" id="L50">		super();</span>
+<span class="nc" id="L51">	}</span>
+
+	/**
+	 * Parses the date.
+	 *
+	 * @param s
+	 *            the s
+	 * @return the date
+	 */
+	public static Date parseDate(final String s) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (s == null) {</span>
+<span class="nc" id="L62">			return null;</span>
+		}
+		// hack to supported swedish riksdags xml.
+<span class="nc" id="L65">		final String dateStr = s.trim();</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (YYYY_MM_DD_HH_MM_SS.length() == dateStr.length()</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">				|| YYYY_MM_DD.length() == dateStr.length()) {</span>
+			try {
+<span class="nc" id="L69">				return new SimpleDateFormat(</span>
+<span class="nc" id="L70">						YYYY_MM_DD,Locale.ENGLISH).parse(dateStr.substring(0,YYYY_MM_DD.length()));</span>
+<span class="nc" id="L71">			} catch (final ParseException e) {</span>
+<span class="nc" id="L72">				LOGGER.warn(&quot;Problem parsing date from str:{}&quot;,s,e);</span>
+			}
+		}
+<span class="nc" id="L75">		return DatatypeConverter.parseDate(s).getTime();</span>
+	}
+
+	/**
+	 * Prints the date.
+	 *
+	 * @param dt
+	 *            the dt
+	 * @return the string
+	 */
+	public static String printDate(final Date dt) {
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		if (dt == null) {</span>
+<span class="nc" id="L87">			return null;</span>
+		}
+<span class="nc" id="L89">		final Calendar c = Calendar.getInstance();</span>
+<span class="nc" id="L90">		c.setTime(dt);</span>
+<span class="nc" id="L91">		return DatatypeConverter.printDate(c);</span>
+	}
+
+	/**
+	 * Parses the time.
+	 *
+	 * @param s
+	 *            the s
+	 * @return the date
+	 */
+	public static Date parseTime(final String s) {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		if (s == null) {</span>
+<span class="nc" id="L103">			return null;</span>
+		}
+<span class="nc" id="L105">		return DatatypeConverter.parseTime(s).getTime();</span>
+	}
+
+	/**
+	 * Prints the time.
+	 *
+	 * @param dt
+	 *            the dt
+	 * @return the string
+	 */
+	public static String printTime(final Date dt) {
+<span class="nc bnc" id="L116" title="All 2 branches missed.">		if (dt == null) {</span>
+<span class="nc" id="L117">			return null;</span>
+		}
+<span class="nc" id="L119">		final Calendar c = Calendar.getInstance();</span>
+<span class="nc" id="L120">		c.setTime(dt);</span>
+<span class="nc" id="L121">		return DatatypeConverter.printTime(c);</span>
+	}
+
+	/**
+	 * Parses the date time.
+	 *
+	 * @param s
+	 *            the s
+	 * @return the date
+	 */
+	public static Date parseDateTime(final String s) {
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		if (s == null) {</span>
+<span class="nc" id="L133">			return null;</span>
+		}
+<span class="nc" id="L135">		return DatatypeConverter.parseDateTime(s).getTime();</span>
+	}
+
+	/**
+	 * Prints the date time.
+	 *
+	 * @param dt
+	 *            the dt
+	 * @return the string
+	 */
+	public static String printDateTime(final Date dt) {
+<span class="nc bnc" id="L146" title="All 2 branches missed.">		if (dt == null) {</span>
+<span class="nc" id="L147">			return null;</span>
+		}
+<span class="nc" id="L149">		final Calendar c = Calendar.getInstance();</span>
+<span class="nc" id="L150">		c.setTime(dt);</span>
+<span class="nc" id="L151">		return DatatypeConverter.printDateTime(c);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

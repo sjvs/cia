@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DocumentChartDataManagerImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl</a> &gt; <span class="el_source">DocumentChartDataManagerImpl.java</span></div><h1>DocumentChartDataManagerImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+ */
+package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+import org.dussan.vaadin.dcharts.DCharts;
+import org.dussan.vaadin.dcharts.base.elements.XYseries;
+import org.dussan.vaadin.dcharts.data.DataSeries;
+import org.dussan.vaadin.dcharts.options.Series;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.model.internal.application.data.document.impl.RiksdagenDocumentTypeSummaryEmbeddedId;
+import com.hack23.cia.model.internal.application.data.document.impl.ViewRiksdagenDocumentTypeDailySummary;
+import com.hack23.cia.service.api.ApplicationManager;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
+import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.DocumentChartDataManager;
+import com.vaadin.ui.AbstractOrderedLayout;
+
+/**
+ * The Class DocumentChartDataManagerImpl.
+ */
+@Service
+public final class DocumentChartDataManagerImpl extends AbstractChartDataManagerImpl implements DocumentChartDataManager {
+
+	/** The Constant MOT_PROP_BET. */
+	private static final String MOT_PROP_BET = &quot;mot:prop:bet&quot;;
+
+	/** The Constant YEAR_PREFIX. */
+	private static final String YEAR_PREFIX = &quot;19&quot;;
+
+	/** The Constant EMPTY_STRING. */
+	private static final String EMPTY_STRING = &quot;&quot;;
+
+	/** The application manager. */
+	@Autowired
+	private ApplicationManager applicationManager;
+
+	/** The chart options. */
+	@Autowired
+	private ChartOptions chartOptions;
+
+
+	/**
+	 * Instantiates a new document chart data manager impl.
+	 */
+	public DocumentChartDataManagerImpl() {
+<span class="fc" id="L69">		super();</span>
+<span class="fc" id="L70">	}</span>
+
+
+	/**
+	 * Gets the document type map.
+	 *
+	 * @return the document type map
+	 */
+	private Map&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; getDocumentTypeMap() {
+<span class="fc" id="L79">		final DataContainer&lt;ViewRiksdagenDocumentTypeDailySummary, RiksdagenDocumentTypeSummaryEmbeddedId&gt; documentTypeSummaryDailyDataContainer = applicationManager</span>
+<span class="fc" id="L80">				.getDataContainer(ViewRiksdagenDocumentTypeDailySummary.class);</span>
+
+<span class="fc" id="L82">		return documentTypeSummaryDailyDataContainer.getAll().parallelStream()</span>
+<span class="pc bpc" id="L83" title="1 of 4 branches missed.">				.filter(t -&gt; t != null &amp;&amp; !t.getEmbeddedId().getPublicDate().startsWith(YEAR_PREFIX)</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">						&amp;&amp; MOT_PROP_BET.contains(t.getEmbeddedId().getDocumentType()))</span>
+<span class="fc" id="L85">				.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getDocumentType()));</span>
+	}
+
+
+
+	@Override
+	public void createDocumentTypeChart(final AbstractOrderedLayout content) {
+
+<span class="fc" id="L93">		final Map&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; map = getDocumentTypeMap();</span>
+
+<span class="fc" id="L95">		final DataSeries dataSeries = new DataSeries();</span>
+
+<span class="fc" id="L97">		final Series series = new Series();</span>
+
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; entry : map.entrySet()) {</span>
+
+<span class="pc bpc" id="L101" title="1 of 4 branches missed.">			if (entry.getKey() != null &amp;&amp; !EMPTY_STRING.equals(entry.getKey())) {</span>
+
+<span class="fc" id="L103">				series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
+
+<span class="fc" id="L105">				dataSeries.newSeries();</span>
+<span class="fc" id="L106">				final List&lt;ViewRiksdagenDocumentTypeDailySummary&gt; list = entry.getValue();</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">				for (final ViewRiksdagenDocumentTypeDailySummary viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">					if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L109">						dataSeries.add(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getPublicDate(),</span>
+<span class="fc" id="L110">								viewRiksdagenVoteDataBallotPartySummaryDaily.getTotal());</span>
+					}
+<span class="fc" id="L112">				}</span>
+			}
+
+<span class="fc" id="L115">		}</span>
+
+<span class="fc" id="L117">		addChart(content,&quot;Document type&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
+<span class="fc" id="L118">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

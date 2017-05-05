@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+service.external.esv,com.hack23.cia.service.external.esv.impl,EsvExcelReaderImpl,10,236,4,24,4,53,4,20,0,10
+service.external.esv,com.hack23.cia.service.external.esv.impl,EsvApiImpl,0,214,1,35,0,46,1,26,0,9
+service.external.esv,com.hack23.cia.service.external.esv.api,GovernmentBodyAnnualSummary,39,45,0,0,11,16,11,4,11,4

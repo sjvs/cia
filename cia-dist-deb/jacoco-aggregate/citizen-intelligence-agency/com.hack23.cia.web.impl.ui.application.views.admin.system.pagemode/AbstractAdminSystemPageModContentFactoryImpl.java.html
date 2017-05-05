@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AbstractAdminSystemPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.admin.system.pagemode</a> &gt; <span class="el_source">AbstractAdminSystemPageModContentFactoryImpl.java</span></div><h1>AbstractAdminSystemPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.admin.system.pagemode;
+
+import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractPageModContentFactoryImpl;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
+import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.v7.ui.HorizontalLayout;
+import com.vaadin.v7.ui.Label;
+import com.vaadin.ui.Link;
+
+/**
+ * The Class AbstractAdminSystemPageModContentFactoryImpl.
+ */
+abstract class AbstractAdminSystemPageModContentFactoryImpl extends AbstractPageModContentFactoryImpl {
+
+	/** The Constant LIMIT_FOR_DISPLAYING_START_END_LINKS. */
+	private static final int LIMIT_FOR_DISPLAYING_START_END_LINKS = 5;
+
+	/** The Constant PAGE_ONE. */
+	private static final int PAGE_ONE = 1;
+
+	/** The Constant PAGE_SEPARATOR. */
+	private static final char PAGE_SEPARATOR = '/';
+
+	/** The Constant SHOW. */
+	private static final String SHOW = &quot; :: Show &quot;;
+
+	/** The Constant RESULTS_PER_PAGE. */
+	private static final String RESULTS_PER_PAGE = &quot; results per page:&quot;;
+
+	/** The Constant PAGES_TOTAL_RESULTS. */
+	private static final String PAGES_TOTAL_RESULTS = &quot; pages. Total results:&quot;;
+
+	/** The Constant PAGE_HEADER. */
+	private static final String PAGE_HEADER = &quot;Page: &quot;;
+
+	/** The Constant NEXT_PAGE. */
+	private static final String NEXT_PAGE = &quot;next page&quot;;
+
+	/** The Constant FIRST_PAGE. */
+	private static final String FIRST_PAGE = &quot;first page&quot;;
+
+	/** The Constant LAST_PAGE. */
+	private static final String LAST_PAGE = &quot;last page&quot;;
+
+	/** The Constant PREVIOUS_PAGE. */
+	private static final String PREVIOUS_PAGE = &quot;previous page&quot;;
+
+	/** The Constant DEFAULT_RESULTS_PER_PAGE. */
+	public static final int DEFAULT_RESULTS_PER_PAGE=250;
+
+	/**
+	 * Instantiates a new abstract admin system page mod content factory impl.
+	 */
+	AbstractAdminSystemPageModContentFactoryImpl() {
+<span class="nc" id="L73">		super();</span>
+<span class="nc" id="L74">	}</span>
+
+	/**
+	 * Creates the paging controls.
+	 *
+	 * @param content
+	 *            the content
+	 * @param name
+	 *            the name
+	 * @param pageId
+	 *            the page id
+	 * @param size
+	 *            the size
+	 * @param pageNr
+	 *            the page nr
+	 * @param resultPerPage
+	 *            the result per page
+	 */
+	protected final void createPagingControls(final AbstractOrderedLayout content,final String name,final String pageId, final Long size, final int pageNr, final int resultPerPage) {
+<span class="nc" id="L93">		final HorizontalLayout pagingControls = new HorizontalLayout();</span>
+<span class="nc" id="L94">		pagingControls.setSpacing(true);</span>
+<span class="nc" id="L95">		pagingControls.setMargin(true);</span>
+
+<span class="nc" id="L97">		final int maxPages = (int) ((size +(resultPerPage-1)) / resultPerPage);</span>
+
+<span class="nc" id="L99">		final StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="nc" id="L100">		stringBuilder.append(PAGE_HEADER)</span>
+<span class="nc" id="L101">		.append(pageNr)</span>
+<span class="nc" id="L102">		.append(PAGE_SEPARATOR)</span>
+<span class="nc" id="L103">		.append(maxPages)</span>
+<span class="nc" id="L104">		.append(PAGES_TOTAL_RESULTS)</span>
+<span class="nc" id="L105">		.append(size)</span>
+<span class="nc" id="L106">		.append(RESULTS_PER_PAGE)</span>
+<span class="nc" id="L107">		.append(resultPerPage)</span>
+<span class="nc" id="L108">		.append(SHOW);</span>
+<span class="nc" id="L109">		final Label pageInfo = new Label(stringBuilder.toString());</span>
+<span class="nc" id="L110">		pagingControls.addComponent(pageInfo);</span>
+<span class="nc" id="L111">		pagingControls.setExpandRatio(pageInfo, ContentRatio.SMALL);</span>
+
+
+<span class="nc bnc" id="L114" title="All 2 branches missed.">		if (pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L115">			addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
+		}
+
+<span class="nc bnc" id="L118" title="All 4 branches missed.">		if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L119">			addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
+		}
+
+<span class="nc bnc" id="L122" title="All 4 branches missed.">		if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L123">			addPagingLink(FIRST_PAGE,name, pageId, 1,pagingControls);</span>
+		}
+
+<span class="nc bnc" id="L126" title="All 4 branches missed.">		if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L127">			addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
+		}
+
+<span class="nc" id="L130">		content.addComponent(pagingControls);</span>
+<span class="nc" id="L131">		content.setExpandRatio(pagingControls, ContentRatio.SMALL2);</span>
+
+<span class="nc" id="L133">	}</span>
+
+
+	/**
+	 * Adds the paging link.
+	 *
+	 * @param label
+	 *            the label
+	 * @param name
+	 *            the name
+	 * @param pageId
+	 *            the page id
+	 * @param pageNr
+	 *            the page nr
+	 * @param pagingControls
+	 *            the paging controls
+	 */
+	private void addPagingLink(final String label,final String name, final String pageId, final int pageNr, final HorizontalLayout pagingControls) {
+<span class="nc" id="L151">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));</span>
+<span class="nc" id="L152">		pagingControls.addComponent(previousPageLink);</span>
+<span class="nc" id="L153">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
+<span class="nc" id="L154">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

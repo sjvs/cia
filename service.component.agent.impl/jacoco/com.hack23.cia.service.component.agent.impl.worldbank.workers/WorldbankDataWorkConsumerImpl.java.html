@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WorldbankDataWorkConsumerImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service.component.agent.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.component.agent.impl.worldbank.workers</a> &gt; <span class="el_source">WorldbankDataWorkConsumerImpl.java</span></div><h1>WorldbankDataWorkConsumerImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.component.agent.impl.worldbank.workers;
+
+import java.util.List;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hack23.cia.service.component.agent.impl.worldbank.workers.data.WorldbankUpdateService;
+import com.hack23.cia.service.external.worldbank.api.DataFailureException;
+import com.hack23.cia.service.external.worldbank.api.WorldBankDataApi;
+
+/**
+ * The Class WorldbankDataWorkConsumerImpl.
+ */
+@Service(&quot;worldbankDataWorkConsumerImpl&quot;)
+@Transactional
+final class WorldbankDataWorkConsumerImpl implements
+MessageListener {
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L47">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L48">			.getLogger(WorldbankDataWorkConsumerImpl.class);</span>
+
+	/** The update service. */
+	@Autowired
+	private WorldbankUpdateService updateService;
+
+	@Autowired
+	private WorldBankDataApi worldbankDataApi;
+
+	/**
+	 * Instantiates a new worldbank data work consumer impl.
+	 */
+	public WorldbankDataWorkConsumerImpl() {
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">	}</span>
+
+
+	@Override
+	public void onMessage(final Message message) {
+		try {
+<span class="fc" id="L68">			final List&lt;String&gt; countryIndicator= (List&lt;String&gt;) ((ObjectMessage) message).getObject();</span>
+<span class="fc" id="L69">			updateService.updateData(worldbankDataApi.getData(countryIndicator.get(0), countryIndicator.get(1)));</span>
+<span class="fc" id="L70">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
+<span class="fc" id="L71">			LOGGER.warn(&quot;Error loading worldbank data:&quot; , e);</span>
+<span class="fc" id="L72">		}</span>
+<span class="fc" id="L73">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminApplicationConfigurationPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.admin.system.pagemode</a> &gt; <span class="el_source">AdminApplicationConfigurationPageModContentFactoryImpl.java</span></div><h1>AdminApplicationConfigurationPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.admin.system.pagemode;
+
+import java.util.Arrays;
+
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+
+import com.hack23.cia.model.internal.application.system.impl.ApplicationConfiguration;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationConfiguration_;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.service.api.action.admin.UpdateApplicationConfigurationRequest;
+import com.hack23.cia.web.impl.ui.application.action.ViewAction;
+import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentSize;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPropertyClickListener;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.UpdateApplicationConfigurationClickListener;
+import com.vaadin.v7.data.util.BeanItem;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.v7.ui.HorizontalLayout;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class AdminApplicationConfigurationPageModContentFactoryImpl.
+ */
+@Component
+public final class AdminApplicationConfigurationPageModContentFactoryImpl
+		extends AbstractAdminSystemPageModContentFactoryImpl {
+
+	/** The Constant ADMIN_APPLICATION_CONFIGURATION. */
+	private static final String ADMIN_APPLICATION_CONFIGURATION = &quot;Admin Application Configuration&quot;;
+
+	/** The Constant NAME. */
+	public static final String NAME = AdminViews.ADMIN_APPLICATIONS_CONFIGURATION_VIEW_NAME;
+
+	/**
+	 * Instantiates a new admin application configuration page mod content
+	 * factory impl.
+	 */
+	public AdminApplicationConfigurationPageModContentFactoryImpl() {
+<span class="fc" id="L66">		super();</span>
+<span class="fc" id="L67">	}</span>
+
+	@Override
+	public boolean matches(final String page, final String parameters) {
+<span class="fc" id="L71">		return NAME.equals(page);</span>
+	}
+
+	@Secured({ &quot;ROLE_ADMIN&quot; })
+	@Override
+	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
+<span class="fc" id="L77">		final VerticalLayout content = createPanelContent();</span>
+
+<span class="fc" id="L79">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L80">		final int pageNr= getPageNr(parameters);</span>
+
+
+<span class="fc" id="L83">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+
+<span class="fc" id="L85">		LabelFactory.createHeader2Label(content,ADMIN_APPLICATION_CONFIGURATION);</span>
+
+<span class="fc" id="L87">		final DataContainer&lt;ApplicationConfiguration, Long&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L88">				.getDataContainer(ApplicationConfiguration.class);</span>
+
+<span class="fc" id="L90">		final BeanItemContainer&lt;ApplicationConfiguration&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
+				ApplicationConfiguration.class,
+<span class="fc" id="L92">		dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationConfiguration_.configurationGroup));</span>
+
+<span class="fc" id="L94">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+
+<span class="fc" id="L96">		getGridFactory().createBasicBeanItemGrid(content,</span>
+				politicianDocumentDataSource,
+				&quot;ApplicationConfiguration&quot;,
+				new String[] { &quot;hjid&quot;, &quot;configurationGroup&quot;, &quot;component&quot;, &quot;componentTitle&quot;, &quot;configTitle&quot;, &quot;configDescription&quot;,
+						 &quot;componentDescription&quot;, &quot;propertyId&quot;, &quot;propertyValue&quot; }, new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;, &quot;modelObjectVersion&quot;, &quot;createdDate&quot;, &quot;updatedDate&quot;,&quot;propertyId&quot; ,&quot;componentDescription&quot;, &quot;componentTitle&quot;},
+				new PageItemPropertyClickListener(AdminViews.ADMIN_APPLICATIONS_CONFIGURATION_VIEW_NAME, &quot;hjid&quot;), null, null);
+
+<span class="pc bpc" id="L103" title="1 of 4 branches missed.">		if (pageId != null &amp;&amp; !pageId.isEmpty()) {</span>
+
+<span class="fc" id="L105">			final ApplicationConfiguration applicationConfiguration = dataContainer.load(Long.valueOf(pageId));</span>
+
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">			if (applicationConfiguration != null) {</span>
+
+<span class="fc" id="L109">				final VerticalLayout leftLayout = new VerticalLayout();</span>
+<span class="fc" id="L110">				leftLayout.setSizeFull();</span>
+<span class="fc" id="L111">				final VerticalLayout rightLayout = new VerticalLayout();</span>
+<span class="fc" id="L112">				rightLayout.setSizeFull();</span>
+<span class="fc" id="L113">				final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
+<span class="fc" id="L114">				horizontalLayout.setWidth(ContentSize.FULL_SIZE);</span>
+<span class="fc" id="L115">				content.addComponent(horizontalLayout);</span>
+<span class="fc" id="L116">				horizontalLayout.addComponent(leftLayout);</span>
+<span class="fc" id="L117">				horizontalLayout.addComponent(rightLayout);</span>
+
+
+<span class="fc" id="L120">				getFormFactory().addFormPanelTextFields(leftLayout, new BeanItem&lt;&gt;(applicationConfiguration),</span>
+						ApplicationConfiguration.class,
+<span class="fc" id="L122">						Arrays.asList(new String[] { &quot;configurationGroup&quot;, &quot;component&quot;,&quot;configTitle&quot; ,&quot;configDescription&quot;,</span>
+								&quot;propertyValue&quot;, &quot;createdDate&quot;,
+								&quot;updatedDate&quot; }));
+
+<span class="fc" id="L126">				final UpdateApplicationConfigurationRequest request = new UpdateApplicationConfigurationRequest();</span>
+<span class="fc" id="L127">				request.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L128">				request.setApplicationConfigurationId(applicationConfiguration.getHjid());</span>
+
+<span class="fc" id="L130">				request.setConfigTitle(applicationConfiguration.getConfigTitle());</span>
+<span class="fc" id="L131">				request.setConfigDescription(applicationConfiguration.getConfigDescription());</span>
+
+<span class="fc" id="L133">				request.setComponentTitle(applicationConfiguration.getConfigTitle());</span>
+<span class="fc" id="L134">				request.setComponentDescription(applicationConfiguration.getComponentDescription());</span>
+
+<span class="fc" id="L136">				request.setPropertyValue(applicationConfiguration.getPropertyValue());</span>
+
+<span class="fc" id="L138">				final ClickListener buttonListener = new UpdateApplicationConfigurationClickListener(request);</span>
+
+<span class="fc" id="L140">				final Panel updateFormPanel = new Panel();</span>
+<span class="fc" id="L141">				updateFormPanel.setSizeFull();</span>
+
+<span class="fc" id="L143">				rightLayout.addComponent(updateFormPanel);</span>
+
+<span class="fc" id="L145">				final FormLayout updateFormContent = new FormLayout();</span>
+<span class="fc" id="L146">				updateFormPanel.setContent(updateFormContent);</span>
+
+<span class="fc" id="L148">				getFormFactory().addRequestInputFormFields(updateFormContent, new BeanItem&lt;&gt;(request),</span>
+<span class="fc" id="L149">						UpdateApplicationConfigurationRequest.class, Arrays.asList(new String[] { &quot;configTitle&quot;,</span>
+								&quot;configDescription&quot;, &quot;componentTitle&quot;, &quot;componentDescription&quot;, &quot;propertyValue&quot; }),
+						&quot;Update Configuration&quot;, buttonListener);
+
+			}
+		}
+
+<span class="fc" id="L156">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_ADMIN_APPLICATION_CONFIGURATION_VIEW,</span>
+				ApplicationEventGroup.ADMIN, NAME, null, pageId);
+
+<span class="fc" id="L159">		return content;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

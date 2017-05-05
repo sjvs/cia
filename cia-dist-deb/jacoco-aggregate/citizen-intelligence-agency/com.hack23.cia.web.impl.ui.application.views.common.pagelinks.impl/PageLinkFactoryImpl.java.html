@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PageLinkFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.pagelinks.impl</a> &gt; <span class="el_source">PageLinkFactoryImpl.java</span></div><h1>PageLinkFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.pagelinks.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.model.external.riksdagen.person.impl.PersonData;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommittee;
+import com.hack23.cia.model.internal.application.data.ministry.impl.ViewRiksdagenMinistry;
+import com.hack23.cia.model.internal.application.data.party.impl.ViewRiksdagenParty;
+import com.hack23.cia.web.impl.ui.application.action.ViewAction;
+import com.hack23.cia.web.impl.ui.application.util.UserContextUtil;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageLinkFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ApplicationPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.CommonsViews;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.ExternalResource;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.Link;
+
+/**
+ * The Class PageLinkFactoryImpl.
+ */
+@Service
+<span class="nc" id="L42">public final class PageLinkFactoryImpl implements PageLinkFactory {</span>
+
+	/** The Constant PAGE_SEPARATOR. */
+<span class="nc" id="L45">	private static final Character PAGE_SEPARATOR = '/';</span>
+
+	/** The Constant SEARCH. */
+	private static final String SEARCH = &quot;Search&quot;;
+
+	/** The Constant POLITICIAN. */
+	private static final String POLITICIAN = &quot;Politician &quot;;
+
+	/** The Constant PARTY. */
+	private static final String PARTY = &quot;Party &quot;;
+
+	/** The Constant PAGE_PREFIX. */
+	private static final String PAGE_PREFIX = &quot;#!&quot;;
+
+	/** The Constant MINISTRY. */
+	private static final String MINISTRY = &quot;Ministry &quot;;
+
+	/** The Constant COMMITTEE. */
+	private static final String COMMITTEE = &quot;Committee &quot;;
+
+	/** The Constant ADMIN_AGENT_OPERATIONS_LINK_TEXT. */
+	private static final String ADMIN_AGENT_OPERATIONS_LINK_TEXT = &quot;Admin Agent Operations&quot;;
+
+	/** The Constant ADMIN_DATA_SUMMARY_LINK_TEXT. */
+	private static final String ADMIN_DATA_SUMMARY_LINK_TEXT = &quot;Admin Data Summary&quot;;
+
+	/** The Constant POLITICIAN_RANKING_LINK_TEXT. */
+	private static final String POLITICIAN_RANKING_LINK_TEXT = &quot;Politician Ranking&quot;;
+
+	/** The Constant PARTY_RANKING_LINK_TEXT. */
+	private static final String PARTY_RANKING_LINK_TEXT = &quot;Party Ranking&quot;;
+
+	/** The Constant COMMITTEE_RANKING_LINK_TEXT. */
+	private static final String COMMITTEE_RANKING_LINK_TEXT = &quot;Committee Ranking&quot;;
+
+	/** The Constant MINISTRY_RANKING_LINK_TEXT. */
+	private static final String MINISTRY_RANKING_LINK_TEXT = &quot;Ministry Ranking&quot;;
+
+	/** The Constant COUNTRY_RANKING_LINK_TEXT. */
+	private static final String COUNTRY_RANKING_LINK_TEXT = &quot;Country Ranking&quot;;
+
+	/** The Constant PARLIAMENT_RANKING_LINK_TEXT. */
+	private static final String PARLIAMENT_RANKING_LINK_TEXT = &quot;Parliament Ranking&quot;;
+
+	/** The Constant LINK_SEPARATOR. */
+	private static final String LINK_SEPARATOR = PAGE_PREFIX;
+
+	/** The Constant MAIN_VIEW_LINK_TEXT. */
+	private static final String MAIN_VIEW_LINK_TEXT = &quot;Main View&quot;;
+
+	@Override
+	public Link createMainViewPageLink() {
+<span class="nc" id="L97">		final Link pageLink = new Link(MAIN_VIEW_LINK_TEXT, new ExternalResource(</span>
+				LINK_SEPARATOR + CommonsViews.MAIN_VIEW_NAME));
+<span class="nc" id="L99">		pageLink.setId(ViewAction.VISIT_MAIN_VIEW.name());</span>
+<span class="nc" id="L100">		pageLink.setIcon(FontAwesome.STAR);</span>
+<span class="nc" id="L101">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createRegisterPageLink() {
+<span class="nc" id="L106">		final Link pageLink = new Link(&quot;Register&quot;, new ExternalResource(</span>
+				LINK_SEPARATOR + CommonsViews.MAIN_VIEW_NAME + PAGE_SEPARATOR + ApplicationPageMode.REGISTER));
+<span class="nc" id="L108">		pageLink.setId(ViewAction.VISIT_REGISTER.name());</span>
+<span class="nc" id="L109">		pageLink.setIcon(FontAwesome.USER_PLUS);</span>
+<span class="nc" id="L110">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createLoginPageLink() {
+<span class="nc" id="L115">		final Link pageLink = new Link(&quot;Login&quot;, new ExternalResource(</span>
+				LINK_SEPARATOR + CommonsViews.MAIN_VIEW_NAME + PAGE_SEPARATOR + ApplicationPageMode.LOGIN));
+<span class="nc" id="L117">		pageLink.setId(ViewAction.VISIT_LOGIN.name());</span>
+<span class="nc" id="L118">		pageLink.setIcon(FontAwesome.SIGN_IN);</span>
+<span class="nc" id="L119">		return pageLink;</span>
+	}
+
+
+	@Override
+	public Link createCountryRankingViewPageLink() {
+<span class="nc" id="L125">		final Link pageLink = new Link(COUNTRY_RANKING_LINK_TEXT,</span>
+				new ExternalResource(LINK_SEPARATOR + UserViews.COUNTRY_RANKING_VIEW_NAME));
+<span class="nc" id="L127">		pageLink.setId(ViewAction.VISIT_TEST_CHART_VIEW.name());</span>
+<span class="nc" id="L128">		pageLink.setIcon(FontAwesome.FLAG);</span>
+<span class="nc" id="L129">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createParliamentViewPageLink() {
+<span class="nc" id="L134">		final Link pageLink = new Link(PARLIAMENT_RANKING_LINK_TEXT,</span>
+				new ExternalResource(LINK_SEPARATOR + UserViews.PARLIAMENT_RANKING_VIEW_NAME));
+<span class="nc" id="L136">		pageLink.setId(ViewAction.VISIT_TEST_CHART_VIEW.name());</span>
+<span class="nc" id="L137">		pageLink.setIcon(FontAwesome.INSTITUTION);</span>
+<span class="nc" id="L138">		return pageLink;</span>
+	}
+
+
+	@Override
+	public Link createMinistryRankingViewPageLink() {
+<span class="nc" id="L144">		final Link pageLink = new Link(MINISTRY_RANKING_LINK_TEXT, new ExternalResource(</span>
+				LINK_SEPARATOR + UserViews.MINISTRY_RANKING_VIEW_NAME));
+<span class="nc" id="L146">		pageLink.setId(ViewAction.VISIT_MINISTRY_RANKING_VIEW.name());</span>
+<span class="nc" id="L147">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L148">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createCommitteeRankingViewPageLink() {
+<span class="nc" id="L153">		final Link pageLink = new Link(COMMITTEE_RANKING_LINK_TEXT, new ExternalResource(</span>
+				LINK_SEPARATOR + UserViews.COMMITTEE_RANKING_VIEW_NAME));
+<span class="nc" id="L155">		pageLink.setId(ViewAction.VISIT_COMMITTEE_RANKING_VIEW.name());</span>
+<span class="nc" id="L156">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L157">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createPartyRankingViewPageLink() {
+<span class="nc" id="L162">		final Link pageLink = new Link(PARTY_RANKING_LINK_TEXT, new ExternalResource(</span>
+				LINK_SEPARATOR + UserViews.PARTY_RANKING_VIEW_NAME));
+<span class="nc" id="L164">		pageLink.setId(ViewAction.VISIT_PARTY_RANKING_VIEW.name());</span>
+<span class="nc" id="L165">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L166">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createPoliticianRankingViewPageLink() {
+<span class="nc" id="L171">		final Link pageLink = new Link(POLITICIAN_RANKING_LINK_TEXT,</span>
+				new ExternalResource(LINK_SEPARATOR + UserViews.POLITICIAN_RANKING_VIEW_NAME));
+<span class="nc" id="L173">		pageLink.setId(ViewAction.VISIT_POLITICIAN_RANKING_VIEW.name());</span>
+<span class="nc" id="L174">		pageLink.setIcon(FontAwesome.BUG);</span>
+<span class="nc" id="L175">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createAdminDataSummaryViewPageLink() {
+<span class="nc" id="L180">		final Link pageLink = new Link(ADMIN_DATA_SUMMARY_LINK_TEXT,</span>
+				new ExternalResource(LINK_SEPARATOR
+						+ AdminViews.ADMIN_DATA_SUMMARY_VIEW_NAME));
+<span class="nc" id="L183">		pageLink.setId(ViewAction.VISIT_ADMIN_DATA_SUMMARY_VIEW.name());</span>
+<span class="nc" id="L184">		pageLink.setIcon(FontAwesome.DATABASE);</span>
+<span class="nc" id="L185">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createAdminAgentOperationViewPageLink() {
+<span class="nc" id="L190">		final Link pageLink = new Link(ADMIN_AGENT_OPERATIONS_LINK_TEXT, new ExternalResource(</span>
+				LINK_SEPARATOR + AdminViews.ADMIN_AGENT_OPERATIONVIEW_NAME));
+<span class="nc" id="L192">		pageLink.setId(ViewAction.VISIT_ADMIN_AGENT_OPERATION_VIEW.name());</span>
+<span class="nc" id="L193">		pageLink.setIcon(FontAwesome.USER_SECRET);</span>
+<span class="nc" id="L194">		return pageLink;</span>
+	}
+
+	@Override
+	public Link addCommitteePageLink(final ViewRiksdagenCommittee data) {
+<span class="nc" id="L199">		final Link pageLink = new Link(COMMITTEE</span>
+<span class="nc" id="L200">				+ data.getEmbeddedId().getDetail(), new ExternalResource(PAGE_PREFIX</span>
+<span class="nc" id="L201">						+ UserViews.COMMITTEE_VIEW_NAME + PAGE_SEPARATOR + data.getEmbeddedId().getOrgCode()));</span>
+<span class="nc" id="L202">		pageLink.setId(ViewAction.VISIT_COMMITTEE_VIEW.name() + PAGE_SEPARATOR</span>
+<span class="nc" id="L203">				+ data.getEmbeddedId().getOrgCode());</span>
+<span class="nc" id="L204">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L205">		return pageLink;</span>
+	}
+
+	@Override
+	public Link addMinistryPageLink(final ViewRiksdagenMinistry data) {
+<span class="nc" id="L210">		final Link pageLink = new Link(MINISTRY + data.getNameId(),</span>
+				new ExternalResource(PAGE_PREFIX + UserViews.MINISTRY_VIEW_NAME + PAGE_SEPARATOR
+<span class="nc" id="L212">						+ data.getNameId()));</span>
+<span class="nc" id="L213">		pageLink.setId(ViewAction.VISIT_MINISTRY_VIEW.name() + PAGE_SEPARATOR</span>
+<span class="nc" id="L214">				+ data.getNameId());</span>
+<span class="nc" id="L215">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L216">		return pageLink;</span>
+	}
+
+	@Override
+	public Link addPartyPageLink(final ViewRiksdagenParty data) {
+<span class="nc" id="L221">		final Link pageLink = new Link(PARTY + data.getPartyName(),</span>
+				new ExternalResource(PAGE_PREFIX + UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR
+<span class="nc" id="L223">						+ data.getPartyId()));</span>
+<span class="nc" id="L224">		pageLink.setId(ViewAction.VISIT_PARTY_VIEW.name() + PAGE_SEPARATOR</span>
+<span class="nc" id="L225">				+ data.getPartyId());</span>
+<span class="nc" id="L226">		pageLink.setIcon(FontAwesome.GROUP);</span>
+<span class="nc" id="L227">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createPoliticianPageLink(final PersonData personData) {
+<span class="nc" id="L232">		final Link pageLink = new Link(POLITICIAN</span>
+<span class="nc" id="L233">				+ personData.getFirstName() + ' '</span>
+<span class="nc" id="L234">				+ personData.getLastName(), new ExternalResource(PAGE_PREFIX</span>
+<span class="nc" id="L235">						+ UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + personData.getId()));</span>
+<span class="nc" id="L236">		pageLink.setId(ViewAction.VISIT_POLITICIAN_VIEW.name() + PAGE_SEPARATOR</span>
+<span class="nc" id="L237">				+ personData.getId());</span>
+<span class="nc" id="L238">		pageLink.setIcon(FontAwesome.BUG);</span>
+<span class="nc" id="L239">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createSearchDocumentViewPageLink() {
+<span class="nc" id="L244">		final Link pageLink = new Link(SEARCH, new ExternalResource(PAGE_PREFIX</span>
+						+ UserViews.SEARCH_DOCUMENT_VIEW_NAME));
+<span class="nc" id="L246">		pageLink.setId(ViewAction.VISIT_DOCUMENT_VIEW.name());</span>
+<span class="nc" id="L247">		pageLink.setIcon(FontAwesome.SEARCH);</span>
+
+<span class="nc" id="L249">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createAdminPagingLink(final String label,final String page, final String pageId, final String pageNr) {
+<span class="nc" id="L254">		final Link pageLink = new Link(label,</span>
+				new ExternalResource(PAGE_PREFIX + page + PAGE_SEPARATOR
+						+ &quot;[&quot; + pageNr + &quot;]&quot;));
+<span class="nc" id="L257">		pageLink.setId(page +&quot;ShowPage&quot; + PAGE_SEPARATOR</span>
+				+ pageNr);
+<span class="nc" id="L259">		pageLink.setIcon(FontAwesome.SERVER);</span>
+
+<span class="nc" id="L261">		return pageLink;</span>
+	}
+
+	@Override
+	public Link createUserHomeViewPageLink() {
+<span class="nc" id="L266">		final Link pageLink = new Link(&quot;User account:&quot; + UserContextUtil.getUserNameFromSecurityContext(), new ExternalResource(PAGE_PREFIX</span>
+				+ UserViews.USERHOME_VIEW_NAME));
+<span class="nc" id="L268">			pageLink.setId(ViewAction.VISIT_USER_HOME_VIEW.name());</span>
+<span class="nc" id="L269">			pageLink.setIcon(FontAwesome.USER);</span>
+<span class="nc" id="L270">			return pageLink;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

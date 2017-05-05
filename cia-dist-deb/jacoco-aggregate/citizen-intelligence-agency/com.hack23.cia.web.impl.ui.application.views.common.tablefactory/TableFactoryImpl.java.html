@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>TableFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.tablefactory</a> &gt; <span class="el_source">TableFactoryImpl.java</span></div><h1>TableFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.tablefactory;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.service.api.ApplicationManager;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.service.api.DataSummary;
+import com.vaadin.v7.ui.Table;
+
+/**
+ * The Class TableFactoryImpl.
+ */
+@Service
+public final class TableFactoryImpl implements TableFactory {
+
+	/** The Constant VOTES. */
+	private static final String VOTES = &quot;Votes&quot;;
+
+	/** The Constant COMMITTEE_PROPOSAL_SIZE. */
+	private static final String COMMITTEE_PROPOSAL_SIZE = &quot;committeeProposalSize&quot;;
+
+	/** The Constant DOCUMENT_STATUS. */
+	private static final String DOCUMENT_STATUS = &quot;documentStatus&quot;;
+
+	/** The Constant DOCUMENT_CONTENT. */
+	private static final String DOCUMENT_CONTENT = &quot;documentContent&quot;;
+
+	/** The Constant DOCUMENT_ELEMENT. */
+	private static final String DOCUMENT_ELEMENT = &quot;DocumentElement&quot;;
+
+	/** The Constant PARLIAMENT_MEMBER. */
+	private static final String PARLIAMENT_MEMBER = &quot;Parliament member&quot;;
+
+	/** The Constant COLUMN_MISSING. */
+	private static final String COLUMN_MISSING = &quot;Missing&quot;;
+
+	/** The Constant COLUMN_SIZE. */
+	private static final String COLUMN_SIZE = &quot;Size&quot;;
+
+	/** The Constant COLUMN_NAME. */
+	private static final String COLUMN_NAME = &quot;Name&quot;;
+
+	/** The Constant FIRST_AND_ONLY. */
+	private static final int FIRST_AND_ONLY = 0;
+
+	/** The Constant ZERO_MISSING. */
+<span class="nc" id="L68">	private static final String ZERO_MISSING = Long.toString(0);</span>
+
+	/** The application manager. */
+	@Autowired
+	private ApplicationManager applicationManager;
+
+	/**
+	 * Instantiates a new table factory impl.
+	 */
+	public TableFactoryImpl() {
+<span class="nc" id="L78">		super();</span>
+<span class="nc" id="L79">	}</span>
+
+	@Override
+	public Table createDataSummaryTable() {
+<span class="nc" id="L83">		final Table summaryTable = new Table();</span>
+<span class="nc" id="L84">		summaryTable.addContainerProperty(COLUMN_NAME, String.class, null);</span>
+<span class="nc" id="L85">		summaryTable.addContainerProperty(COLUMN_SIZE, String.class, null);</span>
+<span class="nc" id="L86">		summaryTable.addContainerProperty(COLUMN_MISSING, String.class, null);</span>
+
+<span class="nc" id="L88">		final DataContainer&lt;DataSummary, String&gt; dataContainer = applicationManager.getDataContainer(DataSummary.class);</span>
+
+<span class="nc" id="L90">		final List&lt;DataSummary&gt; all = dataContainer.getAll();</span>
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		if (!all.isEmpty()) {</span>
+<span class="nc" id="L93">			final DataSummary dataSummary = all.get(FIRST_AND_ONLY);</span>
+
+<span class="nc" id="L95">			int indexNr = 1;</span>
+
+<span class="nc" id="L97">			summaryTable.addItem(new Object[] { PARLIAMENT_MEMBER, Long.toString(dataSummary.personSize), ZERO_MISSING },indexNr);</span>
+<span class="nc" id="L98">			indexNr = indexNr + 1;</span>
+
+
+<span class="nc" id="L101">			summaryTable.addItem(new Object[] { DOCUMENT_ELEMENT, Long.toString(dataSummary.documentElementSize), ZERO_MISSING },indexNr);</span>
+<span class="nc" id="L102">			indexNr = indexNr + 1;</span>
+
+
+<span class="nc" id="L105">			summaryTable.addItem(new Object[] { DOCUMENT_CONTENT, Long.toString(dataSummary.documentContentSize),Long.toString(dataSummary.documentElementSize - dataSummary.documentContentSize) },indexNr);</span>
+<span class="nc" id="L106">			indexNr = indexNr + 1;</span>
+
+
+<span class="nc" id="L109">			summaryTable.addItem(new Object[] { DOCUMENT_STATUS, Long.toString(dataSummary.documentStatusSize),Long.toString(dataSummary.documentElementSize - dataSummary.documentStatusSize) },indexNr);</span>
+<span class="nc" id="L110">			indexNr = indexNr + 1;</span>
+
+
+<span class="nc" id="L113">			summaryTable.addItem(new Object[] { COMMITTEE_PROPOSAL_SIZE,Long.toString(dataSummary.committeeProposalSize), ZERO_MISSING }, indexNr);</span>
+<span class="nc" id="L114">			indexNr = indexNr + 1;</span>
+
+
+<span class="nc" id="L117">			summaryTable.addItem(new Object[] { VOTES, Long.toString(dataSummary.voteSize),Long.toString(dataSummary.totalBallotVotes - dataSummary.voteSize) },indexNr);</span>
+<span class="nc" id="L118">			summaryTable.setSizeFull();</span>
+
+		}
+
+<span class="nc" id="L122">		return summaryTable;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

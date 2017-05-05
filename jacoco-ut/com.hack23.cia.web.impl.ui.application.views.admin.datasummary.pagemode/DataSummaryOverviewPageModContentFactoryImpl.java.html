@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DataSummaryOverviewPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.admin.datasummary.pagemode</a> &gt; <span class="el_source">DataSummaryOverviewPageModContentFactoryImpl.java</span></div><h1>DataSummaryOverviewPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.admin.datasummary.pagemode;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
+import com.hack23.cia.web.impl.ui.application.views.common.tablefactory.TableFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RefreshDataViewsClickListener;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.UpdateSearchIndexClickListener;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.Table;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class DataSummaryOverviewPageModContentFactoryImpl.
+ */
+@Component
+public final class DataSummaryOverviewPageModContentFactoryImpl extends AbstractDataSummaryPageModContentFactoryImpl {
+
+	/** The Constant NAME. */
+	public static final String NAME = AdminViews.ADMIN_DATA_SUMMARY_VIEW_NAME;
+
+	/** The Constant UPDATE_SEARCH_INDEX. */
+	private static final String UPDATE_SEARCH_INDEX = &quot;Update Search Index&quot;;
+
+	/** The Constant REFRESH_VIEWS. */
+	private static final String REFRESH_VIEWS = &quot;Refresh Views&quot;;
+
+	/** The Constant ADMIN_DATA_SUMMARY. */
+	private static final String ADMIN_DATA_SUMMARY = &quot;Admin Data Summary&quot;;
+
+	/** The table factory. */
+	@Autowired
+	private TableFactory tableFactory;
+
+	/**
+	 * Instantiates a new data summary overview page mod content factory impl.
+	 */
+	public DataSummaryOverviewPageModContentFactoryImpl() {
+<span class="fc" id="L65">		super();</span>
+<span class="fc" id="L66">	}</span>
+
+	@Override
+	public boolean matches(final String page, final String parameters) {
+<span class="fc" id="L70">		return NAME.equals(page);</span>
+	}
+
+	@Secured({ &quot;ROLE_ADMIN&quot; })
+	@Override
+	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
+<span class="fc" id="L76">		final VerticalLayout content = createPanelContent();</span>
+
+<span class="fc" id="L78">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+
+<span class="fc" id="L80">		LabelFactory.createHeader2Label(content,ADMIN_DATA_SUMMARY);</span>
+
+<span class="fc" id="L82">		final Table createDataSummaryTable = tableFactory.createDataSummaryTable();</span>
+<span class="fc" id="L83">		content.addComponent(createDataSummaryTable);</span>
+<span class="fc" id="L84">		content.setExpandRatio(createDataSummaryTable, ContentRatio.LARGE);</span>
+
+<span class="fc" id="L86">		content.setSizeFull();</span>
+<span class="fc" id="L87">		content.setMargin(false);</span>
+<span class="fc" id="L88">		content.setSpacing(true);</span>
+
+<span class="fc" id="L90">		final Button refreshViewsButton = new Button(REFRESH_VIEWS,FontAwesome.REFRESH);</span>
+
+<span class="fc" id="L92">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
+
+<span class="fc" id="L94">		content.addComponent(refreshViewsButton);</span>
+<span class="fc" id="L95">		content.setExpandRatio(refreshViewsButton, ContentRatio.SMALL);</span>
+
+<span class="fc" id="L97">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX,FontAwesome.REFRESH);</span>
+
+<span class="fc" id="L99">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
+
+<span class="fc" id="L101">		content.addComponent(updateSearchIndexButton);</span>
+<span class="fc" id="L102">		content.setExpandRatio(updateSearchIndexButton, ContentRatio.SMALL);</span>
+
+<span class="fc" id="L104">		return content;</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

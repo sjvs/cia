@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PoliticianMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">PoliticianMenuItemFactoryImpl.java</span></div><h1>PoliticianMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.PoliticianMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.PoliticianRankingMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PoliticianPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class PoliticianMenuItemFactoryImpl.
+ */
+@Service
+public final class PoliticianMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements PoliticianMenuItemFactory {
+
+	/** The Constant POLITICIAN_RANKING. */
+	private static final String POLITICIAN_RANKING = &quot;Politician Ranking&quot;;
+
+	/** The Constant VOTE_HISTORY. */
+	private static final String VOTE_HISTORY = &quot;Vote history&quot;;
+
+	/** The Constant ROLE_LIST. */
+	private static final String ROLE_LIST = &quot;RoleList&quot;;
+
+	/** The Constant TOTAL_EXPERIENCE. */
+	private static final String TOTAL_EXPERIENCE = &quot;Total experience&quot;;
+
+	/** The Constant DOCUMENT_HISTORY_TEXT. */
+	private static final String DOCUMENT_HISTORY_TEXT = &quot;Document history&quot;;
+
+	/** The Constant INDICATORS_TEXT. */
+	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
+
+	/** The Constant CHARTS_TEXT. */
+	private static final String CHARTS_TEXT = &quot;Charts&quot;;
+
+	/** The Constant ROLE_GHANT_TEXT. */
+	private static final String ROLE_GHANT_TEXT = &quot;RoleGhant&quot;;
+
+	/** The Constant ROLES_TEXT. */
+	private static final String ROLES_TEXT = &quot;Roles&quot;;
+
+	/** The Constant DOCUMENTS_TEXT. */
+	private static final String DOCUMENTS_TEXT = &quot;Documents&quot;;
+
+	/** The Constant BALLOT_DECISION_SUMMARY_TEXT. */
+	private static final String BALLOT_DECISION_SUMMARY_TEXT = &quot;Ballot Decision Summary&quot;;
+
+	/** The Constant BALLOTS_TEXT. */
+	private static final String BALLOTS_TEXT = &quot;Ballots&quot;;
+
+	/** The Constant DOCUMENT_ACTIVITY_TEXT. */
+	private static final String DOCUMENT_ACTIVITY_TEXT = &quot;Document Activity&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The politician ranking menu item factory. */
+	@Autowired
+	private PoliticianRankingMenuItemFactory politicianRankingMenuItemFactory;
+
+	/** The application menu item factory. */
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
+
+
+	/**
+	 * Instantiates a new politician menu item factory impl.
+	 */
+	public PoliticianMenuItemFactoryImpl() {
+<span class="nc" id="L101">		super();</span>
+<span class="nc" id="L102">	}</span>
+
+	@Override
+	public void createPoliticianMenuBar(final MenuBar menuBar, final String pageId) {
+<span class="nc" id="L106">			initApplicationMenuBar(menuBar);</span>
+
+<span class="nc" id="L108">			applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+
+<span class="nc" id="L110">			politicianRankingMenuItemFactory.createPoliticianRankingTopics(menuBar.addItem(POLITICIAN_RANKING, FontAwesome.BUG, null));</span>
+
+<span class="nc" id="L112">			final MenuItem politicanItem = menuBar.addItem(&quot;Politician &quot;+ pageId, FontAwesome.BUG,null);</span>
+
+
+<span class="nc" id="L115">			politicanItem.addItem(OVERVIEW_TEXT, FontAwesome.BUG,</span>
+					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.OVERVIEW, pageId));
+<span class="nc" id="L117">			politicanItem.addItem(CHARTS_TEXT, FontAwesome.BUG,</span>
+					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.CHARTS, pageId));
+<span class="nc" id="L119">			politicanItem.addItem(INDICATORS_TEXT, FontAwesome.BUG,</span>
+					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.INDICATORS, pageId));
+
+<span class="nc" id="L122">			final MenuItem rolesItem = politicanItem.addItem(ROLES_TEXT, FontAwesome.BUG, null);</span>
+
+<span class="nc" id="L124">			rolesItem.addItem(TOTAL_EXPERIENCE, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L125">					PoliticianPageMode.ROLESUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L127">			rolesItem.addItem(ROLE_LIST, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L128">					PoliticianPageMode.ROLELIST.toString(), pageId));</span>
+
+<span class="nc" id="L130">			rolesItem.addItem(ROLE_GHANT_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L131">					PoliticianPageMode.ROLEGHANT.toString(), pageId));</span>
+
+<span class="nc" id="L133">			final MenuItem documentItem = politicanItem.addItem(DOCUMENTS_TEXT, FontAwesome.BUG, null);</span>
+
+<span class="nc" id="L135">			documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L136">					PoliticianPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+
+<span class="nc" id="L138">			documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L139">					PoliticianPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L141">			final MenuItem ballotItem = politicanItem.addItem(BALLOTS_TEXT, FontAwesome.BUG, null);</span>
+
+<span class="nc" id="L143">			ballotItem.addItem(VOTE_HISTORY, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L144">					PoliticianPageMode.VOTEHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L146">			ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L147">					PoliticianPageMode.BALLOTDECISIONSUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L149">			politicanItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG,</span>
+					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId));
+
+<span class="nc" id="L152">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
+<span class="nc" id="L156">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="nc" id="L158">		createButtonLink(grid,OVERVIEW_TEXT, FontAwesome.BUG,</span>
+				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.OVERVIEW, pageId), &quot;Default description&quot;);
+<span class="nc" id="L160">		createButtonLink(grid,CHARTS_TEXT, FontAwesome.BUG,</span>
+				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Default description&quot;);
+<span class="nc" id="L162">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.BUG,</span>
+				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Default description&quot;);
+
+
+<span class="nc" id="L166">		createButtonLink(grid,TOTAL_EXPERIENCE, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L167">				PoliticianPageMode.ROLESUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L169">		createButtonLink(grid,ROLE_LIST, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L170">				PoliticianPageMode.ROLELIST.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L172">		createButtonLink(grid,ROLE_GHANT_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L173">				PoliticianPageMode.ROLEGHANT.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L176">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L177">				PoliticianPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L179">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L180">				PoliticianPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L183">		createButtonLink(grid,VOTE_HISTORY, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L184">				PoliticianPageMode.VOTEHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L186">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="nc" id="L187">				PoliticianPageMode.BALLOTDECISIONSUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L189">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG,</span>
+				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId), &quot;Default description&quot;);
+
+<span class="nc" id="L192">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

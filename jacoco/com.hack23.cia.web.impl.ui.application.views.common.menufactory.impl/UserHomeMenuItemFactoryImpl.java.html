@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserHomeMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">UserHomeMenuItemFactoryImpl.java</span></div><h1>UserHomeMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.UserHomeMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserHomePageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.MenuBar;
+
+/**
+ * The Class UserHomeMenuItemFactoryImpl.
+ */
+@Service
+public final class UserHomeMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements UserHomeMenuItemFactory {
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The Constant SECURITY_SETTING_TEXT. */
+	private static final String SECURITY_SETTING_TEXT = &quot;Security settings&quot;;
+
+
+	/**
+	 * Instantiates a new user home menu item factory impl.
+	 */
+	public UserHomeMenuItemFactoryImpl() {
+<span class="fc" id="L51">		super();</span>
+<span class="fc" id="L52">	}</span>
+
+
+	@Override
+	public void createUserHomeMenuBar(final MenuBar menuBar, final String pageId) {
+<span class="fc" id="L57">		initApplicationMenuBar(menuBar);</span>
+
+<span class="fc" id="L59">		menuBar.addItem(OVERVIEW_TEXT, FontAwesome.USER,</span>
+				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, PageMode.OVERVIEW, pageId));
+
+<span class="fc" id="L62">		menuBar.addItem(SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L63">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(), pageId));</span>
+
+
+<span class="fc" id="L66">		menuBar.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.LINE_CHART,</span>
+				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId));
+
+<span class="fc" id="L69">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,10 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,ObjectFactory,26,0,0,0,6,0,5,0,5,0
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicsElement_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicElement,151,103,6,6,38,26,15,10,9,10
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicElement_,3,0,0,0,1,0,1,0,1,0
+model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicsElement,265,179,26,14,59,40,32,15,13,14
+model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
+model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0

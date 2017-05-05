@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CommitteeMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">CommitteeMenuItemFactoryImpl.java</span></div><h1>CommitteeMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.CommitteeMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.CommitteeRankingMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.CommitteePageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class CommitteeMenuItemFactoryImpl.
+ */
+@Service
+public final class CommitteeMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements CommitteeMenuItemFactory {
+
+	/** The Constant COMMITTEE_RANKING_TEXT. */
+	private static final String COMMITTEE_RANKING_TEXT = &quot;Committee Ranking&quot;;
+
+	/** The Constant DOCUMENT_HISTORY_TEXT. */
+	private static final String DOCUMENT_HISTORY_TEXT = &quot;Document history&quot;;
+
+	/** The Constant INDICATORS_TEXT. */
+	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
+
+	/** The Constant CHARTS_TEXT. */
+	private static final String CHARTS_TEXT = &quot;Charts&quot;;
+
+	/** The Constant ROLE_GHANT_TEXT. */
+	private static final String ROLE_GHANT_TEXT = &quot;RoleGhant&quot;;
+
+	/** The Constant MEMBER_HISTORY_TEXT. */
+	private static final String MEMBER_HISTORY_TEXT = &quot;Member History&quot;;
+
+	/** The Constant CURRENT_MEMBERS_TEXT. */
+	private static final String CURRENT_MEMBERS_TEXT = &quot;Current Members&quot;;
+
+	/** The Constant ROLES_TEXT. */
+	private static final String ROLES_TEXT = &quot;Roles&quot;;
+
+	/** The Constant DOCUMENTS_TEXT. */
+	private static final String DOCUMENTS_TEXT = &quot;Documents&quot;;
+
+	/** The Constant DECISION_TYPE_DAILY_SUMMARY_TEXT. */
+	private static final String DECISION_TYPE_DAILY_SUMMARY_TEXT = &quot;Decision Type Daily Summary&quot;;
+
+	/** The Constant DECISION_SUMMARY_TEXT. */
+	private static final String DECISION_SUMMARY_TEXT = &quot;Decision Summary&quot;;
+
+	/** The Constant BALLOT_DECISION_SUMMARY_TEXT. */
+	private static final String BALLOT_DECISION_SUMMARY_TEXT = &quot;Ballot Decision Summary&quot;;
+
+	/** The Constant BALLOTS_TEXT. */
+	private static final String BALLOTS_TEXT = &quot;Ballots&quot;;
+
+	/** The Constant DOCUMENT_ACTIVITY_TEXT. */
+	private static final String DOCUMENT_ACTIVITY_TEXT = &quot;Document Activity&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The committee ranking menu item factory. */
+	@Autowired
+	private CommitteeRankingMenuItemFactory committeeRankingMenuItemFactory;
+
+	/** The application menu item factory. */
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
+
+
+	/**
+	 * Instantiates a new committee menu item factory impl.
+	 */
+	public CommitteeMenuItemFactoryImpl() {
+<span class="nc" id="L104">		super();</span>
+<span class="nc" id="L105">	}</span>
+
+	@Override
+	public void createCommitteeeMenuBar(final MenuBar menuBar, final String pageId) {
+<span class="nc" id="L109">		initApplicationMenuBar(menuBar);</span>
+
+<span class="nc" id="L111">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+
+<span class="nc" id="L113">		committeeRankingMenuItemFactory.createCommitteeRankingTopics(menuBar.addItem(COMMITTEE_RANKING_TEXT, FontAwesome.GROUP, null));</span>
+
+<span class="nc" id="L115">		final MenuItem committeeItem = menuBar.addItem(&quot;Committee &quot;+ pageId, FontAwesome.GROUP,null);</span>
+
+
+<span class="nc" id="L118">		committeeItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.OVERVIEW, pageId));
+<span class="nc" id="L120">		committeeItem.addItem(CHARTS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.CHARTS, pageId));
+<span class="nc" id="L122">		committeeItem.addItem(INDICATORS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.INDICATORS, pageId));
+
+<span class="nc" id="L125">		final MenuItem rolesItem = committeeItem.addItem(ROLES_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L127">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L128">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId));</span>
+
+<span class="nc" id="L130">		rolesItem.addItem(MEMBER_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L131">				CommitteePageMode.MEMBERHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L133">		rolesItem.addItem(ROLE_GHANT_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L134">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId));</span>
+
+<span class="nc" id="L136">		final MenuItem documentItem = committeeItem.addItem(DOCUMENTS_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L138">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L139">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+
+<span class="nc" id="L141">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L142">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L144">		final MenuItem ballotItem = committeeItem.addItem(BALLOTS_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L146">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L147">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L149">		ballotItem.addItem(DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L150">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L152">		ballotItem.addItem(DECISION_TYPE_DAILY_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(</span>
+<span class="nc" id="L153">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L155">		committeeItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId));
+
+<span class="nc" id="L158">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
+<span class="nc" id="L162">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="nc" id="L164">		createButtonLink(grid,OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.OVERVIEW, pageId), &quot;Default description&quot;);
+<span class="nc" id="L166">		createButtonLink(grid,CHARTS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Default description&quot;);
+<span class="nc" id="L168">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Default description&quot;);
+
+
+<span class="nc" id="L172">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L173">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L175">		createButtonLink(grid,MEMBER_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L176">				CommitteePageMode.MEMBERHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L178">		createButtonLink(grid,ROLE_GHANT_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L179">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L182">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L183">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L185">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L186">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L189">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L190">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L192">		createButtonLink(grid,DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="nc" id="L193">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L195">		createButtonLink(grid,DECISION_TYPE_DAILY_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(</span>
+<span class="nc" id="L196">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L198">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId), &quot;Default description&quot;);
+
+
+<span class="nc" id="L202">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TranslationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.impl.action.application.translation</a> &gt; <span class="el_source">TranslationServiceImpl.java</span></div><h1>TranslationServiceImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.impl.action.application.translation;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.Arrays;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.services.translate.Translate;
+import com.google.api.services.translate.model.TranslationsListResponse;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationConfiguration;
+import com.hack23.cia.model.internal.application.system.impl.ConfigurationGroup;
+import com.hack23.cia.service.data.api.ApplicationConfigurationService;
+
+/**
+ * The Class TranslationServiceImpl.
+ */
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+final class TranslationServiceImpl implements TranslationService {
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(TranslationServiceImpl.class);</span>
+
+	/** The application configuration service. */
+	@Autowired
+	private ApplicationConfigurationService applicationConfigurationService;
+
+	/**
+	 * Instantiates a new translation service impl.
+	 */
+	public TranslationServiceImpl() {
+<span class="fc" id="L58">		super();</span>
+<span class="fc" id="L59">	}</span>
+
+	@Override
+	public String translate(final String translateText, final String targetLanguage) throws TranslationException {
+
+<span class="nc" id="L64">		final ApplicationConfiguration googleTranslateApiKey = applicationConfigurationService.checkValueOrLoadDefault(</span>
+				&quot;Google translate api accesskey&quot;, &quot;Required for use of the translation service&quot;,
+<span class="nc" id="L66">				ConfigurationGroup.AUTHENTICATION, TranslationServiceImpl.class.getSimpleName(), &quot;Translation Service&quot;,</span>
+				&quot;Responsible configure access credentials for google translate api&quot;,
+				&quot;external.services.google.translate.api.accesskey&quot;, &quot;&quot;);
+<span class="nc" id="L69">		final ApplicationConfiguration googleTranslateApiApplicationName = applicationConfigurationService</span>
+<span class="nc" id="L70">				.checkValueOrLoadDefault(&quot;Google translate api application name&quot;,</span>
+						&quot;Required for use of the translation service&quot;, ConfigurationGroup.AUTHENTICATION,
+<span class="nc" id="L72">						TranslationServiceImpl.class.getSimpleName(), &quot;Translation Service&quot;,</span>
+						&quot;Responsible configure application name for google translate api&quot;,
+						&quot;external.services.google.translate.api.application.name&quot;, &quot;&quot;);
+
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if (!StringUtils.isBlank(googleTranslateApiKey.getPropertyValue())</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">				&amp;&amp; !StringUtils.isBlank(googleTranslateApiApplicationName.getPropertyValue())) {</span>
+
+			try {
+<span class="nc" id="L80">				final Translate t = new Translate.Builder(</span>
+<span class="nc" id="L81">						com.google.api.client.googleapis.javanet.GoogleNetHttpTransport.newTrustedTransport(),</span>
+<span class="nc" id="L82">						JacksonFactory.getDefaultInstance(), null)</span>
+<span class="nc" id="L83">								.setApplicationName(googleTranslateApiApplicationName.getPropertyValue()).build();</span>
+
+<span class="nc" id="L85">				final Translate.Translations.List list = t.new Translations().list(Arrays.asList(translateText),</span>
+						targetLanguage);
+<span class="nc" id="L87">				list.setKey(googleTranslateApiKey.getPropertyValue());</span>
+<span class="nc" id="L88">				list.setSource(&quot;EN&quot;);</span>
+<span class="nc" id="L89">				final TranslationsListResponse response = list.execute();</span>
+
+<span class="nc" id="L91">				return response.getTranslations().listIterator().next().getTranslatedText();</span>
+
+<span class="nc" id="L93">			} catch (GeneralSecurityException | IOException e) {</span>
+<span class="nc" id="L94">				final StringBuilder stringBuilder = new StringBuilder().append(&quot;Problem translation text:&quot;)</span>
+<span class="nc" id="L95">						.append(translateText).append(&quot;to language:&quot;).append(targetLanguage);</span>
+<span class="nc" id="L96">				LOGGER.warn(stringBuilder.toString(), e);</span>
+<span class="nc" id="L97">				throw new TranslationException(stringBuilder.toString(), e);</span>
+			}
+		}
+<span class="nc" id="L100">		throw new TranslationException(&quot;Missing google api key or application name&quot;, null);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

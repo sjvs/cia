@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EsvApiImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service.component.agent.impl</a> &gt; <a href="../index.html" class="el_bundle">service.external.esv</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.external.esv.impl</a> &gt; <span class="el_source">EsvApiImpl.java</span></div><h1>EsvApiImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.external.esv.impl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.service.external.esv.api.EsvApi;
+import com.hack23.cia.service.external.esv.api.GovernmentBodyAnnualSummary;
+
+/**
+ * The Class EsvApiImpl.
+ */
+@Component
+final class EsvApiImpl implements EsvApi {
+
+	/** The Constant NO_MINISTRY. */
+	private static final String NO_MINISTRY = &quot;Inget departement&quot;;
+
+	/** The Constant ministryNameSet. */
+<span class="nc" id="L44">	private static final Set&lt;String&gt; ministryNameSet = new HashSet&lt;&gt;();</span>
+
+	/** The Constant governmentBodyNameSet. */
+<span class="nc" id="L47">	private static final Set&lt;String&gt; governmentBodyNameSet = new HashSet&lt;&gt;();</span>
+
+	/** The Constant governmentBodyNameSetMinistryMap. */
+<span class="nc" id="L50">	private static final Map&lt;String, Set&lt;String&gt;&gt; governmentBodyNameSetMinistryMap = new HashMap&lt;&gt;();</span>
+
+	@Autowired
+	private EsvExcelReader esvExcelReader;
+
+	/**
+	 * Instantiates a new esv api impl.
+	 */
+	public EsvApiImpl() {
+<span class="nc" id="L59">		super();</span>
+<span class="nc" id="L60">	}</span>
+
+	@Override
+	public Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; getData() {
+<span class="nc" id="L64">		return esvExcelReader.getDataPerMinistry(null);</span>
+	}
+
+	@Override
+	public Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; getDataPerMinistry(final String name) {
+<span class="nc" id="L69">		return esvExcelReader.getDataPerMinistry(name);</span>
+	}
+
+	@Override
+	public List&lt;GovernmentBodyAnnualSummary&gt; getDataPerMinistryAndYear(final String name, final int year) {
+<span class="nc" id="L74">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = getDataPerMinistry(name);</span>
+
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if (map.containsKey(year)) {</span>
+<span class="nc" id="L77">			return map.get(year);</span>
+		} else {
+<span class="nc" id="L79">			return new ArrayList&lt;&gt;();</span>
+		}
+	}
+
+	@Override
+	public List&lt;String&gt; getGovernmentBodyNames() {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		if (governmentBodyNameSet.isEmpty()) {</span>
+
+<span class="nc" id="L87">			final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; data = getData();</span>
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">			for (final List&lt;GovernmentBodyAnnualSummary&gt; list : data.values()) {</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">				for (final GovernmentBodyAnnualSummary governmentBodyAnnualSummary : list) {</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">					if (!governmentBodyNameSet.contains(governmentBodyAnnualSummary.getName())</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">							&amp;&amp; governmentBodyAnnualSummary.getHeadCount() &gt; 0) {</span>
+<span class="nc" id="L93">						governmentBodyNameSet.add(governmentBodyAnnualSummary.getName());</span>
+					}
+<span class="nc" id="L95">				}</span>
+<span class="nc" id="L96">			}</span>
+		}
+<span class="nc" id="L98">		return new ArrayList&lt;&gt;(governmentBodyNameSet);</span>
+	}
+
+	@Override
+	public List&lt;String&gt; getMinistryNames() {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		if (ministryNameSet.isEmpty()) {</span>
+<span class="nc" id="L104">			final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; data = getData();</span>
+
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			for (final List&lt;GovernmentBodyAnnualSummary&gt; list : data.values()) {</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">				for (final GovernmentBodyAnnualSummary governmentBodyAnnualSummary : list) {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">					if (!ministryNameSet.contains(governmentBodyAnnualSummary.getMinistry())</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">							&amp;&amp; governmentBodyAnnualSummary.getHeadCount() &gt; 0</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">							&amp;&amp; !NO_MINISTRY.equalsIgnoreCase(governmentBodyAnnualSummary.getMinistry())) {</span>
+<span class="nc" id="L111">						ministryNameSet.add(governmentBodyAnnualSummary.getMinistry());</span>
+					}
+<span class="nc" id="L113">				}</span>
+<span class="nc" id="L114">			}</span>
+		}
+<span class="nc" id="L116">		return new ArrayList&lt;&gt;(ministryNameSet);</span>
+	}
+
+	@Override
+	public Map&lt;Integer, GovernmentBodyAnnualSummary&gt; getDataPerGovernmentBody(final String name) {
+<span class="nc" id="L121">		return esvExcelReader.getDataPerGovernmentBody(name);</span>
+	}
+
+	@Override
+	public List&lt;String&gt; getGovernmentBodyNames(final String ministry) {
+<span class="nc bnc" id="L126" title="All 2 branches missed.">		if (!governmentBodyNameSetMinistryMap.containsKey(ministry)) {</span>
+
+<span class="nc" id="L128">			final Set&lt;String&gt; governmentBodyNameSetMapEntry = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L129">			governmentBodyNameSetMinistryMap.put(ministry, governmentBodyNameSetMapEntry);</span>
+
+<span class="nc" id="L131">			final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; data = getData();</span>
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			for (final List&lt;GovernmentBodyAnnualSummary&gt; list : data.values()) {</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">				for (final GovernmentBodyAnnualSummary governmentBodyAnnualSummary : list) {</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">					if (ministry.equalsIgnoreCase(governmentBodyAnnualSummary.getMinistry())</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">							&amp;&amp; !governmentBodyNameSetMapEntry.contains(governmentBodyAnnualSummary.getName())</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">							&amp;&amp; governmentBodyAnnualSummary.getHeadCount() &gt; 0) {</span>
+<span class="nc" id="L138">						governmentBodyNameSetMapEntry.add(governmentBodyAnnualSummary.getName());</span>
+					}
+<span class="nc" id="L140">				}</span>
+<span class="nc" id="L141">			}</span>
+		}
+<span class="nc" id="L143">		return new ArrayList&lt;&gt;(governmentBodyNameSetMinistryMap.get(ministry));</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

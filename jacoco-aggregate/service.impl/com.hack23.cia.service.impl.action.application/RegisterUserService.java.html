@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RegisterUserService.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="../index.html" class="el_bundle">service.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.impl.action.application</a> &gt; <span class="el_source">RegisterUserService.java</span></div><h1>RegisterUserService.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.impl.action.application;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hack23.cia.model.internal.application.system.impl.ApplicationConfiguration;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationOperationType;
+import com.hack23.cia.model.internal.application.system.impl.ConfigurationGroup;
+import com.hack23.cia.model.internal.application.user.impl.UserAccount;
+import com.hack23.cia.model.internal.application.user.impl.UserAccount_;
+import com.hack23.cia.model.internal.application.user.impl.UserRole;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventRequest;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventResponse;
+import com.hack23.cia.service.api.action.application.RegisterUserRequest;
+import com.hack23.cia.service.api.action.application.RegisterUserResponse;
+import com.hack23.cia.service.api.action.common.ServiceResponse.ServiceResult;
+import com.hack23.cia.service.data.api.ApplicationConfigurationService;
+import com.hack23.cia.service.data.api.UserDAO;
+import com.hack23.cia.service.impl.action.common.AbstractBusinessServiceImpl;
+import com.hack23.cia.service.impl.action.common.BusinessService;
+
+/**
+ * The Class RegisterUserService.
+ */
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+public final class RegisterUserService extends
+		AbstractBusinessServiceImpl&lt;RegisterUserRequest, RegisterUserResponse&gt;
+		implements BusinessService&lt;RegisterUserRequest, RegisterUserResponse&gt; {
+
+	/** The Constant LOGGER. */
+<span class="nc" id="L66">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L67">			.getLogger(RegisterUserService.class);</span>
+
+
+	/** The create application event service. */
+	@Autowired
+	private BusinessService&lt;CreateApplicationEventRequest, CreateApplicationEventResponse&gt; createApplicationEventService;
+
+	/** The application configuration service. */
+	@Autowired
+	private ApplicationConfigurationService applicationConfigurationService;
+
+	/** The user dao. */
+	@Autowired
+	private UserDAO userDAO;
+
+	/** The password encoder. */
+<span class="nc" id="L83">	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();</span>
+
+	/**
+	 * Instantiates a new register user service.
+	 */
+	public RegisterUserService() {
+<span class="nc" id="L89">		super(RegisterUserRequest.class);</span>
+<span class="nc" id="L90">	}</span>
+
+	@Secured({&quot;ROLE_ANONYMOUS&quot;})
+	@Override
+	public RegisterUserResponse processService(
+			final RegisterUserRequest serviceRequest) {
+
+<span class="nc" id="L97">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="nc" id="L98">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
+<span class="nc" id="L99">		eventRequest.setApplicationOperation(ApplicationOperationType.CREATE);</span>
+<span class="nc" id="L100">		eventRequest.setActionName(RegisterUserRequest.class.getSimpleName());</span>
+<span class="nc" id="L101">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+<span class="nc" id="L102">		eventRequest.setElementId(serviceRequest.getEmail());</span>
+
+<span class="nc" id="L104">		final ApplicationConfiguration registeredUsersGetAdminConfig = applicationConfigurationService.checkValueOrLoadDefault(&quot;Registered User All get Role Admin&quot;, &quot;Registered User All get Role Admin&quot;, ConfigurationGroup.AUTHORIZATION, RegisterUserService.class.getSimpleName(), &quot;Register User Service&quot;, &quot;Responsible for create of useraccounts&quot;, &quot;registered.users.get.admin&quot;, &quot;true&quot;);</span>
+
+<span class="nc" id="L106">		final UserAccount userNameExist = userDAO.findFirstByProperty(UserAccount_.username, serviceRequest.getUsername());</span>
+<span class="nc" id="L107">		final UserAccount userEmailExist = userDAO.findFirstByProperty(UserAccount_.email, serviceRequest.getEmail());</span>
+
+		RegisterUserResponse response;
+<span class="nc bnc" id="L110" title="All 4 branches missed.">		if (userEmailExist == null &amp;&amp; userNameExist == null) {</span>
+<span class="nc" id="L111">			final UserAccount userAccount = new UserAccount();</span>
+<span class="nc" id="L112">			userAccount.setCountry(serviceRequest.getCountry());</span>
+<span class="nc" id="L113">			userAccount.setEmail(serviceRequest.getEmail());</span>
+<span class="nc" id="L114">			userAccount.setUsername(serviceRequest.getUsername());</span>
+<span class="nc" id="L115">			userAccount.setUserId(UUID.randomUUID().toString());</span>
+<span class="nc" id="L116">			userAccount.setUserpassword(passwordEncoder.encode(userAccount.getUserId()+&quot;.uuid&quot;+ serviceRequest.getUserpassword()));</span>
+<span class="nc" id="L117">			userAccount.setNumberOfVisits(1);</span>
+<span class="nc" id="L118">			userAccount.setUserType(serviceRequest.getUserType());</span>
+<span class="nc" id="L119">			userAccount.setCreatedDate(new Date());</span>
+<span class="nc" id="L120">			userDAO.persist(userAccount);</span>
+
+<span class="nc bnc" id="L122" title="All 2 branches missed.">			if (&quot;true&quot;.equals(registeredUsersGetAdminConfig.getPropertyValue())) {</span>
+<span class="nc" id="L123">				userAccount.setUserRole(UserRole.ADMIN);</span>
+			} else {
+<span class="nc" id="L125">				userAccount.setUserRole(UserRole.USER);</span>
+			}
+
+<span class="nc" id="L128">			final Collection&lt;SimpleGrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">			if (UserRole.ADMIN == userAccount.getUserRole()) {</span>
+<span class="nc" id="L131">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_ADMIN&quot;));</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">			} else if (UserRole.USER == userAccount.getUserRole()) {</span>
+<span class="nc" id="L133">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span>
+			}
+
+<span class="nc" id="L136">			SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userAccount, userAccount.getUserpassword(), authorities));</span>
+
+<span class="nc" id="L138">			eventRequest.setUserId(userAccount.getUserId());</span>
+<span class="nc" id="L139">			response = new RegisterUserResponse(ServiceResult.SUCCESS);</span>
+<span class="nc" id="L140">		} else {</span>
+<span class="nc" id="L141">			response = new RegisterUserResponse(ServiceResult.FAILURE);</span>
+		}
+
+<span class="nc" id="L144">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+<span class="nc" id="L145">		createApplicationEventService.processService(eventRequest);</span>
+<span class="nc" id="L146">		LOGGER.info(&quot;Event: {}&quot;,eventRequest);</span>
+<span class="nc" id="L147">		return response;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SendEmailService.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="../index.html" class="el_bundle">service.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.impl.action.admin</a> &gt; <span class="el_source">SendEmailService.java</span></div><h1>SendEmailService.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.impl.action.admin;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationOperationType;
+import com.hack23.cia.model.internal.application.user.impl.UserAccount;
+import com.hack23.cia.service.api.action.admin.SendEmailRequest;
+import com.hack23.cia.service.api.action.admin.SendEmailResponse;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventRequest;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventResponse;
+import com.hack23.cia.service.api.action.common.ServiceResponse.ServiceResult;
+import com.hack23.cia.service.impl.action.common.AbstractBusinessServiceImpl;
+import com.hack23.cia.service.impl.action.common.BusinessService;
+import com.hack23.cia.service.impl.email.EmailService;
+
+/**
+ * The Class SendEmailService.
+ */
+@Service
+@Transactional(propagation = Propagation.REQUIRED, timeout = 600)
+public final class SendEmailService extends AbstractBusinessServiceImpl&lt;SendEmailRequest, SendEmailResponse&gt;
+		implements BusinessService&lt;SendEmailRequest, SendEmailResponse&gt; {
+
+	/** The Constant LOGGER. */
+<span class="nc" id="L50">	private static final Logger LOGGER = LoggerFactory.getLogger(SendEmailService.class);</span>
+
+	/** The email service. */
+	@Autowired
+	private EmailService emailService;
+
+	/** The create application event service. */
+	@Autowired
+	private BusinessService&lt;CreateApplicationEventRequest, CreateApplicationEventResponse&gt; createApplicationEventService;
+
+	/**
+	 * Instantiates a new send email service.
+	 */
+	public SendEmailService() {
+<span class="nc" id="L64">		super(SendEmailRequest.class);</span>
+<span class="nc" id="L65">	}</span>
+
+	@Override
+	@Secured({ &quot;ROLE_ADMIN&quot; })
+	public SendEmailResponse processService(final SendEmailRequest serviceRequest) {
+
+<span class="nc" id="L71">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="nc" id="L72">		eventRequest.setEventGroup(ApplicationEventGroup.ADMIN);</span>
+<span class="nc" id="L73">		eventRequest.setApplicationOperation(ApplicationOperationType.CREATE);</span>
+<span class="nc" id="L74">		eventRequest.setActionName(SendEmailRequest.class.getSimpleName());</span>
+<span class="nc" id="L75">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+
+<span class="nc" id="L77">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
+
+<span class="nc bnc" id="L79" title="All 2 branches missed.">		if (userAccount != null) {</span>
+<span class="nc" id="L80">			LOGGER.info(&quot;{} started:{}&quot;, serviceRequest.getClass().getSimpleName(), userAccount.getEmail());</span>
+<span class="nc" id="L81">			eventRequest.setUserId(userAccount.getUserId());</span>
+		}
+
+		SendEmailResponse response;
+<span class="nc" id="L85">		emailService.sendEmail(serviceRequest.getEmail(), serviceRequest.getSubject(), serviceRequest.getContent());</span>
+<span class="nc" id="L86">		response = new SendEmailResponse(ServiceResult.SUCCESS);</span>
+
+<span class="nc" id="L88">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+<span class="nc" id="L89">		createApplicationEventService.processService(eventRequest);</span>
+
+<span class="nc" id="L91">		return response;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

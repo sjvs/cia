@@ -1,0 +1,11 @@
+com.hack23.cia.model.external.worldbank.countries.impl
+com.hack23.cia.model.internal.application.data.committee.impl
+com.hack23.cia.model.internal.application.data.document.impl
+com.hack23.cia.model.internal.application.data.impl
+com.hack23.cia.model.internal.application.data.ministry.impl
+com.hack23.cia.model.internal.application.data.party.impl
+com.hack23.cia.model.internal.application.data.politician.impl
+com.hack23.cia.model.internal.application.system.impl
+com.hack23.cia.model.internal.application.user.impl
+com.hack23.cia.model.internal.application.view.impl
+org.w3._2001.xmlschema

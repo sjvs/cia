@@ -1,0 +1,5 @@
+projectKey=com.hack23.cia:parent-pom
+serverUrl=https://www.hack23.com/sonar
+dashboardUrl=https://www.hack23.com/sonar/dashboard/index/com.hack23.cia:parent-pom
+ceTaskId=AVvaoNCzlFmolbcsepwP
+ceTaskUrl=https://www.hack23.com/sonar/api/ce/task?id=AVvaoNCzlFmolbcsepwP

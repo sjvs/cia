@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DocumentMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">DocumentMenuItemFactoryImpl.java</span></div><h1>DocumentMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.DocumentMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.DocumentPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class DocumentMenuItemFactoryImpl.
+ */
+@Service
+public final class DocumentMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements DocumentMenuItemFactory {
+
+
+	/** The Constant DOCUMENT_ATTACHEMENTS. */
+	private static final String DOCUMENT_ATTACHEMENTS = &quot;Document Attachements&quot;;
+
+	/** The Constant DOCUMENT_DATA. */
+	private static final String DOCUMENT_DATA = &quot;Document data&quot;;
+
+	/** The Constant DOCUMENT. */
+	private static final String DOCUMENT = &quot;Document&quot;;
+
+
+	/** The Constant DOCUMENT_DETAILS. */
+	private static final String DOCUMENT_DETAILS = &quot;Document details&quot;;
+
+	/** The Constant PERSON_REFERENCES. */
+	private static final String PERSON_REFERENCES = &quot;Person references&quot;;
+
+
+	/** The Constant DOCUMENT_REFERENCES. */
+	private static final String DOCUMENT_REFERENCES = &quot;Document References&quot;;
+
+	/** The Constant DOCUMENT_DECISION. */
+	private static final String DOCUMENT_DECISION = &quot;Document Decision&quot;;
+
+	/** The Constant INDICATORS_TEXT. */
+	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
+
+	/** The Constant CHARTS_TEXT. */
+	private static final String CHARTS_TEXT = &quot;Charts&quot;;
+
+	/** The Constant DOCUMENT_ACTIVITY_TEXT. */
+	private static final String DOCUMENT_ACTIVITY_TEXT = &quot;Document Activity&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+
+	/**
+	 * Instantiates a new document menu item factory impl.
+	 */
+	public DocumentMenuItemFactoryImpl() {
+<span class="fc" id="L84">		super();</span>
+<span class="fc" id="L85">	}</span>
+
+
+	@Override
+	public void createDocumentMenuBar(final MenuBar menuBar, final String pageId) {
+<span class="fc" id="L90">			initApplicationMenuBar(menuBar);</span>
+
+<span class="fc" id="L92">			menuBar.addItem(OVERVIEW_TEXT, FontAwesome.FILE,</span>
+					new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.OVERVIEW, pageId));
+<span class="fc" id="L94">			menuBar.addItem(CHARTS_TEXT, FontAwesome.FILE,</span>
+					new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.CHARTS, pageId));
+<span class="fc" id="L96">			menuBar.addItem(INDICATORS_TEXT, FontAwesome.FILE,</span>
+					new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.INDICATORS, pageId));
+
+<span class="fc" id="L99">			final MenuItem documentItem = menuBar.addItem(DOCUMENT, FontAwesome.FILE, null);</span>
+
+<span class="fc" id="L101">			documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L102">					DocumentPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+
+<span class="fc" id="L104">			documentItem.addItem(PERSON_REFERENCES, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L105">					DocumentPageMode.PERSONREFERENCES.toString(), pageId));</span>
+
+<span class="fc" id="L107">			documentItem.addItem(DOCUMENT_DETAILS, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L108">					DocumentPageMode.DOCUMENTDETAILS.toString(), pageId));</span>
+
+<span class="fc" id="L110">			documentItem.addItem(DOCUMENT_DATA, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L111">					DocumentPageMode.DOCUMENTDATA.toString(), pageId));</span>
+
+<span class="fc" id="L113">			documentItem.addItem(DOCUMENT_REFERENCES, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L114">					DocumentPageMode.DOCUMENTREFERENCES.toString(), pageId));</span>
+
+<span class="fc" id="L116">			documentItem.addItem(DOCUMENT_DECISION, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L117">					DocumentPageMode.DOCUMENTDECISION.toString(), pageId));</span>
+
+<span class="fc" id="L119">			documentItem.addItem(DOCUMENT_ATTACHEMENTS, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L120">					DocumentPageMode.DOCUMENTATTACHMENTS.toString(), pageId));</span>
+
+
+<span class="fc" id="L123">			menuBar.addItem(PAGE_VISIT_HISTORY_TEXT, null,</span>
+					new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId));
+
+<span class="fc" id="L126">	}</span>
+
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
+<span class="fc" id="L131">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="fc" id="L133">		createButtonLink(grid,OVERVIEW_TEXT, FontAwesome.FILE,</span>
+				new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.OVERVIEW, pageId), &quot;Default description&quot;);
+<span class="fc" id="L135">		createButtonLink(grid,CHARTS_TEXT, FontAwesome.FILE,</span>
+				new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Default description&quot;);
+<span class="fc" id="L137">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.FILE,</span>
+				new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Default description&quot;);
+
+
+<span class="fc" id="L141">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L142">				DocumentPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L144">		createButtonLink(grid,PERSON_REFERENCES, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L145">				DocumentPageMode.PERSONREFERENCES.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L147">		createButtonLink(grid,DOCUMENT_DETAILS, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L148">				DocumentPageMode.DOCUMENTDETAILS.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L150">		createButtonLink(grid,DOCUMENT_DATA, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L151">				DocumentPageMode.DOCUMENTDATA.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L153">		createButtonLink(grid,DOCUMENT_REFERENCES, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L154">				DocumentPageMode.DOCUMENTREFERENCES.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L156">		createButtonLink(grid,DOCUMENT_DECISION, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L157">				DocumentPageMode.DOCUMENTDECISION.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="fc" id="L159">		createButtonLink(grid,DOCUMENT_ATTACHEMENTS, FontAwesome.FILE, new PageModeMenuCommand(UserViews.DOCUMENT_VIEW_NAME,</span>
+<span class="fc" id="L160">				DocumentPageMode.DOCUMENTATTACHMENTS.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+
+<span class="fc" id="L164">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

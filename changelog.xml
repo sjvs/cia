@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog>
+  
+<changeset datePattern="yyyyMMdd HH:mm:ss z" start="20170405 23:36:11 CEST" end="20170506 23:36:11 CEST">
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-05-05</date>
+		<time pattern="HH:mm:ss">20:21:30</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>383589156af30ff019b8b144e2f3666112559f8e</revision>
+		</file>
+		<msg><![CDATA[jdbc postgres 42.1.0]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-05-04</date>
+		<time pattern="HH:mm:ss">00:51:19</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>13142e95280e9027b6e7d95b7595cb028c956646</revision>
+		</file>
+		<msg><![CDATA[dependency updates]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-05-02</date>
+		<time pattern="HH:mm:ss">18:28:09</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>3b041d3b27bad282384a3f7c2518ebe4f2660f7b</revision>
+		</file>
+		<msg><![CDATA[jetty 9.4.5.v20170502]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-05-01</date>
+		<time pattern="HH:mm:ss">21:41:48</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>748af7f8fdda7fcc4b697991f59b5fdd4d9373d8</revision>
+		</file>
+		<msg><![CDATA[dependency updates]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-05-01</date>
+		<time pattern="HH:mm:ss">01:28:07</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>5776bfe641c67bd26862a1c82e981f82e9d492af</revision>
+		</file>
+		<msg><![CDATA[use redhat builds
+commons-codec:commons-codec 1.10 -> 1.10.0.redhat-5
+commons-lang:commons-lang 2.6 -> 2.6.0.redhat-6
+com.thoughtworks.xstream:xstream 1.4.9 -> 1.4.9.redhat-2
+xerces:xercesImpl 2.11.0.SP5 -> 2.11.0.SP5-redhat-1]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-30</date>
+		<time pattern="HH:mm:ss">16:04:25</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>659f62a217a600299464a40c09578fc0e051436e</revision>
+		</file>
+		<msg><![CDATA[vaadin 8.0.5 -> 8.1.0.alpha6]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-30</date>
+		<time pattern="HH:mm:ss">11:06:11</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>03132c8aae6724f47cdacb8308976f1362fa210d</revision>
+		</file>
+		<msg><![CDATA[maven-war-plugin 3.0.0 -> 3.1.0]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-30</date>
+		<time pattern="HH:mm:ss">03:09:02</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>3c39fab57e259ca15e5dfa25a46fe385d9229912</revision>
+		</file>
+		<msg><![CDATA[start migrate vaadin8, work in progress.]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-28</date>
+		<time pattern="HH:mm:ss">23:55:32</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>c6bd41ee4ce010539eaa003cca87e655da832cc2</revision>
+		</file>
+		<msg><![CDATA[revert back to slf4j 1.7.25]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-28</date>
+		<time pattern="HH:mm:ss">23:48:43</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>8a736440f16cb26a02ad7a915af7d5bd0c01916a</revision>
+		</file>
+		<msg><![CDATA[revert snapshot dependency on extra-enforcer-rules]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-28</date>
+		<time pattern="HH:mm:ss">23:33:05</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>ba6bc189a04b5d90a78fbd651145b9904227817d</revision>
+		</file>
+		<msg><![CDATA[fix jetty version]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-28</date>
+		<time pattern="HH:mm:ss">23:18:27</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>f4b843c7e2bbe44ac0c927aebec3bbdc6d93bc04</revision>
+		</file>
+		<msg><![CDATA[slf4j update, enforce some encoding, switch to snapshot releases spring.]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-28</date>
+		<time pattern="HH:mm:ss">18:54:35</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>351f8e1dbecd7cd44bd4deed645a204ea89cc18f</revision>
+		</file>
+		<msg><![CDATA[jetty 9.4.5.v20170427]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-27</date>
+		<time pattern="HH:mm:ss">20:27:08</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>deleted</action>
+			<name>parent-pom/src/config/dependency-check-report.xml</name>
+			<revision>efc597964507c685202cdc8fc4f8fd5cb240c08a</revision>
+		</file>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/src/config/suppressions.xml</name>
+			<revision>efc597964507c685202cdc8fc4f8fd5cb240c08a</revision>
+		</file>
+		<msg><![CDATA[remove fp]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-27</date>
+		<time pattern="HH:mm:ss">07:49:14</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>3a6e9945ef352304c1e50dccaa3fe566ae9dd4c8</revision>
+		</file>
+		<msg><![CDATA[dependency updates]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-24</date>
+		<time pattern="HH:mm:ss">22:44:26</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>fcc9d7ddc580ccdff432f267a4d9ec8493295182</revision>
+		</file>
+		<msg><![CDATA[mockito, h2 upgrade]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-23</date>
+		<time pattern="HH:mm:ss">19:11:20</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>383fd997a8df7861c27ad0bcb34e7600846d7598</revision>
+		</file>
+		<msg><![CDATA[cleanup after release]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-23</date>
+		<time pattern="HH:mm:ss">18:49:09</time>
+		<author><![CDATA[Jenkins <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>597440d6170f4c33c649374466c888faaa865599</revision>
+		</file>
+		<msg><![CDATA[[maven-release-plugin] prepare for next development iteration]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-23</date>
+		<time pattern="HH:mm:ss">18:49:01</time>
+		<author><![CDATA[Jenkins <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>4f39b30c57f30a7d0cbbd92044a6e17fad931aa9</revision>
+		</file>
+		<msg><![CDATA[[maven-release-plugin] prepare release cia-all-2017.4.23]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-18</date>
+		<time pattern="HH:mm:ss">19:45:41</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>c16b6c6c858a38f475dc3a27cef5b5eb0036532d</revision>
+		</file>
+		<msg><![CDATA[ehcache 2.10.3 -> 2.10.4 update]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-18</date>
+		<time pattern="HH:mm:ss">19:01:32</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>ee5b2f8fd79129561ad0d03f52f6ec04c1ce580e</revision>
+		</file>
+		<msg><![CDATA[spring 4.3.7.RELEASE -> 4.3.8.RELEASE]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-17</date>
+		<time pattern="HH:mm:ss">14:38:47</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>e0b11706bfc93d82330509bd6eed70a81a02090e</revision>
+		</file>
+		<msg><![CDATA[activemq 5.14.4 -> 5.14.5 , bytebuddy 1.6.12 -> 1.6.13]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-17</date>
+		<time pattern="HH:mm:ss">00:39:13</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>85e9ce8fa23ee5e8f7ab6c97408e4dab9e0fa711</revision>
+		</file>
+		<msg><![CDATA[poi 3.16-beta2 -> 3.16]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">20:34:46</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>992f5d1615a95d6c0ef3073b4005e374333e0dc1</revision>
+		</file>
+		<msg><![CDATA[pom cleanup]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">19:46:33</time>
+		<author><![CDATA[Jenkins <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>a3d7ab5611133db23ddc83155aeddc0ff81a9673</revision>
+		</file>
+		<msg><![CDATA[[maven-release-plugin] prepare for next development iteration]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">19:46:23</time>
+		<author><![CDATA[Jenkins <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>cb0eba67f0f9afe8624964fbab46ee9dede35856</revision>
+		</file>
+		<msg><![CDATA[[maven-release-plugin] prepare release cia-all-2017.4.15]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">18:43:50</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>063b4f4df486c2018976df0da3ecff48529a9c95</revision>
+		</file>
+		<msg><![CDATA[disable docker]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">18:30:02</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>b2f75110f053c3b7758542ffe960ea4abce5bf05</revision>
+		</file>
+		<msg><![CDATA[use released versions for spring/spring-security]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">18:04:55</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>6f3be278085066f390adc18f9ab023e6984c2f27</revision>
+		</file>
+		<msg><![CDATA[jetty 9.4.4.v20170414]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-15</date>
+		<time pattern="HH:mm:ss">17:32:08</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>ab0bea11ede168e783517603e4692b2db0319d13</revision>
+		</file>
+		<msg><![CDATA[hibernate 5.2.9.Final -> 5.2.10.Final]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-13</date>
+		<time pattern="HH:mm:ss">20:38:36</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>a6879df99afe12b28099b7cae6ef993149126af1</revision>
+		</file>
+		<msg><![CDATA[dependency updates]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-11</date>
+		<time pattern="HH:mm:ss">19:50:34</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>d305f0b4aa2b531c822c36143d9f93ef29b292d7</revision>
+		</file>
+		<msg><![CDATA[maven-processor-plugin 3.2.0 -> 3.3]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-11</date>
+		<time pattern="HH:mm:ss">07:09:37</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>a971ed742f95b1a4c67d5e66f1be963196c8fbc0</revision>
+		</file>
+		<msg><![CDATA[jetty 9.4.4.v20170410]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-10</date>
+		<time pattern="HH:mm:ss">00:14:55</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>d062094e47f1dfbf79314745f12761c80c50ca68</revision>
+		</file>
+		<msg><![CDATA[jetty 9.4.4.v20170406]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-08</date>
+		<time pattern="HH:mm:ss">00:12:00</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>63416fdbc861643eeb8d4c151ad60447bb00d41b</revision>
+		</file>
+		<msg><![CDATA[mockito update]]></msg>
+	</changelog-entry>
+	<changelog-entry>
+		<date pattern="yyyy-MM-dd">2017-04-07</date>
+		<time pattern="HH:mm:ss">00:31:10</time>
+		<author><![CDATA[pether.sorling@gmail.com <pether.sorling@gmail.com>]]></author>
+		<file>
+			<action>modified</action>
+			<name>parent-pom/pom.xml</name>
+			<revision>bcd8d17d72942fb938055eddcd1074956d7c4b2f</revision>
+		</file>
+		<msg><![CDATA[Add docker test using https://github.com/fabric8io/docker-maven-plugin
+info at https://dmp.fabric8.io/#introduction]]></msg>
+	</changelog-entry>
+</changeset>
+
+</changelog>

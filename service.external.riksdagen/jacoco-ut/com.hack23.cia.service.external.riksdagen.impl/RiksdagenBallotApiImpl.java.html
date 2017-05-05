@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RiksdagenBallotApiImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service.external.riksdagen</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.external.riksdagen.impl</a> &gt; <span class="el_source">RiksdagenBallotApiImpl.java</span></div><h1>RiksdagenBallotApiImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.external.riksdagen.impl;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import javax.xml.bind.JAXBElement;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.oxm.Unmarshaller;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.model.external.riksdagen.votering.impl.BallotContainer;
+import com.hack23.cia.model.external.riksdagen.votering.impl.VoteData;
+import com.hack23.cia.model.external.riksdagen.votering.impl.VoteDataDto;
+import com.hack23.cia.model.external.riksdagen.votering.impl.VoteDataEmbeddedId;
+import com.hack23.cia.model.external.riksdagen.voteringlista.impl.BallotDocumentElement;
+import com.hack23.cia.model.external.riksdagen.voteringlista.impl.VoteListContainerElement;
+import com.hack23.cia.service.external.common.api.XmlAgent;
+import com.hack23.cia.service.external.riksdagen.api.DataFailureException;
+import com.hack23.cia.service.external.riksdagen.api.RiksdagenBallotApi;
+
+/**
+ * The Class RiksdagenBallotApiImpl.
+ */
+@Component
+final class RiksdagenBallotApiImpl implements RiksdagenBallotApi {
+
+	/** The Constant BALLOT. */
+	private static final String BALLOT = &quot;http://data.riksdagen.se/votering/${ID_KEY}/xml&quot;;
+
+	/** The Constant BALLOT_LIST. */
+	private static final String BALLOT_LIST=&quot;http://data.riksdagen.se/voteringlista/?rm=&amp;bet=&amp;punkt=&amp;iid=&amp;parti=&amp;valkrets=&amp;rost=&amp;sz=10000&amp;utformat=xml&amp;gruppering=votering_id&quot;;
+
+	/** The Constant CONTAINS_ONE. */
+	private static final int CONTAINS_ONE = 1;
+
+	/**
+	 * The Constant HTTP_VOTERING_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL.
+	 */
+	private static final String HTTP_VOTERING_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL = &quot;http://votering.riksdagen.external.model.cia.hack23.com/impl&quot;;
+
+	/**
+	 * The Constant
+	 * HTTP_VOTERINGLISTA_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL.
+	 */
+	private static final String HTTP_VOTERINGLISTA_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL = &quot;http://voteringlista.riksdagen.external.model.cia.hack23.com/impl&quot;;
+
+
+	/** The Constant ID_KEY. */
+	private static final String ID_KEY = &quot;${ID_KEY}&quot;;
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L80">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L81">			.getLogger(RiksdagenBallotApiImpl.class);</span>
+
+	/** The Constant PROBLEM_GETTING_BALLOT_ID_S_FROM_DATA_RIKSDAGEN_SE. */
+	private static final String PROBLEM_GETTING_BALLOT_ID_S_FROM_DATA_RIKSDAGEN_SE = &quot;Problem getting ballot id:{} from data.riksdagen.se&quot;;
+
+	/** The Constant PROBLEM_GETTING_BALLOT_LIST_FROM_DATA_RIKSDAGEN_SE. */
+	private static final String PROBLEM_GETTING_BALLOT_LIST_FROM_DATA_RIKSDAGEN_SE = &quot;Problem getting ballot list from data.riksdagen.se&quot;;
+
+	/** The Constant YYYY_MM_DD. */
+	private static final String YYYY_MM_DD = &quot;yyyy-MM-dd&quot;;
+
+	/** The riksdagen ballot list marshaller. */
+	@Autowired
+	@Qualifier(&quot;riksdagenBallotListMarshaller&quot;)
+	private Unmarshaller riksdagenBallotListMarshaller;
+
+
+	/** The riksdagen ballot marshaller. */
+	@Autowired
+	@Qualifier(&quot;riksdagenBallotMarshaller&quot;)
+	private Unmarshaller riksdagenBallotMarshaller;
+
+	/** The xml agent. */
+	@Autowired
+	private XmlAgent xmlAgent;
+
+
+	/**
+	 * Instantiates a new riksdagen ballot api impl.
+	 */
+	public RiksdagenBallotApiImpl() {
+<span class="fc" id="L112">		super();</span>
+<span class="fc" id="L113">	}</span>
+
+
+	/**
+	 * Best guess vote date.
+	 *
+	 * @param ballotContainer
+	 *            the ballot container
+	 * @return the date
+	 * @throws ParseException
+	 *             the parse exception
+	 */
+	private static Date bestGuessVoteDate(final BallotContainer ballotContainer) throws ParseException {
+<span class="fc" id="L126">		final com.hack23.cia.model.external.riksdagen.votering.impl.BallotDocumentElement ballotDocumentElement = ballotContainer.getBallotDocumentElement();</span>
+		Date result;
+
+<span class="fc" id="L129">		final String createdDate=ballotContainer.getBallotDocumentElement().getCreatedDate();</span>
+
+<span class="pc bpc" id="L131" title="2 of 4 branches missed.">		if(createdDate!= null &amp;&amp; createdDate.length()&gt;= YYYY_MM_DD.length()) {</span>
+<span class="fc" id="L132">			result=new SimpleDateFormat(YYYY_MM_DD,Locale.ENGLISH).parse(createdDate);</span>
+		} else {
+<span class="nc" id="L134">			final String systemDate = ballotDocumentElement.getSystemDate();</span>
+
+<span class="nc bnc" id="L136" title="All 4 branches missed.">			if(systemDate!= null &amp;&amp; systemDate.length()&gt;= YYYY_MM_DD.length()) {</span>
+<span class="nc" id="L137">				result=new SimpleDateFormat(YYYY_MM_DD,Locale.ENGLISH).parse(systemDate);</span>
+			} else {
+<span class="nc" id="L139">				result=new SimpleDateFormat(YYYY_MM_DD,Locale.ENGLISH).parse(ballotDocumentElement.getMadePublicDate());</span>
+			}
+		}
+<span class="fc" id="L142">		return result;</span>
+	}
+
+	/**
+	 * Check same date.
+	 *
+	 * @param voteList
+	 *            the vote list
+	 * @return the date
+	 * @throws ParseException
+	 *             the parse exception
+	 */
+	private static Date checkSameDate(final List&lt;VoteDataDto&gt; voteList) throws ParseException {
+<span class="fc" id="L155">		final Set&lt;String&gt; set = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L156">		Date result=null;</span>
+
+<span class="fc bfc" id="L158" title="All 2 branches covered.">		for (final VoteDataDto voteData : voteList) {</span>
+<span class="fc" id="L159">			final String voteDate = voteData.getVoteDate();</span>
+<span class="pc bpc" id="L160" title="2 of 4 branches missed.">			if (voteDate !=null &amp;&amp; voteDate.length() &gt;= YYYY_MM_DD.length()) {</span>
+<span class="nc" id="L161">				set.add(voteData.getVoteDate());</span>
+			}
+<span class="fc" id="L163">		}</span>
+
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">		if (set.size() ==CONTAINS_ONE) {</span>
+<span class="nc" id="L166">			final String dateString = set.iterator().next();</span>
+<span class="nc" id="L167">			result=new SimpleDateFormat(YYYY_MM_DD,Locale.ENGLISH).parse(dateString);</span>
+		}
+<span class="fc" id="L169">		return result;</span>
+	}
+
+	/**
+	 * Try to find valid vote date.
+	 *
+	 * @param ballotContainer
+	 *            the ballot container
+	 * @param voteDataList
+	 *            the vote data list
+	 * @return the date
+	 * @throws ParseException
+	 *             the parse exception
+	 */
+	private static Date tryToFindValidVoteDate(final BallotContainer ballotContainer, final List&lt;VoteDataDto&gt; voteDataList)
+					throws ParseException {
+		Date ballotDate;
+<span class="fc" id="L186">		final Date sameDate = checkSameDate(voteDataList);</span>
+
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">		if (sameDate != null) {</span>
+<span class="nc" id="L189">			ballotDate = sameDate;</span>
+		} else {
+<span class="fc" id="L191">			ballotDate = bestGuessVoteDate(ballotContainer);</span>
+		}
+<span class="fc" id="L193">		return ballotDate;</span>
+	}
+
+
+	@Override
+	public List&lt;VoteData&gt; getBallot(final String id) throws DataFailureException {
+<span class="fc" id="L199">		final String url = BALLOT.replace(ID_KEY, id);</span>
+
+		final BallotContainer ballotContainer;
+		try {
+<span class="fc" id="L203">			ballotContainer = ((JAXBElement&lt;BallotContainer&gt;) xmlAgent.unmarshallXml(</span>
+					riksdagenBallotMarshaller, url,
+					HTTP_VOTERING_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL,null,null))
+<span class="fc" id="L206">					.getValue();</span>
+
+<span class="fc" id="L208">			final List&lt;VoteDataDto&gt; voteDataList = ballotContainer.getBallotDocumentData().getVoteDataList();</span>
+
+<span class="fc" id="L210">			final Date ballotDate=tryToFindValidVoteDate(ballotContainer, voteDataList);</span>
+
+<span class="fc" id="L212">			final List&lt;VoteData&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">			for (final VoteDataDto voteDataDto: voteDataList) {</span>
+<span class="fc" id="L214">				final VoteData voteData= new VoteData().withEmbeddedId(new VoteDataEmbeddedId().withBallotId(voteDataDto.getBallotId()).withIntressentId(voteDataDto.getIntressentId()).withIssue(voteDataDto.getIssue()).withConcern(voteDataDto.getConcern()));</span>
+
+<span class="fc" id="L216">				voteData.setBankNumber(voteDataDto.getBankNumber());</span>
+<span class="fc" id="L217">				voteData.setLabel(voteDataDto.getLabel());</span>
+<span class="fc" id="L218">				voteData.setLastName(voteDataDto.getLastName());</span>
+<span class="fc" id="L219">				voteData.setBornYear(voteDataDto.getBornYear());</span>
+<span class="fc" id="L220">				voteData.setFirstName(voteDataDto.getFirstName());</span>
+<span class="fc" id="L221">				voteData.setPlace(voteDataDto.getPlace());</span>
+<span class="fc" id="L222">				voteData.setGender(voteDataDto.getGender());</span>
+<span class="fc" id="L223">				voteData.setFullName(voteDataDto.getFullName());</span>
+<span class="fc" id="L224">				voteData.setParty(voteDataDto.getParty().toUpperCase(Locale.ENGLISH));</span>
+<span class="fc" id="L225">				voteData.setRm(voteDataDto.getRm());</span>
+<span class="fc" id="L226">				voteData.setVote(voteDataDto.getVote());</span>
+<span class="fc" id="L227">				voteData.setBallotType(voteDataDto.getBallotType());</span>
+<span class="fc" id="L228">				voteData.setElectoralRegionNumber(voteDataDto.getElectoralRegionNumber());</span>
+<span class="fc" id="L229">				voteData.setElectoralRegion(voteDataDto.getElectoralRegion());</span>
+
+<span class="fc" id="L231">				voteData.setVoteDate(ballotDate);</span>
+
+<span class="fc" id="L233">				result.add(voteData);</span>
+<span class="fc" id="L234">			}</span>
+
+
+<span class="fc" id="L237">			return result;</span>
+
+<span class="nc" id="L239">		} catch (final Exception e) {</span>
+<span class="nc" id="L240">			LOGGER.warn(PROBLEM_GETTING_BALLOT_ID_S_FROM_DATA_RIKSDAGEN_SE,id);</span>
+<span class="nc" id="L241">			throw new DataFailureException(e);</span>
+		}
+
+
+
+	}
+
+	@Override
+	public List&lt;BallotDocumentElement&gt; getBallotList() throws DataFailureException {
+
+		try {
+			final String url = BALLOT_LIST;
+<span class="fc" id="L253">			return ((JAXBElement&lt;VoteListContainerElement&gt;) xmlAgent.unmarshallXml(riksdagenBallotListMarshaller, url,</span>
+							HTTP_VOTERINGLISTA_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL,null,null))
+<span class="fc" id="L255">							.getValue().getVotering();</span>
+<span class="nc" id="L256">		} catch (final Exception e) {</span>
+<span class="nc" id="L257">			LOGGER.warn(PROBLEM_GETTING_BALLOT_LIST_FROM_DATA_RIKSDAGEN_SE);</span>
+<span class="nc" id="L258">			throw new DataFailureException(e);</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

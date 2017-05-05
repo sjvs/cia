@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParliamentMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">ParliamentMenuItemFactoryImpl.java</span></div><h1>ParliamentMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ParliamentMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class ParliamentMenuItemFactoryImpl.
+ */
+@Service
+public final class ParliamentMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements ParliamentMenuItemFactory {
+
+	/** The Constant AVERAGE_AGE. */
+	private static final String AVERAGE_AGE = &quot;Average age&quot;;
+
+	/** The Constant PARTY_AGE. */
+	private static final String PARTY_AGE = &quot;Party Age&quot;;
+
+	/** The Constant AVERAGE_PERCENTAGE_MALE. */
+	private static final String AVERAGE_PERCENTAGE_MALE = &quot;Average percentage male&quot;;
+
+	/** The Constant PARTY_GENDER. */
+	private static final String PARTY_GENDER = &quot;Party Gender&quot;;
+
+	/** The Constant COMMAND_PAGEVISITHISTORY. */
+<span class="fc" id="L55">	private static final PageModeMenuCommand COMMAND_PAGEVISITHISTORY = new PageModeMenuCommand(UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.PAGEVISITHISTORY);</span>
+
+	/** The Constant COMMAND_DECISION_ACTIVITY. */
+<span class="fc" id="L58">	private static final PageModeMenuCommand COMMAND_DECISION_ACTIVITY = new PageModeMenuCommand(</span>
+<span class="fc" id="L59">			UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.CHARTS, ChartIndicators.DECISIONACTIVITYBYTYPE.toString());</span>
+
+	/** The Constant COMMAND_DOCUMENT_ACTIVITY. */
+<span class="fc" id="L62">	private static final PageModeMenuCommand COMMAND_DOCUMENT_ACTIVITY = new PageModeMenuCommand(</span>
+<span class="fc" id="L63">			UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.CHARTS, ChartIndicators.DOCUMENTACTIVITYBYTYPE.toString());</span>
+
+	/** The Constant COMMAND_CHARTS_PARTY_WINNER. */
+<span class="fc" id="L66">	private static final PageModeMenuCommand COMMAND_CHARTS_PARTY_WINNER = new PageModeMenuCommand(</span>
+<span class="fc" id="L67">			UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.CHARTS, ChartIndicators.PARTYWINNER.toString());</span>
+
+	/** The Constant COMMAND_CHARTS_PARTY_GENDER. */
+<span class="fc" id="L70">	private static final PageModeMenuCommand COMMAND_CHARTS_PARTY_GENDER = new PageModeMenuCommand(</span>
+<span class="fc" id="L71">			UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.CHARTS, ChartIndicators.PARTYGENDER.toString());</span>
+
+	/** The Constant COMMAND_CHARTS_PARTY_AGE. */
+<span class="fc" id="L74">	private static final PageModeMenuCommand COMMAND_CHARTS_PARTY_AGE = new PageModeMenuCommand(</span>
+<span class="fc" id="L75">			UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.CHARTS, ChartIndicators.PARTYAGE.toString());</span>
+
+
+	/** The Constant COMMAND_OVERVIEW. */
+<span class="fc" id="L79">	private static final PageModeMenuCommand COMMAND_OVERVIEW = new PageModeMenuCommand(UserViews.PARLIAMENT_RANKING_VIEW_NAME, PageMode.OVERVIEW);</span>
+
+	/** The Constant DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE. */
+	private static final String DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE = &quot;daily total of number of decsions made&quot;;
+
+	/** The Constant DECISION_ACTIVITY_BY_TYPE. */
+	private static final String DECISION_ACTIVITY_BY_TYPE = &quot;Decision activity by type&quot;;
+
+	/** The Constant DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS. */
+	private static final String DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS = &quot;daily total of number published documents&quot;;
+
+	/** The Constant DOCUMENT_ACTIVITY_BY_TYPE. */
+	private static final String DOCUMENT_ACTIVITY_BY_TYPE = &quot;Document activity by type&quot;;
+
+	/** The Constant DAILY_AVERAGE_WON_BALLOTS. */
+	private static final String DAILY_AVERAGE_WON_BALLOTS = &quot;daily average % won ballots&quot;;
+
+	/** The Constant PARTY_WINNER. */
+	private static final String PARTY_WINNER = &quot;Party Winner&quot;;
+
+	/** The Constant SWEDISH_PARLIAMENT_INDICATORS. */
+	private static final String SWEDISH_PARLIAMENT_INDICATORS = &quot;Swedish parliament Indicators&quot;;
+
+	/** The Constant PARLIAMENT_RANKING_TEXT. */
+	private static final String PARLIAMENT_RANKING_TEXT = &quot;Parliament Ranking&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The application menu item factory. */
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
+
+	/**
+	 * Instantiates a new parliament menu item factory impl.
+	 */
+	public ParliamentMenuItemFactoryImpl() {
+<span class="fc" id="L119">		super();</span>
+<span class="fc" id="L120">	}</span>
+
+	@Override
+	public void createParliamentTopicMenu(final MenuBar menuBar) {
+<span class="fc" id="L124">		initApplicationMenuBar(menuBar);</span>
+
+<span class="fc" id="L126">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+
+<span class="fc" id="L128">		createParliamentTopicMenu(menuBar.addItem(PARLIAMENT_RANKING_TEXT, FontAwesome.INSTITUTION, null));</span>
+
+<span class="fc" id="L130">	}</span>
+
+	@Override
+	public void createParliamentTopicMenu(final MenuItem charts) {
+<span class="fc" id="L134">		charts.addItem(OVERVIEW_TEXT, FontAwesome.INSTITUTION,</span>
+				COMMAND_OVERVIEW);
+
+		// Submenu item with a sub-submenu
+<span class="fc" id="L138">		final MenuItem chartIndicators = charts.addItem(SWEDISH_PARLIAMENT_INDICATORS, FontAwesome.INSTITUTION, null);</span>
+
+<span class="fc" id="L140">		final MenuItem addItem = chartIndicators.addItem(PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER);</span>
+<span class="fc" id="L141">		addItem.setDescription(DAILY_AVERAGE_WON_BALLOTS);</span>
+
+<span class="fc" id="L143">		final MenuItem addItem2 = chartIndicators.addItem(PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER);</span>
+<span class="fc" id="L144">		addItem2.setDescription(AVERAGE_PERCENTAGE_MALE);</span>
+
+<span class="fc" id="L146">		final MenuItem addItem3 = chartIndicators.addItem(PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE);</span>
+<span class="fc" id="L147">		addItem3.setDescription(AVERAGE_AGE);</span>
+
+
+<span class="fc" id="L150">		final MenuItem addItem4 = chartIndicators.addItem(DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY);</span>
+<span class="fc" id="L151">		addItem4.setDescription(DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS);</span>
+<span class="fc" id="L152">		final MenuItem addItem5 = chartIndicators.addItem(DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY);</span>
+<span class="fc" id="L153">		addItem5.setDescription(DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE);</span>
+
+
+<span class="fc" id="L156">		charts.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
+				COMMAND_PAGEVISITHISTORY);
+<span class="fc" id="L158">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent) {
+<span class="fc" id="L162">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="fc" id="L164">		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, &quot;Default description&quot;);</span>
+
+<span class="fc" id="L166">		createButtonLink(grid,PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER, &quot;Default description&quot;);</span>
+
+<span class="fc" id="L168">		createButtonLink(grid,PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE, &quot;Default description&quot;);</span>
+
+
+<span class="fc" id="L171">		createButtonLink(grid,DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY, &quot;Default description&quot;);</span>
+<span class="fc" id="L172">		createButtonLink(grid,DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY, &quot;Default description&quot;);</span>
+
+
+<span class="fc" id="L175">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
+				COMMAND_PAGEVISITHISTORY, &quot;Default description&quot;);
+
+<span class="fc" id="L178">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

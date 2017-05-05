@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PartyRankingDataGridPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.user.party.pagemode</a> &gt; <span class="el_source">PartyRankingDataGridPageModContentFactoryImpl.java</span></div><h1>PartyRankingDataGridPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.user.party.pagemode;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.model.internal.application.data.party.impl.ViewRiksdagenPartySummary;
+import com.hack23.cia.model.internal.application.data.party.impl.ViewRiksdagenPartySummary_;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.web.impl.ui.application.action.ViewAction;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPropertyClickListener;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class PartyRankingDataGridPageModContentFactoryImpl.
+ */
+@Service
+public final class PartyRankingDataGridPageModContentFactoryImpl extends AbstractPartyRankingPageModContentFactoryImpl {
+
+	/** The Constant DATAGRID. */
+	private static final String DATAGRID = &quot;Datagrid:&quot;;
+
+	/** The Constant NAME. */
+	public static final String NAME = UserViews.PARTY_RANKING_VIEW_NAME;
+
+	/**
+	 * Instantiates a new party ranking data grid page mod content factory impl.
+	 */
+	public PartyRankingDataGridPageModContentFactoryImpl() {
+<span class="fc" id="L55">		super();</span>
+<span class="fc" id="L56">	}</span>
+
+	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
+	@Override
+	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
+<span class="fc" id="L61">		final VerticalLayout panelContent = createPanelContent();</span>
+
+<span class="fc" id="L63">		getPartyRankingMenuItemFactory().createPartyRankingMenuBar(menuBar);</span>
+
+<span class="fc" id="L65">		final String pageId = getPageId(parameters);</span>
+
+
+<span class="fc" id="L68">		final DataContainer&lt;ViewRiksdagenPartySummary, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L69">				.getDataContainer(ViewRiksdagenPartySummary.class);</span>
+
+<span class="fc" id="L71">		final BeanItemContainer&lt;ViewRiksdagenPartySummary&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
+				ViewRiksdagenPartySummary.class,
+<span class="fc" id="L73">				dataContainer.getAllOrderBy(ViewRiksdagenPartySummary_.currentAssignments));</span>
+
+<span class="fc" id="L75">		getGridFactory().createBasicBeanItemGrid(panelContent, politicianDocumentDataSource,</span>
+				&quot;Parties&quot;,
+				new String[] { &quot;party&quot;, &quot;currentAssignments&quot;, &quot;totalActiveGovernment&quot;, &quot;totalActiveCommittee&quot;, &quot;totalActiveParliament&quot;, &quot;totalActiveEu&quot;, &quot;active&quot;, &quot;firstAssignmentDate&quot;, &quot;lastAssignmentDate&quot;,
+						&quot;activeEu&quot;,
+						&quot;activeGovernment&quot;, &quot;activeCommittee&quot;,
+						&quot;totalAssignments&quot;,&quot;totalDaysServed&quot;, &quot;totalDaysServedGovernment&quot;, &quot;totalDaysServedCommittee&quot;, &quot;activeParliament&quot;,
+						&quot;totalDaysServedParliament&quot;, &quot;totalDaysServedEu&quot; }, new String[] {&quot;active&quot;,&quot;activeParliament&quot;,&quot;activeGovernment&quot;,&quot;activeCommittee&quot;, &quot;activeEu&quot;, &quot;activeParty&quot;, &quot;activeSpeaker&quot;}, new PageItemPropertyClickListener(UserViews.PARTY_VIEW_NAME, &quot;party&quot;), null, null);
+
+
+<span class="fc" id="L84">		panel.setCaption(DATAGRID + parameters);</span>
+
+<span class="fc" id="L86">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
+				NAME, parameters, pageId);
+
+<span class="fc" id="L89">		return panelContent;</span>
+
+	}
+
+	@Override
+	public boolean matches(final String page, final String parameters) {
+<span class="pc bpc" id="L95" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.DATAGRID.toString()));</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

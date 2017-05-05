@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommitFormWrapperClickListener.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.pageclicklistener</a> &gt; <span class="el_source">CommitFormWrapperClickListener.java</span></div><h1>CommitFormWrapperClickListener.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.pageclicklistener;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
+import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitException;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Notification;
+
+/**
+ * The Class CommitFormWrapperClickListener.
+ */
+public final class CommitFormWrapperClickListener implements ClickListener {
+
+	/** The Constant FORM_ERROR. */
+	private static final String FORM_ERROR = &quot;Form Error&quot;;
+
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(CommitFormWrapperClickListener.class);</span>
+
+	/** The field group. */
+	private final BeanFieldGroup&lt;?&gt; fieldGroup;
+
+	/** The button listener. */
+	private final ClickListener buttonListener;
+
+	/**
+	 * Instantiates a new commit form wrapper click listener.
+	 *
+	 * @param fieldGroup
+	 *            the field group
+	 * @param buttonListener
+	 *            the button listener
+	 */
+<span class="fc" id="L58">	public CommitFormWrapperClickListener(final BeanFieldGroup&lt;?&gt; fieldGroup, final ClickListener buttonListener) {</span>
+<span class="fc" id="L59">		this.fieldGroup = fieldGroup;</span>
+<span class="fc" id="L60">		this.buttonListener = buttonListener;</span>
+<span class="fc" id="L61">	}</span>
+
+	@Override
+	public void buttonClick(final ClickEvent event) {
+		try {
+<span class="fc" id="L66">			fieldGroup.commit();</span>
+<span class="nc" id="L67">		} catch (final CommitException e) {</span>
+<span class="nc" id="L68">			Notification.show(FORM_ERROR,</span>
+<span class="nc" id="L69">	                  e.getMessage(),</span>
+	                  Notification.Type.WARNING_MESSAGE);
+<span class="nc" id="L71">			LOGGER.warn(FORM_ERROR,e);</span>
+<span class="fc" id="L72">		}</span>
+<span class="fc" id="L73">		buttonListener.buttonClick(event);</span>
+<span class="fc" id="L74">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

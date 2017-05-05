@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>FormFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.formfactory.impl</a> &gt; <span class="el_source">FormFactoryImpl.java</span></div><h1>FormFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.formfactory.impl;
+
+import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.Collection;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.formfactory.api.FormFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentSize;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.CommitFormWrapperClickListener;
+import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
+import com.vaadin.v7.data.util.BeanItem;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.v7.ui.Field;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.PasswordField;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class FormFactoryImpl.
+ */
+@Service
+<span class="nc" id="L51">public final class FormFactoryImpl implements FormFactory {</span>
+
+	/** The Constant LOG_MSG_PROPERTY. */
+	private static final String LOG_MSG_PROPERTY = &quot;property:{}&quot;;
+
+	/** The Constant HIDDEN_FIELD_NAME. */
+	private static final String HIDDEN_FIELD_NAME = &quot;password&quot;;
+
+	/** The Constant LOGGER. */
+<span class="nc" id="L60">	private static final Logger LOGGER = LoggerFactory.getLogger(FormFactoryImpl.class);</span>
+
+	@Override
+	public &lt;T extends Serializable&gt; void addRequestInputFormFields(final FormLayout panelContent, final BeanItem&lt;T&gt; item,
+			final Class&lt;T&gt; beanType, final List&lt;String&gt; displayProperties,final String buttonLabel,final ClickListener buttonListener) {
+<span class="nc" id="L65">		final BeanFieldGroup&lt;T&gt; fieldGroup = new BeanFieldGroup&lt;&gt;(beanType);</span>
+<span class="nc" id="L66">		fieldGroup.setItemDataSource(item);</span>
+<span class="nc" id="L67">		fieldGroup.setReadOnly(true);</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">		for (final String property : displayProperties) {</span>
+
+			final Field&lt;?&gt; buildAndBind;
+<span class="nc bnc" id="L72" title="All 2 branches missed.">			if (property.contains(HIDDEN_FIELD_NAME)) {</span>
+<span class="nc" id="L73">				buildAndBind = fieldGroup.buildAndBind(property,property, PasswordField.class);</span>
+			} else {
+<span class="nc" id="L75">				buildAndBind = fieldGroup.buildAndBind(property);</span>
+			}
+
+<span class="nc" id="L78">			buildAndBind.setId(MessageFormat.format(&quot;{0}.{1}&quot;, buttonLabel, property));</span>
+<span class="nc" id="L79">			buildAndBind.setReadOnly(false);</span>
+<span class="nc" id="L80">			buildAndBind.setWidth(ContentSize.HALF_SIZE);</span>
+
+<span class="nc" id="L82">			panelContent.addComponent(buildAndBind);</span>
+<span class="nc" id="L83">		}</span>
+<span class="nc" id="L84">		final Collection&lt;Object&gt; unboundPropertyIds = fieldGroup.getUnboundPropertyIds();</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		for (final Object property : unboundPropertyIds) {</span>
+<span class="nc" id="L86">			LOGGER.debug(LOG_MSG_PROPERTY, property);</span>
+<span class="nc" id="L87">		}</span>
+
+<span class="nc" id="L89">		final VerticalLayout verticalLayout = new VerticalLayout();</span>
+<span class="nc" id="L90">		verticalLayout.setWidth(&quot;50%&quot;);</span>
+
+<span class="nc" id="L92">		final Button button = new Button(buttonLabel,new CommitFormWrapperClickListener(fieldGroup,buttonListener));</span>
+<span class="nc" id="L93">		button.setId(buttonLabel);</span>
+<span class="nc" id="L94">		button.setWidth(&quot;25%&quot;);</span>
+<span class="nc" id="L95">		button.setIcon(FontAwesome.PAW);</span>
+
+<span class="nc" id="L97">		verticalLayout.addComponent(button);</span>
+<span class="nc" id="L98">		verticalLayout.setComponentAlignment(button, Alignment.MIDDLE_RIGHT);</span>
+
+<span class="nc" id="L100">		panelContent.addComponent(verticalLayout);</span>
+<span class="nc" id="L101">	}</span>
+
+	@Override
+	public &lt;T extends Serializable&gt; void addFormPanelTextFields(final AbstractOrderedLayout panelContent, final BeanItem&lt;T&gt; item,
+			final Class&lt;T&gt; beanType, final List&lt;String&gt; displayProperties) {
+
+
+<span class="nc" id="L108">		final Panel formPanel = new Panel();</span>
+<span class="nc" id="L109">		formPanel.setSizeFull();</span>
+
+<span class="nc" id="L111">		panelContent.addComponent(formPanel);</span>
+<span class="nc" id="L112">		panelContent.setExpandRatio(formPanel, ContentRatio.GRID);</span>
+
+<span class="nc" id="L114">		final FormLayout formContent = new FormLayout();</span>
+<span class="nc" id="L115">		formPanel.setContent(formContent);</span>
+
+
+<span class="nc" id="L118">		final BeanFieldGroup&lt;T&gt; fieldGroup = new BeanFieldGroup&lt;&gt;(beanType);</span>
+<span class="nc" id="L119">		fieldGroup.setItemDataSource(item);</span>
+<span class="nc" id="L120">		fieldGroup.setReadOnly(true);</span>
+
+<span class="nc bnc" id="L122" title="All 2 branches missed.">		for (final String property : displayProperties) {</span>
+
+<span class="nc" id="L124">			final Field&lt;?&gt; buildAndBind = fieldGroup.buildAndBind(property);</span>
+<span class="nc" id="L125">			buildAndBind.setWidth(ContentSize.FULL_SIZE);</span>
+
+<span class="nc" id="L127">			formContent.addComponent(buildAndBind);</span>
+<span class="nc" id="L128">		}</span>
+<span class="nc" id="L129">		final Collection&lt;Object&gt; unboundPropertyIds = fieldGroup.getUnboundPropertyIds();</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		for (final Object property : unboundPropertyIds) {</span>
+<span class="nc" id="L131">			LOGGER.debug(LOG_MSG_PROPERTY, property);</span>
+<span class="nc" id="L132">		}</span>
+
+
+<span class="nc" id="L135">	}</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.impl,RiksdagenBallotApiImpl,58,227,10,10,11,52,8,9,0,7
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.impl,RiksdagenPersonApiImpl,19,39,0,0,6,9,0,4,0,4
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.impl,RiksdagenCommitteeProposalApiImpl,10,25,0,0,3,6,0,3,0,3
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.impl,RiksdagenDocumentApiImpl,62,260,1,9,16,54,1,16,0,12
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.api,DocumentTypeNames,366,0,0,0,35,0,6,0,6,0
+service.external.riksdagen,com.hack23.cia.service.external.riksdagen.api,DataFailureException,0,4,0,0,0,2,0,1,0,1

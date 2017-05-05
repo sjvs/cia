@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">service.impl</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.service.impl.action.application</a> &gt; <span class="el_source">LoginService.java</span></div><h1>LoginService.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2010 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.service.impl.action.application;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationOperationType;
+import com.hack23.cia.model.internal.application.user.impl.UserAccount;
+import com.hack23.cia.model.internal.application.user.impl.UserAccount_;
+import com.hack23.cia.model.internal.application.user.impl.UserRole;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventRequest;
+import com.hack23.cia.service.api.action.application.CreateApplicationEventResponse;
+import com.hack23.cia.service.api.action.application.LoginRequest;
+import com.hack23.cia.service.api.action.application.LoginResponse;
+import com.hack23.cia.service.api.action.common.ServiceResponse.ServiceResult;
+import com.hack23.cia.service.data.api.UserDAO;
+import com.hack23.cia.service.impl.action.common.AbstractBusinessServiceImpl;
+import com.hack23.cia.service.impl.action.common.BusinessService;
+import com.warrenstrange.googleauth.GoogleAuthenticator;
+
+/**
+ * The Class LoginService.
+ */
+@Service
+@Transactional(propagation = Propagation.REQUIRED)
+public final class LoginService extends AbstractBusinessServiceImpl&lt;LoginRequest, LoginResponse&gt;
+		implements BusinessService&lt;LoginRequest, LoginResponse&gt; {
+
+	/** The Constant LOGGER. */
+<span class="fc" id="L62">	private static final Logger LOGGER = LoggerFactory.getLogger(LoginService.class);</span>
+
+	/** The user dao. */
+	@Autowired
+	private UserDAO userDAO;
+
+	/** The create application event service. */
+	@Autowired
+	private BusinessService&lt;CreateApplicationEventRequest, CreateApplicationEventResponse&gt; createApplicationEventService;
+
+	/** The password encoder. */
+<span class="fc" id="L73">	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();</span>
+
+	/**
+	 * Instantiates a new login service.
+	 */
+	public LoginService() {
+<span class="fc" id="L79">		super(LoginRequest.class);</span>
+<span class="fc" id="L80">	}</span>
+
+	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
+	@Override
+	public LoginResponse processService(final LoginRequest serviceRequest) {
+
+<span class="fc" id="L86">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="fc" id="L87">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
+<span class="fc" id="L88">		eventRequest.setApplicationOperation(ApplicationOperationType.AUTHENTICATION);</span>
+<span class="fc" id="L89">		eventRequest.setActionName(LoginRequest.class.getSimpleName());</span>
+<span class="fc" id="L90">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+<span class="fc" id="L91">		eventRequest.setElementId(serviceRequest.getEmail());</span>
+
+<span class="fc" id="L93">		final UserAccount userExist = userDAO.findFirstByProperty(UserAccount_.email, serviceRequest.getEmail());</span>
+
+		LoginResponse response;
+<span class="pc bpc" id="L96" title="3 of 6 branches missed.">		if (userExist != null &amp;&amp; verifyOtp(serviceRequest, userExist) &amp;&amp; passwordEncoder.matches(</span>
+<span class="fc" id="L97">				userExist.getUserId() + &quot;.uuid&quot; + serviceRequest.getUserpassword(), userExist.getUserpassword())) {</span>
+
+<span class="fc" id="L99">			final Collection&lt;SimpleGrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();</span>
+
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (UserRole.ADMIN == userExist.getUserRole()) {</span>
+<span class="nc" id="L102">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_ADMIN&quot;));</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">			} else if (UserRole.USER == userExist.getUserRole()) {</span>
+<span class="fc" id="L104">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span>
+			}
+
+<span class="fc" id="L107">			eventRequest.setUserId(userExist.getUserId());</span>
+
+<span class="fc" id="L109">			SecurityContextHolder.getContext().setAuthentication(</span>
+<span class="fc" id="L110">					new UsernamePasswordAuthenticationToken(userExist, userExist.getUserpassword(), authorities));</span>
+
+<span class="fc" id="L112">			userExist.setNumberOfVisits(userExist.getNumberOfVisits() + 1);</span>
+<span class="fc" id="L113">			userDAO.persist(userExist);</span>
+<span class="fc" id="L114">			response = new LoginResponse(ServiceResult.SUCCESS);</span>
+
+<span class="fc" id="L116">		} else {</span>
+<span class="nc" id="L117">			response = new LoginResponse(ServiceResult.FAILURE);</span>
+		}
+<span class="fc" id="L119">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+
+<span class="fc" id="L121">		createApplicationEventService.processService(eventRequest);</span>
+<span class="fc" id="L122">		LOGGER.info(&quot;Event: {}&quot;, eventRequest);</span>
+
+<span class="fc" id="L124">		return response;</span>
+	}
+
+	private static boolean verifyOtp(final LoginRequest serviceRequest, final UserAccount userExist) {
+<span class="fc" id="L128">		boolean authorizedOtp = true;</span>
+
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">		if (userExist.getGoogleAuthKey() != null) {</span>
+<span class="nc" id="L131">			final GoogleAuthenticator gAuth = new GoogleAuthenticator();</span>
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			if (!StringUtils.isBlank(serviceRequest.getOtpCode())</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">					&amp;&amp; StringUtils.isNumeric(serviceRequest.getOtpCode())) {</span>
+<span class="nc" id="L135">				authorizedOtp = gAuth.authorize(userExist.getGoogleAuthKey(),</span>
+<span class="nc" id="L136">						Integer.parseInt(serviceRequest.getOtpCode()));</span>
+			} else {
+<span class="nc" id="L138">				authorizedOtp = false;</span>
+			}
+		}
+<span class="fc" id="L141">		return authorizedOtp;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

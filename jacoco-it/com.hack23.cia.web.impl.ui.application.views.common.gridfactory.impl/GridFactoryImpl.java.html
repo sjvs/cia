@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GridFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.gridfactory.impl</a> &gt; <span class="el_source">GridFactoryImpl.java</span></div><h1>GridFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.gridfactory.impl;
+
+import org.springframework.stereotype.Service;
+import org.vaadin.gridutil.cell.GridCellFilter;
+
+import com.hack23.cia.web.impl.ui.application.views.common.converters.ListPropertyConverter;
+import com.hack23.cia.web.impl.ui.application.views.common.gridfactory.api.GridFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.AbstractPageItemRendererClickListener;
+import com.vaadin.v7.data.Container;
+import com.vaadin.v7.data.Container.Indexed;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.v7.event.SelectionEvent.SelectionListener;
+import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.v7.ui.Grid;
+import com.vaadin.v7.ui.Grid.Column;
+import com.vaadin.v7.ui.Grid.SelectionMode;
+
+/**
+ * The Class GridFactoryImpl.
+ */
+@Service
+public final class GridFactoryImpl implements GridFactory {
+
+	/**
+	 * Instantiates a new grid factory impl.
+	 */
+	public GridFactoryImpl() {
+<span class="fc" id="L47">		super();</span>
+<span class="fc" id="L48">	}</span>
+
+	@Override
+	public void createBasicBeanItemGrid(final AbstractOrderedLayout panelContent, final Container.Indexed datasource,
+			final String caption, final Object[] columnOrder, final Object[] hideColumns,
+			final AbstractPageItemRendererClickListener&lt;?&gt; listener, final String actionId, final ListPropertyConverter[] collectionPropertyConverters) {
+<span class="fc" id="L54">		createBasicBeanItemNestedPropertiesGrid(panelContent,datasource, caption, null, columnOrder, hideColumns, listener, actionId, collectionPropertyConverters);</span>
+
+
+<span class="fc" id="L57">	}</span>
+
+	@Override
+	public void createBasicBeanItemNestedPropertiesGrid(final AbstractOrderedLayout panelContent,final Indexed datasource, final String caption, final String[] nestedProperties,
+			final Object[] columnOrder, final Object[] hideColumns, final AbstractPageItemRendererClickListener&lt;?&gt; listener,
+			final String actionId, final ListPropertyConverter[] collectionPropertyConverters) {
+<span class="fc" id="L63">		final Grid grid = new Grid(datasource);</span>
+
+<span class="fc" id="L65">		grid.setCaption(caption);</span>
+<span class="fc" id="L66">		grid.setSelectionMode(SelectionMode.SINGLE);</span>
+
+<span class="fc" id="L68">		createNestedProperties(datasource, nestedProperties);</span>
+
+<span class="fc" id="L70">		configureColumnOrdersAndHiddenFields(columnOrder, hideColumns, grid);</span>
+
+<span class="fc" id="L72">		configureListeners(listener, grid);</span>
+
+<span class="fc" id="L74">		setColumnConverters(collectionPropertyConverters, grid);</span>
+
+<span class="fc" id="L76">		grid.setSizeFull();</span>
+
+<span class="fc" id="L78">		grid.setStyleName(&quot;Level2Header&quot;);</span>
+
+<span class="fc" id="L80">		createGridCellFilter(columnOrder, grid);</span>
+
+
+<span class="fc" id="L83">		panelContent.addComponent(grid);</span>
+<span class="fc" id="L84">		panelContent.setExpandRatio(grid, ContentRatio.GRID);</span>
+<span class="fc" id="L85">	}</span>
+
+	/**
+	 * Configure column orders and hidden fields.
+	 *
+	 * @param columnOrder
+	 *            the column order
+	 * @param hideColumns
+	 *            the hide columns
+	 * @param grid
+	 *            the grid
+	 */
+	private static void configureColumnOrdersAndHiddenFields(final Object[] columnOrder, final Object[] hideColumns,
+			final Grid grid) {
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">		if (columnOrder != null) {</span>
+<span class="fc" id="L100">			grid.setColumnOrder(columnOrder);</span>
+		}
+
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">		if (hideColumns != null) {</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">			for (final Object o : hideColumns) {</span>
+<span class="fc" id="L105">				grid.removeColumn(o);</span>
+			}
+		}
+<span class="fc" id="L108">	}</span>
+
+	/**
+	 * Creates the nested properties.
+	 *
+	 * @param datasource
+	 *            the datasource
+	 * @param nestedProperties
+	 *            the nested properties
+	 */
+	private static void createNestedProperties(final Indexed datasource, final String[] nestedProperties) {
+<span class="fc bfc" id="L119" title="All 2 branches covered.">		if (nestedProperties != null) {</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">			for (final String nestedProperty : nestedProperties) {</span>
+<span class="fc" id="L121">				final BeanItemContainer&lt;?&gt; dataContainer = (BeanItemContainer&lt;?&gt;) datasource;</span>
+<span class="fc" id="L122">				dataContainer.addNestedContainerProperty(nestedProperty);</span>
+			}
+		}
+<span class="fc" id="L125">	}</span>
+
+	/**
+	 * Configure listeners.
+	 *
+	 * @param listener
+	 *            the listener
+	 * @param grid
+	 *            the grid
+	 */
+	private static void configureListeners(final SelectionListener listener,
+			final Grid grid) {
+
+<span class="fc bfc" id="L138" title="All 2 branches covered.">		if (listener != null) {</span>
+<span class="fc" id="L139">			grid.addSelectionListener(listener);</span>
+		}
+<span class="fc" id="L141">	}</span>
+
+
+	/**
+	 * Creates the grid cell filter.
+	 *
+	 * @param columnOrder
+	 *            the column order
+	 * @param grid
+	 *            the grid
+	 */
+	/**
+	 * Creates the grid cell filter.
+	 *
+	 * @param columnOrder
+	 *            the column order
+	 * @param grid
+	 *            the grid
+	 */
+	private static void createGridCellFilter(final Object[] columnOrder, final Grid grid) {
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		if (columnOrder != null) {</span>
+<span class="fc" id="L162">			final GridCellFilter gridCellFilter = new GridCellFilter(grid);</span>
+
+<span class="fc bfc" id="L164" title="All 2 branches covered.">			for (final Object column : columnOrder) {</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">				if (grid.getColumn(column) != null) {</span>
+<span class="fc" id="L166">					gridCellFilter.setTextFilter(column.toString(), true, true);</span>
+				}
+			}
+
+		}
+<span class="fc" id="L171">	}</span>
+
+
+	/**
+	 * Sets the column converters.
+	 *
+	 * @param collectionPropertyConverter
+	 *            the collection property converter
+	 * @param grid
+	 *            the grid
+	 */
+	private static void setColumnConverters(final ListPropertyConverter[] collectionPropertyConverter, final Grid grid) {
+<span class="fc bfc" id="L183" title="All 2 branches covered.">		if (collectionPropertyConverter != null) {</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">			for (final ListPropertyConverter converter : collectionPropertyConverter) {</span>
+<span class="fc" id="L185">				final Column column = grid.getColumn(converter.getColumn());</span>
+<span class="fc" id="L186">				column.setConverter(converter);</span>
+			}
+		}
+<span class="fc" id="L189">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

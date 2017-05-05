@@ -1,0 +1,14 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenMunicipalityData_,3,0,0,0,1,0,1,0,1,0
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenMunicipalityData,198,6,26,0,43,2,24,2,11,2
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenMunicipalityElectionRegionData_,3,0,0,0,1,0,1,0,1,0
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,ObjectFactory,34,0,0,0,8,0,7,0,7,0
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyData_,3,0,0,0,1,0,1,0,1,0
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyDataContainer_,3,0,0,0,1,0,1,0,1,0
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyData,198,6,26,0,43,2,24,2,11,2
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyDataContainer,53,71,11,11,11,16,12,8,3,6
+model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenMunicipalityElectionRegionData,323,6,20,0,77,2,29,2,19,2
+model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
+model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0

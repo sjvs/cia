@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoliticianRankingMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">PoliticianRankingMenuItemFactoryImpl.java</span></div><h1>PoliticianRankingMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.PoliticianRankingMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class PoliticianRankingMenuItemFactoryImpl.
+ */
+@Service
+public final class PoliticianRankingMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl
+		implements PoliticianRankingMenuItemFactory {
+
+	/** The Constant CURRENT_PARTIES. */
+	private static final String CURRENT_PARTIES = &quot;Current parties&quot;;
+
+	/** The Constant ALL_PARTIES. */
+	private static final String ALL_PARTIES = &quot;All parties&quot;;
+
+	/** The Constant COMMAND_PAGEVISITHISTORY. */
+<span class="fc" id="L50">	private static final PageModeMenuCommand COMMAND_PAGEVISITHISTORY = new PageModeMenuCommand(UserViews.POLITICIAN_RANKING_VIEW_NAME,</span>
+			PageMode.PAGEVISITHISTORY);
+
+	/** The Constant COMMAND_DATAGRID. */
+<span class="fc" id="L54">	private static final PageModeMenuCommand COMMAND_DATAGRID = new PageModeMenuCommand(UserViews.POLITICIAN_RANKING_VIEW_NAME,</span>
+			PageMode.DATAGRID);
+
+	/** The Constant COMMAND_OVERVIEW. */
+<span class="fc" id="L58">	private static final PageModeMenuCommand COMMAND_OVERVIEW = new PageModeMenuCommand(UserViews.POLITICIAN_RANKING_VIEW_NAME,</span>
+			PageMode.OVERVIEW);
+
+	/** The Constant COMMAND_ALL_PARTIES. */
+<span class="fc" id="L62">	private static final PageModeMenuCommand COMMAND_ALL_PARTIES = new PageModeMenuCommand(UserViews.POLITICIAN_RANKING_VIEW_NAME,</span>
+<span class="fc" id="L63">			PageMode.CHARTS, ChartIndicators.ALLPARTIES.toString());</span>
+
+	/** The Constant COMMAND_CURRENT_PARTIES. */
+<span class="fc" id="L66">	private static final PageModeMenuCommand COMMAND_CURRENT_PARTIES = new PageModeMenuCommand(UserViews.POLITICIAN_RANKING_VIEW_NAME,</span>
+<span class="fc" id="L67">			PageMode.CHARTS, ChartIndicators.CURRENTPARTIES.toString());</span>
+
+	/** The Constant POLITICIAN_RANKING. */
+	private static final String POLITICIAN_RANKING = &quot;Politician Ranking&quot;;
+
+	/**
+	 * The Constant CURRENT_AND_PAST_ASSIGNMENTS_AND_SUMMARY_EXPERIENCE_IN_DAYS.
+	 */
+	private static final String CURRENT_AND_PAST_ASSIGNMENTS_AND_SUMMARY_EXPERIENCE_IN_DAYS = &quot;Current and past assignments and summary experience in days&quot;;
+
+	/** The Constant POLITICAL_EXPERIENCE_SUMMARY. */
+	private static final String POLITICAL_EXPERIENCE_SUMMARY = &quot;Political Experience Summary&quot;;
+
+	/** The Constant RANKING_LIST_BY_TOPIC_TEXT. */
+	private static final String RANKING_LIST_BY_TOPIC_TEXT = &quot;Ranking list by topic&quot;;
+
+	/** The Constant CHART_BY_TOPIC_TEXT. */
+	private static final String CHART_BY_TOPIC_TEXT = &quot;Chart by topic&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The application menu item factory. */
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
+
+	/**
+	 * Instantiates a new politician ranking menu item factory impl.
+	 */
+	public PoliticianRankingMenuItemFactoryImpl() {
+<span class="fc" id="L100">		super();</span>
+<span class="fc" id="L101">	}</span>
+
+	@Override
+	public void createPoliticianRankingMenuBar(final MenuBar menuBar) {
+<span class="fc" id="L105">		initApplicationMenuBar(menuBar);</span>
+
+<span class="fc" id="L107">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+
+<span class="fc" id="L109">		createPoliticianRankingTopics(menuBar.addItem(POLITICIAN_RANKING, FontAwesome.BUG, null));</span>
+<span class="fc" id="L110">	}</span>
+
+	@Override
+	public void createPoliticianRankingTopics(final MenuItem politicianMenuItem) {
+<span class="fc" id="L114">		politicianMenuItem.addItem(OVERVIEW_TEXT, FontAwesome.BUG, COMMAND_OVERVIEW);</span>
+
+<span class="fc" id="L116">		final MenuItem listByTopic = politicianMenuItem.addItem(RANKING_LIST_BY_TOPIC_TEXT, FontAwesome.BUG, null);</span>
+
+<span class="fc" id="L118">		final MenuItem listItem = listByTopic.addItem(POLITICAL_EXPERIENCE_SUMMARY, FontAwesome.BUG, COMMAND_DATAGRID);</span>
+<span class="fc" id="L119">		listItem.setDescription(CURRENT_AND_PAST_ASSIGNMENTS_AND_SUMMARY_EXPERIENCE_IN_DAYS);</span>
+
+<span class="fc" id="L121">		final MenuItem chartByTopic = politicianMenuItem.addItem(CHART_BY_TOPIC_TEXT, FontAwesome.BUG, null);</span>
+
+<span class="fc" id="L123">		chartByTopic.addItem(ALL_PARTIES, FontAwesome.GROUP, COMMAND_ALL_PARTIES);</span>
+
+<span class="fc" id="L125">		chartByTopic.addItem(CURRENT_PARTIES, FontAwesome.GROUP, COMMAND_CURRENT_PARTIES);</span>
+
+<span class="fc" id="L127">		politicianMenuItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG, COMMAND_PAGEVISITHISTORY);</span>
+
+<span class="fc" id="L129">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent) {
+<span class="fc" id="L133">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="fc" id="L135">		createButtonLink(grid, POLITICAL_EXPERIENCE_SUMMARY, FontAwesome.BUG, COMMAND_DATAGRID, &quot;Default description&quot;);</span>
+
+<span class="fc" id="L137">		createButtonLink(grid, PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG, COMMAND_PAGEVISITHISTORY, &quot;Default description&quot;);</span>
+
+<span class="fc" id="L139">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

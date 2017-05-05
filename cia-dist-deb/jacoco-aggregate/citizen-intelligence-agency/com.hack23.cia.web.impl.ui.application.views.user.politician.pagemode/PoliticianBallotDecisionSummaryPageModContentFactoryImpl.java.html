@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PoliticianBallotDecisionSummaryPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.user.politician.pagemode</a> &gt; <span class="el_source">PoliticianBallotDecisionSummaryPageModContentFactoryImpl.java</span></div><h1>PoliticianBallotDecisionSummaryPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.user.politician.pagemode;
+
+import java.util.List;
+
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.model.external.riksdagen.person.impl.PersonData;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId_;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommitteeBallotDecisionPoliticianSummary;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommitteeBallotDecisionPoliticianSummary_;
+import com.hack23.cia.model.internal.application.data.politician.impl.ViewRiksdagenPolitician;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PoliticianPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPropertyClickListener;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class BallotDecisionSummaryPageModContentFactoryImpl.
+ */
+@Component
+public final class PoliticianBallotDecisionSummaryPageModContentFactoryImpl extends AbstractPoliticianPageModContentFactoryImpl {
+
+	/**
+	 * Instantiates a new politician ballot decision summary page mod content
+	 * factory impl.
+	 */
+	public PoliticianBallotDecisionSummaryPageModContentFactoryImpl() {
+<span class="nc" id="L54">		super();</span>
+<span class="nc" id="L55">	}</span>
+
+	@Override
+	public boolean matches(final String page, final String parameters) {
+<span class="nc bnc" id="L59" title="All 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(PoliticianPageMode.BALLOTDECISIONSUMMARY.toString());</span>
+	}
+
+	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
+	@Override
+	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
+<span class="nc" id="L65">		final VerticalLayout panelContent = createPanelContent();</span>
+
+<span class="nc" id="L67">		final String pageId = getPageId(parameters);</span>
+
+<span class="nc" id="L69">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
+<span class="nc" id="L70">				.getDataContainer(PersonData.class);</span>
+
+<span class="nc" id="L72">		final PersonData personData = dataContainer.load(pageId);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		if (personData != null) {</span>
+
+<span class="nc" id="L75">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
+<span class="nc" id="L76">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
+
+<span class="nc" id="L78">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
+
+<span class="nc" id="L80">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
+
+<span class="nc" id="L82">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.BALLOTDECISIONSUMMARY.toString());</span>
+
+
+<span class="nc" id="L85">			final DataContainer&lt;ViewRiksdagenCommitteeBallotDecisionPoliticianSummary, ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId&gt; committeeBallotDecisionPartyDataContainer = getApplicationManager()</span>
+<span class="nc" id="L86">					.getDataContainer(ViewRiksdagenCommitteeBallotDecisionPoliticianSummary.class);</span>
+
+<span class="nc" id="L88">			final List&lt;ViewRiksdagenCommitteeBallotDecisionPoliticianSummary&gt; decisionPartySummaryList = committeeBallotDecisionPartyDataContainer</span>
+<span class="nc" id="L89">					.findOrderedByPropertyListByEmbeddedProperty(</span>
+							ViewRiksdagenCommitteeBallotDecisionPoliticianSummary.class,
+							ViewRiksdagenCommitteeBallotDecisionPoliticianSummary_.embeddedId,
+							ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId.class,
+							ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId_.intressentId, pageId,
+							ViewRiksdagenCommitteeBallotDecisionPoliticianSummary_.voteDate);
+
+<span class="nc" id="L96">			final BeanItemContainer&lt;ViewRiksdagenCommitteeBallotDecisionPoliticianSummary&gt; committeeBallotDecisionPartyDataSource = new BeanItemContainer&lt;&gt;(</span>
+					ViewRiksdagenCommitteeBallotDecisionPoliticianSummary.class, decisionPartySummaryList);
+
+<span class="nc" id="L99">			getGridFactory()</span>
+<span class="nc" id="L100">					.createBasicBeanItemNestedPropertiesGrid(panelContent,committeeBallotDecisionPartyDataSource,</span>
+							&quot;Committee Ballot Decision Politician Summary&quot;,
+							new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot; },
+							new String[] { &quot;voteDate&quot;, &quot;rm&quot;, &quot;org&quot;, &quot;committeeReport&quot;, &quot;title&quot;, &quot;subTitle&quot;,
+									&quot;winner&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;vote&quot;, &quot;won&quot;, &quot;rebel&quot;,
+									&quot;noWinner&quot;, &quot;approved&quot;, &quot;partyApproved&quot;, &quot;againstProposalNumber&quot;,
+									&quot;againstProposalParties&quot;, &quot;totalVotes&quot;, &quot;partyTotalVotes&quot;, &quot;yesVotes&quot;,
+									&quot;partyYesVotes&quot;, &quot;noVotes&quot;, &quot;partyNoVotes&quot;, &quot;partyAbstainVotes&quot;,
+									&quot;abstainVotes&quot;, &quot;partyAbsentVotes&quot;, &quot;absentVotes&quot;, &quot;bornYear&quot;,
+									&quot;partyAvgBornYear&quot;, &quot;avgBornYear&quot;, &quot;ballotType&quot;, &quot;decisionType&quot;,
+									&quot;ballotId&quot; },
+							new String[] { &quot;label&quot;, &quot;endNumber&quot;, &quot;publicDate&quot;, &quot;createdDate&quot;, &quot;embeddedId&quot;,
+									&quot;partyNoWinner&quot;, &quot;partyPercentageYes&quot;, &quot;partyPercentageNo&quot;,
+									&quot;partyPercentageAbsent&quot;, &quot;partyPercentageAbstain&quot;, &quot;percentageYes&quot;,
+									&quot;percentageNo&quot;, &quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;firstName&quot;,
+									&quot;lastName&quot;, &quot;party&quot;, &quot;ballotId&quot;, &quot;decisionType&quot;, &quot;ballotType&quot;, &quot;againstProposalNumber&quot; },
+							new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
+
+<span class="nc" id="L118">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+
+		}
+<span class="nc" id="L121">		return panelContent;</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

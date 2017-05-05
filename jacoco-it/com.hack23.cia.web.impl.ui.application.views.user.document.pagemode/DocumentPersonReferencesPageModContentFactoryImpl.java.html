@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DocumentPersonReferencesPageModContentFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.user.document.pagemode</a> &gt; <span class="el_source">DocumentPersonReferencesPageModContentFactoryImpl.java</span></div><h1>DocumentPersonReferencesPageModContentFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.user.document.pagemode;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.stereotype.Component;
+
+import com.hack23.cia.model.external.riksdagen.dokumentlista.impl.DocumentElement;
+import com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentData;
+import com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentData_;
+import com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentPersonReferenceData;
+import com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentStatusContainer;
+import com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentStatusContainer_;
+import com.hack23.cia.model.external.riksdagen.utskottsforslag.impl.CommitteeProposalComponentData;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.web.impl.ui.application.action.ViewAction;
+import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.DocumentPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPropertyClickListener;
+import com.vaadin.v7.data.util.BeanItemContainer;
+import com.vaadin.ui.Layout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.Panel;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class DocumentPersonReferencesPageModContentFactoryImpl.
+ */
+@Component
+public final class DocumentPersonReferencesPageModContentFactoryImpl extends AbstractDocumentPageModContentFactoryImpl {
+
+	/** The Constant PERSON_REFERENCES. */
+	private static final String PERSON_REFERENCES = &quot;Person References&quot;;
+
+	/**
+	 * Instantiates a new document person references page mod content factory
+	 * impl.
+	 */
+	public DocumentPersonReferencesPageModContentFactoryImpl() {
+<span class="fc" id="L59">		super();</span>
+<span class="fc" id="L60">	}</span>
+
+	@Override
+	public boolean matches(final String page, final String parameters) {
+<span class="pc bpc" id="L64" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.PERSONREFERENCES.toString()));</span>
+	}
+
+	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
+	@Override
+	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
+<span class="fc" id="L70">		final VerticalLayout panelContent = createPanelContent();</span>
+
+<span class="fc" id="L72">		final String pageId = getPageId(parameters);</span>
+
+<span class="fc" id="L74">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
+<span class="fc" id="L75">				.getDataContainer(DocumentElement.class);</span>
+
+<span class="fc" id="L77">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
+<span class="fc" id="L78">				.getDataContainer(DocumentStatusContainer.class);</span>
+
+<span class="fc" id="L80">		getApplicationManager()</span>
+<span class="fc" id="L81">				.getDataContainer(CommitteeProposalComponentData.class);</span>
+
+<span class="fc" id="L83">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
+
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
+
+<span class="fc" id="L87">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
+
+<span class="fc" id="L89">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
+<span class="fc" id="L90">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
+							DocumentData.class, DocumentData_.id, pageId);
+
+
+<span class="fc" id="L94">			LabelFactory.createHeader2Label(panelContent,PERSON_REFERENCES);</span>
+
+
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">			if (documentStatusContainer != null</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentPersonReferenceContainer() != null</span>
+<span class="fc" id="L99">					&amp;&amp; documentStatusContainer.getDocumentPersonReferenceContainer()</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">							.getDocumentPersonReferenceList() != null) {</span>
+<span class="fc" id="L101">				final BeanItemContainer&lt;DocumentPersonReferenceData&gt; documentPersonReferenceDataDataSource = new BeanItemContainer&lt;&gt;(</span>
+						DocumentPersonReferenceData.class, documentStatusContainer
+<span class="fc" id="L103">								.getDocumentPersonReferenceContainer().getDocumentPersonReferenceList());</span>
+
+<span class="fc" id="L105">				getGridFactory().createBasicBeanItemGrid(</span>
+						panelContent, documentPersonReferenceDataDataSource,
+						&quot;Document person references&quot;,
+						new String[] { &quot;personReferenceId&quot;, &quot;referenceName&quot;, &quot;partyShortCode&quot;, &quot;orderNumber&quot;,
+								&quot;roleDescription&quot; }, new String[] { &quot;personReferenceId&quot;, &quot;hjid&quot; },
+						new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME,&quot;personReferenceId&quot;), null, null);
+
+			}
+
+
+<span class="fc" id="L115">			panel.setContent(panelContent);</span>
+<span class="fc" id="L116">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+		}
+
+<span class="fc" id="L119">		return panelContent;</span>
+
+	}
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

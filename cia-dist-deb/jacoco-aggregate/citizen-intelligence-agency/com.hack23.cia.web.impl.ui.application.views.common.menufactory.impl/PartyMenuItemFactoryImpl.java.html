@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PartyMenuItemFactoryImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">cia-dist-deb</a> &gt; <a href="../index.html" class="el_bundle">citizen-intelligence-agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl</a> &gt; <span class="el_source">PartyMenuItemFactoryImpl.java</span></div><h1>PartyMenuItemFactoryImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.PartyMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.PartyRankingMenuItemFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PartyPageMode;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.vaadin.server.FontAwesome;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
+
+/**
+ * The Class PartyMenuItemFactoryImpl.
+ */
+@Service
+public final class PartyMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements PartyMenuItemFactory {
+
+	/** The Constant ROLE_CHART_PARTY_LEADERS. */
+	private static final String ROLE_CHART_PARTY_LEADERS = &quot;Role chart, party leaders&quot;;
+
+	/** The Constant PARTY_RANKING. */
+	private static final String PARTY_RANKING = &quot;Party Ranking&quot;;
+
+	/** The Constant PARTY_WON_DAILY_SUMMARY_CHART. */
+	private static final String PARTY_WON_DAILY_SUMMARY_CHART = &quot;Party Won Daily Summary Chart&quot;;
+
+	/** The Constant COMMITTEE_ROLES. */
+	private static final String COMMITTEE_ROLES = &quot;Committee Roles&quot;;
+
+	/** The Constant GOVERMENT_ROLES. */
+	private static final String GOVERMENT_ROLES = &quot;Goverment Roles&quot;;
+
+	/** The Constant LEADER_HISTORY. */
+	private static final String LEADER_HISTORY = &quot;Leader History&quot;;
+
+	/** The Constant CURRENT_LEADERS. */
+	private static final String CURRENT_LEADERS = &quot;Current Leaders&quot;;
+
+	/** The Constant DOCUMENT_HISTORY_TEXT. */
+	private static final String DOCUMENT_HISTORY_TEXT = &quot;Document history&quot;;
+
+	/** The Constant INDICATORS_TEXT. */
+	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
+
+	/** The Constant CHARTS_TEXT. */
+	private static final String CHARTS_TEXT = &quot;Charts&quot;;
+
+	/** The Constant MEMBER_HISTORY_TEXT. */
+	private static final String MEMBER_HISTORY_TEXT = &quot;Member History&quot;;
+
+	/** The Constant CURRENT_MEMBERS_TEXT. */
+	private static final String CURRENT_MEMBERS_TEXT = &quot;Current Members&quot;;
+
+	/** The Constant VOTE_HISTORY. */
+	private static final String VOTE_HISTORY = &quot;Vote history&quot;;
+
+
+	/** The Constant ROLES_TEXT. */
+	private static final String ROLES_TEXT = &quot;Roles&quot;;
+
+	/** The Constant DOCUMENTS_TEXT. */
+	private static final String DOCUMENTS_TEXT = &quot;Documents&quot;;
+
+	/** The Constant BALLOT_DECISION_SUMMARY_TEXT. */
+	private static final String BALLOT_DECISION_SUMMARY_TEXT = &quot;Ballot Decision Summary&quot;;
+
+	/** The Constant BALLOTS_TEXT. */
+	private static final String BALLOTS_TEXT = &quot;Ballots&quot;;
+
+	/** The Constant DOCUMENT_ACTIVITY_TEXT. */
+	private static final String DOCUMENT_ACTIVITY_TEXT = &quot;Document Activity&quot;;
+
+	/** The Constant OVERVIEW_TEXT. */
+	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
+
+	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
+	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
+
+	/** The application menu item factory. */
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
+
+	/** The party ranking menu item factory. */
+	@Autowired
+	private PartyRankingMenuItemFactory partyRankingMenuItemFactory;
+
+	/**
+	 * Instantiates a new party menu item factory impl.
+	 */
+	public PartyMenuItemFactoryImpl() {
+<span class="nc" id="L116">		super();</span>
+<span class="nc" id="L117">	}</span>
+
+	@Override
+	public void createPartyMenuBar(final MenuBar menuBar, final String pageId) {
+<span class="nc" id="L121">		initApplicationMenuBar(menuBar);</span>
+
+<span class="nc" id="L123">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+
+<span class="nc" id="L125">		partyRankingMenuItemFactory.createPartyRankingTopics(menuBar.addItem(PARTY_RANKING, FontAwesome.GROUP,null));</span>
+
+<span class="nc" id="L127">		final MenuItem partyItem = menuBar.addItem(&quot;Party &quot;+ pageId, FontAwesome.GROUP,null);</span>
+
+<span class="nc" id="L129">		partyItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.OVERVIEW, pageId));
+<span class="nc" id="L131">		partyItem.addItem(CHARTS_TEXT, null, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.CHARTS, pageId));</span>
+
+<span class="nc" id="L133">		partyItem.addItem(INDICATORS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.INDICATORS, pageId));
+
+<span class="nc" id="L136">		final MenuItem rolesItem = partyItem.addItem(ROLES_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L138">		rolesItem.addItem(CURRENT_LEADERS, FontAwesome.GROUP,</span>
+<span class="nc" id="L139">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId));</span>
+
+<span class="nc" id="L141">		rolesItem.addItem(LEADER_HISTORY, FontAwesome.GROUP,</span>
+<span class="nc" id="L142">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L144">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L145">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId));</span>
+
+<span class="nc" id="L147">		rolesItem.addItem(MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L148">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L150">		rolesItem.addItem(GOVERMENT_ROLES, FontAwesome.GROUP,</span>
+<span class="nc" id="L151">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId));</span>
+
+<span class="nc" id="L153">		rolesItem.addItem(COMMITTEE_ROLES, FontAwesome.GROUP,</span>
+<span class="nc" id="L154">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId));</span>
+
+<span class="nc" id="L156">		rolesItem.addItem(ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
+<span class="nc" id="L157">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId));</span>
+
+
+<span class="nc" id="L160">		final MenuItem documentItem = partyItem.addItem(DOCUMENTS_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L162">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L163">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+
+<span class="nc" id="L165">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L166">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L168">		final MenuItem ballotItem = partyItem.addItem(BALLOTS_TEXT, FontAwesome.GROUP, null);</span>
+
+<span class="nc" id="L170">		ballotItem.addItem(VOTE_HISTORY, FontAwesome.GROUP,</span>
+<span class="nc" id="L171">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId));</span>
+
+<span class="nc" id="L173">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="nc" id="L174">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId));</span>
+
+<span class="nc" id="L176">		ballotItem.addItem(PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="nc" id="L177">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId));</span>
+
+<span class="nc" id="L179">		partyItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId));
+
+<span class="nc" id="L182">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
+<span class="nc" id="L186">		final GridLayout grid = createGridLayout(panelContent);</span>
+
+<span class="nc" id="L188">		createButtonLink(grid,OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.OVERVIEW, pageId), &quot;Default description&quot;);
+<span class="nc" id="L190">		createButtonLink(grid,CHARTS_TEXT, null, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L192">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Default description&quot;);
+
+
+<span class="nc" id="L196">		createButtonLink(grid,CURRENT_LEADERS, FontAwesome.GROUP,</span>
+<span class="nc" id="L197">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L199">		createButtonLink(grid,LEADER_HISTORY, FontAwesome.GROUP,</span>
+<span class="nc" id="L200">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L202">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L203">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L205">		createButtonLink(grid,MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L206">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L208">		createButtonLink(grid,GOVERMENT_ROLES, FontAwesome.GROUP,</span>
+<span class="nc" id="L209">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L211">		createButtonLink(grid,COMMITTEE_ROLES, FontAwesome.GROUP,</span>
+<span class="nc" id="L212">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L214">		createButtonLink(grid,ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
+<span class="nc" id="L215">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L218">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L219">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L221">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="nc" id="L222">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+
+<span class="nc" id="L225">		createButtonLink(grid,VOTE_HISTORY, FontAwesome.GROUP,</span>
+<span class="nc" id="L226">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L228">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="nc" id="L229">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L231">		createButtonLink(grid,PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="nc" id="L232">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId), &quot;Default description&quot;);</span>
+
+<span class="nc" id="L234">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId), &quot;Default description&quot;);
+
+
+<span class="nc" id="L238">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
