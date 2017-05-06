@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  	<em class="jxr_javadoccomment">/** The application manager. */</em>
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  	@Autowired
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  	<strong class="jxr_keyword">private</strong> ApplicationManager applicationManager;
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/ApplicationManager.html">ApplicationManager</a> applicationManager;
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">	 * Instantiates a new authorization failure event listener.</em>
@@ -83,7 +83,7 @@
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  		<strong class="jxr_keyword">final</strong> String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">final</strong> CreateApplicationEventRequest serviceRequest = <strong class="jxr_keyword">new</strong> CreateApplicationEventRequest();
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/action/application/CreateApplicationEventRequest.html">CreateApplicationEventRequest</a> serviceRequest = <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/action/application/CreateApplicationEventRequest.html">CreateApplicationEventRequest</a>();
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  		serviceRequest.setSessionId(sessionId);
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  		serviceRequest.setEventGroup(ApplicationEventGroup.APPLICATION);
