@@ -17,6 +17,6 @@ model.external.worldbank.countries.impl,com.hack23.cia.model.external.worldbank.
 model.external.worldbank.countries.impl,com.hack23.cia.model.external.worldbank.countries.impl,CountriesElement_,3,0,0,0,1,0,1,0,1,0
 model.external.worldbank.countries.impl,com.hack23.cia.model.external.worldbank.countries.impl,CountryElement,361,285,13,13,87,68,29,24,16,24
 model.external.worldbank.countries.impl,com.hack23.cia.model.external.worldbank.countries.impl,Adminregion_,3,0,0,0,1,0,1,0,1,0
-model.external.worldbank.countries.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.worldbank.countries.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.worldbank.countries.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.worldbank.countries.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
