@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-model.external.val.landstingvalkrets.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.val.landstingvalkrets.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.val.landstingvalkrets.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.val.landstingvalkrets.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
 model.external.val.landstingvalkrets.impl,com.hack23.cia.model.external.val.landstingvalkrets.impl,SwedenCountyElectoralRegion,238,6,28,0,52,2,27,2,13,2
