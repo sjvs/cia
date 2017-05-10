@@ -5,6 +5,6 @@ model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topi
 model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
 model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicElement_,3,0,0,0,1,0,1,0,1,0
 model.external.worldbank.topic.impl,com.hack23.cia.model.external.worldbank.topic.impl,TopicsElement,265,179,26,14,59,40,32,15,13,14
-model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.worldbank.topic.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
