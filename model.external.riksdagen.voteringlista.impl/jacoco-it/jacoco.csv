@@ -5,6 +5,6 @@ model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksda
 model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
 model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,BallotDocumentElement_,3,0,0,0,1,0,1,0,1,0
 model.external.riksdagen.voteringlista.impl,com.hack23.cia.model.external.riksdagen.voteringlista.impl,VoteListContainerElement_,3,0,0,0,1,0,1,0,1,0
-model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.voteringlista.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
