@@ -2,7 +2,7 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,RoleDataType,129,0,4,0,16,0,8,0,6,0
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonElement_,3,0,0,0,1,0,1,0,1,0
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,SexType,36,38,4,0,5,6,5,3,3,3
-model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonElement,954,21,38,0,222,8,69,6,50,6
+model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonElement,975,0,38,0,230,0,75,0,56,0
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonDetailElement_,3,0,0,0,1,0,1,0,1,0
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,RoleStatus,36,401,4,0,5,39,5,3,3,3
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,AssignmentElement,584,6,24,0,140,2,47,2,35,2
@@ -17,6 +17,6 @@ model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdage
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonAssignmentElement_,3,0,0,0,1,0,1,0,1,0
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonAssignmentElement,214,6,32,0,45,2,29,2,13,2
 model.external.riksdagen.personlista.impl,com.hack23.cia.model.external.riksdagen.personlista.impl,PersonDetailElement,136,6,8,0,36,2,15,2,11,2
-model.external.riksdagen.personlista.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.riksdagen.personlista.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.personlista.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.personlista.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
