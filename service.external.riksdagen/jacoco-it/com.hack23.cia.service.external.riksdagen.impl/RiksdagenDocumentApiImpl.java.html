@@ -200,9 +200,9 @@ final class RiksdagenDocumentApiImpl implements RiksdagenDocumentApi {
 		try {
 <span class="fc" id="L201">			return new DocumentContentData().withId(id)</span>
 <span class="fc" id="L202">					.withContent(xmlAgent.retriveContent(DOCUMENT_CONTENT.replace(DOC_ID_KEY, id)));</span>
-<span class="fc" id="L203">		} catch (final Exception e) {</span>
-<span class="fc" id="L204">			LOGGER.warn(PROBLEM_GETTING_DOCUMENT_CONTENT_FOR_ID_S_FROM_DATA_RIKSDAGEN_SE, id);</span>
-<span class="fc" id="L205">			throw new DataFailureException(e);</span>
+<span class="nc" id="L203">		} catch (final Exception e) {</span>
+<span class="nc" id="L204">			LOGGER.warn(PROBLEM_GETTING_DOCUMENT_CONTENT_FOR_ID_S_FROM_DATA_RIKSDAGEN_SE, id);</span>
+<span class="nc" id="L205">			throw new DataFailureException(e);</span>
 		}
 	}
 
@@ -248,9 +248,9 @@ final class RiksdagenDocumentApiImpl implements RiksdagenDocumentApi {
 <span class="fc" id="L248">			final String url = DOCUMENT_STATUS.replace(ID_KEY, id);</span>
 <span class="fc" id="L249">			return ((JAXBElement&lt;DocumentStatusContainer&gt;) xmlAgent.unmarshallXml(riksdagenDocumentStatusMarshaller,</span>
 <span class="fc" id="L250">					url, HTTP_DOKUMENTSTATUS_RIKSDAGEN_EXTERNAL_MODEL_CIA_HACK23_COM_IMPL, null, null)).getValue();</span>
-<span class="fc" id="L251">		} catch (final Exception e) {</span>
-<span class="fc" id="L252">			LOGGER.warn(PROBLEM_GETTING_DOCUMENT_STATUS_ID_S_FROM_DATA_RIKSDAGEN_SE, id);</span>
-<span class="fc" id="L253">			throw new DataFailureException(e);</span>
+<span class="nc" id="L251">		} catch (final Exception e) {</span>
+<span class="nc" id="L252">			LOGGER.warn(PROBLEM_GETTING_DOCUMENT_STATUS_ID_S_FROM_DATA_RIKSDAGEN_SE, id);</span>
+<span class="nc" id="L253">			throw new DataFailureException(e);</span>
 		}
 	}
 
