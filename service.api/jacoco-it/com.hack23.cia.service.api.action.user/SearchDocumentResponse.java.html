@@ -75,8 +75,8 @@ public final class SearchDocumentResponse extends AbstractResponse {
 	 *            the new result element
 	 */
 	public void setResultElement(final List&lt;DocumentElement&gt; resultElement) {
-<span class="fc bfc" id="L78" title="All 2 branches covered.">		if (resultElement != null) {</span>
-<span class="fc" id="L79">			this.resultElement = resultElement.stream().collect(Collectors.toList());</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		if (resultElement != null) {</span>
+<span class="nc" id="L79">			this.resultElement = resultElement.stream().collect(Collectors.toList());</span>
 		}
 <span class="fc" id="L81">	}</span>
 
