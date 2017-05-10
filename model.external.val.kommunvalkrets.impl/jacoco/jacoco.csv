@@ -9,6 +9,6 @@ model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunv
 model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyData,198,6,26,0,43,2,24,2,11,2
 model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenCountyDataContainer,53,71,11,11,11,16,12,8,3,6
 model.external.val.kommunvalkrets.impl,com.hack23.cia.model.external.val.kommunvalkrets.impl,SwedenMunicipalityElectionRegionData,323,6,20,0,77,2,29,2,19,2
-model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.val.kommunvalkrets.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
