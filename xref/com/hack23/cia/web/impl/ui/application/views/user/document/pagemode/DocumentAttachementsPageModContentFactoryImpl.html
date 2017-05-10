@@ -89,13 +89,13 @@
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		getApplicationManager().getDataContainer(CommitteeProposalComponentData.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/model/external/riksdagen/dokumentlista/impl/DocumentElement.html">DocumentElement</a> documentElement = documentElementDataContainer.load(pageId);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		<strong class="jxr_keyword">final</strong> DocumentElement documentElement = documentElementDataContainer.load(pageId);
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  		<strong class="jxr_keyword">if</strong> (documentElement != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  			<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentStatusContainer.html">DocumentStatusContainer</a> documentStatusContainer = documentStatusContainerDataContainer
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  			<strong class="jxr_keyword">final</strong> DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  					.findByQueryProperty(DocumentStatusContainer.<strong class="jxr_keyword">class</strong>, DocumentStatusContainer_.document,
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  							DocumentData.<strong class="jxr_keyword">class</strong>, DocumentData_.id, pageId);
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  

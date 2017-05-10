@@ -29,7 +29,7 @@ Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.admin.a
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.admin.agentoperations.pagemode,AgentOperationsOverviewPageModContentFactoryImpl,0,110,0,0,0,25,0,3,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.user.parliament,ParliamentRankingView,0,7,0,0,0,2,0,1,0,1
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.formfactory.impl,FormFactoryImpl,0,191,0,10,0,47,0,9,0,4
-Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application,UiInstanceErrorHandler,38,29,5,3,10,8,4,3,0,3
+Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application,UiInstanceErrorHandler,57,10,8,0,14,4,5,2,1,2
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application,CitizenIntelligenceAgencyUI,0,140,0,2,0,26,0,4,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application,VaadinSpringConfig,0,3,0,0,0,1,0,1,0,1
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application,CitizenIntelligenceAgencySpringVaadinServlet,0,3,0,0,0,1,0,1,0,1

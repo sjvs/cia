@@ -1,1 +1,31 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,ConfigurationManagerImpl,190,0,24,0,39,0,18,0,6,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,SecurityAuthenticationProvider,9,0,0,0,3,0,3,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,UserConfigurationImpl,21,0,0,0,8,0,4,0,4,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,ViewDataDataContainerFactoryImpl,121,0,0,0,18,0,17,0,17,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,GenericDataContainer,125,0,0,0,18,0,15,0,15,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,ApplicationManagerImpl,98,0,10,0,25,0,11,0,6,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,DataSummaryDataContainer,100,0,0,0,20,0,15,0,15,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,BootstrapDefaultConfig,36,0,0,0,13,0,4,0,4,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,ViewRiksdagenCommitteeDataContainer,84,0,4,0,20,0,17,0,15,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl,DataAgentContainerImpl,8,0,0,0,4,0,2,0,2,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.user.wordcount,WordCounterImpl.new StopwordsHandler() {...},14,0,2,0,2,0,3,0,2,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.user.wordcount,WordCounterImpl,128,0,2,0,33,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.common,AbstractBusinessServiceImpl,29,0,6,0,12,0,6,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.user,SearchDocumentService,136,0,8,0,27,0,7,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.user,SetGoogleAuthenticatorCredentialService,120,0,2,0,29,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.user,DocumentWordCountService,84,0,4,0,21,0,5,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,RegisterUserService,201,0,10,0,42,0,8,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,LogoutService,88,0,2,0,25,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,DestroyApplicationSessionService,47,0,2,0,12,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,CreateApplicationEventService,96,0,6,0,23,0,5,0,2,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,LoginService,176,0,16,0,39,0,12,0,4,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application,CreateApplicationSessionService,62,0,0,0,17,0,3,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.email,EmailServiceImpl,312,0,2,0,41,0,6,0,5,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.admin,SendEmailService,69,0,2,0,17,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.admin,UpdateSearchIndexService,76,0,2,0,23,0,4,0,3,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.admin,UpdateApplicationConfigurationService,92,0,4,0,25,0,4,0,2,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.admin,RefreshDataViewsService,51,0,2,0,15,0,3,0,2,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application.translation,TranslationException,5,0,0,0,2,0,1,0,1,0
+Citizen Intelligence Agency/service.impl,com.hack23.cia.service.impl.action.application.translation,TranslationServiceImpl,120,0,4,0,25,0,5,0,3,0
+Citizen Intelligence Agency/encrypt.properties,com.hack23.cia.encryption.properties,EncryptProperty,75,0,2,0,17,0,6,0,5,0

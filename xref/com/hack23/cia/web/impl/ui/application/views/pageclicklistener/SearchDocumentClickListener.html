@@ -63,7 +63,7 @@
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Logger LOGGER = LoggerFactory.getLogger(SearchDocumentClickListener.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  	<em class="jxr_javadoccomment">/** The reqister request. */</em>
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/action/user/SearchDocumentRequest.html">SearchDocumentRequest</a> reqisterRequest;
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> SearchDocumentRequest reqisterRequest;
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  	<em class="jxr_javadoccomment">/** The response handler. */</em>
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/SearchDocumentResponseHandler.html">SearchDocumentResponseHandler</a> responseHandler;
@@ -76,14 +76,14 @@
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">	 * @param responseHandler</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">	 *            the response handler</em>
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/SearchDocumentClickListener.html">SearchDocumentClickListener</a>(<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/action/user/SearchDocumentRequest.html">SearchDocumentRequest</a> reqisterRequest, <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/SearchDocumentResponseHandler.html">SearchDocumentResponseHandler</a> responseHandler) {
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/SearchDocumentClickListener.html">SearchDocumentClickListener</a>(<strong class="jxr_keyword">final</strong> SearchDocumentRequest reqisterRequest, <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/SearchDocumentResponseHandler.html">SearchDocumentResponseHandler</a> responseHandler) {
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  		<strong class="jxr_keyword">this</strong>.reqisterRequest = reqisterRequest;
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  		<strong class="jxr_keyword">this</strong>.responseHandler = responseHandler;
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  	}
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  	@Override
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> buttonClick(<strong class="jxr_keyword">final</strong> ClickEvent event) {
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../com/hack23/cia/service/api/action/user/SearchDocumentResponse.html">SearchDocumentResponse</a> response = (SearchDocumentResponse) ApplicationMangerAccess.getApplicationManager().service(reqisterRequest);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">final</strong> SearchDocumentResponse response = (SearchDocumentResponse) ApplicationMangerAccess.getApplicationManager().service(reqisterRequest);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  		<strong class="jxr_keyword">if</strong> (ServiceResult.SUCCESS == response.getResult()) {
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  			LOGGER.info(LOG_MSG_SEARCH_DOCUMENT,reqisterRequest.getSearchExpression());
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  			Notification.show(SEARCH_SUCCESS,
