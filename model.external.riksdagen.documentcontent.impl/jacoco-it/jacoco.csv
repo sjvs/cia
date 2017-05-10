@@ -1,8 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-model.external.riksdagen.documentcontent.impl,org.w3._2001.xmlschema,Adapter3,3,6,0,0,1,2,1,2,1,2
+model.external.riksdagen.documentcontent.impl,org.w3._2001.xmlschema,Adapter3,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.documentcontent.impl,org.w3._2001.xmlschema,Adapter1,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.documentcontent.impl,org.w3._2001.xmlschema,Adapter2,9,0,0,0,3,0,3,0,3,0
 model.external.riksdagen.documentcontent.impl,com.hack23.cia.model.external.riksdagen.documentcontent.impl,RoundtripTest,0,7,0,0,0,3,0,3,0,3
 model.external.riksdagen.documentcontent.impl,com.hack23.cia.model.external.riksdagen.documentcontent.impl,DocumentContentData_,3,0,0,0,1,0,1,0,1,0
-model.external.riksdagen.documentcontent.impl,com.hack23.cia.model.external.riksdagen.documentcontent.impl,DocumentContentData,111,87,5,5,27,24,11,10,6,10
+model.external.riksdagen.documentcontent.impl,com.hack23.cia.model.external.riksdagen.documentcontent.impl,DocumentContentData,121,77,5,5,31,20,13,8,8,8
 model.external.riksdagen.documentcontent.impl,com.hack23.cia.model.external.riksdagen.documentcontent.impl,ObjectFactory,22,0,0,0,5,0,4,0,4,0
