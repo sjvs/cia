@@ -126,9 +126,9 @@ public final class DataSummaryDataContainer implements DataContainer&lt;DataSumm
 
 	@Override
 	public List&lt;DataSummary&gt; getAll() {
-<span class="fc" id="L129">		final List&lt;DataSummary&gt; list = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L130">		list.add(load(null));</span>
-<span class="fc" id="L131">		return list;</span>
+<span class="nc" id="L129">		final List&lt;DataSummary&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L130">		list.add(load(null));</span>
+<span class="nc" id="L131">		return list;</span>
 	}
 
 	@Override
@@ -145,10 +145,10 @@ public final class DataSummaryDataContainer implements DataContainer&lt;DataSumm
 
 	@Override
 	public DataSummary load(final String id) {
-<span class="fc" id="L148">		final List&lt;PersonData&gt; all = personDataDAO.getAll();</span>
-<span class="fc" id="L149">		final long personSize=all.size();</span>
+<span class="nc" id="L148">		final List&lt;PersonData&gt; all = personDataDAO.getAll();</span>
+<span class="nc" id="L149">		final long personSize=all.size();</span>
 
-<span class="fc" id="L151">		return new DataSummary(personSize,voteDataDAO.getSize(),voteDataDAO.getSize(),documentElementDAO.getSize(),documentContentDataDAO.getSize(),documentStatusContainerDAO.getSize(),committeeProposalComponentDataDAO.getSize());</span>
+<span class="nc" id="L151">		return new DataSummary(personSize,voteDataDAO.getSize(),voteDataDAO.getSize(),documentElementDAO.getSize(),documentContentDataDAO.getSize(),documentStatusContainerDAO.getSize(),committeeProposalComponentDataDAO.getSize());</span>
 	}
 
 	@Override

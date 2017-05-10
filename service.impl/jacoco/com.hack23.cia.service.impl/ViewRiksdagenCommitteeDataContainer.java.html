@@ -103,7 +103,7 @@ public final class ViewRiksdagenCommitteeDataContainer implements DataContainer&
 
 	@Override
 	public List&lt;ViewRiksdagenCommittee&gt; getAll() {
-<span class="fc" id="L106">		return viewRiksdagenCommitteeDAO.getAll();</span>
+<span class="nc" id="L106">		return viewRiksdagenCommitteeDAO.getAll();</span>
 	}
 
 	@Override
@@ -116,17 +116,17 @@ public final class ViewRiksdagenCommitteeDataContainer implements DataContainer&
 	@Override
 	public List&lt;ViewRiksdagenCommittee&gt; getAllOrderBy(
 			final SingularAttribute&lt;ViewRiksdagenCommittee, ? extends Object&gt; property) {
-<span class="fc" id="L119">		return viewRiksdagenCommitteeDAO.getAllOrderBy(property);</span>
+<span class="nc" id="L119">		return viewRiksdagenCommitteeDAO.getAllOrderBy(property);</span>
 	}
 
 	@Override
 	public ViewRiksdagenCommittee load(final String id) {
-<span class="pc bpc" id="L124" title="1 of 2 branches missed.">		for (final ViewRiksdagenCommittee riksdagenCommittee : viewRiksdagenCommitteeDAO.getAll()) {</span>
-<span class="fc bfc" id="L125" title="All 2 branches covered.">			if (id.equals(riksdagenCommittee.getEmbeddedId().getOrgCode())) {</span>
-<span class="fc" id="L126">				return riksdagenCommittee;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">		for (final ViewRiksdagenCommittee riksdagenCommittee : viewRiksdagenCommitteeDAO.getAll()) {</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">			if (id.equals(riksdagenCommittee.getEmbeddedId().getOrgCode())) {</span>
+<span class="nc" id="L126">				return riksdagenCommittee;</span>
 			}
 
-<span class="fc" id="L129">		}</span>
+<span class="nc" id="L129">		}</span>
 
 <span class="nc" id="L131">		return null;</span>
 	}

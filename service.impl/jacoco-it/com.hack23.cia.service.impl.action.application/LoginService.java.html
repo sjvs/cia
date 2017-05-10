@@ -98,8 +98,8 @@ public final class LoginService extends AbstractBusinessServiceImpl&lt;LoginRequ
 
 <span class="fc" id="L99">			final Collection&lt;SimpleGrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L101" title="All 2 branches covered.">			if (UserRole.ADMIN == userExist.getUserRole()) {</span>
-<span class="fc" id="L102">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_ADMIN&quot;));</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (UserRole.ADMIN == userExist.getUserRole()) {</span>
+<span class="nc" id="L102">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_ADMIN&quot;));</span>
 <span class="pc bpc" id="L103" title="1 of 2 branches missed.">			} else if (UserRole.USER == userExist.getUserRole()) {</span>
 <span class="fc" id="L104">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span>
 			}

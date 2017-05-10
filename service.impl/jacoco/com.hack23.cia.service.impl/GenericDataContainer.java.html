@@ -63,7 +63,7 @@ DataContainer&lt;T, I&gt; {
 			final SingularAttribute&lt;T, ? extends Object&gt; property,
 			final Class&lt;V&gt; clazz2,
 			final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value) {
-<span class="fc" id="L66">		return dataProxy.findByQueryProperty(clazz, property, clazz2, property2, value);</span>
+<span class="nc" id="L66">		return dataProxy.findByQueryProperty(clazz, property, clazz2, property2, value);</span>
 	}
 
 	@Override
@@ -71,7 +71,7 @@ DataContainer&lt;T, I&gt; {
 			final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2,
 			final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value) {
-<span class="fc" id="L74">		return dataProxy.findListByEmbeddedProperty(clazz, property, clazz2, property2, value);</span>
+<span class="nc" id="L74">		return dataProxy.findListByEmbeddedProperty(clazz, property, clazz2, property2, value);</span>
 	}
 
 
@@ -79,27 +79,27 @@ DataContainer&lt;T, I&gt; {
 	@Override
 	public List&lt;T&gt; findListByProperty(final Object[] values,
 			final SingularAttribute&lt;T, ? extends Object&gt;... properties) {
-<span class="fc" id="L82">		return dataProxy.findListByProperty(clazz, values, properties);</span>
+<span class="nc" id="L82">		return dataProxy.findListByProperty(clazz, values, properties);</span>
 	}
 
 	@Override
 	public &lt;T, V&gt; List&lt;T&gt; findOrderedByPropertyListByEmbeddedProperty(final Class&lt;T&gt; clazz, final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2, final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderByProperty) {
-<span class="fc" id="L89">		return dataProxy.findOrderedByPropertyListByEmbeddedProperty(clazz,property,clazz2,property2,value,orderByProperty);</span>
+<span class="nc" id="L89">		return dataProxy.findOrderedByPropertyListByEmbeddedProperty(clazz,property,clazz2,property2,value,orderByProperty);</span>
 	}
 
 	@Override
 	public &lt;T, V&gt; List&lt;T&gt; findOrderedListByEmbeddedProperty(final Class&lt;T&gt; clazz, final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2, final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value,
 			final SingularAttribute&lt;V, ? extends Object&gt; orderByProperty) {
-<span class="fc" id="L96">		return dataProxy.findOrderedListByEmbeddedProperty(clazz,property,clazz2,property2,value,orderByProperty);</span>
+<span class="nc" id="L96">		return dataProxy.findOrderedListByEmbeddedProperty(clazz,property,clazz2,property2,value,orderByProperty);</span>
 	}
 
 	@Override
 	public List&lt;T&gt; findOrderedListByProperty(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object value,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderByProperty) {
-<span class="fc" id="L102">		return dataProxy.findOrderedListByProperty(clazz,property,value,orderByProperty);</span>
+<span class="nc" id="L102">		return dataProxy.findOrderedListByProperty(clazz,property,value,orderByProperty);</span>
 	}
 
 	@Override
@@ -110,7 +110,7 @@ DataContainer&lt;T, I&gt; {
 
 	@Override
 	public List&lt;T&gt; getAll() {
-<span class="fc" id="L113">		return dataProxy.getAll(clazz);</span>
+<span class="nc" id="L113">		return dataProxy.getAll(clazz);</span>
 	}
 
 	@Override
@@ -122,12 +122,12 @@ DataContainer&lt;T, I&gt; {
 
 	@Override
 	public List&lt;T&gt; getAllOrderBy(final SingularAttribute&lt;T, ? extends Object&gt; property) {
-<span class="fc" id="L125">		return dataProxy.getAllOrderBy(clazz,property);</span>
+<span class="nc" id="L125">		return dataProxy.getAllOrderBy(clazz,property);</span>
 	}
 
 	@Override
 	public T load(final I id) {
-<span class="fc" id="L130">		return dataProxy.load(clazz, id);</span>
+<span class="nc" id="L130">		return dataProxy.load(clazz, id);</span>
 
 	}
 
@@ -138,12 +138,12 @@ DataContainer&lt;T, I&gt; {
 
 	@Override
 	public List&lt;T&gt; getPageOrderBy(final int pageNr, final int resultPerPage, final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="fc" id="L141">		return dataProxy.getPageOrderBy(clazz,pageNr, resultPerPage, orderBy);</span>
+<span class="nc" id="L141">		return dataProxy.getPageOrderBy(clazz,pageNr, resultPerPage, orderBy);</span>
 	}
 
 	@Override
 	public Long getSize() {
-<span class="fc" id="L146">		return dataProxy.getSize(clazz);</span>
+<span class="nc" id="L146">		return dataProxy.getSize(clazz);</span>
 	}
 
 }

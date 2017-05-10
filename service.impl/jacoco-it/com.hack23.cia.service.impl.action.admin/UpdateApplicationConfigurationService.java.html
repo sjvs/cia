@@ -73,9 +73,9 @@ public final class UpdateApplicationConfigurationService extends
 
 <span class="fc" id="L74">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
 
-<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (userAccount != null) {</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		if (userAccount != null) {</span>
 
-<span class="fc" id="L78">			eventRequest.setUserId(userAccount.getUserId());</span>
+<span class="nc" id="L78">			eventRequest.setUserId(userAccount.getUserId());</span>
 		}
 
 		UpdateApplicationConfigurationResponse response;
