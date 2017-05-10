@@ -80,32 +80,32 @@ final class DataViewerImpl implements DataViewer {
 			final SingularAttribute&lt;T, ? extends Object&gt; property,final Class&lt;V&gt; clazz2,
 			final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value) {
 
-<span class="fc" id="L83">		final CriteriaQuery&lt;V&gt; criteriaQuery = criteriaBuilder</span>
-<span class="fc" id="L84">				.createQuery(clazz2);</span>
-<span class="fc" id="L85">		final Root&lt;V&gt; root = criteriaQuery.from(clazz2);</span>
-<span class="fc" id="L86">		criteriaQuery.select(root);</span>
+<span class="nc" id="L83">		final CriteriaQuery&lt;V&gt; criteriaQuery = criteriaBuilder</span>
+<span class="nc" id="L84">				.createQuery(clazz2);</span>
+<span class="nc" id="L85">		final Root&lt;V&gt; root = criteriaQuery.from(clazz2);</span>
+<span class="nc" id="L86">		criteriaQuery.select(root);</span>
 
-<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (value instanceof String) {</span>
-<span class="fc" id="L89">			final Expression&lt;String&gt; propertyObject = (Expression&lt;String&gt;) root.get(property2);</span>
-<span class="fc" id="L90">			final Predicate condition = criteriaBuilder.equal(criteriaBuilder.upper(propertyObject), ((String) value).toUpperCase(Locale.ENGLISH));</span>
-<span class="fc" id="L91">			criteriaQuery.where(condition);</span>
-<span class="fc" id="L92">		} else {</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (value instanceof String) {</span>
+<span class="nc" id="L89">			final Expression&lt;String&gt; propertyObject = (Expression&lt;String&gt;) root.get(property2);</span>
+<span class="nc" id="L90">			final Predicate condition = criteriaBuilder.equal(criteriaBuilder.upper(propertyObject), ((String) value).toUpperCase(Locale.ENGLISH));</span>
+<span class="nc" id="L91">			criteriaQuery.where(condition);</span>
+<span class="nc" id="L92">		} else {</span>
 <span class="nc" id="L93">			final Predicate condition = criteriaBuilder.equal(root.get(property2), value);</span>
 <span class="nc" id="L94">			criteriaQuery.where(condition);</span>
 		}
 
-<span class="fc" id="L97">		final TypedQuery&lt;V&gt; typedQuery = entityManager</span>
-<span class="fc" id="L98">				.createQuery(criteriaQuery);</span>
+<span class="nc" id="L97">		final TypedQuery&lt;V&gt; typedQuery = entityManager</span>
+<span class="nc" id="L98">				.createQuery(criteriaQuery);</span>
 
-<span class="fc" id="L100">		addCacheHints(typedQuery, &quot;findByQueryProperty.&quot; + clazz.getSimpleName());</span>
+<span class="nc" id="L100">		addCacheHints(typedQuery, &quot;findByQueryProperty.&quot; + clazz.getSimpleName());</span>
 
 
-<span class="fc" id="L103">		final List&lt;V&gt; resultList = typedQuery.getResultList();</span>
+<span class="nc" id="L103">		final List&lt;V&gt; resultList = typedQuery.getResultList();</span>
 
-<span class="pc bpc" id="L105" title="1 of 2 branches missed.">		if (!resultList.isEmpty()) {</span>
-<span class="fc" id="L106">			final List&lt;T&gt; findListByProperty = findListByProperty(clazz,property,resultList.get(0));</span>
-<span class="pc bpc" id="L107" title="1 of 2 branches missed.">			if (!findListByProperty.isEmpty()) {</span>
-<span class="fc" id="L108">				return LoadHelper.recursiveInitialize(findListByProperty.get(0));</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		if (!resultList.isEmpty()) {</span>
+<span class="nc" id="L106">			final List&lt;T&gt; findListByProperty = findListByProperty(clazz,property,resultList.get(0));</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">			if (!findListByProperty.isEmpty()) {</span>
+<span class="nc" id="L108">				return LoadHelper.recursiveInitialize(findListByProperty.get(0));</span>
 			}
 		}
 
@@ -130,7 +130,7 @@ final class DataViewerImpl implements DataViewer {
 	public &lt;T, V&gt; List&lt;T&gt; findListByEmbeddedProperty(final Class&lt;T&gt; clazz,
 			final SingularAttribute&lt;T, V&gt; property, final Class&lt;V&gt; clazz2,
 			final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value) {
-<span class="fc" id="L133">		return findOrderedListByEmbeddedProperty(clazz,property,clazz2,property2,value,null);</span>
+<span class="nc" id="L133">		return findOrderedListByEmbeddedProperty(clazz,property,clazz2,property2,value,null);</span>
 
 	}
 
@@ -153,31 +153,31 @@ final class DataViewerImpl implements DataViewer {
 	public &lt;T, V&gt; List&lt;T&gt; findOrderedByPropertyListByEmbeddedProperty(final Class&lt;T&gt; clazz, final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2, final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderByProperty) {
-<span class="fc" id="L156">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
-<span class="fc" id="L157">				.createQuery(clazz);</span>
-<span class="fc" id="L158">		final Root&lt;T&gt; root = criteriaQuery.from(clazz);</span>
-<span class="fc" id="L159">		criteriaQuery.select(root);</span>
+<span class="nc" id="L156">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
+<span class="nc" id="L157">				.createQuery(clazz);</span>
+<span class="nc" id="L158">		final Root&lt;T&gt; root = criteriaQuery.from(clazz);</span>
+<span class="nc" id="L159">		criteriaQuery.select(root);</span>
 
-<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		if (orderByProperty != null) {</span>
-<span class="fc" id="L162">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		if (orderByProperty != null) {</span>
+<span class="nc" id="L162">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
 		}
 
 
-<span class="fc" id="L166">		final Join&lt;T, V&gt; join = root.join(property);</span>
+<span class="nc" id="L166">		final Join&lt;T, V&gt; join = root.join(property);</span>
 
-<span class="fc" id="L168">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
+<span class="nc" id="L168">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
 
-<span class="fc" id="L170">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
+<span class="nc" id="L170">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
 
-<span class="fc" id="L172">		criteriaQuery.where(condition);</span>
+<span class="nc" id="L172">		criteriaQuery.where(condition);</span>
 
-<span class="fc" id="L174">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
-<span class="fc" id="L175">				.createQuery(criteriaQuery);</span>
+<span class="nc" id="L174">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
+<span class="nc" id="L175">				.createQuery(criteriaQuery);</span>
 
-<span class="fc" id="L177">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + clazz.getSimpleName());</span>
+<span class="nc" id="L177">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + clazz.getSimpleName());</span>
 
 
-<span class="fc" id="L180">		return typedQuery.getResultList();</span>
+<span class="nc" id="L180">		return typedQuery.getResultList();</span>
 	}
 
 
@@ -186,30 +186,30 @@ final class DataViewerImpl implements DataViewer {
 	public &lt;T, V&gt; List&lt;T&gt; findOrderedListByEmbeddedProperty(final Class&lt;T&gt; clazz, final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2, final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value,
 			final SingularAttribute&lt;V, ? extends Object&gt; orderByProperty) {
-<span class="fc" id="L189">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
-<span class="fc" id="L190">				.createQuery(clazz);</span>
-<span class="fc" id="L191">		final Root&lt;T&gt; root = criteriaQuery.from(clazz);</span>
-<span class="fc" id="L192">		criteriaQuery.select(root);</span>
+<span class="nc" id="L189">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
+<span class="nc" id="L190">				.createQuery(clazz);</span>
+<span class="nc" id="L191">		final Root&lt;T&gt; root = criteriaQuery.from(clazz);</span>
+<span class="nc" id="L192">		criteriaQuery.select(root);</span>
 
-<span class="fc" id="L194">		final Join&lt;T, V&gt; join = root.join(property);</span>
+<span class="nc" id="L194">		final Join&lt;T, V&gt; join = root.join(property);</span>
 
-<span class="fc" id="L196">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
+<span class="nc" id="L196">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
 
-<span class="fc bfc" id="L198" title="All 2 branches covered.">		if (orderByProperty != null) {</span>
-<span class="fc" id="L199">			criteriaQuery.orderBy(criteriaBuilder.desc(join.get(orderByProperty)));</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">		if (orderByProperty != null) {</span>
+<span class="nc" id="L199">			criteriaQuery.orderBy(criteriaBuilder.desc(join.get(orderByProperty)));</span>
 		}
 
-<span class="fc" id="L202">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
+<span class="nc" id="L202">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
 
-<span class="fc" id="L204">		criteriaQuery.where(condition);</span>
+<span class="nc" id="L204">		criteriaQuery.where(condition);</span>
 
-<span class="fc" id="L206">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
-<span class="fc" id="L207">				.createQuery(criteriaQuery);</span>
+<span class="nc" id="L206">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
+<span class="nc" id="L207">				.createQuery(criteriaQuery);</span>
 
-<span class="fc" id="L209">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + clazz.getSimpleName());</span>
+<span class="nc" id="L209">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + clazz.getSimpleName());</span>
 
 
-<span class="fc" id="L212">		return typedQuery.getResultList();</span>
+<span class="nc" id="L212">		return typedQuery.getResultList();</span>
 	}
 
 	@Override
@@ -220,8 +220,8 @@ final class DataViewerImpl implements DataViewer {
 <span class="fc" id="L220">		final Root&lt;T&gt; root = criteriaQuery.from(clazz);</span>
 <span class="fc" id="L221">		criteriaQuery.select(root);</span>
 
-<span class="fc bfc" id="L223" title="All 2 branches covered.">		if (orderByProperty != null) {</span>
-<span class="fc" id="L224">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
+<span class="pc bpc" id="L223" title="1 of 2 branches missed.">		if (orderByProperty != null) {</span>
+<span class="nc" id="L224">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
 		}
 
 <span class="fc bfc" id="L227" title="All 2 branches covered.">		if (value instanceof String) {</span>
@@ -300,7 +300,7 @@ final class DataViewerImpl implements DataViewer {
 	@Override
 	public &lt;T&gt; List&lt;T&gt; getPageOrderBy(Class&lt;T&gt; clazz, int pageNr, int resultPerPage,
 			SingularAttribute&lt;T, ? extends Object&gt; property) {
-<span class="fc" id="L303">		return getInternalPageOrderBy(clazz, pageNr, resultPerPage, property);</span>
+<span class="nc" id="L303">		return getInternalPageOrderBy(clazz, pageNr, resultPerPage, property);</span>
 	}
 
 	private &lt;T&gt; List&lt;T&gt; getInternalPageOrderBy(final Class&lt;T&gt; clazz, Integer pageNr,Integer resultPerPage,final SingularAttribute&lt;T, ? extends Object&gt; property) {
@@ -310,17 +310,17 @@ final class DataViewerImpl implements DataViewer {
 
 <span class="fc" id="L311">		criteriaQuery.select(root);</span>
 
-<span class="fc bfc" id="L313" title="All 2 branches covered.">		if (property != null) {</span>
-<span class="fc" id="L314">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(property)));</span>
+<span class="pc bpc" id="L313" title="1 of 2 branches missed.">		if (property != null) {</span>
+<span class="nc" id="L314">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(property)));</span>
 		}
 
 <span class="fc" id="L317">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
 <span class="fc" id="L318">				.createQuery(criteriaQuery);</span>
 <span class="fc" id="L319">		addCacheHints(typedQuery, &quot;getAll.&quot; + clazz.getSimpleName());</span>
 
-<span class="pc bpc" id="L321" title="1 of 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
-<span class="fc" id="L322">			typedQuery.setFirstResult((pageNr-1) * resultPerPage);</span>
-<span class="fc" id="L323">			typedQuery.setMaxResults(resultPerPage);</span>
+<span class="pc bpc" id="L321" title="3 of 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
+<span class="nc" id="L322">			typedQuery.setFirstResult((pageNr-1) * resultPerPage);</span>
+<span class="nc" id="L323">			typedQuery.setMaxResults(resultPerPage);</span>
 
 		}
 
@@ -329,9 +329,9 @@ final class DataViewerImpl implements DataViewer {
 
 	@Override
 	public &lt;T&gt; Long getSize(final Class&lt;T&gt; clazz) {
-<span class="fc" id="L332">		final CriteriaQuery&lt;Long&gt; countQuery = criteriaBuilder.createQuery(Long.class);</span>
-<span class="fc" id="L333">		countQuery.select(criteriaBuilder.count(countQuery.from(clazz)));</span>
-<span class="fc" id="L334">		return entityManager.createQuery(countQuery).getSingleResult();</span>
+<span class="nc" id="L332">		final CriteriaQuery&lt;Long&gt; countQuery = criteriaBuilder.createQuery(Long.class);</span>
+<span class="nc" id="L333">		countQuery.select(criteriaBuilder.count(countQuery.from(clazz)));</span>
+<span class="nc" id="L334">		return entityManager.createQuery(countQuery).getSingleResult();</span>
 	}
 
 	/**

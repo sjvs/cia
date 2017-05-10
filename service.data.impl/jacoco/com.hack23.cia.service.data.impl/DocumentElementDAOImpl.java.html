@@ -75,13 +75,13 @@ DocumentElementDAO {
 
 	@Override
 	public List&lt;String&gt; getAvaibleDocumentContent() {
-<span class="fc" id="L78">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder()</span>
-<span class="fc" id="L79">				.createQuery(String.class);</span>
-<span class="fc" id="L80">		final Root&lt;DocumentElement&gt; root = criteria.from(DocumentElement.class);</span>
-<span class="fc" id="L81">		criteria.select(root.get(DocumentElement_.id));</span>
-<span class="fc" id="L82">		criteria.where(getCriteriaBuilder().isNotNull(</span>
-<span class="fc" id="L83">				root.get(DocumentElement_.documentUrlText)));</span>
-<span class="fc" id="L84">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L78">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder()</span>
+<span class="nc" id="L79">				.createQuery(String.class);</span>
+<span class="nc" id="L80">		final Root&lt;DocumentElement&gt; root = criteria.from(DocumentElement.class);</span>
+<span class="nc" id="L81">		criteria.select(root.get(DocumentElement_.id));</span>
+<span class="nc" id="L82">		criteria.where(getCriteriaBuilder().isNotNull(</span>
+<span class="nc" id="L83">				root.get(DocumentElement_.documentUrlText)));</span>
+<span class="nc" id="L84">		return getEntityManager().createQuery(criteria).getResultList();</span>
 	}
 
 	@Override

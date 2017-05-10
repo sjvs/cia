@@ -64,20 +64,20 @@ DocumentStatusContainerDAO {
 
 	@Override
 	public List&lt;String&gt; getAvaibleCommitteeProposal() {
-<span class="fc" id="L67">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="fc" id="L68">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
-<span class="fc" id="L69">		criteria.select(root.get(DocumentData_.id));</span>
-<span class="fc" id="L70">		criteria.where(getCriteriaBuilder().isNotNull(root.get(DocumentData_.committeeReportUrlXml)));</span>
-<span class="fc" id="L71">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L67">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="nc" id="L68">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
+<span class="nc" id="L69">		criteria.select(root.get(DocumentData_.id));</span>
+<span class="nc" id="L70">		criteria.where(getCriteriaBuilder().isNotNull(root.get(DocumentData_.committeeReportUrlXml)));</span>
+<span class="nc" id="L71">		return getEntityManager().createQuery(criteria).getResultList();</span>
 
 	}
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="fc" id="L77">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="fc" id="L78">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
-<span class="fc" id="L79">		criteria.select(root.get(DocumentData_.id));</span>
-<span class="fc" id="L80">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L77">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="nc" id="L78">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
+<span class="nc" id="L79">		criteria.select(root.get(DocumentData_.id));</span>
+<span class="nc" id="L80">		return getEntityManager().createQuery(criteria).getResultList();</span>
 	}
 
 }

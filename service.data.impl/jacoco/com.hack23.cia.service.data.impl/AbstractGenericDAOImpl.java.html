@@ -98,20 +98,20 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 
 	@Override
 	public final T findFirstByProperty(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object value) {
-<span class="fc" id="L101">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="fc" id="L102">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
-<span class="fc" id="L103">		criteriaQuery.select(root);</span>
-<span class="fc" id="L104">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
-<span class="fc" id="L105">		criteriaQuery.where(condition);</span>
-<span class="fc" id="L106">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="fc" id="L107">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
+<span class="nc" id="L101">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="nc" id="L102">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="nc" id="L103">		criteriaQuery.select(root);</span>
+<span class="nc" id="L104">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
+<span class="nc" id="L105">		criteriaQuery.where(condition);</span>
+<span class="nc" id="L106">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="nc" id="L107">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
 
-<span class="fc" id="L109">		final List&lt;T&gt; resultList = typedQuery.getResultList();</span>
+<span class="nc" id="L109">		final List&lt;T&gt; resultList = typedQuery.getResultList();</span>
 
-<span class="fc bfc" id="L111" title="All 2 branches covered.">		if (resultList.isEmpty()) {</span>
-<span class="fc" id="L112">			return null;</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (resultList.isEmpty()) {</span>
+<span class="nc" id="L112">			return null;</span>
 		} else {
-<span class="fc" id="L114">			return LoadHelper.recursiveInitialize(resultList.get(0));</span>
+<span class="nc" id="L114">			return LoadHelper.recursiveInitialize(resultList.get(0));</span>
 		}
 	}
 
@@ -149,14 +149,14 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 
 	@Override
 	public final List&lt;T&gt; findListByProperty(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object value) {
-<span class="fc" id="L152">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="fc" id="L153">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
-<span class="fc" id="L154">		criteriaQuery.select(root);</span>
-<span class="fc" id="L155">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
-<span class="fc" id="L156">		criteriaQuery.where(condition);</span>
-<span class="fc" id="L157">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="fc" id="L158">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
-<span class="fc" id="L159">		return typedQuery.getResultList();</span>
+<span class="nc" id="L152">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="nc" id="L153">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="nc" id="L154">		criteriaQuery.select(root);</span>
+<span class="nc" id="L155">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
+<span class="nc" id="L156">		criteriaQuery.where(condition);</span>
+<span class="nc" id="L157">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="nc" id="L158">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
+<span class="nc" id="L159">		return typedQuery.getResultList();</span>
 	}
 
 	@Override
@@ -200,12 +200,12 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	
 	@Override
 	public final List&lt;T&gt; getAll() {
-<span class="fc" id="L203">		return getAllOrderBy(null);</span>
+<span class="nc" id="L203">		return getAllOrderBy(null);</span>
 	}
 
 	@Override
 	public final List&lt;T&gt; getAllOrderBy(final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="fc" id="L208">		return getPageOrderBy(null, null, orderBy);</span>
+<span class="nc" id="L208">		return getPageOrderBy(null, null, orderBy);</span>
 	}
 
 	/**
@@ -232,7 +232,7 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the full text entity manager
 	 */
 	protected final FullTextEntityManager getFullTextEntityManager() {
-<span class="fc" id="L235">		return Search.getFullTextEntityManager(getEntityManager());</span>
+<span class="nc" id="L235">		return Search.getFullTextEntityManager(getEntityManager());</span>
 	}
 
 	/**
@@ -256,25 +256,25 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 
 	private List&lt;T&gt; getPageOrderBy(Integer pageNr, Integer resultPerPage,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="fc" id="L259">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="fc" id="L260">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="nc" id="L259">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="nc" id="L260">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
 
-<span class="fc" id="L262">		criteriaQuery.select(root);</span>
+<span class="nc" id="L262">		criteriaQuery.select(root);</span>
 
-<span class="fc bfc" id="L264" title="All 2 branches covered.">		if (orderBy != null) {</span>
-<span class="fc" id="L265">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderBy)));</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">		if (orderBy != null) {</span>
+<span class="nc" id="L265">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderBy)));</span>
 		}
 
-<span class="fc" id="L268">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="fc" id="L269">		addCacheHints(typedQuery, &quot;getAll&quot;);</span>
+<span class="nc" id="L268">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="nc" id="L269">		addCacheHints(typedQuery, &quot;getAll&quot;);</span>
 
-<span class="pc bpc" id="L271" title="3 of 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
+<span class="nc bnc" id="L271" title="All 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
 <span class="nc" id="L272">			typedQuery.setFirstResult((pageNr - 1) * resultPerPage);</span>
 <span class="nc" id="L273">			typedQuery.setMaxResults(resultPerPage);</span>
 
 		}
 
-<span class="fc" id="L277">		return typedQuery.getResultList();</span>
+<span class="nc" id="L277">		return typedQuery.getResultList();</span>
 
 	}
 
@@ -305,20 +305,20 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 
 	@Override
 	public final T load(final I id) {
-<span class="fc" id="L308">		return LoadHelper.recursiveInitialize(getEntityManager().find(getPersistentClass(), id));</span>
+<span class="nc" id="L308">		return LoadHelper.recursiveInitialize(getEntityManager().find(getPersistentClass(), id));</span>
 	}
 
 	@Override
 	public final T merge(final T entity) {
-<span class="fc" id="L313">		return getEntityManager().merge(entity);</span>
+<span class="nc" id="L313">		return getEntityManager().merge(entity);</span>
 	}
 
 	@Override
 	public final void persist(final List&lt;T&gt; list) {
-<span class="fc bfc" id="L318" title="All 2 branches covered.">		for (final T t : list) {</span>
-<span class="fc" id="L319">			getEntityManager().persist(t);</span>
-<span class="fc" id="L320">		}</span>
-<span class="fc" id="L321">	}</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">		for (final T t : list) {</span>
+<span class="nc" id="L319">			getEntityManager().persist(t);</span>
+<span class="nc" id="L320">		}</span>
+<span class="nc" id="L321">	}</span>
 
 	@Override
 	public final void persist(final T entity) {
@@ -327,10 +327,10 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 
 	@Override
 	public final List&lt;T&gt; search(final String searchExpression, final Integer maxResults, final String... fields) {
-<span class="fc" id="L330">		return getFullTextEntityManager().createFullTextQuery(</span>
-<span class="fc" id="L331">				getFullTextEntityManager().getSearchFactory().buildQueryBuilder().forEntity(persistentClass).get()</span>
-<span class="fc" id="L332">						.keyword().wildcard().onFields(fields).matching(searchExpression).createQuery(),</span>
-<span class="fc" id="L333">				persistentClass).setMaxResults(maxResults).getResultList();</span>
+<span class="nc" id="L330">		return getFullTextEntityManager().createFullTextQuery(</span>
+<span class="nc" id="L331">				getFullTextEntityManager().getSearchFactory().buildQueryBuilder().forEntity(persistentClass).get()</span>
+<span class="nc" id="L332">						.keyword().wildcard().onFields(fields).matching(searchExpression).createQuery(),</span>
+<span class="nc" id="L333">				persistentClass).setMaxResults(maxResults).getResultList();</span>
 	}
 
 }

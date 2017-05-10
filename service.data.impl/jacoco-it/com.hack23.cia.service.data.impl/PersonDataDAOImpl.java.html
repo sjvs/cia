@@ -44,10 +44,10 @@ final class PersonDataDAOImpl extends AbstractGenericDAOImpl&lt;PersonData, Stri
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="fc" id="L47">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="fc" id="L48">		final Root&lt;PersonData&gt; root = criteria.from(PersonData.class);</span>
-<span class="fc" id="L49">		criteria.select(root.get(PersonData_.id));</span>
-<span class="fc" id="L50">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L47">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="nc" id="L48">		final Root&lt;PersonData&gt; root = criteria.from(PersonData.class);</span>
+<span class="nc" id="L49">		criteria.select(root.get(PersonData_.id));</span>
+<span class="nc" id="L50">		return getEntityManager().createQuery(criteria).getResultList();</span>
 	}
 
 }
