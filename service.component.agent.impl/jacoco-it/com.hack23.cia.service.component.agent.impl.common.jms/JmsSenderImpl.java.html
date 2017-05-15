@@ -34,7 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(propagation = Propagation.REQUIRED)
-<span class="fc" id="L37">final class JmsSenderImpl implements JmsSender {</span>
+<span class="nc" id="L37">final class JmsSenderImpl implements JmsSender {</span>
 
 	/** The jms template. */
 	@Autowired
@@ -42,9 +42,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 	@Override
 	public void send(final Destination destination, final Serializable msg) throws JMSException {
-<span class="fc" id="L45">		jmsTemplate.send(destination, new ProducerMessageFactory(msg));</span>
+<span class="nc" id="L45">		jmsTemplate.send(destination, new ProducerMessageFactory(msg));</span>
 
-<span class="fc" id="L47">	}</span>
+<span class="nc" id="L47">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

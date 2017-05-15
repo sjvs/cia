@@ -39,7 +39,7 @@ import com.hack23.cia.model.internal.application.data.impl.RiksdagenDataSources;
 final class RiksdagenDocumentContentWorkGeneratorImpl extends AbstractRiksdagenDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentContentWorkGeneratorImpl.class);</span>
+<span class="nc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentContentWorkGeneratorImpl.class);</span>
 
 	/** The document content workdestination. */
 	@Autowired
@@ -51,29 +51,29 @@ final class RiksdagenDocumentContentWorkGeneratorImpl extends AbstractRiksdagenD
 	 * Instantiates a new riksdagen document content work generator impl.
 	 */
 	public RiksdagenDocumentContentWorkGeneratorImpl() {
-<span class="fc" id="L54">		super(RiksdagenDataSources.DOCUMENT_CONTENT);</span>
-<span class="fc" id="L55">	}</span>
+<span class="nc" id="L54">		super(RiksdagenDataSources.DOCUMENT_CONTENT);</span>
+<span class="nc" id="L55">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 		try {
-<span class="fc" id="L60">			final Map&lt;String, String&gt; documentStatusContainerMap = getImportService()</span>
-<span class="fc" id="L61">					.getDocumentContentMap();</span>
+<span class="nc" id="L60">			final Map&lt;String, String&gt; documentStatusContainerMap = getImportService()</span>
+<span class="nc" id="L61">					.getDocumentContentMap();</span>
 
-<span class="fc" id="L63">			final List&lt;String&gt; avaibleDocumentStatus = getImportService()</span>
-<span class="fc" id="L64">					.getAvaibleDocumentContent();</span>
+<span class="nc" id="L63">			final List&lt;String&gt; avaibleDocumentStatus = getImportService()</span>
+<span class="nc" id="L64">					.getAvaibleDocumentContent();</span>
 
-<span class="fc bfc" id="L66" title="All 2 branches covered.">			for (final String id : avaibleDocumentStatus) {</span>
-<span class="fc bfc" id="L67" title="All 2 branches covered.">				if (!documentStatusContainerMap.containsKey(id)) {</span>
-<span class="fc" id="L68">					getJmsSender().send(documentContentWorkdestination,</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">			for (final String id : avaibleDocumentStatus) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">				if (!documentStatusContainerMap.containsKey(id)) {</span>
+<span class="nc" id="L68">					getJmsSender().send(documentContentWorkdestination,</span>
 							id);
 				}
-<span class="fc" id="L71">			}</span>
+<span class="nc" id="L71">			}</span>
 
 <span class="nc" id="L73">		} catch (final JMSException e) {</span>
 <span class="nc" id="L74">			LOGGER.warn(&quot;error loading document content&quot;, e);</span>
-<span class="fc" id="L75">		}</span>
-<span class="fc" id="L76">	}</span>
+<span class="nc" id="L75">		}</span>
+<span class="nc" id="L76">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

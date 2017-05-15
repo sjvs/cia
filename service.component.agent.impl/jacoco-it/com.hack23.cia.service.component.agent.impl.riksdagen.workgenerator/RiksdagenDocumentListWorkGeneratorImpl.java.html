@@ -39,7 +39,7 @@ import com.hack23.cia.service.component.agent.impl.riksdagen.workers.LoadDocumen
 final class RiksdagenDocumentListWorkGeneratorImpl extends AbstractRiksdagenDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentListWorkGeneratorImpl.class);</span>
+<span class="nc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentListWorkGeneratorImpl.class);</span>
 
 	/** The document element workdestination. */
 	@Autowired
@@ -50,34 +50,34 @@ final class RiksdagenDocumentListWorkGeneratorImpl extends AbstractRiksdagenData
 	 * Instantiates a new riksdagen document list work generator impl.
 	 */
 	public RiksdagenDocumentListWorkGeneratorImpl() {
-<span class="fc" id="L53">		super(RiksdagenDataSources.DOCUMENT_LIST);</span>
-<span class="fc" id="L54">	}</span>
+<span class="nc" id="L53">		super(RiksdagenDataSources.DOCUMENT_LIST);</span>
+<span class="nc" id="L54">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 		try {
 
-<span class="fc" id="L60">			final int startYearForDocumentElement = getImportService().getStartYearForDocumentElement();</span>
+<span class="nc" id="L60">			final int startYearForDocumentElement = getImportService().getStartYearForDocumentElement();</span>
 
-<span class="fc" id="L62">			final org.joda.time.format.DateTimeFormatter fmt = DateTimeFormat.forPattern(&quot;yyyy-MM-dd&quot;);</span>
-<span class="fc" id="L63">			DateTime fromDateTime = fmt.parseDateTime(startYearForDocumentElement + &quot;-01-01&quot;);</span>
+<span class="nc" id="L62">			final org.joda.time.format.DateTimeFormatter fmt = DateTimeFormat.forPattern(&quot;yyyy-MM-dd&quot;);</span>
+<span class="nc" id="L63">			DateTime fromDateTime = fmt.parseDateTime(startYearForDocumentElement + &quot;-01-01&quot;);</span>
 
-<span class="fc" id="L65">			DateTime loadedWeekDate = fmt.parseDateTime(startYearForDocumentElement + &quot;-01-01&quot;);</span>
+<span class="nc" id="L65">			DateTime loadedWeekDate = fmt.parseDateTime(startYearForDocumentElement + &quot;-01-01&quot;);</span>
 
-<span class="fc" id="L67">			final DateTime toDate = new DateTime();</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">			while (loadedWeekDate.isBefore(toDate)) {</span>
-<span class="fc" id="L69">				loadedWeekDate = loadedWeekDate.plusWeeks(1);</span>
+<span class="nc" id="L67">			final DateTime toDate = new DateTime();</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">			while (loadedWeekDate.isBefore(toDate)) {</span>
+<span class="nc" id="L69">				loadedWeekDate = loadedWeekDate.plusWeeks(1);</span>
 
-<span class="fc" id="L71">				getJmsSender().send(loadDocumentWorkdestination,</span>
-<span class="fc" id="L72">						new LoadDocumentWork(fmt.print(fromDateTime), fmt.print(loadedWeekDate)));</span>
+<span class="nc" id="L71">				getJmsSender().send(loadDocumentWorkdestination,</span>
+<span class="nc" id="L72">						new LoadDocumentWork(fmt.print(fromDateTime), fmt.print(loadedWeekDate)));</span>
 
-<span class="fc" id="L74">				fromDateTime = fromDateTime.plusWeeks(1);</span>
+<span class="nc" id="L74">				fromDateTime = fromDateTime.plusWeeks(1);</span>
 			}
 
 <span class="nc" id="L77">		} catch (final JMSException e) {</span>
 <span class="nc" id="L78">			LOGGER.warn(&quot;error generating work for loading documents&quot;, e);</span>
-<span class="fc" id="L79">		}</span>
-<span class="fc" id="L80">	}</span>
+<span class="nc" id="L79">		}</span>
+<span class="nc" id="L80">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

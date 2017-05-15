@@ -46,9 +46,9 @@ public abstract class AbstractWorldBankDataSourcesWorkGenerator implements World
 	 *            the datasource
 	 */
 	public AbstractWorldBankDataSourcesWorkGenerator(final WorldBankDataSources datasource) {
-<span class="fc" id="L49">		super();</span>
-<span class="fc" id="L50">		this.datasource = datasource;</span>
-<span class="fc" id="L51">	}</span>
+<span class="nc" id="L49">		super();</span>
+<span class="nc" id="L50">		this.datasource = datasource;</span>
+<span class="nc" id="L51">	}</span>
 
 	@Override
 	public final boolean matches(final WorldBankDataSources datasource) {
@@ -61,7 +61,7 @@ public abstract class AbstractWorldBankDataSourcesWorkGenerator implements World
 	 * @return the import service
 	 */
 	protected final WorldbankImportService getImportService() {
-<span class="fc" id="L64">		return importService;</span>
+<span class="nc" id="L64">		return importService;</span>
 	}
 
 	/**
@@ -70,7 +70,7 @@ public abstract class AbstractWorldBankDataSourcesWorkGenerator implements World
 	 * @return the jms sender
 	 */
 	protected final JmsSender getJmsSender() {
-<span class="fc" id="L73">		return jmsSender;</span>
+<span class="nc" id="L73">		return jmsSender;</span>
 	}
 
 }

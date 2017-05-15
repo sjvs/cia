@@ -75,27 +75,27 @@ final class RiksdagenUpdateServiceImpl implements RiksdagenUpdateService {
 	 * Instantiates a new riksdagen update service impl.
 	 */
 	public RiksdagenUpdateServiceImpl() {
-<span class="fc" id="L78">		super();</span>
-<span class="fc" id="L79">	}</span>
+<span class="nc" id="L78">		super();</span>
+<span class="nc" id="L79">	}</span>
 
 	@Override
 	public void update(final PersonData personData) {
-<span class="pc bpc" id="L83" title="1 of 2 branches missed.">		if (personDataDAO.load(personData.getId()) != null) {</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">		if (personDataDAO.load(personData.getId()) != null) {</span>
 			//personDataDAO.merge(personData);
 		} else {
 <span class="nc" id="L86">			personDataDAO.persist(personData);</span>
 		}
-<span class="fc" id="L88">	}</span>
+<span class="nc" id="L88">	}</span>
 
 	@Override
 	public void updateCommitteeProposalComponentData(final CommitteeProposalComponentData committeeProposal) {
-<span class="pc bpc" id="L92" title="1 of 2 branches missed.">		if (committeeProposalComponentDataDAO.findFirstByProperty(CommitteeProposalComponentData_.document,</span>
-<span class="fc" id="L93">				committeeProposal.getDocument()) != null) {</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">		if (committeeProposalComponentDataDAO.findFirstByProperty(CommitteeProposalComponentData_.document,</span>
+<span class="nc" id="L93">				committeeProposal.getDocument()) != null) {</span>
 			//committeeProposalComponentDataDAO.merge(committeeProposal);
 		} else {
 <span class="nc" id="L96">			committeeProposalComponentDataDAO.persist(committeeProposal);</span>
 		}
-<span class="fc" id="L98">	}</span>
+<span class="nc" id="L98">	}</span>
 
 	@Override
 	public void updateDocumentContentData(final DocumentContentData documentData) {

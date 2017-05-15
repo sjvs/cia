@@ -46,8 +46,8 @@ final class RiksdagenLoadDocumentWorkConsumerImpl implements
 MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L49">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L50">			.getLogger(RiksdagenLoadDocumentWorkConsumerImpl.class);</span>
+<span class="nc" id="L49">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L50">			.getLogger(RiksdagenLoadDocumentWorkConsumerImpl.class);</span>
 
 
 	/** The document element workdestination. */
@@ -68,8 +68,8 @@ MessageListener {
 	 * Instantiates a new riksdagen load document work consumer impl.
 	 */
 	public RiksdagenLoadDocumentWorkConsumerImpl() {
-<span class="fc" id="L71">		super();</span>
-<span class="fc" id="L72">	}</span>
+<span class="nc" id="L71">		super();</span>
+<span class="nc" id="L72">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {
@@ -78,10 +78,10 @@ MessageListener {
 
 <span class="nc" id="L79">			riksdagenApi.processDocumentList(work.getFromDate(),work.getToDate(),new DocumentElementWorkProducer());</span>
 
-<span class="fc" id="L81">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
-<span class="fc" id="L82">			LOGGER.warn(&quot;Error loading riksdagen document&quot; , e);</span>
+<span class="nc" id="L81">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
+<span class="nc" id="L82">			LOGGER.warn(&quot;Error loading riksdagen document&quot; , e);</span>
 <span class="nc" id="L83">		}</span>
-<span class="fc" id="L84">	}</span>
+<span class="nc" id="L84">	}</span>
 
 
 	/**

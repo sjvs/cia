@@ -57,8 +57,8 @@ final class WorldbankImportServiceImpl implements WorldbankImportService {
 	 * Instantiates a new worldbank import service impl.
 	 */
 	public WorldbankImportServiceImpl() {
-<span class="fc" id="L60">		super();</span>
-<span class="fc" id="L61">	}</span>
+<span class="nc" id="L60">		super();</span>
+<span class="nc" id="L61">	}</span>
 
 	/**
 	 * Creates the map from list.
@@ -68,42 +68,42 @@ final class WorldbankImportServiceImpl implements WorldbankImportService {
 	 * @return the map
 	 */
 	private static Map&lt;String, String&gt; createMapFromList(final List&lt;String&gt; all) {
-<span class="fc" id="L71">		final Map&lt;String, String&gt; map = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L71">		final Map&lt;String, String&gt; map = new ConcurrentHashMap&lt;&gt;();</span>
 
-<span class="fc bfc" id="L73" title="All 2 branches covered.">		for (final String documentElement : all) {</span>
-<span class="fc bfc" id="L74" title="All 2 branches covered.">			if (documentElement != null) {</span>
-<span class="fc" id="L75">				map.put(documentElement, documentElement);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">		for (final String documentElement : all) {</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">			if (documentElement != null) {</span>
+<span class="nc" id="L75">				map.put(documentElement, documentElement);</span>
 			}
-<span class="fc" id="L77">		}</span>
-<span class="fc" id="L78">		return map;</span>
+<span class="nc" id="L77">		}</span>
+<span class="nc" id="L78">		return map;</span>
 	}
 
 	@Override
 	public List&lt;IndicatorElement&gt; getAllIndicators() {
-<span class="fc" id="L83">		return indicatorElementDAO.getAll();</span>
+<span class="nc" id="L83">		return indicatorElementDAO.getAll();</span>
 	}
 
 	@Override
 	public Map&lt;String, String&gt; getWorldBankCountryMap() {
-<span class="fc" id="L88">		final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L89" title="All 2 branches covered.">		for (final CountryElement countryElement : countryElementDAO.getAll()) {</span>
-<span class="fc" id="L90">			list.add(countryElement.getIso2Code());</span>
-<span class="fc" id="L91">		}</span>
-<span class="fc" id="L92">		return createMapFromList(list);</span>
+<span class="nc" id="L88">		final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">		for (final CountryElement countryElement : countryElementDAO.getAll()) {</span>
+<span class="nc" id="L90">			list.add(countryElement.getIso2Code());</span>
+<span class="nc" id="L91">		}</span>
+<span class="nc" id="L92">		return createMapFromList(list);</span>
 	}
 
 	@Override
 	public Map&lt;String, String&gt; getWorldBankDataMap() {
-<span class="fc" id="L97">		return createMapFromList(dataDAO.getIdList());</span>
+<span class="nc" id="L97">		return createMapFromList(dataDAO.getIdList());</span>
 	}
 
 	@Override
 	public Map&lt;String, String&gt; getWorldBankIndicatorElementMap() {
-<span class="fc" id="L102">		final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L103" title="All 2 branches covered.">		for (final IndicatorElement element : indicatorElementDAO.getAll()) {</span>
-<span class="fc" id="L104">			list.add(element.getId());</span>
-<span class="fc" id="L105">		}</span>
-<span class="fc" id="L106">		return createMapFromList(list);</span>
+<span class="nc" id="L102">		final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		for (final IndicatorElement element : indicatorElementDAO.getAll()) {</span>
+<span class="nc" id="L104">			list.add(element.getId());</span>
+<span class="nc" id="L105">		}</span>
+<span class="nc" id="L106">		return createMapFromList(list);</span>
 	}
 
 }

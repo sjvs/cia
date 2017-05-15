@@ -42,8 +42,8 @@ final class RiksdagenDocumentStatusContainerWorkConsumerImpl implements
 MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L45">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L46">			.getLogger(RiksdagenDocumentStatusContainerWorkConsumerImpl.class);</span>
+<span class="nc" id="L45">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L46">			.getLogger(RiksdagenDocumentStatusContainerWorkConsumerImpl.class);</span>
 
 	/** The import service. */
 	@Autowired
@@ -58,17 +58,17 @@ MessageListener {
 	 * impl.
 	 */
 	public RiksdagenDocumentStatusContainerWorkConsumerImpl() {
-<span class="fc" id="L61">		super();</span>
-<span class="fc" id="L62">	}</span>
+<span class="nc" id="L61">		super();</span>
+<span class="nc" id="L62">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {
 		try {
-<span class="pc" id="L67">			updateService.updateDocumentData(riksdagenApi</span>
+<span class="nc" id="L67">			updateService.updateDocumentData(riksdagenApi</span>
 <span class="nc" id="L68">					.getDocumentStatus((String) ((ObjectMessage) message).getObject()));</span>
-<span class="fc" id="L69">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
-<span class="fc" id="L70">			LOGGER.warn(&quot;Error loading riksdagen documentstatus:&quot; , e);</span>
+<span class="nc" id="L69">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
+<span class="nc" id="L70">			LOGGER.warn(&quot;Error loading riksdagen documentstatus:&quot; , e);</span>
 <span class="nc" id="L71">		}</span>
-<span class="fc" id="L72">	}</span>
+<span class="nc" id="L72">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

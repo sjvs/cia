@@ -40,13 +40,13 @@ final class ProducerMessageFactory implements MessageCreator {
 	 * @param message
 	 *            the message
 	 */
-<span class="fc" id="L43">	public ProducerMessageFactory(final Serializable message) {</span>
-<span class="fc" id="L44">		this.message = message;</span>
-<span class="fc" id="L45">	}</span>
+<span class="nc" id="L43">	public ProducerMessageFactory(final Serializable message) {</span>
+<span class="nc" id="L44">		this.message = message;</span>
+<span class="nc" id="L45">	}</span>
 
 	@Override
 	public Message createMessage(final Session session) throws JMSException {
-<span class="fc" id="L49">		return session.createObjectMessage(message);</span>
+<span class="nc" id="L49">		return session.createObjectMessage(message);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
