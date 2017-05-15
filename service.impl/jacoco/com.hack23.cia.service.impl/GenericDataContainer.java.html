@@ -53,10 +53,10 @@ DataContainer&lt;T, I&gt; {
 	 * @param dataViewer
 	 *            the data viewer
 	 */
-<span class="fc" id="L56">	GenericDataContainer(final Class&lt;T&gt; clazz, final DataViewer dataViewer) {</span>
-<span class="fc" id="L57">		this.clazz = clazz;</span>
-<span class="fc" id="L58">		dataProxy = dataViewer;</span>
-<span class="fc" id="L59">	}</span>
+<span class="nc" id="L56">	GenericDataContainer(final Class&lt;T&gt; clazz, final DataViewer dataViewer) {</span>
+<span class="nc" id="L57">		this.clazz = clazz;</span>
+<span class="nc" id="L58">		dataProxy = dataViewer;</span>
+<span class="nc" id="L59">	}</span>
 
 	@Override
 	public &lt;T, V&gt; T findByQueryProperty(final Class&lt;T&gt; clazz,
@@ -117,7 +117,7 @@ DataContainer&lt;T, I&gt; {
 	public List&lt;T&gt; getAllBy(
 			final SingularAttribute&lt;T, ? extends Object&gt; property,
 			final Object value) {
-<span class="fc" id="L120">		return dataProxy.findListByProperty(clazz, property, value);</span>
+<span class="nc" id="L120">		return dataProxy.findListByProperty(clazz, property, value);</span>
 	}
 
 	@Override

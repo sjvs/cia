@@ -47,8 +47,8 @@ public final class DestroyApplicationSessionService
 		implements BusinessService&lt;DestroyApplicationSessionRequest, DestroyApplicationSessionResponse&gt; {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L50">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L51">			.getLogger(DestroyApplicationSessionService.class);</span>
+<span class="nc" id="L50">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L51">			.getLogger(DestroyApplicationSessionService.class);</span>
 
 
 	/** The application session dao. */
@@ -59,19 +59,19 @@ public final class DestroyApplicationSessionService
 	 * Instantiates a new destroy application session service.
 	 */
 	public DestroyApplicationSessionService() {
-<span class="fc" id="L62">		super(DestroyApplicationSessionRequest.class);</span>
-<span class="fc" id="L63">	}</span>
+<span class="nc" id="L62">		super(DestroyApplicationSessionRequest.class);</span>
+<span class="nc" id="L63">	}</span>
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot; })
 	@Override
 	public DestroyApplicationSessionResponse processService(final DestroyApplicationSessionRequest serviceRequest) {
-<span class="fc" id="L68">		final ApplicationSession applicationSession = applicationSessionDAO.findFirstByProperty(ApplicationSession_.sessionId, serviceRequest.getSessionId());</span>
+<span class="nc" id="L68">		final ApplicationSession applicationSession = applicationSessionDAO.findFirstByProperty(ApplicationSession_.sessionId, serviceRequest.getSessionId());</span>
 
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (applicationSession != null) {</span>
-<span class="fc" id="L71">			LOGGER.info(&quot;Destroy Application session: {}&quot;,applicationSession.getSessionId());</span>
-<span class="fc" id="L72">			applicationSession.setDestroyedDate(new Date());</span>
-<span class="fc" id="L73">			applicationSessionDAO.persist(applicationSession);</span>
-<span class="fc" id="L74">			return new DestroyApplicationSessionResponse(ServiceResult.SUCCESS);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if (applicationSession != null) {</span>
+<span class="nc" id="L71">			LOGGER.info(&quot;Destroy Application session: {}&quot;,applicationSession.getSessionId());</span>
+<span class="nc" id="L72">			applicationSession.setDestroyedDate(new Date());</span>
+<span class="nc" id="L73">			applicationSessionDAO.persist(applicationSession);</span>
+<span class="nc" id="L74">			return new DestroyApplicationSessionResponse(ServiceResult.SUCCESS);</span>
 		} else {
 <span class="nc" id="L76">			LOGGER.warn(&quot;Failed to destroy Application session, no session found for id: {}&quot;,serviceRequest.getSessionId());</span>
 <span class="nc" id="L77">			return new DestroyApplicationSessionResponse(ServiceResult.FAILURE);</span>

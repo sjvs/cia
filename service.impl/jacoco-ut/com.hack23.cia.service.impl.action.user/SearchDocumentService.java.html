@@ -54,8 +54,8 @@ public final class SearchDocumentService extends
 		implements BusinessService&lt;SearchDocumentRequest, SearchDocumentResponse&gt; {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L57">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L58">			.getLogger(SearchDocumentService.class);</span>
+<span class="nc" id="L57">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L58">			.getLogger(SearchDocumentService.class);</span>
 
 	/** The create application event service. */
 	@Autowired
@@ -72,8 +72,8 @@ public final class SearchDocumentService extends
 	 * Instantiates a new search document service.
 	 */
 	public SearchDocumentService() {
-<span class="fc" id="L75">		super(SearchDocumentRequest.class);</span>
-<span class="fc" id="L76">	}</span>
+<span class="nc" id="L75">		super(SearchDocumentRequest.class);</span>
+<span class="nc" id="L76">	}</span>
 
 
 	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot;, &quot;ROLE_ANONYMOUS&quot; })
@@ -81,28 +81,28 @@ public final class SearchDocumentService extends
 	public SearchDocumentResponse processService(
 			final SearchDocumentRequest serviceRequest) {
 
-<span class="fc" id="L84">		LOGGER.info(&quot;{}:{}&quot;,serviceRequest.getClass().getSimpleName(),serviceRequest.getSearchExpression());</span>
+<span class="nc" id="L84">		LOGGER.info(&quot;{}:{}&quot;,serviceRequest.getClass().getSimpleName(),serviceRequest.getSearchExpression());</span>
 
 
-<span class="fc" id="L87">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
-<span class="fc" id="L88">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
-<span class="fc" id="L89">		eventRequest.setApplicationOperation(ApplicationOperationType.READ);</span>
-<span class="fc" id="L90">		eventRequest.setActionName(SearchDocumentRequest.class.getSimpleName());</span>
-<span class="fc" id="L91">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+<span class="nc" id="L87">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="nc" id="L88">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
+<span class="nc" id="L89">		eventRequest.setApplicationOperation(ApplicationOperationType.READ);</span>
+<span class="nc" id="L90">		eventRequest.setActionName(SearchDocumentRequest.class.getSimpleName());</span>
+<span class="nc" id="L91">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
 
-<span class="fc" id="L93">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
+<span class="nc" id="L93">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
 
 
-<span class="pc bpc" id="L96" title="1 of 2 branches missed.">		if (userAccount != null) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">		if (userAccount != null) {</span>
 
 <span class="nc" id="L98">			eventRequest.setUserId(userAccount.getUserId());</span>
 		}
 
-<span class="fc" id="L101">		final SearchDocumentResponse response = new SearchDocumentResponse(ServiceResult.SUCCESS);</span>
+<span class="nc" id="L101">		final SearchDocumentResponse response = new SearchDocumentResponse(ServiceResult.SUCCESS);</span>
 
-<span class="fc" id="L103">		final List&lt;DocumentElement&gt; searchResultTitles = documentElementDAO.search(serviceRequest.getSearchExpression(), serviceRequest.getMaxResults(),&quot;id&quot;, &quot;title&quot;,&quot;subTitle&quot;);</span>
-<span class="pc bpc" id="L104" title="1 of 2 branches missed.">		if (!searchResultTitles.isEmpty()) {</span>
-<span class="fc" id="L105">		 response.setResultElement(searchResultTitles);</span>
+<span class="nc" id="L103">		final List&lt;DocumentElement&gt; searchResultTitles = documentElementDAO.search(serviceRequest.getSearchExpression(), serviceRequest.getMaxResults(),&quot;id&quot;, &quot;title&quot;,&quot;subTitle&quot;);</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">		if (!searchResultTitles.isEmpty()) {</span>
+<span class="nc" id="L105">		 response.setResultElement(searchResultTitles);</span>
 		} else {
 <span class="nc" id="L107">			final List&lt;DocumentContentData&gt; searchResultContent = documentContentDataDAO.search(serviceRequest.getSearchExpression(), serviceRequest.getMaxResults(), &quot;id&quot;,&quot;content&quot;);</span>
 <span class="nc bnc" id="L108" title="All 2 branches missed.">			if (!searchResultContent.isEmpty()) {</span>
@@ -118,10 +118,10 @@ public final class SearchDocumentService extends
 			}
 		}
 
-<span class="fc" id="L121">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
-<span class="fc" id="L122">		createApplicationEventService.processService(eventRequest);</span>
+<span class="nc" id="L121">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+<span class="nc" id="L122">		createApplicationEventService.processService(eventRequest);</span>
 
-<span class="fc" id="L124">		return response;</span>
+<span class="nc" id="L124">		return response;</span>
 	}
 
 

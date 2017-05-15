@@ -63,8 +63,8 @@ public final class RegisterUserService extends
 		implements BusinessService&lt;RegisterUserRequest, RegisterUserResponse&gt; {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L66">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L67">			.getLogger(RegisterUserService.class);</span>
+<span class="nc" id="L66">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L67">			.getLogger(RegisterUserService.class);</span>
 
 
 	/** The create application event service. */
@@ -80,71 +80,71 @@ public final class RegisterUserService extends
 	private UserDAO userDAO;
 
 	/** The password encoder. */
-<span class="fc" id="L83">	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();</span>
+<span class="nc" id="L83">	private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();</span>
 
 	/**
 	 * Instantiates a new register user service.
 	 */
 	public RegisterUserService() {
-<span class="fc" id="L89">		super(RegisterUserRequest.class);</span>
-<span class="fc" id="L90">	}</span>
+<span class="nc" id="L89">		super(RegisterUserRequest.class);</span>
+<span class="nc" id="L90">	}</span>
 
 	@Secured({&quot;ROLE_ANONYMOUS&quot;})
 	@Override
 	public RegisterUserResponse processService(
 			final RegisterUserRequest serviceRequest) {
 
-<span class="fc" id="L97">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
-<span class="fc" id="L98">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
-<span class="fc" id="L99">		eventRequest.setApplicationOperation(ApplicationOperationType.CREATE);</span>
-<span class="fc" id="L100">		eventRequest.setActionName(RegisterUserRequest.class.getSimpleName());</span>
-<span class="fc" id="L101">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
-<span class="fc" id="L102">		eventRequest.setElementId(serviceRequest.getEmail());</span>
+<span class="nc" id="L97">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="nc" id="L98">		eventRequest.setEventGroup(ApplicationEventGroup.USER);</span>
+<span class="nc" id="L99">		eventRequest.setApplicationOperation(ApplicationOperationType.CREATE);</span>
+<span class="nc" id="L100">		eventRequest.setActionName(RegisterUserRequest.class.getSimpleName());</span>
+<span class="nc" id="L101">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+<span class="nc" id="L102">		eventRequest.setElementId(serviceRequest.getEmail());</span>
 
-<span class="fc" id="L104">		final ApplicationConfiguration registeredUsersGetAdminConfig = applicationConfigurationService.checkValueOrLoadDefault(&quot;Registered User All get Role Admin&quot;, &quot;Registered User All get Role Admin&quot;, ConfigurationGroup.AUTHORIZATION, RegisterUserService.class.getSimpleName(), &quot;Register User Service&quot;, &quot;Responsible for create of useraccounts&quot;, &quot;registered.users.get.admin&quot;, &quot;true&quot;);</span>
+<span class="nc" id="L104">		final ApplicationConfiguration registeredUsersGetAdminConfig = applicationConfigurationService.checkValueOrLoadDefault(&quot;Registered User All get Role Admin&quot;, &quot;Registered User All get Role Admin&quot;, ConfigurationGroup.AUTHORIZATION, RegisterUserService.class.getSimpleName(), &quot;Register User Service&quot;, &quot;Responsible for create of useraccounts&quot;, &quot;registered.users.get.admin&quot;, &quot;true&quot;);</span>
 
-<span class="fc" id="L106">		final UserAccount userNameExist = userDAO.findFirstByProperty(UserAccount_.username, serviceRequest.getUsername());</span>
-<span class="fc" id="L107">		final UserAccount userEmailExist = userDAO.findFirstByProperty(UserAccount_.email, serviceRequest.getEmail());</span>
+<span class="nc" id="L106">		final UserAccount userNameExist = userDAO.findFirstByProperty(UserAccount_.username, serviceRequest.getUsername());</span>
+<span class="nc" id="L107">		final UserAccount userEmailExist = userDAO.findFirstByProperty(UserAccount_.email, serviceRequest.getEmail());</span>
 
 		RegisterUserResponse response;
-<span class="pc bpc" id="L110" title="2 of 4 branches missed.">		if (userEmailExist == null &amp;&amp; userNameExist == null) {</span>
-<span class="fc" id="L111">			final UserAccount userAccount = new UserAccount();</span>
-<span class="fc" id="L112">			userAccount.setCountry(serviceRequest.getCountry());</span>
-<span class="fc" id="L113">			userAccount.setEmail(serviceRequest.getEmail());</span>
-<span class="fc" id="L114">			userAccount.setUsername(serviceRequest.getUsername());</span>
-<span class="fc" id="L115">			userAccount.setUserId(UUID.randomUUID().toString());</span>
-<span class="fc" id="L116">			userAccount.setUserpassword(passwordEncoder.encode(userAccount.getUserId()+&quot;.uuid&quot;+ serviceRequest.getUserpassword()));</span>
-<span class="fc" id="L117">			userAccount.setNumberOfVisits(1);</span>
-<span class="fc" id="L118">			userAccount.setUserType(serviceRequest.getUserType());</span>
-<span class="fc" id="L119">			userAccount.setCreatedDate(new Date());</span>
-<span class="fc" id="L120">			userDAO.persist(userAccount);</span>
+<span class="nc bnc" id="L110" title="All 4 branches missed.">		if (userEmailExist == null &amp;&amp; userNameExist == null) {</span>
+<span class="nc" id="L111">			final UserAccount userAccount = new UserAccount();</span>
+<span class="nc" id="L112">			userAccount.setCountry(serviceRequest.getCountry());</span>
+<span class="nc" id="L113">			userAccount.setEmail(serviceRequest.getEmail());</span>
+<span class="nc" id="L114">			userAccount.setUsername(serviceRequest.getUsername());</span>
+<span class="nc" id="L115">			userAccount.setUserId(UUID.randomUUID().toString());</span>
+<span class="nc" id="L116">			userAccount.setUserpassword(passwordEncoder.encode(userAccount.getUserId()+&quot;.uuid&quot;+ serviceRequest.getUserpassword()));</span>
+<span class="nc" id="L117">			userAccount.setNumberOfVisits(1);</span>
+<span class="nc" id="L118">			userAccount.setUserType(serviceRequest.getUserType());</span>
+<span class="nc" id="L119">			userAccount.setCreatedDate(new Date());</span>
+<span class="nc" id="L120">			userDAO.persist(userAccount);</span>
 
-<span class="pc bpc" id="L122" title="1 of 2 branches missed.">			if (&quot;true&quot;.equals(registeredUsersGetAdminConfig.getPropertyValue())) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">			if (&quot;true&quot;.equals(registeredUsersGetAdminConfig.getPropertyValue())) {</span>
 <span class="nc" id="L123">				userAccount.setUserRole(UserRole.ADMIN);</span>
 			} else {
-<span class="fc" id="L125">				userAccount.setUserRole(UserRole.USER);</span>
+<span class="nc" id="L125">				userAccount.setUserRole(UserRole.USER);</span>
 			}
 
-<span class="fc" id="L128">			final Collection&lt;SimpleGrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L128">			final Collection&lt;SimpleGrantedAuthority&gt; authorities = new ArrayList&lt;&gt;();</span>
 
-<span class="pc bpc" id="L130" title="1 of 2 branches missed.">			if (UserRole.ADMIN == userAccount.getUserRole()) {</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">			if (UserRole.ADMIN == userAccount.getUserRole()) {</span>
 <span class="nc" id="L131">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_ADMIN&quot;));</span>
-<span class="pc bpc" id="L132" title="1 of 2 branches missed.">			} else if (UserRole.USER == userAccount.getUserRole()) {</span>
-<span class="fc" id="L133">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">			} else if (UserRole.USER == userAccount.getUserRole()) {</span>
+<span class="nc" id="L133">				authorities.add(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span>
 			}
 
-<span class="fc" id="L136">			SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userAccount, userAccount.getUserpassword(), authorities));</span>
+<span class="nc" id="L136">			SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(userAccount, userAccount.getUserpassword(), authorities));</span>
 
-<span class="fc" id="L138">			eventRequest.setUserId(userAccount.getUserId());</span>
-<span class="fc" id="L139">			response = new RegisterUserResponse(ServiceResult.SUCCESS);</span>
-<span class="fc" id="L140">		} else {</span>
+<span class="nc" id="L138">			eventRequest.setUserId(userAccount.getUserId());</span>
+<span class="nc" id="L139">			response = new RegisterUserResponse(ServiceResult.SUCCESS);</span>
+<span class="nc" id="L140">		} else {</span>
 <span class="nc" id="L141">			response = new RegisterUserResponse(ServiceResult.FAILURE);</span>
 		}
 
-<span class="fc" id="L144">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
-<span class="fc" id="L145">		createApplicationEventService.processService(eventRequest);</span>
-<span class="fc" id="L146">		LOGGER.info(&quot;Event: {}&quot;,eventRequest);</span>
-<span class="fc" id="L147">		return response;</span>
+<span class="nc" id="L144">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+<span class="nc" id="L145">		createApplicationEventService.processService(eventRequest);</span>
+<span class="nc" id="L146">		LOGGER.info(&quot;Event: {}&quot;,eventRequest);</span>
+<span class="nc" id="L147">		return response;</span>
 	}
 
 }

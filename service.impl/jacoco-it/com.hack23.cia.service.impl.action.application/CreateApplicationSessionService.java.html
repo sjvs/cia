@@ -48,8 +48,8 @@ public final class CreateApplicationSessionService
 		implements BusinessService&lt;CreateApplicationSessionRequest, CreateApplicationSessionResponse&gt; {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L51">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L52">			.getLogger(CreateApplicationSessionService.class);</span>
+<span class="nc" id="L51">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L52">			.getLogger(CreateApplicationSessionService.class);</span>
 
 
 	/** The application session dao. */
@@ -60,28 +60,28 @@ public final class CreateApplicationSessionService
 	 * Instantiates a new creates the application session service.
 	 */
 	public CreateApplicationSessionService() {
-<span class="fc" id="L63">		super(CreateApplicationSessionRequest.class);</span>
-<span class="fc" id="L64">	}</span>
+<span class="nc" id="L63">		super(CreateApplicationSessionRequest.class);</span>
+<span class="nc" id="L64">	}</span>
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot; })
 	@Override
 	public CreateApplicationSessionResponse processService(final CreateApplicationSessionRequest serviceRequest) {
-<span class="fc" id="L69">		final ApplicationSession applicationSession = new ApplicationSession();</span>
-<span class="fc" id="L70">		applicationSession.setCreatedDate(new Date());</span>
+<span class="nc" id="L69">		final ApplicationSession applicationSession = new ApplicationSession();</span>
+<span class="nc" id="L70">		applicationSession.setCreatedDate(new Date());</span>
 
-<span class="fc" id="L72">		applicationSession.setSessionId(serviceRequest.getSessionId());</span>
-<span class="fc" id="L73">		applicationSession.setIpInformation(serviceRequest.getIpInformation());</span>
-<span class="fc" id="L74">		applicationSession.setLocale(serviceRequest.getLocale());</span>
-<span class="fc" id="L75">		applicationSession.setOperatingSystem(serviceRequest.getOperatingSystem());</span>
-<span class="fc" id="L76">		applicationSession.setUserAgentInformation(serviceRequest.getUserAgentInformation());</span>
-<span class="fc" id="L77">		applicationSession.setSessionType(serviceRequest.getSessionType());</span>
-<span class="fc" id="L78">		applicationSession.setEvents(new ArrayList&lt;&gt;());</span>
-<span class="fc" id="L79">		applicationSession.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
-<span class="fc" id="L80">		applicationSessionDAO.persist(applicationSession);</span>
+<span class="nc" id="L72">		applicationSession.setSessionId(serviceRequest.getSessionId());</span>
+<span class="nc" id="L73">		applicationSession.setIpInformation(serviceRequest.getIpInformation());</span>
+<span class="nc" id="L74">		applicationSession.setLocale(serviceRequest.getLocale());</span>
+<span class="nc" id="L75">		applicationSession.setOperatingSystem(serviceRequest.getOperatingSystem());</span>
+<span class="nc" id="L76">		applicationSession.setUserAgentInformation(serviceRequest.getUserAgentInformation());</span>
+<span class="nc" id="L77">		applicationSession.setSessionType(serviceRequest.getSessionType());</span>
+<span class="nc" id="L78">		applicationSession.setEvents(new ArrayList&lt;&gt;());</span>
+<span class="nc" id="L79">		applicationSession.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
+<span class="nc" id="L80">		applicationSessionDAO.persist(applicationSession);</span>
 
-<span class="fc" id="L82">		LOGGER.info(&quot;Create application session:{}&quot;,applicationSession);</span>
+<span class="nc" id="L82">		LOGGER.info(&quot;Create application session:{}&quot;,applicationSession);</span>
 
-<span class="fc" id="L84">		return new CreateApplicationSessionResponse(ServiceResult.SUCCESS);</span>
+<span class="nc" id="L84">		return new CreateApplicationSessionResponse(ServiceResult.SUCCESS);</span>
 	}
 
 }

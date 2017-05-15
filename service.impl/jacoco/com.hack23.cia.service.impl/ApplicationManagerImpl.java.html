@@ -76,15 +76,15 @@ final class ApplicationManagerImpl implements ApplicationManager, ApplicationCon
 	private ViewDataDataContainerFactory viewDataDataContainerFactory;
 
 	/** The service request business service map. */
-<span class="fc" id="L79">	private final Map&lt;Class&lt;? extends ServiceRequest&gt;, BusinessService&lt;? extends ServiceRequest,? extends ServiceResponse&gt;&gt; serviceRequestBusinessServiceMap = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="nc" id="L79">	private final Map&lt;Class&lt;? extends ServiceRequest&gt;, BusinessService&lt;? extends ServiceRequest,? extends ServiceResponse&gt;&gt; serviceRequestBusinessServiceMap = new ConcurrentHashMap&lt;&gt;();</span>
 
 
 	/**
 	 * Instantiates a new application manager impl.
 	 */
 	public ApplicationManagerImpl() {
-<span class="fc" id="L86">		super();</span>
-<span class="fc" id="L87">	}</span>
+<span class="nc" id="L86">		super();</span>
+<span class="nc" id="L87">	}</span>
 
 
 	@Secured({&quot;ROLE_ADMIN&quot;})
@@ -100,29 +100,29 @@ final class ApplicationManagerImpl implements ApplicationManager, ApplicationCon
 
 		DataContainer&lt;T, V&gt; result;
 
-<span class="fc bfc" id="L103" title="All 2 branches covered.">		if (dataObject.equals(DataSummary.class)) {</span>
-<span class="fc" id="L104">			result= (DataContainer&lt;T, V&gt;) dataSummaryDataContainer;</span>
-<span class="fc bfc" id="L105" title="All 2 branches covered.">		} else if (dataObject.equals(ViewRiksdagenCommittee.class)) {</span>
-<span class="fc" id="L106">			result= (DataContainer&lt;T, V&gt;) viewRiksdagenCommitteeDataContainer;</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		if (dataObject.equals(DataSummary.class)) {</span>
+<span class="nc" id="L104">			result= (DataContainer&lt;T, V&gt;) dataSummaryDataContainer;</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">		} else if (dataObject.equals(ViewRiksdagenCommittee.class)) {</span>
+<span class="nc" id="L106">			result= (DataContainer&lt;T, V&gt;) viewRiksdagenCommitteeDataContainer;</span>
 		} else {
-<span class="fc" id="L108">			result= viewDataDataContainerFactory.createDataContainer(dataObject);</span>
+<span class="nc" id="L108">			result= viewDataDataContainerFactory.createDataContainer(dataObject);</span>
 		}
 
-<span class="fc" id="L111">		return result;</span>
+<span class="nc" id="L111">		return result;</span>
 	}
 
 	@Secured({&quot;ROLE_ANONYMOUS&quot;,&quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public ServiceResponse service(final ServiceRequest serviceRequest) {
-<span class="fc" id="L117">		final BusinessService businessService= serviceRequestBusinessServiceMap.get(serviceRequest.getClass());</span>
+<span class="nc" id="L117">		final BusinessService businessService= serviceRequestBusinessServiceMap.get(serviceRequest.getClass());</span>
 
-<span class="fc" id="L119">		ServiceResponse serviceResponse = null;</span>
+<span class="nc" id="L119">		ServiceResponse serviceResponse = null;</span>
 
-<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (businessService != null) {</span>
-<span class="fc" id="L122">			serviceResponse = businessService.processService(serviceRequest);</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">		if (businessService != null) {</span>
+<span class="nc" id="L122">			serviceResponse = businessService.processService(serviceRequest);</span>
 		}
 
-<span class="fc" id="L125">		return serviceResponse;</span>
+<span class="nc" id="L125">		return serviceResponse;</span>
 	}
 
     @Async(&quot;SecureTaskExecutor&quot;)
@@ -144,12 +144,12 @@ final class ApplicationManagerImpl implements ApplicationManager, ApplicationCon
 	@Override
 	public void setApplicationContext(final ApplicationContext applicationContext)
 			throws BeansException {
-<span class="fc" id="L147">		final Map&lt;String, BusinessService&gt; beansOfType = applicationContext.getBeansOfType(BusinessService.class);</span>
+<span class="nc" id="L147">		final Map&lt;String, BusinessService&gt; beansOfType = applicationContext.getBeansOfType(BusinessService.class);</span>
 
-<span class="fc bfc" id="L149" title="All 2 branches covered.">		for (final Entry&lt;String, BusinessService&gt; entry : beansOfType.entrySet()) {</span>
-<span class="fc" id="L150">			serviceRequestBusinessServiceMap.put(entry.getValue().getSupportedService(), entry.getValue());</span>
-<span class="fc" id="L151">		}</span>
-<span class="fc" id="L152">	}</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">		for (final Entry&lt;String, BusinessService&gt; entry : beansOfType.entrySet()) {</span>
+<span class="nc" id="L150">			serviceRequestBusinessServiceMap.put(entry.getValue().getSupportedService(), entry.getValue());</span>
+<span class="nc" id="L151">		}</span>
+<span class="nc" id="L152">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

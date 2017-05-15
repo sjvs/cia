@@ -127,7 +127,7 @@ public final class EmailServiceImpl implements EmailService {
 	private static final String EMAIL_SETTINGS = &quot;Email settings:{}&quot;;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L130">	private static final Logger LOGGER = LoggerFactory.getLogger(EmailServiceImpl.class);</span>
+<span class="nc" id="L130">	private static final Logger LOGGER = LoggerFactory.getLogger(EmailServiceImpl.class);</span>
 
 	/** The application configuration service. */
 	@Autowired
@@ -138,8 +138,8 @@ public final class EmailServiceImpl implements EmailService {
 	 * Instantiates a new email service impl.
 	 */
 	public EmailServiceImpl() {
-<span class="fc" id="L141">		super();</span>
-<span class="fc" id="L142">	}</span>
+<span class="nc" id="L141">		super();</span>
+<span class="nc" id="L142">	}</span>
 
 
 	/**
@@ -147,38 +147,38 @@ public final class EmailServiceImpl implements EmailService {
 	 */
 	@PostConstruct
 	public void initSettings() {
-<span class="fc" id="L150">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SEND_EMAILS, SEND_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SEND_EMAIL, &quot;false&quot;));</span>
-<span class="fc" id="L151">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_FROM_EMAIL, FROM_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_FROM_EMAIL, &quot;admin@hack23.com&quot;));</span>
-<span class="fc" id="L152">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_HOST, SMTP_HOST, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_HOST, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_HOST, &quot;localhost&quot;));</span>
-<span class="fc" id="L153">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_PORT, SMTP_PORT, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_PORT, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_PORT, &quot;587&quot;));</span>
-<span class="fc" id="L154">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_USERNAME, SMTP_USERNAME, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_USERNAME, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_USERNAME, &quot;username&quot;));</span>
-<span class="fc" id="L155">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_SECRET, SMTP_SECRET, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_SECRET, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_SECRET, &quot;password&quot;));</span>
-<span class="fc" id="L156">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_AUTH, SMTP_AUTH, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_AUTH, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_AUTH, &quot;true&quot;));</span>
-<span class="fc" id="L157">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_STARTTLS_ENABLE, SMTP_STARTTLS_ENABLE, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_STARTTLS_ENABLE, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_STARTTLS_ENABLE, &quot;true&quot;));</span>
+<span class="nc" id="L150">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SEND_EMAILS, SEND_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SEND_EMAIL, &quot;false&quot;));</span>
+<span class="nc" id="L151">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_FROM_EMAIL, FROM_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_FROM_EMAIL, &quot;admin@hack23.com&quot;));</span>
+<span class="nc" id="L152">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_HOST, SMTP_HOST, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_HOST, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_HOST, &quot;localhost&quot;));</span>
+<span class="nc" id="L153">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_PORT, SMTP_PORT, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_PORT, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_PORT, &quot;587&quot;));</span>
+<span class="nc" id="L154">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_USERNAME, SMTP_USERNAME, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_USERNAME, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_USERNAME, &quot;username&quot;));</span>
+<span class="nc" id="L155">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_SECRET, SMTP_SECRET, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_SECRET, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_SECRET, &quot;password&quot;));</span>
+<span class="nc" id="L156">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_AUTH, SMTP_AUTH, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_AUTH, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_AUTH, &quot;true&quot;));</span>
+<span class="nc" id="L157">		LOGGER.info(EMAIL_SETTINGS,applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_STARTTLS_ENABLE, SMTP_STARTTLS_ENABLE, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_STARTTLS_ENABLE, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_STARTTLS_ENABLE, &quot;true&quot;));</span>
 
-<span class="fc" id="L159">	}</span>
+<span class="nc" id="L159">	}</span>
 
 
 	@Override
 	public void sendEmail(final String toEmail,final String subject, final String content) {
-<span class="fc" id="L164">		final ApplicationConfiguration sendEmail = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SEND_EMAILS, SEND_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SEND_EMAIL, &quot;false&quot;);</span>
-<span class="fc" id="L165">		final ApplicationConfiguration fromEmail = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_FROM_EMAIL, FROM_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_FROM_EMAIL, &quot;admin@hack23.com&quot;);</span>
+<span class="nc" id="L164">		final ApplicationConfiguration sendEmail = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SEND_EMAILS, SEND_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SEND_EMAIL, &quot;false&quot;);</span>
+<span class="nc" id="L165">		final ApplicationConfiguration fromEmail = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_FROM_EMAIL, FROM_EMAIL, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SEND_EMAIL, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_FROM_EMAIL, &quot;admin@hack23.com&quot;);</span>
 
-<span class="fc" id="L167">		final JavaMailSender javaMailSender = getMailSender();</span>
+<span class="nc" id="L167">		final JavaMailSender javaMailSender = getMailSender();</span>
 
-<span class="fc" id="L169">	    final SimpleMailMessage emailMessage = new SimpleMailMessage();</span>
-<span class="fc" id="L170">	    emailMessage.setFrom(fromEmail.getPropertyValue());</span>
-<span class="fc" id="L171">        emailMessage.setTo(toEmail);</span>
-<span class="fc" id="L172">        emailMessage.setText(content);</span>
-<span class="fc" id="L173">		emailMessage.setSubject(subject);</span>
+<span class="nc" id="L169">	    final SimpleMailMessage emailMessage = new SimpleMailMessage();</span>
+<span class="nc" id="L170">	    emailMessage.setFrom(fromEmail.getPropertyValue());</span>
+<span class="nc" id="L171">        emailMessage.setTo(toEmail);</span>
+<span class="nc" id="L172">        emailMessage.setText(content);</span>
+<span class="nc" id="L173">		emailMessage.setSubject(subject);</span>
 
-<span class="pc bpc" id="L175" title="1 of 2 branches missed.">		if(&quot;true&quot;.equalsIgnoreCase(sendEmail.getPropertyValue())) {</span>
-<span class="fc" id="L176">			LOGGER.info(&quot;Sending email:{}&quot;,emailMessage);</span>
-<span class="fc" id="L177">			javaMailSender.send(emailMessage);</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">		if(&quot;true&quot;.equalsIgnoreCase(sendEmail.getPropertyValue())) {</span>
+<span class="nc" id="L176">			LOGGER.info(&quot;Sending email:{}&quot;,emailMessage);</span>
+<span class="nc" id="L177">			javaMailSender.send(emailMessage);</span>
 		} else {
 <span class="nc" id="L179">			LOGGER.info(&quot;Email sending disabled, do not send email:{}&quot;,emailMessage);</span>
 		}
-<span class="fc" id="L181">	}</span>
+<span class="nc" id="L181">	}</span>
 
 	/**
 	 * Gets the mail sender.
@@ -186,29 +186,29 @@ public final class EmailServiceImpl implements EmailService {
 	 * @return the mail sender
 	 */
 	private JavaMailSender getMailSender() {
-<span class="fc" id="L189">		final JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();</span>
+<span class="nc" id="L189">		final JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();</span>
 
-<span class="fc" id="L191">		final ApplicationConfiguration smtpHostConfig = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_HOST, SMTP_HOST, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_HOST, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_HOST, &quot;localhost&quot;);</span>
-<span class="fc" id="L192">		final ApplicationConfiguration smtpPort = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_PORT, SMTP_PORT, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_PORT, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_PORT, &quot;587&quot;);</span>
-<span class="fc" id="L193">		final ApplicationConfiguration smtpUsername = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_USERNAME, SMTP_USERNAME, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_USERNAME, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_USERNAME, &quot;username&quot;);</span>
-<span class="fc" id="L194">		final ApplicationConfiguration smtpPassword = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_SECRET, SMTP_SECRET, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_SECRET, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_SECRET, &quot;password&quot;);</span>
-<span class="fc" id="L195">		final ApplicationConfiguration smtpAuth = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_AUTH, SMTP_AUTH, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_AUTH, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_AUTH, &quot;true&quot;);</span>
-<span class="fc" id="L196">		final ApplicationConfiguration smtpStartTlsEnable = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_STARTTLS_ENABLE, SMTP_STARTTLS_ENABLE, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_STARTTLS_ENABLE, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_STARTTLS_ENABLE, &quot;true&quot;);</span>
+<span class="nc" id="L191">		final ApplicationConfiguration smtpHostConfig = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_HOST, SMTP_HOST, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_HOST, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_HOST, &quot;localhost&quot;);</span>
+<span class="nc" id="L192">		final ApplicationConfiguration smtpPort = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_PORT, SMTP_PORT, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_PORT, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_PORT, &quot;587&quot;);</span>
+<span class="nc" id="L193">		final ApplicationConfiguration smtpUsername = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_USERNAME, SMTP_USERNAME, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_USERNAME, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_USERNAME, &quot;username&quot;);</span>
+<span class="nc" id="L194">		final ApplicationConfiguration smtpPassword = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_SECRET, SMTP_SECRET, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_SECRET, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_SECRET, &quot;password&quot;);</span>
+<span class="nc" id="L195">		final ApplicationConfiguration smtpAuth = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_AUTH, SMTP_AUTH, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_AUTH, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_AUTH, &quot;true&quot;);</span>
+<span class="nc" id="L196">		final ApplicationConfiguration smtpStartTlsEnable = applicationConfigurationService.checkValueOrLoadDefault(EMAIL_CONFIGURATION_SMTP_STARTTLS_ENABLE, SMTP_STARTTLS_ENABLE, ConfigurationGroup.EXTERNAL_SERVICES, EmailServiceImpl.class.getSimpleName(), SMTP_STARTTLS_ENABLE, RESPONSIBLE_FOR_SENDING_EMAIL, APPLICATION_EMAIL_SMTP_STARTTLS_ENABLE, &quot;true&quot;);</span>
 
 
-<span class="fc" id="L199">		javaMailSender.setHost(smtpHostConfig.getPropertyValue());</span>
-<span class="fc" id="L200">		javaMailSender.setPort(Integer.parseInt(smtpPort.getPropertyValue()));</span>
-<span class="fc" id="L201">		javaMailSender.setUsername(smtpUsername.getPropertyValue());</span>
-<span class="fc" id="L202">		javaMailSender.setPassword(smtpPassword.getPropertyValue());</span>
+<span class="nc" id="L199">		javaMailSender.setHost(smtpHostConfig.getPropertyValue());</span>
+<span class="nc" id="L200">		javaMailSender.setPort(Integer.parseInt(smtpPort.getPropertyValue()));</span>
+<span class="nc" id="L201">		javaMailSender.setUsername(smtpUsername.getPropertyValue());</span>
+<span class="nc" id="L202">		javaMailSender.setPassword(smtpPassword.getPropertyValue());</span>
 
-<span class="fc" id="L204">		final Properties javaMailProperties = new Properties();</span>
+<span class="nc" id="L204">		final Properties javaMailProperties = new Properties();</span>
 
-<span class="fc" id="L206">		javaMailProperties.setProperty(MAIL_SMTP_AUTH, smtpAuth.getPropertyValue());</span>
-<span class="fc" id="L207">		javaMailProperties.setProperty(MAIL_SMTP_STARTTLS_ENABLE, smtpStartTlsEnable.getPropertyValue());</span>
+<span class="nc" id="L206">		javaMailProperties.setProperty(MAIL_SMTP_AUTH, smtpAuth.getPropertyValue());</span>
+<span class="nc" id="L207">		javaMailProperties.setProperty(MAIL_SMTP_STARTTLS_ENABLE, smtpStartTlsEnable.getPropertyValue());</span>
 
-<span class="fc" id="L209">		javaMailSender.setJavaMailProperties(javaMailProperties);</span>
+<span class="nc" id="L209">		javaMailSender.setJavaMailProperties(javaMailProperties);</span>
 
-<span class="fc" id="L211">		return javaMailSender;</span>
+<span class="nc" id="L211">		return javaMailSender;</span>
 	}
 
 }
