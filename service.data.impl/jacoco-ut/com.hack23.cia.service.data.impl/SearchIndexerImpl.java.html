@@ -47,8 +47,8 @@ final class SearchIndexerImpl implements SearchIndexer {
 	 * Instantiates a new search indexer impl.
 	 */
 	public SearchIndexerImpl() {
-<span class="fc" id="L50">		super();</span>
-<span class="fc" id="L51">	}</span>
+<span class="nc" id="L50">		super();</span>
+<span class="nc" id="L51">	}</span>
 
 	/**
 	 * Gets the full text entity manager.
@@ -56,15 +56,15 @@ final class SearchIndexerImpl implements SearchIndexer {
 	 * @return the full text entity manager
 	 */
 	private FullTextEntityManager getFullTextEntityManager() {
-<span class="pc bpc" id="L59" title="1 of 2 branches missed.">	        if (fullTextEntityManager == null) {</span>
-<span class="fc" id="L60">	        	fullTextEntityManager = Search.getFullTextEntityManager(entityManager);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">	        if (fullTextEntityManager == null) {</span>
+<span class="nc" id="L60">	        	fullTextEntityManager = Search.getFullTextEntityManager(entityManager);</span>
 	        }
-<span class="fc" id="L62">	        return fullTextEntityManager;</span>
+<span class="nc" id="L62">	        return fullTextEntityManager;</span>
 	}
 
 	@Override
 	public void updateSearchIndex() throws InterruptedException {
-<span class="fc" id="L67">		getFullTextEntityManager().createIndexer().transactionTimeout(TIMEOUT_IN_SECONDS).startAndWait();</span>
-<span class="fc" id="L68">	}</span>
+<span class="nc" id="L67">		getFullTextEntityManager().createIndexer().transactionTimeout(TIMEOUT_IN_SECONDS).startAndWait();</span>
+<span class="nc" id="L68">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

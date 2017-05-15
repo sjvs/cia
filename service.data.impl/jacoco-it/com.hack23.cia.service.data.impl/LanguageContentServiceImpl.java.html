@@ -46,19 +46,19 @@ final class LanguageContentServiceImpl implements LanguageContentService {
 	 * Instantiates a new language content service impl.
 	 */
 	public LanguageContentServiceImpl() {
-<span class="fc" id="L49">		super();</span>
-<span class="fc" id="L50">	}</span>
+<span class="nc" id="L49">		super();</span>
+<span class="nc" id="L50">	}</span>
 
 	@Override
 	public String getLanguageResource(String key, String keyGroup,String language, String defaultEnglishValue) {
-<span class="fc" id="L54">		final LanguageContentData findTranslation = languageContentDataDAO.findTranslation(key, language, language);</span>
+<span class="nc" id="L54">		final LanguageContentData findTranslation = languageContentDataDAO.findTranslation(key, language, language);</span>
 
-<span class="fc bfc" id="L56" title="All 2 branches covered.">		if (findTranslation != null) {</span>
-<span class="fc" id="L57">			return findTranslation.getLanguageValue();</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if (findTranslation != null) {</span>
+<span class="nc" id="L57">			return findTranslation.getLanguageValue();</span>
 		} else {
-<span class="fc" id="L59">			final LanguageContentData newDefaultValue = new LanguageContentData().withCreatedDate(new Date()).withFromLanguage(&quot;en&quot;).withToLanguage(&quot;en&quot;).withLanguageContentType(LanguageContentType.HUMAN_TRANSLATION).withLanguageValue(defaultEnglishValue).withRefKey(key);</span>
-<span class="fc" id="L60">			languageContentDataDAO.persist(newDefaultValue);</span>
-<span class="fc" id="L61">			return newDefaultValue.getLanguageValue();</span>
+<span class="nc" id="L59">			final LanguageContentData newDefaultValue = new LanguageContentData().withCreatedDate(new Date()).withFromLanguage(&quot;en&quot;).withToLanguage(&quot;en&quot;).withLanguageContentType(LanguageContentType.HUMAN_TRANSLATION).withLanguageValue(defaultEnglishValue).withRefKey(key);</span>
+<span class="nc" id="L60">			languageContentDataDAO.persist(newDefaultValue);</span>
+<span class="nc" id="L61">			return newDefaultValue.getLanguageValue();</span>
 		}
 	}
 

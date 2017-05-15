@@ -49,14 +49,14 @@ import javax.persistence.metamodel.SingularAttribute;
 	public static &lt;T&gt; Predicate equalsIgnoreCaseIfStringPredicate(final CriteriaBuilder criteriaBuilder,final Root&lt;T&gt; root,
 			final Object value, final SingularAttribute&lt;T, ? extends Object&gt; property) {
 		Predicate condition;
-<span class="fc bfc" id="L52" title="All 2 branches covered.">		if (value instanceof String) {</span>
-<span class="fc" id="L53">			final Expression&lt;String&gt; propertyObject = (Expression&lt;String&gt;) root.get(property);</span>
-<span class="fc" id="L54">			condition = criteriaBuilder.equal(criteriaBuilder.upper(propertyObject), ((String) value).toUpperCase(Locale.ENGLISH));</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		if (value instanceof String) {</span>
+<span class="nc" id="L53">			final Expression&lt;String&gt; propertyObject = (Expression&lt;String&gt;) root.get(property);</span>
+<span class="nc" id="L54">			condition = criteriaBuilder.equal(criteriaBuilder.upper(propertyObject), ((String) value).toUpperCase(Locale.ENGLISH));</span>
 
-<span class="fc" id="L56">		} else {</span>
-<span class="fc" id="L57">			condition = criteriaBuilder.equal(root.get(property), value);</span>
+<span class="nc" id="L56">		} else {</span>
+<span class="nc" id="L57">			condition = criteriaBuilder.equal(root.get(property), value);</span>
 		}
-<span class="fc" id="L59">		return condition;</span>
+<span class="nc" id="L59">		return condition;</span>
 	}
 
 }

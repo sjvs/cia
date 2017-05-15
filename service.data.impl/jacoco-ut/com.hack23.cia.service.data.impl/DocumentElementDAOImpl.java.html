@@ -43,16 +43,16 @@ AbstractGenericDAOImpl&lt;DocumentElement, String&gt; implements
 DocumentElementDAO {
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L46">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="fc" id="L47">			.getLogger(DocumentElementDAOImpl.class);</span>
+<span class="nc" id="L46">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="nc" id="L47">			.getLogger(DocumentElementDAOImpl.class);</span>
 
 
 	/**
 	 * Instantiates a new document element dao impl.
 	 */
 	public DocumentElementDAOImpl() {
-<span class="fc" id="L54">		super(DocumentElement.class);</span>
-<span class="fc" id="L55">	}</span>
+<span class="nc" id="L54">		super(DocumentElement.class);</span>
+<span class="nc" id="L55">	}</span>
 
 	@Override
 	public boolean checkDocumentElement(final String documentId) {
@@ -107,19 +107,19 @@ DocumentElementDAO {
 	@Override
 	public int getMissingDocumentStartFromYear(final int startCheckYear) {
 
-<span class="fc" id="L110">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder()</span>
-<span class="fc" id="L111">				.createQuery(String.class);</span>
-<span class="fc" id="L112">		final Root&lt;DocumentElement&gt; root = criteria.from(DocumentElement.class);</span>
-<span class="fc" id="L113">		final Expression&lt;String&gt; createdYear = getCriteriaBuilder().substring(root.get(DocumentElement_.createdDate), 0,5);</span>
-<span class="fc" id="L114">		criteria.select(createdYear).groupBy(createdYear).orderBy(getCriteriaBuilder().asc(createdYear));</span>
-<span class="fc" id="L115">		final List&lt;String&gt; resultList = getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L110">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder()</span>
+<span class="nc" id="L111">				.createQuery(String.class);</span>
+<span class="nc" id="L112">		final Root&lt;DocumentElement&gt; root = criteria.from(DocumentElement.class);</span>
+<span class="nc" id="L113">		final Expression&lt;String&gt; createdYear = getCriteriaBuilder().substring(root.get(DocumentElement_.createdDate), 0,5);</span>
+<span class="nc" id="L114">		criteria.select(createdYear).groupBy(createdYear).orderBy(getCriteriaBuilder().asc(createdYear));</span>
+<span class="nc" id="L115">		final List&lt;String&gt; resultList = getEntityManager().createQuery(criteria).getResultList();</span>
 
-<span class="fc" id="L117">		LOGGER.info(&quot;getMissingDocumentStartFromYear current years contain documents:{}&quot;,resultList);</span>
+<span class="nc" id="L117">		LOGGER.info(&quot;getMissingDocumentStartFromYear current years contain documents:{}&quot;,resultList);</span>
 
-<span class="pc bpc" id="L119" title="2 of 4 branches missed.">		if (resultList.isEmpty() || Integer.parseInt(resultList.get(0)) &lt; startCheckYear) {</span>
+<span class="nc bnc" id="L119" title="All 4 branches missed.">		if (resultList.isEmpty() || Integer.parseInt(resultList.get(0)) &lt; startCheckYear) {</span>
 <span class="nc" id="L120">			return startCheckYear;</span>
 		} else {
-<span class="fc" id="L122">			return Integer.parseInt(resultList.get(resultList.size()-1));</span>
+<span class="nc" id="L122">			return Integer.parseInt(resultList.get(resultList.size()-1));</span>
 		}
 	}
 

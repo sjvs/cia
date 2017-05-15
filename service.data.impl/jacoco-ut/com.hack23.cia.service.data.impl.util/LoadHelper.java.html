@@ -78,21 +78,21 @@ public final class LoadHelper {
 	 */
 	private static void recursiveInitialize(final Object obj, final Set&lt;Object&gt; dejaVu)
 			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-<span class="pc bpc" id="L81" title="1 of 2 branches missed.">		if (dejaVu.contains(obj)) {</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if (dejaVu.contains(obj)) {</span>
 <span class="nc" id="L82">			return;</span>
 		} else {
-<span class="fc" id="L84">			dejaVu.add(obj);</span>
+<span class="nc" id="L84">			dejaVu.add(obj);</span>
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">			if (!Hibernate.isInitialized(obj)) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			if (!Hibernate.isInitialized(obj)) {</span>
 <span class="nc" id="L87">				Hibernate.initialize(obj);</span>
 			}
 
-<span class="pc bpc" id="L90" title="2 of 4 branches missed.">			if (obj instanceof HibernateProxy || obj instanceof PersistentCollection) {</span>
+<span class="nc bnc" id="L90" title="All 4 branches missed.">			if (obj instanceof HibernateProxy || obj instanceof PersistentCollection) {</span>
 
 <span class="nc" id="L92">				initProxyAndCollections(obj, PropertyUtils.getPropertyDescriptors(obj), dejaVu);</span>
 			}
 		}
-<span class="fc" id="L95">	}</span>
+<span class="nc" id="L95">	}</span>
 
 	/**
 	 * Inits the proxy and collections.
@@ -155,16 +155,16 @@ public final class LoadHelper {
 	 * @return the t
 	 */
 	public static &lt;T&gt; T recursiveInitialize(final T obj) {
-<span class="pc bpc" id="L158" title="1 of 2 branches missed.">		if (obj != null) {</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">		if (obj != null) {</span>
 
-<span class="fc" id="L160">			final Set&lt;Object&gt; dejaVu = Collections.newSetFromMap(new IdentityHashMap&lt;Object, Boolean&gt;());</span>
+<span class="nc" id="L160">			final Set&lt;Object&gt; dejaVu = Collections.newSetFromMap(new IdentityHashMap&lt;Object, Boolean&gt;());</span>
 			try {
-<span class="fc" id="L162">				recursiveInitialize(obj, dejaVu);</span>
+<span class="nc" id="L162">				recursiveInitialize(obj, dejaVu);</span>
 <span class="nc" id="L163">			} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {</span>
 <span class="nc" id="L164">				handleReflectionException(e);</span>
-<span class="fc" id="L165">			}</span>
+<span class="nc" id="L165">			}</span>
 		}
-<span class="fc" id="L167">		return obj;</span>
+<span class="nc" id="L167">		return obj;</span>
 	}
 
 }

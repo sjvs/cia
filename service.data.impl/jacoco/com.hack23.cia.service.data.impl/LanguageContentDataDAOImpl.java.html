@@ -43,40 +43,40 @@ LanguageContentDataDAO {
 	 * Instantiates a new language content data dao impl.
 	 */
 	public LanguageContentDataDAOImpl() {
-<span class="fc" id="L46">		super(LanguageContentData.class);</span>
-<span class="fc" id="L47">	}</span>
+<span class="nc" id="L46">		super(LanguageContentData.class);</span>
+<span class="nc" id="L47">	}</span>
 
 	@Override
 	public LanguageContentData findTranslation(final String key,
 			final String fromLanguage, final String toLanguage) {
 
-<span class="fc" id="L53">		final CriteriaQuery&lt;LanguageContentData&gt; criteriaQuery = getCriteriaBuilder()</span>
-<span class="fc" id="L54">				.createQuery(getPersistentClass());</span>
-<span class="fc" id="L55">		final Root&lt;LanguageContentData&gt; root = criteriaQuery</span>
-<span class="fc" id="L56">				.from(getPersistentClass());</span>
-<span class="fc" id="L57">		criteriaQuery.select(root);</span>
-<span class="fc" id="L58">		final Predicate keyCondition = getCriteriaBuilder().equal(root.get(LanguageContentData_.refKey),</span>
+<span class="nc" id="L53">		final CriteriaQuery&lt;LanguageContentData&gt; criteriaQuery = getCriteriaBuilder()</span>
+<span class="nc" id="L54">				.createQuery(getPersistentClass());</span>
+<span class="nc" id="L55">		final Root&lt;LanguageContentData&gt; root = criteriaQuery</span>
+<span class="nc" id="L56">				.from(getPersistentClass());</span>
+<span class="nc" id="L57">		criteriaQuery.select(root);</span>
+<span class="nc" id="L58">		final Predicate keyCondition = getCriteriaBuilder().equal(root.get(LanguageContentData_.refKey),</span>
 				key);
-<span class="fc" id="L60">		final Predicate fromCondition = getCriteriaBuilder().equal(</span>
-<span class="fc" id="L61">				root.get(LanguageContentData_.fromLanguage),</span>
+<span class="nc" id="L60">		final Predicate fromCondition = getCriteriaBuilder().equal(</span>
+<span class="nc" id="L61">				root.get(LanguageContentData_.fromLanguage),</span>
 				fromLanguage);
-<span class="fc" id="L63">		final Predicate toCondition = getCriteriaBuilder().equal(root.get(LanguageContentData_.toLanguage),</span>
+<span class="nc" id="L63">		final Predicate toCondition = getCriteriaBuilder().equal(root.get(LanguageContentData_.toLanguage),</span>
 				toLanguage);
 
-<span class="fc" id="L66">		final Predicate and = getCriteriaBuilder().and(keyCondition, fromCondition, toCondition);</span>
+<span class="nc" id="L66">		final Predicate and = getCriteriaBuilder().and(keyCondition, fromCondition, toCondition);</span>
 
-<span class="fc" id="L68">		criteriaQuery.where(and);</span>
+<span class="nc" id="L68">		criteriaQuery.where(and);</span>
 
-<span class="fc" id="L70">		final TypedQuery&lt;LanguageContentData&gt; typedQuery = getEntityManager()</span>
-<span class="fc" id="L71">				.createQuery(criteriaQuery);</span>
-<span class="fc" id="L72">		addCacheHints(typedQuery, &quot;findTranslation&quot;);</span>
+<span class="nc" id="L70">		final TypedQuery&lt;LanguageContentData&gt; typedQuery = getEntityManager()</span>
+<span class="nc" id="L71">				.createQuery(criteriaQuery);</span>
+<span class="nc" id="L72">		addCacheHints(typedQuery, &quot;findTranslation&quot;);</span>
 
-<span class="fc" id="L74">		final List&lt;LanguageContentData&gt; resultList = typedQuery.getResultList();</span>
+<span class="nc" id="L74">		final List&lt;LanguageContentData&gt; resultList = typedQuery.getResultList();</span>
 
-<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (resultList.isEmpty()) {</span>
-<span class="fc" id="L77">			return null;</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if (resultList.isEmpty()) {</span>
+<span class="nc" id="L77">			return null;</span>
 		} else {
-<span class="fc" id="L79">			return resultList.get(0);</span>
+<span class="nc" id="L79">			return resultList.get(0);</span>
 		}
 
 	}
