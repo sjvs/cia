@@ -44,8 +44,8 @@ final class WorldbankDataWorkConsumerImpl implements
 MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L47">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="nc" id="L48">			.getLogger(WorldbankDataWorkConsumerImpl.class);</span>
+<span class="fc" id="L47">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L48">			.getLogger(WorldbankDataWorkConsumerImpl.class);</span>
 
 	/** The update service. */
 	@Autowired
@@ -58,18 +58,18 @@ MessageListener {
 	 * Instantiates a new worldbank data work consumer impl.
 	 */
 	public WorldbankDataWorkConsumerImpl() {
-<span class="nc" id="L61">		super();</span>
-<span class="nc" id="L62">	}</span>
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">	}</span>
 
 
 	@Override
 	public void onMessage(final Message message) {
 		try {
-<span class="nc" id="L68">			final List&lt;String&gt; countryIndicator= (List&lt;String&gt;) ((ObjectMessage) message).getObject();</span>
-<span class="nc" id="L69">			updateService.updateData(worldbankDataApi.getData(countryIndicator.get(0), countryIndicator.get(1)));</span>
-<span class="nc" id="L70">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
-<span class="nc" id="L71">			LOGGER.warn(&quot;Error loading worldbank data:&quot; , e);</span>
-<span class="nc" id="L72">		}</span>
-<span class="nc" id="L73">	}</span>
+<span class="fc" id="L68">			final List&lt;String&gt; countryIndicator= (List&lt;String&gt;) ((ObjectMessage) message).getObject();</span>
+<span class="fc" id="L69">			updateService.updateData(worldbankDataApi.getData(countryIndicator.get(0), countryIndicator.get(1)));</span>
+<span class="fc" id="L70">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
+<span class="fc" id="L71">			LOGGER.warn(&quot;Error loading worldbank data:&quot; , e);</span>
+<span class="fc" id="L72">		}</span>
+<span class="fc" id="L73">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

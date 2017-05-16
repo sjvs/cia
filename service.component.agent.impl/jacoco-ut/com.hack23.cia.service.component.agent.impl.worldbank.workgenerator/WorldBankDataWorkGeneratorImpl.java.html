@@ -45,7 +45,7 @@ import com.hack23.cia.service.data.api.ApplicationConfigurationService;
 final class WorldBankDataWorkGeneratorImpl extends AbstractWorldBankDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(WorldBankDataWorkGeneratorImpl.class);</span>
+<span class="fc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(WorldBankDataWorkGeneratorImpl.class);</span>
 
 	/** The data workdestination. */
 	@Autowired
@@ -60,30 +60,30 @@ final class WorldBankDataWorkGeneratorImpl extends AbstractWorldBankDataSourcesW
 	 * Instantiates a new world bank data work generator impl.
 	 */
 	public WorldBankDataWorkGeneratorImpl() {
-<span class="nc" id="L63">		super(WorldBankDataSources.DATA);</span>
-<span class="nc" id="L64">	}</span>
+<span class="fc" id="L63">		super(WorldBankDataSources.DATA);</span>
+<span class="fc" id="L64">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 
 		try {
-<span class="nc" id="L70">			final ApplicationConfiguration importDataForCountries = applicationConfigurationService.checkValueOrLoadDefault(&quot;Countries to import data from worldbank (isocode) alt comma separated list&quot;, &quot;Load worldbank data for countries&quot;, ConfigurationGroup.AGENT, WorldBankCountryWorkGeneratorImpl.class.getSimpleName(), &quot;Worldbank country data loading&quot;, &quot;Responsible import worldlbank country data&quot;, &quot;agent.worldbank.country.data.loadCountries&quot;, &quot;SE&quot;);</span>
+<span class="fc" id="L70">			final ApplicationConfiguration importDataForCountries = applicationConfigurationService.checkValueOrLoadDefault(&quot;Countries to import data from worldbank (isocode) alt comma separated list&quot;, &quot;Load worldbank data for countries&quot;, ConfigurationGroup.AGENT, WorldBankCountryWorkGeneratorImpl.class.getSimpleName(), &quot;Worldbank country data loading&quot;, &quot;Responsible import worldlbank country data&quot;, &quot;agent.worldbank.country.data.loadCountries&quot;, &quot;SE&quot;);</span>
 
-<span class="nc" id="L72">			final List&lt;IndicatorElement&gt; indicatorlist = getImportService().getAllIndicators();</span>
-<span class="nc" id="L73">			final Map&lt;String, String&gt; currentSaved = getImportService().getWorldBankDataMap();</span>
+<span class="fc" id="L72">			final List&lt;IndicatorElement&gt; indicatorlist = getImportService().getAllIndicators();</span>
+<span class="fc" id="L73">			final Map&lt;String, String&gt; currentSaved = getImportService().getWorldBankDataMap();</span>
 
-<span class="nc bnc" id="L75" title="All 2 branches missed.">			for (final String country : getImportService().getWorldBankCountryMap().keySet()) {</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">				if (importDataForCountries.getPropertyValue().equalsIgnoreCase(country)) {</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">					for (final IndicatorElement indicator : indicatorlist) {</span>
-<span class="nc" id="L78">						sendCountryIndicatorWorkOrder(currentSaved, indicator, country);</span>
-<span class="nc" id="L79">					}</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">			for (final String country : getImportService().getWorldBankCountryMap().keySet()) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">				if (importDataForCountries.getPropertyValue().equalsIgnoreCase(country)) {</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">					for (final IndicatorElement indicator : indicatorlist) {</span>
+<span class="fc" id="L78">						sendCountryIndicatorWorkOrder(currentSaved, indicator, country);</span>
+<span class="fc" id="L79">					}</span>
 				}
-<span class="nc" id="L81">			}</span>
+<span class="fc" id="L81">			}</span>
 
 <span class="nc" id="L83">		} catch (final JMSException exception) {</span>
 <span class="nc" id="L84">			LOGGER.warn(&quot;jms&quot;, exception);</span>
-<span class="nc" id="L85">		}</span>
-<span class="nc" id="L86">	}</span>
+<span class="fc" id="L85">		}</span>
+<span class="fc" id="L86">	}</span>
 
 	/**
 	 * Send country indicator work order.
@@ -99,14 +99,14 @@ final class WorldBankDataWorkGeneratorImpl extends AbstractWorldBankDataSourcesW
 	 */
 	private void sendCountryIndicatorWorkOrder(final Map&lt;String, String&gt; currentSaved, final IndicatorElement indicator,
 			final String countryIso2Code) throws JMSException {
-<span class="nc bnc" id="L102" title="All 4 branches missed.">		if (countryIso2Code != null &amp;&amp; countryIso2Code.length() &gt; 0</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">				&amp;&amp; !currentSaved.containsKey(countryIso2Code + '.' + indicator.getId())) {</span>
-<span class="nc" id="L104">			final List&lt;String&gt; load = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L105">			load.add(countryIso2Code);</span>
-<span class="nc" id="L106">			load.add(indicator.getId());</span>
-<span class="nc" id="L107">			getJmsSender().send(dataWorkdestination, (Serializable) load);</span>
+<span class="pc bpc" id="L102" title="2 of 4 branches missed.">		if (countryIso2Code != null &amp;&amp; countryIso2Code.length() &gt; 0</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">				&amp;&amp; !currentSaved.containsKey(countryIso2Code + '.' + indicator.getId())) {</span>
+<span class="fc" id="L104">			final List&lt;String&gt; load = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L105">			load.add(countryIso2Code);</span>
+<span class="fc" id="L106">			load.add(indicator.getId());</span>
+<span class="fc" id="L107">			getJmsSender().send(dataWorkdestination, (Serializable) load);</span>
 		}
-<span class="nc" id="L109">	}</span>
+<span class="fc" id="L109">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

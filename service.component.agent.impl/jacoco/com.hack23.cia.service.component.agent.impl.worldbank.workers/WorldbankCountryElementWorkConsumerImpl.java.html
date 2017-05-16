@@ -41,8 +41,8 @@ final class WorldbankCountryElementWorkConsumerImpl implements
 MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L44">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="nc" id="L45">			.getLogger(WorldbankCountryElementWorkConsumerImpl.class);</span>
+<span class="fc" id="L44">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L45">			.getLogger(WorldbankCountryElementWorkConsumerImpl.class);</span>
 
 	/** The update service. */
 	@Autowired
@@ -52,16 +52,16 @@ MessageListener {
 	 * Instantiates a new worldbank country element work consumer impl.
 	 */
 	public WorldbankCountryElementWorkConsumerImpl() {
-<span class="nc" id="L55">		super();</span>
-<span class="nc" id="L56">	}</span>
+<span class="fc" id="L55">		super();</span>
+<span class="fc" id="L56">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {
 		try {
-<span class="nc" id="L61">			updateService.updateCountryElement((CountryElement)((ObjectMessage) message).getObject());</span>
-<span class="nc" id="L62">		} catch (final RuntimeException | JMSException e) {</span>
-<span class="nc" id="L63">			LOGGER.warn(&quot;Error loading worldbank country:&quot; , e);</span>
-<span class="nc" id="L64">		}</span>
-<span class="nc" id="L65">	}</span>
+<span class="fc" id="L61">			updateService.updateCountryElement((CountryElement)((ObjectMessage) message).getObject());</span>
+<span class="fc" id="L62">		} catch (final RuntimeException | JMSException e) {</span>
+<span class="fc" id="L63">			LOGGER.warn(&quot;Error loading worldbank country:&quot; , e);</span>
+<span class="fc" id="L64">		}</span>
+<span class="fc" id="L65">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

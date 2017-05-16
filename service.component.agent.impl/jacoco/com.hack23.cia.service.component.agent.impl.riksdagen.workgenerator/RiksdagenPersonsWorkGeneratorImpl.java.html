@@ -45,7 +45,7 @@ import com.hack23.cia.service.external.riksdagen.api.RiksdagenPersonApi;
 final class RiksdagenPersonsWorkGeneratorImpl extends AbstractRiksdagenDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenPersonsWorkGeneratorImpl.class);</span>
+<span class="fc" id="L48">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenPersonsWorkGeneratorImpl.class);</span>
 
 	/** The person element workdestination. */
 	@Autowired
@@ -60,32 +60,32 @@ final class RiksdagenPersonsWorkGeneratorImpl extends AbstractRiksdagenDataSourc
 	 * Instantiates a new riksdagen persons work generator impl.
 	 */
 	public RiksdagenPersonsWorkGeneratorImpl() {
-<span class="nc" id="L63">		super(RiksdagenDataSources.PERSONS);</span>
-<span class="nc" id="L64">	}</span>
+<span class="fc" id="L63">		super(RiksdagenDataSources.PERSONS);</span>
+<span class="fc" id="L64">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 		try {
-<span class="nc" id="L69">			final List&lt;PersonElement&gt; personList = riksdagenApi.getPersonList().getPerson();</span>
-<span class="nc" id="L70">			final Map&lt;String, String&gt; currentSaved = getImportService().getPersonMap();</span>
+<span class="fc" id="L69">			final List&lt;PersonElement&gt; personList = riksdagenApi.getPersonList().getPerson();</span>
+<span class="fc" id="L70">			final Map&lt;String, String&gt; currentSaved = getImportService().getPersonMap();</span>
 
-<span class="nc bnc" id="L72" title="All 2 branches missed.">			for (final PersonElement personElement : personList) {</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">				if (!currentSaved.containsKey(personElement.getId())) {</span>
-<span class="nc" id="L74">					LOGGER.info(&quot;Send Load Order:{}&quot;, personElement.getPersonUrlXml());</span>
-<span class="nc" id="L75">					getJmsSender().send(personElementWorkdestination, personElement);</span>
-<span class="nc" id="L76">					currentSaved.put(personElement.getId(), personElement.getId());</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">			for (final PersonElement personElement : personList) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">				if (!currentSaved.containsKey(personElement.getId())) {</span>
+<span class="fc" id="L74">					LOGGER.info(&quot;Send Load Order:{}&quot;, personElement.getPersonUrlXml());</span>
+<span class="fc" id="L75">					getJmsSender().send(personElementWorkdestination, personElement);</span>
+<span class="fc" id="L76">					currentSaved.put(personElement.getId(), personElement.getId());</span>
 				}
-<span class="nc" id="L78">			}</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">			for (final String personId : readMissingPersonList()) {</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">				if (!currentSaved.containsKey(personId)) {</span>
-<span class="nc" id="L81">					LOGGER.info(&quot;Send Load Order:{}{}&quot;, &quot;http://data.riksdagen.se/person/&quot;, personId);</span>
-<span class="nc" id="L82">					getJmsSender().send(personElementWorkdestination, new PersonElement().withId(personId));</span>
+<span class="fc" id="L78">			}</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">			for (final String personId : readMissingPersonList()) {</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">				if (!currentSaved.containsKey(personId)) {</span>
+<span class="fc" id="L81">					LOGGER.info(&quot;Send Load Order:{}{}&quot;, &quot;http://data.riksdagen.se/person/&quot;, personId);</span>
+<span class="fc" id="L82">					getJmsSender().send(personElementWorkdestination, new PersonElement().withId(personId));</span>
 				}
 			}
 <span class="nc" id="L85">		} catch (final JMSException | DataFailureException exception) {</span>
 <span class="nc" id="L86">			LOGGER.warn(&quot;jms&quot;, exception);</span>
-<span class="nc" id="L87">		}</span>
-<span class="nc" id="L88">	}</span>
+<span class="fc" id="L87">		}</span>
+<span class="fc" id="L88">	}</span>
 
 	/**
 	 * Read missing person list.
@@ -94,13 +94,13 @@ final class RiksdagenPersonsWorkGeneratorImpl extends AbstractRiksdagenDataSourc
 	 */
 	private static String[] readMissingPersonList() {
 
-<span class="nc" id="L97">		final Scanner sc = new Scanner(RiksdagenPersonsWorkGeneratorImpl.class.getResourceAsStream(&quot;/personlist.txt&quot;),StandardCharsets.UTF_8.name());</span>
-<span class="nc" id="L98">		final List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">		while (sc.hasNextLine()) {</span>
-<span class="nc" id="L100">			lines.add(sc.nextLine());</span>
+<span class="fc" id="L97">		final Scanner sc = new Scanner(RiksdagenPersonsWorkGeneratorImpl.class.getResourceAsStream(&quot;/personlist.txt&quot;),StandardCharsets.UTF_8.name());</span>
+<span class="fc" id="L98">		final List&lt;String&gt; lines = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		while (sc.hasNextLine()) {</span>
+<span class="fc" id="L100">			lines.add(sc.nextLine());</span>
 		}
-<span class="nc" id="L102">		sc.close();</span>
-<span class="nc" id="L103">		return lines.toArray(new String[0]);</span>
+<span class="fc" id="L102">		sc.close();</span>
+<span class="fc" id="L103">		return lines.toArray(new String[0]);</span>
 	}
 
 }

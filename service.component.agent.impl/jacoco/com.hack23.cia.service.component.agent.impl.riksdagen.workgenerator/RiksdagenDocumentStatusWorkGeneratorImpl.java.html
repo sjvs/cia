@@ -46,7 +46,7 @@ import com.hack23.cia.model.internal.application.data.impl.RiksdagenDataSources;
 final class RiksdagenDocumentStatusWorkGeneratorImpl extends AbstractRiksdagenDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L49">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentStatusWorkGeneratorImpl.class);</span>
+<span class="fc" id="L49">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenDocumentStatusWorkGeneratorImpl.class);</span>
 
 	/** The Constant RIKSDAGEN_JAVA_SIMPLE_DATE_FORMAT. */
 	private static final String RIKSDAGEN_JAVA_SIMPLE_DATE_FORMAT = &quot;yyyy-MM-dd HH:mm:ss&quot;;
@@ -61,43 +61,43 @@ final class RiksdagenDocumentStatusWorkGeneratorImpl extends AbstractRiksdagenDa
 	 * Instantiates a new riksdagen document status work generator impl.
 	 */
 	public RiksdagenDocumentStatusWorkGeneratorImpl() {
-<span class="nc" id="L64">		super(RiksdagenDataSources.DOCUMENT_STATUS);</span>
-<span class="nc" id="L65">	}</span>
+<span class="fc" id="L64">		super(RiksdagenDataSources.DOCUMENT_STATUS);</span>
+<span class="fc" id="L65">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 		try {
-<span class="nc" id="L70">			final Map&lt;String, String&gt; documentStatusContainerMap = getImportService()</span>
-<span class="nc" id="L71">					.getDocumentStatusContainerMap();</span>
+<span class="fc" id="L70">			final Map&lt;String, String&gt; documentStatusContainerMap = getImportService()</span>
+<span class="fc" id="L71">					.getDocumentStatusContainerMap();</span>
 
 
-<span class="nc" id="L74">			final List&lt;DocumentType&gt; selectedDocumentTypes = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L75">			selectedDocumentTypes.add(DocumentType.BET);</span>
-<span class="nc" id="L76">			selectedDocumentTypes.add(DocumentType.PROP);</span>
-<span class="nc" id="L77">			selectedDocumentTypes.add(DocumentType.MOT);</span>
+<span class="fc" id="L74">			final List&lt;DocumentType&gt; selectedDocumentTypes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L75">			selectedDocumentTypes.add(DocumentType.BET);</span>
+<span class="fc" id="L76">			selectedDocumentTypes.add(DocumentType.PROP);</span>
+<span class="fc" id="L77">			selectedDocumentTypes.add(DocumentType.MOT);</span>
 
 
 
-<span class="nc" id="L81">			final Map&lt;String, String&gt; documentElementMap = getImportService()</span>
-<span class="nc" id="L82">					.getDocumentElementMap(</span>
+<span class="fc" id="L81">			final Map&lt;String, String&gt; documentElementMap = getImportService()</span>
+<span class="fc" id="L82">					.getDocumentElementMap(</span>
 							new SimpleDateFormat(
-<span class="nc" id="L84">									RIKSDAGEN_JAVA_SIMPLE_DATE_FORMAT,Locale.ENGLISH).parse(&quot;1999-12-30 00:00:00&quot;),</span>
+<span class="fc" id="L84">									RIKSDAGEN_JAVA_SIMPLE_DATE_FORMAT,Locale.ENGLISH).parse(&quot;1999-12-30 00:00:00&quot;),</span>
 							selectedDocumentTypes, false);
 
-<span class="nc" id="L87">			final Set&lt;String&gt; avaibleDocumentStatus = documentElementMap</span>
-<span class="nc" id="L88">					.keySet();</span>
+<span class="fc" id="L87">			final Set&lt;String&gt; avaibleDocumentStatus = documentElementMap</span>
+<span class="fc" id="L88">					.keySet();</span>
 
-<span class="nc bnc" id="L90" title="All 2 branches missed.">			for (final String id : avaibleDocumentStatus) {</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">				if (!documentStatusContainerMap.containsKey(id)) {</span>
-<span class="nc" id="L92">					getJmsSender().send(documentStatusContainerWorkdestination,</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">			for (final String id : avaibleDocumentStatus) {</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">				if (!documentStatusContainerMap.containsKey(id)) {</span>
+<span class="fc" id="L92">					getJmsSender().send(documentStatusContainerWorkdestination,</span>
 							id);
 				}
-<span class="nc" id="L95">			}</span>
+<span class="fc" id="L95">			}</span>
 
 <span class="nc" id="L97">		} catch (final JmsException | ParseException | JMSException e) {</span>
 <span class="nc" id="L98">			LOGGER.warn(&quot;Loading document status &quot;, e);</span>
-<span class="nc" id="L99">		}</span>
-<span class="nc" id="L100">	}</span>
+<span class="fc" id="L99">		}</span>
+<span class="fc" id="L100">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

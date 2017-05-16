@@ -40,8 +40,8 @@ import com.hack23.cia.service.external.riksdagen.api.RiksdagenPersonApi;
 final class RiksdagenPersonElementWorkConsumerImpl implements MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L43">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="nc" id="L44">			.getLogger(RiksdagenPersonElementWorkConsumerImpl.class);</span>
+<span class="fc" id="L43">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L44">			.getLogger(RiksdagenPersonElementWorkConsumerImpl.class);</span>
 
 	/** The import service. */
 	@Autowired
@@ -55,18 +55,18 @@ final class RiksdagenPersonElementWorkConsumerImpl implements MessageListener {
 	 * Instantiates a new riksdagen person element work consumer impl.
 	 */
 	public RiksdagenPersonElementWorkConsumerImpl() {
-<span class="nc" id="L58">		super();</span>
-<span class="nc" id="L59">	}</span>
+<span class="fc" id="L58">		super();</span>
+<span class="fc" id="L59">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {
 		try {
-<span class="nc" id="L64">			updateService.update(riksdagenApi</span>
+<span class="pc" id="L64">			updateService.update(riksdagenApi</span>
 <span class="nc" id="L65">					.getPerson(((PersonElement) ((ObjectMessage) message)</span>
 <span class="nc" id="L66">							.getObject()).getId()));</span>
-<span class="nc" id="L67">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
-<span class="nc" id="L68">			LOGGER.warn(&quot;Error loading PersonElement&quot;,e);</span>
+<span class="fc" id="L67">		} catch (final DataFailureException | RuntimeException | JMSException e) {</span>
+<span class="fc" id="L68">			LOGGER.warn(&quot;Error loading PersonElement&quot;,e);</span>
 <span class="nc" id="L69">		}</span>
-<span class="nc" id="L70">	}</span>
+<span class="fc" id="L70">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

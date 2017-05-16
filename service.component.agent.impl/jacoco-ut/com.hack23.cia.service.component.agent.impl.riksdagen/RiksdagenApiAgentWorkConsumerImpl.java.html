@@ -41,7 +41,7 @@ import com.hack23.cia.service.component.agent.impl.riksdagen.workgenerator.Riksd
 final class RiksdagenApiAgentWorkConsumerImpl extends AbstractAgentWorkConsumerImpl {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L44">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenApiAgentWorkConsumerImpl.class);</span>
+<span class="fc" id="L44">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenApiAgentWorkConsumerImpl.class);</span>
 
 	private final Map&lt;String, RiksdagenDataSourcesWorkGenerator&gt; beansOfType;
 
@@ -49,9 +49,9 @@ final class RiksdagenApiAgentWorkConsumerImpl extends AbstractAgentWorkConsumerI
 	 * Instantiates a new riksdagen api agent work consumer impl.
 	 */
 	public RiksdagenApiAgentWorkConsumerImpl(final ApplicationContext context) {
-<span class="nc" id="L52">		super();</span>
-<span class="nc" id="L53">		beansOfType = context.getBeansOfType(RiksdagenDataSourcesWorkGenerator.class);</span>
-<span class="nc" id="L54">	}</span>
+<span class="fc" id="L52">		super();</span>
+<span class="fc" id="L53">		beansOfType = context.getBeansOfType(RiksdagenDataSourcesWorkGenerator.class);</span>
+<span class="fc" id="L54">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {

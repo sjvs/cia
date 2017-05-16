@@ -41,7 +41,7 @@ import com.hack23.cia.service.external.riksdagen.api.RiksdagenBallotApi;
 final class RiksdagenVoteDataWorkConsumerImpl implements MessageListener {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L44">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenVoteDataWorkConsumerImpl.class);</span>
+<span class="fc" id="L44">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenVoteDataWorkConsumerImpl.class);</span>
 
 	/** The import service. */
 	@Autowired
@@ -55,22 +55,22 @@ final class RiksdagenVoteDataWorkConsumerImpl implements MessageListener {
 	 * Instantiates a new riksdagen vote data work consumer impl.
 	 */
 	public RiksdagenVoteDataWorkConsumerImpl() {
-<span class="nc" id="L58">		super();</span>
-<span class="nc" id="L59">	}</span>
+<span class="fc" id="L58">		super();</span>
+<span class="fc" id="L59">	}</span>
 
 	@Override
 	public void onMessage(final Message message) {
 		final String ballotId;
 		try {
-<span class="nc" id="L65">			ballotId = (String) ((ObjectMessage) message).getObject();</span>
+<span class="fc" id="L65">			ballotId = (String) ((ObjectMessage) message).getObject();</span>
 			try {
 <span class="nc" id="L67">				updateService.updateVoteDataData(riksdagenApi.getBallot(ballotId));</span>
-<span class="nc" id="L68">			} catch (final DataFailureException | RuntimeException e) {</span>
-<span class="nc" id="L69">				LOGGER.warn(&quot;Eror loading riksdagen voteData:&quot; + ballotId + &quot; errorMessage:&quot;, e);</span>
+<span class="fc" id="L68">			} catch (final DataFailureException | RuntimeException e) {</span>
+<span class="fc" id="L69">				LOGGER.warn(&quot;Eror loading riksdagen voteData:&quot; + ballotId + &quot; errorMessage:&quot;, e);</span>
 <span class="nc" id="L70">			}</span>
-<span class="nc" id="L71">		} catch (final JMSException e) {</span>
-<span class="nc" id="L72">			LOGGER.warn(&quot;No Valid input&quot;, e);</span>
-<span class="nc" id="L73">		}</span>
-<span class="nc" id="L74">	}</span>
+<span class="fc" id="L71">		} catch (final JMSException e) {</span>
+<span class="fc" id="L72">			LOGGER.warn(&quot;No Valid input&quot;, e);</span>
+<span class="fc" id="L73">		}</span>
+<span class="fc" id="L74">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

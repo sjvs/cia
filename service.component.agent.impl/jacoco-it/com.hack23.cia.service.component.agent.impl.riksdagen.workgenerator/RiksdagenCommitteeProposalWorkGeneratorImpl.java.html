@@ -39,7 +39,7 @@ import com.hack23.cia.model.internal.application.data.impl.RiksdagenDataSources;
 final class RiksdagenCommitteeProposalWorkGeneratorImpl extends AbstractRiksdagenDataSourcesWorkGenerator {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenCommitteeProposalWorkGeneratorImpl.class);</span>
+<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(RiksdagenCommitteeProposalWorkGeneratorImpl.class);</span>
 
 
 	/** The committee proposal component data workdestination. */
@@ -52,33 +52,33 @@ final class RiksdagenCommitteeProposalWorkGeneratorImpl extends AbstractRiksdage
 	 * Instantiates a new riksdagen committee proposal work generator impl.
 	 */
 	public RiksdagenCommitteeProposalWorkGeneratorImpl() {
-<span class="nc" id="L55">		super(RiksdagenDataSources.COMMITTEE_PROPOSALS);</span>
-<span class="nc" id="L56">	}</span>
+<span class="fc" id="L55">		super(RiksdagenDataSources.COMMITTEE_PROPOSALS);</span>
+<span class="fc" id="L56">	}</span>
 
 	@Override
 	public void generateWorkOrders() {
 		try {
-<span class="nc" id="L61">			final List&lt;String&gt; avaibleCommitteeProposal = getImportService()</span>
-<span class="nc" id="L62">					.getAvaibleCommitteeProposal();</span>
-<span class="nc" id="L63">			final Map&lt;String, String&gt; committeeProposalComponentDataMap = getImportService()</span>
-<span class="nc" id="L64">					.getCommitteeProposalComponentDataMap();</span>
+<span class="fc" id="L61">			final List&lt;String&gt; avaibleCommitteeProposal = getImportService()</span>
+<span class="fc" id="L62">					.getAvaibleCommitteeProposal();</span>
+<span class="fc" id="L63">			final Map&lt;String, String&gt; committeeProposalComponentDataMap = getImportService()</span>
+<span class="fc" id="L64">					.getCommitteeProposalComponentDataMap();</span>
 
-<span class="nc" id="L66">			LOGGER.info(&quot;getAvaibleCommitteeProposal()={}&quot;,avaibleCommitteeProposal.size());</span>
-<span class="nc" id="L67">			LOGGER.info(&quot;getCommitteeProposalComponentDataMap()={}&quot;,committeeProposalComponentDataMap.keySet().size());</span>
+<span class="fc" id="L66">			LOGGER.info(&quot;getAvaibleCommitteeProposal()={}&quot;,avaibleCommitteeProposal.size());</span>
+<span class="fc" id="L67">			LOGGER.info(&quot;getCommitteeProposalComponentDataMap()={}&quot;,committeeProposalComponentDataMap.keySet().size());</span>
 
-<span class="nc bnc" id="L69" title="All 2 branches missed.">			for (final String id : avaibleCommitteeProposal) {</span>
-<span class="nc bnc" id="L70" title="All 2 branches missed.">				if (!committeeProposalComponentDataMap.containsKey(id)) {</span>
-<span class="nc" id="L71">					getJmsSender().send(</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">			for (final String id : avaibleCommitteeProposal) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">				if (!committeeProposalComponentDataMap.containsKey(id)) {</span>
+<span class="fc" id="L71">					getJmsSender().send(</span>
 							committeeProposalComponentDataWorkdestination,
 							id);
 
-<span class="nc" id="L75">					LOGGER.info(&quot;load http://data.riksdagen.se/utskottsforslag/{}&quot;, id);</span>
+<span class="fc" id="L75">					LOGGER.info(&quot;load http://data.riksdagen.se/utskottsforslag/{}&quot;, id);</span>
 				}
-<span class="nc" id="L77">			}</span>
+<span class="fc" id="L77">			}</span>
 <span class="nc" id="L78">		} catch (final JMSException exception) {</span>
 <span class="nc" id="L79">			LOGGER.warn(&quot;Loading avaibleCommitteeProposal&quot;, exception);</span>
-<span class="nc" id="L80">		}</span>
-<span class="nc" id="L81">	}</span>
+<span class="fc" id="L80">		}</span>
+<span class="fc" id="L81">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
