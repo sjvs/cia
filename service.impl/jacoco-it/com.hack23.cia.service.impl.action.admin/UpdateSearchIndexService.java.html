@@ -48,8 +48,8 @@ public final class UpdateSearchIndexService extends
 		implements BusinessService&lt;UpdateSearchIndexRequest, UpdateSearchIndexResponse&gt; {
 
 	/** The Constant LOGGER. */
-<span class="nc" id="L51">	private static final Logger LOGGER = LoggerFactory</span>
-<span class="nc" id="L52">			.getLogger(UpdateSearchIndexService.class);</span>
+<span class="fc" id="L51">	private static final Logger LOGGER = LoggerFactory</span>
+<span class="fc" id="L52">			.getLogger(UpdateSearchIndexService.class);</span>
 
 	/** The search indexer. */
 	@Autowired
@@ -63,8 +63,8 @@ public final class UpdateSearchIndexService extends
 	 * Instantiates a new update search index service.
 	 */
 	public UpdateSearchIndexService() {
-<span class="nc" id="L66">		super(UpdateSearchIndexRequest.class);</span>
-<span class="nc" id="L67">	}</span>
+<span class="fc" id="L66">		super(UpdateSearchIndexRequest.class);</span>
+<span class="fc" id="L67">	}</span>
 
 	@Override
 	@Secured({ &quot;ROLE_ADMIN&quot; })
@@ -72,16 +72,16 @@ public final class UpdateSearchIndexService extends
 			final UpdateSearchIndexRequest serviceRequest) {
 
 
-<span class="nc" id="L75">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
-<span class="nc" id="L76">		eventRequest.setEventGroup(ApplicationEventGroup.ADMIN);</span>
-<span class="nc" id="L77">		eventRequest.setApplicationOperation(ApplicationOperationType.UPDATE);</span>
-<span class="nc" id="L78">		eventRequest.setActionName(UpdateSearchIndexRequest.class.getSimpleName());</span>
-<span class="nc" id="L79">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
+<span class="fc" id="L75">		final CreateApplicationEventRequest eventRequest = new CreateApplicationEventRequest();</span>
+<span class="fc" id="L76">		eventRequest.setEventGroup(ApplicationEventGroup.ADMIN);</span>
+<span class="fc" id="L77">		eventRequest.setApplicationOperation(ApplicationOperationType.UPDATE);</span>
+<span class="fc" id="L78">		eventRequest.setActionName(UpdateSearchIndexRequest.class.getSimpleName());</span>
+<span class="fc" id="L79">		eventRequest.setSessionId(serviceRequest.getSessionId());</span>
 
-<span class="nc" id="L81">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
+<span class="fc" id="L81">		final UserAccount userAccount = getUserAccountFromSecurityContext();</span>
 
 
-<span class="nc bnc" id="L84" title="All 2 branches missed.">		if (userAccount != null) {</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">		if (userAccount != null) {</span>
 <span class="nc" id="L85">			LOGGER.info(&quot;{} started:{}&quot;, serviceRequest.getClass().getSimpleName(),userAccount.getEmail());</span>
 
 <span class="nc" id="L87">			eventRequest.setUserId(userAccount.getUserId());</span>
@@ -89,18 +89,18 @@ public final class UpdateSearchIndexService extends
 
 		UpdateSearchIndexResponse response;
 		try {
-<span class="nc" id="L92">			searchIndexer.updateSearchIndex();</span>
-<span class="nc" id="L93">			response = new UpdateSearchIndexResponse(ServiceResult.SUCCESS);</span>
+<span class="fc" id="L92">			searchIndexer.updateSearchIndex();</span>
+<span class="fc" id="L93">			response = new UpdateSearchIndexResponse(ServiceResult.SUCCESS);</span>
 <span class="nc" id="L94">		} catch (final InterruptedException e) {</span>
 <span class="nc" id="L95">			LOGGER.warn(&quot;Update Index failed&quot;,e);</span>
 <span class="nc" id="L96">		    Thread.currentThread().interrupt();</span>
 <span class="nc" id="L97">		    response = new UpdateSearchIndexResponse(ServiceResult.FAILURE);</span>
-<span class="nc" id="L98">		}</span>
+<span class="fc" id="L98">		}</span>
 
-<span class="nc" id="L100">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
-<span class="nc" id="L101">		createApplicationEventService.processService(eventRequest);</span>
+<span class="fc" id="L100">		eventRequest.setApplicationMessage(response.getResult().toString());</span>
+<span class="fc" id="L101">		createApplicationEventService.processService(eventRequest);</span>
 
-<span class="nc" id="L103">		return response;</span>
+<span class="fc" id="L103">		return response;</span>
 	}
 
 

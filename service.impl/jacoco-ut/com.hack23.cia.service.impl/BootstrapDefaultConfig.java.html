@@ -46,26 +46,26 @@ public final class BootstrapDefaultConfig {
 	 * Instantiates a new bootstrap default config.
 	 */
 	public BootstrapDefaultConfig() {
-<span class="nc" id="L49">		super();</span>
-<span class="nc" id="L50">	}</span>
+<span class="fc" id="L49">		super();</span>
+<span class="fc" id="L50">	}</span>
 
 	/**
 	 * Creates the default configuration.
 	 */
 	@PostConstruct
 	public void createDefaultConfiguration() {
-<span class="nc" id="L57">		configureAuthentication(&quot;ROLE_ADMIN&quot;);</span>
-<span class="nc" id="L58">		configurationManager.createDefaultConfigIfEmpty();</span>
-<span class="nc" id="L59">		configurationManager.createDefaultLanguagesIfEmpty();</span>
-<span class="nc" id="L60">		clearAuthentication();</span>
-<span class="nc" id="L61">	}</span>
+<span class="fc" id="L57">		configureAuthentication(&quot;ROLE_ADMIN&quot;);</span>
+<span class="fc" id="L58">		configurationManager.createDefaultConfigIfEmpty();</span>
+<span class="fc" id="L59">		configurationManager.createDefaultLanguagesIfEmpty();</span>
+<span class="fc" id="L60">		clearAuthentication();</span>
+<span class="fc" id="L61">	}</span>
 
 	/**
 	 * Clear authentication.
 	 */
 	private static void clearAuthentication() {
-<span class="nc" id="L67">		SecurityContextHolder.getContext().setAuthentication(null);</span>
-<span class="nc" id="L68">	}</span>
+<span class="fc" id="L67">		SecurityContextHolder.getContext().setAuthentication(null);</span>
+<span class="fc" id="L68">	}</span>
 
 	/**
 	 * Configure authentication.
@@ -74,10 +74,10 @@ public final class BootstrapDefaultConfig {
 	 *            the role
 	 */
 	private static void configureAuthentication(final String role) {
-<span class="nc" id="L77">		final Collection&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList(role);</span>
-<span class="nc" id="L78">		final Authentication authentication = new UsernamePasswordAuthenticationToken(&quot;user&quot;, role, authorities);</span>
-<span class="nc" id="L79">		SecurityContextHolder.getContext().setAuthentication(authentication);</span>
-<span class="nc" id="L80">	}</span>
+<span class="fc" id="L77">		final Collection&lt;GrantedAuthority&gt; authorities = AuthorityUtils.createAuthorityList(role);</span>
+<span class="fc" id="L78">		final Authentication authentication = new UsernamePasswordAuthenticationToken(&quot;user&quot;, role, authorities);</span>
+<span class="fc" id="L79">		SecurityContextHolder.getContext().setAuthentication(authentication);</span>
+<span class="fc" id="L80">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

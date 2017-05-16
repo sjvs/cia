@@ -61,22 +61,22 @@ final class ConfigurationManagerImpl implements ConfigurationManager {
 	 * Instantiates a new configuration manager impl.
 	 */
 	public ConfigurationManagerImpl() {
-<span class="nc" id="L64">		super();</span>
-<span class="nc" id="L65">	}</span>
+<span class="fc" id="L64">		super();</span>
+<span class="fc" id="L65">	}</span>
 
 	@Secured({&quot;ROLE_ANONYMOUS&quot;,&quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public UserConfiguration getUserConfiguration(final String url,final String locale) {
-<span class="nc" id="L70">		final Agency agency = agencyDAO.getAll().get(0);</span>
-<span class="nc" id="L71">		Portal usePortal = null;</span>
-<span class="nc" id="L72">		final LanguageData languageData = findLanguage(locale);</span>
-<span class="nc bnc" id="L73" title="All 2 branches missed.">		for (final Portal portal : agency.getPortals()) {</span>
-<span class="nc bnc" id="L74" title="All 6 branches missed.">			if ((usePortal == null &amp;&amp; PortalType.DEFAULT == portal.getPortalType()) || url.contains(portal.getPortalName())) {</span>
-<span class="nc" id="L75">				usePortal = portal;</span>
+<span class="fc" id="L70">		final Agency agency = agencyDAO.getAll().get(0);</span>
+<span class="fc" id="L71">		Portal usePortal = null;</span>
+<span class="fc" id="L72">		final LanguageData languageData = findLanguage(locale);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		for (final Portal portal : agency.getPortals()) {</span>
+<span class="pc bpc" id="L74" title="2 of 6 branches missed.">			if ((usePortal == null &amp;&amp; PortalType.DEFAULT == portal.getPortalType()) || url.contains(portal.getPortalName())) {</span>
+<span class="fc" id="L75">				usePortal = portal;</span>
 			}
-<span class="nc" id="L77">		}</span>
+<span class="fc" id="L77">		}</span>
 
-<span class="nc" id="L79">		return new UserConfigurationImpl(agency, usePortal,languageData);</span>
+<span class="fc" id="L79">		return new UserConfigurationImpl(agency, usePortal,languageData);</span>
 	}
 
 	/**
@@ -87,18 +87,18 @@ final class ConfigurationManagerImpl implements ConfigurationManager {
 	 * @return the language data
 	 */
 	private LanguageData findLanguage(final String locale) {
-<span class="nc bnc" id="L90" title="All 2 branches missed.">		for (final LanguageData languageData : languageDataDAO.getAll()) {</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">			if (languageData.getLanguageCode().equalsIgnoreCase(locale)) {</span>
-<span class="nc" id="L92">				return languageData;</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">		for (final LanguageData languageData : languageDataDAO.getAll()) {</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">			if (languageData.getLanguageCode().equalsIgnoreCase(locale)) {</span>
+<span class="fc" id="L92">				return languageData;</span>
 			}
-<span class="nc" id="L94">		}</span>
+<span class="fc" id="L94">		}</span>
 <span class="nc" id="L95">		return null;</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public void createDefaultConfigIfEmpty() {
-<span class="nc bnc" id="L101" title="All 2 branches missed.">		if (agencyDAO.getAll().isEmpty()) {</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">		if (agencyDAO.getAll().isEmpty()) {</span>
 <span class="nc" id="L102">			final List&lt;Portal&gt; portals = new ArrayList&lt;&gt;();</span>
 <span class="nc" id="L103">			final Portal defaulPortal = new Portal().withPortalType(PortalType.DEFAULT).withDescription(&quot;Global Portal&quot;)</span>
 <span class="nc" id="L104">					.withPortalName(&quot;Default&quot;);</span>
@@ -113,16 +113,16 @@ final class ConfigurationManagerImpl implements ConfigurationManager {
 <span class="nc" id="L113">			agency.setPortals(portals);</span>
 <span class="nc" id="L114">			agencyDAO.persist(agency);</span>
 		}
-<span class="nc" id="L116">	}</span>
+<span class="fc" id="L116">	}</span>
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public void createDefaultLanguagesIfEmpty() {
-<span class="nc bnc" id="L121" title="All 2 branches missed.">		if (languageDataDAO.getAll().isEmpty()) {</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">		if (languageDataDAO.getAll().isEmpty()) {</span>
 <span class="nc" id="L122">			languageDataDAO.persist(getSupportedLocalesLanguageData());</span>
 
 		}
-<span class="nc" id="L125">	}</span>
+<span class="fc" id="L125">	}</span>
 
 	/**
 	 * Gets the supported locales language data.
