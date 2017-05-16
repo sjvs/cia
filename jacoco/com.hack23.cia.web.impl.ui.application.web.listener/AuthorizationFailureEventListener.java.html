@@ -88,13 +88,13 @@ public final class AuthorizationFailureEventListener implements ApplicationListe
 <span class="fc" id="L88">		final UI currentUiIfAny = UI.getCurrent();</span>
 <span class="fc" id="L89">		String methodInfo = &quot;&quot;;</span>
 
-<span class="pc bpc" id="L91" title="3 of 6 branches missed.">		if (currentPageIfAny != null &amp;&amp; currentUiIfAny != null &amp;&amp; currentUiIfAny.getNavigator() != null</span>
+<span class="pc bpc" id="L91" title="2 of 6 branches missed.">		if (currentPageIfAny != null &amp;&amp; currentUiIfAny != null &amp;&amp; currentUiIfAny.getNavigator() != null</span>
 <span class="pc bpc" id="L92" title="1 of 2 branches missed.">				&amp;&amp; currentUiIfAny.getNavigator().getCurrentView() != null) {</span>
 <span class="fc" id="L93">			serviceRequest.setPage(currentUiIfAny.getNavigator().getCurrentView().getClass().getSimpleName());</span>
 <span class="fc" id="L94">			serviceRequest.setPageMode(currentPageIfAny.getUriFragment());</span>
 		}
 
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (authorizationFailureEvent.getSource() instanceof ReflectiveMethodInvocation) {</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">		if (authorizationFailureEvent.getSource() instanceof ReflectiveMethodInvocation) {</span>
 <span class="fc" id="L98">			final ReflectiveMethodInvocation methodInvocation = (ReflectiveMethodInvocation) authorizationFailureEvent</span>
 <span class="fc" id="L99">					.getSource();</span>
 <span class="pc bpc" id="L100" title="2 of 4 branches missed.">			if (methodInvocation.getMethod() != null &amp;&amp; methodInvocation.getThis() != null) {</span>

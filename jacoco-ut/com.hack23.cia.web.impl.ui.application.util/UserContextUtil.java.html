@@ -130,12 +130,12 @@ public final class UserContextUtil {
 	 * @return the request url
 	 */
 	public static String getRequestUrl(final Page current) {
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">		if (current != null) {</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if (current != null) {</span>
 <span class="fc" id="L134">			return current.getLocation().toString();</span>
 
 		} else {
-<span class="nc" id="L137">			final HttpServletRequest httpRequest=((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();</span>
-<span class="nc" id="L138">			return httpRequest.getRequestURL().toString();</span>
+<span class="fc" id="L137">			final HttpServletRequest httpRequest=((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();</span>
+<span class="fc" id="L138">			return httpRequest.getRequestURL().toString();</span>
 		}
 	}
 

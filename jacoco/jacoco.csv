@@ -100,7 +100,7 @@ Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl,BallotChartDataManagerImpl,0,286,0,4,0,31,0,5,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl,PersonDocumentChartDataManagerImpl,4,156,3,7,1,31,3,9,0,7
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.user.home,UserHomeView,0,7,0,0,0,2,0,1,0,1
-Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.util,UserContextUtil,11,114,11,17,4,41,12,8,1,5
+Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.util,UserContextUtil,3,122,10,18,2,43,11,9,1,5
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.util,WebBrowserUtil,55,25,18,2,19,9,11,2,1,2
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.user.committee.pagemode,CommitteeCurrentMembersHistoryPageModContentFactoryImpl,0,179,2,6,0,21,2,5,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.user.committee.pagemode,AbstractCommitteeRankingPageModContentFactoryImpl,0,6,0,0,0,3,0,2,0,2
@@ -166,7 +166,7 @@ Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.pagelinks.impl,ExternalAttachmentDownloadLink.new StreamResource.StreamSource() {...},20,14,0,0,3,2,0,2,0,2
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.pagelinks.impl,ExternalAttachmentDownloadLink,0,79,0,0,0,17,0,3,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.web.listener,HttpSessionDestroyedEventListener,0,51,0,0,0,14,0,3,0,3
-Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.web.listener,AuthorizationFailureEventListener,0,158,7,7,0,32,7,3,0,3
+Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.web.listener,AuthorizationFailureEventListener,0,158,5,9,0,32,5,5,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.web.listener,HttpSessionCreatedEventListener,0,14,0,0,0,5,0,3,0,3
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api,PageModeMenuCommand,16,98,1,3,2,22,2,8,1,7
 Citizen Intelligence Agency,com.hack23.cia.web.impl.ui.application.action,ViewAction,5,313,0,0,0,29,1,3,1,3
