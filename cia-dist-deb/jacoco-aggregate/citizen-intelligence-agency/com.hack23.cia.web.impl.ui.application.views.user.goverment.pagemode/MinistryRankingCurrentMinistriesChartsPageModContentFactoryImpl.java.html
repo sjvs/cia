@@ -83,7 +83,7 @@ public final class MinistryRankingCurrentMinistriesChartsPageModContentFactoryIm
 				&quot;Current Ministies, by headcount&quot;);
 <span class="nc" id="L84">		panelContent.addComponent(chartLayout);</span>
 
-<span class="nc" id="L86">		panel.setCaption(CHARTS + parameters);</span>
+<span class="nc" id="L86">		panel.setCaption(NAME + &quot;::&quot; + CHARTS + parameters);</span>
 
 <span class="nc" id="L88">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_RANKING_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);

@@ -94,7 +94,7 @@ public final class CommitteeRoleGhantPageModContentFactoryImpl extends AbstractC
 
 <span class="nc" id="L95">			committeeGhantChartManager.createRoleGhant(panelContent, allMembers);</span>
 
-<span class="nc" id="L97">			panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="nc" id="L97">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="nc" id="L98">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}

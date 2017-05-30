@@ -87,7 +87,7 @@ public final class CommitteeDocumentActivityPageModContentFactoryImpl extends Ab
 <span class="nc" id="L87">				chartDataManager</span>
 <span class="nc" id="L88">						.createDocumentHistoryChartByOrg(panelContent,viewRiksdagenCommittee.getEmbeddedId().getOrgCode());</span>
 
-<span class="nc" id="L90">				panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="nc" id="L90">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="nc" id="L91">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 <span class="nc" id="L93">		return panelContent;</span>

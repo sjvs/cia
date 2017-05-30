@@ -98,7 +98,7 @@ public final class EmailPageModContentFactoryImpl extends AbstractAdminSystemPag
 <span class="nc" id="L98">		content.addComponent(emailLayout);</span>
 <span class="nc" id="L99">		content.setExpandRatio(emailLayout, ContentRatio.LARGE_FORM);</span>
 
-<span class="nc" id="L101">		panel.setCaption(&quot;Admin email&quot;);</span>
+<span class="nc" id="L101">		panel.setCaption(NAME + &quot;::&quot; + &quot;Admin email&quot;);</span>
 <span class="nc" id="L102">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_ADMIN_EMAIL_VIEW, ApplicationEventGroup.ADMIN, NAME,</span>
 				null, pageId);
 

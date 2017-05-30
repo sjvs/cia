@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 
 import org.joda.time.DateTime;
 import org.tltv.gantt.Gantt;
+import org.tltv.gantt.client.shared.AbstractStep.CaptionMode;
 import org.tltv.gantt.client.shared.Resolution;
 import org.tltv.gantt.client.shared.Step;
 import org.tltv.gantt.client.shared.SubStep;
@@ -64,8 +65,8 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 * Instantiates a new abstract ghant chart manager impl.
 	 */
 	public AbstractGhantChartManagerImpl() {
-<span class="nc" id="L67">		super();</span>
-<span class="nc" id="L68">	}</span>
+<span class="nc" id="L68">		super();</span>
+<span class="nc" id="L69">	}</span>
 
 	/**
 	 * Creates the role ghant.
@@ -77,19 +78,19 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 */
 	public final void createRoleGhant(final VerticalLayout roleSummaryLayoutTabsheet, final List&lt;T&gt; assignmentList) {
 
-<span class="nc" id="L80">		final Comparator&lt;T&gt; compare = getComparator();</span>
+<span class="nc" id="L81">		final Comparator&lt;T&gt; compare = getComparator();</span>
 
-<span class="nc" id="L82">		final List&lt;T&gt; list = assignmentList.stream().filter(</span>
-<span class="nc bnc" id="L83" title="All 2 branches missed.">				x -&gt; new DateTime(getStepMapping().getFromDate(x).getTime()).getYear() &gt; FILTER_DATA_BEFORE_YEAR)</span>
-<span class="nc" id="L84">				.collect(Collectors.toList());</span>
+<span class="nc" id="L83">		final List&lt;T&gt; list = assignmentList.stream().filter(</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">				x -&gt; new DateTime(getStepMapping().getFromDate(x).getTime()).getYear() &gt; FILTER_DATA_BEFORE_YEAR)</span>
+<span class="nc" id="L85">				.collect(Collectors.toList());</span>
 
-<span class="nc" id="L86">		Collections.sort(list, compare);</span>
+<span class="nc" id="L87">		Collections.sort(list, compare);</span>
 
-<span class="nc" id="L88">		final Gantt createGantt = createGenericGantt(list, getRoleMapping(), getStepMapping());</span>
-<span class="nc" id="L89">		roleSummaryLayoutTabsheet.addComponent(createGantt);</span>
-<span class="nc" id="L90">		roleSummaryLayoutTabsheet.setExpandRatio(createGantt, ContentRatio.GRID);</span>
+<span class="nc" id="L89">		final Gantt createGantt = createGenericGantt(list, getRoleMapping(), getStepMapping());</span>
+<span class="nc" id="L90">		roleSummaryLayoutTabsheet.addComponent(createGantt);</span>
+<span class="nc" id="L91">		roleSummaryLayoutTabsheet.setExpandRatio(createGantt, ContentRatio.GRID);</span>
 
-<span class="nc" id="L92">	}</span>
+<span class="nc" id="L93">	}</span>
 
 	/**
 	 * Gets the comparator.
@@ -111,6 +112,7 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 * @return the step mapping
 	 */
 	protected abstract StepMapping&lt;T&gt; getStepMapping();
+	
 
 	/**
 	 * Creates the generic gantt.
@@ -126,35 +128,35 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	private Gantt createGenericGantt(final List&lt;T&gt; assignmentList, final Function&lt;T, String&gt; roleMapping,
 			final StepMapping&lt;T&gt; stepMapping) {
 
-<span class="nc" id="L129">		final Map&lt;String, List&lt;T&gt;&gt; assignmentListMap = assignmentList.stream()</span>
-<span class="nc" id="L130">				.collect(Collectors.groupingBy(roleMapping, TreeMap::new, Collectors.toList()));</span>
+<span class="nc" id="L131">		final Map&lt;String, List&lt;T&gt;&gt; assignmentListMap = assignmentList.stream()</span>
+<span class="nc" id="L132">				.collect(Collectors.groupingBy(roleMapping, TreeMap::new, Collectors.toList()));</span>
 
-<span class="nc" id="L132">		final Gantt gantt = createGantt();</span>
+<span class="nc" id="L134">		final Gantt gantt = createGantt();</span>
 
-<span class="nc bnc" id="L134" title="All 2 branches missed.">		if (!assignmentList.isEmpty()) {</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">		if (!assignmentList.isEmpty()) {</span>
 
-<span class="nc" id="L136">			gantt.setStartDate(stepMapping.getFromDate(assignmentList.get(0)));</span>
-<span class="nc" id="L137">			gantt.setEndDate(</span>
-<span class="nc" id="L138">					stripDatesAfterCurrentDate(stepMapping.getToDate(assignmentList.get(assignmentList.size() - 1))));</span>
+<span class="nc" id="L138">			gantt.setStartDate(stepMapping.getFromDate(assignmentList.get(0)));</span>
+<span class="nc" id="L139">			gantt.setEndDate(</span>
+<span class="nc" id="L140">					stripDatesAfterCurrentDate(stepMapping.getToDate(assignmentList.get(assignmentList.size() - 1))));</span>
 
-<span class="nc bnc" id="L140" title="All 2 branches missed.">			for (final Entry&lt;String, List&lt;T&gt;&gt; entry : entriesSortedByValues(assignmentListMap, stepMapping)) {</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">			for (final Entry&lt;String, List&lt;T&gt;&gt; entry : entriesSortedByValues(assignmentListMap, stepMapping)) {</span>
 
-<span class="nc" id="L142">				final String stepName = entry.getKey();</span>
+<span class="nc" id="L144">				final String stepName = entry.getKey();</span>
 
-<span class="nc" id="L144">				final Step step = new Step();</span>
-<span class="nc" id="L145">				step.setDescription(stepName);</span>
+<span class="nc" id="L146">				final Step step = new Step(stepName,CaptionMode.HTML);</span>
+<span class="nc" id="L147">				step.setDescription(stepName);</span>
 
-<span class="nc" id="L147">				final List&lt;T&gt; assignments = entry.getValue();</span>
+<span class="nc" id="L149">				final List&lt;T&gt; assignments = entry.getValue();</span>
 
-<span class="nc" id="L149">				Collections.sort(assignments, getComparator());</span>
+<span class="nc" id="L151">				Collections.sort(assignments, getComparator());</span>
 
-<span class="nc" id="L151">				addViewGenericRoleMemberToStep(stepName, step, assignments, stepMapping);</span>
+<span class="nc" id="L153">				addViewGenericRoleMemberToStep(stepName, step, assignments, stepMapping);</span>
 
-<span class="nc" id="L153">				gantt.addStep(step);</span>
-<span class="nc" id="L154">			}</span>
+<span class="nc" id="L155">				gantt.addStep(step);</span>
+<span class="nc" id="L156">			}</span>
 		}
 
-<span class="nc" id="L157">		return gantt;</span>
+<span class="nc" id="L159">		return gantt;</span>
 	}
 
 	/**
@@ -168,31 +170,31 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 */
 	private SortedSet&lt;Map.Entry&lt;String, List&lt;T&gt;&gt;&gt; entriesSortedByValues(final Map&lt;String, List&lt;T&gt;&gt; map,
 			final StepMapping&lt;T&gt; stepMapping) {
-<span class="nc" id="L171">		final Comparator&lt;? super Entry&lt;String, List&lt;T&gt;&gt;&gt; compare = (o1, o2) -&gt; {</span>
+<span class="nc" id="L173">		final Comparator&lt;? super Entry&lt;String, List&lt;T&gt;&gt;&gt; compare = (o1, o2) -&gt; {</span>
 
-<span class="nc" id="L173">			final Comparator&lt;T&gt; compare1 = (o11, o21) -&gt; {</span>
-<span class="nc" id="L174">				final int compareDate = stepMapping.getFromDate(o11).compareTo(stepMapping.getFromDate(o21));</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">				if (compareDate == 0) {</span>
-<span class="nc" id="L176">					final int compareType = stepMapping.getRoleCode(o11).compareTo(stepMapping.getRoleCode(o21));</span>
-<span class="nc bnc" id="L177" title="All 2 branches missed.">					if (compareType == 0) {</span>
-<span class="nc" id="L178">						return stepMapping.getOrg(o11).compareTo(stepMapping.getOrg(o21));</span>
+<span class="nc" id="L175">			final Comparator&lt;T&gt; compare1 = (o11, o21) -&gt; {</span>
+<span class="nc" id="L176">				final int compareDate = stepMapping.getFromDate(o11).compareTo(stepMapping.getFromDate(o21));</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">				if (compareDate == 0) {</span>
+<span class="nc" id="L178">					final int compareType = stepMapping.getRoleCode(o11).compareTo(stepMapping.getRoleCode(o21));</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">					if (compareType == 0) {</span>
+<span class="nc" id="L180">						return stepMapping.getOrg(o11).compareTo(stepMapping.getOrg(o21));</span>
 					} else {
-<span class="nc" id="L180">						return compareType;</span>
+<span class="nc" id="L182">						return compareType;</span>
 					}
 				}
 
-<span class="nc" id="L184">				return compareDate;</span>
+<span class="nc" id="L186">				return compareDate;</span>
 			};
 
-<span class="nc" id="L187">			Collections.sort(o1.getValue(), compare1);</span>
-<span class="nc" id="L188">			Collections.sort(o2.getValue(), compare1);</span>
+<span class="nc" id="L189">			Collections.sort(o1.getValue(), compare1);</span>
+<span class="nc" id="L190">			Collections.sort(o2.getValue(), compare1);</span>
 
-<span class="nc" id="L190">			return compare1.compare(o1.getValue().get(0), o2.getValue().get(0));</span>
+<span class="nc" id="L192">			return compare1.compare(o1.getValue().get(0), o2.getValue().get(0));</span>
 		};
 
-<span class="nc" id="L193">		final SortedSet&lt;Map.Entry&lt;String, List&lt;T&gt;&gt;&gt; sortedEntries = new TreeSet&lt;&gt;(compare);</span>
-<span class="nc" id="L194">		sortedEntries.addAll(map.entrySet());</span>
-<span class="nc" id="L195">		return sortedEntries;</span>
+<span class="nc" id="L195">		final SortedSet&lt;Map.Entry&lt;String, List&lt;T&gt;&gt;&gt; sortedEntries = new TreeSet&lt;&gt;(compare);</span>
+<span class="nc" id="L196">		sortedEntries.addAll(map.entrySet());</span>
+<span class="nc" id="L197">		return sortedEntries;</span>
 	}
 
 	/**
@@ -210,27 +212,27 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	private void addViewGenericRoleMemberToStep(final String stepName, final Step step, final List&lt;T&gt; assignments,
 			final StepMapping&lt;T&gt; stepMapping) {
 
-<span class="nc bnc" id="L213" title="All 2 branches missed.">		for (final T assignmentData : assignments) {</span>
+<span class="nc bnc" id="L215" title="All 2 branches missed.">		for (final T assignmentData : assignments) {</span>
 
-<span class="nc" id="L215">			String subStepName = &quot;&quot;;</span>
+<span class="nc" id="L217">			String subStepName = &quot;&quot;;</span>
 
-<span class="nc bnc" id="L217" title="All 2 branches missed.">			if (stepMapping.getRoleCode(assignmentData) != null) {</span>
-<span class="nc" id="L218">				subStepName = new StringBuilder().append(stepMapping.getFirstName(assignmentData))</span>
-<span class="nc" id="L219">						.append(CONTENT_SEPARATOR).append(stepMapping.getLastName(assignmentData))</span>
-<span class="nc" id="L220">						.append(PARTY_START_TAG).append(stepMapping.getParty(assignmentData)).append(PARTY_END_TAG)</span>
-<span class="nc" id="L221">						.toString();</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">			if (stepMapping.getRoleCode(assignmentData) != null) {</span>
+<span class="nc" id="L220">				subStepName = new StringBuilder().append(stepMapping.getFirstName(assignmentData))</span>
+<span class="nc" id="L221">						.append(CONTENT_SEPARATOR).append(stepMapping.getLastName(assignmentData))</span>
+<span class="nc" id="L222">						.append(PARTY_START_TAG).append(stepMapping.getParty(assignmentData)).append(PARTY_END_TAG)</span>
+<span class="nc" id="L223">						.toString();</span>
 			}
 
-<span class="nc" id="L224">			final SubStep sameRoleSubStep = new SubStep(stepName + '.' + subStepName);</span>
+<span class="nc" id="L226">			final SubStep sameRoleSubStep = new SubStep(stepName + '.' + subStepName,CaptionMode.HTML);</span>
+<span class="nc" id="L227">			sameRoleSubStep.setDescription(stepName + '.' + subStepName);			</span>
+<span class="nc" id="L228">			sameRoleSubStep.setBackgroundColor(stepMapping.getBackgroundColor(assignmentData));</span>
 
-<span class="nc" id="L226">			sameRoleSubStep.setBackgroundColor(stepMapping.getBackgroundColor(assignmentData));</span>
+<span class="nc" id="L230">			sameRoleSubStep.setStartDate(stepMapping.getFromDate(assignmentData).getTime());</span>
+<span class="nc" id="L231">			sameRoleSubStep.setEndDate(stripDatesAfterCurrentDate(stepMapping.getToDate(assignmentData)).getTime());</span>
 
-<span class="nc" id="L228">			sameRoleSubStep.setStartDate(stepMapping.getFromDate(assignmentData).getTime());</span>
-<span class="nc" id="L229">			sameRoleSubStep.setEndDate(stripDatesAfterCurrentDate(stepMapping.getToDate(assignmentData)).getTime());</span>
-
-<span class="nc" id="L231">			step.addSubStep(sameRoleSubStep);</span>
-<span class="nc" id="L232">		}</span>
-<span class="nc" id="L233">	}</span>
+<span class="nc" id="L233">			step.addSubStep(sameRoleSubStep);</span>
+<span class="nc" id="L234">		}</span>
+<span class="nc" id="L235">	}</span>
 
 	/**
 	 * Strip dates after current date.
@@ -240,12 +242,12 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 * @return the date
 	 */
 	private static final Date stripDatesAfterCurrentDate(final Date toDate) {
-<span class="nc" id="L243">		final DateTime currentTime = new DateTime();</span>
+<span class="nc" id="L245">		final DateTime currentTime = new DateTime();</span>
 
-<span class="nc bnc" id="L245" title="All 2 branches missed.">		if (currentTime.isBefore(toDate.getTime())) {</span>
-<span class="nc" id="L246">			return currentTime.plusDays(1).toDate();</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">		if (currentTime.isBefore(toDate.getTime())) {</span>
+<span class="nc" id="L248">			return currentTime.plusDays(1).toDate();</span>
 		} else {
-<span class="nc" id="L248">			return toDate;</span>
+<span class="nc" id="L250">			return toDate;</span>
 		}
 	}
 
@@ -255,14 +257,14 @@ public abstract class AbstractGhantChartManagerImpl&lt;T extends Object&gt; {
 	 * @return the gantt
 	 */
 	private static final Gantt createGantt() {
-<span class="nc" id="L258">		final Gantt gantt = new Gantt();</span>
-<span class="nc" id="L259">		gantt.setSizeFull();</span>
-<span class="nc" id="L260">		gantt.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="nc" id="L261">		gantt.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="nc" id="L262">		gantt.setResizableSteps(false);</span>
-<span class="nc" id="L263">		gantt.setMovableSteps(false);</span>
-<span class="nc" id="L264">		gantt.setResolution(Resolution.Week);</span>
-<span class="nc" id="L265">		return gantt;</span>
+<span class="nc" id="L260">		final Gantt gantt = new Gantt();</span>
+<span class="nc" id="L261">		gantt.setSizeFull();</span>
+<span class="nc" id="L262">		gantt.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="nc" id="L263">		gantt.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="nc" id="L264">		gantt.setResizableSteps(false);</span>
+<span class="nc" id="L265">		gantt.setMovableSteps(false);</span>
+<span class="nc" id="L266">		gantt.setResolution(Resolution.Week);</span>
+<span class="nc" id="L267">		return gantt;</span>
 	}
 
 	/**

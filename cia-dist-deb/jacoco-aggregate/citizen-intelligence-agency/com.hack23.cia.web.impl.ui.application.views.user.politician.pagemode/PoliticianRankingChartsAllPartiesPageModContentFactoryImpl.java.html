@@ -83,7 +83,7 @@ public final class PoliticianRankingChartsAllPartiesPageModContentFactoryImpl
 <span class="nc" id="L83">				.createChartPanel(panelContent,dataSeriesFactory.createPartyChartTimeSeriesAll(), &quot;All&quot;);</span>
 
 
-<span class="nc" id="L86">		panel.setCaption(CHARTS);</span>
+<span class="nc" id="L86">		panel.setCaption(NAME + &quot;::&quot; + CHARTS);</span>
 
 <span class="nc" id="L88">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_POLITICIAN_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);

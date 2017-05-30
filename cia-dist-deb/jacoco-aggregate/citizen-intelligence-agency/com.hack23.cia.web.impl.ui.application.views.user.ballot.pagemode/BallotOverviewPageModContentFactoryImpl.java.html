@@ -163,7 +163,7 @@ public final class BallotOverviewPageModContentFactoryImpl extends AbstractBallo
 					new PageItemPropertyClickListener(UserViews.PARTY_VIEW_NAME, &quot;embeddedId.party&quot;), &quot;embeddedId.party&quot;, null);
 
 
-<span class="nc" id="L166">			panel.setCaption(BALLOT + pageId);</span>
+<span class="nc" id="L166">			panel.setCaption(NAME + &quot;::&quot; + BALLOT + pageId);</span>
 <span class="nc" id="L167">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_BALLOT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}

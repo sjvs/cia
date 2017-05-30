@@ -95,7 +95,7 @@ public final class MinistryMemberHistoryPageModContentFactoryImpl extends Abstra
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME,&quot;personId&quot;), null, null);
 
-<span class="nc" id="L98">			panel.setCaption(MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="nc" id="L98">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
 <span class="nc" id="L99">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 
