@@ -30,6 +30,14 @@ digraph EntityGraph {
         label="documentReferenceList" 
         ]
      
+  /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentDetailData */
+  com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentDetailData [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentDetailData| code\l detailName\l text\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentDetailData.html" ]
+  /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentDetailData */
+  
+  /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentDetailData */
+     
+     
+     
   /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentProposalContainer */
   com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentProposalContainer [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentProposalContainer| proposal\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentProposalContainer.html" ]
   /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentProposalContainer */
@@ -38,14 +46,6 @@ digraph EntityGraph {
      com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentProposalContainer -> com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentProposalData [ 
         label="proposal" 
         ]
-     
-  /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentDetailData */
-  com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentDetailData [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentDetailData| code\l detailName\l text\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentDetailData.html" ]
-  /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentDetailData */
-  
-  /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentDetailData */
-     
-     
      
   /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentStatusContainer */
   com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentStatusContainer [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentStatusContainer| document\l documentActivityContainer\l documentAttachmentContainer\l documentCategory\l documentDetailContainer\l documentPersonReferenceContainer\l documentProposal\l documentReferenceContainer\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentStatusContainer.html" ]
@@ -151,14 +151,6 @@ digraph EntityGraph {
         label="documentActivities" 
         ]
      
-  /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentReferenceData */
-  com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentReferenceData [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentReferenceData| detail\l referenceDocumentId\l referenceType\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentReferenceData.html" ]
-  /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentReferenceData */
-  
-  /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentReferenceData */
-     
-     
-     
   /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentPersonReferenceData */
   com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentPersonReferenceData [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentPersonReferenceData| orderNumber\l partyShortCode\l personReferenceId\l referenceName\l roleDescription\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentPersonReferenceData.html" ]
   /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentPersonReferenceData */
@@ -166,6 +158,14 @@ digraph EntityGraph {
   /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentPersonReferenceData */
      
      
+     
+     
+     
+  /* Node com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentReferenceData */
+  com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentReferenceData [ label = "{ com\.hack23\.cia\.model\.external\.riksdagen\.dokumentstatus\.impl\.DocumentReferenceData| detail\l referenceDocumentId\l referenceType\l }", URL="com/hack23/cia/model/external/riksdagen/dokumentstatus/impl/DocumentReferenceData.html" ]
+  /* Subclass edges for com.hack23.cia.model.external.riksdagen.dokumentstatus.impl.DocumentReferenceData */
+  
+  /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_external_dot_riksdagen_dot_dokumentstatus_dot_impl_dot_DocumentReferenceData */
      
      
      
