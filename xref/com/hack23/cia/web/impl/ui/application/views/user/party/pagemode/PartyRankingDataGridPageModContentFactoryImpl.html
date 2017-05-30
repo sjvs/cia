@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/user/party/pagemode/PartyRankingDataGridPageModContentFactoryImpl.html">PartyRankingDataGridPageModContentFactoryImpl</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/user/party/pagemode/AbstractPartyRankingPageModContentFactoryImpl.html">AbstractPartyRankingPageModContentFactoryImpl</a> {
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  	<em class="jxr_javadoccomment">/** The Constant DATAGRID. */</em>
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String DATAGRID = <span class="jxr_string">"Datagrid:"</span>;
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String DATAGRID = <span class="jxr_string">"Datagrid"</span>;
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  	<em class="jxr_javadoccomment">/** The Constant NAME. */</em>
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String NAME = UserViews.PARTY_RANKING_VIEW_NAME;
@@ -89,7 +89,7 @@
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  						<span class="jxr_string">"totalDaysServedParliament"</span>, <span class="jxr_string">"totalDaysServedEu"</span> }, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"active"</span>,<span class="jxr_string">"activeParliament"</span>,<span class="jxr_string">"activeGovernment"</span>,<span class="jxr_string">"activeCommittee"</span>, <span class="jxr_string">"activeEu"</span>, <span class="jxr_string">"activeParty"</span>, <span class="jxr_string">"activeSpeaker"</span>}, <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.PARTY_VIEW_NAME, <span class="jxr_string">"party"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		panel.setCaption(DATAGRID + parameters);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + DATAGRID);
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  				NAME, parameters, pageId);

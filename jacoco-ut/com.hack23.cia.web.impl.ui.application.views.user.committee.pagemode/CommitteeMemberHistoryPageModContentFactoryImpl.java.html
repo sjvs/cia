@@ -98,7 +98,7 @@ public final class CommitteeMemberHistoryPageModContentFactoryImpl extends Abstr
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-<span class="fc" id="L101">			panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L101">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="fc" id="L102">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}

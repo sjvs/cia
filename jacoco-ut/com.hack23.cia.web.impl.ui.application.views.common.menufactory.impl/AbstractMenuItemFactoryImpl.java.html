@@ -306,33 +306,32 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 *            the description
 	 */
 	protected final void createButtonLink(final GridLayout panelContent,final String linkText,final Resource icon, final ClickListener command, final String description) {
-<span class="fc" id="L309">		final GridLayout grid = new GridLayout(2, 1);</span>
+<span class="fc" id="L309">		final GridLayout grid = new GridLayout(1, 2);</span>
 <span class="fc" id="L310">		grid.setWidth(100, Unit.PERCENTAGE);</span>
 <span class="fc" id="L311">		grid.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L312">		grid.setColumnExpandRatio(0, 1);</span>
-<span class="fc" id="L313">		grid.setColumnExpandRatio(1, 2);</span>
+<span class="fc" id="L312">		grid.addStyleName(&quot;v-grid-layout-content-overview-panel&quot;);</span>
 
-<span class="fc" id="L315">		final Button b = new Button(linkText);</span>
-<span class="fc" id="L316">		b.setStyleName(LINK_STYLE_NAME);</span>
-<span class="fc" id="L317">		b.addClickListener(command);</span>
-<span class="fc" id="L318">		b.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L314">		final Button button = new Button(linkText);</span>
+<span class="fc" id="L315">		button.setStyleName(LINK_STYLE_NAME);</span>
+<span class="fc" id="L316">		button.addClickListener(command);</span>
+<span class="fc" id="L317">		button.setWidth(100, Unit.PERCENTAGE);</span>
 
-<span class="fc" id="L320">		b.setIcon(icon);</span>
-<span class="fc" id="L321">		b.setWidth(100, Unit.PERCENTAGE);</span>
-
-
-<span class="fc" id="L324">		grid.addComponent(b, 0, 0);</span>
-<span class="fc" id="L325">		grid.setComponentAlignment(b, Alignment.MIDDLE_LEFT);</span>
-
-<span class="fc" id="L327">		final Label descriptionLabel = new Label(description);</span>
-<span class="fc" id="L328">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L329">		grid.addComponent(descriptionLabel,1,0);</span>
-<span class="fc" id="L330">		grid.setComponentAlignment(descriptionLabel, Alignment.MIDDLE_LEFT);</span>
+<span class="fc" id="L319">		button.setIcon(icon);</span>
+<span class="fc" id="L320">		button.setWidth(100, Unit.PERCENTAGE);</span>
 
 
-<span class="fc" id="L333">		panelContent.addComponent(grid);</span>
-<span class="fc" id="L334">		panelContent.setComponentAlignment(grid, Alignment.MIDDLE_LEFT);</span>
-<span class="fc" id="L335">	}</span>
+<span class="fc" id="L323">		grid.addComponent(button, 0, 0);</span>
+<span class="fc" id="L324">		grid.setComponentAlignment(button, Alignment.TOP_LEFT);</span>
+
+<span class="fc" id="L326">		final Label descriptionLabel = new Label(description);</span>
+<span class="fc" id="L327">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L328">		grid.addComponent(descriptionLabel,0,1);</span>
+<span class="fc" id="L329">		grid.setComponentAlignment(descriptionLabel, Alignment.TOP_LEFT);</span>
+
+
+<span class="fc" id="L332">		panelContent.addComponent(grid);</span>
+<span class="fc" id="L333">		panelContent.setComponentAlignment(grid, Alignment.TOP_LEFT);</span>
+<span class="fc" id="L334">	}</span>
 
 	/**
 	 * Creates the grid layout.
@@ -342,15 +341,15 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 * @return the grid layout
 	 */
 	protected final GridLayout createGridLayout(final VerticalLayout panelContent) {
-<span class="fc" id="L345">		final GridLayout grid = new GridLayout(2, 1);</span>
-<span class="fc" id="L346">		grid.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L347">		grid.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L348">		grid.setColumnExpandRatio(0, 1);</span>
-<span class="fc" id="L349">		grid.setColumnExpandRatio(1, 1);</span>
-<span class="fc" id="L350">		grid.setSpacing(true);</span>
-<span class="fc" id="L351">		panelContent.addComponent(grid);</span>
-<span class="fc" id="L352">		panelContent.setExpandRatio(grid, ContentRatio.LARGE);</span>
-<span class="fc" id="L353">		return grid;</span>
+<span class="fc" id="L344">		final GridLayout grid = new GridLayout(2, 1);</span>
+<span class="fc" id="L345">		grid.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L346">		grid.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L347">		grid.setColumnExpandRatio(0, 1);</span>
+<span class="fc" id="L348">		grid.setColumnExpandRatio(1, 1);</span>
+<span class="fc" id="L349">		grid.setSpacing(true);</span>
+<span class="fc" id="L350">		panelContent.addComponent(grid);</span>
+<span class="fc" id="L351">		panelContent.setExpandRatio(grid, ContentRatio.LARGE);</span>
+<span class="fc" id="L352">		return grid;</span>
 	}
 
 }

@@ -100,7 +100,7 @@ public final class CommitteeCurrentMembersHistoryPageModContentFactoryImpl
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot;, &quot;active&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-<span class="fc" id="L103">			panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L103">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="fc" id="L104">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}

@@ -87,7 +87,7 @@ public final class MinistryDocumentActivityPageModContentFactoryImpl extends Abs
 <span class="fc" id="L87">			chartDataManager</span>
 <span class="fc" id="L88">					.createDocumentHistoryChartByOrg(panelContent,viewRiksdagenMinistry.getNameId());</span>
 
-<span class="fc" id="L90">			panel.setCaption(MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="fc" id="L90">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
 <span class="fc" id="L91">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 

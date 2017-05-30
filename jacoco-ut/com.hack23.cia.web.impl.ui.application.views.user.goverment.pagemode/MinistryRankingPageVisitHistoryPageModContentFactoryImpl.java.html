@@ -40,7 +40,7 @@ public final class MinistryRankingPageVisitHistoryPageModContentFactoryImpl
 		extends AbstractMinistryRankingPageModContentFactoryImpl {
 
 	/** The Constant PAGE_VISIT_HISTORY. */
-	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History:&quot;;
+	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History&quot;;
 
 	/** The admin chart data manager. */
 	@Autowired
@@ -70,7 +70,7 @@ public final class MinistryRankingPageVisitHistoryPageModContentFactoryImpl
 
 <span class="fc" id="L71">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
 
-<span class="fc" id="L73">		panel.setCaption(PAGE_VISIT_HISTORY + parameters);</span>
+<span class="fc" id="L73">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
 
 <span class="fc" id="L75">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);

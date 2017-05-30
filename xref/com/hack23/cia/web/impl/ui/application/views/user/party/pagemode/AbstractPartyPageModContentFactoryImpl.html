@@ -72,7 +72,7 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> pageCompleted(<strong class="jxr_keyword">final</strong> String parameters, <strong class="jxr_keyword">final</strong> Component panel, <strong class="jxr_keyword">final</strong> String pageId,
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  			<strong class="jxr_keyword">final</strong> ViewRiksdagenParty viewRiksdagenParty) {
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		panel.setCaption(<strong class="jxr_keyword">new</strong> StringBuilder().append(PARTY).append(viewRiksdagenParty.getPartyName()).toString());
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + <strong class="jxr_keyword">new</strong> StringBuilder().append(PARTY).append(viewRiksdagenParty.getPartyName()).toString());
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_VIEW, ApplicationEventGroup.USER, NAME, parameters,
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  				pageId);

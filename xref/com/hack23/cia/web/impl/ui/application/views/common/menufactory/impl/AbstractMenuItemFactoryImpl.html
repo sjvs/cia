@@ -314,54 +314,53 @@
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">	 *            the description</em>
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> createButtonLink(<strong class="jxr_keyword">final</strong> GridLayout panelContent,<strong class="jxr_keyword">final</strong> String linkText,<strong class="jxr_keyword">final</strong> Resource icon, <strong class="jxr_keyword">final</strong> ClickListener command, <strong class="jxr_keyword">final</strong> String description) {
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = <strong class="jxr_keyword">new</strong> GridLayout(2, 1);
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = <strong class="jxr_keyword">new</strong> GridLayout(1, 2);
 <a class="jxr_linenumber" name="L310" href="#L310">310</a> 		grid.setWidth(100, Unit.PERCENTAGE);
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> 		grid.setHeight(100, Unit.PERCENTAGE);
-<a class="jxr_linenumber" name="L312" href="#L312">312</a> 		grid.setColumnExpandRatio(0, 1);
-<a class="jxr_linenumber" name="L313" href="#L313">313</a> 		grid.setColumnExpandRatio(1, 2);
-<a class="jxr_linenumber" name="L314" href="#L314">314</a> 
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		<strong class="jxr_keyword">final</strong> Button b = <strong class="jxr_keyword">new</strong> Button(linkText);
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		b.setStyleName(LINK_STYLE_NAME);
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		b.addClickListener(command);
-<a class="jxr_linenumber" name="L318" href="#L318">318</a> 		b.setWidth(100, Unit.PERCENTAGE);
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> 		b.setIcon(icon);
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> 		b.setWidth(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 		grid.addStyleName(<span class="jxr_string">"v-grid-layout-content-overview-panel"</span>);
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> 
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> 		<strong class="jxr_keyword">final</strong> Button button = <strong class="jxr_keyword">new</strong> Button(linkText);
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		button.setStyleName(LINK_STYLE_NAME);
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		button.addClickListener(command);
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		button.setWidth(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 		button.setIcon(icon);
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 		button.setWidth(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 
 <a class="jxr_linenumber" name="L322" href="#L322">322</a> 
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> 
-<a class="jxr_linenumber" name="L324" href="#L324">324</a> 		grid.addComponent(b, 0, 0);
-<a class="jxr_linenumber" name="L325" href="#L325">325</a> 		grid.setComponentAlignment(b, Alignment.MIDDLE_LEFT);
-<a class="jxr_linenumber" name="L326" href="#L326">326</a> 
-<a class="jxr_linenumber" name="L327" href="#L327">327</a> 		<strong class="jxr_keyword">final</strong> Label descriptionLabel = <strong class="jxr_keyword">new</strong> Label(description);
-<a class="jxr_linenumber" name="L328" href="#L328">328</a> 		descriptionLabel.setWidth(100, Unit.PERCENTAGE);
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> 		grid.addComponent(descriptionLabel,1,0);
-<a class="jxr_linenumber" name="L330" href="#L330">330</a> 		grid.setComponentAlignment(descriptionLabel, Alignment.MIDDLE_LEFT);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 		grid.addComponent(button, 0, 0);
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 		grid.setComponentAlignment(button, Alignment.TOP_LEFT);
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 		<strong class="jxr_keyword">final</strong> Label descriptionLabel = <strong class="jxr_keyword">new</strong> Label(description);
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 		descriptionLabel.setWidth(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 		grid.addComponent(descriptionLabel,0,1);
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 		grid.setComponentAlignment(descriptionLabel, Alignment.TOP_LEFT);
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 
 <a class="jxr_linenumber" name="L331" href="#L331">331</a> 
-<a class="jxr_linenumber" name="L332" href="#L332">332</a> 
-<a class="jxr_linenumber" name="L333" href="#L333">333</a> 		panelContent.addComponent(grid);
-<a class="jxr_linenumber" name="L334" href="#L334">334</a> 		panelContent.setComponentAlignment(grid, Alignment.MIDDLE_LEFT);
-<a class="jxr_linenumber" name="L335" href="#L335">335</a> 	}
-<a class="jxr_linenumber" name="L336" href="#L336">336</a> 
-<a class="jxr_linenumber" name="L337" href="#L337">337</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L338" href="#L338">338</a> <em class="jxr_javadoccomment">	 * Creates the grid layout.</em>
-<a class="jxr_linenumber" name="L339" href="#L339">339</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L340" href="#L340">340</a> <em class="jxr_javadoccomment">	 * @param panelContent</em>
-<a class="jxr_linenumber" name="L341" href="#L341">341</a> <em class="jxr_javadoccomment">	 *            the panel content</em>
-<a class="jxr_linenumber" name="L342" href="#L342">342</a> <em class="jxr_javadoccomment">	 * @return the grid layout</em>
-<a class="jxr_linenumber" name="L343" href="#L343">343</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L344" href="#L344">344</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> GridLayout createGridLayout(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
-<a class="jxr_linenumber" name="L345" href="#L345">345</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = <strong class="jxr_keyword">new</strong> GridLayout(2, 1);
-<a class="jxr_linenumber" name="L346" href="#L346">346</a> 		grid.setWidth(100, Unit.PERCENTAGE);
-<a class="jxr_linenumber" name="L347" href="#L347">347</a> 		grid.setHeight(100, Unit.PERCENTAGE);
-<a class="jxr_linenumber" name="L348" href="#L348">348</a> 		grid.setColumnExpandRatio(0, 1);
-<a class="jxr_linenumber" name="L349" href="#L349">349</a> 		grid.setColumnExpandRatio(1, 1);
-<a class="jxr_linenumber" name="L350" href="#L350">350</a> 		grid.setSpacing(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L351" href="#L351">351</a> 		panelContent.addComponent(grid);
-<a class="jxr_linenumber" name="L352" href="#L352">352</a> 		panelContent.setExpandRatio(grid, ContentRatio.LARGE);
-<a class="jxr_linenumber" name="L353" href="#L353">353</a> 		<strong class="jxr_keyword">return</strong> grid;
-<a class="jxr_linenumber" name="L354" href="#L354">354</a> 	}
-<a class="jxr_linenumber" name="L355" href="#L355">355</a> 
-<a class="jxr_linenumber" name="L356" href="#L356">356</a> }
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> 		panelContent.addComponent(grid);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 		panelContent.setComponentAlignment(grid, Alignment.TOP_LEFT);
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 	}
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> 
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> <em class="jxr_javadoccomment">	 * Creates the grid layout.</em>
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> <em class="jxr_javadoccomment">	 * @param panelContent</em>
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> <em class="jxr_javadoccomment">	 *            the panel content</em>
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> <em class="jxr_javadoccomment">	 * @return the grid layout</em>
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> GridLayout createGridLayout(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = <strong class="jxr_keyword">new</strong> GridLayout(2, 1);
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 		grid.setWidth(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> 		grid.setHeight(100, Unit.PERCENTAGE);
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> 		grid.setColumnExpandRatio(0, 1);
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> 		grid.setColumnExpandRatio(1, 1);
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> 		grid.setSpacing(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> 		panelContent.addComponent(grid);
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> 		panelContent.setExpandRatio(grid, ContentRatio.LARGE);
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> 		<strong class="jxr_keyword">return</strong> grid;
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> 	}
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> 
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

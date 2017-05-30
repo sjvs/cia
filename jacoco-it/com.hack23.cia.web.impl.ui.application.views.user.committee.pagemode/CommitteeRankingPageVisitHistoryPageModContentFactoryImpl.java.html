@@ -44,7 +44,7 @@ public final class CommitteeRankingPageVisitHistoryPageModContentFactoryImpl
 	public static final String NAME = UserViews.COMMITTEE_RANKING_VIEW_NAME;
 
 	/** The Constant PAGE_VISIT_HISTORY. */
-	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History:&quot;;
+	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History&quot;;
 
 	/** The admin chart data manager. */
 	@Autowired
@@ -74,7 +74,7 @@ public final class CommitteeRankingPageVisitHistoryPageModContentFactoryImpl
 
 <span class="fc" id="L75">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
 
-<span class="fc" id="L77">		panel.setCaption(PAGE_VISIT_HISTORY + parameters);</span>
+<span class="fc" id="L77">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
 
 <span class="fc" id="L79">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);

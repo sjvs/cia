@@ -113,7 +113,7 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot; },
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
 
-<span class="fc" id="L116">			panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L116">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="fc" id="L117">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}

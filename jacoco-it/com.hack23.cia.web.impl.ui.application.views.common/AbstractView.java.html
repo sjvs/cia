@@ -237,19 +237,20 @@ public abstract class AbstractView extends Panel implements View {
 <span class="fc" id="L237">		pageModeContent.setComponentAlignment(getBarmenu(), Alignment.TOP_CENTER);</span>
 
 <span class="fc" id="L239">		panel = new Panel(panelName);</span>
+<span class="fc" id="L240">		panel.addStyleName(&quot;v-panel-page-panel&quot;);</span>
 
-<span class="fc" id="L241">		panel.setSizeFull();</span>
-<span class="fc" id="L242">		pageModeContent.addComponent(panel);</span>
-<span class="fc" id="L243">		pageModeContent.setExpandRatio(panel, ContentRatio.FULL_SIZE);</span>
+<span class="fc" id="L242">		panel.setSizeFull();</span>
+<span class="fc" id="L243">		pageModeContent.addComponent(panel);</span>
+<span class="fc" id="L244">		pageModeContent.setExpandRatio(panel, ContentRatio.FULL_SIZE);</span>
 
-<span class="fc" id="L245">		pageModeContent.addComponent(pageLinkFactory.createMainViewPageLink());</span>
-<span class="fc" id="L246">		setContent(layout);</span>
+<span class="fc" id="L246">		pageModeContent.addComponent(pageLinkFactory.createMainViewPageLink());</span>
+<span class="fc" id="L247">		setContent(layout);</span>
 
-<span class="fc" id="L248">		setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L249">		setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L250">		setSizeFull();</span>
+<span class="fc" id="L249">		setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L250">		setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L251">		setSizeFull();</span>
 
-<span class="fc" id="L252">	}</span>
+<span class="fc" id="L253">	}</span>
 
 	/**
 	 * Gets the barmenu.
@@ -257,7 +258,7 @@ public abstract class AbstractView extends Panel implements View {
 	 * @return the barmenu
 	 */
 	public final MenuBar getBarmenu() {
-<span class="fc" id="L260">		return barmenu;</span>
+<span class="fc" id="L261">		return barmenu;</span>
 	}
 
 	/**
@@ -266,7 +267,7 @@ public abstract class AbstractView extends Panel implements View {
 	 * @return the panel
 	 */
 	protected final Panel getPanel() {
-<span class="fc" id="L269">		return panel;</span>
+<span class="fc" id="L270">		return panel;</span>
 	}
 
 	/**
@@ -275,7 +276,7 @@ public abstract class AbstractView extends Panel implements View {
 	 * @return the top header right panel
 	 */
 	protected final HorizontalLayout getTopHeaderRightPanel() {
-<span class="nc" id="L278">		return topHeaderRightPanel;</span>
+<span class="nc" id="L279">		return topHeaderRightPanel;</span>
 	}
 
 }

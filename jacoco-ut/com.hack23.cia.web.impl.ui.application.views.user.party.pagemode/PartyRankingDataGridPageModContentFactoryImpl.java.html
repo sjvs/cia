@@ -43,7 +43,7 @@ import com.vaadin.v7.ui.VerticalLayout;
 public final class PartyRankingDataGridPageModContentFactoryImpl extends AbstractPartyRankingPageModContentFactoryImpl {
 
 	/** The Constant DATAGRID. */
-	private static final String DATAGRID = &quot;Datagrid:&quot;;
+	private static final String DATAGRID = &quot;Datagrid&quot;;
 
 	/** The Constant NAME. */
 	public static final String NAME = UserViews.PARTY_RANKING_VIEW_NAME;
@@ -81,7 +81,7 @@ public final class PartyRankingDataGridPageModContentFactoryImpl extends Abstrac
 						&quot;totalDaysServedParliament&quot;, &quot;totalDaysServedEu&quot; }, new String[] {&quot;active&quot;,&quot;activeParliament&quot;,&quot;activeGovernment&quot;,&quot;activeCommittee&quot;, &quot;activeEu&quot;, &quot;activeParty&quot;, &quot;activeSpeaker&quot;}, new PageItemPropertyClickListener(UserViews.PARTY_VIEW_NAME, &quot;party&quot;), null, null);
 
 
-<span class="fc" id="L84">		panel.setCaption(DATAGRID + parameters);</span>
+<span class="fc" id="L84">		panel.setCaption(NAME + &quot;::&quot; + DATAGRID);</span>
 
 <span class="fc" id="L86">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);

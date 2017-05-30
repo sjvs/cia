@@ -137,7 +137,7 @@ public final class BallotChartsPageModContentFactoryImpl extends AbstractBallotP
 <span class="fc" id="L137">				}</span>
 
 
-<span class="fc" id="L140">				panel.setCaption(BALLOT + pageId);</span>
+<span class="fc" id="L140">				panel.setCaption(NAME + &quot;::&quot; + BALLOT + pageId);</span>
 <span class="fc" id="L141">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_BALLOT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 <span class="fc" id="L143">		return panelContent;</span>

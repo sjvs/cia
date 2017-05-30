@@ -52,7 +52,7 @@
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  		<strong class="jxr_keyword">extends</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/user/goverment/pagemode/AbstractMinistryRankingPageModContentFactoryImpl.html">AbstractMinistryRankingPageModContentFactoryImpl</a> {
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  	<em class="jxr_javadoccomment">/** The Constant DATAGRID. */</em>
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String DATAGRID = <span class="jxr_string">"Datagrid:"</span>;
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String DATAGRID = <span class="jxr_string">"Datagrid"</span>;
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment">	 * Instantiates a new ministry ranking data grid page mod content factory</em>
@@ -88,7 +88,7 @@
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"nameId"</span>, <span class="jxr_string">"totalDaysServed"</span>, <span class="jxr_string">"currentMemberSize"</span>, <span class="jxr_string">"totalAssignments"</span>,
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  						<span class="jxr_string">"firstAssignmentDate"</span>, <span class="jxr_string">"lastAssignmentDate"</span>, <span class="jxr_string">"active"</span> }, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"active"</span>}, <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.MINISTRY_VIEW_NAME, <span class="jxr_string">"nameId"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  		panel.setCaption(DATAGRID + parameters);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + DATAGRID);
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_RANKING_VIEW, ApplicationEventGroup.USER,
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  				NAME, parameters, pageId);

@@ -54,7 +54,7 @@
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagemode/MainViewLoginPageModContentFactoryImpl.html">MainViewLoginPageModContentFactoryImpl</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagemode/AbstractPageModContentFactoryImpl.html">AbstractPageModContentFactoryImpl</a> {
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  	<em class="jxr_javadoccomment">/** The Constant CITIZEN_INTELLIGENCE_AGENCY_MAIN. */</em>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String CITIZEN_INTELLIGENCE_AGENCY_MAIN = <span class="jxr_string">"Citizen Intelligence Agency::Main"</span>;
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String CITIZEN_INTELLIGENCE_AGENCY_MAIN = <span class="jxr_string">"Citizen Intelligence Agency"</span>;
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<em class="jxr_javadoccomment">/** The Constant NAME. */</em>
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String NAME = CommonsViews.MAIN_VIEW_NAME;
@@ -78,7 +78,7 @@
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		<strong class="jxr_keyword">final</strong> VerticalLayout content = createPanelContent();
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  		<strong class="jxr_keyword">final</strong> String pageId = getPageId(parameters);
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		panel.setCaption(CITIZEN_INTELLIGENCE_AGENCY_MAIN);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + CITIZEN_INTELLIGENCE_AGENCY_MAIN);
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  		getMenuItemFactory().createMainPageMenuBar(menuBar);
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
@@ -99,7 +99,7 @@
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  		content.addComponent(loginForm);
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		panel.setCaption(CITIZEN_INTELLIGENCE_AGENCY_MAIN);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + CITIZEN_INTELLIGENCE_AGENCY_MAIN);
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  				CommonsViews.MAIN_VIEW_NAME, parameters, pageId);
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  

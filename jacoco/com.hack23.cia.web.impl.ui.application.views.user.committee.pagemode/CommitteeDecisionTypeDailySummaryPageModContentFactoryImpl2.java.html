@@ -87,7 +87,7 @@ public final class CommitteeDecisionTypeDailySummaryPageModContentFactoryImpl2
 <span class="fc" id="L87">			chartDataManager</span>
 <span class="fc" id="L88">					.createDecisionTypeChart(panelContent,viewRiksdagenCommittee.getEmbeddedId().getOrgCode());</span>
 
-<span class="fc" id="L90">			panel.setCaption(COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L90">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
 <span class="fc" id="L91">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
