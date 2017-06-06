@@ -27,8 +27,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageMod
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.v7.ui.VerticalLayout;
@@ -159,7 +159,7 @@ public final class ParliamentMenuItemFactoryImpl extends AbstractMenuItemFactory
 
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent) {
-<span class="fc" id="L162">		final GridLayout grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L162">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
 <span class="fc" id="L164">		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, &quot;Default description&quot;);</span>
 
@@ -173,7 +173,7 @@ public final class ParliamentMenuItemFactoryImpl extends AbstractMenuItemFactory
 
 
 <span class="fc" id="L175">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
-				COMMAND_PAGEVISITHISTORY, &quot;Default description&quot;);
+				COMMAND_PAGEVISITHISTORY, &quot;View history of page visit for this page.&quot;);
 
 <span class="fc" id="L178">	}</span>
 

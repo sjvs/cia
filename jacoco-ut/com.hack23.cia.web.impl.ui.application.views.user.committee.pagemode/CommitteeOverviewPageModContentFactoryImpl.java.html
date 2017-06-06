@@ -31,11 +31,11 @@ import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
-import com.vaadin.v7.data.util.BeanItem;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
+import com.vaadin.v7.data.util.BeanItem;
 import com.vaadin.v7.ui.VerticalLayout;
 
 /**
@@ -83,31 +83,30 @@ public final class CommitteeOverviewPageModContentFactoryImpl extends AbstractCo
 
 <span class="fc" id="L84">				LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
 
-<span class="fc" id="L86">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L87">				overviewLayout.setSizeFull();</span>
+<span class="fc" id="L86">				final Link addCommitteePageLink = getPageLinkFactory().addCommitteePageLink(viewRiksdagenCommittee);</span>
+<span class="fc" id="L87">				panelContent.addComponent(addCommitteePageLink);</span>
 
-<span class="fc" id="L89">				panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L90">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
-
-<span class="fc" id="L92">				getCommitteeMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
-
-
-<span class="fc" id="L95">				final Link addCommitteePageLink = getPageLinkFactory().addCommitteePageLink(viewRiksdagenCommittee);</span>
-<span class="fc" id="L96">				panelContent.addComponent(addCommitteePageLink);</span>
-
-<span class="fc" id="L98">				getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(viewRiksdagenCommittee),</span>
+<span class="fc" id="L89">				getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(viewRiksdagenCommittee),</span>
 						ViewRiksdagenCommittee.class,
-<span class="fc" id="L100">						Arrays.asList(new String[] { &quot;embeddedId.detail&quot;, &quot;active&quot;, &quot;firstAssignmentDate&quot;,</span>
+<span class="fc" id="L91">						Arrays.asList(new String[] { &quot;embeddedId.detail&quot;, &quot;active&quot;, &quot;firstAssignmentDate&quot;,</span>
 								&quot;lastAssignmentDate&quot;, &quot;totalAssignments&quot;, &quot;totalDaysServed&quot;,
 								&quot;currentMemberSize&quot; }));
 
 
-<span class="fc" id="L105">				panelContent.setExpandRatio(addCommitteePageLink,ContentRatio.SMALL);</span>
+<span class="fc" id="L96">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L97">				overviewLayout.setSizeFull();</span>
 
-<span class="fc" id="L107">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L108">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+<span class="fc" id="L99">				panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L100">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+
+<span class="fc" id="L102">				getCommitteeMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
+
+<span class="fc" id="L104">				panelContent.setExpandRatio(addCommitteePageLink,ContentRatio.SMALL);</span>
+
+<span class="fc" id="L106">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L107">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
-<span class="fc" id="L110">		return panelContent;</span>
+<span class="fc" id="L109">		return panelContent;</span>
 
 	}
 

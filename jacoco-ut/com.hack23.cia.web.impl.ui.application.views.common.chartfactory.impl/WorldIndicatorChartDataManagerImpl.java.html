@@ -19,6 +19,9 @@
 package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import org.dussan.vaadin.dcharts.DCharts;
 import org.dussan.vaadin.dcharts.base.elements.XYseries;
@@ -27,6 +30,7 @@ import org.dussan.vaadin.dcharts.options.Series;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hack23.cia.model.external.worldbank.data.impl.Country;
 import com.hack23.cia.model.external.worldbank.data.impl.WorldBankData;
 import com.hack23.cia.model.internal.application.data.impl.ViewWorldbankIndicatorDataCountrySummary;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
@@ -48,30 +52,37 @@ public final class WorldIndicatorChartDataManagerImpl extends AbstractChartDataM
 	 * Instantiates a new world indicator chart data manager impl.
 	 */
 	public WorldIndicatorChartDataManagerImpl() {
-<span class="fc" id="L51">		super();</span>
-<span class="fc" id="L52">	}</span>
+<span class="fc" id="L55">		super();</span>
+<span class="fc" id="L56">	}</span>
 
 
 	@Override
 	public void createIndicatorChart(final AbstractOrderedLayout content,final List&lt;WorldBankData&gt; list,
 			final ViewWorldbankIndicatorDataCountrySummary summary) {
-<span class="fc" id="L58">		final DataSeries dataSeries = new DataSeries();</span>
+		
+<span class="fc" id="L63">		Map&lt;Country, List&lt;WorldBankData&gt;&gt; countryIndicatorsMap = list.stream()</span>
+<span class="fc" id="L64">				.collect(Collectors.groupingBy(WorldBankData::getCountry, Collectors.toList()));</span>
 
-<span class="fc" id="L60">		final Series series = new Series();</span>
+		
+<span class="fc" id="L67">		final Series series = new Series();</span>
+<span class="fc" id="L68">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L62">		series.addSeries(new XYseries().setLabel(&quot;Sweden&quot;));</span>
+		
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		for (Entry&lt;Country, List&lt;WorldBankData&gt;&gt; entry : countryIndicatorsMap.entrySet() ) {</span>
+<span class="fc" id="L72">			series.addSeries(new XYseries().setLabel(entry.getKey().getValue()));</span>
+			
+<span class="fc" id="L74">			dataSeries.newSeries();</span>
 
-<span class="fc" id="L64">		dataSeries.newSeries();</span>
-
-<span class="fc bfc" id="L66" title="All 2 branches covered.">		for (final WorldBankData item : list) {</span>
-<span class="pc bpc" id="L67" title="3 of 6 branches missed.">			if (item != null &amp;&amp; item.getYearDate() != null &amp;&amp; item.getDataValue() != null</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">					&amp;&amp; !item.getDataValue().isEmpty()) {</span>
-<span class="fc" id="L69">				dataSeries.add(item.getYearDate() + &quot;-01-01&quot;, Float.valueOf(item.getDataValue()));</span>
-			}
-<span class="fc" id="L71">		}</span>
-
-<span class="fc" id="L73">		addChart(content,&quot;Country indicator&quot; +summary.getIndicatorName(), new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsCountryLineChart(series)).show());</span>
-<span class="fc" id="L74">	}</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">			for (final WorldBankData item : entry.getValue()) {</span>
+<span class="pc bpc" id="L77" title="3 of 6 branches missed.">				if (item != null &amp;&amp; item.getYearDate() != null &amp;&amp; item.getDataValue() != null</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">						&amp;&amp; !item.getDataValue().isEmpty()) {</span>
+<span class="fc" id="L79">					dataSeries.add(item.getYearDate() + &quot;-01-01&quot;, Float.valueOf(item.getDataValue()));</span>
+				}
+<span class="fc" id="L81">			}			</span>
+<span class="fc" id="L82">		}</span>
+		
+<span class="fc" id="L84">		addChart(content,&quot;Country indicator&quot; +summary.getIndicatorName(), new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsCountryLineChart(series)).show());</span>
+<span class="fc" id="L85">	}</span>
 
 
 }

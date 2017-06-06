@@ -24,8 +24,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.Ballo
 import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.v7.ui.VerticalLayout;
 
@@ -34,10 +34,6 @@ import com.vaadin.v7.ui.VerticalLayout;
  */
 @Service
 public final class BallotMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements BallotMenuItemFactory {
-
-
-	/** The Constant INDICATORS_TEXT. */
-	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
 
 	/** The Constant CHARTS_TEXT. */
 	private static final String CHARTS_TEXT = &quot;Charts&quot;;
@@ -50,33 +46,26 @@ public final class BallotMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl
 	 * Instantiates a new ballot menu item factory impl.
 	 */
 	public BallotMenuItemFactoryImpl() {
-<span class="fc" id="L53">		super();</span>
-<span class="fc" id="L54">	}</span>
+<span class="fc" id="L49">		super();</span>
+<span class="fc" id="L50">	}</span>
 
 	@Override
 	public void createBallotMenuBar(final MenuBar menuBar, final String pageId) {
-<span class="fc" id="L58">		initApplicationMenuBar(menuBar);</span>
+<span class="fc" id="L54">		initApplicationMenuBar(menuBar);</span>
 
-<span class="fc" id="L60">		menuBar.addItem(OVERVIEW_TEXT, FontAwesome.PIE_CHART,</span>
+<span class="fc" id="L56">		menuBar.addItem(OVERVIEW_TEXT, FontAwesome.PIE_CHART,</span>
 				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.OVERVIEW, pageId));
-<span class="fc" id="L62">		menuBar.addItem(CHARTS_TEXT, FontAwesome.PIE_CHART,</span>
+<span class="fc" id="L58">		menuBar.addItem(CHARTS_TEXT, FontAwesome.PIE_CHART,</span>
 				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.CHARTS, pageId));
-<span class="fc" id="L64">		menuBar.addItem(INDICATORS_TEXT, FontAwesome.PIE_CHART,</span>
-				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.INDICATORS, pageId));
-
-<span class="fc" id="L67">	}</span>
+<span class="fc" id="L60">	}</span>
 
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
-<span class="fc" id="L71">		final GridLayout grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L64">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L73">		createButtonLink(grid,CHARTS_TEXT, FontAwesome.PIE_CHART,</span>
-				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Default description&quot;);
-
-<span class="fc" id="L76">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.PIE_CHART,</span>
-				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Default description&quot;);
-
-<span class="fc" id="L79">	}</span>
+<span class="fc" id="L66">		createButtonLink(grid,CHARTS_TEXT, FontAwesome.PIE_CHART,</span>
+				new PageModeMenuCommand(UserViews.BALLOT_VIEW_NAME, PageMode.CHARTS, pageId), &quot;Breakdown by total votes and by party.&quot;);
+<span class="fc" id="L68">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

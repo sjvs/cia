@@ -27,8 +27,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageMod
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.v7.ui.VerticalLayout;
@@ -169,7 +169,7 @@ public final class CommitteeRankingMenuItemFactoryImpl extends AbstractMenuItemF
 	 */
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent) {
-<span class="fc" id="L172">		final GridLayout grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L172">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
 
 <span class="fc" id="L175">		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, &quot;Default description&quot;);</span>
@@ -179,7 +179,7 @@ public final class CommitteeRankingMenuItemFactoryImpl extends AbstractMenuItemF
 <span class="fc" id="L179">		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT, &quot;Default description&quot;);</span>
 <span class="fc" id="L180">		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, &quot;Default description&quot;);</span>
 
-<span class="fc" id="L182">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY, &quot;Default description&quot;);</span>
+<span class="fc" id="L182">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY, &quot;View history of page visit for this page.&quot;);</span>
 
 <span class="fc" id="L184">	}</span>
 

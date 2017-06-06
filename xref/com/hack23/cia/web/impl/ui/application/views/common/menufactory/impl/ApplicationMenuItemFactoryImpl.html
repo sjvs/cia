@@ -39,8 +39,8 @@
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.GridLayout;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveRow;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
@@ -94,7 +94,7 @@
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a> COMMAND_POLITICIAN_RANKING_DATAGRID = <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a>(UserViews.POLITICIAN_RANKING_VIEW_NAME,
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  			PageMode.DATAGRID);
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a> COMMAND_SEARCH_DOCUMENT = <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a>(UserViews.SEARCH_DOCUMENT_VIEW_NAME,<span class="jxr_string">""</span>);
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>  
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  	<em class="jxr_javadoccomment">/** The Constant POLITICIAN_RANKING. */</em>
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String POLITICIAN_RANKING = <span class="jxr_string">"Politician Ranking"</span>;
@@ -215,7 +215,7 @@
 <a class="jxr_linenumber" name="L207" href="#L207">207</a> 
 <a class="jxr_linenumber" name="L208" href="#L208">208</a> 	@Override
 <a class="jxr_linenumber" name="L209" href="#L209">209</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createOverviewPage(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
-<a class="jxr_linenumber" name="L210" href="#L210">210</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = createGridLayout(panelContent);
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(panelContent);
 <a class="jxr_linenumber" name="L211" href="#L211">211</a> 
 <a class="jxr_linenumber" name="L212" href="#L212">212</a> 		createButtonLink(grid,COUNTRY_RANKING_LINK_TEXT,FontAwesome.FLAG, COMMAND_COUNTRY_RANKING_OVERVIEW,<span class="jxr_string">"Indicators for Sweden overview, find data by topic or source."</span>);
 <a class="jxr_linenumber" name="L213" href="#L213">213</a> 
@@ -240,10 +240,11 @@
 <a class="jxr_linenumber" name="L232" href="#L232">232</a> 
 <a class="jxr_linenumber" name="L233" href="#L233">233</a> 		createButtonLink(grid,MINISTRIES_LINK_TEXT,FontAwesome.GROUP, COMMAND_MINISTRY_RANKING_DATAGRID,<span class="jxr_string">"All ministries, scoreboard assignments and days served in committees"</span>);
 <a class="jxr_linenumber" name="L234" href="#L234">234</a> 
-<a class="jxr_linenumber" name="L235" href="#L235">235</a> 
-<a class="jxr_linenumber" name="L236" href="#L236">236</a> 	}
-<a class="jxr_linenumber" name="L237" href="#L237">237</a> 
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> }
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 		createButtonLink(grid,<span class="jxr_string">"Search documents"</span>,FontAwesome.GROUP, COMMAND_SEARCH_DOCUMENT,<span class="jxr_string">"Search parliament documents"</span>);
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 	}
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

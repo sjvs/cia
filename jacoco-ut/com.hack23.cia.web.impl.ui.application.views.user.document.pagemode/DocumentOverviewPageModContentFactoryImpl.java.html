@@ -36,10 +36,10 @@ import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
-import com.vaadin.v7.data.util.BeanItem;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
+import com.vaadin.v7.data.util.BeanItem;
 import com.vaadin.v7.ui.VerticalLayout;
 
 /**
@@ -92,31 +92,31 @@ public final class DocumentOverviewPageModContentFactoryImpl extends AbstractDoc
 
 <span class="fc" id="L93">			LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
 
-<span class="fc" id="L95">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L96">			overviewLayout.setSizeFull();</span>
-
-<span class="fc" id="L98">			panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L99">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
-
-<span class="fc" id="L101">			getDocumentMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
-
-<span class="fc" id="L103">			getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentElement), DocumentElement.class,</span>
-<span class="fc" id="L104">					Arrays.asList(new String[] { &quot;id&quot;, &quot;org&quot;, &quot;documentType&quot;, &quot;subType&quot;, &quot;rm&quot;, &quot;status&quot;, &quot;title&quot;,</span>
+<span class="fc" id="L95">			getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentElement), DocumentElement.class,</span>
+<span class="fc" id="L96">					Arrays.asList(new String[] { &quot;id&quot;, &quot;org&quot;, &quot;documentType&quot;, &quot;subType&quot;, &quot;rm&quot;, &quot;status&quot;, &quot;title&quot;,</span>
 							&quot;subTitle&quot;, &quot;madePublicDate&quot;, &quot;createdDate&quot;, &quot;systemDate&quot;, &quot;relatedId&quot;, &quot;label&quot;,
 							&quot;tempLabel&quot;, &quot;numberValue&quot;, &quot;kallId&quot;, &quot;documentFormat&quot; }));
 
 
-<span class="pc bpc" id="L109" title="1 of 2 branches missed.">			if (documentStatusContainer != null) {</span>
-<span class="fc" id="L110">				getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentStatusContainer),</span>
-<span class="fc" id="L111">						DocumentStatusContainer.class, Arrays.asList(new String[] { &quot;documentCategory&quot; }));</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">			if (documentStatusContainer != null) {</span>
+<span class="fc" id="L102">				getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentStatusContainer),</span>
+<span class="fc" id="L103">						DocumentStatusContainer.class, Arrays.asList(new String[] { &quot;documentCategory&quot; }));</span>
 
-<span class="fc" id="L113">				getFormFactory()</span>
-<span class="fc" id="L114">						.addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentStatusContainer.getDocument()),</span>
+<span class="fc" id="L105">				getFormFactory()</span>
+<span class="fc" id="L106">						.addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(documentStatusContainer.getDocument()),</span>
 								DocumentData.class,
-<span class="fc" id="L116">								Arrays.asList(new String[] { &quot;id&quot;, &quot;org&quot;, &quot;documentType&quot;, &quot;subType&quot;, &quot;rm&quot;, &quot;status&quot;,</span>
+<span class="fc" id="L108">								Arrays.asList(new String[] { &quot;id&quot;, &quot;org&quot;, &quot;documentType&quot;, &quot;subType&quot;, &quot;rm&quot;, &quot;status&quot;,</span>
 										&quot;title&quot;, &quot;subTitle&quot;, &quot;madePublicDate&quot;, &quot;label&quot;, &quot;tempLabel&quot;, &quot;numberValue&quot;,
 										&quot;hangarId&quot;, }));
 			}
+
+<span class="fc" id="L113">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L114">			overviewLayout.setSizeFull();</span>
+
+<span class="fc" id="L116">			panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L117">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+
+<span class="fc" id="L119">			getDocumentMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
 
 <span class="fc" id="L121">			panel.setContent(panelContent);</span>
 <span class="fc" id="L122">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>

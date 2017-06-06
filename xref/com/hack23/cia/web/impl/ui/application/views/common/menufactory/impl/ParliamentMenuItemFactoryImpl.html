@@ -35,8 +35,8 @@
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.GridLayout;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveRow;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
@@ -167,7 +167,7 @@
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 
 <a class="jxr_linenumber" name="L160" href="#L160">160</a> 	@Override
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createOverviewPage(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> 		<strong class="jxr_keyword">final</strong> GridLayout grid = createGridLayout(panelContent);
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(panelContent);
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, <span class="jxr_string">"Default description"</span>);
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 
@@ -181,7 +181,7 @@
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 				COMMAND_PAGEVISITHISTORY, <span class="jxr_string">"Default description"</span>);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 				COMMAND_PAGEVISITHISTORY, <span class="jxr_string">"View history of page visit for this page."</span>);
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 
 <a class="jxr_linenumber" name="L178" href="#L178">178</a> 	}
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> 
