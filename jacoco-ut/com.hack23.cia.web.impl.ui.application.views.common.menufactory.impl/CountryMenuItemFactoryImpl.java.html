@@ -163,7 +163,7 @@ public final class CountryMenuItemFactoryImpl extends AbstractMenuItemFactoryImp
 
 <span class="fc" id="L164">		return indicatorDataCountrSummaryDailyDataContainer.</span>
 <span class="fc" id="L165">				findListByEmbeddedProperty(ViewWorldbankIndicatorDataCountrySummary.class,ViewWorldbankIndicatorDataCountrySummary_.embeddedId,WorldbankIndicatorDataCountrySummaryEmbeddedId.class,WorldbankIndicatorDataCountrySummaryEmbeddedId_.countryId,&quot;SE&quot;).parallelStream()</span>
-<span class="pc bpc" id="L166" title="2 of 8 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getSourceValue() != null &amp;&amp; t.getEndYear() &gt; 2010 &amp;&amp; t.getDataPoint() &gt; 10)</span>
+<span class="pc bpc" id="L166" title="2 of 8 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getSourceValue() != null &amp;&amp; t.getEndYear() &gt; 2010 &amp;&amp; t.getDataPoint() &gt; 20)</span>
 <span class="fc" id="L167">				.collect(Collectors.groupingBy(ViewWorldbankIndicatorDataCountrySummary::getSourceValue));</span>
 	}
 
@@ -178,7 +178,7 @@ public final class CountryMenuItemFactoryImpl extends AbstractMenuItemFactoryImp
 
 <span class="fc" id="L179">		return indicatorDataCountrSummaryDailyDataContainer</span>
 <span class="fc" id="L180">				.findListByEmbeddedProperty(ViewWorldbankIndicatorDataCountrySummary.class,ViewWorldbankIndicatorDataCountrySummary_.embeddedId,WorldbankIndicatorDataCountrySummaryEmbeddedId.class,WorldbankIndicatorDataCountrySummaryEmbeddedId_.countryId,&quot;SE&quot;).parallelStream()</span>
-<span class="pc bpc" id="L181" title="2 of 8 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getSourceValue() != null &amp;&amp; t.getEndYear() &gt; 2010 &amp;&amp; t.getDataPoint() &gt; 10)</span>
+<span class="pc bpc" id="L181" title="2 of 8 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getSourceValue() != null &amp;&amp; t.getEndYear() &gt; 2010 &amp;&amp; t.getDataPoint() &gt; 20)</span>
 <span class="fc" id="L182">				.flatMap(t -&gt; Arrays.asList(t.getTopics().split(&quot;;&quot;)).stream()</span>
 <span class="fc" id="L183">						.map(topic -&gt; new AbstractMap.SimpleEntry&lt;&gt;(topic, t)))</span>
 

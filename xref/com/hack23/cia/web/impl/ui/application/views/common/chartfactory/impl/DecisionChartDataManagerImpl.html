@@ -146,7 +146,7 @@
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 		}
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> 
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		addChart(content,<span class="jxr_string">"Decision type daily summary"</span>, <strong class="jxr_keyword">new</strong> DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		addChart(content,<span class="jxr_string">"Decision type daily summary"</span>, <strong class="jxr_keyword">new</strong> DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 	}
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 
@@ -172,7 +172,7 @@
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 			addDecisionTypeByOrgData(simpleDateFormat, dataSeries, series, map);
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 		}
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		addChart(content,<span class="jxr_string">"Org Decision type daily summary"</span>, <strong class="jxr_keyword">new</strong> DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		addChart(content,<span class="jxr_string">"Org Decision type daily summary"</span>, <strong class="jxr_keyword">new</strong> DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 	}
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> 
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 

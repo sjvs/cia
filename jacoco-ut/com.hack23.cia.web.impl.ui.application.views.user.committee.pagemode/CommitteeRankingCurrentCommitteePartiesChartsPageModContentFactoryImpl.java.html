@@ -51,7 +51,7 @@ public final class CommitteeRankingCurrentCommitteePartiesChartsPageModContentFa
 	private static final String CHARTS = &quot;Charts:&quot;;
 
 	/** The Constant CURRENT_PARTIES_HEADCOUNT. */
-	private static final String CURRENT_PARTIES_HEADCOUNT = &quot;Current Parties, headcount&quot;;
+	private static final String CURRENT_PARTIES_BY_DAYS_SERVED = &quot;Current Parties, total political days served&quot;;
 
 	/** The chart data manager. */
 	@Autowired
@@ -72,7 +72,7 @@ public final class CommitteeRankingCurrentCommitteePartiesChartsPageModContentFa
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="pc bpc" id="L74" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString())</span>
-<span class="pc bpc" id="L75" title="1 of 2 branches missed.">				&amp;&amp; parameters.contains(ChartIndicators.CURRENTCOMMITTEESBYPARTYHEADCOUNT.toString());</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">				&amp;&amp; parameters.contains(ChartIndicators.CURRENTCOMMITTEESBYPARTYDAYSSERVED.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
@@ -88,7 +88,7 @@ public final class CommitteeRankingCurrentCommitteePartiesChartsPageModContentFa
 <span class="nc" id="L88">		chartLayout.setSizeFull();</span>
 
 <span class="nc" id="L90">		chartDataManager.createChartPanel(chartLayout,</span>
-<span class="nc" id="L91">				dataSeriesFactory2.createChartTimeSeriesCurrentCommitteeByParty(), CURRENT_PARTIES_HEADCOUNT);</span>
+<span class="nc" id="L91">				dataSeriesFactory2.createChartTimeSeriesCurrentCommitteeByParty(), CURRENT_PARTIES_BY_DAYS_SERVED);</span>
 
 <span class="nc" id="L93">		panelContent.addComponent(chartLayout);</span>
 

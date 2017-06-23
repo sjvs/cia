@@ -69,44 +69,44 @@ public final class UserHomeSecuritySettingsPageModContentFactoryImpl extends Abs
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L72" title="3 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.SECURITY_SETTINGS.toString());</span>
+<span class="pc bpc" id="L72" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.SECURITY_SETTINGS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="nc" id="L78">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L78">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="nc" id="L80">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L80">		final String pageId = getPageId(parameters);</span>
 
-<span class="nc" id="L82">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L82">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
 
-<span class="nc" id="L84">		LabelFactory.createHeader2Label(panelContent, SECURITY_SETTINGS);</span>
+<span class="fc" id="L84">		LabelFactory.createHeader2Label(panelContent, SECURITY_SETTINGS);</span>
 
-<span class="nc" id="L86">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
+<span class="fc" id="L86">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
 
-<span class="nc bnc" id="L88" title="All 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
 <span class="nc" id="L89">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
 		} else {
 
-<span class="nc" id="L92">			final Button googleAuthButton = new Button(ENABLE_GOOGLE_AUTHENTICATOR, FontAwesome.USER_SECRET);</span>
-<span class="nc" id="L93">			googleAuthButton.setId(ENABLE_GOOGLE_AUTHENTICATOR);</span>
+<span class="fc" id="L92">			final Button googleAuthButton = new Button(ENABLE_GOOGLE_AUTHENTICATOR, FontAwesome.USER_SECRET);</span>
+<span class="fc" id="L93">			googleAuthButton.setId(ENABLE_GOOGLE_AUTHENTICATOR);</span>
 
-<span class="nc" id="L95">			final SetGoogleAuthenticatorCredentialRequest googleAuthRequest = new SetGoogleAuthenticatorCredentialRequest();</span>
-<span class="nc" id="L96">			googleAuthRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
-<span class="nc" id="L97">			googleAuthButton.addClickListener(</span>
+<span class="fc" id="L95">			final SetGoogleAuthenticatorCredentialRequest googleAuthRequest = new SetGoogleAuthenticatorCredentialRequest();</span>
+<span class="fc" id="L96">			googleAuthRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L97">			googleAuthButton.addClickListener(</span>
 					new SetGoogleAuthenticatorCredentialClickListener(googleAuthRequest));
 
-<span class="nc" id="L100">			panelContent.addComponent(googleAuthButton);</span>
+<span class="fc" id="L100">			panelContent.addComponent(googleAuthButton);</span>
 
 		}
 
-<span class="nc" id="L104">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + SECURITY_SETTINGS);</span>
+<span class="fc" id="L104">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + SECURITY_SETTINGS);</span>
 
-<span class="nc" id="L106">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L106">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="nc" id="L109">		return panelContent;</span>
+<span class="fc" id="L109">		return panelContent;</span>
 
 	}
 

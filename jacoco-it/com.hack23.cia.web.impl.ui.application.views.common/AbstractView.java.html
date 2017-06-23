@@ -150,8 +150,8 @@ public abstract class AbstractView extends Panel implements View {
 
 
 <span class="fc" id="L152">		final VerticalLayout pageModeContent = new VerticalLayout();</span>
-<span class="fc" id="L153">		pageModeContent.setMargin(true);</span>
-<span class="fc" id="L154">		pageModeContent.setSpacing(true);</span>
+<span class="fc" id="L153">		pageModeContent.setMargin(false);</span>
+<span class="fc" id="L154">		pageModeContent.setSpacing(false);</span>
 <span class="fc" id="L155">		pageModeContent.setWidth(100, Unit.PERCENTAGE);</span>
 <span class="fc" id="L156">		pageModeContent.setHeight(100, Unit.PERCENTAGE);</span>
 
@@ -164,8 +164,8 @@ public abstract class AbstractView extends Panel implements View {
 <span class="fc" id="L164">		final HorizontalLayout topHeader = new HorizontalLayout();</span>
 
 <span class="fc" id="L166">		topHeader.addComponent(ciaLogoImage);</span>
-<span class="fc" id="L167">		ciaLogoImage.setWidth(&quot;75px&quot;);</span>
-<span class="fc" id="L168">		ciaLogoImage.setHeight(&quot;75px&quot;);</span>
+<span class="fc" id="L167">		ciaLogoImage.setWidth(&quot;60px&quot;);</span>
+<span class="fc" id="L168">		ciaLogoImage.setHeight(&quot;60px&quot;);</span>
 <span class="fc" id="L169">		topHeader.setComponentAlignment(ciaLogoImage, Alignment.MIDDLE_LEFT);</span>
 <span class="fc" id="L170">		topHeader.setExpandRatio(ciaLogoImage, ContentRatio.SMALL);</span>
 
@@ -224,10 +224,10 @@ public abstract class AbstractView extends Panel implements View {
 
 
 <span class="fc" id="L226">		topHeaderRightPanel.setWidth(&quot;100%&quot;);</span>
-<span class="fc" id="L227">		topHeaderRightPanel.setHeight(&quot;60px&quot;);</span>
+<span class="fc" id="L227">		topHeaderRightPanel.setHeight(&quot;50px&quot;);</span>
 
 <span class="fc" id="L229">		topHeader.setWidth(&quot;100%&quot;);</span>
-<span class="fc" id="L230">		topHeader.setHeight(&quot;60px&quot;);</span>
+<span class="fc" id="L230">		topHeader.setHeight(&quot;50px&quot;);</span>
 
 <span class="fc" id="L232">		pageModeContent.addComponent(topHeader);</span>
 <span class="fc" id="L233">		pageModeContent.setComponentAlignment(topHeader, Alignment.TOP_CENTER);</span>

@@ -108,31 +108,38 @@ import com.vaadin.v7.ui.VerticalLayout;
 <span class="fc" id="L108">		final Panel formPanel = new Panel();</span>
 <span class="fc" id="L109">		formPanel.setSizeFull();</span>
 
-<span class="fc" id="L111">		panelContent.addComponent(formPanel);</span>
-<span class="fc" id="L112">		panelContent.setExpandRatio(formPanel, ContentRatio.GRID);</span>
+		
+<span class="fc" id="L112">		panelContent.addComponent(formPanel);</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">		if (displayProperties.size() &gt; 8) {</span>
+<span class="fc" id="L114">			panelContent.setExpandRatio(formPanel, ContentRatio.GRID);</span>
+		}
+		else {
+<span class="fc" id="L117">			panelContent.setExpandRatio(formPanel, ContentRatio.SMALL_GRID);				</span>
+		}
+		
 
-<span class="fc" id="L114">		final FormLayout formContent = new FormLayout();</span>
-<span class="fc" id="L115">		formPanel.setContent(formContent);</span>
+<span class="fc" id="L121">		final FormLayout formContent = new FormLayout();</span>
+<span class="fc" id="L122">		formPanel.setContent(formContent);</span>
+<span class="fc" id="L123">		formContent.setWidth(ContentSize.FULL_SIZE);</span>
+
+<span class="fc" id="L125">		final BeanFieldGroup&lt;T&gt; fieldGroup = new BeanFieldGroup&lt;&gt;(beanType);</span>
+<span class="fc" id="L126">		fieldGroup.setItemDataSource(item);</span>
+<span class="fc" id="L127">		fieldGroup.setReadOnly(true);</span>
+
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		for (final String property : displayProperties) {</span>
+
+<span class="fc" id="L131">			final Field&lt;?&gt; buildAndBind = fieldGroup.buildAndBind(property);</span>
+<span class="fc" id="L132">			buildAndBind.setWidth(ContentSize.FULL_SIZE);</span>
+
+<span class="fc" id="L134">			formContent.addComponent(buildAndBind);</span>
+<span class="fc" id="L135">		}</span>
+<span class="fc" id="L136">		final Collection&lt;Object&gt; unboundPropertyIds = fieldGroup.getUnboundPropertyIds();</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		for (final Object property : unboundPropertyIds) {</span>
+<span class="fc" id="L138">			LOGGER.debug(LOG_MSG_PROPERTY, property);</span>
+<span class="fc" id="L139">		}</span>
 
 
-<span class="fc" id="L118">		final BeanFieldGroup&lt;T&gt; fieldGroup = new BeanFieldGroup&lt;&gt;(beanType);</span>
-<span class="fc" id="L119">		fieldGroup.setItemDataSource(item);</span>
-<span class="fc" id="L120">		fieldGroup.setReadOnly(true);</span>
-
-<span class="fc bfc" id="L122" title="All 2 branches covered.">		for (final String property : displayProperties) {</span>
-
-<span class="fc" id="L124">			final Field&lt;?&gt; buildAndBind = fieldGroup.buildAndBind(property);</span>
-<span class="fc" id="L125">			buildAndBind.setWidth(ContentSize.FULL_SIZE);</span>
-
-<span class="fc" id="L127">			formContent.addComponent(buildAndBind);</span>
-<span class="fc" id="L128">		}</span>
-<span class="fc" id="L129">		final Collection&lt;Object&gt; unboundPropertyIds = fieldGroup.getUnboundPropertyIds();</span>
-<span class="fc bfc" id="L130" title="All 2 branches covered.">		for (final Object property : unboundPropertyIds) {</span>
-<span class="fc" id="L131">			LOGGER.debug(LOG_MSG_PROPERTY, property);</span>
-<span class="fc" id="L132">		}</span>
-
-
-<span class="fc" id="L135">	}</span>
+<span class="fc" id="L142">	}</span>
 
 
 

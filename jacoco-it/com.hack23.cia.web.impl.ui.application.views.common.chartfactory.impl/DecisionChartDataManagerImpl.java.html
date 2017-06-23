@@ -138,7 +138,7 @@ public final class DecisionChartDataManagerImpl extends AbstractChartDataManager
 
 <span class="fc" id="L139">		}</span>
 
-<span class="fc" id="L141">		addChart(content,&quot;Decision type daily summary&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
+<span class="fc" id="L141">		addChart(content,&quot;Decision type daily summary&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
 <span class="fc" id="L142">	}</span>
 
 
@@ -164,7 +164,7 @@ public final class DecisionChartDataManagerImpl extends AbstractChartDataManager
 <span class="fc" id="L164">			addDecisionTypeByOrgData(simpleDateFormat, dataSeries, series, map);</span>
 		}
 
-<span class="fc" id="L167">		addChart(content,&quot;Org Decision type daily summary&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
+<span class="fc" id="L167">		addChart(content,&quot;Org Decision type daily summary&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
 <span class="fc" id="L168">	}</span>
 
 

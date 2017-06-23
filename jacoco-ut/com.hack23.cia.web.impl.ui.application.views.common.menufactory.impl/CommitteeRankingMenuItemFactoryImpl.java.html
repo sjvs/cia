@@ -57,8 +57,8 @@ public final class CommitteeRankingMenuItemFactoryImpl extends AbstractMenuItemF
 <span class="fc" id="L57">			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYHEADCOUNT.toString());</span>
 
 	/** The Constant COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT. */
-<span class="fc" id="L60">	private static final PageModeMenuCommand COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT = new PageModeMenuCommand(UserViews.COMMITTEE_RANKING_VIEW_NAME,</span>
-<span class="fc" id="L61">			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYPARTYHEADCOUNT.toString());</span>
+<span class="fc" id="L60">	private static final PageModeMenuCommand COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED = new PageModeMenuCommand(UserViews.COMMITTEE_RANKING_VIEW_NAME,</span>
+<span class="fc" id="L61">			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYPARTYDAYSSERVED.toString());</span>
 
 
 	/** The Constant COMMAND_OVERVIEW. */
@@ -153,7 +153,7 @@ public final class CommitteeRankingMenuItemFactoryImpl extends AbstractMenuItemF
 
 <span class="fc" id="L154">		chartByTopic.addItem(CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT);</span>
 <span class="fc" id="L155">		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY);</span>
-<span class="fc" id="L156">		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT);</span>
+<span class="fc" id="L156">		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED);</span>
 
 <span class="fc" id="L158">		chartByTopic.addItem(ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT);</span>
 
@@ -172,12 +172,12 @@ public final class CommitteeRankingMenuItemFactoryImpl extends AbstractMenuItemF
 <span class="fc" id="L172">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
 
-<span class="fc" id="L175">		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, &quot;Default description&quot;);</span>
-<span class="fc" id="L176">		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, &quot;Default description&quot;);</span>
+<span class="fc" id="L175">		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, &quot;Scoreboard over current member size, political days served and total assignments&quot;);</span>
+<span class="fc" id="L176">		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, &quot;Chart over current committees and member size&quot;);</span>
 
-<span class="fc" id="L178">		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY, &quot;Default description&quot;);</span>
-<span class="fc" id="L179">		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT, &quot;Default description&quot;);</span>
-<span class="fc" id="L180">		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, &quot;Default description&quot;);</span>
+<span class="fc" id="L178">		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY, &quot;Chart over current parties active in committees and member size&quot;);</span>
+<span class="fc" id="L179">		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED, &quot;Chart over current parties active in committees days served&quot;);</span>
+<span class="fc" id="L180">		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, &quot;Chart over all committees and member size&quot;);</span>
 
 <span class="fc" id="L182">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY, &quot;View history of page visit for this page.&quot;);</span>
 

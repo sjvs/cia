@@ -174,7 +174,7 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 			}
 <span class="fc" id="L175">		}</span>
 
-<span class="fc" id="L177">		addChart(content,&quot;Party winner by daily ballot average&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
+<span class="fc" id="L177">		addChart(content,&quot;Party winner by daily ballot average&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
 <span class="fc" id="L178">	}</span>
 
 	/**
@@ -228,7 +228,7 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 <span class="fc" id="L228">			}</span>
 		}
 
-<span class="fc" id="L231">		addChart(content,&quot;Party result by&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsPartyLineChart(series)).show());</span>
+<span class="fc" id="L231">		addChart(content,&quot;Party result by&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsPartyLineChart(series)).show(), true);</span>
 <span class="fc" id="L232">	}</span>
 
 
@@ -281,7 +281,7 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 			}
 <span class="fc" id="L282">		}</span>
 
-<span class="fc" id="L284">		addChart(content,&quot;Party ballot chart&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
+<span class="fc" id="L284">		addChart(content,&quot;Party ballot chart&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
 <span class="fc" id="L285">	}</span>
 
 	/**

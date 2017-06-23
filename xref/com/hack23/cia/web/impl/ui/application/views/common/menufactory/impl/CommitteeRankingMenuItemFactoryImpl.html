@@ -65,8 +65,8 @@
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYHEADCOUNT.toString());
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  	<em class="jxr_javadoccomment">/** The Constant COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT. */</em>
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a> COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT = <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a>(UserViews.COMMITTEE_RANKING_VIEW_NAME,
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYPARTYHEADCOUNT.toString());
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a> COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED = <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a>(UserViews.COMMITTEE_RANKING_VIEW_NAME,
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  			PageMode.CHARTS,ChartIndicators.CURRENTCOMMITTEESBYPARTYDAYSSERVED.toString());
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  	<em class="jxr_javadoccomment">/** The Constant COMMAND_OVERVIEW. */</em>
@@ -161,7 +161,7 @@
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> 		chartByTopic.addItem(CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT);
 <a class="jxr_linenumber" name="L155" href="#L155">155</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY);
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED);
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 		chartByTopic.addItem(ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT);
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 
@@ -180,12 +180,12 @@
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(panelContent);
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, <span class="jxr_string">"Default description"</span>);
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Default description"</span>);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, <span class="jxr_string">"Scoreboard over current member size, political days served and total assignments"</span>);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over current committees and member size"</span>);
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY, <span class="jxr_string">"Default description"</span>);
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_HEADCOUNT, <span class="jxr_string">"Default description"</span>);
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Default description"</span>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY, <span class="jxr_string">"Chart over current parties active in committees and member size"</span>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED, <span class="jxr_string">"Chart over current parties active in committees days served"</span>);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over all committees and member size"</span>);
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> 
 <a class="jxr_linenumber" name="L182" href="#L182">182</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY, <span class="jxr_string">"View history of page visit for this page."</span>);
 <a class="jxr_linenumber" name="L183" href="#L183">183</a> 

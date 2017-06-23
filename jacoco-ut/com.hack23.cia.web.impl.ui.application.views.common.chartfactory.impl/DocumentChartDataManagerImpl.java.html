@@ -18,15 +18,22 @@
  */
 package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.dussan.vaadin.dcharts.DCharts;
 import org.dussan.vaadin.dcharts.base.elements.XYseries;
 import org.dussan.vaadin.dcharts.data.DataSeries;
 import org.dussan.vaadin.dcharts.options.Series;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +49,10 @@ import com.vaadin.ui.AbstractOrderedLayout;
  * The Class DocumentChartDataManagerImpl.
  */
 @Service
-public final class DocumentChartDataManagerImpl extends AbstractChartDataManagerImpl implements DocumentChartDataManager {
+public final class DocumentChartDataManagerImpl extends AbstractChartDataManagerImpl
+		implements DocumentChartDataManager {
+
+<span class="fc" id="L55">	private static final Logger LOGGER = LoggerFactory.getLogger(DocumentChartDataManagerImpl.class);</span>
 
 	/** The Constant MOT_PROP_BET. */
 	private static final String MOT_PROP_BET = &quot;mot:prop:bet&quot;;
@@ -57,18 +67,18 @@ public final class DocumentChartDataManagerImpl extends AbstractChartDataManager
 	@Autowired
 	private ApplicationManager applicationManager;
 
+	private static final String DD_MMM_YYYY = &quot;dd-MMM-yyyy&quot;;
+
 	/** The chart options. */
 	@Autowired
 	private ChartOptions chartOptions;
-
 
 	/**
 	 * Instantiates a new document chart data manager impl.
 	 */
 	public DocumentChartDataManagerImpl() {
-<span class="fc" id="L69">		super();</span>
-<span class="fc" id="L70">	}</span>
-
+<span class="fc" id="L80">		super();</span>
+<span class="fc" id="L81">	}</span>
 
 	/**
 	 * Gets the document type map.
@@ -76,46 +86,55 @@ public final class DocumentChartDataManagerImpl extends AbstractChartDataManager
 	 * @return the document type map
 	 */
 	private Map&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; getDocumentTypeMap() {
-<span class="fc" id="L79">		final DataContainer&lt;ViewRiksdagenDocumentTypeDailySummary, RiksdagenDocumentTypeSummaryEmbeddedId&gt; documentTypeSummaryDailyDataContainer = applicationManager</span>
-<span class="fc" id="L80">				.getDataContainer(ViewRiksdagenDocumentTypeDailySummary.class);</span>
+<span class="fc" id="L89">		final DataContainer&lt;ViewRiksdagenDocumentTypeDailySummary, RiksdagenDocumentTypeSummaryEmbeddedId&gt; documentTypeSummaryDailyDataContainer = applicationManager</span>
+<span class="fc" id="L90">				.getDataContainer(ViewRiksdagenDocumentTypeDailySummary.class);</span>
 
-<span class="fc" id="L82">		return documentTypeSummaryDailyDataContainer.getAll().parallelStream()</span>
-<span class="pc bpc" id="L83" title="1 of 4 branches missed.">				.filter(t -&gt; t != null &amp;&amp; !t.getEmbeddedId().getPublicDate().startsWith(YEAR_PREFIX)</span>
-<span class="fc bfc" id="L84" title="All 2 branches covered.">						&amp;&amp; MOT_PROP_BET.contains(t.getEmbeddedId().getDocumentType()))</span>
-<span class="fc" id="L85">				.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getDocumentType()));</span>
+<span class="fc" id="L92">		return documentTypeSummaryDailyDataContainer.getAll().parallelStream()</span>
+<span class="pc bpc" id="L93" title="1 of 4 branches missed.">				.filter(t -&gt; t != null &amp;&amp; !t.getEmbeddedId().getPublicDate().startsWith(YEAR_PREFIX)</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">						&amp;&amp; StringUtils.containsIgnoreCase(MOT_PROP_BET, t.getEmbeddedId().getDocumentType()))</span>
+<span class="fc" id="L95">				.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getDocumentType()));</span>
 	}
-
-
 
 	@Override
 	public void createDocumentTypeChart(final AbstractOrderedLayout content) {
 
-<span class="fc" id="L93">		final Map&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; map = getDocumentTypeMap();</span>
+<span class="fc" id="L101">		final Map&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; map = getDocumentTypeMap();</span>
+<span class="fc" id="L102">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
+<span class="fc" id="L103">		final SimpleDateFormat parseInputDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
 
-<span class="fc" id="L95">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L105">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L97">		final Series series = new Series();</span>
+<span class="fc" id="L107">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L99" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenDocumentTypeDailySummary&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="pc bpc" id="L101" title="1 of 4 branches missed.">			if (entry.getKey() != null &amp;&amp; !EMPTY_STRING.equals(entry.getKey())) {</span>
+<span class="pc bpc" id="L111" title="1 of 4 branches missed.">			if (entry.getKey() != null &amp;&amp; !EMPTY_STRING.equals(entry.getKey())) {</span>
 
-<span class="fc" id="L103">				series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
+<span class="fc" id="L113">				series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
 
-<span class="fc" id="L105">				dataSeries.newSeries();</span>
-<span class="fc" id="L106">				final List&lt;ViewRiksdagenDocumentTypeDailySummary&gt; list = entry.getValue();</span>
-<span class="fc bfc" id="L107" title="All 2 branches covered.">				for (final ViewRiksdagenDocumentTypeDailySummary viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">					if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L109">						dataSeries.add(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getPublicDate(),</span>
-<span class="fc" id="L110">								viewRiksdagenVoteDataBallotPartySummaryDaily.getTotal());</span>
+<span class="fc" id="L115">				dataSeries.newSeries();</span>
+<span class="fc" id="L116">				final List&lt;ViewRiksdagenDocumentTypeDailySummary&gt; list = entry.getValue();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">				for (final ViewRiksdagenDocumentTypeDailySummary item : list) {</span>
+<span class="pc bpc" id="L118" title="1 of 4 branches missed.">					if (item != null &amp;&amp; item.getEmbeddedId().getPublicDate().length() &gt; 0) {</span>
+
+						try {
+<span class="fc" id="L121">							final Date convertedCurrentDate = parseInputDateFormat</span>
+<span class="fc" id="L122">									.parse(item.getEmbeddedId().getPublicDate());</span>
+
+<span class="fc" id="L124">							dataSeries.add(simpleDateFormat.format(convertedCurrentDate), item.getTotal());</span>
+<span class="nc" id="L125">						} catch (ParseException e) {</span>
+<span class="nc" id="L126">							LOGGER.warn(&quot;Problem parsing date:{]&quot;, item.getEmbeddedId().getPublicDate());</span>
+<span class="fc" id="L127">						}</span>
+
 					}
-<span class="fc" id="L112">				}</span>
+<span class="fc" id="L130">				}</span>
 			}
 
-<span class="fc" id="L115">		}</span>
+<span class="fc" id="L133">		}</span>
 
-<span class="fc" id="L117">		addChart(content,&quot;Document type&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendOutside(series)).show());</span>
-<span class="fc" id="L118">	}</span>
+<span class="fc" id="L135">		addChart(content, &quot;Document type&quot;, new DCharts().setDataSeries(dataSeries)</span>
+<span class="fc" id="L136">				.setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
+<span class="fc" id="L137">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
