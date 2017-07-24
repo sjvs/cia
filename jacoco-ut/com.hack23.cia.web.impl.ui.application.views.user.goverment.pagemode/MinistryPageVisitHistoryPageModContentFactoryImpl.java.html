@@ -51,7 +51,7 @@ public final class MinistryPageVisitHistoryPageModContentFactoryImpl extends Abs
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L54" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString()));</span>
+<span class="pc bpc" id="L54" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

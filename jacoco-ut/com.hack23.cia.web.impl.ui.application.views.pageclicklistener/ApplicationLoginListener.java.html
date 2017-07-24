@@ -39,11 +39,8 @@ public final class ApplicationLoginListener implements LoginListener {
 	/** The Constant LOG_MSG_LOGIN_REQUEST_FAILURE. */
 	private static final String LOG_MSG_LOGIN_REQUEST_FAILURE = &quot;LoginRequest {} failure&quot;;
 
-	/** The Constant ERROR_MESSAGE. */
-	private static final String ERROR_MESSAGE = &quot;Error message&quot;;
-
 	/** The Constant LOGIN_FAILED. */
-	private static final String LOGIN_FAILED = &quot;Login failed&quot;;
+	private static final String LOGIN_FAILED = &quot;Login failed:&quot;;
 
 	/** The Constant LOG_MSG_LOGIN_REQUEST. */
 	private static final String LOG_MSG_LOGIN_REQUEST = &quot;LoginRequest {}&quot;;
@@ -52,7 +49,7 @@ public final class ApplicationLoginListener implements LoginListener {
 	private static final long serialVersionUID = 1L;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L55">	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationLoginListener.class);</span>
+<span class="fc" id="L52">	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationLoginListener.class);</span>
 
 	/** The login request. */
 	private final LoginRequest loginRequest;
@@ -63,29 +60,29 @@ public final class ApplicationLoginListener implements LoginListener {
 	 * @param loginRequest
 	 *            the login request
 	 */
-<span class="fc" id="L66">	public ApplicationLoginListener(final LoginRequest loginRequest) {</span>
-<span class="fc" id="L67">		this.loginRequest = loginRequest;</span>
-<span class="fc" id="L68">	}</span>
+<span class="fc" id="L63">	public ApplicationLoginListener(final LoginRequest loginRequest) {</span>
+<span class="fc" id="L64">		this.loginRequest = loginRequest;</span>
+<span class="fc" id="L65">	}</span>
 
 
 	@Override
 	public void onLogin(final LoginEvent event) {
-<span class="fc" id="L73">		loginRequest.setEmail(event.getLoginParameter(&quot;username&quot;));</span>
-<span class="fc" id="L74">		loginRequest.setUserpassword(event.getLoginParameter(&quot;password&quot;));</span>
-<span class="fc" id="L75">		loginRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L70">		loginRequest.setEmail(event.getLoginParameter(&quot;username&quot;));</span>
+<span class="fc" id="L71">		loginRequest.setUserpassword(event.getLoginParameter(&quot;password&quot;));</span>
+<span class="fc" id="L72">		loginRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
 
-<span class="fc" id="L77">		final LoginResponse response = (LoginResponse) ApplicationMangerAccess.getApplicationManager().service(loginRequest);</span>
-<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="fc" id="L79">			LOGGER.info(LOG_MSG_LOGIN_REQUEST,event.getLoginParameter(&quot;username&quot;));</span>
+<span class="fc" id="L74">		final LoginResponse response = (LoginResponse) ApplicationMangerAccess.getApplicationManager().service(loginRequest);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="fc" id="L76">			LOGGER.info(LOG_MSG_LOGIN_REQUEST,event.getLoginParameter(&quot;username&quot;));</span>
 
-<span class="fc" id="L81">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
+<span class="fc" id="L78">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
 		} else {
-<span class="nc" id="L83">			Notification.show(LOGIN_FAILED,</span>
-	                  ERROR_MESSAGE,
+<span class="fc" id="L80">			Notification.show(LOGIN_FAILED,</span>
+<span class="fc" id="L81">					response.getErrorMessage(),</span>
 	                  Notification.Type.WARNING_MESSAGE);
-<span class="nc" id="L86">			LOGGER.info(LOG_MSG_LOGIN_REQUEST_FAILURE,event.getLoginParameter(&quot;username&quot;));</span>
+<span class="fc" id="L83">			LOGGER.info(LOG_MSG_LOGIN_REQUEST_FAILURE,event.getLoginParameter(&quot;username&quot;));</span>
 		}
 
-<span class="fc" id="L89">	}</span>
+<span class="fc" id="L86">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

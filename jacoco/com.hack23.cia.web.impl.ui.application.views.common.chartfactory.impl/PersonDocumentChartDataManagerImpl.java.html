@@ -33,14 +33,11 @@ import org.dussan.vaadin.dcharts.data.DataSeries;
 import org.dussan.vaadin.dcharts.options.Series;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hack23.cia.model.internal.application.data.document.impl.RiksdagenDocumentPersonSummaryEmbeddedId;
 import com.hack23.cia.model.internal.application.data.document.impl.ViewRiksdagenPoliticianDocumentDailySummary;
-import com.hack23.cia.service.api.ApplicationManager;
 import com.hack23.cia.service.api.DataContainer;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.PersonDocumentChartDataManager;
 import com.vaadin.ui.AbstractOrderedLayout;
 
@@ -65,26 +62,17 @@ public final class PersonDocumentChartDataManagerImpl extends AbstractChartDataM
 	private static final String UNDER_SCORE = &quot;_&quot;;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L68">	private static final Logger LOGGER = LoggerFactory.getLogger(PersonDocumentChartDataManagerImpl.class);</span>
+<span class="fc" id="L65">	private static final Logger LOGGER = LoggerFactory.getLogger(PersonDocumentChartDataManagerImpl.class);</span>
 
 	/** The Constant DD_MMM_YYYY. */
 	private static final String DD_MMM_YYYY = &quot;dd-MMM-yyyy&quot;;
-
-	/** The application manager. */
-	@Autowired
-	private ApplicationManager applicationManager;
-
-	/** The chart options. */
-	@Autowired
-	private ChartOptions chartOptions;
-
 
 	/**
 	 * Instantiates a new person document chart data manager impl.
 	 */
 	public PersonDocumentChartDataManagerImpl() {
-<span class="fc" id="L86">		super();</span>
-<span class="fc" id="L87">	}</span>
+<span class="fc" id="L74">		super();</span>
+<span class="fc" id="L75">	}</span>
 
 
 	/**
@@ -93,11 +81,11 @@ public final class PersonDocumentChartDataManagerImpl extends AbstractChartDataM
 	 * @return the view riksdagen politician document daily summary map
 	 */
 	private Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; getViewRiksdagenPoliticianDocumentDailySummaryMap() {
-<span class="fc" id="L96">		final DataContainer&lt;ViewRiksdagenPoliticianDocumentDailySummary, RiksdagenDocumentPersonSummaryEmbeddedId&gt; politicianBallotSummaryDailyDataContainer = applicationManager</span>
-<span class="fc" id="L97">				.getDataContainer(ViewRiksdagenPoliticianDocumentDailySummary.class);</span>
+<span class="fc" id="L84">		final DataContainer&lt;ViewRiksdagenPoliticianDocumentDailySummary, RiksdagenDocumentPersonSummaryEmbeddedId&gt; politicianBallotSummaryDailyDataContainer = getApplicationManager()</span>
+<span class="fc" id="L85">				.getDataContainer(ViewRiksdagenPoliticianDocumentDailySummary.class);</span>
 
-<span class="fc" id="L99">		return politicianBallotSummaryDailyDataContainer.getAll().parallelStream().filter(Objects::nonNull)</span>
-<span class="fc" id="L100">				.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getPersonId()));</span>
+<span class="fc" id="L87">		return politicianBallotSummaryDailyDataContainer.getAll().parallelStream().filter(Objects::nonNull)</span>
+<span class="fc" id="L88">				.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getPersonId()));</span>
 	}
 
 
@@ -105,28 +93,28 @@ public final class PersonDocumentChartDataManagerImpl extends AbstractChartDataM
 	@Override
 	public void createPersonDocumentHistoryChart(final AbstractOrderedLayout content,final String personId) {
 
-<span class="fc" id="L108">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
+<span class="fc" id="L96">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
 
-<span class="fc" id="L110">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L98">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L112">		final Series series = new Series();</span>
+<span class="fc" id="L100">		final Series series = new Series();</span>
 
-<span class="fc" id="L114">		final Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; allMap = getViewRiksdagenPoliticianDocumentDailySummaryMap();</span>
+<span class="fc" id="L102">		final Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; allMap = getViewRiksdagenPoliticianDocumentDailySummaryMap();</span>
 
-<span class="fc" id="L116">		final List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt; itemList = allMap</span>
-<span class="fc" id="L117">				.get(personId.toUpperCase(Locale.ENGLISH).replace(UNDER_SCORE, EMPTY_STRING).trim());</span>
+<span class="fc" id="L104">		final List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt; itemList = allMap</span>
+<span class="fc" id="L105">				.get(personId.toUpperCase(Locale.ENGLISH).replace(UNDER_SCORE, EMPTY_STRING).trim());</span>
 
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">		if (itemList != null) {</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">		if (itemList != null) {</span>
 
-<span class="fc" id="L121">			final Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; map = itemList.parallelStream()</span>
-<span class="fc" id="L122">					.filter(Objects::nonNull).collect(Collectors.groupingBy(</span>
-<span class="fc" id="L123">							t -&gt; StringUtils.defaultIfBlank(t.getEmbeddedId().getDocumentType(), NO_INFO)));</span>
+<span class="fc" id="L109">			final Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; map = itemList.parallelStream()</span>
+<span class="fc" id="L110">					.filter(Objects::nonNull).collect(Collectors.groupingBy(</span>
+<span class="fc" id="L111">							t -&gt; StringUtils.defaultIfBlank(t.getEmbeddedId().getDocumentType(), NO_INFO)));</span>
 
-<span class="fc" id="L125">			addDocumentHistoryByPersonData(simpleDateFormat, dataSeries, series, map);</span>
+<span class="fc" id="L113">			addDocumentHistoryByPersonData(simpleDateFormat, dataSeries, series, map);</span>
 		}
 
-<span class="fc" id="L128">		addChart(content,DOCUMENT_HISTORY, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
-<span class="fc" id="L129">	}</span>
+<span class="fc" id="L116">		addChart(content,DOCUMENT_HISTORY, new DCharts().setDataSeries(dataSeries).setOptions(getChartOptions().createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
+<span class="fc" id="L117">	}</span>
 
 
 	/**
@@ -143,24 +131,24 @@ public final class PersonDocumentChartDataManagerImpl extends AbstractChartDataM
 	 */
 	private static void addDocumentHistoryByPersonData(final SimpleDateFormat simpleDateFormat, final DataSeries dataSeries,
 			final Series series, final Map&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; map) {
-<span class="fc bfc" id="L146" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenPoliticianDocumentDailySummary&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="fc" id="L148">			series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
+<span class="fc" id="L136">			series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
 
-<span class="fc" id="L150">			dataSeries.newSeries();</span>
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">			if (entry.getValue() != null) {</span>
-<span class="fc bfc" id="L152" title="All 2 branches covered.">				for (final ViewRiksdagenPoliticianDocumentDailySummary item : entry.getValue()) {</span>
-<span class="pc bpc" id="L153" title="1 of 2 branches missed.">					if (item != null) {</span>
-<span class="fc" id="L154">						dataSeries.add(simpleDateFormat.format(item.getEmbeddedId().getPublicDate()),</span>
-<span class="fc" id="L155">								item.getTotal());</span>
+<span class="fc" id="L138">			dataSeries.newSeries();</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">			if (entry.getValue() != null) {</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">				for (final ViewRiksdagenPoliticianDocumentDailySummary item : entry.getValue()) {</span>
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">					if (item != null) {</span>
+<span class="fc" id="L142">						dataSeries.add(simpleDateFormat.format(item.getEmbeddedId().getPublicDate()),</span>
+<span class="fc" id="L143">								item.getTotal());</span>
 					}
-<span class="fc" id="L157">				}</span>
+<span class="fc" id="L145">				}</span>
 			} else {
-<span class="nc" id="L159">				LOGGER.info(LOG_MSG_MISSING_DATA_FOR_KEY, entry);</span>
+<span class="nc" id="L147">				LOGGER.info(LOG_MSG_MISSING_DATA_FOR_KEY, entry);</span>
 			}
 
-<span class="fc" id="L162">		}</span>
-<span class="fc" id="L163">	}</span>
+<span class="fc" id="L150">		}</span>
+<span class="fc" id="L151">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

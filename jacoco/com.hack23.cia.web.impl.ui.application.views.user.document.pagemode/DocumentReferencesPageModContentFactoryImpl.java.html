@@ -60,7 +60,7 @@ public final class DocumentReferencesPageModContentFactoryImpl extends AbstractD
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L63" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTREFERENCES.toString()));</span>
+<span class="pc bpc" id="L63" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTREFERENCES.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

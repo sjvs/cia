@@ -18,12 +18,17 @@
 */
 package com.hack23.cia.web.impl.ui.application.web.listener;
 
+import java.text.MessageFormat;
+import java.util.Collection;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.ReflectiveMethodInvocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
+import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.event.AuthorizationFailureEvent;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 
@@ -56,8 +61,12 @@ public final class AuthorizationFailureEventListener implements ApplicationListe
 	 */
 	private static final String LOG_MSG_AUTHORIZATION_FAILURE_SESSION_ID_AUTHORITIES_REQUIRED_AUTHORITIES = &quot;Authorization Failure:: url : {} Method : {} SessionId :{} , Authorities : {} , RequiredAuthorities : {}&quot;;
 
+	/** The Constant ERROR_MESSAGE_FORMAT. */
+	private static final String ERROR_MESSAGE_FORMAT = &quot;Url:{0} , Method{1} ,{2}{3}{4}{5} source:{6}&quot;;
+
+
 	/** The Constant LOGGER. */
-<span class="fc" id="L60">	private static final Logger LOGGER = LoggerFactory.getLogger(AuthorizationFailureEventListener.class);</span>
+<span class="fc" id="L69">	private static final Logger LOGGER = LoggerFactory.getLogger(AuthorizationFailureEventListener.class);</span>
 
 	/** The application manager. */
 	@Autowired
@@ -67,53 +76,55 @@ public final class AuthorizationFailureEventListener implements ApplicationListe
 	 * Instantiates a new authorization failure event listener.
 	 */
 	public AuthorizationFailureEventListener() {
-<span class="fc" id="L70">		super();</span>
-<span class="fc" id="L71">	}</span>
+<span class="fc" id="L79">		super();</span>
+<span class="fc" id="L80">	}</span>
 
 	@Override
 	public void onApplicationEvent(final AuthorizationFailureEvent authorizationFailureEvent) {
 
-<span class="fc" id="L76">		final String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();</span>
+<span class="fc" id="L85">		final String sessionId = RequestContextHolder.currentRequestAttributes().getSessionId();</span>
 
-<span class="fc" id="L78">		final CreateApplicationEventRequest serviceRequest = new CreateApplicationEventRequest();</span>
-<span class="fc" id="L79">		serviceRequest.setSessionId(sessionId);</span>
+<span class="fc" id="L87">		final CreateApplicationEventRequest serviceRequest = new CreateApplicationEventRequest();</span>
+<span class="fc" id="L88">		serviceRequest.setSessionId(sessionId);</span>
 
-<span class="fc" id="L81">		serviceRequest.setEventGroup(ApplicationEventGroup.APPLICATION);</span>
-<span class="fc" id="L82">		serviceRequest.setApplicationOperation(ApplicationOperationType.AUTHORIZATION);</span>
+<span class="fc" id="L90">		serviceRequest.setEventGroup(ApplicationEventGroup.APPLICATION);</span>
+<span class="fc" id="L91">		serviceRequest.setApplicationOperation(ApplicationOperationType.AUTHORIZATION);</span>
 
-<span class="fc" id="L84">		serviceRequest.setUserId(UserContextUtil.getUserIdFromSecurityContext());</span>
+<span class="fc" id="L93">		serviceRequest.setUserId(UserContextUtil.getUserIdFromSecurityContext());</span>
 
-<span class="fc" id="L86">		final Page currentPageIfAny = Page.getCurrent();</span>
-<span class="fc" id="L87">		final String requestUrl = UserContextUtil.getRequestUrl(currentPageIfAny);</span>
-<span class="fc" id="L88">		final UI currentUiIfAny = UI.getCurrent();</span>
-<span class="fc" id="L89">		String methodInfo = &quot;&quot;;</span>
+<span class="fc" id="L95">		final Page currentPageIfAny = Page.getCurrent();</span>
+<span class="fc" id="L96">		final String requestUrl = UserContextUtil.getRequestUrl(currentPageIfAny);</span>
+<span class="fc" id="L97">		final UI currentUiIfAny = UI.getCurrent();</span>
+<span class="fc" id="L98">		String methodInfo = &quot;&quot;;</span>
 
-<span class="pc bpc" id="L91" title="3 of 6 branches missed.">		if (currentPageIfAny != null &amp;&amp; currentUiIfAny != null &amp;&amp; currentUiIfAny.getNavigator() != null</span>
-<span class="pc bpc" id="L92" title="1 of 2 branches missed.">				&amp;&amp; currentUiIfAny.getNavigator().getCurrentView() != null) {</span>
-<span class="fc" id="L93">			serviceRequest.setPage(currentUiIfAny.getNavigator().getCurrentView().getClass().getSimpleName());</span>
-<span class="fc" id="L94">			serviceRequest.setPageMode(currentPageIfAny.getUriFragment());</span>
+<span class="pc bpc" id="L100" title="3 of 6 branches missed.">		if (currentPageIfAny != null &amp;&amp; currentUiIfAny != null &amp;&amp; currentUiIfAny.getNavigator() != null</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">				&amp;&amp; currentUiIfAny.getNavigator().getCurrentView() != null) {</span>
+<span class="fc" id="L102">			serviceRequest.setPage(currentUiIfAny.getNavigator().getCurrentView().getClass().getSimpleName());</span>
+<span class="fc" id="L103">			serviceRequest.setPageMode(currentPageIfAny.getUriFragment());</span>
 		}
 
-<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (authorizationFailureEvent.getSource() instanceof ReflectiveMethodInvocation) {</span>
-<span class="fc" id="L98">			final ReflectiveMethodInvocation methodInvocation = (ReflectiveMethodInvocation) authorizationFailureEvent</span>
-<span class="fc" id="L99">					.getSource();</span>
-<span class="pc bpc" id="L100" title="2 of 4 branches missed.">			if (methodInvocation.getMethod() != null &amp;&amp; methodInvocation.getThis() != null) {</span>
-<span class="fc" id="L101">				methodInfo = methodInvocation.getThis().getClass().getSimpleName() + &quot;.&quot;</span>
-<span class="fc" id="L102">						+ methodInvocation.getMethod().getName();</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">		if (authorizationFailureEvent.getSource() instanceof ReflectiveMethodInvocation) {</span>
+<span class="fc" id="L107">			final ReflectiveMethodInvocation methodInvocation = (ReflectiveMethodInvocation) authorizationFailureEvent</span>
+<span class="fc" id="L108">					.getSource();</span>
+<span class="pc bpc" id="L109" title="2 of 4 branches missed.">			if (methodInvocation.getMethod() != null &amp;&amp; methodInvocation.getThis() != null) {</span>
+<span class="fc" id="L110">				methodInfo = methodInvocation.getThis().getClass().getSimpleName() + &quot;.&quot;</span>
+<span class="fc" id="L111">						+ methodInvocation.getMethod().getName();</span>
 			}
 		}
 
-<span class="fc" id="L106">		serviceRequest.setErrorMessage(&quot;Url:&quot; + requestUrl + &quot; , Method&quot; + methodInfo + &quot; ,&quot; + AUTHORITIES</span>
-<span class="fc" id="L107">				+ authorizationFailureEvent.getAuthentication().getAuthorities() + REQUIRED_AUTHORITIES</span>
-<span class="fc" id="L108">				+ authorizationFailureEvent.getConfigAttributes() + &quot; source:&quot; + authorizationFailureEvent.getSource());</span>
-<span class="fc" id="L109">		serviceRequest.setApplicationMessage(ACCESS_DENIED);</span>
+<span class="fc" id="L115">		final Collection&lt;? extends GrantedAuthority&gt; authorities = authorizationFailureEvent.getAuthentication().getAuthorities();</span>
+<span class="fc" id="L116">		final Collection&lt;ConfigAttribute&gt; configAttributes = authorizationFailureEvent.getConfigAttributes();</span>
 
-<span class="fc" id="L111">		applicationManager.service(serviceRequest);</span>
+<span class="fc" id="L118">		serviceRequest.setErrorMessage(MessageFormat.format(ERROR_MESSAGE_FORMAT, requestUrl, methodInfo, AUTHORITIES, authorities,</span>
+<span class="fc" id="L119">				REQUIRED_AUTHORITIES, configAttributes, authorizationFailureEvent.getSource()));</span>
+<span class="fc" id="L120">		serviceRequest.setApplicationMessage(ACCESS_DENIED);</span>
 
-<span class="fc" id="L113">		LOGGER.info(LOG_MSG_AUTHORIZATION_FAILURE_SESSION_ID_AUTHORITIES_REQUIRED_AUTHORITIES, requestUrl, methodInfo,</span>
-<span class="fc" id="L114">				sessionId, authorizationFailureEvent.getAuthentication().getAuthorities().toString(),</span>
-<span class="fc" id="L115">				authorizationFailureEvent.getConfigAttributes().toString());</span>
-<span class="fc" id="L116">	}</span>
+<span class="fc" id="L122">		applicationManager.service(serviceRequest);</span>
+
+<span class="fc" id="L124">		LOGGER.info(LOG_MSG_AUTHORIZATION_FAILURE_SESSION_ID_AUTHORITIES_REQUIRED_AUTHORITIES, requestUrl, methodInfo,</span>
+				sessionId, authorities,
+				configAttributes);
+<span class="fc" id="L127">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

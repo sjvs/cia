@@ -67,7 +67,7 @@ public final class PoliticianRankingChartsAllPartiesPageModContentFactoryImpl
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L69" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="pc bpc" id="L70" title="1 of 6 branches missed.">				&amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString()) &amp;&amp; parameters.contains(ChartIndicators.ALLPARTIES.toString()));</span>
+<span class="pc bpc" id="L70" title="1 of 6 branches missed.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString()) &amp;&amp; parameters.contains(ChartIndicators.ALLPARTIES.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

@@ -61,7 +61,7 @@ public final class MainViewRegisterPageModContentFactoryImpl extends AbstractPag
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L63" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="pc bpc" id="L64" title="2 of 4 branches missed.">				&amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.REGISTER.toString()));</span>
+<span class="pc bpc" id="L64" title="2 of 4 branches missed.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.REGISTER.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot; })

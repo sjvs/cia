@@ -166,13 +166,17 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 <span class="fc" id="L166">		return pageLinkFactory;</span>
 	}
 
+	protected final AdminChartDataManager getAdminChartDataManager() {
+<span class="fc" id="L170">		return adminChartDataManager;</span>
+	}
+
 	/**
 	 * Gets the page action event helper.
 	 *
 	 * @return the page action event helper
 	 */
 	protected final PageActionEventHelper getPageActionEventHelper() {
-<span class="fc" id="L175">		return pageActionEventHelper;</span>
+<span class="fc" id="L179">		return pageActionEventHelper;</span>
 	}
 
 	/**
@@ -181,12 +185,12 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the vertical layout
 	 */
 	protected final VerticalLayout createPanelContent() {
-<span class="fc" id="L184">		final VerticalLayout panelContent = new VerticalLayout();</span>
-<span class="fc" id="L185">		panelContent.setMargin(true);</span>
-<span class="fc" id="L186">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L187">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L188">		panelContent.setStyleName(&quot;Header&quot;);</span>
-<span class="fc" id="L189">		return panelContent;</span>
+<span class="fc" id="L188">		final VerticalLayout panelContent = new VerticalLayout();</span>
+<span class="fc" id="L189">		panelContent.setMargin(true);</span>
+<span class="fc" id="L190">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L191">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L192">		panelContent.setStyleName(&quot;Header&quot;);</span>
+<span class="fc" id="L193">		return panelContent;</span>
 	}
 
 	/**
@@ -202,32 +206,32 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	protected final void createPageVisitHistory(final String pageName, final String pageId,
 			final VerticalLayout panelContent) {
 
-<span class="fc" id="L205">		final TabSheet tabsheet = new TabSheet();</span>
-<span class="fc" id="L206">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L207">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L209">		final TabSheet tabsheet = new TabSheet();</span>
+<span class="fc" id="L210">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L211">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
 
-<span class="fc" id="L209">		panelContent.addComponent(tabsheet);</span>
-<span class="fc" id="L210">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
+<span class="fc" id="L213">		panelContent.addComponent(tabsheet);</span>
+<span class="fc" id="L214">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L212">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
-<span class="fc" id="L213">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L214">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L215">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
+<span class="fc" id="L216">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
+<span class="fc" id="L217">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L218">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L219">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
 
-<span class="fc" id="L217">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
-<span class="fc" id="L218">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
+<span class="fc" id="L221">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
+<span class="fc" id="L222">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
 				pageName, pageId);
 
-<span class="fc" id="L221">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
-<span class="fc" id="L222">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L223">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L224">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
-<span class="fc" id="L225">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
+<span class="fc" id="L225">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
+<span class="fc" id="L226">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L227">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L228">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
+<span class="fc" id="L229">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
 
-<span class="fc" id="L227">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
+<span class="fc" id="L231">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
 				pageName);
 
-<span class="fc" id="L230">	}</span>
+<span class="fc" id="L234">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

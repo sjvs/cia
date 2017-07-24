@@ -54,28 +54,28 @@ public final class MainViewPageVisitHistoryPageModContentFactoryImpl extends Abs
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L56" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="pc bpc" id="L57" title="2 of 4 branches missed.">				&amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString()));</span>
+<span class="pc bpc" id="L57" title="1 of 4 branches missed.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="nc" id="L63">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L63">		final VerticalLayout content = createPanelContent();</span>
 
-<span class="nc" id="L65">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L65">		final String pageId = getPageId(parameters);</span>
 
-<span class="nc" id="L67">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
+<span class="fc" id="L67">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
 
-<span class="nc" id="L69">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L69">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
-<span class="nc" id="L71">		createPageVisitHistory(NAME,pageId,content);</span>
+<span class="fc" id="L71">		createPageVisitHistory(NAME,pageId,content);</span>
 
-<span class="nc" id="L73">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
-<span class="nc" id="L74">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L73">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
+<span class="fc" id="L74">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,</span>
 				CommonsViews.MAIN_VIEW_NAME, parameters, pageId);
 
 
-<span class="nc" id="L78">		return content;</span>
+<span class="fc" id="L78">		return content;</span>
 
 	}
 

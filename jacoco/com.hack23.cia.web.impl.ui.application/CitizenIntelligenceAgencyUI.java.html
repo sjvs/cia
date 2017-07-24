@@ -93,35 +93,34 @@ public final class CitizenIntelligenceAgencyUI extends UI {
 	protected void init(final VaadinRequest request) {
 <span class="fc" id="L94">		VaadinSession.getCurrent().setErrorHandler(new UiInstanceErrorHandler(this));</span>
 <span class="fc" id="L95">		setSizeFull();</span>
-		//final Navigator navigator = new SpringNavigator(this, this);
-<span class="fc" id="L97">		springNavigator.addView(&quot;&quot;, mainView);</span>
-<span class="fc" id="L98">		setNavigator(springNavigator);</span>
+<span class="fc" id="L96">		springNavigator.addView(&quot;&quot;, mainView);</span>
+<span class="fc" id="L97">		setNavigator(springNavigator);</span>
 
 
-<span class="fc" id="L101">		final Page currentPage = Page.getCurrent();</span>
-<span class="fc" id="L102">		final String requestUrl = currentPage.getLocation().toString();</span>
-<span class="fc" id="L103">		final String language = request.getLocale().getLanguage();</span>
-<span class="fc" id="L104">		final UserConfiguration userConfiguration = configurationManager.getUserConfiguration(requestUrl, language);</span>
+<span class="fc" id="L100">		final Page currentPage = Page.getCurrent();</span>
+<span class="fc" id="L101">		final String requestUrl = currentPage.getLocation().toString();</span>
+<span class="fc" id="L102">		final String language = request.getLocale().getLanguage();</span>
+<span class="fc" id="L103">		final UserConfiguration userConfiguration = configurationManager.getUserConfiguration(requestUrl, language);</span>
 
-<span class="fc" id="L106">		currentPage.setTitle(userConfiguration.getAgency().getAgencyName() + &quot;:&quot; + userConfiguration.getPortal().getPortalName() + &quot;:&quot; + userConfiguration.getLanguage().getLanguageName());</span>
+<span class="fc" id="L105">		currentPage.setTitle(userConfiguration.getAgency().getAgencyName() + &quot;:&quot; + userConfiguration.getPortal().getPortalName() + &quot;:&quot; + userConfiguration.getLanguage().getLanguageName());</span>
 
-<span class="fc bfc" id="L108" title="All 2 branches covered.">		if (getSession().getUIs().isEmpty()) {</span>
-<span class="fc" id="L109">			final WebBrowser webBrowser = currentPage.getWebBrowser();</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">		if (getSession().getUIs().isEmpty()) {</span>
+<span class="fc" id="L108">			final WebBrowser webBrowser = currentPage.getWebBrowser();</span>
 
-<span class="fc" id="L111">			final CreateApplicationSessionRequest serviceRequest = new CreateApplicationSessionRequest();</span>
-<span class="fc" id="L112">			serviceRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L110">			final CreateApplicationSessionRequest serviceRequest = new CreateApplicationSessionRequest();</span>
+<span class="fc" id="L111">			serviceRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
 
-<span class="fc" id="L114">			final String ipInformation = WebBrowserUtil.getIpInformation(webBrowser);</span>
-<span class="fc" id="L115">			serviceRequest.setIpInformation(ipInformation);</span>
-<span class="fc" id="L116">			serviceRequest.setUserAgentInformation(webBrowser.getBrowserApplication());</span>
-<span class="fc" id="L117">			serviceRequest.setLocale(webBrowser.getLocale().toString());</span>
-<span class="fc" id="L118">			serviceRequest.setOperatingSystem(WebBrowserUtil.getOperatingSystem(webBrowser));</span>
-<span class="fc" id="L119">			serviceRequest.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
+<span class="fc" id="L113">			final String ipInformation = WebBrowserUtil.getIpInformation(webBrowser);</span>
+<span class="fc" id="L114">			serviceRequest.setIpInformation(ipInformation);</span>
+<span class="fc" id="L115">			serviceRequest.setUserAgentInformation(webBrowser.getBrowserApplication());</span>
+<span class="fc" id="L116">			serviceRequest.setLocale(webBrowser.getLocale().toString());</span>
+<span class="fc" id="L117">			serviceRequest.setOperatingSystem(WebBrowserUtil.getOperatingSystem(webBrowser));</span>
+<span class="fc" id="L118">			serviceRequest.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
 
-<span class="fc" id="L121">			final ServiceResponse serviceResponse = applicationManager.service(serviceRequest);</span>
-<span class="fc" id="L122">			LOGGER.info(LOG_INFO_BROWSER_ADDRESS_APPLICATION_SESSION_ID_RESULT,requestUrl,language,ipInformation,webBrowser.getBrowserApplication(),serviceRequest.getSessionId(),serviceResponse.getResult().toString());</span>
+<span class="fc" id="L120">			final ServiceResponse serviceResponse = applicationManager.service(serviceRequest);</span>
+<span class="fc" id="L121">			LOGGER.info(LOG_INFO_BROWSER_ADDRESS_APPLICATION_SESSION_ID_RESULT,requestUrl,language,ipInformation,webBrowser.getBrowserApplication(),serviceRequest.getSessionId(),serviceResponse.getResult().toString());</span>
 		}
-<span class="fc" id="L124">	}</span>
+<span class="fc" id="L123">	}</span>
 
 
 }

@@ -61,7 +61,7 @@ public final class MainViewLoginPageModContentFactoryImpl extends AbstractPageMo
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L63" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="fc bfc" id="L64" title="All 4 branches covered.">				&amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.LOGIN.toString()));</span>
+<span class="fc bfc" id="L64" title="All 4 branches covered.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.LOGIN.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot; })

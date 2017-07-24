@@ -73,13 +73,13 @@ public final class StartAgentClickListener implements ClickListener {
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="pc bpc" id="L76" title="3 of 4 branches missed.">		if (targetSelect.getValue() != null &amp;&amp; operationSelect.getValue() != null) {</span>
-<span class="nc" id="L77">			final DataAgentWorkOrder dataAgentWorkOrder = new DataAgentWorkOrder();</span>
-<span class="nc" id="L78">			final DataAgentTarget target = DataAgentTarget.valueOf(targetSelect.getValue().toString());</span>
-<span class="nc" id="L79">			dataAgentWorkOrder.setTarget(target);</span>
-<span class="nc" id="L80">			dataAgentWorkOrder.setOperation(DataAgentOperation.valueOf(operationSelect.getValue().toString()));</span>
-<span class="nc" id="L81">			LOGGER.info(LOG_MSG_EXECUTE_WORKORDER, dataAgentWorkOrder);</span>
-<span class="nc" id="L82">			agentContainer.execute(dataAgentWorkOrder);</span>
+<span class="pc bpc" id="L76" title="2 of 4 branches missed.">		if (targetSelect.getValue() != null &amp;&amp; operationSelect.getValue() != null) {</span>
+<span class="fc" id="L77">			final DataAgentWorkOrder dataAgentWorkOrder = new DataAgentWorkOrder();</span>
+<span class="fc" id="L78">			final DataAgentTarget target = DataAgentTarget.valueOf(targetSelect.getValue().toString());</span>
+<span class="fc" id="L79">			dataAgentWorkOrder.setTarget(target);</span>
+<span class="fc" id="L80">			dataAgentWorkOrder.setOperation(DataAgentOperation.valueOf(operationSelect.getValue().toString()));</span>
+<span class="fc" id="L81">			LOGGER.info(LOG_MSG_EXECUTE_WORKORDER, dataAgentWorkOrder);</span>
+<span class="fc" id="L82">			agentContainer.execute(dataAgentWorkOrder);</span>
 		}
 <span class="fc" id="L84">	}</span>
 

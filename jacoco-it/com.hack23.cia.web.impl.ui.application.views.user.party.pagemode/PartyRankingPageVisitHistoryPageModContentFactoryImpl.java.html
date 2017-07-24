@@ -19,13 +19,11 @@
 package com.hack23.cia.web.impl.ui.application.views.user.party.pagemode;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.AdminChartDataManager;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.vaadin.ui.Layout;
@@ -46,41 +44,37 @@ public final class PartyRankingPageVisitHistoryPageModContentFactoryImpl
 	/** The Constant PAGE_VISIT_HISTORY. */
 	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History&quot;;
 
-	/** The admin chart data manager. */
-	@Autowired
-	private AdminChartDataManager adminChartDataManager;
-
 	/**
 	 * Instantiates a new party ranking page visit history page mod content
 	 * factory impl.
 	 */
 	public PartyRankingPageVisitHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L52">		super();</span>
+<span class="fc" id="L53">	}</span>
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L64">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L58">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L66">		getPartyRankingMenuItemFactory().createPartyRankingMenuBar(menuBar);</span>
+<span class="fc" id="L60">		getPartyRankingMenuItemFactory().createPartyRankingMenuBar(menuBar);</span>
 
-<span class="fc" id="L68">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L62">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L70">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
+<span class="fc" id="L64">		getAdminChartDataManager().createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
 
-<span class="fc" id="L72">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
+<span class="fc" id="L66">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
 
-<span class="fc" id="L74">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L68">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);
 
-<span class="fc" id="L77">		return panelContent;</span>
+<span class="fc" id="L71">		return panelContent;</span>
 
 	}
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L83" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString()));</span>
+<span class="pc bpc" id="L77" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 }

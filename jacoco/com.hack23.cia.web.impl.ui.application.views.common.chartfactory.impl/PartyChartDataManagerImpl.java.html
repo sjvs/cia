@@ -34,14 +34,11 @@ import org.dussan.vaadin.dcharts.DCharts;
 import org.dussan.vaadin.dcharts.base.elements.XYseries;
 import org.dussan.vaadin.dcharts.data.DataSeries;
 import org.dussan.vaadin.dcharts.options.Series;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hack23.cia.model.internal.application.data.committee.impl.RiksdagenVoteDataBallotPartyPeriodSummaryEmbeddedId;
 import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenVoteDataBallotPartySummaryDaily;
-import com.hack23.cia.service.api.ApplicationManager;
 import com.hack23.cia.service.api.DataContainer;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.PartyChartDataManager;
 import com.vaadin.ui.AbstractOrderedLayout;
 
@@ -64,15 +61,6 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	/** The Constant DD_MMM_YYYY. */
 	private static final String DD_MMM_YYYY = &quot;dd-MMM-yyyy&quot;;
 
-	/** The application manager. */
-	@Autowired
-	private ApplicationManager applicationManager;
-
-	/** The chart options. */
-	@Autowired
-	private ChartOptions chartOptions;
-
-
 	/** The party map. */
 	private Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; partyMap;
 
@@ -80,8 +68,8 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 * Instantiates a new party chart data manager impl.
 	 */
 	public PartyChartDataManagerImpl() {
-<span class="fc" id="L83">		super();</span>
-<span class="fc" id="L84">	}</span>
+<span class="fc" id="L71">		super();</span>
+<span class="fc" id="L72">	}</span>
 
 
 	/**
@@ -90,17 +78,17 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 * @return the max size view riksdagen vote data ballot party summary daily
 	 */
 	private List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; getMaxSizeViewRiksdagenVoteDataBallotPartySummaryDaily() {
-<span class="fc" id="L93">		initPartyMap();</span>
+<span class="fc" id="L81">		initPartyMap();</span>
 
-<span class="fc" id="L95">		final Optional&lt;Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt;&gt; first = partyMap.entrySet()</span>
-<span class="fc" id="L96">				.stream().sorted((e1, e2) -&gt; Integer.compare(e2.getValue().size(), e1.getValue().size())</span>
+<span class="fc" id="L83">		final Optional&lt;Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt;&gt; first = partyMap.entrySet()</span>
+<span class="fc" id="L84">				.stream().sorted((e1, e2) -&gt; Integer.compare(e2.getValue().size(), e1.getValue().size())</span>
 
-<span class="fc" id="L98">		).findFirst();</span>
+<span class="fc" id="L86">		).findFirst();</span>
 
-<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		if (first.isPresent()) {</span>
-<span class="fc" id="L101">			return first.get().getValue();</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (first.isPresent()) {</span>
+<span class="fc" id="L89">			return first.get().getValue();</span>
 		} else {
-<span class="nc" id="L103">			return new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L91">			return new ArrayList&lt;&gt;();</span>
 		}
 	}
 
@@ -111,9 +99,9 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 * @return the party map
 	 */
 	private Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; getPartyMap() {
-<span class="fc" id="L114">		initPartyMap();</span>
+<span class="fc" id="L102">		initPartyMap();</span>
 
-<span class="fc" id="L116">		return partyMap;</span>
+<span class="fc" id="L104">		return partyMap;</span>
 	}
 
 
@@ -124,58 +112,58 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 * Inits the party map.
 	 */
 	private void initPartyMap() {
-<span class="fc bfc" id="L127" title="All 2 branches covered.">		if (partyMap == null) {</span>
-<span class="fc" id="L128">			final DataContainer&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily, RiksdagenVoteDataBallotPartyPeriodSummaryEmbeddedId&gt; partyBallotSummaryDailyDataContainer = applicationManager</span>
-<span class="fc" id="L129">					.getDataContainer(ViewRiksdagenVoteDataBallotPartySummaryDaily.class);</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">		if (partyMap == null) {</span>
+<span class="fc" id="L116">			final DataContainer&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily, RiksdagenVoteDataBallotPartyPeriodSummaryEmbeddedId&gt; partyBallotSummaryDailyDataContainer = getApplicationManager()</span>
+<span class="fc" id="L117">					.getDataContainer(ViewRiksdagenVoteDataBallotPartySummaryDaily.class);</span>
 
-<span class="fc" id="L131">			partyMap = partyBallotSummaryDailyDataContainer.getAll().parallelStream().filter(Objects::nonNull)</span>
-<span class="fc" id="L132">					.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getParty()));</span>
+<span class="fc" id="L119">			partyMap = partyBallotSummaryDailyDataContainer.getAll().parallelStream().filter(Objects::nonNull)</span>
+<span class="fc" id="L120">					.collect(Collectors.groupingBy(t -&gt; t.getEmbeddedId().getParty()));</span>
 		}
-<span class="fc" id="L134">	}</span>
+<span class="fc" id="L122">	}</span>
 
 	@Override
 	public void createPartyWinnerChart(final AbstractOrderedLayout content) {
 
-<span class="fc" id="L139">		final Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; map = getPartyMap();</span>
+<span class="fc" id="L127">		final Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; map = getPartyMap();</span>
 
-<span class="fc" id="L141">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L129">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L143">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
+<span class="fc" id="L131">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
 
-<span class="fc" id="L145">		final Series series = new Series();</span>
+<span class="fc" id="L133">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L147" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="fc" id="L149">			series.addSeries(new XYseries().setLabel(getPartyName(entry.getKey())));</span>
+<span class="fc" id="L137">			series.addSeries(new XYseries().setLabel(getPartyName(entry.getKey())));</span>
 
-<span class="fc" id="L151">			dataSeries.newSeries();</span>
-<span class="fc" id="L152">			final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = entry.getValue();</span>
-<span class="fc bfc" id="L153" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L154" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L155">					dataSeries.add(</span>
+<span class="fc" id="L139">			dataSeries.newSeries();</span>
+<span class="fc" id="L140">			final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = entry.getValue();</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L143">					dataSeries.add(</span>
 							simpleDateFormat
-<span class="fc" id="L157">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
-<span class="fc" id="L158">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyWonPercentage());</span>
+<span class="fc" id="L145">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
+<span class="fc" id="L146">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyWonPercentage());</span>
 				}
-<span class="fc" id="L160">			}</span>
+<span class="fc" id="L148">			}</span>
 
-<span class="fc" id="L162">		}</span>
+<span class="fc" id="L150">		}</span>
 
-<span class="fc" id="L164">		series.addSeries(new XYseries().setLabel(NUMBER_BALLOTS));</span>
+<span class="fc" id="L152">		series.addSeries(new XYseries().setLabel(NUMBER_BALLOTS));</span>
 
-<span class="fc" id="L166">		dataSeries.newSeries();</span>
-<span class="fc" id="L167">		final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = getMaxSizeViewRiksdagenVoteDataBallotPartySummaryDaily();</span>
-<span class="fc bfc" id="L168" title="All 2 branches covered.">		for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L169" title="1 of 2 branches missed.">			if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L170">				dataSeries.add(</span>
+<span class="fc" id="L154">		dataSeries.newSeries();</span>
+<span class="fc" id="L155">		final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = getMaxSizeViewRiksdagenVoteDataBallotPartySummaryDaily();</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">		for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">			if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L158">				dataSeries.add(</span>
 						simpleDateFormat
-<span class="fc" id="L172">								.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
-<span class="fc" id="L173">						viewRiksdagenVoteDataBallotPartySummaryDaily.getNumberBallots());</span>
+<span class="fc" id="L160">								.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
+<span class="fc" id="L161">						viewRiksdagenVoteDataBallotPartySummaryDaily.getNumberBallots());</span>
 			}
-<span class="fc" id="L175">		}</span>
+<span class="fc" id="L163">		}</span>
 
-<span class="fc" id="L177">		addChart(content,&quot;Party winner by daily ballot average&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
-<span class="fc" id="L178">	}</span>
+<span class="fc" id="L165">		addChart(content,&quot;Party winner by daily ballot average&quot;, new DCharts().setDataSeries(dataSeries).setOptions(getChartOptions().createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
+<span class="fc" id="L166">	}</span>
 
 	/**
 	 * Gets the view riksdagen vote data ballot party summary daily.
@@ -186,64 +174,64 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 */
 	private List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; getViewRiksdagenVoteDataBallotPartySummaryDaily(
 			final String party) {
-<span class="fc" id="L189">		initPartyMap();</span>
+<span class="fc" id="L177">		initPartyMap();</span>
 
-<span class="fc" id="L191">		return partyMap.get(party);</span>
+<span class="fc" id="L179">		return partyMap.get(party);</span>
 	}
 
 
 	@Override
 	public void createPartyLineChart(final AbstractOrderedLayout content,final String partyId) {
 
-<span class="fc" id="L198">		final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = getViewRiksdagenVoteDataBallotPartySummaryDaily(</span>
+<span class="fc" id="L186">		final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = getViewRiksdagenVoteDataBallotPartySummaryDaily(</span>
 				partyId);
 
-<span class="fc" id="L201">		final Series series = new Series().addSeries(new XYseries().setLabel(PARTY_WON))</span>
-<span class="fc" id="L202">				.addSeries(new XYseries().setLabel(PARTY_ABSENT));</span>
+<span class="fc" id="L189">		final Series series = new Series().addSeries(new XYseries().setLabel(PARTY_WON))</span>
+<span class="fc" id="L190">				.addSeries(new XYseries().setLabel(PARTY_ABSENT));</span>
 
-<span class="fc" id="L204">		final DataSeries dataSeries = new DataSeries().newSeries();</span>
+<span class="fc" id="L192">		final DataSeries dataSeries = new DataSeries().newSeries();</span>
 
-<span class="fc" id="L206">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
+<span class="fc" id="L194">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
 
-<span class="pc bpc" id="L208" title="1 of 2 branches missed.">		if (list != null) {</span>
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">		if (list != null) {</span>
 
-<span class="fc bfc" id="L210" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L211" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L212">					dataSeries.add(</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L200">					dataSeries.add(</span>
 							simpleDateFormat
-<span class="fc" id="L214">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
-<span class="fc" id="L215">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyWonPercentage());</span>
+<span class="fc" id="L202">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
+<span class="fc" id="L203">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyWonPercentage());</span>
 				}
-<span class="fc" id="L217">			}</span>
+<span class="fc" id="L205">			}</span>
 
-<span class="fc" id="L219">			dataSeries.newSeries();</span>
+<span class="fc" id="L207">			dataSeries.newSeries();</span>
 
-<span class="fc bfc" id="L221" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L222" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L223">					dataSeries.add(</span>
+<span class="fc bfc" id="L209" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L210" title="1 of 2 branches missed.">				if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L211">					dataSeries.add(</span>
 							simpleDateFormat
-<span class="fc" id="L225">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
-<span class="fc" id="L226">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyPercentageAbsent());</span>
+<span class="fc" id="L213">									.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
+<span class="fc" id="L214">							viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyPercentageAbsent());</span>
 				}
-<span class="fc" id="L228">			}</span>
+<span class="fc" id="L216">			}</span>
 		}
 
-<span class="fc" id="L231">		addChart(content,&quot;Party result by&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsPartyLineChart(series)).show(), true);</span>
-<span class="fc" id="L232">	}</span>
+<span class="fc" id="L219">		addChart(content,&quot;Party result by&quot;, new DCharts().setDataSeries(dataSeries).setOptions(getChartOptions().createOptionsPartyLineChart(series)).show(), true);</span>
+<span class="fc" id="L220">	}</span>
 
 
 	@Override
 	public void createPartyGenderChart(final AbstractOrderedLayout content) {
 
-<span class="fc" id="L238">		createPartyBallotChart(content,viewRiksdagenVoteDataBallotPartySummaryDaily -&gt; 100 - viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyAvgPercentageMale().intValue());</span>
+<span class="fc" id="L226">		createPartyBallotChart(content,viewRiksdagenVoteDataBallotPartySummaryDaily -&gt; 100 - viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyAvgPercentageMale().intValue());</span>
 
-<span class="fc" id="L240">	}</span>
+<span class="fc" id="L228">	}</span>
 
 
 	@Override
 	public void createPartyAgeChart(final AbstractOrderedLayout content) {
-<span class="fc" id="L245">		createPartyBallotChart(content,viewRiksdagenVoteDataBallotPartySummaryDaily -&gt; (DateUtils.toCalendar(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()).get(Calendar.YEAR)) - viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyAvgBornYear().intValue());</span>
-<span class="fc" id="L246">	}</span>
+<span class="fc" id="L233">		createPartyBallotChart(content,viewRiksdagenVoteDataBallotPartySummaryDaily -&gt; DateUtils.toCalendar(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()).get(Calendar.YEAR) - viewRiksdagenVoteDataBallotPartySummaryDaily.getPartyAvgBornYear().intValue());</span>
+<span class="fc" id="L234">	}</span>
 
 
 
@@ -255,34 +243,34 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	 * @return the d charts
 	 */
 	private void createPartyBallotChart(final AbstractOrderedLayout content,final DataValueCalculator dataValueCalculator) {
-<span class="fc" id="L258">		final Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; map = getPartyMap();</span>
+<span class="fc" id="L246">		final Map&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; map = getPartyMap();</span>
 
-<span class="fc" id="L260">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L248">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L262">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
+<span class="fc" id="L250">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
 
-<span class="fc" id="L264">		final Series series = new Series();</span>
+<span class="fc" id="L252">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L266" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L254" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="fc bfc" id="L268" title="All 2 branches covered.">			if (!&quot;-&quot;.equals(entry.getKey())) {</span>
-<span class="fc" id="L269">				series.addSeries(new XYseries().setLabel(getPartyName(entry.getKey())));</span>
+<span class="fc bfc" id="L256" title="All 2 branches covered.">			if (!&quot;-&quot;.equals(entry.getKey())) {</span>
+<span class="fc" id="L257">				series.addSeries(new XYseries().setLabel(getPartyName(entry.getKey())));</span>
 
-<span class="fc" id="L271">				dataSeries.newSeries();</span>
-<span class="fc" id="L272">				final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = entry.getValue();</span>
-<span class="fc bfc" id="L273" title="All 2 branches covered.">				for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
-<span class="pc bpc" id="L274" title="1 of 2 branches missed.">					if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
-<span class="fc" id="L275">						dataSeries.add(</span>
+<span class="fc" id="L259">				dataSeries.newSeries();</span>
+<span class="fc" id="L260">				final List&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily&gt; list = entry.getValue();</span>
+<span class="fc bfc" id="L261" title="All 2 branches covered.">				for (final ViewRiksdagenVoteDataBallotPartySummaryDaily viewRiksdagenVoteDataBallotPartySummaryDaily : list) {</span>
+<span class="pc bpc" id="L262" title="1 of 2 branches missed.">					if (viewRiksdagenVoteDataBallotPartySummaryDaily != null) {</span>
+<span class="fc" id="L263">						dataSeries.add(</span>
 								simpleDateFormat
-<span class="fc" id="L277">										.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
-<span class="fc" id="L278">										dataValueCalculator.getDataValue(viewRiksdagenVoteDataBallotPartySummaryDaily));</span>
+<span class="fc" id="L265">										.format(viewRiksdagenVoteDataBallotPartySummaryDaily.getEmbeddedId().getVoteDate()),</span>
+<span class="fc" id="L266">										dataValueCalculator.getDataValue(viewRiksdagenVoteDataBallotPartySummaryDaily));</span>
 					}
-<span class="fc" id="L280">				}</span>
+<span class="fc" id="L268">				}</span>
 			}
-<span class="fc" id="L282">		}</span>
+<span class="fc" id="L270">		}</span>
 
-<span class="fc" id="L284">		addChart(content,&quot;Party ballot chart&quot;, new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
-<span class="fc" id="L285">	}</span>
+<span class="fc" id="L272">		addChart(content,&quot;Party ballot chart&quot;, new DCharts().setDataSeries(dataSeries).setOptions(getChartOptions().createOptionsXYDateFloatLegendInsideOneColumn(series)).show(), true);</span>
+<span class="fc" id="L273">	}</span>
 
 	/**
 	 * The Interface DataValueCalculator.

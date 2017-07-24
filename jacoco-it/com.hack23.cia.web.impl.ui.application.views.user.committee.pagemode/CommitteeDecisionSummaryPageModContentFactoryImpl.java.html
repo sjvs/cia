@@ -64,8 +64,8 @@ public final class CommitteeDecisionSummaryPageModContentFactoryImpl
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L67" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.DECISIONSUMMARY.toString()));</span>
+<span class="pc bpc" id="L67" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.DECISIONSUMMARY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

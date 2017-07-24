@@ -19,13 +19,11 @@
 package com.hack23.cia.web.impl.ui.application.views.user.goverment.pagemode;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.AdminChartDataManager;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
@@ -42,40 +40,36 @@ public final class MinistryRankingPageVisitHistoryPageModContentFactoryImpl
 	/** The Constant PAGE_VISIT_HISTORY. */
 	private static final String PAGE_VISIT_HISTORY = &quot;Page Visit History&quot;;
 
-	/** The admin chart data manager. */
-	@Autowired
-	private AdminChartDataManager adminChartDataManager;
-
 	/**
 	 * Instantiates a new ministry ranking page visit history page mod content
 	 * factory impl.
 	 */
 	public MinistryRankingPageVisitHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L54">		super();</span>
-<span class="fc" id="L55">	}</span>
+<span class="fc" id="L48">		super();</span>
+<span class="fc" id="L49">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L59" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString()));</span>
+<span class="pc bpc" id="L53" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L65">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L59">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L67">		getMinistryRankingMenuItemFactory().createMinistryRankingMenuBar(menuBar);</span>
+<span class="fc" id="L61">		getMinistryRankingMenuItemFactory().createMinistryRankingMenuBar(menuBar);</span>
 
-<span class="fc" id="L69">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L63">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L71">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
+<span class="fc" id="L65">		getAdminChartDataManager().createApplicationActionEventPageModeDailySummaryChart(panelContent,NAME);</span>
 
-<span class="fc" id="L73">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
+<span class="fc" id="L67">		panel.setCaption(NAME + &quot;::&quot; + PAGE_VISIT_HISTORY);</span>
 
-<span class="fc" id="L75">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L69">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);
 
-<span class="fc" id="L78">		return panelContent;</span>
+<span class="fc" id="L72">		return panelContent;</span>
 
 	}
 

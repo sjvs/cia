@@ -64,12 +64,6 @@ public final class PartyMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl 
 	/** The Constant DOCUMENT_HISTORY_TEXT. */
 	private static final String DOCUMENT_HISTORY_TEXT = &quot;Document history&quot;;
 
-	/** The Constant INDICATORS_TEXT. */
-	private static final String INDICATORS_TEXT = &quot;Indicators&quot;;
-
-	/** The Constant CHARTS_TEXT. */
-	private static final String CHARTS_TEXT = &quot;Charts&quot;;
-
 	/** The Constant MEMBER_HISTORY_TEXT. */
 	private static final String MEMBER_HISTORY_TEXT = &quot;Member History&quot;;
 
@@ -113,117 +107,117 @@ public final class PartyMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl 
 	 * Instantiates a new party menu item factory impl.
 	 */
 	public PartyMenuItemFactoryImpl() {
-<span class="fc" id="L116">		super();</span>
-<span class="fc" id="L117">	}</span>
+<span class="fc" id="L110">		super();</span>
+<span class="fc" id="L111">	}</span>
 
 	@Override
 	public void createPartyMenuBar(final MenuBar menuBar, final String pageId) {
-<span class="fc" id="L121">		initApplicationMenuBar(menuBar);</span>
+<span class="fc" id="L115">		initApplicationMenuBar(menuBar);</span>
 
-<span class="fc" id="L123">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+<span class="fc" id="L117">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
 
-<span class="fc" id="L125">		partyRankingMenuItemFactory.createPartyRankingTopics(menuBar.addItem(PARTY_RANKING, FontAwesome.GROUP,null));</span>
+<span class="fc" id="L119">		partyRankingMenuItemFactory.createPartyRankingTopics(menuBar.addItem(PARTY_RANKING, FontAwesome.GROUP,null));</span>
 
-<span class="fc" id="L127">		final MenuItem partyItem = menuBar.addItem(&quot;Party &quot;+ pageId, FontAwesome.GROUP,null);</span>
+<span class="fc" id="L121">		final MenuItem partyItem = menuBar.addItem(&quot;Party &quot;+ pageId, FontAwesome.GROUP,null);</span>
 
-<span class="fc" id="L129">		partyItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L123">		partyItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP,</span>
 				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.OVERVIEW, pageId));
 
-<span class="fc" id="L132">		final MenuItem rolesItem = partyItem.addItem(ROLES_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L126">		final MenuItem rolesItem = partyItem.addItem(ROLES_TEXT, FontAwesome.GROUP, null);</span>
 
-<span class="fc" id="L134">		rolesItem.addItem(CURRENT_LEADERS, FontAwesome.GROUP,</span>
-<span class="fc" id="L135">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId));</span>
+<span class="fc" id="L128">		rolesItem.addItem(CURRENT_LEADERS, FontAwesome.GROUP,</span>
+<span class="fc" id="L129">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId));</span>
 
-<span class="fc" id="L137">		rolesItem.addItem(LEADER_HISTORY, FontAwesome.GROUP,</span>
-<span class="fc" id="L138">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId));</span>
+<span class="fc" id="L131">		rolesItem.addItem(LEADER_HISTORY, FontAwesome.GROUP,</span>
+<span class="fc" id="L132">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L140">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L141">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId));</span>
+<span class="fc" id="L134">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L135">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId));</span>
 
-<span class="fc" id="L143">		rolesItem.addItem(MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L144">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId));</span>
+<span class="fc" id="L137">		rolesItem.addItem(MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L138">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L146">		rolesItem.addItem(GOVERMENT_ROLES, FontAwesome.GROUP,</span>
-<span class="fc" id="L147">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId));</span>
+<span class="fc" id="L140">		rolesItem.addItem(GOVERMENT_ROLES, FontAwesome.GROUP,</span>
+<span class="fc" id="L141">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId));</span>
 
-<span class="fc" id="L149">		rolesItem.addItem(COMMITTEE_ROLES, FontAwesome.GROUP,</span>
-<span class="fc" id="L150">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId));</span>
+<span class="fc" id="L143">		rolesItem.addItem(COMMITTEE_ROLES, FontAwesome.GROUP,</span>
+<span class="fc" id="L144">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId));</span>
 
-<span class="fc" id="L152">		rolesItem.addItem(ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
-<span class="fc" id="L153">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId));</span>
+<span class="fc" id="L146">		rolesItem.addItem(ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
+<span class="fc" id="L147">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId));</span>
 
 
-<span class="fc" id="L156">		final MenuItem documentItem = partyItem.addItem(DOCUMENTS_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L150">		final MenuItem documentItem = partyItem.addItem(DOCUMENTS_TEXT, FontAwesome.GROUP, null);</span>
 
-<span class="fc" id="L158">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L159">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+<span class="fc" id="L152">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L153">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
 
-<span class="fc" id="L161">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L162">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
+<span class="fc" id="L155">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L156">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L164">		final MenuItem ballotItem = partyItem.addItem(BALLOTS_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L158">		final MenuItem ballotItem = partyItem.addItem(BALLOTS_TEXT, FontAwesome.GROUP, null);</span>
 
-<span class="fc" id="L166">		ballotItem.addItem(VOTE_HISTORY, FontAwesome.GROUP,</span>
-<span class="fc" id="L167">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId));</span>
+<span class="fc" id="L160">		ballotItem.addItem(VOTE_HISTORY, FontAwesome.GROUP,</span>
+<span class="fc" id="L161">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L169">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
-<span class="fc" id="L170">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId));</span>
+<span class="fc" id="L163">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="fc" id="L164">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId));</span>
 
-<span class="fc" id="L172">		ballotItem.addItem(PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
-<span class="fc" id="L173">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId));</span>
+<span class="fc" id="L166">		ballotItem.addItem(PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="fc" id="L167">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId));</span>
 
-<span class="fc" id="L175">		partyItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L169">		partyItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
 				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId));
 
-<span class="fc" id="L178">	}</span>
+<span class="fc" id="L172">	}</span>
 
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
-<span class="fc" id="L182">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L176">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L184">		createButtonLink(grid,CURRENT_LEADERS, FontAwesome.GROUP,</span>
-<span class="fc" id="L185">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId), &quot;Current leaders&quot;);</span>
+<span class="fc" id="L178">		createButtonLink(grid,CURRENT_LEADERS, FontAwesome.GROUP,</span>
+<span class="fc" id="L179">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTLEADERS.toString(), pageId), &quot;Current leaders&quot;);</span>
 
-<span class="fc" id="L187">		createButtonLink(grid,LEADER_HISTORY, FontAwesome.GROUP,</span>
-<span class="fc" id="L188">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId), &quot;Leader history&quot;);</span>
+<span class="fc" id="L181">		createButtonLink(grid,LEADER_HISTORY, FontAwesome.GROUP,</span>
+<span class="fc" id="L182">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.LEADERHISTORY.toString(), pageId), &quot;Leader history&quot;);</span>
 
-<span class="fc" id="L190">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L191">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId), &quot;Current members&quot;);</span>
+<span class="fc" id="L184">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L185">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.CURRENTMEMBERS.toString(), pageId), &quot;Current members&quot;);</span>
 
-<span class="fc" id="L193">		createButtonLink(grid,MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L194">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId), &quot;Current and past members&quot;);</span>
+<span class="fc" id="L187">		createButtonLink(grid,MEMBER_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L188">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.MEMBERHISTORY.toString(), pageId), &quot;Current and past members&quot;);</span>
 
-<span class="fc" id="L196">		createButtonLink(grid,GOVERMENT_ROLES, FontAwesome.GROUP,</span>
-<span class="fc" id="L197">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId), &quot;Government roles hold&quot;);</span>
+<span class="fc" id="L190">		createButtonLink(grid,GOVERMENT_ROLES, FontAwesome.GROUP,</span>
+<span class="fc" id="L191">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.GOVERNMENTROLES.toString(), pageId), &quot;Government roles hold&quot;);</span>
 
-<span class="fc" id="L199">		createButtonLink(grid,COMMITTEE_ROLES, FontAwesome.GROUP,</span>
-<span class="fc" id="L200">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId), &quot;Committe roles hold&quot;);</span>
+<span class="fc" id="L193">		createButtonLink(grid,COMMITTEE_ROLES, FontAwesome.GROUP,</span>
+<span class="fc" id="L194">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.COMMITTEEROLES.toString(), pageId), &quot;Committe roles hold&quot;);</span>
 
-<span class="fc" id="L202">		createButtonLink(grid,ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
-<span class="fc" id="L203">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart all party leaders&quot;);</span>
-
-
-<span class="fc" id="L206">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L207">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Chart over document activity by type&quot;);</span>
-
-<span class="fc" id="L209">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
-<span class="fc" id="L210">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;List all document history&quot;);</span>
+<span class="fc" id="L196">		createButtonLink(grid,ROLE_CHART_PARTY_LEADERS, FontAwesome.GROUP,</span>
+<span class="fc" id="L197">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart all party leaders&quot;);</span>
 
 
-<span class="fc" id="L213">		createButtonLink(grid,VOTE_HISTORY, FontAwesome.GROUP,</span>
-<span class="fc" id="L214">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId), &quot;Vote history&quot;);</span>
+<span class="fc" id="L200">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L201">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Chart over document activity by type&quot;);</span>
 
-<span class="fc" id="L216">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
-<span class="fc" id="L217">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId), &quot;Ballot decision summary&quot;);</span>
+<span class="fc" id="L203">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L204">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;List all document history&quot;);</span>
 
-<span class="fc" id="L219">		createButtonLink(grid,PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
-<span class="fc" id="L220">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId), &quot;Chart for Party over won,absent and party rebel votes&quot;);</span>
 
-<span class="fc" id="L222">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L207">		createButtonLink(grid,VOTE_HISTORY, FontAwesome.GROUP,</span>
+<span class="fc" id="L208">				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PartyPageMode.VOTEHISTORY.toString(), pageId), &quot;Vote history&quot;);</span>
+
+<span class="fc" id="L210">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="fc" id="L211">				PartyPageMode.COMMITTEEBALLOTDECISIONSUMMARY.toString(), pageId), &quot;Ballot decision summary&quot;);</span>
+
+<span class="fc" id="L213">		createButtonLink(grid,PARTY_WON_DAILY_SUMMARY_CHART, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME,</span>
+<span class="fc" id="L214">				PartyPageMode.PARTYWONDAILYSUMMARYCHART.toString(), pageId), &quot;Chart for Party over won,absent and party rebel votes&quot;);</span>
+
+<span class="fc" id="L216">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
 				new PageModeMenuCommand(UserViews.PARTY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId), &quot;View history of page visit for this page.&quot;);
 
 
-<span class="fc" id="L226">	}</span>
+<span class="fc" id="L220">	}</span>
 
 
 }

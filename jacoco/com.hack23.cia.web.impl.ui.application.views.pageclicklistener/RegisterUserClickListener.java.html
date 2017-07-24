@@ -38,11 +38,8 @@ public final class RegisterUserClickListener implements ClickListener {
 	/** The Constant REGISTER_USER_FAILURE. */
 	private static final String REGISTER_USER_FAILURE = &quot;RegisterUser {} failure&quot;;
 
-	/** The Constant ERROR_MESSAGE. */
-	private static final String ERROR_MESSAGE = &quot;Error message&quot;;
-
 	/** The Constant REGISTER_FAILED. */
-	private static final String REGISTER_FAILED = &quot;Register failed&quot;;
+	private static final String REGISTER_FAILED = &quot;Register failed:&quot;;
 
 	/** The Constant LOG_MSG_REGISTER_USER. */
 	private static final String LOG_MSG_REGISTER_USER = &quot;RegisterUser {}&quot;;
@@ -51,7 +48,7 @@ public final class RegisterUserClickListener implements ClickListener {
 	private static final long serialVersionUID = 1L;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L54">	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserClickListener.class);</span>
+<span class="fc" id="L51">	private static final Logger LOGGER = LoggerFactory.getLogger(RegisterUserClickListener.class);</span>
 
 	/** The reqister request. */
 	private final RegisterUserRequest reqisterRequest;
@@ -62,22 +59,22 @@ public final class RegisterUserClickListener implements ClickListener {
 	 * @param reqisterRequest
 	 *            the reqister request
 	 */
-<span class="fc" id="L65">	public RegisterUserClickListener(final RegisterUserRequest reqisterRequest) {</span>
-<span class="fc" id="L66">		this.reqisterRequest = reqisterRequest;</span>
-<span class="fc" id="L67">	}</span>
+<span class="fc" id="L62">	public RegisterUserClickListener(final RegisterUserRequest reqisterRequest) {</span>
+<span class="fc" id="L63">		this.reqisterRequest = reqisterRequest;</span>
+<span class="fc" id="L64">	}</span>
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="fc" id="L71">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(reqisterRequest);</span>
-<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="fc" id="L73">			LOGGER.info(LOG_MSG_REGISTER_USER,reqisterRequest.getUsername());</span>
-<span class="fc" id="L74">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
+<span class="fc" id="L68">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(reqisterRequest);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="fc" id="L70">			LOGGER.info(LOG_MSG_REGISTER_USER,reqisterRequest.getUsername());</span>
+<span class="fc" id="L71">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
 		} else {
-<span class="nc" id="L76">			Notification.show(REGISTER_FAILED,</span>
-	                  ERROR_MESSAGE,
+<span class="fc" id="L73">			Notification.show(REGISTER_FAILED,</span>
+<span class="fc" id="L74">					response.getErrorMessage(),</span>
 	                  Notification.Type.WARNING_MESSAGE);
-<span class="nc" id="L79">			LOGGER.info(REGISTER_USER_FAILURE,reqisterRequest.getUsername());</span>
+<span class="fc" id="L76">			LOGGER.info(REGISTER_USER_FAILURE,reqisterRequest.getUsername());</span>
 		}
-<span class="fc" id="L81">	}</span>
+<span class="fc" id="L78">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

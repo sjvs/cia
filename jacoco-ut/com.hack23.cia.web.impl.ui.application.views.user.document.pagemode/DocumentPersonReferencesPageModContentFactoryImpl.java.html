@@ -61,7 +61,7 @@ public final class DocumentPersonReferencesPageModContentFactoryImpl extends Abs
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L64" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.PERSONREFERENCES.toString()));</span>
+<span class="pc bpc" id="L64" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.PERSONREFERENCES.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

@@ -64,7 +64,7 @@ public final class CommitteeRoleGhantPageModContentFactoryImpl extends AbstractC
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L66" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="pc bpc" id="L67" title="2 of 4 branches missed.">				&amp;&amp; (!StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(CommitteePageMode.ROLEGHANT.toString()));</span>
+<span class="pc bpc" id="L67" title="2 of 4 branches missed.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(CommitteePageMode.ROLEGHANT.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

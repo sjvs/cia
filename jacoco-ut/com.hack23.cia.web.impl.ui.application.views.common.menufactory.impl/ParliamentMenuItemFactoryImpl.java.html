@@ -134,48 +134,47 @@ public final class ParliamentMenuItemFactoryImpl extends AbstractMenuItemFactory
 <span class="fc" id="L134">		charts.addItem(OVERVIEW_TEXT, FontAwesome.INSTITUTION,</span>
 				COMMAND_OVERVIEW);
 
-		// Submenu item with a sub-submenu
-<span class="fc" id="L138">		final MenuItem chartIndicators = charts.addItem(SWEDISH_PARLIAMENT_INDICATORS, FontAwesome.INSTITUTION, null);</span>
+<span class="fc" id="L137">		final MenuItem chartIndicators = charts.addItem(SWEDISH_PARLIAMENT_INDICATORS, FontAwesome.INSTITUTION, null);</span>
 
-<span class="fc" id="L140">		final MenuItem addItem = chartIndicators.addItem(PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER);</span>
-<span class="fc" id="L141">		addItem.setDescription(DAILY_AVERAGE_WON_BALLOTS);</span>
+<span class="fc" id="L139">		final MenuItem addItem = chartIndicators.addItem(PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER);</span>
+<span class="fc" id="L140">		addItem.setDescription(DAILY_AVERAGE_WON_BALLOTS);</span>
 
-<span class="fc" id="L143">		final MenuItem addItem2 = chartIndicators.addItem(PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER);</span>
-<span class="fc" id="L144">		addItem2.setDescription(AVERAGE_PERCENTAGE_MALE);</span>
+<span class="fc" id="L142">		final MenuItem addItem2 = chartIndicators.addItem(PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER);</span>
+<span class="fc" id="L143">		addItem2.setDescription(AVERAGE_PERCENTAGE_MALE);</span>
 
-<span class="fc" id="L146">		final MenuItem addItem3 = chartIndicators.addItem(PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE);</span>
-<span class="fc" id="L147">		addItem3.setDescription(AVERAGE_AGE);</span>
-
-
-<span class="fc" id="L150">		final MenuItem addItem4 = chartIndicators.addItem(DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY);</span>
-<span class="fc" id="L151">		addItem4.setDescription(DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS);</span>
-<span class="fc" id="L152">		final MenuItem addItem5 = chartIndicators.addItem(DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY);</span>
-<span class="fc" id="L153">		addItem5.setDescription(DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE);</span>
+<span class="fc" id="L145">		final MenuItem addItem3 = chartIndicators.addItem(PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE);</span>
+<span class="fc" id="L146">		addItem3.setDescription(AVERAGE_AGE);</span>
 
 
-<span class="fc" id="L156">		charts.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
+<span class="fc" id="L149">		final MenuItem addItem4 = chartIndicators.addItem(DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY);</span>
+<span class="fc" id="L150">		addItem4.setDescription(DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS);</span>
+<span class="fc" id="L151">		final MenuItem addItem5 = chartIndicators.addItem(DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY);</span>
+<span class="fc" id="L152">		addItem5.setDescription(DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE);</span>
+
+
+<span class="fc" id="L155">		charts.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
 				COMMAND_PAGEVISITHISTORY);
-<span class="fc" id="L158">	}</span>
+<span class="fc" id="L157">	}</span>
 
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent) {
-<span class="fc" id="L162">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L161">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L164">		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, &quot;Chart daily ballot summary, percentage ballots that day the voted in winning side&quot;);</span>
+<span class="fc" id="L163">		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, &quot;Chart daily ballot summary, percentage ballots that day the voted in winning side&quot;);</span>
 
-<span class="fc" id="L166">		createButtonLink(grid,PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER, &quot;Chart Party average gender all ballots&quot;);</span>
+<span class="fc" id="L165">		createButtonLink(grid,PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER, &quot;Chart Party average gender all ballots&quot;);</span>
 
-<span class="fc" id="L168">		createButtonLink(grid,PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE, &quot;Chart party age  all ballots&quot;);</span>
-
-
-<span class="fc" id="L171">		createButtonLink(grid,DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY, &quot;Chart document activity by type&quot;);</span>
-<span class="fc" id="L172">		createButtonLink(grid,DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY, &quot;Chart decisions by decision type&quot;);</span>
+<span class="fc" id="L167">		createButtonLink(grid,PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE, &quot;Chart party age  all ballots&quot;);</span>
 
 
-<span class="fc" id="L175">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
+<span class="fc" id="L170">		createButtonLink(grid,DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY, &quot;Chart document activity by type&quot;);</span>
+<span class="fc" id="L171">		createButtonLink(grid,DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY, &quot;Chart decisions by decision type&quot;);</span>
+
+
+<span class="fc" id="L174">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,</span>
 				COMMAND_PAGEVISITHISTORY, &quot;View history of page visit for this page.&quot;);
 
-<span class="fc" id="L178">	}</span>
+<span class="fc" id="L177">	}</span>
 
 
 }

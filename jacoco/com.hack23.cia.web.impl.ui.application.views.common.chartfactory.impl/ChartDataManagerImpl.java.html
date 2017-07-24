@@ -20,11 +20,9 @@ package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
 
 import org.dussan.vaadin.dcharts.DCharts;
 import org.dussan.vaadin.dcharts.data.DataSeries;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartDataManager;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
 import com.vaadin.ui.AbstractOrderedLayout;
 
 /**
@@ -33,28 +31,24 @@ import com.vaadin.ui.AbstractOrderedLayout;
 @Service
 public final class ChartDataManagerImpl extends AbstractChartDataManagerImpl implements ChartDataManager {
 
-	/** The chart options. */
-	@Autowired
-	private ChartOptions chartOptions;
-
 	/**
 	 * Instantiates a new chart data manager impl.
 	 */
 	public ChartDataManagerImpl() {
-<span class="fc" id="L44">		super();</span>
-<span class="fc" id="L45">	}</span>
+<span class="fc" id="L38">		super();</span>
+<span class="fc" id="L39">	}</span>
 
 
 	@Override
 	public void createChartPanel(final AbstractOrderedLayout content,final DataSeries dataSeries, final String caption) {
 
-<span class="fc" id="L51">		final DCharts chart = new DCharts().setDataSeries(dataSeries).setOptions(chartOptions.createOptionsPieChart());</span>
+<span class="fc" id="L45">		final DCharts chart = new DCharts().setDataSeries(dataSeries).setOptions(getChartOptions().createOptionsPieChart());</span>
 
-<span class="fc" id="L53">		chart.show();</span>
+<span class="fc" id="L47">		chart.show();</span>
 
-<span class="fc" id="L55">		addChart(content,caption, chart, true);</span>
+<span class="fc" id="L49">		addChart(content,caption, chart, true);</span>
 
-<span class="fc" id="L57">	}</span>
+<span class="fc" id="L51">	}</span>
 
 
 }

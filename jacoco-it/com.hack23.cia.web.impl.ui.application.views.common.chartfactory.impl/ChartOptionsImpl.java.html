@@ -51,6 +51,18 @@ import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.Char
 @Component
 public final class ChartOptionsImpl implements ChartOptions {
 
+	/** The Constant ONE_COLUMN_NUMBER_OF_ROWS. */
+	private static final int ONE_COLUMN_NUMBER_OF_ROWS = 12;
+
+	/** The Constant ONE_COLUMN_NUMBER_OF_COLUMNS. */
+	private static final int ONE_COLUMN_NUMBER_OF_COLUMNS = 1;
+
+	/** The Constant ONE_ROW_NUMBER_OF_ROWS. */
+	private static final int ONE_ROW_NUMBER_OF_ROWS = 1;
+
+	/** The Constant ONE_ROW_NUMBER_OF_COLUMNS. */
+	private static final int ONE_ROW_NUMBER_OF_COLUMNS = 10;
+
 	/** The Constant SLICE_MARGIN. */
 	private static final int SLICE_MARGIN = 3;
 
@@ -100,8 +112,8 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * Instantiates a new chart options impl.
 	 */
 	private ChartOptionsImpl() {
-<span class="fc" id="L103">		super();</span>
-<span class="fc" id="L104">	}</span>
+<span class="fc" id="L115">		super();</span>
+<span class="fc" id="L116">	}</span>
 
 	/**
 	 * Creates the axes XY date float.
@@ -109,11 +121,11 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the axes
 	 */
 	private static Axes createAxesXYDateFloat() {
-<span class="fc" id="L112">		return new Axes()</span>
-<span class="fc" id="L113">				.addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
-<span class="fc" id="L114">						.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
-<span class="fc" id="L115">						.setNumberTicks(NUMBER_TICKS_DATE))</span>
-<span class="fc" id="L116">				.addAxis(new XYaxis(XYaxes.Y).setRenderer(AxisRenderers.LINEAR).setTickOptions(new AxisTickRenderer().setFormatString(FLOAT_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
+<span class="fc" id="L124">		return new Axes()</span>
+<span class="fc" id="L125">				.addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
+<span class="fc" id="L126">						.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
+<span class="fc" id="L127">						.setNumberTicks(NUMBER_TICKS_DATE))</span>
+<span class="fc" id="L128">				.addAxis(new XYaxis(XYaxes.Y).setRenderer(AxisRenderers.LINEAR).setTickOptions(new AxisTickRenderer().setFormatString(FLOAT_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
 	}
 
 	/**
@@ -122,11 +134,11 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the axes
 	 */
 	private static Axes createAxesXYDateFloatLog() {
-<span class="fc" id="L125">		return new Axes()</span>
-<span class="fc" id="L126">				.addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
-<span class="fc" id="L127">						.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
-<span class="fc" id="L128">						.setNumberTicks(NUMBER_TICKS_DATE))</span>
-<span class="fc" id="L129">				.addAxis(new XYaxis(XYaxes.Y).setRenderer(AxisRenderers.LOG).setTickOptions(new AxisTickRenderer().setFormatString(FLOAT_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
+<span class="fc" id="L137">		return new Axes()</span>
+<span class="fc" id="L138">				.addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
+<span class="fc" id="L139">						.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
+<span class="fc" id="L140">						.setNumberTicks(NUMBER_TICKS_DATE))</span>
+<span class="fc" id="L141">				.addAxis(new XYaxis(XYaxes.Y).setRenderer(AxisRenderers.LOG).setTickOptions(new AxisTickRenderer().setFormatString(FLOAT_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
 	}
 
 
@@ -136,11 +148,11 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the grid
 	 */
 	private static Grid createDefaultGrid() {
-<span class="fc" id="L139">		final Grid grid = new Grid();</span>
-<span class="fc" id="L140">		grid.setBackground(BACKGROUND_COLOR);</span>
-<span class="fc" id="L141">		grid.setGridLineColor(GRIDLINE_COLOR);</span>
-<span class="fc" id="L142">		grid.setBorderColor(BORDER_COLOR);</span>
-<span class="fc" id="L143">		return grid;</span>
+<span class="fc" id="L151">		final Grid grid = new Grid();</span>
+<span class="fc" id="L152">		grid.setBackground(BACKGROUND_COLOR);</span>
+<span class="fc" id="L153">		grid.setGridLineColor(GRIDLINE_COLOR);</span>
+<span class="fc" id="L154">		grid.setBorderColor(BORDER_COLOR);</span>
+<span class="fc" id="L155">		return grid;</span>
 	}
 
 	/**
@@ -149,10 +161,10 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the legend
 	 */
 	private static Legend createdLegendEnhancedInsideNorthWest() {
-<span class="fc" id="L152">		return setLegendStyling(new Legend().setShow(true)</span>
-<span class="fc" id="L153">				.setRendererOptions(</span>
-<span class="fc" id="L154">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS))</span>
-<span class="fc" id="L155">				.setPlacement(LegendPlacements.INSIDE_GRID).setLocation(LegendLocations.NORTH_WEST));</span>
+<span class="fc" id="L164">		return setLegendStyling(new Legend().setShow(true)</span>
+<span class="fc" id="L165">				.setRendererOptions(</span>
+<span class="fc" id="L166">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS))</span>
+<span class="fc" id="L167">				.setPlacement(LegendPlacements.INSIDE_GRID).setLocation(LegendLocations.NORTH_WEST));</span>
 	}
 
 	/**
@@ -161,10 +173,10 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the legend
 	 */
 	private static Legend createdLegendEnhancedInsideWest() {
-<span class="fc" id="L164">		return setLegendStyling(</span>
-<span class="fc" id="L165">				new Legend().setShow(true).setPlacement(LegendPlacements.INSIDE_GRID).setLocation(LegendLocations.WEST)</span>
-<span class="fc" id="L166">						.setRenderer(LegendRenderers.ENHANCED).setRendererOptions(new EnhancedLegendRenderer()</span>
-<span class="fc" id="L167">								.setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS)));</span>
+<span class="fc" id="L176">		return setLegendStyling(</span>
+<span class="fc" id="L177">				new Legend().setShow(true).setPlacement(LegendPlacements.INSIDE_GRID).setLocation(LegendLocations.WEST)</span>
+<span class="fc" id="L178">						.setRenderer(LegendRenderers.ENHANCED).setRendererOptions(new EnhancedLegendRenderer()</span>
+<span class="fc" id="L179">								.setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS)));</span>
 	}
 
 	/**
@@ -173,17 +185,22 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the legend
 	 */
 	private static Legend createLegendOutside() {
-<span class="fc" id="L176">		return setLegendStyling(new Legend().setShow(true)</span>
-<span class="fc" id="L177">				.setRendererOptions(</span>
-<span class="fc" id="L178">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS))</span>
-<span class="fc" id="L179">				.setPlacement(LegendPlacements.OUTSIDE_GRID));</span>
+<span class="fc" id="L188">		return setLegendStyling(new Legend().setShow(true)</span>
+<span class="fc" id="L189">				.setRendererOptions(</span>
+<span class="fc" id="L190">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(LEGEND_COLUMNS).setNumberRows(LEGEND_ROWS))</span>
+<span class="fc" id="L191">				.setPlacement(LegendPlacements.OUTSIDE_GRID));</span>
 	}
-	
+
+	/**
+	 * Creates the legend outside one column.
+	 *
+	 * @return the legend
+	 */
 	private static Legend createLegendOutsideOneColumn() {
-<span class="fc" id="L183">		return setLegendStyling(new Legend().setShow(true)</span>
-<span class="fc" id="L184">				.setRendererOptions(</span>
-<span class="fc" id="L185">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(1).setNumberRows(12))</span>
-<span class="fc" id="L186">				.setPlacement(LegendPlacements.OUTSIDE_GRID));</span>
+<span class="fc" id="L200">		return setLegendStyling(new Legend().setShow(true)</span>
+<span class="fc" id="L201">				.setRendererOptions(</span>
+<span class="fc" id="L202">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(ONE_COLUMN_NUMBER_OF_COLUMNS).setNumberRows(ONE_COLUMN_NUMBER_OF_ROWS))</span>
+<span class="fc" id="L203">				.setPlacement(LegendPlacements.OUTSIDE_GRID));</span>
 	}
 
 	/**
@@ -192,10 +209,10 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the legend
 	 */
 	private static Legend createLegendInsideOneRow() {
-<span class="fc" id="L195">		return setLegendStyling(new Legend().setShow(true)</span>
-<span class="fc" id="L196">				.setRendererOptions(</span>
-<span class="fc" id="L197">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(10).setNumberRows(1))</span>
-<span class="fc" id="L198">				.setPlacement(LegendPlacements.INSIDE_GRID));</span>
+<span class="fc" id="L212">		return setLegendStyling(new Legend().setShow(true)</span>
+<span class="fc" id="L213">				.setRendererOptions(</span>
+<span class="fc" id="L214">						new EnhancedLegendRenderer().setSeriesToggle(SeriesToggles.NORMAL).setSeriesToggleReplot(true).setNumberColumns(ONE_ROW_NUMBER_OF_COLUMNS).setNumberRows(ONE_ROW_NUMBER_OF_ROWS))</span>
+<span class="fc" id="L215">				.setPlacement(LegendPlacements.INSIDE_GRID));</span>
 	}
 
 	/**
@@ -206,8 +223,8 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the legend
 	 */
 	private static Legend setLegendStyling(final Legend legend) {
-<span class="fc" id="L209">		legend.setBackground(BACKGROUND_COLOR).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(LEGEND_FONT_SIZE);</span>
-<span class="fc" id="L210">		return legend;</span>
+<span class="fc" id="L226">		legend.setBackground(BACKGROUND_COLOR).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(LEGEND_FONT_SIZE);</span>
+<span class="fc" id="L227">		return legend;</span>
 	}
 
 	/**
@@ -216,8 +233,8 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the highlighter
 	 */
 	private static Highlighter createHighLighter() {
-<span class="fc" id="L219">		return new Highlighter().setShow(true).setShowTooltip(true).setTooltipAlwaysVisible(true)</span>
-<span class="fc" id="L220">				.setKeepTooltipInsideChart(true);</span>
+<span class="fc" id="L236">		return new Highlighter().setShow(true).setShowTooltip(true).setTooltipAlwaysVisible(true)</span>
+<span class="fc" id="L237">				.setKeepTooltipInsideChart(true);</span>
 	}
 
 	/**
@@ -226,9 +243,9 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the highlighter
 	 */
 	private static Highlighter createHighLighterNorth() {
-<span class="fc" id="L229">		return new Highlighter().setShow(true).setShowTooltip(true).setTooltipAlwaysVisible(true)</span>
-<span class="fc" id="L230">				.setKeepTooltipInsideChart(true).setTooltipLocation(TooltipLocations.NORTH)</span>
-<span class="fc" id="L231">				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(true);</span>
+<span class="fc" id="L246">		return new Highlighter().setShow(true).setShowTooltip(true).setTooltipAlwaysVisible(true)</span>
+<span class="fc" id="L247">				.setKeepTooltipInsideChart(true).setTooltipLocation(TooltipLocations.NORTH)</span>
+<span class="fc" id="L248">				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(true);</span>
 	}
 
 	/**
@@ -237,8 +254,8 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the series defaults
 	 */
 	private static SeriesDefaults createSeriesDefaultPieChart() {
-<span class="fc" id="L240">		return new SeriesDefaults().setRenderer(SeriesRenderers.PIE)</span>
-<span class="fc" id="L241">				.setRendererOptions(new PieRenderer().setShowDataLabels(true)).setShadow(true);</span>
+<span class="fc" id="L257">		return new SeriesDefaults().setRenderer(SeriesRenderers.PIE)</span>
+<span class="fc" id="L258">				.setRendererOptions(new PieRenderer().setShowDataLabels(true)).setShadow(true);</span>
 	}
 
 
@@ -248,78 +265,83 @@ public final class ChartOptionsImpl implements ChartOptions {
 	 * @return the cursor
 	 */
 	private static Cursor createCursor() {
-<span class="fc" id="L251">		return new Cursor().setZoom(true).setLooseZoom(true).setShow(true);</span>
+<span class="fc" id="L268">		return new Cursor().setZoom(true).setLooseZoom(true).setShow(true);</span>
 	}
 
 	@Override
 	public Options createOptionsCountryLineChart(final Series series) {
-<span class="fc" id="L256">		final Axes axes = new Axes().addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
-<span class="fc" id="L257">				.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
-<span class="fc" id="L258">				.setNumberTicks(NUMBER_TICKS_DATE)).addAxis(new XYaxis(XYaxes.Y).setTickOptions(new AxisTickRenderer().setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
+<span class="fc" id="L273">		final Axes axes = new Axes().addAxis(new XYaxis().setRenderer(AxisRenderers.DATE)</span>
+<span class="fc" id="L274">				.setTickOptions(new AxisTickRenderer().setFormatString(YEAR_MONTH_DAY_FORMAT).setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE))</span>
+<span class="fc" id="L275">				.setNumberTicks(NUMBER_TICKS_DATE)).addAxis(new XYaxis(XYaxes.Y).setTickOptions(new AxisTickRenderer().setFontFamily(FONT_FAMILY).setTextColor(TEXT_COLOR).setFontSize(FONT_SIZE)).setNumberTicks(NUMBER_TICKS));</span>
 
-<span class="fc" id="L260">		return new Options().addOption(new SeriesDefaults()).addOption(axes)</span>
-<span class="fc" id="L261">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendInsideOneRow())</span>
-<span class="fc" id="L262">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L277">		return new Options().addOption(new SeriesDefaults()).addOption(axes)</span>
+<span class="fc" id="L278">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendInsideOneRow())</span>
+<span class="fc" id="L279">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 	@Override
 	public Options createOptionsDonoutChart() {
-<span class="fc" id="L267">		return new Options().setSeriesDefaults(createDonoutSeriesDefault()).setLegend(createdLegendEnhancedInsideNorthWest())</span>
-<span class="fc" id="L268">				.setHighlighter(createHighLighter()).addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L284">		return new Options().setSeriesDefaults(createDonoutSeriesDefault()).setLegend(createdLegendEnhancedInsideNorthWest())</span>
+<span class="fc" id="L285">				.setHighlighter(createHighLighter()).addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 	@Override
 	public Options createOptionsDonoutChartWithSeries(final Series series) {
-<span class="fc" id="L273">		return new Options().setSeriesDefaults(createDonoutSeriesDefault()).setLegend(createdLegendEnhancedInsideNorthWest())</span>
-<span class="fc" id="L274">				.setHighlighter(createHighLighter()).addOption(series).addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L290">		return new Options().setSeriesDefaults(createDonoutSeriesDefault()).setLegend(createdLegendEnhancedInsideNorthWest())</span>
+<span class="fc" id="L291">				.setHighlighter(createHighLighter()).addOption(series).addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
+	/**
+	 * Creates the donout series default.
+	 *
+	 * @return the series defaults
+	 */
 	private SeriesDefaults createDonoutSeriesDefault() {
-<span class="fc" id="L278">		return new SeriesDefaults().setRenderer(SeriesRenderers.DONUT)</span>
-<span class="fc" id="L279">				.setRendererOptions(new DonutRenderer().setSliceMargin(SLICE_MARGIN).setStartAngle(START_ANGLE).setShowDataLabels(true)</span>
-<span class="fc" id="L280">						.setDataLabels(DataLabels.VALUE));</span>
+<span class="fc" id="L300">		return new SeriesDefaults().setRenderer(SeriesRenderers.DONUT)</span>
+<span class="fc" id="L301">				.setRendererOptions(new DonutRenderer().setSliceMargin(SLICE_MARGIN).setStartAngle(START_ANGLE).setShowDataLabels(true)</span>
+<span class="fc" id="L302">						.setDataLabels(DataLabels.VALUE));</span>
 	}
 
 	@Override
 	public Options createOptionsPartyLineChart(final Series series) {
-<span class="fc" id="L285">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
-<span class="fc" id="L286">				.addOption(createHighLighterNorth()).addOption(createCursor()).addOption(series)</span>
-<span class="fc" id="L287">				.addOption(createLegendOutside()).addOption(createDefaultGrid());</span>
+<span class="fc" id="L307">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
+<span class="fc" id="L308">				.addOption(createHighLighterNorth()).addOption(createCursor()).addOption(series)</span>
+<span class="fc" id="L309">				.addOption(createLegendOutside()).addOption(createDefaultGrid());</span>
 	}
 
 	@Override
 	public Options createOptionsPersonLineChart(final Series series) {
-<span class="fc" id="L292">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
-<span class="fc" id="L293">				.addOption(createHighLighterNorth()).addOption(createCursor()).addOption(series)</span>
-<span class="fc" id="L294">				.addOption(createLegendOutside()).addOption(createDefaultGrid());</span>
+<span class="fc" id="L314">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
+<span class="fc" id="L315">				.addOption(createHighLighterNorth()).addOption(createCursor()).addOption(series)</span>
+<span class="fc" id="L316">				.addOption(createLegendOutside()).addOption(createDefaultGrid());</span>
 	}
 
 	@Override
 	public Options createOptionsPieChart() {
-<span class="fc" id="L299">		return new Options().setSeriesDefaults(createSeriesDefaultPieChart())</span>
-<span class="fc" id="L300">				.setLegend(createdLegendEnhancedInsideWest()).setHighlighter(createHighLighter())</span>
-<span class="fc" id="L301">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L321">		return new Options().setSeriesDefaults(createSeriesDefaultPieChart())</span>
+<span class="fc" id="L322">				.setLegend(createdLegendEnhancedInsideWest()).setHighlighter(createHighLighter())</span>
+<span class="fc" id="L323">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 	@Override
 	public Options createOptionsXYDateFloatLegendOutside(final Series series) {
-<span class="nc" id="L306">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
-<span class="nc" id="L307">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())</span>
-<span class="nc" id="L308">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="nc" id="L328">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
+<span class="nc" id="L329">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())</span>
+<span class="nc" id="L330">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 	@Override
 	public Options createOptionsXYDateFloatLegendInsideOneColumn(final Series series) {
-<span class="fc" id="L313">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
-<span class="fc" id="L314">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutsideOneColumn())</span>
-<span class="fc" id="L315">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L335">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloat())</span>
+<span class="fc" id="L336">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutsideOneColumn())</span>
+<span class="fc" id="L337">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 	@Override
 	public Options createOptionsXYDateFloatLogYAxisLegendOutside(final Series series) {
-<span class="fc" id="L320">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloatLog())</span>
-<span class="fc" id="L321">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())</span>
-<span class="fc" id="L322">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
+<span class="fc" id="L342">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloatLog())</span>
+<span class="fc" id="L343">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())</span>
+<span class="fc" id="L344">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 
 }

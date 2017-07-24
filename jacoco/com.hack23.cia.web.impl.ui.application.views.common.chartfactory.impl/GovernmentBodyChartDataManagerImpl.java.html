@@ -32,7 +32,6 @@ import org.springframework.stereotype.Service;
 
 import com.hack23.cia.service.external.esv.api.EsvApi;
 import com.hack23.cia.service.external.esv.api.GovernmentBodyAnnualSummary;
-import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.ChartOptions;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.GovernmentBodyChartDataManager;
 import com.vaadin.ui.AbstractOrderedLayout;
 
@@ -55,81 +54,77 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 	@Autowired
 	private EsvApi esvApi;
 
-	/** The chart options. */
-	@Autowired
-	private ChartOptions chartOptions;
-
 	/**
 	 * Instantiates a new government body chart data manager impl.
 	 */
 	public GovernmentBodyChartDataManagerImpl() {
-<span class="fc" id="L66">		super();</span>
-<span class="fc" id="L67">	}</span>
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">	}</span>
 
 	@Override
 	public void createMinistryGovernmentBodyHeadcountSummaryChart(final AbstractOrderedLayout content,
 			final String name) {
-<span class="fc" id="L72">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getDataPerMinistry(name);</span>
-<span class="fc" id="L73">		final List&lt;String&gt; governmentBodyNames = esvApi.getGovernmentBodyNames(name);</span>
+<span class="fc" id="L67">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getDataPerMinistry(name);</span>
+<span class="fc" id="L68">		final List&lt;String&gt; governmentBodyNames = esvApi.getGovernmentBodyNames(name);</span>
 
-<span class="fc" id="L75">		final DataSeries dataSeries = new DataSeries();</span>
-<span class="fc" id="L76">		final Series series = new Series();</span>
+<span class="fc" id="L70">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L71">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L78" title="All 2 branches covered.">		for (final String govBodyName : governmentBodyNames) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		for (final String govBodyName : governmentBodyNames) {</span>
 
-<span class="fc" id="L80">			series.addSeries(new XYseries().setLabel(govBodyName));</span>
+<span class="fc" id="L75">			series.addSeries(new XYseries().setLabel(govBodyName));</span>
 
-<span class="fc" id="L82">			dataSeries.newSeries();</span>
+<span class="fc" id="L77">			dataSeries.newSeries();</span>
 
-<span class="fc bfc" id="L84" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="fc" id="L86">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
-<span class="fc" id="L87">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getName().equalsIgnoreCase(govBodyName))</span>
-<span class="fc" id="L88">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
+<span class="fc" id="L81">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
+<span class="fc" id="L82">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getName().equalsIgnoreCase(govBodyName))</span>
+<span class="fc" id="L83">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
 
-<span class="pc bpc" id="L90" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
-<span class="fc" id="L91">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
+<span class="pc bpc" id="L85" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
+<span class="fc" id="L86">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
 				}
-<span class="fc" id="L93">			}</span>
-<span class="fc" id="L94">		}</span>
+<span class="fc" id="L88">			}</span>
+<span class="fc" id="L89">		}</span>
 
-<span class="fc" id="L96">		addChart(content, name + ANNUAL_HEADCOUNT_SUMMARY_ALL_GOVERNMENT_BODIES,</span>
-<span class="fc" id="L97">				new DCharts().setDataSeries(dataSeries)</span>
-<span class="fc" id="L98">						.setOptions(chartOptions.createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(), true);</span>
+<span class="fc" id="L91">		addChart(content, name + ANNUAL_HEADCOUNT_SUMMARY_ALL_GOVERNMENT_BODIES,</span>
+<span class="fc" id="L92">				new DCharts().setDataSeries(dataSeries)</span>
+<span class="fc" id="L93">						.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(), true);</span>
 
-<span class="fc" id="L100">	}</span>
+<span class="fc" id="L95">	}</span>
 
 	@Override
 	public void createMinistryGovernmentBodyHeadcountSummaryChart(final AbstractOrderedLayout content) {
-<span class="fc" id="L104">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getData();</span>
-<span class="fc" id="L105">		final List&lt;String&gt; ministryNames = esvApi.getMinistryNames();</span>
+<span class="fc" id="L99">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getData();</span>
+<span class="fc" id="L100">		final List&lt;String&gt; ministryNames = esvApi.getMinistryNames();</span>
 
-<span class="fc" id="L107">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L102">		final DataSeries dataSeries = new DataSeries();</span>
 
-<span class="fc" id="L109">		final Series series = new Series();</span>
+<span class="fc" id="L104">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L111" title="All 2 branches covered.">		for (final String ministryName : ministryNames) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">		for (final String ministryName : ministryNames) {</span>
 
-<span class="fc" id="L113">			series.addSeries(new XYseries().setLabel(ministryName));</span>
+<span class="fc" id="L108">			series.addSeries(new XYseries().setLabel(ministryName));</span>
 
-<span class="fc" id="L115">			dataSeries.newSeries();</span>
+<span class="fc" id="L110">			dataSeries.newSeries();</span>
 
-<span class="fc bfc" id="L117" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
 
-<span class="fc" id="L119">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
-<span class="fc" id="L120">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getMinistry().equalsIgnoreCase(ministryName))</span>
-<span class="fc" id="L121">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
+<span class="fc" id="L114">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
+<span class="fc" id="L115">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getMinistry().equalsIgnoreCase(ministryName))</span>
+<span class="fc" id="L116">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
 
-<span class="pc bpc" id="L123" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
-<span class="fc" id="L124">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
+<span class="pc bpc" id="L118" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
+<span class="fc" id="L119">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
 				}
-<span class="fc" id="L126">			}</span>
-<span class="fc" id="L127">		}</span>
+<span class="fc" id="L121">			}</span>
+<span class="fc" id="L122">		}</span>
 
-<span class="fc" id="L129">		addChart(content, ANNUAL_HEADCOUNT_ALL_MINISTRIES, new DCharts().setDataSeries(dataSeries)</span>
-<span class="fc" id="L130">				.setOptions(chartOptions.createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(), true);</span>
+<span class="fc" id="L124">		addChart(content, ANNUAL_HEADCOUNT_ALL_MINISTRIES, new DCharts().setDataSeries(dataSeries)</span>
+<span class="fc" id="L125">				.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(), true);</span>
 
-<span class="fc" id="L132">	}</span>
+<span class="fc" id="L127">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -73,8 +73,8 @@
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  	@Override
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> matches(<strong class="jxr_keyword">final</strong> String page, <strong class="jxr_keyword">final</strong> String parameters) {
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">return</strong> NAME.equals(page) &amp;&amp; (!StringUtils.isEmpty(parameters)
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  				&amp;&amp; parameters.contains(CommitteePageMode.BALLOTDECISIONSUMMARY.toString()));
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">return</strong> NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  				&amp;&amp; parameters.contains(CommitteePageMode.BALLOTDECISIONSUMMARY.toString());
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  	}
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  	@Secured({ <span class="jxr_string">"ROLE_ANONYMOUS"</span>, <span class="jxr_string">"ROLE_USER"</span>, <span class="jxr_string">"ROLE_ADMIN"</span> })

@@ -45,79 +45,91 @@ import com.vaadin.v7.ui.VerticalLayout;
  */
 public abstract class AbstractMenuItemFactoryImpl {
 
+	/** The Constant DISPLAY_SIZE_LG_DEVICE. */
+	private static final int DISPLAY_SIZE_LG_DEVICE = 4;
+
+	/** The Constant DISPLAY_SIZE_MD_DEVICE. */
+	private static final int DISPLAY_SIZE_MD_DEVICE = 4;
+
+	/** The Constant DISPLAYS_SIZE_XM_DEVICE. */
+	private static final int DISPLAYS_SIZE_XM_DEVICE = 6;
+
+	/** The Constant DISPLAY_SIZE_XS_DEVICE. */
+	private static final int DISPLAY_SIZE_XS_DEVICE = 12;
+
 	/** The Constant COMMAND_APPLICATION_EVENTS_CHARTS. */
-<span class="fc" id="L49">	private static final PageModeMenuCommand COMMAND_APPLICATION_EVENTS_CHARTS = new PageModeMenuCommand(AdminViews.ADMIN_APPLICATIONS_EVENTS_VIEW_NAME, PageMode.CHARTS);</span>
+<span class="fc" id="L61">	private static final PageModeMenuCommand COMMAND_APPLICATION_EVENTS_CHARTS = new PageModeMenuCommand(AdminViews.ADMIN_APPLICATIONS_EVENTS_VIEW_NAME, PageMode.CHARTS);</span>
 
 	/** The Constant COMMAND_EMAIL. */
-<span class="fc" id="L52">	private static final PageModeMenuCommand COMMAND_EMAIL = new PageModeMenuCommand(AdminViews.ADMIN_EMAIL_VIEW_NAME,</span>
+<span class="fc" id="L64">	private static final PageModeMenuCommand COMMAND_EMAIL = new PageModeMenuCommand(AdminViews.ADMIN_EMAIL_VIEW_NAME,</span>
 			&quot;&quot;);
 
 	/** The Constant COMMAND_MAINVIEW_PAGEVISITHISTORY. */
-<span class="fc" id="L56">	private static final PageModeMenuCommand COMMAND_MAINVIEW_PAGEVISITHISTORY = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
+<span class="fc" id="L68">	private static final PageModeMenuCommand COMMAND_MAINVIEW_PAGEVISITHISTORY = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
 			PageMode.PAGEVISITHISTORY);
 
 	/** The Constant COMMAND_USERACCOUNT. */
-<span class="fc" id="L60">	private static final PageModeMenuCommand COMMAND_USERACCOUNT = new PageModeMenuCommand(AdminViews.ADMIN_USERACCOUNT_VIEW_NAME,</span>
+<span class="fc" id="L72">	private static final PageModeMenuCommand COMMAND_USERACCOUNT = new PageModeMenuCommand(AdminViews.ADMIN_USERACCOUNT_VIEW_NAME,</span>
 			&quot;&quot;);
 
 	/** The Constant COMMAND_APPLICATION_EVENTS. */
-<span class="fc" id="L64">	private static final PageModeMenuCommand COMMAND_APPLICATION_EVENTS = new PageModeMenuCommand(</span>
+<span class="fc" id="L76">	private static final PageModeMenuCommand COMMAND_APPLICATION_EVENTS = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_APPLICATIONS_EVENTS_VIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_APPLICATION_SESSION. */
-<span class="fc" id="L68">	private static final PageModeMenuCommand COMMAND_APPLICATION_SESSION = new PageModeMenuCommand(</span>
+<span class="fc" id="L80">	private static final PageModeMenuCommand COMMAND_APPLICATION_SESSION = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_APPLICATIONS_SESSION_VIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_MONITORING. */
-<span class="fc" id="L72">	private static final PageModeMenuCommand COMMAND_MONITORING = new PageModeMenuCommand(AdminViews.ADMIN_MONITORING_VIEW_NAME,</span>
+<span class="fc" id="L84">	private static final PageModeMenuCommand COMMAND_MONITORING = new PageModeMenuCommand(AdminViews.ADMIN_MONITORING_VIEW_NAME,</span>
 			&quot;&quot;);
 
 	/** The Constant COMMAND_DATASUMMARY. */
-<span class="fc" id="L76">	private static final PageModeMenuCommand COMMAND_DATASUMMARY = new PageModeMenuCommand(</span>
+<span class="fc" id="L88">	private static final PageModeMenuCommand COMMAND_DATASUMMARY = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_DATA_SUMMARY_VIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_AGENT_OPERATION. */
-<span class="fc" id="L80">	private static final PageModeMenuCommand COMMAND_AGENT_OPERATION = new PageModeMenuCommand(</span>
+<span class="fc" id="L92">	private static final PageModeMenuCommand COMMAND_AGENT_OPERATION = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_AGENT_OPERATIONVIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_LANGUAGE_CONTENT. */
-<span class="fc" id="L84">	private static final PageModeMenuCommand COMMAND_LANGUAGE_CONTENT = new PageModeMenuCommand(</span>
+<span class="fc" id="L96">	private static final PageModeMenuCommand COMMAND_LANGUAGE_CONTENT = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_LANGUAGE_CONTENT_VIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_LANGUAGE. */
-<span class="fc" id="L88">	private static final PageModeMenuCommand COMMAND_LANGUAGE = new PageModeMenuCommand(AdminViews.ADMIN_LANGUAGE_VIEW_NAME,</span>
+<span class="fc" id="L100">	private static final PageModeMenuCommand COMMAND_LANGUAGE = new PageModeMenuCommand(AdminViews.ADMIN_LANGUAGE_VIEW_NAME,</span>
 			&quot;&quot;);
 
 	/** The Constant COMMAND_COUNTRY. */
-<span class="fc" id="L92">	private static final PageModeMenuCommand COMMAND_COUNTRY = new PageModeMenuCommand(AdminViews.ADMIN_COUNTRY_VIEW_NAME, &quot;&quot;);</span>
+<span class="fc" id="L104">	private static final PageModeMenuCommand COMMAND_COUNTRY = new PageModeMenuCommand(AdminViews.ADMIN_COUNTRY_VIEW_NAME, &quot;&quot;);</span>
 
 	/** The Constant COMMAND_PORTAL. */
-<span class="fc" id="L95">	private static final PageModeMenuCommand COMMAND_PORTAL = new PageModeMenuCommand(AdminViews.ADMIN_PORTAL_VIEW_NAME, &quot;&quot;);</span>
+<span class="fc" id="L107">	private static final PageModeMenuCommand COMMAND_PORTAL = new PageModeMenuCommand(AdminViews.ADMIN_PORTAL_VIEW_NAME, &quot;&quot;);</span>
 
 	/** The Constant COMMAND_AGENCY. */
-<span class="fc" id="L98">	private static final PageModeMenuCommand COMMAND_AGENCY = new PageModeMenuCommand(AdminViews.ADMIN_AGENCY_VIEW_NAME, &quot;&quot;);</span>
+<span class="fc" id="L110">	private static final PageModeMenuCommand COMMAND_AGENCY = new PageModeMenuCommand(AdminViews.ADMIN_AGENCY_VIEW_NAME, &quot;&quot;);</span>
 
 	/** The Constant COMMAND_APPLICATION_CONFIGURATION. */
-<span class="fc" id="L101">	private static final PageModeMenuCommand COMMAND_APPLICATION_CONFIGURATION = new PageModeMenuCommand(</span>
+<span class="fc" id="L113">	private static final PageModeMenuCommand COMMAND_APPLICATION_CONFIGURATION = new PageModeMenuCommand(</span>
 			AdminViews.ADMIN_APPLICATIONS_CONFIGURATION_VIEW_NAME, &quot;&quot;);
 
 	/** The Constant COMMAND_REGISTER. */
-<span class="fc" id="L105">	private static final PageModeMenuCommand COMMAND_REGISTER = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
-<span class="fc" id="L106">			ApplicationPageMode.REGISTER.toString());</span>
+<span class="fc" id="L117">	private static final PageModeMenuCommand COMMAND_REGISTER = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
+<span class="fc" id="L118">			ApplicationPageMode.REGISTER.toString());</span>
 
 	/** The Constant COMMAND_LOGIN. */
-<span class="fc" id="L109">	private static final PageModeMenuCommand COMMAND_LOGIN = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
-<span class="fc" id="L110">			ApplicationPageMode.LOGIN.toString());</span>
+<span class="fc" id="L121">	private static final PageModeMenuCommand COMMAND_LOGIN = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
+<span class="fc" id="L122">			ApplicationPageMode.LOGIN.toString());</span>
 
 	/** The Constant COMMAND_LOGOUT. */
-<span class="fc" id="L113">	private static final PageModeMenuCommand COMMAND_LOGOUT = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
-<span class="fc" id="L114">			ApplicationPageMode.LOGOUT.toString());</span>
+<span class="fc" id="L125">	private static final PageModeMenuCommand COMMAND_LOGOUT = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
+<span class="fc" id="L126">			ApplicationPageMode.LOGOUT.toString());</span>
 
 	/** The Constant COMMAND_USERHOME. */
-<span class="fc" id="L117">	private static final PageModeMenuCommand COMMAND_USERHOME = new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, &quot;&quot;);</span>
+<span class="fc" id="L129">	private static final PageModeMenuCommand COMMAND_USERHOME = new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, &quot;&quot;);</span>
 
 	/** The Constant COMMAND_MAINVIEW_OVERVIEW. */
-<span class="fc" id="L120">	private static final PageModeMenuCommand COMMAND_MAINVIEW_OVERVIEW = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
+<span class="fc" id="L132">	private static final PageModeMenuCommand COMMAND_MAINVIEW_OVERVIEW = new PageModeMenuCommand(CommonsViews.MAIN_VIEW_NAME,</span>
 			PageMode.OVERVIEW);
 
 	/** The Constant LINK_STYLE_NAME. */
@@ -220,8 +232,8 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 * Instantiates a new abstract menu item factory impl.
 	 */
 	public AbstractMenuItemFactoryImpl() {
-<span class="fc" id="L223">		super();</span>
-<span class="fc" id="L224">	}</span>
+<span class="fc" id="L235">		super();</span>
+<span class="fc" id="L236">	}</span>
 
 	/**
 	 * Inits the application menu bar.
@@ -230,28 +242,28 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 *            the menu bar
 	 */
 	protected final void initApplicationMenuBar(final MenuBar menuBar) {
-<span class="fc" id="L233">		menuBar.removeItems();</span>
-<span class="fc" id="L234">		menuBar.setWidth(MENU_BAR_WIDTH);</span>
-<span class="fc" id="L235">		menuBar.setStyleName(HEADER_STYLE_NAME);</span>
-<span class="fc" id="L236">		final MenuItem mainViewItem = menuBar.addItem(APPLICATION, FontAwesome.SERVER, null);</span>
+<span class="fc" id="L245">		menuBar.removeItems();</span>
+<span class="fc" id="L246">		menuBar.setWidth(MENU_BAR_WIDTH);</span>
+<span class="fc" id="L247">		menuBar.setStyleName(HEADER_STYLE_NAME);</span>
+<span class="fc" id="L248">		final MenuItem mainViewItem = menuBar.addItem(APPLICATION, FontAwesome.SERVER, null);</span>
 
-<span class="fc" id="L238">		mainViewItem.addItem(START_TEXT, FontAwesome.STAR, COMMAND_MAINVIEW_OVERVIEW);</span>
+<span class="fc" id="L250">		mainViewItem.addItem(START_TEXT, FontAwesome.STAR, COMMAND_MAINVIEW_OVERVIEW);</span>
 
-<span class="fc" id="L240">		final MenuItem mainItem = mainViewItem.addItem(MAIN, FontAwesome.STAR, null);</span>
+<span class="fc" id="L252">		final MenuItem mainItem = mainViewItem.addItem(MAIN, FontAwesome.STAR, null);</span>
 
-<span class="fc" id="L242">		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.AREA_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);</span>
+<span class="fc" id="L254">		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.AREA_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);</span>
 
 
-<span class="fc bfc" id="L245" title="All 4 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN) || UserContextUtil.allowRoleInSecurityContext(ROLE_USER)) {</span>
-<span class="fc" id="L246">			mainViewItem.addItem(USERHOME, FontAwesome.USER,COMMAND_USERHOME);</span>
-<span class="fc" id="L247">			createAdminMenu(mainViewItem);</span>
-<span class="fc" id="L248">			mainViewItem.addItem(LOGOUT, FontAwesome.SIGN_OUT, COMMAND_LOGOUT);</span>
+<span class="fc bfc" id="L257" title="All 4 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN) || UserContextUtil.allowRoleInSecurityContext(ROLE_USER)) {</span>
+<span class="fc" id="L258">			mainViewItem.addItem(USERHOME, FontAwesome.USER,COMMAND_USERHOME);</span>
+<span class="fc" id="L259">			createAdminMenu(mainViewItem);</span>
+<span class="fc" id="L260">			mainViewItem.addItem(LOGOUT, FontAwesome.SIGN_OUT, COMMAND_LOGOUT);</span>
 		} else {
-<span class="fc" id="L250">			mainViewItem.addItem(LOGIN, FontAwesome.SIGN_IN, COMMAND_LOGIN);</span>
-<span class="fc" id="L251">			mainViewItem.addItem(REGISTER, FontAwesome.USER_PLUS, COMMAND_REGISTER);</span>
+<span class="fc" id="L262">			mainViewItem.addItem(LOGIN, FontAwesome.SIGN_IN, COMMAND_LOGIN);</span>
+<span class="fc" id="L263">			mainViewItem.addItem(REGISTER, FontAwesome.USER_PLUS, COMMAND_REGISTER);</span>
 		}
 
-<span class="fc" id="L254">	}</span>
+<span class="fc" id="L266">	}</span>
 
 	/**
 	 * Creates the admin menu.
@@ -260,38 +272,38 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 *            the main view item
 	 */
 	private static void createAdminMenu(final MenuItem mainViewItem) {
-<span class="fc bfc" id="L263" title="All 2 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN)) {</span>
-<span class="fc" id="L264">			final MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, FontAwesome.SERVER, null);</span>
+<span class="fc bfc" id="L275" title="All 2 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN)) {</span>
+<span class="fc" id="L276">			final MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, FontAwesome.SERVER, null);</span>
 
-<span class="fc" id="L266">			final MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, FontAwesome.GEARS, null);</span>
-<span class="fc" id="L267">			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,FontAwesome.GEARS, COMMAND_APPLICATION_CONFIGURATION);</span>
+<span class="fc" id="L278">			final MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, FontAwesome.GEARS, null);</span>
+<span class="fc" id="L279">			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,FontAwesome.GEARS, COMMAND_APPLICATION_CONFIGURATION);</span>
 
-<span class="fc" id="L269">			configurationMenuItem.addItem(AGENCY,FontAwesome.SERVER, COMMAND_AGENCY);</span>
-<span class="fc" id="L270">			configurationMenuItem.addItem(PORTAL, FontAwesome.SITEMAP,COMMAND_PORTAL);</span>
-<span class="fc" id="L271">			configurationMenuItem.addItem(COUNTRY,FontAwesome.FLAG, COMMAND_COUNTRY);</span>
-<span class="fc" id="L272">			configurationMenuItem.addItem(LANGUAGE,FontAwesome.LANGUAGE, COMMAND_LANGUAGE);</span>
-<span class="fc" id="L273">			configurationMenuItem.addItem(LANGUAGE_CONTENT,FontAwesome.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);</span>
+<span class="fc" id="L281">			configurationMenuItem.addItem(AGENCY,FontAwesome.SERVER, COMMAND_AGENCY);</span>
+<span class="fc" id="L282">			configurationMenuItem.addItem(PORTAL, FontAwesome.SITEMAP,COMMAND_PORTAL);</span>
+<span class="fc" id="L283">			configurationMenuItem.addItem(COUNTRY,FontAwesome.FLAG, COMMAND_COUNTRY);</span>
+<span class="fc" id="L284">			configurationMenuItem.addItem(LANGUAGE,FontAwesome.LANGUAGE, COMMAND_LANGUAGE);</span>
+<span class="fc" id="L285">			configurationMenuItem.addItem(LANGUAGE_CONTENT,FontAwesome.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);</span>
 
-<span class="fc" id="L275">			final MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, FontAwesome.SERVER, null);</span>
+<span class="fc" id="L287">			final MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, FontAwesome.SERVER, null);</span>
 
-<span class="fc" id="L277">			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,FontAwesome.USER_SECRET, COMMAND_AGENT_OPERATION);</span>
+<span class="fc" id="L289">			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,FontAwesome.USER_SECRET, COMMAND_AGENT_OPERATION);</span>
 
-<span class="fc" id="L279">			managementMenuItem.addItem(DATA_SUMMARY_TEXT,FontAwesome.DATABASE, COMMAND_DATASUMMARY);</span>
+<span class="fc" id="L291">			managementMenuItem.addItem(DATA_SUMMARY_TEXT,FontAwesome.DATABASE, COMMAND_DATASUMMARY);</span>
 
-<span class="fc" id="L281">			managementMenuItem.addItem(EMAIL,FontAwesome.MAIL_FORWARD, COMMAND_EMAIL);</span>
+<span class="fc" id="L293">			managementMenuItem.addItem(EMAIL,FontAwesome.MAIL_FORWARD, COMMAND_EMAIL);</span>
 
 
-<span class="fc" id="L284">			managementMenuItem.addItem(SYSTEM_PERFORMANCE,FontAwesome.DASHBOARD, COMMAND_MONITORING);</span>
+<span class="fc" id="L296">			managementMenuItem.addItem(SYSTEM_PERFORMANCE,FontAwesome.DASHBOARD, COMMAND_MONITORING);</span>
 
-<span class="fc" id="L286">			final MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, FontAwesome.DATABASE, null);</span>
-<span class="fc" id="L287">			userActivityMenuItem.addItem(APPLICATION_SESSION,FontAwesome.LAPTOP, COMMAND_APPLICATION_SESSION);</span>
-<span class="fc" id="L288">			userActivityMenuItem.addItem(APPLICATION_EVENT,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS);</span>
-<span class="fc" id="L289">			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);</span>
+<span class="fc" id="L298">			final MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, FontAwesome.DATABASE, null);</span>
+<span class="fc" id="L299">			userActivityMenuItem.addItem(APPLICATION_SESSION,FontAwesome.LAPTOP, COMMAND_APPLICATION_SESSION);</span>
+<span class="fc" id="L300">			userActivityMenuItem.addItem(APPLICATION_EVENT,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS);</span>
+<span class="fc" id="L301">			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);</span>
 
-<span class="fc" id="L291">			userActivityMenuItem.addItem(USERACCOUNT,FontAwesome.GROUP, COMMAND_USERACCOUNT);</span>
+<span class="fc" id="L303">			userActivityMenuItem.addItem(USERACCOUNT,FontAwesome.GROUP, COMMAND_USERACCOUNT);</span>
 
 		}
-<span class="fc" id="L294">	}</span>
+<span class="fc" id="L306">	}</span>
 
 	/**
 	 * Creates the button link.
@@ -307,32 +319,32 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 * @param description
 	 *            the description
 	 */
-	protected final void createButtonLink(final ResponsiveRow row,final String linkText,final Resource icon, final ClickListener command, final String description) {		
-<span class="fc" id="L311">		CssLayout layout = new CssLayout();</span>
-<span class="fc" id="L312">		layout.addStyleName(&quot;v-layout-content-overview-panel-level2&quot;);</span>
-<span class="fc" id="L313">		Responsive.makeResponsive(layout);</span>
-<span class="fc" id="L314">		layout.setSizeUndefined();</span>
-
-		
-<span class="fc" id="L317">		final Button button = new Button(linkText);</span>
-<span class="fc" id="L318">		Responsive.makeResponsive(button);</span>
-<span class="fc" id="L319">		button.setStyleName(LINK_STYLE_NAME);</span>
-<span class="fc" id="L320">		button.addStyleName(&quot;title&quot;);</span>
-<span class="fc" id="L321">		button.addClickListener(command);</span>
-<span class="fc" id="L322">		button.setIcon(icon);</span>
-<span class="fc" id="L323">		button.setWidth(100, Unit.PERCENTAGE);</span>
+	protected final void createButtonLink(final ResponsiveRow row,final String linkText,final Resource icon, final ClickListener command, final String description) {
+<span class="fc" id="L323">		final CssLayout layout = new CssLayout();</span>
+<span class="fc" id="L324">		layout.addStyleName(&quot;v-layout-content-overview-panel-level2&quot;);</span>
+<span class="fc" id="L325">		Responsive.makeResponsive(layout);</span>
+<span class="fc" id="L326">		layout.setSizeUndefined();</span>
 
 
-<span class="fc" id="L326">		layout.addComponent(button);</span>
+<span class="fc" id="L329">		final Button button = new Button(linkText);</span>
+<span class="fc" id="L330">		Responsive.makeResponsive(button);</span>
+<span class="fc" id="L331">		button.setStyleName(LINK_STYLE_NAME);</span>
+<span class="fc" id="L332">		button.addStyleName(&quot;title&quot;);</span>
+<span class="fc" id="L333">		button.addClickListener(command);</span>
+<span class="fc" id="L334">		button.setIcon(icon);</span>
+<span class="fc" id="L335">		button.setWidth(100, Unit.PERCENTAGE);</span>
 
-<span class="fc" id="L328">		final Label descriptionLabel = new Label(description);</span>
-<span class="fc" id="L329">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
-<span class="fc" id="L330">		Responsive.makeResponsive(descriptionLabel);</span>
-<span class="fc" id="L331">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L332">		layout.addComponent(descriptionLabel);</span>
-	
-<span class="fc" id="L334">		row.addColumn().withDisplayRules(12,6,4,4).withComponent(layout);</span>
-<span class="fc" id="L335">	}</span>
+
+<span class="fc" id="L338">		layout.addComponent(button);</span>
+
+<span class="fc" id="L340">		final Label descriptionLabel = new Label(description);</span>
+<span class="fc" id="L341">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
+<span class="fc" id="L342">		Responsive.makeResponsive(descriptionLabel);</span>
+<span class="fc" id="L343">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L344">		layout.addComponent(descriptionLabel);</span>
+
+<span class="fc" id="L346">		row.addColumn().withDisplayRules(DISPLAY_SIZE_XS_DEVICE,DISPLAYS_SIZE_XM_DEVICE,DISPLAY_SIZE_MD_DEVICE,DISPLAY_SIZE_LG_DEVICE).withComponent(layout);</span>
+<span class="fc" id="L347">	}</span>
 
 	/**
 	 * Creates the grid layout.
@@ -342,14 +354,14 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 * @return the grid layout
 	 */
 	protected final ResponsiveRow createGridLayout(final VerticalLayout panelContent) {
-<span class="fc" id="L345">		ResponsiveLayout layout = new ResponsiveLayout();</span>
-<span class="fc" id="L346">		Responsive.makeResponsive(layout);</span>
-<span class="fc" id="L347">		layout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
-<span class="fc" id="L348">		layout.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L349">		layout.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L350">		panelContent.addComponent(layout);</span>
-<span class="fc" id="L351">		panelContent.setExpandRatio(layout, ContentRatio.LARGE);</span>
-<span class="fc" id="L352">		return layout.addRow();</span>
+<span class="fc" id="L357">		final ResponsiveLayout layout = new ResponsiveLayout();</span>
+<span class="fc" id="L358">		Responsive.makeResponsive(layout);</span>
+<span class="fc" id="L359">		layout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
+<span class="fc" id="L360">		layout.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L361">		layout.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L362">		panelContent.addComponent(layout);</span>
+<span class="fc" id="L363">		panelContent.setExpandRatio(layout, ContentRatio.LARGE);</span>
+<span class="fc" id="L364">		return layout.addRow();</span>
 	}
 
 }
