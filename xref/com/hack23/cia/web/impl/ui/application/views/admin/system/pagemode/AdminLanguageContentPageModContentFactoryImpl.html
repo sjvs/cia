@@ -85,13 +85,13 @@
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">final</strong> DataContainer&lt;LanguageContentData, Long&gt; dataContainer = getApplicationManager()
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  				.getDataContainer(LanguageContentData.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;LanguageContentData&gt; politicianDocumentDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;LanguageContentData&gt; dataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  				LanguageContentData.<strong class="jxr_keyword">class</strong>, dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,LanguageContentData_.toLanguage));
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  		getGridFactory().createBasicBeanItemGrid(content,
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				politicianDocumentDataSource,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				dataSource,
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  				<span class="jxr_string">"LanguageContentData"</span>,
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"languageContentType"</span>, <span class="jxr_string">"refKey"</span>, <span class="jxr_string">"fromLanguage"</span>, <span class="jxr_string">"toLanguage"</span>, <span class="jxr_string">"createdDate"</span>,
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  						<span class="jxr_string">"languageValue"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"modelObjectId"</span>, <span class="jxr_string">"modelObjectVersion"</span> },

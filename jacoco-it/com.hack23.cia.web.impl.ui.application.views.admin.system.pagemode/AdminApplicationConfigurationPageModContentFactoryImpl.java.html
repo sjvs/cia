@@ -87,14 +87,14 @@ public final class AdminApplicationConfigurationPageModContentFactoryImpl
 <span class="fc" id="L87">		final DataContainer&lt;ApplicationConfiguration, Long&gt; dataContainer = getApplicationManager()</span>
 <span class="fc" id="L88">				.getDataContainer(ApplicationConfiguration.class);</span>
 
-<span class="fc" id="L90">		final BeanItemContainer&lt;ApplicationConfiguration&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
+<span class="fc" id="L90">		final BeanItemContainer&lt;ApplicationConfiguration&gt; dataSource = new BeanItemContainer&lt;&gt;(</span>
 				ApplicationConfiguration.class,
 <span class="fc" id="L92">		dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationConfiguration_.configurationGroup));</span>
 
 <span class="fc" id="L94">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L96">		getGridFactory().createBasicBeanItemGrid(content,</span>
-				politicianDocumentDataSource,
+				dataSource,
 				&quot;ApplicationConfiguration&quot;,
 				new String[] { &quot;hjid&quot;, &quot;configurationGroup&quot;, &quot;component&quot;, &quot;componentTitle&quot;, &quot;configTitle&quot;, &quot;configDescription&quot;,
 						 &quot;componentDescription&quot;, &quot;propertyId&quot;, &quot;propertyValue&quot; }, new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;, &quot;modelObjectVersion&quot;, &quot;createdDate&quot;, &quot;updatedDate&quot;,&quot;propertyId&quot; ,&quot;componentDescription&quot;, &quot;componentTitle&quot;},

@@ -84,14 +84,14 @@
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">final</strong> DataContainer&lt;Portal, Long&gt; dataContainer = getApplicationManager().getDataContainer(Portal.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;Portal&gt; politicianDocumentDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(Portal.<strong class="jxr_keyword">class</strong>,
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;Portal&gt; dataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(Portal.<strong class="jxr_keyword">class</strong>,
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  				dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,Portal_.portalName));
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  		getGridFactory().createBasicBeanItemGrid(content,
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				politicianDocumentDataSource,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				dataSource,
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  				<span class="jxr_string">"Portal"</span>,
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"portalName"</span>, <span class="jxr_string">"description"</span>, <span class="jxr_string">"portalType"</span>, <span class="jxr_string">"googleMapApiKey"</span>,
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  						<span class="jxr_string">"modelObjectVersion"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"modelObjectId"</span>, <span class="jxr_string">"googleMapApiKey"</span>, <span class="jxr_string">"modelObjectVersion"</span> },

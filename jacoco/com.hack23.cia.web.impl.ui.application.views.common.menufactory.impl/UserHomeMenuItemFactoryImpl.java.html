@@ -18,15 +18,20 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.common.menufactory.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.ApplicationMenuItemFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.UserHomeMenuItemFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserHomePageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.MenuBar;
+import com.vaadin.ui.MenuBar.MenuItem;
+import com.vaadin.v7.ui.VerticalLayout;
 
 /**
  * The Class UserHomeMenuItemFactoryImpl.
@@ -34,39 +39,68 @@ import com.vaadin.ui.MenuBar;
 @Service
 public final class UserHomeMenuItemFactoryImpl extends AbstractMenuItemFactoryImpl implements UserHomeMenuItemFactory {
 
+	/** The Constant USER_EVENTS. */
+	private static final String USER_EVENTS = &quot;User Events&quot;;
+
+	/** The Constant USER_VISITS. */
+	private static final String USER_VISITS = &quot;User Visits&quot;;
+
 	/** The Constant OVERVIEW_TEXT. */
 	private static final String OVERVIEW_TEXT = &quot;Overview&quot;;
-
-	/** The Constant PAGE_VISIT_HISTORY_TEXT. */
-	private static final String PAGE_VISIT_HISTORY_TEXT = &quot;Page Visit History&quot;;
 
 	/** The Constant SECURITY_SETTING_TEXT. */
 	private static final String SECURITY_SETTING_TEXT = &quot;Security settings&quot;;
 
+	@Autowired
+	private ApplicationMenuItemFactory applicationMenuItemFactory;
 
 	/**
 	 * Instantiates a new user home menu item factory impl.
 	 */
 	public UserHomeMenuItemFactoryImpl() {
-<span class="fc" id="L51">		super();</span>
-<span class="fc" id="L52">	}</span>
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">	}</span>
 
 
 	@Override
 	public void createUserHomeMenuBar(final MenuBar menuBar, final String pageId) {
-<span class="fc" id="L57">		initApplicationMenuBar(menuBar);</span>
+<span class="fc" id="L67">		initApplicationMenuBar(menuBar);</span>
 
-<span class="fc" id="L59">		menuBar.addItem(OVERVIEW_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L69">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+<span class="fc" id="L70">		final MenuItem accountItem = menuBar.addItem(&quot;Useraccount&quot;, FontAwesome.USER,null);</span>
+
+
+<span class="fc" id="L73">		accountItem.addItem(OVERVIEW_TEXT, FontAwesome.USER,</span>
 				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, PageMode.OVERVIEW, pageId));
 
-<span class="fc" id="L62">		menuBar.addItem(SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
-<span class="fc" id="L63">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(), pageId));</span>
+<span class="fc" id="L76">		accountItem.addItem(SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L77">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(), pageId));</span>
+
+<span class="fc" id="L79">		accountItem.addItem(USER_VISITS, FontAwesome.USER,</span>
+<span class="fc" id="L80">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_VISITS.toString(), pageId));</span>
+
+<span class="fc" id="L82">		accountItem.addItem(USER_EVENTS, FontAwesome.USER,</span>
+<span class="fc" id="L83">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_EVENTS.toString(), pageId));</span>
 
 
-<span class="fc" id="L66">		menuBar.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.LINE_CHART,</span>
-				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId));
+<span class="fc" id="L86">	}</span>
 
-<span class="fc" id="L69">	}</span>
+
+	@Override
+	public void createOverviewPage(final VerticalLayout overviewLayout) {
+<span class="fc" id="L91">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
+
+<span class="fc" id="L93">		createButtonLink(grid,SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L94">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(),&quot;&quot;),&quot;Security settings, enable MFA&quot;);</span>
+
+<span class="fc" id="L96">		createButtonLink(grid,USER_VISITS, FontAwesome.USER,</span>
+<span class="fc" id="L97">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_VISITS.toString()),&quot;All past visits&quot;);</span>
+
+<span class="fc" id="L99">		createButtonLink(grid,USER_EVENTS, FontAwesome.USER,</span>
+<span class="fc" id="L100">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_EVENTS.toString()),&quot;All past events&quot;);</span>
+
+
+<span class="fc" id="L103">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

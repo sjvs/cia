@@ -114,11 +114,11 @@ public final class BallotOverviewPageModContentFactoryImpl extends AbstractBallo
 
 <span class="fc bfc" id="L115" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotSummary viewRiksdagenVoteDataBallotSummary : ballots) {</span>
 
-<span class="pc bpc" id="L117" title="1 of 2 branches missed.">				if (!decisionSummaries.isEmpty()) {</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">				if (!decisionSummaries.isEmpty()) {</span>
 
-<span class="nc" id="L119">					getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(decisionSummaries.get(FIRST_OBJECT)),</span>
+<span class="fc" id="L119">					getFormFactory().addFormPanelTextFields(panelContent, new BeanItem&lt;&gt;(decisionSummaries.get(FIRST_OBJECT)),</span>
 							ViewRiksdagenCommitteeBallotDecisionSummary.class,
-<span class="nc" id="L121">							Arrays.asList(new String[] { &quot;embeddedId.id&quot;, &quot;ballotId&quot;, &quot;rm&quot;, &quot;voteDate&quot;, &quot;org&quot;,</span>
+<span class="fc" id="L121">							Arrays.asList(new String[] { &quot;embeddedId.id&quot;, &quot;ballotId&quot;, &quot;rm&quot;, &quot;voteDate&quot;, &quot;org&quot;,</span>
 									&quot;committeeReport&quot;, &quot;embeddedId.issue&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;decisionType&quot;,
 									&quot;embeddedId.concern&quot;, &quot;ballotType&quot;, &quot;winner&quot;, &quot;totalVotes&quot;, &quot;yesVotes&quot;, &quot;noVotes&quot;,
 									&quot;abstainVotes&quot;, &quot;absentVotes&quot;, &quot;approved&quot;, &quot;endNumber&quot;, &quot;againstProposalParties&quot;,

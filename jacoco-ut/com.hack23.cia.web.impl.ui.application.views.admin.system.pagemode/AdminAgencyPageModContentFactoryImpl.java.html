@@ -83,13 +83,13 @@ public final class AdminAgencyPageModContentFactoryImpl extends AbstractAdminSys
 
 <span class="fc" id="L84">		final DataContainer&lt;Agency, Long&gt; dataContainer = getApplicationManager().getDataContainer(Agency.class);</span>
 
-<span class="fc" id="L86">		final BeanItemContainer&lt;Agency&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(Agency.class,</span>
+<span class="fc" id="L86">		final BeanItemContainer&lt;Agency&gt; dataSource = new BeanItemContainer&lt;&gt;(Agency.class,</span>
 <span class="fc" id="L87">				dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,Agency_.agencyName));</span>
 
 <span class="fc" id="L89">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L91">		getGridFactory().createBasicBeanItemGrid(content,</span>
-				politicianDocumentDataSource, &quot;Agency&quot;,
+				dataSource, &quot;Agency&quot;,
 				new String[] { &quot;hjid&quot;, &quot;agencyName&quot;, &quot;description&quot;, &quot;portals&quot;, &quot;modelObjectVersion&quot; }, new String[] { &quot;hjid&quot;,&quot;modelObjectId&quot;, &quot;modelObjectVersion&quot; },
 				new PageItemPropertyClickListener(AdminViews.ADMIN_AGENCY_VIEW_NAME, &quot;hjid&quot;), null, new ListPropertyConverter[] { new ListPropertyConverter(List.class, &quot;portalName&quot;, &quot;portals&quot;)});
 

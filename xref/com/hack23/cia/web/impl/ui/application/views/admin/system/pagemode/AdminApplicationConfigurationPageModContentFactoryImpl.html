@@ -95,14 +95,14 @@
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  		<strong class="jxr_keyword">final</strong> DataContainer&lt;ApplicationConfiguration, Long&gt; dataContainer = getApplicationManager()
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  				.getDataContainer(ApplicationConfiguration.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;ApplicationConfiguration&gt; politicianDocumentDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;ApplicationConfiguration&gt; dataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  				ApplicationConfiguration.<strong class="jxr_keyword">class</strong>,
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  		dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationConfiguration_.configurationGroup));
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  		getGridFactory().createBasicBeanItemGrid(content,
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  				politicianDocumentDataSource,
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  				dataSource,
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  				<span class="jxr_string">"ApplicationConfiguration"</span>,
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"configurationGroup"</span>, <span class="jxr_string">"component"</span>, <span class="jxr_string">"componentTitle"</span>, <span class="jxr_string">"configTitle"</span>, <span class="jxr_string">"configDescription"</span>,
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 						 <span class="jxr_string">"componentDescription"</span>, <span class="jxr_string">"propertyId"</span>, <span class="jxr_string">"propertyValue"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"modelObjectId"</span>, <span class="jxr_string">"modelObjectVersion"</span>, <span class="jxr_string">"createdDate"</span>, <span class="jxr_string">"updatedDate"</span>,<span class="jxr_string">"propertyId"</span> ,<span class="jxr_string">"componentDescription"</span>, <span class="jxr_string">"componentTitle"</span>},

@@ -85,13 +85,13 @@
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">final</strong> DataContainer&lt;CountryElement, Long&gt; dataContainer = getApplicationManager()
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  				.getDataContainer(CountryElement.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;CountryElement&gt; politicianDocumentDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;CountryElement&gt; dataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  				CountryElement.<strong class="jxr_keyword">class</strong>, dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,CountryElement_.countryName));
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>  		getGridFactory()
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				.createBasicBeanItemNestedPropertiesGrid(content, politicianDocumentDataSource,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  				.createBasicBeanItemNestedPropertiesGrid(content, dataSource,
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  						<span class="jxr_string">"Country"</span>,<strong class="jxr_keyword">null</strong>,
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  						<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>, <span class="jxr_string">"id"</span>, <span class="jxr_string">"countryName"</span>, <span class="jxr_string">"iso2Code"</span>, <span class="jxr_string">"capitalCity"</span>, <span class="jxr_string">"longitude"</span>,
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  								<span class="jxr_string">"latitude"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"hjid"</span>,<span class="jxr_string">"id"</span>, <span class="jxr_string">"region"</span>, <span class="jxr_string">"adminregion"</span> ,<span class="jxr_string">"incomeLevel"</span>, <span class="jxr_string">"lendingType"</span>,<span class="jxr_string">"longitude"</span>, <span class="jxr_string">"latitude"</span> },
