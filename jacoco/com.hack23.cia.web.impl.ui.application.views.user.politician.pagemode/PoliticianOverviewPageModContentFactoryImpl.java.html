@@ -31,14 +31,14 @@ import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFac
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.server.ExternalResource;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.ui.HorizontalLayout;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class OverviewPageModContentFactoryImpl.
@@ -123,7 +123,7 @@ public final class PoliticianOverviewPageModContentFactoryImpl extends AbstractP
 
 <span class="fc" id="L124">		horizontalLayout.addComponent(image);</span>
 
-<span class="fc" id="L126">		getFormFactory().addFormPanelTextFields(horizontalLayout, new BeanItem&lt;&gt;(viewRiksdagenPolitician),</span>
+<span class="fc" id="L126">		getFormFactory().addFormPanelTextFields(horizontalLayout, viewRiksdagenPolitician,</span>
 				ViewRiksdagenPolitician.class,
 <span class="fc" id="L128">				Arrays.asList(new String[] { &quot;firstName&quot;, &quot;lastName&quot;, &quot;gender&quot;, &quot;bornYear&quot;, &quot;party&quot;, &quot;active&quot;,</span>
 						&quot;firstAssignmentDate&quot;, &quot;lastAssignmentDate&quot;, &quot;currentAssignments&quot;, &quot;currentMinistryAssignments&quot;,

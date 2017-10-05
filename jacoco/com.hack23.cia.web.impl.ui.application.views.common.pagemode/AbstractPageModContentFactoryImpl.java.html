@@ -29,10 +29,13 @@ import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.Appli
 import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageLinkFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.vaadin.server.Sizeable.Unit;
+import com.vaadin.ui.AbstractOrderedLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Link;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TabSheet.Tab;
-import com.vaadin.v7.ui.HorizontalLayout;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class AbstractPageModContentFactoryImpl.
@@ -44,6 +47,42 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 
 	/** The Constant CURRENT_PAGE_VISIT_HISTORY. */
 	public static final String CURRENT_PAGE_VISIT_HISTORY = &quot;Current Page Visit History&quot;;
+
+	/** The Constant LIMIT_FOR_DISPLAYING_START_END_LINKS. */
+	private static final int LIMIT_FOR_DISPLAYING_START_END_LINKS = 5;
+
+	/** The Constant PAGE_ONE. */
+	private static final int PAGE_ONE = 1;
+
+	/** The Constant PAGE_SEPARATOR. */
+	private static final char PAGE_SEPARATOR = '/';
+
+	/** The Constant SHOW. */
+	private static final String SHOW = &quot; :: Show &quot;;
+
+	/** The Constant RESULTS_PER_PAGE. */
+	private static final String RESULTS_PER_PAGE = &quot; results per page:&quot;;
+
+	/** The Constant PAGES_TOTAL_RESULTS. */
+	private static final String PAGES_TOTAL_RESULTS = &quot; pages. Total results:&quot;;
+
+	/** The Constant PAGE_HEADER. */
+	private static final String PAGE_HEADER = &quot;Page: &quot;;
+
+	/** The Constant NEXT_PAGE. */
+	private static final String NEXT_PAGE = &quot;next page&quot;;
+
+	/** The Constant FIRST_PAGE. */
+	private static final String FIRST_PAGE = &quot;first page&quot;;
+
+	/** The Constant LAST_PAGE. */
+	private static final String LAST_PAGE = &quot;last page&quot;;
+
+	/** The Constant PREVIOUS_PAGE. */
+	private static final String PREVIOUS_PAGE = &quot;previous page&quot;;
+
+	/** The Constant DEFAULT_RESULTS_PER_PAGE. */
+	public static final int DEFAULT_RESULTS_PER_PAGE = 250;
 
 	/** The application manager. */
 	@Autowired
@@ -77,8 +116,8 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * Instantiates a new abstract page mod content factory impl.
 	 */
 	protected AbstractPageModContentFactoryImpl() {
-<span class="fc" id="L80">		super();</span>
-<span class="fc" id="L81">	}</span>
+<span class="fc" id="L119">		super();</span>
+<span class="fc" id="L120">	}</span>
 
 	/**
 	 * Gets the page id.
@@ -88,13 +127,13 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page id
 	 */
 	protected final String getPageId(final String parameters) {
-<span class="pc bpc" id="L91" title="1 of 2 branches missed.">		if (parameters != null) {</span>
-<span class="fc" id="L92">			final int pageNr = getPageNr(parameters);</span>
-<span class="fc" id="L93">			final String cleanedString = parameters.replace(&quot;[&quot; + pageNr + &quot;]&quot;, &quot;&quot;);</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">		if (parameters != null) {</span>
+<span class="fc" id="L131">			final int pageNr = getPageNr(parameters);</span>
+<span class="fc" id="L132">			final String cleanedString = parameters.replace(&quot;[&quot; + pageNr + &quot;]&quot;, &quot;&quot;);</span>
 
-<span class="fc" id="L95">			return cleanedString.substring(cleanedString.lastIndexOf('/') + &quot;/&quot;.length(), cleanedString.length());</span>
+<span class="fc" id="L134">			return cleanedString.substring(cleanedString.lastIndexOf('/') + &quot;/&quot;.length(), cleanedString.length());</span>
 		} else {
-<span class="nc" id="L97">			return &quot;&quot;;</span>
+<span class="nc" id="L136">			return &quot;&quot;;</span>
 		}
 	}
 
@@ -107,18 +146,18 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 */
 	protected final int getPageNr(final String parameters) {
 		String pageNrValue;
-<span class="pc bpc" id="L110" title="4 of 6 branches missed.">		if (parameters != null &amp;&amp; parameters.contains(&quot;[&quot;) &amp;&amp; parameters.contains(&quot;]&quot;)) {</span>
-<span class="nc" id="L111">			pageNrValue = parameters.substring(parameters.indexOf('[') + 1, parameters.lastIndexOf(']'));</span>
+<span class="pc bpc" id="L149" title="4 of 6 branches missed.">		if (parameters != null &amp;&amp; parameters.contains(&quot;[&quot;) &amp;&amp; parameters.contains(&quot;]&quot;)) {</span>
+<span class="nc" id="L150">			pageNrValue = parameters.substring(parameters.indexOf('[') + 1, parameters.lastIndexOf(']'));</span>
 		} else {
-<span class="fc" id="L113">			pageNrValue = &quot;&quot;;</span>
+<span class="fc" id="L152">			pageNrValue = &quot;&quot;;</span>
 		}
 
-<span class="fc" id="L116">		int pageNr = 1;</span>
+<span class="fc" id="L155">		int pageNr = 1;</span>
 
-<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		if (pageNrValue.length() &gt; 0) {</span>
-<span class="nc" id="L119">			pageNr = Integer.parseInt(pageNrValue);</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">		if (pageNrValue.length() &gt; 0) {</span>
+<span class="nc" id="L158">			pageNr = Integer.parseInt(pageNrValue);</span>
 		}
-<span class="fc" id="L121">		return pageNr;</span>
+<span class="fc" id="L160">		return pageNr;</span>
 	}
 
 	/**
@@ -127,7 +166,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the application manager
 	 */
 	protected final ApplicationManager getApplicationManager() {
-<span class="fc" id="L130">		return applicationManager;</span>
+<span class="fc" id="L169">		return applicationManager;</span>
 	}
 
 	/**
@@ -136,7 +175,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the menu item factory
 	 */
 	protected final ApplicationMenuItemFactory getMenuItemFactory() {
-<span class="fc" id="L139">		return menuItemFactory;</span>
+<span class="fc" id="L178">		return menuItemFactory;</span>
 	}
 
 	/**
@@ -145,7 +184,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the grid factory
 	 */
 	protected final GridFactory getGridFactory() {
-<span class="fc" id="L148">		return gridFactory;</span>
+<span class="fc" id="L187">		return gridFactory;</span>
 	}
 
 	/**
@@ -154,7 +193,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the form factory
 	 */
 	protected final FormFactory getFormFactory() {
-<span class="fc" id="L157">		return formFactory;</span>
+<span class="fc" id="L196">		return formFactory;</span>
 	}
 
 	/**
@@ -163,11 +202,11 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page link factory
 	 */
 	protected final PageLinkFactory getPageLinkFactory() {
-<span class="fc" id="L166">		return pageLinkFactory;</span>
+<span class="fc" id="L205">		return pageLinkFactory;</span>
 	}
 
 	protected final AdminChartDataManager getAdminChartDataManager() {
-<span class="fc" id="L170">		return adminChartDataManager;</span>
+<span class="fc" id="L209">		return adminChartDataManager;</span>
 	}
 
 	/**
@@ -176,7 +215,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page action event helper
 	 */
 	protected final PageActionEventHelper getPageActionEventHelper() {
-<span class="fc" id="L179">		return pageActionEventHelper;</span>
+<span class="fc" id="L218">		return pageActionEventHelper;</span>
 	}
 
 	/**
@@ -185,12 +224,12 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the vertical layout
 	 */
 	protected final VerticalLayout createPanelContent() {
-<span class="fc" id="L188">		final VerticalLayout panelContent = new VerticalLayout();</span>
-<span class="fc" id="L189">		panelContent.setMargin(true);</span>
-<span class="fc" id="L190">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L191">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L192">		panelContent.setStyleName(&quot;Header&quot;);</span>
-<span class="fc" id="L193">		return panelContent;</span>
+<span class="fc" id="L227">		final VerticalLayout panelContent = new VerticalLayout();</span>
+<span class="fc" id="L228">		panelContent.setMargin(true);</span>
+<span class="fc" id="L229">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L230">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L231">		panelContent.setStyleName(&quot;Header&quot;);</span>
+<span class="fc" id="L232">		return panelContent;</span>
 	}
 
 	/**
@@ -206,32 +245,112 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	protected final void createPageVisitHistory(final String pageName, final String pageId,
 			final VerticalLayout panelContent) {
 
-<span class="fc" id="L209">		final TabSheet tabsheet = new TabSheet();</span>
-<span class="fc" id="L210">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L211">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L248">		final TabSheet tabsheet = new TabSheet();</span>
+<span class="fc" id="L249">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L250">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
 
-<span class="fc" id="L213">		panelContent.addComponent(tabsheet);</span>
-<span class="fc" id="L214">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
+<span class="fc" id="L252">		panelContent.addComponent(tabsheet);</span>
+<span class="fc" id="L253">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L216">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
-<span class="fc" id="L217">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L218">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L219">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
+<span class="fc" id="L255">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
+<span class="fc" id="L256">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L257">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L258">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
 
-<span class="fc" id="L221">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
-<span class="fc" id="L222">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
+<span class="fc" id="L260">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
+<span class="fc" id="L261">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
 				pageName, pageId);
 
-<span class="fc" id="L225">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
-<span class="fc" id="L226">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L227">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L228">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
-<span class="fc" id="L229">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
+<span class="fc" id="L264">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
+<span class="fc" id="L265">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L266">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L267">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
+<span class="fc" id="L268">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
 
-<span class="fc" id="L231">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
+<span class="fc" id="L270">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
 				pageName);
 
-<span class="fc" id="L234">	}</span>
+<span class="fc" id="L273">	}</span>
+
+	/**
+	 * Creates the paging controls.
+	 *
+	 * @param content
+	 *            the content
+	 * @param name
+	 *            the name
+	 * @param pageId
+	 *            the page id
+	 * @param size
+	 *            the size
+	 * @param pageNr
+	 *            the page nr
+	 * @param resultPerPage
+	 *            the result per page
+	 */
+	protected final void createPagingControls(final AbstractOrderedLayout content, final String name, final String pageId, final int size, final int pageNr,
+			final int resultPerPage) {
+<span class="fc" id="L293">				final HorizontalLayout pagingControls = new HorizontalLayout();</span>
+<span class="fc" id="L294">				pagingControls.setSpacing(true);</span>
+<span class="fc" id="L295">				pagingControls.setMargin(true);</span>
+
+<span class="fc" id="L297">				final int maxPages = (size +resultPerPage-1) / resultPerPage;</span>
+
+<span class="fc" id="L299">				final StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="fc" id="L300">				stringBuilder.append(PAGE_HEADER)</span>
+<span class="fc" id="L301">				.append(pageNr)</span>
+<span class="fc" id="L302">				.append(PAGE_SEPARATOR)</span>
+<span class="fc" id="L303">				.append(maxPages)</span>
+<span class="fc" id="L304">				.append(PAGES_TOTAL_RESULTS)</span>
+<span class="fc" id="L305">				.append(size)</span>
+<span class="fc" id="L306">				.append(RESULTS_PER_PAGE)</span>
+<span class="fc" id="L307">				.append(resultPerPage)</span>
+<span class="fc" id="L308">				.append(SHOW);</span>
+<span class="fc" id="L309">				final Label pageInfo = new Label(stringBuilder.toString());</span>
+<span class="fc" id="L310">				pagingControls.addComponent(pageInfo);</span>
+<span class="fc" id="L311">				pagingControls.setExpandRatio(pageInfo, ContentRatio.SMALL);</span>
+
+
+<span class="pc bpc" id="L314" title="1 of 2 branches missed.">				if (pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L315">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
+				}
+
+<span class="pc bpc" id="L318" title="3 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L319">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
+				}
+
+<span class="pc bpc" id="L322" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L323">					addPagingLink(FIRST_PAGE,name, pageId, 1,pagingControls);</span>
+				}
+
+<span class="pc bpc" id="L326" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L327">					addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
+				}
+
+<span class="fc" id="L330">				content.addComponent(pagingControls);</span>
+<span class="fc" id="L331">				content.setExpandRatio(pagingControls, ContentRatio.SMALL2);</span>
+
+<span class="fc" id="L333">			}</span>
+
+	/**
+	 * Adds the paging link.
+	 *
+	 * @param label
+	 *            the label
+	 * @param name
+	 *            the name
+	 * @param pageId
+	 *            the page id
+	 * @param pageNr
+	 *            the page nr
+	 * @param pagingControls
+	 *            the paging controls
+	 */
+	private void addPagingLink(final String label, final String name, final String pageId, final int pageNr, final HorizontalLayout pagingControls) {
+<span class="nc" id="L350">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));</span>
+<span class="nc" id="L351">		pagingControls.addComponent(previousPageLink);</span>
+<span class="nc" id="L352">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
+<span class="nc" id="L353">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

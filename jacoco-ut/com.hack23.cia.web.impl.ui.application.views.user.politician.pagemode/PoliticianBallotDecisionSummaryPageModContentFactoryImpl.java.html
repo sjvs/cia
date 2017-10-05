@@ -37,8 +37,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class BallotDecisionSummaryPageModContentFactoryImpl.
@@ -93,11 +93,8 @@ public final class PoliticianBallotDecisionSummaryPageModContentFactoryImpl exte
 							ViewRiksdagenCommitteeBallotDecisionPoliticianEmbeddedId_.intressentId, pageId,
 							ViewRiksdagenCommitteeBallotDecisionPoliticianSummary_.voteDate);
 
-<span class="fc" id="L96">			final BeanItemContainer&lt;ViewRiksdagenCommitteeBallotDecisionPoliticianSummary&gt; committeeBallotDecisionPartyDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenCommitteeBallotDecisionPoliticianSummary.class, decisionPartySummaryList);
-
-<span class="fc" id="L99">			getGridFactory()</span>
-<span class="fc" id="L100">					.createBasicBeanItemNestedPropertiesGrid(panelContent,committeeBallotDecisionPartyDataSource,</span>
+<span class="fc" id="L96">			getGridFactory()</span>
+<span class="nc" id="L97">					.createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionPoliticianSummary.class, decisionPartySummaryList,</span>
 							&quot;Committee Ballot Decision Politician Summary&quot;,
 							new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot; },
 							new String[] { &quot;voteDate&quot;, &quot;rm&quot;, &quot;org&quot;, &quot;committeeReport&quot;, &quot;title&quot;, &quot;subTitle&quot;,
@@ -115,10 +112,10 @@ public final class PoliticianBallotDecisionSummaryPageModContentFactoryImpl exte
 									&quot;lastName&quot;, &quot;party&quot;, &quot;ballotId&quot;, &quot;decisionType&quot;, &quot;ballotType&quot;, &quot;againstProposalNumber&quot; },
 							new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
 
-<span class="fc" id="L118">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="nc" id="L115">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
 
 		}
-<span class="fc" id="L121">		return panelContent;</span>
+<span class="nc" id="L118">		return panelContent;</span>
 
 	}
 }

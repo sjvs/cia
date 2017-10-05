@@ -36,10 +36,10 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveRow;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.icons.VaadinIcons;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * The Class CommitteeRankingMenuItemFactoryImpl.</em>
@@ -149,23 +149,23 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 	@Override
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createCommitteeRankingTopics(<strong class="jxr_keyword">final</strong> MenuItem committeeMenuItem) {
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		committeeMenuItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP, COMMAND_OVERVIEW);
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		committeeMenuItem.addItem(OVERVIEW_TEXT, VaadinIcons.GROUP, COMMAND_OVERVIEW);
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> 		<strong class="jxr_keyword">final</strong> MenuItem listByTopic = committeeMenuItem.addItem(RANKING_LIST_BY_TOPIC_TEXT, FontAwesome.GROUP, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 		<strong class="jxr_keyword">final</strong> MenuItem listByTopic = committeeMenuItem.addItem(RANKING_LIST_BY_TOPIC_TEXT, VaadinIcons.GROUP, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		<strong class="jxr_keyword">final</strong> MenuItem listItem = listByTopic.addItem(POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID);
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		<strong class="jxr_keyword">final</strong> MenuItem listItem = listByTopic.addItem(POLITICAL_WORK_SUMMARY_TEXT,VaadinIcons.GROUP, COMMAND_DATAGRID);
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 		listItem.setDescription(CURRENT_AND_PAST_MEMBER_AND_SUMMARY_OF_POLTICIAL_DAYS);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> MenuItem chartByTopic = committeeMenuItem.addItem(CHART_BY_TOPIC_TEXT, FontAwesome.GROUP, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> MenuItem chartByTopic = committeeMenuItem.addItem(CHART_BY_TOPIC_TEXT, VaadinIcons.GROUP, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		chartByTopic.addItem(CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT);
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY);
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED);
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		chartByTopic.addItem(CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,VaadinIcons.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT);
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,VaadinIcons.GROUP, COMMAND_COMMITTEES_BY_PARTY);
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,VaadinIcons.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED);
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 		chartByTopic.addItem(ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT);
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 		chartByTopic.addItem(ALL_COMMITTEES_TOTAL_MEMBERS,VaadinIcons.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT);
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		committeeMenuItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY);
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		committeeMenuItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP, COMMAND_PAGEVISIT_HISTORY);
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 	}
 <a class="jxr_linenumber" name="L163" href="#L163">163</a> 
@@ -180,14 +180,14 @@
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(panelContent);
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,FontAwesome.GROUP, COMMAND_DATAGRID, <span class="jxr_string">"Scoreboard over current member size, political days served and total assignments"</span>);
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over current committees and member size"</span>);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		createButtonLink(grid,POLITICAL_WORK_SUMMARY_TEXT,VaadinIcons.GROUP, COMMAND_DATAGRID, <span class="jxr_string">"Scoreboard over current member size, political days served and total assignments"</span>);
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		createButtonLink(grid,CURRENT_COMMITTEES_CURRENT_MEMBERS_TEXT,VaadinIcons.GROUP, COMMAND_CURRENT_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over current committees and member size"</span>);
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,FontAwesome.GROUP, COMMAND_COMMITTEES_BY_PARTY, <span class="jxr_string">"Chart over current parties active in committees and member size"</span>);
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,FontAwesome.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED, <span class="jxr_string">"Chart over current parties active in committees days served"</span>);
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,FontAwesome.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over all committees and member size"</span>);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_CURRENT_ASSIGNMENTS,VaadinIcons.GROUP, COMMAND_COMMITTEES_BY_PARTY, <span class="jxr_string">"Chart over current parties active in committees and member size"</span>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		createButtonLink(grid,CURRENT_PARTIES_ACTIVE_IN_COMMITTEES_TOTAL_DAYS_SERVED_IN_COMMITTEES,VaadinIcons.GROUP, COMMAND_CURRENT_COMMITTEES_BY_PARTY_DAYS_SERVED, <span class="jxr_string">"Chart over current parties active in committees days served"</span>);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		createButtonLink(grid,ALL_COMMITTEES_TOTAL_MEMBERS,VaadinIcons.GROUP, COMMAND_ALL_COMMITTEES_BY_HEADCOUNT, <span class="jxr_string">"Chart over all committees and member size"</span>);
 <a class="jxr_linenumber" name="L181" href="#L181">181</a> 
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISIT_HISTORY, <span class="jxr_string">"View history of page visit for this page."</span>);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP, COMMAND_PAGEVISIT_HISTORY, <span class="jxr_string">"View history of page visit for this page."</span>);
 <a class="jxr_linenumber" name="L183" href="#L183">183</a> 
 <a class="jxr_linenumber" name="L184" href="#L184">184</a> 	}
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 

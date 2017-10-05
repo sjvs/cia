@@ -18,23 +18,20 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.admin.datasummary.pagemode;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
-import com.hack23.cia.web.impl.ui.application.views.common.tablefactory.TableFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RefreshDataViewsClickListener;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.UpdateSearchIndexClickListener;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.ui.Table;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class DataSummaryOverviewPageModContentFactoryImpl.
@@ -54,54 +51,50 @@ public final class DataSummaryOverviewPageModContentFactoryImpl extends Abstract
 	/** The Constant ADMIN_DATA_SUMMARY. */
 	private static final String ADMIN_DATA_SUMMARY = &quot;Admin Data Summary&quot;;
 
-	/** The table factory. */
-	@Autowired
-	private TableFactory tableFactory;
-
 	/**
 	 * Instantiates a new data summary overview page mod content factory impl.
 	 */
 	public DataSummaryOverviewPageModContentFactoryImpl() {
-<span class="fc" id="L65">		super();</span>
-<span class="fc" id="L66">	}</span>
+<span class="fc" id="L58">		super();</span>
+<span class="fc" id="L59">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L70">		return NAME.equals(page);</span>
+<span class="fc" id="L63">		return NAME.equals(page);</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L76">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L69">		final VerticalLayout content = createPanelContent();</span>
 
-<span class="fc" id="L78">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L71">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
-<span class="fc" id="L80">		LabelFactory.createHeader2Label(content,ADMIN_DATA_SUMMARY);</span>
+<span class="fc" id="L73">		LabelFactory.createHeader2Label(content,ADMIN_DATA_SUMMARY);</span>
 
-<span class="fc" id="L82">		final Table createDataSummaryTable = tableFactory.createDataSummaryTable();</span>
-<span class="fc" id="L83">		content.addComponent(createDataSummaryTable);</span>
-<span class="fc" id="L84">		content.setExpandRatio(createDataSummaryTable, ContentRatio.LARGE);</span>
+//		final Table createDataSummaryTable = tableFactory.createDataSummaryTable();
+//		content.addComponent(createDataSummaryTable);
+//		content.setExpandRatio(createDataSummaryTable, ContentRatio.LARGE);
 
-<span class="fc" id="L86">		content.setSizeFull();</span>
-<span class="fc" id="L87">		content.setMargin(false);</span>
-<span class="fc" id="L88">		content.setSpacing(true);</span>
+<span class="fc" id="L79">		content.setSizeFull();</span>
+<span class="fc" id="L80">		content.setMargin(false);</span>
+<span class="fc" id="L81">		content.setSpacing(true);</span>
 
-<span class="fc" id="L90">		final Button refreshViewsButton = new Button(REFRESH_VIEWS,FontAwesome.REFRESH);</span>
+<span class="fc" id="L83">		final Button refreshViewsButton = new Button(REFRESH_VIEWS,VaadinIcons.REFRESH);</span>
 
-<span class="fc" id="L92">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
+<span class="fc" id="L85">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
 
-<span class="fc" id="L94">		content.addComponent(refreshViewsButton);</span>
-<span class="fc" id="L95">		content.setExpandRatio(refreshViewsButton, ContentRatio.SMALL);</span>
+<span class="fc" id="L87">		content.addComponent(refreshViewsButton);</span>
+<span class="fc" id="L88">		content.setExpandRatio(refreshViewsButton, ContentRatio.SMALL);</span>
 
-<span class="fc" id="L97">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX,FontAwesome.REFRESH);</span>
+<span class="fc" id="L90">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX,VaadinIcons.REFRESH);</span>
 
-<span class="fc" id="L99">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
+<span class="fc" id="L92">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
 
-<span class="fc" id="L101">		content.addComponent(updateSearchIndexButton);</span>
-<span class="fc" id="L102">		content.setExpandRatio(updateSearchIndexButton, ContentRatio.SMALL);</span>
+<span class="fc" id="L94">		content.addComponent(updateSearchIndexButton);</span>
+<span class="fc" id="L95">		content.setExpandRatio(updateSearchIndexButton, ContentRatio.SMALL);</span>
 
-<span class="fc" id="L104">		return content;</span>
+<span class="fc" id="L97">		return content;</span>
 
 	}
 

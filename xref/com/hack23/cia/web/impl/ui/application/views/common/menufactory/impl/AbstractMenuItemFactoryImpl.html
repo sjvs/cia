@@ -36,17 +36,17 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveLayout;
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveRow;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.icons.VaadinIcons;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.Resource;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.Responsive;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.Sizeable.Unit;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Button;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Button.ClickListener;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.CssLayout;
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.Label;
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Label;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment"> * The Class AbstractMenuItemFactoryImpl.</em>
@@ -253,22 +253,22 @@
 <a class="jxr_linenumber" name="L245" href="#L245">245</a> 		menuBar.removeItems();
 <a class="jxr_linenumber" name="L246" href="#L246">246</a> 		menuBar.setWidth(MENU_BAR_WIDTH);
 <a class="jxr_linenumber" name="L247" href="#L247">247</a> 		menuBar.setStyleName(HEADER_STYLE_NAME);
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		<strong class="jxr_keyword">final</strong> MenuItem mainViewItem = menuBar.addItem(APPLICATION, FontAwesome.SERVER, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		<strong class="jxr_keyword">final</strong> MenuItem mainViewItem = menuBar.addItem(APPLICATION, VaadinIcons.SERVER, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L249" href="#L249">249</a> 
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		mainViewItem.addItem(START_TEXT, FontAwesome.STAR, COMMAND_MAINVIEW_OVERVIEW);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		mainViewItem.addItem(START_TEXT, VaadinIcons.STAR, COMMAND_MAINVIEW_OVERVIEW);
 <a class="jxr_linenumber" name="L251" href="#L251">251</a> 
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		<strong class="jxr_keyword">final</strong> MenuItem mainItem = mainViewItem.addItem(MAIN, FontAwesome.STAR, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		<strong class="jxr_keyword">final</strong> MenuItem mainItem = mainViewItem.addItem(MAIN, VaadinIcons.STAR, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L253" href="#L253">253</a> 
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.AREA_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.LINE_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);
 <a class="jxr_linenumber" name="L255" href="#L255">255</a> 
 <a class="jxr_linenumber" name="L256" href="#L256">256</a> 
 <a class="jxr_linenumber" name="L257" href="#L257">257</a> 		<strong class="jxr_keyword">if</strong> (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN) || UserContextUtil.allowRoleInSecurityContext(ROLE_USER)) {
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> 			mainViewItem.addItem(USERHOME, FontAwesome.USER,COMMAND_USERHOME);
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 			mainViewItem.addItem(USERHOME, VaadinIcons.USER,COMMAND_USERHOME);
 <a class="jxr_linenumber" name="L259" href="#L259">259</a> 			createAdminMenu(mainViewItem);
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 			mainViewItem.addItem(LOGOUT, FontAwesome.SIGN_OUT, COMMAND_LOGOUT);
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 			mainViewItem.addItem(LOGOUT, VaadinIcons.SIGN_OUT, COMMAND_LOGOUT);
 <a class="jxr_linenumber" name="L261" href="#L261">261</a> 		} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> 			mainViewItem.addItem(LOGIN, FontAwesome.SIGN_IN, COMMAND_LOGIN);
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> 			mainViewItem.addItem(REGISTER, FontAwesome.USER_PLUS, COMMAND_REGISTER);
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 			mainViewItem.addItem(LOGIN, VaadinIcons.SIGN_IN, COMMAND_LOGIN);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 			mainViewItem.addItem(REGISTER, VaadinIcons.FILE_ADD, COMMAND_REGISTER);
 <a class="jxr_linenumber" name="L264" href="#L264">264</a> 		}
 <a class="jxr_linenumber" name="L265" href="#L265">265</a> 
 <a class="jxr_linenumber" name="L266" href="#L266">266</a> 	}
@@ -281,34 +281,34 @@
 <a class="jxr_linenumber" name="L273" href="#L273">273</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L274" href="#L274">274</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> createAdminMenu(<strong class="jxr_keyword">final</strong> MenuItem mainViewItem) {
 <a class="jxr_linenumber" name="L275" href="#L275">275</a> 		<strong class="jxr_keyword">if</strong> (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN)) {
-<a class="jxr_linenumber" name="L276" href="#L276">276</a> 			<strong class="jxr_keyword">final</strong> MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, FontAwesome.SERVER, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 			<strong class="jxr_keyword">final</strong> MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, VaadinIcons.SERVER, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L277" href="#L277">277</a> 
-<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			<strong class="jxr_keyword">final</strong> MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, FontAwesome.GEARS, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L279" href="#L279">279</a> 			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,FontAwesome.GEARS, COMMAND_APPLICATION_CONFIGURATION);
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			<strong class="jxr_keyword">final</strong> MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, VaadinIcons.TOOLS, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,VaadinIcons.TOOLS, COMMAND_APPLICATION_CONFIGURATION);
 <a class="jxr_linenumber" name="L280" href="#L280">280</a> 
-<a class="jxr_linenumber" name="L281" href="#L281">281</a> 			configurationMenuItem.addItem(AGENCY,FontAwesome.SERVER, COMMAND_AGENCY);
-<a class="jxr_linenumber" name="L282" href="#L282">282</a> 			configurationMenuItem.addItem(PORTAL, FontAwesome.SITEMAP,COMMAND_PORTAL);
-<a class="jxr_linenumber" name="L283" href="#L283">283</a> 			configurationMenuItem.addItem(COUNTRY,FontAwesome.FLAG, COMMAND_COUNTRY);
-<a class="jxr_linenumber" name="L284" href="#L284">284</a> 			configurationMenuItem.addItem(LANGUAGE,FontAwesome.LANGUAGE, COMMAND_LANGUAGE);
-<a class="jxr_linenumber" name="L285" href="#L285">285</a> 			configurationMenuItem.addItem(LANGUAGE_CONTENT,FontAwesome.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 			configurationMenuItem.addItem(AGENCY,VaadinIcons.SERVER, COMMAND_AGENCY);
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 			configurationMenuItem.addItem(PORTAL, VaadinIcons.SITEMAP,COMMAND_PORTAL);
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 			configurationMenuItem.addItem(COUNTRY,VaadinIcons.FLAG, COMMAND_COUNTRY);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 			configurationMenuItem.addItem(LANGUAGE,VaadinIcons.ACCESSIBILITY, COMMAND_LANGUAGE);
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 			configurationMenuItem.addItem(LANGUAGE_CONTENT,VaadinIcons.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);
 <a class="jxr_linenumber" name="L286" href="#L286">286</a> 
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> 			<strong class="jxr_keyword">final</strong> MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, FontAwesome.SERVER, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> 			<strong class="jxr_keyword">final</strong> MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, VaadinIcons.SERVER, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L288" href="#L288">288</a> 
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> 			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,FontAwesome.USER_SECRET, COMMAND_AGENT_OPERATION);
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> 			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,VaadinIcons.BRIEFCASE, COMMAND_AGENT_OPERATION);
 <a class="jxr_linenumber" name="L290" href="#L290">290</a> 
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> 			managementMenuItem.addItem(DATA_SUMMARY_TEXT,FontAwesome.DATABASE, COMMAND_DATASUMMARY);
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 			managementMenuItem.addItem(DATA_SUMMARY_TEXT,VaadinIcons.DATABASE, COMMAND_DATASUMMARY);
 <a class="jxr_linenumber" name="L292" href="#L292">292</a> 
-<a class="jxr_linenumber" name="L293" href="#L293">293</a> 			managementMenuItem.addItem(EMAIL,FontAwesome.MAIL_FORWARD, COMMAND_EMAIL);
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 			managementMenuItem.addItem(EMAIL,VaadinIcons.MAILBOX, COMMAND_EMAIL);
 <a class="jxr_linenumber" name="L294" href="#L294">294</a> 
 <a class="jxr_linenumber" name="L295" href="#L295">295</a> 
-<a class="jxr_linenumber" name="L296" href="#L296">296</a> 			managementMenuItem.addItem(SYSTEM_PERFORMANCE,FontAwesome.DASHBOARD, COMMAND_MONITORING);
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 			managementMenuItem.addItem(SYSTEM_PERFORMANCE,VaadinIcons.DASHBOARD, COMMAND_MONITORING);
 <a class="jxr_linenumber" name="L297" href="#L297">297</a> 
-<a class="jxr_linenumber" name="L298" href="#L298">298</a> 			<strong class="jxr_keyword">final</strong> MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, FontAwesome.DATABASE, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> 			userActivityMenuItem.addItem(APPLICATION_SESSION,FontAwesome.LAPTOP, COMMAND_APPLICATION_SESSION);
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> 			userActivityMenuItem.addItem(APPLICATION_EVENT,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS);
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 			<strong class="jxr_keyword">final</strong> MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, VaadinIcons.DATABASE, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 			userActivityMenuItem.addItem(APPLICATION_SESSION,VaadinIcons.LAPTOP, COMMAND_APPLICATION_SESSION);
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> 			userActivityMenuItem.addItem(APPLICATION_EVENT,VaadinIcons.ARROWS, COMMAND_APPLICATION_EVENTS);
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,VaadinIcons.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);
 <a class="jxr_linenumber" name="L302" href="#L302">302</a> 
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> 			userActivityMenuItem.addItem(USERACCOUNT,FontAwesome.GROUP, COMMAND_USERACCOUNT);
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 			userActivityMenuItem.addItem(USERACCOUNT,VaadinIcons.GROUP, COMMAND_USERACCOUNT);
 <a class="jxr_linenumber" name="L304" href="#L304">304</a> 
 <a class="jxr_linenumber" name="L305" href="#L305">305</a> 		}
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> 	}

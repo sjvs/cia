@@ -32,7 +32,7 @@
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.AbstractOrderedLayout;
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Button.ClickListener;
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.FormLayout;
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.data.util.BeanItem;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment"> * A factory for creating Form objects.</em>
@@ -53,7 +53,7 @@
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">	 * @param displayProperties</em>
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">	 *            the display properties</em>
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	&lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> addFormPanelTextFields(AbstractOrderedLayout panelContent, BeanItem&lt;T&gt; item, Class&lt;T&gt; beanType, List&lt;String&gt; displayProperties);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	&lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> addFormPanelTextFields(AbstractOrderedLayout panelContent, T item, Class&lt;T&gt; beanType, List&lt;String&gt; displayProperties);
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<em class="jxr_javadoccomment">/**</em>
@@ -74,7 +74,7 @@
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">	 * @param buttonListener</em>
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">	 *            the button listener</em>
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  	&lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> addRequestInputFormFields(FormLayout panelContent, BeanItem&lt;T&gt; item, Class&lt;T&gt; beanType, List&lt;String&gt; displayProperties,String buttonLabel,ClickListener buttonListener);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  	&lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> addRequestInputFormFields(FormLayout panelContent, T item, Class&lt;T&gt; beanType, List&lt;String&gt; displayProperties,String buttonLabel,ClickListener buttonListener);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  }

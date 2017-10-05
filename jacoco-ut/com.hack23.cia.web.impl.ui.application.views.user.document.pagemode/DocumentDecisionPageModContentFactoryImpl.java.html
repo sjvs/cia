@@ -39,8 +39,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.DocumentPag
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class DocumentDecisionPageModContentFactoryImpl.
@@ -98,20 +98,19 @@ public final class DocumentDecisionPageModContentFactoryImpl extends AbstractDoc
 <span class="pc bpc" id="L98" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentProposal().getProposal() != null) {</span>
 
 <span class="fc" id="L100">				getFormFactory().addFormPanelTextFields(panelContent,</span>
-						new BeanItem&lt;&gt;(
-<span class="fc" id="L102">								documentStatusContainer.getDocumentProposal().getProposal()),</span>
+<span class="fc" id="L101">						documentStatusContainer.getDocumentProposal().getProposal(),</span>
 						DocumentProposalData.class,
-<span class="fc" id="L104">						Arrays.asList(new String[] { &quot;committee&quot;, &quot;chamber&quot;, &quot;processedIn&quot;, &quot;decisionType&quot;,</span>
+<span class="fc" id="L103">						Arrays.asList(new String[] { &quot;committee&quot;, &quot;chamber&quot;, &quot;processedIn&quot;, &quot;decisionType&quot;,</span>
 								&quot;proposalNumber&quot;, &quot;designation&quot;, &quot;wording&quot;, &quot;wording2&quot;, &quot;wording3&quot;,
 								&quot;wording4&quot; }));
 
 			}
 
-<span class="fc" id="L110">			panel.setContent(panelContent);</span>
-<span class="fc" id="L111">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+<span class="fc" id="L109">			panel.setContent(panelContent);</span>
+<span class="fc" id="L110">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 
-<span class="fc" id="L114">		return panelContent;</span>
+<span class="fc" id="L113">		return panelContent;</span>
 
 	}
 

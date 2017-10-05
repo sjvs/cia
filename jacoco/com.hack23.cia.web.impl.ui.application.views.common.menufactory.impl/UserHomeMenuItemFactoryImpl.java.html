@@ -28,10 +28,10 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserHomePageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.jarektoro.responsivelayout.ResponsiveRow;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class UserHomeMenuItemFactoryImpl.
@@ -67,19 +67,19 @@ public final class UserHomeMenuItemFactoryImpl extends AbstractMenuItemFactoryIm
 <span class="fc" id="L67">		initApplicationMenuBar(menuBar);</span>
 
 <span class="fc" id="L69">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
-<span class="fc" id="L70">		final MenuItem accountItem = menuBar.addItem(&quot;Useraccount&quot;, FontAwesome.USER,null);</span>
+<span class="fc" id="L70">		final MenuItem accountItem = menuBar.addItem(&quot;Useraccount&quot;, VaadinIcons.USER,null);</span>
 
 
-<span class="fc" id="L73">		accountItem.addItem(OVERVIEW_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L73">		accountItem.addItem(OVERVIEW_TEXT, VaadinIcons.USER,</span>
 				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, PageMode.OVERVIEW, pageId));
 
-<span class="fc" id="L76">		accountItem.addItem(SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L76">		accountItem.addItem(SECURITY_SETTING_TEXT, VaadinIcons.USER,</span>
 <span class="fc" id="L77">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(), pageId));</span>
 
-<span class="fc" id="L79">		accountItem.addItem(USER_VISITS, FontAwesome.USER,</span>
+<span class="fc" id="L79">		accountItem.addItem(USER_VISITS, VaadinIcons.USER,</span>
 <span class="fc" id="L80">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_VISITS.toString(), pageId));</span>
 
-<span class="fc" id="L82">		accountItem.addItem(USER_EVENTS, FontAwesome.USER,</span>
+<span class="fc" id="L82">		accountItem.addItem(USER_EVENTS, VaadinIcons.USER,</span>
 <span class="fc" id="L83">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_EVENTS.toString(), pageId));</span>
 
 
@@ -90,13 +90,13 @@ public final class UserHomeMenuItemFactoryImpl extends AbstractMenuItemFactoryIm
 	public void createOverviewPage(final VerticalLayout overviewLayout) {
 <span class="fc" id="L91">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
 
-<span class="fc" id="L93">		createButtonLink(grid,SECURITY_SETTING_TEXT, FontAwesome.USER,</span>
+<span class="fc" id="L93">		createButtonLink(grid,SECURITY_SETTING_TEXT, VaadinIcons.USER,</span>
 <span class="fc" id="L94">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.SECURITY_SETTINGS.toString(),&quot;&quot;),&quot;Security settings, enable MFA&quot;);</span>
 
-<span class="fc" id="L96">		createButtonLink(grid,USER_VISITS, FontAwesome.USER,</span>
+<span class="fc" id="L96">		createButtonLink(grid,USER_VISITS, VaadinIcons.USER,</span>
 <span class="fc" id="L97">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_VISITS.toString()),&quot;All past visits&quot;);</span>
 
-<span class="fc" id="L99">		createButtonLink(grid,USER_EVENTS, FontAwesome.USER,</span>
+<span class="fc" id="L99">		createButtonLink(grid,USER_EVENTS, VaadinIcons.USER,</span>
 <span class="fc" id="L100">				new PageModeMenuCommand(UserViews.USERHOME_VIEW_NAME, UserHomePageMode.USER_EVENTS.toString()),&quot;All past events&quot;);</span>
 
 

@@ -29,10 +29,10 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.MinistryPag
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.jarektoro.responsivelayout.ResponsiveRow;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class MinistryRankingMenuItemFactoryImpl.
@@ -143,26 +143,26 @@ public final class MinistryRankingMenuItemFactoryImpl extends AbstractMenuItemFa
 	@Override
 	public void createMinistryRankingTopics(final MenuItem ministryMenuItem) {
 
-<span class="fc" id="L146">		ministryMenuItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP, COMMAN_OVERVIEW);</span>
+<span class="fc" id="L146">		ministryMenuItem.addItem(OVERVIEW_TEXT, VaadinIcons.GROUP, COMMAN_OVERVIEW);</span>
 
-<span class="fc" id="L148">		final MenuItem listByTopic = ministryMenuItem.addItem(RANKING_LIST_BY_TOPIC_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L148">		final MenuItem listByTopic = ministryMenuItem.addItem(RANKING_LIST_BY_TOPIC_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L150">		final MenuItem listItem = listByTopic.addItem(POLITICAL_WORK_SUMMARY_TEXT, FontAwesome.GROUP, COMMAND_DATAGRID);</span>
+<span class="fc" id="L150">		final MenuItem listItem = listByTopic.addItem(POLITICAL_WORK_SUMMARY_TEXT, VaadinIcons.GROUP, COMMAND_DATAGRID);</span>
 <span class="fc" id="L151">		listItem.setDescription(CURRENT_AND_PAST_MEMBER_AND_SUMMARY_OF_TOTAL_POLTICIAL_DAYS_MEMBERSHIP_DESCRIPTION);</span>
 
-<span class="fc" id="L153">		final MenuItem chartByTopic = ministryMenuItem.addItem(CHART_BY_TOPIC_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L153">		final MenuItem chartByTopic = ministryMenuItem.addItem(CHART_BY_TOPIC_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L155">		chartByTopic.addItem(CURRENT_MINISTRIES_CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_CURRENT_MINISTRIES_BY_HEADCOUNT);</span>
-<span class="fc" id="L156">		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_MINISTRIES_HEAD_COUNT_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_CURRENT_PARTIES_BY_HEADCOUNT);</span>
+<span class="fc" id="L155">		chartByTopic.addItem(CURRENT_MINISTRIES_CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_CURRENT_MINISTRIES_BY_HEADCOUNT);</span>
+<span class="fc" id="L156">		chartByTopic.addItem(CURRENT_PARTIES_ACTIVE_IN_MINISTRIES_HEAD_COUNT_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_CURRENT_PARTIES_BY_HEADCOUNT);</span>
 
-<span class="fc" id="L158">		chartByTopic.addItem(ALL_PARTIES_TOTAL_DAYS_SERVED_IN_MINISTRIES_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_ALLMINISTRIES_BY_TOTAL_DAYS);</span>
-<span class="fc" id="L159">		chartByTopic.addItem(ALL_MINISTRIES_TOTAL_MEMBERS_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_ALL_MINISTRIES_BY_HEADCOUNT);</span>
+<span class="fc" id="L158">		chartByTopic.addItem(ALL_PARTIES_TOTAL_DAYS_SERVED_IN_MINISTRIES_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_ALLMINISTRIES_BY_TOTAL_DAYS);</span>
+<span class="fc" id="L159">		chartByTopic.addItem(ALL_MINISTRIES_TOTAL_MEMBERS_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_ALL_MINISTRIES_BY_HEADCOUNT);</span>
 
-<span class="fc" id="L161">		chartByTopic.addItem(GOVERNMENT_BODIES, FontAwesome.GROUP, COMMAND_GOVERNMENT_BODIES);</span>
+<span class="fc" id="L161">		chartByTopic.addItem(GOVERNMENT_BODIES, VaadinIcons.GROUP, COMMAND_GOVERNMENT_BODIES);</span>
 
-<span class="fc" id="L163">		chartByTopic.addItem(GOVERNMENT_ROLES_CHART, FontAwesome.GROUP, COMMAND_CHARTS_ALL_GOVERNMENT_ROLE_GANTT);</span>
+<span class="fc" id="L163">		chartByTopic.addItem(GOVERNMENT_ROLES_CHART, VaadinIcons.GROUP, COMMAND_CHARTS_ALL_GOVERNMENT_ROLE_GANTT);</span>
 
-<span class="fc" id="L165">		ministryMenuItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISITHISTORY);</span>
+<span class="fc" id="L165">		ministryMenuItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP, COMMAND_PAGEVISITHISTORY);</span>
 
 <span class="fc" id="L167">	}</span>
 
@@ -170,21 +170,21 @@ public final class MinistryRankingMenuItemFactoryImpl extends AbstractMenuItemFa
 	public void createOverviewPage(final VerticalLayout panelContent) {
 <span class="fc" id="L171">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L173">		createButtonLink(grid, POLITICAL_WORK_SUMMARY_TEXT, FontAwesome.GROUP, COMMAND_DATAGRID, &quot;Scoreboard all ministries with current/total members and politican days served&quot;);</span>
+<span class="fc" id="L173">		createButtonLink(grid, POLITICAL_WORK_SUMMARY_TEXT, VaadinIcons.GROUP, COMMAND_DATAGRID, &quot;Scoreboard all ministries with current/total members and politican days served&quot;);</span>
 
-<span class="fc" id="L175">		createButtonLink(grid, CURRENT_MINISTRIES_CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_CURRENT_MINISTRIES_BY_HEADCOUNT,</span>
+<span class="fc" id="L175">		createButtonLink(grid, CURRENT_MINISTRIES_CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_CURRENT_MINISTRIES_BY_HEADCOUNT,</span>
 				&quot;Chart over current ministries by headcount&quot;);
-<span class="fc" id="L177">		createButtonLink(grid, CURRENT_PARTIES_ACTIVE_IN_MINISTRIES_HEAD_COUNT_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_CURRENT_PARTIES_BY_HEADCOUNT,</span>
+<span class="fc" id="L177">		createButtonLink(grid, CURRENT_PARTIES_ACTIVE_IN_MINISTRIES_HEAD_COUNT_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_CURRENT_PARTIES_BY_HEADCOUNT,</span>
 				&quot;Chart over current parties active in ministries by headcount&quot;);
 
-<span class="fc" id="L180">		createButtonLink(grid, ALL_PARTIES_TOTAL_DAYS_SERVED_IN_MINISTRIES_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_ALLMINISTRIES_BY_TOTAL_DAYS,</span>
+<span class="fc" id="L180">		createButtonLink(grid, ALL_PARTIES_TOTAL_DAYS_SERVED_IN_MINISTRIES_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_ALLMINISTRIES_BY_TOTAL_DAYS,</span>
 				&quot;Chart over all parties hold positons in ministries by headcount&quot;);
-<span class="fc" id="L182">		createButtonLink(grid, ALL_MINISTRIES_TOTAL_MEMBERS_TEXT, FontAwesome.GROUP, COMMAND_CHARTS_ALL_MINISTRIES_BY_HEADCOUNT, &quot;Chart over all ministries by total headcount&quot;);</span>
-<span class="fc" id="L183">		createButtonLink(grid, GOVERNMENT_BODIES, FontAwesome.GROUP, COMMAND_GOVERNMENT_BODIES, &quot;Chart over total headcount for all goverment bodies governed by ministries &quot;);</span>
+<span class="fc" id="L182">		createButtonLink(grid, ALL_MINISTRIES_TOTAL_MEMBERS_TEXT, VaadinIcons.GROUP, COMMAND_CHARTS_ALL_MINISTRIES_BY_HEADCOUNT, &quot;Chart over all ministries by total headcount&quot;);</span>
+<span class="fc" id="L183">		createButtonLink(grid, GOVERNMENT_BODIES, VaadinIcons.GROUP, COMMAND_GOVERNMENT_BODIES, &quot;Chart over total headcount for all goverment bodies governed by ministries &quot;);</span>
 
-<span class="fc" id="L185">		createButtonLink(grid,GOVERNMENT_ROLES_CHART, FontAwesome.GROUP, COMMAND_CHARTS_ALL_GOVERNMENT_ROLE_GANTT, &quot;Gantt chart all goverment roles&quot;);</span>
+<span class="fc" id="L185">		createButtonLink(grid,GOVERNMENT_ROLES_CHART, VaadinIcons.GROUP, COMMAND_CHARTS_ALL_GOVERNMENT_ROLE_GANTT, &quot;Gantt chart all goverment roles&quot;);</span>
 
-<span class="fc" id="L187">		createButtonLink(grid, PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP, COMMAND_PAGEVISITHISTORY, &quot;View history of page visit for this page.&quot;);</span>
+<span class="fc" id="L187">		createButtonLink(grid, PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP, COMMAND_PAGEVISITHISTORY, &quot;View history of page visit for this page.&quot;);</span>
 
 <span class="fc" id="L189">	}</span>
 

@@ -39,8 +39,8 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class UserHomeApplicationEventsPageModContentFactoryImpl.
@@ -95,22 +95,19 @@ public final class UserHomeApplicationEventsPageModContentFactoryImpl extends Ab
 <span class="fc" id="L95">			final DataContainer&lt;ApplicationActionEvent, Long&gt; eventDataContainer = getApplicationManager().getDataContainer(ApplicationActionEvent.class);</span>
 
 
-<span class="fc" id="L98">			final BeanItemContainer&lt;ApplicationActionEvent&gt; eventDataSource = new BeanItemContainer&lt;&gt;(ApplicationActionEvent.class,</span>
-<span class="fc" id="L99">					eventDataContainer.findOrderedListByProperty(ApplicationActionEvent_.userId,userAccount.getUserId(),ApplicationActionEvent_.createdDate));</span>
-
-<span class="fc" id="L101">			getGridFactory().createBasicBeanItemGrid(panelContent, eventDataSource,</span>
+<span class="fc" id="L98">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationActionEvent.class, eventDataContainer.findOrderedListByProperty(ApplicationActionEvent_.userId,userAccount.getUserId(),ApplicationActionEvent_.createdDate),</span>
 					&quot;ApplicationActionEvent&quot;,
 					new String[] { &quot;hjid&quot;, &quot;createdDate&quot;, &quot;eventGroup&quot;, &quot;applicationOperation&quot;,&quot;actionName&quot;,&quot;page&quot;,&quot;pageMode&quot;,&quot;elementId&quot;, &quot;applicationMessage&quot;,&quot;errorMessage&quot;, &quot;modelObjectVersion&quot; }, new String[] { &quot;hjid&quot;,&quot;userId&quot;,&quot;sessionId&quot;, &quot;modelObjectId&quot;,&quot;modelObjectVersion&quot; },
 					new PageItemPropertyClickListener(AdminViews.ADMIN_APPLICATIONS_EVENTS_VIEW_NAME, &quot;hjid&quot;), null, null);
 
 		}
 
-<span class="fc" id="L108">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_EVENTS);</span>
+<span class="fc" id="L105">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_EVENTS);</span>
 
-<span class="fc" id="L110">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L107">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="fc" id="L113">		return panelContent;</span>
+<span class="fc" id="L110">		return panelContent;</span>
 
 	}
 

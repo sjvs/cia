@@ -35,8 +35,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class MinistryCurrentMembersPageModContentFactoryImpl.
@@ -86,26 +86,22 @@ public final class MinistryCurrentMembersPageModContentFactoryImpl extends Abstr
 <span class="fc" id="L86">			final DataContainer&lt;ViewRiksdagenGovermentRoleMember, String&gt; govermentRoleMemberDataContainer = getApplicationManager()</span>
 <span class="fc" id="L87">					.getDataContainer(ViewRiksdagenGovermentRoleMember.class);</span>
 
-<span class="fc" id="L89">			final BeanItemContainer&lt;ViewRiksdagenGovermentRoleMember&gt; currentMembersMemberDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenGovermentRoleMember.class,
-<span class="fc" id="L91">					govermentRoleMemberDataContainer.findListByProperty(</span>
-<span class="fc" id="L92">							new Object[] { viewRiksdagenMinistry.getNameId(), Boolean.TRUE },</span>
-							ViewRiksdagenGovermentRoleMember_.detail, ViewRiksdagenGovermentRoleMember_.active));
-
-<span class="fc" id="L95">			getGridFactory().createBasicBeanItemGrid(</span>
-					panelContent, currentMembersMemberDataSource,
+<span class="fc" id="L89">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L90">					panelContent, ViewRiksdagenGovermentRoleMember.class, govermentRoleMemberDataContainer.findListByProperty(</span>
+<span class="fc" id="L91">							new Object[] { viewRiksdagenMinistry.getNameId(), Boolean.TRUE },</span>
+							ViewRiksdagenGovermentRoleMember_.detail, ViewRiksdagenGovermentRoleMember_.active),
 					CURRENT_MEMBERS,
 					new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;, &quot;detail&quot;,
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot;, &quot;active&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-<span class="fc" id="L102">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
-<span class="fc" id="L103">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L98">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="fc" id="L99">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 
 		}
 
-<span class="fc" id="L108">		return panelContent;</span>
+<span class="fc" id="L104">		return panelContent;</span>
 
 	}
 

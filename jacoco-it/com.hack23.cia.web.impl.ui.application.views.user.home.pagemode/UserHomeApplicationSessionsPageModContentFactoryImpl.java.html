@@ -42,8 +42,8 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class UserHomeApplicationSessionsPageModContentFactoryImpl.
@@ -71,47 +71,44 @@ public final class UserHomeApplicationSessionsPageModContentFactoryImpl extends 
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L74" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
+<span class="fc bfc" id="L74" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="nc" id="L80">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L80">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="nc" id="L82">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L82">		final String pageId = getPageId(parameters);</span>
 
-<span class="nc" id="L84">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L84">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
 
-<span class="nc" id="L86">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
+<span class="fc" id="L86">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
 
-<span class="nc" id="L88">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
+<span class="fc" id="L88">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
 
-<span class="nc bnc" id="L90" title="All 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
 <span class="nc" id="L91">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
 		} else {
 
-<span class="nc" id="L94">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
+<span class="fc" id="L94">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
 
-<span class="nc" id="L96">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
+<span class="fc" id="L96">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
 
-<span class="nc" id="L98">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
+<span class="fc" id="L98">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
 
-<span class="nc" id="L100">			final BeanItemContainer&lt;ApplicationSession&gt; sessionDataSource = new BeanItemContainer&lt;&gt;(ApplicationSession.class,</span>
-<span class="nc" id="L101">					sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate));</span>
-
-<span class="nc" id="L103">			getGridFactory().createBasicBeanItemGrid(panelContent, sessionDataSource,</span>
+<span class="fc" id="L100">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationSession.class, sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate),</span>
 					&quot;ApplicationSession&quot;,
 					new String[] { &quot;hjid&quot;, &quot;createdDate&quot;,&quot;operatingSystem&quot;, &quot;userAgentInformation&quot;, &quot;ipInformation&quot;, &quot;events&quot;}, new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;, &quot;modelObjectVersion&quot;, &quot;sessionId&quot;, &quot;sessionType&quot;, &quot;userId&quot;, &quot;locale&quot;},
 					new PageItemPropertyClickListener(AdminViews.ADMIN_APPLICATIONS_SESSION_VIEW_NAME, &quot;hjid&quot;), null, new ListPropertyConverter[] { new ListPropertyConverter(List.class, &quot;page&quot;, &quot;events&quot;,&quot;actionName&quot;)});
 		}
 
-<span class="nc" id="L109">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
+<span class="fc" id="L106">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
 
-<span class="nc" id="L111">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L108">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="nc" id="L114">		return panelContent;</span>
+<span class="fc" id="L111">		return panelContent;</span>
 
 	}
 

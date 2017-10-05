@@ -18,21 +18,19 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.common.gridfactory.impl;
 
+import java.io.Serializable;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
-import org.vaadin.gridutil.cell.GridCellFilter;
 
 import com.hack23.cia.web.impl.ui.application.views.common.converters.ListPropertyConverter;
 import com.hack23.cia.web.impl.ui.application.views.common.gridfactory.api.GridFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.AbstractPageItemRendererClickListener;
+import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.ui.AbstractOrderedLayout;
-import com.vaadin.v7.data.Container;
-import com.vaadin.v7.data.Container.Indexed;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.event.SelectionEvent.SelectionListener;
-import com.vaadin.v7.ui.Grid;
-import com.vaadin.v7.ui.Grid.Column;
-import com.vaadin.v7.ui.Grid.SelectionMode;
+import com.vaadin.ui.Grid;
+import com.vaadin.ui.Grid.SelectionMode;
 
 /**
  * The Class GridFactoryImpl.
@@ -44,41 +42,43 @@ public final class GridFactoryImpl implements GridFactory {
 	 * Instantiates a new grid factory impl.
 	 */
 	public GridFactoryImpl() {
-<span class="fc" id="L47">		super();</span>
-<span class="fc" id="L48">	}</span>
+<span class="fc" id="L45">		super();</span>
+<span class="fc" id="L46">	}</span>
 
 	@Override
-	public void createBasicBeanItemGrid(final AbstractOrderedLayout panelContent, final Container.Indexed datasource,
-			final String caption, final Object[] columnOrder, final Object[] hideColumns,
+	public &lt;T extends Serializable&gt; void createBasicBeanItemGrid(final AbstractOrderedLayout panelContent,final Class&lt;T&gt; dataType, final List&lt;T&gt; datasource,
+			final String caption, final String[] columnOrder, final String[] hideColumns,
 			final AbstractPageItemRendererClickListener&lt;?&gt; listener, final String actionId, final ListPropertyConverter[] collectionPropertyConverters) {
-<span class="fc" id="L54">		createBasicBeanItemNestedPropertiesGrid(panelContent,datasource, caption, null, columnOrder, hideColumns, listener, actionId, collectionPropertyConverters);</span>
+<span class="fc" id="L52">		createBasicBeanItemNestedPropertiesGrid(panelContent,dataType,datasource, caption, null, columnOrder, hideColumns, listener, actionId, collectionPropertyConverters);</span>
 
 
-<span class="fc" id="L57">	}</span>
+<span class="fc" id="L55">	}</span>
 
 	@Override
-	public void createBasicBeanItemNestedPropertiesGrid(final AbstractOrderedLayout panelContent,final Indexed datasource, final String caption, final String[] nestedProperties,
-			final Object[] columnOrder, final Object[] hideColumns, final AbstractPageItemRendererClickListener&lt;?&gt; listener,
+	public &lt;T extends Serializable&gt; void createBasicBeanItemNestedPropertiesGrid(final AbstractOrderedLayout panelContent,final Class&lt;T&gt; dataType, final List&lt;T&gt; datasource, final String caption, final String[] nestedProperties,
+			final String[] columnOrder, final String[] hideColumns, final AbstractPageItemRendererClickListener&lt;?&gt; listener,
 			final String actionId, final ListPropertyConverter[] collectionPropertyConverters) {
-<span class="fc" id="L63">		final Grid grid = new Grid(datasource);</span>
+<span class="fc" id="L61">		final Grid&lt;T&gt; grid = new Grid&lt;&gt;(dataType);</span>
+<span class="fc" id="L62">		grid.setItems(datasource);</span>
 
-<span class="fc" id="L65">		grid.setCaption(caption);</span>
-<span class="fc" id="L66">		grid.setSelectionMode(SelectionMode.SINGLE);</span>
+<span class="fc" id="L64">		grid.setCaption(caption);</span>
+<span class="fc" id="L65">		grid.setSelectionMode(SelectionMode.SINGLE);</span>
 
-<span class="fc" id="L68">		createNestedProperties(datasource, nestedProperties);</span>
+		//createNestedProperties(grid, nestedProperties);
 
-<span class="fc" id="L70">		configureColumnOrdersAndHiddenFields(columnOrder, hideColumns, grid);</span>
+<span class="fc" id="L69">		configureColumnOrdersAndHiddenFields(columnOrder, hideColumns, grid);</span>
 
-<span class="fc" id="L72">		configureListeners(listener, grid);</span>
+<span class="fc" id="L71">		configureListeners(listener, grid);</span>
 
-<span class="fc" id="L74">		setColumnConverters(collectionPropertyConverters, grid);</span>
+<span class="fc" id="L73">		setColumnConverters(collectionPropertyConverters, grid);</span>
 
-<span class="fc" id="L76">		grid.setSizeFull();</span>
+<span class="fc" id="L75">		grid.setSizeFull();</span>
 
-<span class="fc" id="L78">		grid.setStyleName(&quot;Level2Header&quot;);</span>
+<span class="fc" id="L77">		grid.setStyleName(&quot;Level2Header&quot;);</span>
 
-<span class="fc" id="L80">		createGridCellFilter(columnOrder, grid);</span>
+<span class="fc" id="L79">		createGridCellFilter(columnOrder, grid,dataType);</span>
 
+		//grid.setResponsive(true);
 
 <span class="fc" id="L83">		panelContent.addComponent(grid);</span>
 <span class="fc" id="L84">		panelContent.setExpandRatio(grid, ContentRatio.GRID);</span>
@@ -94,35 +94,18 @@ public final class GridFactoryImpl implements GridFactory {
 	 * @param grid
 	 *            the grid
 	 */
-	private static void configureColumnOrdersAndHiddenFields(final Object[] columnOrder, final Object[] hideColumns,
+	private static void configureColumnOrdersAndHiddenFields(final String[] columnOrder, final String[] hideColumns,
 			final Grid grid) {
 <span class="pc bpc" id="L99" title="1 of 2 branches missed.">		if (columnOrder != null) {</span>
 <span class="fc" id="L100">			grid.setColumnOrder(columnOrder);</span>
 		}
 
 <span class="pc bpc" id="L103" title="1 of 2 branches missed.">		if (hideColumns != null) {</span>
-<span class="fc bfc" id="L104" title="All 2 branches covered.">			for (final Object o : hideColumns) {</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">			for (final String o : hideColumns) {</span>
 <span class="fc" id="L105">				grid.removeColumn(o);</span>
 			}
 		}
 <span class="fc" id="L108">	}</span>
-
-	/**
-	 * Creates the nested properties.
-	 *
-	 * @param datasource
-	 *            the datasource
-	 * @param nestedProperties
-	 *            the nested properties
-	 */
-	private static void createNestedProperties(final Indexed datasource, final String[] nestedProperties) {
-<span class="fc bfc" id="L119" title="All 2 branches covered.">		if (nestedProperties != null) {</span>
-<span class="fc bfc" id="L120" title="All 2 branches covered.">			for (final String nestedProperty : nestedProperties) {</span>
-<span class="fc" id="L121">				final BeanItemContainer&lt;?&gt; dataContainer = (BeanItemContainer&lt;?&gt;) datasource;</span>
-<span class="fc" id="L122">				dataContainer.addNestedContainerProperty(nestedProperty);</span>
-			}
-		}
-<span class="fc" id="L125">	}</span>
 
 	/**
 	 * Configure listeners.
@@ -135,10 +118,10 @@ public final class GridFactoryImpl implements GridFactory {
 	private static void configureListeners(final SelectionListener listener,
 			final Grid grid) {
 
-<span class="fc bfc" id="L138" title="All 2 branches covered.">		if (listener != null) {</span>
-<span class="fc" id="L139">			grid.addSelectionListener(listener);</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">		if (listener != null) {</span>
+<span class="fc" id="L122">			grid.addSelectionListener(listener);</span>
 		}
-<span class="fc" id="L141">	}</span>
+<span class="fc" id="L124">	}</span>
 
 
 	/**
@@ -157,18 +140,16 @@ public final class GridFactoryImpl implements GridFactory {
 	 * @param grid
 	 *            the grid
 	 */
-	private static void createGridCellFilter(final Object[] columnOrder, final Grid grid) {
-<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		if (columnOrder != null) {</span>
-<span class="fc" id="L162">			final GridCellFilter gridCellFilter = new GridCellFilter(grid);</span>
-
-<span class="fc bfc" id="L164" title="All 2 branches covered.">			for (final Object column : columnOrder) {</span>
-<span class="fc bfc" id="L165" title="All 2 branches covered.">				if (grid.getColumn(column) != null) {</span>
-<span class="fc" id="L166">					gridCellFilter.setTextFilter(column.toString(), true, true);</span>
-				}
-			}
-
+	private static void createGridCellFilter(final String[] columnOrder, final Grid grid,final Class dataType) {
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">		if (columnOrder != null) {</span>
+//			final GridCellFilter gridCellFilter = new GridCellFilter(grid, dataType);
+//			for (final String column : columnOrder) {
+//				if (grid.getColumn(column) != null) {
+//					gridCellFilter.setTextFilter(column, true, true);
+//				}
+//			}
 		}
-<span class="fc" id="L171">	}</span>
+<span class="fc" id="L152">	}</span>
 
 
 	/**
@@ -180,14 +161,13 @@ public final class GridFactoryImpl implements GridFactory {
 	 *            the grid
 	 */
 	private static void setColumnConverters(final ListPropertyConverter[] collectionPropertyConverter, final Grid grid) {
-<span class="fc bfc" id="L183" title="All 2 branches covered.">		if (collectionPropertyConverter != null) {</span>
-<span class="fc bfc" id="L184" title="All 2 branches covered.">			for (final ListPropertyConverter converter : collectionPropertyConverter) {</span>
-<span class="fc" id="L185">				final Column column = grid.getColumn(converter.getColumn());</span>
-<span class="fc" id="L186">				column.setConverter(converter);</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">		if (collectionPropertyConverter != null) {</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">			for (final ListPropertyConverter converter : collectionPropertyConverter) {</span>
+<span class="fc" id="L166">				grid.getColumn(converter.getColumn());</span>
+
 			}
 		}
-<span class="fc" id="L189">	}</span>
-
+<span class="fc" id="L170">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

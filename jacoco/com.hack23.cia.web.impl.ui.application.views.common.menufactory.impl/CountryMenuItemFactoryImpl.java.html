@@ -42,11 +42,11 @@ import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageMod
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class CountryMenuItemFactoryImpl.
@@ -101,7 +101,7 @@ public final class CountryMenuItemFactoryImpl extends AbstractMenuItemFactoryImp
 <span class="fc" id="L101">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
 
 
-<span class="fc" id="L104">		createCountryTopicMenu( menuBar.addItem(COUNTRY_RANKING_TEXT, FontAwesome.SERVER, null));</span>
+<span class="fc" id="L104">		createCountryTopicMenu( menuBar.addItem(COUNTRY_RANKING_TEXT, VaadinIcons.SERVER, null));</span>
 
 <span class="fc" id="L106">	}</span>
 
@@ -140,14 +140,14 @@ public final class CountryMenuItemFactoryImpl extends AbstractMenuItemFactoryImp
 
 	@Override
 	public void createCountryTopicMenu(final MenuItem charts) {
-<span class="fc" id="L143">		charts.addItem(OVERVIEW_TEXT, FontAwesome.LINE_CHART,</span>
+<span class="fc" id="L143">		charts.addItem(OVERVIEW_TEXT, VaadinIcons.LINE_CHART,</span>
 				COMMAND_OVERVIEW);
 
-<span class="fc" id="L146">		final MenuItem countryIndicators = charts.addItem(COUNTRY_INDICATORS_SWEDEN, FontAwesome.LINE_CHART, null);</span>
+<span class="fc" id="L146">		final MenuItem countryIndicators = charts.addItem(COUNTRY_INDICATORS_SWEDEN, VaadinIcons.LINE_CHART, null);</span>
 
 <span class="fc" id="L148">		addSourcesAndIndicatorsToMenu(countryIndicators, getTopicIndicatorMap());</span>
 
-<span class="fc" id="L150">		charts.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.LINE_CHART,	COMMAND_PAGEVISITHISTORY);</span>
+<span class="fc" id="L150">		charts.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.LINE_CHART,	COMMAND_PAGEVISITHISTORY);</span>
 
 <span class="fc" id="L152">	}</span>
 
@@ -177,7 +177,7 @@ public final class CountryMenuItemFactoryImpl extends AbstractMenuItemFactoryImp
 <span class="fc" id="L177">		panelContent.setComponentAlignment(menuBar, Alignment.TOP_LEFT);</span>
 <span class="fc" id="L178">		panelContent.setExpandRatio(menuBar, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L180">		addSourcesAndIndicatorsToMenu(menuBar.addItem(&quot;By Topic&quot;,FontAwesome.LINE_CHART, null), getTopicIndicatorMap());</span>
+<span class="fc" id="L180">		addSourcesAndIndicatorsToMenu(menuBar.addItem(&quot;By Topic&quot;,VaadinIcons.LINE_CHART, null), getTopicIndicatorMap());</span>
 <span class="fc" id="L181">		menuBar.setAutoOpen(true);</span>
 <span class="fc" id="L182">	}</span>
 }

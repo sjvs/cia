@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>AppPublicSystemDocumentation xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../testapidocs/com/hack23/cia/architecture/AppPublicSystemDocumentation.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> com.hack23.cia.architecture;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Set;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> com.structurizr.Workspace;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> com.structurizr.analysis.AbstractSpringComponentFinderStrategy;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> com.structurizr.analysis.ComponentFinder;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> com.structurizr.analysis.FirstImplementationOfInterfaceSupportingTypesStrategy;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> com.structurizr.analysis.ReferencedTypesSupportingTypesStrategy;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> com.structurizr.analysis.SpringComponentComponentFinderStrategy;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> com.structurizr.analysis.SpringRepositoryComponentFinderStrategy;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> com.structurizr.analysis.SpringServiceComponentFinderStrategy;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> com.structurizr.analysis.SupportingTypesStrategy;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> com.structurizr.api.StructurizrClient;
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Component;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Container;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Location;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Model;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Person;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.SoftwareSystem;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> com.structurizr.model.Tags;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> com.structurizr.view.Shape;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> com.structurizr.view.Styles;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> com.structurizr.view.ViewSet;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/hack23/cia/architecture/AppPublicSystemDocumentation.html">AppPublicSystemDocumentation</a> {
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  	<em class="jxr_comment">// Public site https://structurizr.com/share/37264#Enterprise</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  	<em class="jxr_comment">// inspired from https://github.com/structurizr/java/blob/master/structurizr-examples/src/com/structurizr/example/SpringPetClinic.java</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  	
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> WORKSPACE_ID = 37264;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String API_KEY = <span class="jxr_string">"ba64192c-4ae2-450e-981e-0084d5bb043d "</span>;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String API_SECRET = <span class="jxr_string">"25ca73e6-2e20-4cbf-9179-5ac62595fa23"</span>;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  	
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/hack23/cia/architecture/AppPublicSystemDocumentation.html">SpringVaadinViewComponentFinderStrategy</a> <strong class="jxr_keyword">extends</strong> AbstractSpringComponentFinderStrategy {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  	    <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String SPRING_VIEW = <span class="jxr_string">"Vaadin View"</span>;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  		<strong class="jxr_keyword">public</strong> <a href="../../../../com/hack23/cia/architecture/AppPublicSystemDocumentation.html">SpringVaadinViewComponentFinderStrategy</a>(SupportingTypesStrategy... strategies) {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  	        <strong class="jxr_keyword">super</strong>(strategies);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  	    }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  	    @Override
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  	    <strong class="jxr_keyword">protected</strong> Set&lt;Component&gt; doFindComponents() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  	        <strong class="jxr_keyword">return</strong> findInterfacesForImplementationClassesWithAnnotation(
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  	        		org.springframework.stereotype.Repository.<strong class="jxr_keyword">class</strong>,
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  	                SPRING_VIEW
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  	        );
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  	    }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  	}
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  	
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		Workspace workspace = <strong class="jxr_keyword">new</strong> Workspace(<span class="jxr_string">"Citizen Intelligence Agency"</span>, <span class="jxr_string">"Public System Documentation"</span>);
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  		Model model = workspace.getModel();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  		ViewSet viewSet = workspace.getViews();
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  		
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  		Person userPerson = model.addPerson(<span class="jxr_string">"User"</span>, <span class="jxr_string">"User of the system"</span>);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  		Person adminPerson = model.addPerson(<span class="jxr_string">"Admin"</span>, <span class="jxr_string">"Manager of the system"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  		SoftwareSystem ciaSystem = model.addSoftwareSystem(<span class="jxr_string">"Citizen Intelligence Agency System"</span>,
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  				<span class="jxr_string">"Tracking politicians like bugs!"</span>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		SoftwareSystem riksdagenApiSystem = model.addSoftwareSystem(Location.External, <span class="jxr_string">"data.riksdagen.se"</span>,<span class="jxr_string">"Public API Swedish Parliament data"</span>);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		SoftwareSystem worldBankApiSystem = model.addSoftwareSystem(Location.External, <span class="jxr_string">"data.wordbank.org"</span>,<span class="jxr_string">"Public API Country indicators"</span>);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  		SoftwareSystem valApiSystem = model.addSoftwareSystem(Location.External, <span class="jxr_string">"www.val.se"</span>,<span class="jxr_string">"Public API Swedish Election data"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		SoftwareSystem esvApiSystem = model.addSoftwareSystem(Location.External, <span class="jxr_string">"www.esv.se"</span>,<span class="jxr_string">"Public Data Swedish public sector spending data"</span>);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  		Container loadBalancerContainer = ciaSystem.addContainer(<span class="jxr_string">"Loadbalancer"</span>, <span class="jxr_string">"Loadbalancer"</span>, <span class="jxr_string">"ALB/ELB/Apache/Nginx/HaProxy"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  	
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		Container ciaWebContainer = ciaSystem.addContainer(<span class="jxr_string">"Web Application"</span>, <span class="jxr_string">"Web Application"</span>, <span class="jxr_string">"Jetty/Java"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		ComponentFinder componentFinderWeb = <strong class="jxr_keyword">new</strong> ComponentFinder(ciaWebContainer,
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  				<span class="jxr_string">"com.hack23.cia"</span>, <strong class="jxr_keyword">new</strong> SpringServiceComponentFinderStrategy(),<strong class="jxr_keyword">new</strong> SpringComponentComponentFinderStrategy(), <strong class="jxr_keyword">new</strong> SpringVaadinViewComponentFinderStrategy());
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*pagemode.*"</span>);
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*common.*"</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*action.*"</span>);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*listener.*"</span>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*ui.*"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		componentFinderWeb.exclude(<span class="jxr_string">".*package.*"</span>);				
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  		
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		componentFinderWeb.findComponents();
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  		
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		Container relationalDatabase = ciaSystem.addContainer(<span class="jxr_string">"Database"</span>, <span class="jxr_string">"Stores information"</span>, <span class="jxr_string">"Postgresql"</span>);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  		relationalDatabase.addTags(<span class="jxr_string">"Database"</span>);
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  		
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  		adminPerson.uses(ciaSystem, <span class="jxr_string">"Manages"</span>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  		userPerson.uses(ciaSystem, <span class="jxr_string">"Uses"</span>);
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  		ciaSystem.uses(riksdagenApiSystem, <span class="jxr_string">"Loads data"</span>);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  		ciaSystem.uses(worldBankApiSystem, <span class="jxr_string">"Loads data"</span>);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		ciaSystem.uses(valApiSystem, <span class="jxr_string">"Loads data"</span>);	
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  		ciaSystem.uses(esvApiSystem, <span class="jxr_string">"Loads data"</span>);			
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  		loadBalancerContainer.uses(ciaWebContainer, <span class="jxr_string">"HTTPS/H2"</span>);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  		ciaWebContainer.uses(relationalDatabase, <span class="jxr_string">"JDBC"</span>);		
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  		
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  		viewSet.createEnterpriseContextView(<span class="jxr_string">"Enterprise"</span>, <span class="jxr_string">"Enterprise"</span>).addAllElements();
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  		viewSet.createSystemContextView(ciaSystem, <span class="jxr_string">"System context"</span>, <span class="jxr_string">"System context"</span>).addAllElements();
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 		viewSet.createContainerView(ciaSystem, <span class="jxr_string">"Container view"</span>, <span class="jxr_string">"Application Overview"</span>).addAllContainers();
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 		viewSet.createComponentView(ciaWebContainer, <span class="jxr_string">"Web"</span>, <span class="jxr_string">"Web"</span>).addAllComponents();
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 		Styles styles = viewSet.getConfiguration().getStyles();
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 		styles.addElementStyle(Tags.COMPONENT).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 		styles.addElementStyle(Tags.CONTAINER).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> 		styles.addElementStyle(Tags.SOFTWARE_SYSTEM).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> 		styles.addElementStyle(Tags.PERSON).background(<span class="jxr_string">"#519823"</span>).color(<span class="jxr_string">"#ffffff"</span>).shape(Shape.Person);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		styles.addElementStyle(<span class="jxr_string">"Database"</span>).shape(Shape.Cylinder);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 		StructurizrClient structurizrClient = <strong class="jxr_keyword">new</strong> StructurizrClient(API_KEY, API_SECRET);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 		structurizrClient.putWorkspace(WORKSPACE_ID, workspace);
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 	}
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
+</body>
+</html>

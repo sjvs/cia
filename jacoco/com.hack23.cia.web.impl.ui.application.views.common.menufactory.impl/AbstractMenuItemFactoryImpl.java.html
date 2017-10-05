@@ -28,17 +28,17 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.jarektoro.responsivelayout.ResponsiveLayout;
 import com.jarektoro.responsivelayout.ResponsiveRow;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.Resource;
 import com.vaadin.server.Responsive;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.Label;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class AbstractMenuItemFactoryImpl.
@@ -245,22 +245,22 @@ public abstract class AbstractMenuItemFactoryImpl {
 <span class="fc" id="L245">		menuBar.removeItems();</span>
 <span class="fc" id="L246">		menuBar.setWidth(MENU_BAR_WIDTH);</span>
 <span class="fc" id="L247">		menuBar.setStyleName(HEADER_STYLE_NAME);</span>
-<span class="fc" id="L248">		final MenuItem mainViewItem = menuBar.addItem(APPLICATION, FontAwesome.SERVER, null);</span>
+<span class="fc" id="L248">		final MenuItem mainViewItem = menuBar.addItem(APPLICATION, VaadinIcons.SERVER, null);</span>
 
-<span class="fc" id="L250">		mainViewItem.addItem(START_TEXT, FontAwesome.STAR, COMMAND_MAINVIEW_OVERVIEW);</span>
+<span class="fc" id="L250">		mainViewItem.addItem(START_TEXT, VaadinIcons.STAR, COMMAND_MAINVIEW_OVERVIEW);</span>
 
-<span class="fc" id="L252">		final MenuItem mainItem = mainViewItem.addItem(MAIN, FontAwesome.STAR, null);</span>
+<span class="fc" id="L252">		final MenuItem mainItem = mainViewItem.addItem(MAIN, VaadinIcons.STAR, null);</span>
 
-<span class="fc" id="L254">		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.AREA_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);</span>
+<span class="fc" id="L254">		mainItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.LINE_CHART, COMMAND_MAINVIEW_PAGEVISITHISTORY);</span>
 
 
 <span class="fc bfc" id="L257" title="All 4 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN) || UserContextUtil.allowRoleInSecurityContext(ROLE_USER)) {</span>
-<span class="fc" id="L258">			mainViewItem.addItem(USERHOME, FontAwesome.USER,COMMAND_USERHOME);</span>
+<span class="fc" id="L258">			mainViewItem.addItem(USERHOME, VaadinIcons.USER,COMMAND_USERHOME);</span>
 <span class="fc" id="L259">			createAdminMenu(mainViewItem);</span>
-<span class="fc" id="L260">			mainViewItem.addItem(LOGOUT, FontAwesome.SIGN_OUT, COMMAND_LOGOUT);</span>
+<span class="fc" id="L260">			mainViewItem.addItem(LOGOUT, VaadinIcons.SIGN_OUT, COMMAND_LOGOUT);</span>
 		} else {
-<span class="fc" id="L262">			mainViewItem.addItem(LOGIN, FontAwesome.SIGN_IN, COMMAND_LOGIN);</span>
-<span class="fc" id="L263">			mainViewItem.addItem(REGISTER, FontAwesome.USER_PLUS, COMMAND_REGISTER);</span>
+<span class="fc" id="L262">			mainViewItem.addItem(LOGIN, VaadinIcons.SIGN_IN, COMMAND_LOGIN);</span>
+<span class="fc" id="L263">			mainViewItem.addItem(REGISTER, VaadinIcons.FILE_ADD, COMMAND_REGISTER);</span>
 		}
 
 <span class="fc" id="L266">	}</span>
@@ -273,34 +273,34 @@ public abstract class AbstractMenuItemFactoryImpl {
 	 */
 	private static void createAdminMenu(final MenuItem mainViewItem) {
 <span class="fc bfc" id="L275" title="All 2 branches covered.">		if (UserContextUtil.allowRoleInSecurityContext(ROLE_ADMIN)) {</span>
-<span class="fc" id="L276">			final MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, FontAwesome.SERVER, null);</span>
+<span class="fc" id="L276">			final MenuItem adminMenuItem = mainViewItem.addItem(ADMIN_TEXT, VaadinIcons.SERVER, null);</span>
 
-<span class="fc" id="L278">			final MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, FontAwesome.GEARS, null);</span>
-<span class="fc" id="L279">			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,FontAwesome.GEARS, COMMAND_APPLICATION_CONFIGURATION);</span>
+<span class="fc" id="L278">			final MenuItem configurationMenuItem = adminMenuItem.addItem(CONFIGURATION, VaadinIcons.TOOLS, null);</span>
+<span class="fc" id="L279">			configurationMenuItem.addItem(APPLICATION_CONFIGURATION,VaadinIcons.TOOLS, COMMAND_APPLICATION_CONFIGURATION);</span>
 
-<span class="fc" id="L281">			configurationMenuItem.addItem(AGENCY,FontAwesome.SERVER, COMMAND_AGENCY);</span>
-<span class="fc" id="L282">			configurationMenuItem.addItem(PORTAL, FontAwesome.SITEMAP,COMMAND_PORTAL);</span>
-<span class="fc" id="L283">			configurationMenuItem.addItem(COUNTRY,FontAwesome.FLAG, COMMAND_COUNTRY);</span>
-<span class="fc" id="L284">			configurationMenuItem.addItem(LANGUAGE,FontAwesome.LANGUAGE, COMMAND_LANGUAGE);</span>
-<span class="fc" id="L285">			configurationMenuItem.addItem(LANGUAGE_CONTENT,FontAwesome.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);</span>
+<span class="fc" id="L281">			configurationMenuItem.addItem(AGENCY,VaadinIcons.SERVER, COMMAND_AGENCY);</span>
+<span class="fc" id="L282">			configurationMenuItem.addItem(PORTAL, VaadinIcons.SITEMAP,COMMAND_PORTAL);</span>
+<span class="fc" id="L283">			configurationMenuItem.addItem(COUNTRY,VaadinIcons.FLAG, COMMAND_COUNTRY);</span>
+<span class="fc" id="L284">			configurationMenuItem.addItem(LANGUAGE,VaadinIcons.ACCESSIBILITY, COMMAND_LANGUAGE);</span>
+<span class="fc" id="L285">			configurationMenuItem.addItem(LANGUAGE_CONTENT,VaadinIcons.FILE_TEXT, COMMAND_LANGUAGE_CONTENT);</span>
 
-<span class="fc" id="L287">			final MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, FontAwesome.SERVER, null);</span>
+<span class="fc" id="L287">			final MenuItem managementMenuItem = adminMenuItem.addItem(MANAGEMENT, VaadinIcons.SERVER, null);</span>
 
-<span class="fc" id="L289">			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,FontAwesome.USER_SECRET, COMMAND_AGENT_OPERATION);</span>
+<span class="fc" id="L289">			managementMenuItem.addItem(AGENT_OPERATIONS_TEXT,VaadinIcons.BRIEFCASE, COMMAND_AGENT_OPERATION);</span>
 
-<span class="fc" id="L291">			managementMenuItem.addItem(DATA_SUMMARY_TEXT,FontAwesome.DATABASE, COMMAND_DATASUMMARY);</span>
+<span class="fc" id="L291">			managementMenuItem.addItem(DATA_SUMMARY_TEXT,VaadinIcons.DATABASE, COMMAND_DATASUMMARY);</span>
 
-<span class="fc" id="L293">			managementMenuItem.addItem(EMAIL,FontAwesome.MAIL_FORWARD, COMMAND_EMAIL);</span>
+<span class="fc" id="L293">			managementMenuItem.addItem(EMAIL,VaadinIcons.MAILBOX, COMMAND_EMAIL);</span>
 
 
-<span class="fc" id="L296">			managementMenuItem.addItem(SYSTEM_PERFORMANCE,FontAwesome.DASHBOARD, COMMAND_MONITORING);</span>
+<span class="fc" id="L296">			managementMenuItem.addItem(SYSTEM_PERFORMANCE,VaadinIcons.DASHBOARD, COMMAND_MONITORING);</span>
 
-<span class="fc" id="L298">			final MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, FontAwesome.DATABASE, null);</span>
-<span class="fc" id="L299">			userActivityMenuItem.addItem(APPLICATION_SESSION,FontAwesome.LAPTOP, COMMAND_APPLICATION_SESSION);</span>
-<span class="fc" id="L300">			userActivityMenuItem.addItem(APPLICATION_EVENT,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS);</span>
-<span class="fc" id="L301">			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,FontAwesome.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);</span>
+<span class="fc" id="L298">			final MenuItem userActivityMenuItem = adminMenuItem.addItem(USER_ACTIVITY, VaadinIcons.DATABASE, null);</span>
+<span class="fc" id="L299">			userActivityMenuItem.addItem(APPLICATION_SESSION,VaadinIcons.LAPTOP, COMMAND_APPLICATION_SESSION);</span>
+<span class="fc" id="L300">			userActivityMenuItem.addItem(APPLICATION_EVENT,VaadinIcons.ARROWS, COMMAND_APPLICATION_EVENTS);</span>
+<span class="fc" id="L301">			userActivityMenuItem.addItem(APPLICATION_EVENT_CHARTS,VaadinIcons.ARROWS, COMMAND_APPLICATION_EVENTS_CHARTS);</span>
 
-<span class="fc" id="L303">			userActivityMenuItem.addItem(USERACCOUNT,FontAwesome.GROUP, COMMAND_USERACCOUNT);</span>
+<span class="fc" id="L303">			userActivityMenuItem.addItem(USERACCOUNT,VaadinIcons.GROUP, COMMAND_USERACCOUNT);</span>
 
 		}
 <span class="fc" id="L306">	}</span>

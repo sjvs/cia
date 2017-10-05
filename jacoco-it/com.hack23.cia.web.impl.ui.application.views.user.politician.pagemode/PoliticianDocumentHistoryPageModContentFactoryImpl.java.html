@@ -33,8 +33,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class OverviewPageModContentFactoryImpl.
@@ -81,14 +81,10 @@ public final class PoliticianDocumentHistoryPageModContentFactoryImpl extends Ab
 <span class="fc" id="L81">			final DataContainer&lt;ViewRiksdagenPoliticianDocument, String&gt; politicianDocumentDataContainer = getApplicationManager()</span>
 <span class="fc" id="L82">					.getDataContainer(ViewRiksdagenPoliticianDocument.class);</span>
 
-<span class="fc" id="L84">			final BeanItemContainer&lt;ViewRiksdagenPoliticianDocument&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenPoliticianDocument.class,
-<span class="fc" id="L86">					politicianDocumentDataContainer.findOrderedListByProperty(</span>
-<span class="fc" id="L87">							ViewRiksdagenPoliticianDocument_.personReferenceId, personData.getId(),</span>
-							ViewRiksdagenPoliticianDocument_.madePublicDate));
-
-<span class="fc" id="L90">			getGridFactory().createBasicBeanItemGrid(</span>
-					panelContent, politicianDocumentDataSource,
+<span class="fc" id="L84">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L85">					panelContent, ViewRiksdagenPoliticianDocument.class, politicianDocumentDataContainer.findOrderedListByProperty(</span>
+<span class="fc" id="L86">							ViewRiksdagenPoliticianDocument_.personReferenceId, personData.getId(),</span>
+							ViewRiksdagenPoliticianDocument_.madePublicDate),
 					&quot;Documents&quot;,
 					new String[] { &quot;rm&quot;, &quot;madePublicDate&quot;,&quot;documentType&quot;, &quot;subType&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;referenceName&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;, &quot;roleDescription&quot;,
 							&quot;org&quot;, &quot;id&quot;,
@@ -96,10 +92,10 @@ public final class PoliticianDocumentHistoryPageModContentFactoryImpl extends Ab
 					new String[] { &quot;id&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;, &quot;numberValue&quot;, &quot;orderNumber&quot;,
 							&quot;tempLabel&quot;, &quot;referenceName&quot; , &quot;docId&quot;, &quot;label&quot;,&quot;roleDescription&quot;}, new PageItemPropertyClickListener(UserViews.DOCUMENT_VIEW_NAME, &quot;docId&quot;), null, null);
 
-<span class="fc" id="L99">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L95">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
 
 		}
-<span class="fc" id="L102">		return panelContent;</span>
+<span class="fc" id="L98">		return panelContent;</span>
 
 	}
 }

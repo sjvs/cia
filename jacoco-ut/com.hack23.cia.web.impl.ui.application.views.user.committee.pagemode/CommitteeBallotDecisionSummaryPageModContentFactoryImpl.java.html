@@ -39,8 +39,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class CommitteeBallotDecisionSummaryPageModContentFactoryImpl.
@@ -95,11 +95,8 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 <span class="fc" id="L95">							pageId.toUpperCase(Locale.ENGLISH),</span>
 							ViewRiksdagenCommitteeBallotDecisionSummary_.createdDate);
 
-<span class="fc" id="L98">			final BeanItemContainer&lt;ViewRiksdagenCommitteeBallotDecisionSummary&gt; committeeBallotDecisionPartyDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenCommitteeBallotDecisionSummary.class, decisionPartySummaryList);
-
-<span class="fc" id="L101">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent,</span>
-					committeeBallotDecisionPartyDataSource, &quot;Committee Ballot Decision Summary&quot;,
+<span class="nc" id="L98">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionSummary.class,</span>
+					decisionPartySummaryList, &quot;Committee Ballot Decision Summary&quot;,
 					new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;embeddedId.id&quot; },
 					new String[] { &quot;voteDate&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.id&quot;, &quot;committeeReport&quot;,
 							&quot;embeddedId.issue&quot;, &quot;rm&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;endNumber&quot;, &quot;org&quot;, &quot;createdDate&quot;,
@@ -113,11 +110,11 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot; },
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
 
-<span class="fc" id="L116">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L117">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="nc" id="L113">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="nc" id="L114">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="fc" id="L120">		return panelContent;</span>
+<span class="nc" id="L117">		return panelContent;</span>
 
 	}
 

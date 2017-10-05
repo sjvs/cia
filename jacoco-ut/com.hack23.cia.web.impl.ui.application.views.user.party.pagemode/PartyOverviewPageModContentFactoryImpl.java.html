@@ -34,8 +34,8 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class OverviewPageModContentFactoryImpl.
@@ -91,7 +91,7 @@ public final class PartyOverviewPageModContentFactoryImpl extends AbstractPartyP
 
 <span class="fc" id="L92">			getFormFactory().addFormPanelTextFields(</span>
 					panelContent,
-					new BeanItem&lt;&gt;(viewRiksdagenParty),
+					viewRiksdagenParty,
 					ViewRiksdagenParty.class,
 <span class="fc" id="L96">					Arrays.asList(new String[] { &quot;partyName&quot;, &quot;partyId&quot;,</span>
 							&quot;headCount&quot;, &quot;partyNumber&quot;, &quot;registeredDate&quot;,
@@ -105,10 +105,9 @@ public final class PartyOverviewPageModContentFactoryImpl extends AbstractPartyP
 
 
 <span class="fc" id="L107">				getFormFactory().addFormPanelTextFields(panelContent,</span>
-						new BeanItem&lt;&gt;(
-								viewRiksdagenPartySummary),
+								viewRiksdagenPartySummary,
 								ViewRiksdagenPartySummary.class,
-<span class="fc" id="L111">								Arrays.asList(new String[] { &quot;active&quot;,</span>
+<span class="fc" id="L110">								Arrays.asList(new String[] { &quot;active&quot;,</span>
 										&quot;firstAssignmentDate&quot;, &quot;lastAssignmentDate&quot;,
 										&quot;currentAssignments&quot;, &quot;totalAssignments&quot;,
 										&quot;totalDaysServed&quot;, &quot;activeEu&quot;, &quot;totalActiveEu&quot;,
@@ -122,17 +121,17 @@ public final class PartyOverviewPageModContentFactoryImpl extends AbstractPartyP
 
 			}
 
-<span class="fc" id="L125">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L126">			overviewLayout.setSizeFull();</span>
+<span class="fc" id="L124">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L125">			overviewLayout.setSizeFull();</span>
 
-<span class="fc" id="L128">			panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L129">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+<span class="fc" id="L127">			panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L128">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
 
-<span class="fc" id="L131">			getPartyMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
+<span class="fc" id="L130">			getPartyMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
 
-<span class="fc" id="L133">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L132">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="fc" id="L135">		return panelContent;</span>
+<span class="fc" id="L134">		return panelContent;</span>
 
 	}
 

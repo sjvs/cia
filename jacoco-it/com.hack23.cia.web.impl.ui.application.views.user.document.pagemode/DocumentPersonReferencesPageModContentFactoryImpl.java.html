@@ -39,8 +39,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class DocumentPersonReferencesPageModContentFactoryImpl.
@@ -98,12 +98,10 @@ public final class DocumentPersonReferencesPageModContentFactoryImpl extends Abs
 <span class="pc bpc" id="L98" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentPersonReferenceContainer() != null</span>
 <span class="fc" id="L99">					&amp;&amp; documentStatusContainer.getDocumentPersonReferenceContainer()</span>
 <span class="pc bpc" id="L100" title="1 of 2 branches missed.">							.getDocumentPersonReferenceList() != null) {</span>
-<span class="fc" id="L101">				final BeanItemContainer&lt;DocumentPersonReferenceData&gt; documentPersonReferenceDataDataSource = new BeanItemContainer&lt;&gt;(</span>
-						DocumentPersonReferenceData.class, documentStatusContainer
-<span class="fc" id="L103">								.getDocumentPersonReferenceContainer().getDocumentPersonReferenceList());</span>
 
-<span class="fc" id="L105">				getGridFactory().createBasicBeanItemGrid(</span>
-						panelContent, documentPersonReferenceDataDataSource,
+<span class="fc" id="L102">				getGridFactory().createBasicBeanItemGrid(</span>
+						panelContent, DocumentPersonReferenceData.class, documentStatusContainer
+<span class="fc" id="L104">						.getDocumentPersonReferenceContainer().getDocumentPersonReferenceList(),</span>
 						&quot;Document person references&quot;,
 						new String[] { &quot;personReferenceId&quot;, &quot;referenceName&quot;, &quot;partyShortCode&quot;, &quot;orderNumber&quot;,
 								&quot;roleDescription&quot; }, new String[] { &quot;personReferenceId&quot;, &quot;hjid&quot; },
@@ -112,11 +110,11 @@ public final class DocumentPersonReferencesPageModContentFactoryImpl extends Abs
 			}
 
 
-<span class="fc" id="L115">			panel.setContent(panelContent);</span>
-<span class="fc" id="L116">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+<span class="fc" id="L113">			panel.setContent(panelContent);</span>
+<span class="fc" id="L114">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 
-<span class="fc" id="L119">		return panelContent;</span>
+<span class="fc" id="L117">		return panelContent;</span>
 
 	}
 

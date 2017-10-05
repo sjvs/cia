@@ -24,12 +24,9 @@ import org.slf4j.LoggerFactory;
 import com.hack23.cia.service.api.action.admin.SendEmailRequest;
 import com.hack23.cia.service.api.action.common.ServiceResponse;
 import com.hack23.cia.service.api.action.common.ServiceResponse.ServiceResult;
-import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
-import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Notification;
-import com.vaadin.ui.UI;
 
 /**
  * The Class SendEmailClickListener.
@@ -42,9 +39,6 @@ public final class SendEmailClickListener implements ClickListener {
 	/** The Constant SEND_EMAIL_FAILURE. */
 	private static final String SEND_EMAIL_FAILURE = &quot;SendEmail {} failure&quot;;
 
-	/** The Constant ERROR_MESSAGE. */
-	private static final String ERROR_MESSAGE = &quot;Error message&quot;;
-
 	/** The Constant SEND_EMAIL_FAILEDFAILED. */
 	private static final String SEND_EMAIL_FAILEDFAILED = &quot;Send email failed&quot;;
 
@@ -55,7 +49,7 @@ public final class SendEmailClickListener implements ClickListener {
 	private static final long serialVersionUID = 1L;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L58">	private static final Logger LOGGER = LoggerFactory.getLogger(SendEmailClickListener.class);</span>
+<span class="fc" id="L52">	private static final Logger LOGGER = LoggerFactory.getLogger(SendEmailClickListener.class);</span>
 
 	/** The reqister request. */
 	private final SendEmailRequest sendEmailRequest;
@@ -66,22 +60,22 @@ public final class SendEmailClickListener implements ClickListener {
 	 * @param sendEmailRequest
 	 *            the reqister request
 	 */
-<span class="fc" id="L69">	public SendEmailClickListener(final SendEmailRequest sendEmailRequest) {</span>
-<span class="fc" id="L70">		this.sendEmailRequest = sendEmailRequest;</span>
-<span class="fc" id="L71">	}</span>
+<span class="fc" id="L63">	public SendEmailClickListener(final SendEmailRequest sendEmailRequest) {</span>
+<span class="fc" id="L64">		this.sendEmailRequest = sendEmailRequest;</span>
+<span class="fc" id="L65">	}</span>
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="fc" id="L75">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(sendEmailRequest);</span>
-<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="nc" id="L77">			LOGGER.info(LOG_MSG_SEND_EMAIL,sendEmailRequest.getEmail());</span>
-<span class="nc" id="L78">			Notification.show(EMAIL_SENT);</span>
+<span class="fc" id="L69">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(sendEmailRequest);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="fc" id="L71">			LOGGER.info(LOG_MSG_SEND_EMAIL,sendEmailRequest.getEmail());</span>
+<span class="fc" id="L72">			Notification.show(EMAIL_SENT);</span>
 		} else {
-<span class="fc" id="L80">			Notification.show(SEND_EMAIL_FAILEDFAILED,</span>
-<span class="fc" id="L81">	                  response.getErrorMessage(),</span>
+<span class="fc" id="L74">			Notification.show(SEND_EMAIL_FAILEDFAILED,</span>
+<span class="fc" id="L75">	                  response.getErrorMessage(),</span>
 	                  Notification.Type.WARNING_MESSAGE);
-<span class="fc" id="L83">			LOGGER.info(SEND_EMAIL_FAILURE,sendEmailRequest.getEmail());</span>
+<span class="fc" id="L77">			LOGGER.info(SEND_EMAIL_FAILURE,sendEmailRequest.getEmail());</span>
 		}
-<span class="fc" id="L85">	}</span>
+<span class="fc" id="L79">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

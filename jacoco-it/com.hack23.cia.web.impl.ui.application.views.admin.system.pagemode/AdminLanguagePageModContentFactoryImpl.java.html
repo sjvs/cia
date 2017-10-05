@@ -19,6 +19,7 @@
 package com.hack23.cia.web.impl.ui.application.views.admin.system.pagemode;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
@@ -34,9 +35,9 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
+
 
 /**
  * The Class AdminLanguagePageModContentFactoryImpl.
@@ -54,37 +55,36 @@ public final class AdminLanguagePageModContentFactoryImpl extends AbstractAdminS
 	 * Instantiates a new admin language page mod content factory impl.
 	 */
 	public AdminLanguagePageModContentFactoryImpl() {
-<span class="fc" id="L57">		super();</span>
-<span class="fc" id="L58">	}</span>
+<span class="fc" id="L58">		super();</span>
+<span class="fc" id="L59">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L62">		return NAME.equals(page);</span>
+<span class="fc" id="L63">		return NAME.equals(page);</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L68">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L69">		final VerticalLayout content = createPanelContent();</span>
 
-<span class="fc" id="L70">		final String pageId = getPageId(parameters);</span>
-<span class="fc" id="L71">		final int pageNr= getPageNr(parameters);</span>
+<span class="fc" id="L71">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L72">		final int pageNr= getPageNr(parameters);</span>
 
 
-<span class="fc" id="L74">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L75">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
-<span class="fc" id="L76">		LabelFactory.createHeader2Label(content,ADMIN_LANGUAGE);</span>
+<span class="fc" id="L77">		LabelFactory.createHeader2Label(content,ADMIN_LANGUAGE);</span>
 
-<span class="fc" id="L78">		final DataContainer&lt;LanguageData, Long&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L79">				.getDataContainer(LanguageData.class);</span>
+<span class="fc" id="L79">		final DataContainer&lt;LanguageData, Long&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L80">				.getDataContainer(LanguageData.class);</span>
 
-<span class="fc" id="L81">		final BeanItemContainer&lt;LanguageData&gt; dataSource = new BeanItemContainer&lt;&gt;(LanguageData.class,</span>
-<span class="fc" id="L82">				dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,LanguageData_.languageName));</span>
+<span class="fc" id="L82">		final List&lt;LanguageData&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,LanguageData_.languageName);</span>
 
-<span class="fc" id="L84">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L84">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L86">		getGridFactory().createBasicBeanItemGrid(content,</span>
-				dataSource, &quot;LanguageData&quot;,
+				LanguageData.class, pageOrderBy, &quot;LanguageData&quot;,
 				new String[] { &quot;hjid&quot;, &quot;languageName&quot;, &quot;modelObjectVersion&quot; }, new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;,&quot;modelObjectVersion&quot;, &quot;createdDate&quot;,&quot;lastModifiedDate&quot; },
 				new PageItemPropertyClickListener(AdminViews.ADMIN_LANGUAGE_VIEW_NAME, &quot;hjid&quot;), null, null);
 
@@ -94,7 +94,7 @@ public final class AdminLanguagePageModContentFactoryImpl extends AbstractAdminS
 
 <span class="pc bpc" id="L95" title="1 of 2 branches missed.">			if (languageData != null) {</span>
 
-<span class="fc" id="L97">				getFormFactory().addFormPanelTextFields(content, new BeanItem&lt;&gt;(languageData), LanguageData.class,</span>
+<span class="pc" id="L97">				getFormFactory().addFormPanelTextFields(content, languageData, LanguageData.class,</span>
 <span class="fc" id="L98">						Arrays.asList(new String[] { &quot;languageName&quot;, &quot;createdDate&quot;,&quot;lastModifiedDate&quot; ,&quot;languageEnabled&quot; }));</span>
 			}
 		}

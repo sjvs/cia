@@ -32,8 +32,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class CurrentMembersPageModContentFactoryImpl.
@@ -78,14 +78,10 @@ public final class PartyCurrentMembersPageModContentFactoryImpl extends Abstract
 <span class="fc" id="L78">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
 <span class="fc" id="L79">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
 
-<span class="fc" id="L81">			final BeanItemContainer&lt;ViewRiksdagenPolitician&gt; politicianDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenPolitician.class,
-<span class="fc" id="L83">					politicianDataContainer.findListByProperty(</span>
-<span class="fc" id="L84">							new Object[] { viewRiksdagenParty.getPartyId(), Boolean.TRUE },</span>
-							ViewRiksdagenPolitician_.party, ViewRiksdagenPolitician_.active));
-
-<span class="fc" id="L87">			getGridFactory().createBasicBeanItemGrid(panelContent,</span>
-					politicianDataSource,
+<span class="fc" id="L81">			getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenPolitician.class,</span>
+<span class="fc" id="L82">					politicianDataContainer.findListByProperty(</span>
+<span class="fc" id="L83">							new Object[] { viewRiksdagenParty.getPartyId(), Boolean.TRUE },</span>
+							ViewRiksdagenPolitician_.party, ViewRiksdagenPolitician_.active),
 					&quot;Politicians&quot;,
 					new String[] { &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;bornYear&quot;, &quot;totalDaysServed&quot;,
 							&quot;currentAssignments&quot;, &quot;totalAssignments&quot;, &quot;firstAssignmentDate&quot;, &quot;lastAssignmentDate&quot;,
@@ -103,9 +99,9 @@ public final class PartyCurrentMembersPageModContentFactoryImpl extends Abstract
 							&quot;currentSpeakerAssignments&quot;, &quot;gender&quot; }, new String[] { &quot;personId&quot;, &quot;active&quot;, &quot;activeEu&quot;, &quot;party&quot;, &quot;activeGovernment&quot;, &quot;activeCommittee&quot;, &quot;activeParliament&quot;, &quot;activeParty&quot;, &quot;activeSpeaker&quot;,&quot;bornYear&quot; }, new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
 
-<span class="fc" id="L106">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L102">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="fc" id="L108">		return panelContent;</span>
+<span class="fc" id="L104">		return panelContent;</span>
 
 	}
 

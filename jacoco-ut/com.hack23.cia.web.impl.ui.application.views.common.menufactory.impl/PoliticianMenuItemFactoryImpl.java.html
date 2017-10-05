@@ -29,10 +29,10 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PoliticianPageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.jarektoro.responsivelayout.ResponsiveRow;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class PoliticianMenuItemFactoryImpl.
@@ -104,44 +104,44 @@ public final class PoliticianMenuItemFactoryImpl extends AbstractMenuItemFactory
 
 <span class="fc" id="L105">			applicationMenuItemFactory.addRankingMenu(menuBar);</span>
 
-<span class="fc" id="L107">			politicianRankingMenuItemFactory.createPoliticianRankingTopics(menuBar.addItem(POLITICIAN_RANKING, FontAwesome.BUG, null));</span>
+<span class="fc" id="L107">			politicianRankingMenuItemFactory.createPoliticianRankingTopics(menuBar.addItem(POLITICIAN_RANKING, VaadinIcons.BUG, null));</span>
 
-<span class="fc" id="L109">			final MenuItem politicanItem = menuBar.addItem(&quot;Politician &quot;+ pageId, FontAwesome.BUG,null);</span>
+<span class="fc" id="L109">			final MenuItem politicanItem = menuBar.addItem(&quot;Politician &quot;+ pageId, VaadinIcons.BUG,null);</span>
 
 
-<span class="fc" id="L112">			politicanItem.addItem(OVERVIEW_TEXT, FontAwesome.BUG,</span>
+<span class="fc" id="L112">			politicanItem.addItem(OVERVIEW_TEXT, VaadinIcons.BUG,</span>
 					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.OVERVIEW, pageId));
-<span class="fc" id="L114">			politicanItem.addItem(INDICATORS_TEXT, FontAwesome.BUG,</span>
+<span class="fc" id="L114">			politicanItem.addItem(INDICATORS_TEXT, VaadinIcons.BUG,</span>
 					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.INDICATORS, pageId));
 
-<span class="fc" id="L117">			final MenuItem rolesItem = politicanItem.addItem(ROLES_TEXT, FontAwesome.BUG, null);</span>
+<span class="fc" id="L117">			final MenuItem rolesItem = politicanItem.addItem(ROLES_TEXT, VaadinIcons.BUG, null);</span>
 
-<span class="fc" id="L119">			rolesItem.addItem(TOTAL_EXPERIENCE, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L119">			rolesItem.addItem(TOTAL_EXPERIENCE, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L120">					PoliticianPageMode.ROLESUMMARY.toString(), pageId));</span>
 
-<span class="fc" id="L122">			rolesItem.addItem(ROLE_LIST, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L122">			rolesItem.addItem(ROLE_LIST, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L123">					PoliticianPageMode.ROLELIST.toString(), pageId));</span>
 
-<span class="fc" id="L125">			rolesItem.addItem(ROLE_GHANT_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L125">			rolesItem.addItem(ROLE_GHANT_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L126">					PoliticianPageMode.ROLEGHANT.toString(), pageId));</span>
 
-<span class="fc" id="L128">			final MenuItem documentItem = politicanItem.addItem(DOCUMENTS_TEXT, FontAwesome.BUG, null);</span>
+<span class="fc" id="L128">			final MenuItem documentItem = politicanItem.addItem(DOCUMENTS_TEXT, VaadinIcons.BUG, null);</span>
 
-<span class="fc" id="L130">			documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L130">			documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L131">					PoliticianPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
 
-<span class="fc" id="L133">			documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L133">			documentItem.addItem(DOCUMENT_HISTORY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L134">					PoliticianPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L136">			final MenuItem ballotItem = politicanItem.addItem(BALLOTS_TEXT, FontAwesome.BUG, null);</span>
+<span class="fc" id="L136">			final MenuItem ballotItem = politicanItem.addItem(BALLOTS_TEXT, VaadinIcons.BUG, null);</span>
 
-<span class="fc" id="L138">			ballotItem.addItem(VOTE_HISTORY, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L138">			ballotItem.addItem(VOTE_HISTORY, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L139">					PoliticianPageMode.VOTEHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L141">			ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L141">			ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L142">					PoliticianPageMode.BALLOTDECISIONSUMMARY.toString(), pageId));</span>
 
-<span class="fc" id="L144">			politicanItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG,</span>
+<span class="fc" id="L144">			politicanItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.BUG,</span>
 					new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId));
 
 <span class="fc" id="L147">	}</span>
@@ -150,34 +150,34 @@ public final class PoliticianMenuItemFactoryImpl extends AbstractMenuItemFactory
 	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
 <span class="fc" id="L151">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L153">		createButtonLink(grid,INDICATORS_TEXT, FontAwesome.BUG,</span>
+<span class="fc" id="L153">		createButtonLink(grid,INDICATORS_TEXT, VaadinIcons.BUG,</span>
 				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.INDICATORS, pageId), &quot;Daily summary of ballots breakdown by won,party rebel,absent and number of ballots&quot;);
 
 
-<span class="fc" id="L157">		createButtonLink(grid,TOTAL_EXPERIENCE, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L157">		createButtonLink(grid,TOTAL_EXPERIENCE, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L158">				PoliticianPageMode.ROLESUMMARY.toString(), pageId), &quot;Experience summary in EU,government,parliament,committess and party roles&quot;);</span>
 
-<span class="fc" id="L160">		createButtonLink(grid,ROLE_LIST, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L160">		createButtonLink(grid,ROLE_LIST, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L161">				PoliticianPageMode.ROLELIST.toString(), pageId), &quot;List all roles&quot;);</span>
 
-<span class="fc" id="L163">		createButtonLink(grid,ROLE_GHANT_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L163">		createButtonLink(grid,ROLE_GHANT_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L164">				PoliticianPageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart of all roles&quot;);</span>
 
 
-<span class="fc" id="L167">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L167">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L168">				PoliticianPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Document activity by document type&quot;);</span>
 
-<span class="fc" id="L170">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L170">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L171">				PoliticianPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;Document history list&quot;);</span>
 
 
-<span class="fc" id="L174">		createButtonLink(grid,VOTE_HISTORY, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L174">		createButtonLink(grid,VOTE_HISTORY, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L175">				PoliticianPageMode.VOTEHISTORY.toString(), pageId), &quot;Summary of all votes&quot;);</span>
 
-<span class="fc" id="L177">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, FontAwesome.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
+<span class="fc" id="L177">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.BUG, new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME,</span>
 <span class="fc" id="L178">				PoliticianPageMode.BALLOTDECISIONSUMMARY.toString(), pageId), &quot;Summary of all ballot decisions&quot;);</span>
 
-<span class="fc" id="L180">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.BUG,</span>
+<span class="fc" id="L180">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.BUG,</span>
 				new PageModeMenuCommand(UserViews.POLITICIAN_VIEW_NAME, PageMode.PAGEVISITHISTORY,pageId), &quot;View history of page visit for this page.&quot;);
 
 <span class="fc" id="L183">	}</span>

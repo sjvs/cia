@@ -1,4 +1,3 @@
-com.hack23.cia.web
 com.hack23.cia.web.impl.ui.application
 com.hack23.cia.web.impl.ui.application.action
 com.hack23.cia.web.impl.ui.application.util

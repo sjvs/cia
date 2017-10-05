@@ -34,8 +34,8 @@
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPropertyClickListener;
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.pageclicklisteners.handlers.api.SearchDocumentResponseHandler;
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Panel;
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.data.util.BeanItemContainer;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment"> * The Class SearchDocumentResponseHandlerImpl.</em>
@@ -77,19 +77,16 @@
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  		searchresultLayout.addComponent(formPanel);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		searchresultLayout.setExpandRatio(formPanel, ContentRatio.SMALL3);
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;DocumentElement&gt; documentActivityDataDataDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				DocumentElement.<strong class="jxr_keyword">class</strong>, response.getResultElement());
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		gridFactory.createBasicBeanItemGrid(searchresultLayout, documentActivityDataDataDataSource, <span class="jxr_string">"Document"</span>,
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"rm"</span>, <span class="jxr_string">"createdDate"</span>, <span class="jxr_string">"documentName"</span>, <span class="jxr_string">"subType"</span>, <span class="jxr_string">"title"</span>, <span class="jxr_string">"subTitle"</span>, <span class="jxr_string">"status"</span> },
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"rm"</span>, <span class="jxr_string">"lang"</span>, <span class="jxr_string">"noteTitle"</span>, <span class="jxr_string">"origin"</span>, <span class="jxr_string">"subType"</span>,<span class="jxr_string">"note"</span>, <span class="jxr_string">"subTitle"</span>, <span class="jxr_string">"status"</span>, <span class="jxr_string">"label"</span>, <span class="jxr_string">"id"</span>, <span class="jxr_string">"hit"</span>, <span class="jxr_string">"madePublicDate"</span>, <span class="jxr_string">"databaseSource"</span>, <span class="jxr_string">"domainOrg"</span>, <span class="jxr_string">"relatedId"</span>,
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  						<span class="jxr_string">"org"</span>, <span class="jxr_string">"documentType"</span>,<span class="jxr_string">"docType"</span>, <span class="jxr_string">"debateName"</span>, <span class="jxr_string">"tempLabel"</span>, <span class="jxr_string">"numberValue"</span>, <span class="jxr_string">"systemDate"</span>, <span class="jxr_string">"kallId"</span>,
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  						<span class="jxr_string">"documentFormat"</span>, <span class="jxr_string">"documentUrlText"</span>, <span class="jxr_string">"documentUrlHtml"</span>, <span class="jxr_string">"documentStatusUrlXml"</span>,
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  						<span class="jxr_string">"committeeReportUrlXml"</span> },
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  				<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.DOCUMENT_VIEW_NAME, <span class="jxr_string">"id"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  	}
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  }
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  		gridFactory.createBasicBeanItemGrid(searchresultLayout, DocumentElement.<strong class="jxr_keyword">class</strong>, response.getResultElement(), <span class="jxr_string">"Document"</span>,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"rm"</span>, <span class="jxr_string">"createdDate"</span>, <span class="jxr_string">"documentName"</span>, <span class="jxr_string">"subType"</span>, <span class="jxr_string">"title"</span>, <span class="jxr_string">"subTitle"</span>, <span class="jxr_string">"status"</span> },
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"rm"</span>, <span class="jxr_string">"lang"</span>, <span class="jxr_string">"noteTitle"</span>, <span class="jxr_string">"origin"</span>, <span class="jxr_string">"subType"</span>,<span class="jxr_string">"note"</span>, <span class="jxr_string">"subTitle"</span>, <span class="jxr_string">"status"</span>, <span class="jxr_string">"label"</span>, <span class="jxr_string">"id"</span>, <span class="jxr_string">"hit"</span>, <span class="jxr_string">"madePublicDate"</span>, <span class="jxr_string">"databaseSource"</span>, <span class="jxr_string">"domainOrg"</span>, <span class="jxr_string">"relatedId"</span>,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  						<span class="jxr_string">"org"</span>, <span class="jxr_string">"documentType"</span>,<span class="jxr_string">"docType"</span>, <span class="jxr_string">"debateName"</span>, <span class="jxr_string">"tempLabel"</span>, <span class="jxr_string">"numberValue"</span>, <span class="jxr_string">"systemDate"</span>, <span class="jxr_string">"kallId"</span>,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  						<span class="jxr_string">"documentFormat"</span>, <span class="jxr_string">"documentUrlText"</span>, <span class="jxr_string">"documentUrlHtml"</span>, <span class="jxr_string">"documentStatusUrlXml"</span>,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  						<span class="jxr_string">"committeeReportUrlXml"</span> },
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  				<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.DOCUMENT_VIEW_NAME, <span class="jxr_string">"id"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  	}
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

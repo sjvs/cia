@@ -41,8 +41,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class WorldIndicatorsPageModContentFactoryImpl.
@@ -113,10 +113,9 @@ public final class WorldIndicatorsPageModContentFactoryImpl extends AbstractCoun
 <span class="fc" id="L113">			indicatorSummaryValue = indicatorSummary.get();</span>
 
 <span class="fc" id="L115">			getFormFactory().addFormPanelTextFields(verticalLayout,</span>
-					new BeanItem&lt;&gt;(
-							indicatorSummaryValue),
+					indicatorSummaryValue,
 							ViewWorldbankIndicatorDataCountrySummary.class,
-<span class="fc" id="L119">							Arrays.asList(new String[] {</span>
+<span class="fc" id="L118">							Arrays.asList(new String[] {</span>
 									   &quot;indicatorName&quot;,
 									   &quot;sourceValue&quot;,
 									   &quot;topics&quot;,
@@ -124,15 +123,15 @@ public final class WorldIndicatorsPageModContentFactoryImpl extends AbstractCoun
 									   &quot;sourceOrganization&quot;}));
 		}
 
-<span class="fc" id="L127">		final DataContainer&lt;WorldBankData, Serializable&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L128">		.getDataContainer(WorldBankData.class);</span>
+<span class="fc" id="L126">		final DataContainer&lt;WorldBankData, Serializable&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L127">		.getDataContainer(WorldBankData.class);</span>
 
 
-<span class="fc" id="L131">		final List&lt;WorldBankData&gt; dataList = dataContainer.findListByEmbeddedProperty(WorldBankData.class, WorldBankData_.indicator, Indicator.class, Indicator_.id, indicator);</span>
+<span class="fc" id="L130">		final List&lt;WorldBankData&gt; dataList = dataContainer.findListByEmbeddedProperty(WorldBankData.class, WorldBankData_.indicator, Indicator.class, Indicator_.id, indicator);</span>
 
-<span class="fc" id="L133">		chartDataManager.createIndicatorChart(verticalLayout,dataList,indicatorSummaryValue);</span>
+<span class="fc" id="L132">		chartDataManager.createIndicatorChart(verticalLayout,dataList,indicatorSummaryValue);</span>
 
-<span class="fc" id="L135">	}</span>
+<span class="fc" id="L134">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

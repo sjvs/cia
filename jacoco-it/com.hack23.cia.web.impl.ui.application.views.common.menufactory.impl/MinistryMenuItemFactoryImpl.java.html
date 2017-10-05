@@ -29,10 +29,10 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.MinistryPag
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 import com.jarektoro.responsivelayout.ResponsiveRow;
-import com.vaadin.server.FontAwesome;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
 
 /**
  * The Class MenuItemFactoryImpl.
@@ -94,38 +94,38 @@ public final class MinistryMenuItemFactoryImpl extends AbstractMenuItemFactoryIm
 
 <span class="fc" id="L95">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
 
-<span class="fc" id="L97">		ministryRankingMenuItemFactory.createMinistryRankingTopics(menuBar.addItem(MINISTRY_RANKING, FontAwesome.GROUP,null));</span>
+<span class="fc" id="L97">		ministryRankingMenuItemFactory.createMinistryRankingTopics(menuBar.addItem(MINISTRY_RANKING, VaadinIcons.GROUP,null));</span>
 
-<span class="fc" id="L99">		final MenuItem ministryItem = menuBar.addItem(&quot;Ministry &quot;+ pageId, FontAwesome.GROUP,null);</span>
+<span class="fc" id="L99">		final MenuItem ministryItem = menuBar.addItem(&quot;Ministry &quot;+ pageId, VaadinIcons.GROUP,null);</span>
 
 
-<span class="fc" id="L102">		ministryItem.addItem(OVERVIEW_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L102">		ministryItem.addItem(OVERVIEW_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, PageMode.OVERVIEW, pageId));
-<span class="fc" id="L104">		final MenuItem rolesItem = ministryItem.addItem(ROLES_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L104">		final MenuItem rolesItem = ministryItem.addItem(ROLES_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L106">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L106">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L107">				MinistryPageMode.CURRENTMEMBERS.toString(), pageId));</span>
 
-<span class="fc" id="L109">		rolesItem.addItem(MEMBER_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L109">		rolesItem.addItem(MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L110">				MinistryPageMode.MEMBERHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L112">		rolesItem.addItem(ROLE_GHANT_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L112">		rolesItem.addItem(ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
 <span class="fc" id="L113">				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, MinistryPageMode.ROLEGHANT.toString(), pageId));</span>
 
-<span class="fc" id="L115">		rolesItem.addItem(GOVERNMENT_BODIES, FontAwesome.GROUP,</span>
+<span class="fc" id="L115">		rolesItem.addItem(GOVERNMENT_BODIES, VaadinIcons.GROUP,</span>
 <span class="fc" id="L116">				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, MinistryPageMode.GOVERNMENT_BODIES.toString(), pageId));</span>
 
 
 
-<span class="fc" id="L120">		final MenuItem documentItem = ministryItem.addItem(DOCUMENTS_TEXT, FontAwesome.GROUP, null);</span>
+<span class="fc" id="L120">		final MenuItem documentItem = ministryItem.addItem(DOCUMENTS_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L122">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L122">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L123">				MinistryPageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
 
-<span class="fc" id="L125">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L125">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L126">				MinistryPageMode.DOCUMENTHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L128">		ministryItem.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L128">		ministryItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId));
 
 <span class="fc" id="L131">	}</span>
@@ -134,26 +134,26 @@ public final class MinistryMenuItemFactoryImpl extends AbstractMenuItemFactoryIm
 	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
 <span class="fc" id="L135">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L137">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L137">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L138">				MinistryPageMode.CURRENTMEMBERS.toString(), pageId), &quot;Members currently holding positions&quot;);</span>
 
-<span class="fc" id="L140">		createButtonLink(grid,MEMBER_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L140">		createButtonLink(grid,MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L141">				MinistryPageMode.MEMBERHISTORY.toString(), pageId), &quot;Current and past members&quot;);</span>
 
-<span class="fc" id="L143">		createButtonLink(grid,ROLE_GHANT_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L143">		createButtonLink(grid,ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
 <span class="fc" id="L144">				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, MinistryPageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart for all the roles&quot;);</span>
 
-<span class="fc" id="L146">		createButtonLink(grid,GOVERNMENT_BODIES, FontAwesome.GROUP,</span>
+<span class="fc" id="L146">		createButtonLink(grid,GOVERNMENT_BODIES, VaadinIcons.GROUP,</span>
 <span class="fc" id="L147">				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, MinistryPageMode.GOVERNMENT_BODIES.toString(), pageId), &quot;All government bodies that are governed by ministry&quot;);</span>
 
 
-<span class="fc" id="L150">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L150">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L151">				MinistryPageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Chart over document activity&quot;);</span>
 
-<span class="fc" id="L153">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, FontAwesome.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
+<span class="fc" id="L153">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME,</span>
 <span class="fc" id="L154">				MinistryPageMode.DOCUMENTHISTORY.toString(), pageId), &quot;List of all document sorted by most recent&quot;);</span>
 
-<span class="fc" id="L156">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.GROUP,</span>
+<span class="fc" id="L156">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.MINISTRY_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId), &quot;View history of page visit for this page.&quot;);
 
 

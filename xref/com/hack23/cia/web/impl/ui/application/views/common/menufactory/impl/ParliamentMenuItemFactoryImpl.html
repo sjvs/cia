@@ -36,10 +36,10 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">import</strong> com.jarektoro.responsivelayout.ResponsiveRow;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">import</strong> com.vaadin.icons.VaadinIcons;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar.MenuItem;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * The Class ParliamentMenuItemFactoryImpl.</em>
@@ -133,34 +133,34 @@
 <a class="jxr_linenumber" name="L125" href="#L125">125</a> 
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 		applicationMenuItemFactory.addRankingMenu(menuBar);
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 
-<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		createParliamentTopicMenu(menuBar.addItem(PARLIAMENT_RANKING_TEXT, FontAwesome.INSTITUTION, <strong class="jxr_keyword">null</strong>));
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		createParliamentTopicMenu(menuBar.addItem(PARLIAMENT_RANKING_TEXT, VaadinIcons.INSTITUTION, <strong class="jxr_keyword">null</strong>));
 <a class="jxr_linenumber" name="L129" href="#L129">129</a> 
 <a class="jxr_linenumber" name="L130" href="#L130">130</a> 	}
 <a class="jxr_linenumber" name="L131" href="#L131">131</a> 
 <a class="jxr_linenumber" name="L132" href="#L132">132</a> 	@Override
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createParliamentTopicMenu(<strong class="jxr_keyword">final</strong> MenuItem charts) {
-<a class="jxr_linenumber" name="L134" href="#L134">134</a> 		charts.addItem(OVERVIEW_TEXT, FontAwesome.INSTITUTION,
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> 		charts.addItem(OVERVIEW_TEXT, VaadinIcons.INSTITUTION,
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 				COMMAND_OVERVIEW);
 <a class="jxr_linenumber" name="L136" href="#L136">136</a> 
-<a class="jxr_linenumber" name="L137" href="#L137">137</a> 		<strong class="jxr_keyword">final</strong> MenuItem chartIndicators = charts.addItem(SWEDISH_PARLIAMENT_INDICATORS, FontAwesome.INSTITUTION, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> 		<strong class="jxr_keyword">final</strong> MenuItem chartIndicators = charts.addItem(SWEDISH_PARLIAMENT_INDICATORS, VaadinIcons.INSTITUTION, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 
-<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem = chartIndicators.addItem(PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER);
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem = chartIndicators.addItem(PARTY_WINNER,VaadinIcons.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER);
 <a class="jxr_linenumber" name="L140" href="#L140">140</a> 		addItem.setDescription(DAILY_AVERAGE_WON_BALLOTS);
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 
-<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem2 = chartIndicators.addItem(PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER);
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem2 = chartIndicators.addItem(PARTY_GENDER,VaadinIcons.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER);
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 		addItem2.setDescription(AVERAGE_PERCENTAGE_MALE);
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem3 = chartIndicators.addItem(PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE);
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem3 = chartIndicators.addItem(PARTY_AGE, VaadinIcons.INSTITUTION,COMMAND_CHARTS_PARTY_AGE);
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 		addItem3.setDescription(AVERAGE_AGE);
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem4 = chartIndicators.addItem(DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY);
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem4 = chartIndicators.addItem(DOCUMENT_ACTIVITY_BY_TYPE,VaadinIcons.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 		addItem4.setDescription(DAILY_TOTAL_OF_NUMBER_PUBLISHED_DOCUMENTS);
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem5 = chartIndicators.addItem(DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY);
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> MenuItem addItem5 = chartIndicators.addItem(DECISION_ACTIVITY_BY_TYPE, VaadinIcons.INSTITUTION,COMMAND_DECISION_ACTIVITY);
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 		addItem5.setDescription(DAILY_TOTAL_OF_NUMBER_OF_DECSIONS_MADE);
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> 
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		charts.addItem(PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		charts.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.INSTITUTION,
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> 				COMMAND_PAGEVISITHISTORY);
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 	}
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 
@@ -168,18 +168,18 @@
 <a class="jxr_linenumber" name="L160" href="#L160">160</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createOverviewPage(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(panelContent);
 <a class="jxr_linenumber" name="L162" href="#L162">162</a> 
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		createButtonLink(grid,PARTY_WINNER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, <span class="jxr_string">"Chart daily ballot summary, percentage ballots that day the voted in winning side"</span>);
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		createButtonLink(grid,PARTY_WINNER,VaadinIcons.INSTITUTION, COMMAND_CHARTS_PARTY_WINNER, <span class="jxr_string">"Chart daily ballot summary, percentage ballots that day the voted in winning side"</span>);
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		createButtonLink(grid,PARTY_GENDER,FontAwesome.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER, <span class="jxr_string">"Chart Party average gender all ballots"</span>);
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		createButtonLink(grid,PARTY_GENDER,VaadinIcons.INSTITUTION, COMMAND_CHARTS_PARTY_GENDER, <span class="jxr_string">"Chart Party average gender all ballots"</span>);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		createButtonLink(grid,PARTY_AGE, FontAwesome.INSTITUTION,COMMAND_CHARTS_PARTY_AGE, <span class="jxr_string">"Chart party age  all ballots"</span>);
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		createButtonLink(grid,PARTY_AGE, VaadinIcons.INSTITUTION,COMMAND_CHARTS_PARTY_AGE, <span class="jxr_string">"Chart party age  all ballots"</span>);
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> 
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 		createButtonLink(grid,DOCUMENT_ACTIVITY_BY_TYPE,FontAwesome.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY, <span class="jxr_string">"Chart document activity by type"</span>);
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 		createButtonLink(grid,DECISION_ACTIVITY_BY_TYPE, FontAwesome.INSTITUTION,COMMAND_DECISION_ACTIVITY, <span class="jxr_string">"Chart decisions by decision type"</span>);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 		createButtonLink(grid,DOCUMENT_ACTIVITY_BY_TYPE,VaadinIcons.INSTITUTION, COMMAND_DOCUMENT_ACTIVITY, <span class="jxr_string">"Chart document activity by type"</span>);
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 		createButtonLink(grid,DECISION_ACTIVITY_BY_TYPE, VaadinIcons.INSTITUTION,COMMAND_DECISION_ACTIVITY, <span class="jxr_string">"Chart decisions by decision type"</span>);
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, FontAwesome.INSTITUTION,
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.INSTITUTION,
 <a class="jxr_linenumber" name="L175" href="#L175">175</a> 				COMMAND_PAGEVISITHISTORY, <span class="jxr_string">"View history of page visit for this page."</span>);
 <a class="jxr_linenumber" name="L176" href="#L176">176</a> 
 <a class="jxr_linenumber" name="L177" href="#L177">177</a> 	}

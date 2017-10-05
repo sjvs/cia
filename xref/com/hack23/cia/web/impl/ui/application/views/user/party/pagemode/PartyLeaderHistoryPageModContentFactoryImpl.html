@@ -40,8 +40,8 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Layout;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Panel;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.data.util.BeanItemContainer;
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * The Class LeaderHistoryPageModContentFactoryImpl.</em>
@@ -82,33 +82,27 @@
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  			getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  			LabelFactory.createHeader2Label(panelContent,LEADER_HISTORY);
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  			<strong class="jxr_keyword">final</strong> DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  					.getDataContainer(ViewRiksdagenPartyRoleMember.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  			<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;ViewRiksdagenPartyRoleMember&gt; partyRoleMemberDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  					ViewRiksdagenPartyRoleMember.<strong class="jxr_keyword">class</strong>, partyRoleMemberDataContainer
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  							.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()));
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>  			getGridFactory().createBasicBeanItemGrid(
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  					panelContent, partyRoleMemberDataSource,
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  					<span class="jxr_string">"Leader History"</span>,
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>  					<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"roleId"</span>, <span class="jxr_string">"roleCode"</span>, <span class="jxr_string">"personId"</span>, <span class="jxr_string">"firstName"</span>, <span class="jxr_string">"lastName"</span>, <span class="jxr_string">"party"</span>, <span class="jxr_string">"totalDaysServed"</span>, <span class="jxr_string">"active"</span>, <span class="jxr_string">"detail"</span>,
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  							<span class="jxr_string">"fromDate"</span>, <span class="jxr_string">"toDate"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"roleId"</span>, <span class="jxr_string">"personId"</span>, <span class="jxr_string">"party"</span>, <span class="jxr_string">"detail"</span> },
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>  					<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.POLITICIAN_VIEW_NAME, <span class="jxr_string">"personId"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  			LabelFactory.createHeader2Label(panelContent,LEADER_HISTORY);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  			<strong class="jxr_keyword">final</strong> DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  					.getDataContainer(ViewRiksdagenPartyRoleMember.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  			getGridFactory().createBasicBeanItemGrid(
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  					panelContent, ViewRiksdagenPartyRoleMember.<strong class="jxr_keyword">class</strong>, partyRoleMemberDataContainer
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  					.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()),
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  					<span class="jxr_string">"Leader History"</span>,
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  					<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"roleId"</span>, <span class="jxr_string">"roleCode"</span>, <span class="jxr_string">"personId"</span>, <span class="jxr_string">"firstName"</span>, <span class="jxr_string">"lastName"</span>, <span class="jxr_string">"party"</span>, <span class="jxr_string">"totalDaysServed"</span>, <span class="jxr_string">"active"</span>, <span class="jxr_string">"detail"</span>,
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  							<span class="jxr_string">"fromDate"</span>, <span class="jxr_string">"toDate"</span> }, <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"roleId"</span>, <span class="jxr_string">"personId"</span>, <span class="jxr_string">"party"</span>, <span class="jxr_string">"detail"</span> },
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  					<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.POLITICIAN_VIEW_NAME, <span class="jxr_string">"personId"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  		}
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		<strong class="jxr_keyword">return</strong> panelContent;
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  	}
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>  			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  		}
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  		<strong class="jxr_keyword">return</strong> panelContent;
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
-<a class="jxr_linenumber" name="L100" href="#L100">100</a> 	}
-<a class="jxr_linenumber" name="L101" href="#L101">101</a> 
-<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
-<a class="jxr_linenumber" name="L103" href="#L103">103</a> }
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

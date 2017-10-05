@@ -33,8 +33,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class VoteHistoryPageModContentFactoryImpl.
@@ -79,11 +79,7 @@ public final class PartyVoteHistoryPageModContentFactoryImpl extends AbstractPar
 
 <span class="fc" id="L80">			LabelFactory.createHeader2Label(panelContent, VOTE_HISTORY);</span>
 
-<span class="fc" id="L82">			final BeanItemContainer&lt;ViewRiksdagenVoteDataBallotPartySummary&gt; partyBallotDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenVoteDataBallotPartySummary.class,
-<span class="fc" id="L84">					viewRiksdagenVoteDataBallotPartySummaryChartDataManager.findByValue(pageId));</span>
-
-<span class="fc" id="L86">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, partyBallotDataSource, &quot;Ballots&quot;,</span>
+<span class="nc" id="L82">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPartySummary.class, viewRiksdagenVoteDataBallotPartySummaryChartDataManager.findByValue(pageId), &quot;Ballots&quot;,</span>
 					new String[] { &quot;embeddedId.ballotId&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;,
 							&quot;embeddedId.party&quot; },
 					new String[] { &quot;embeddedId.party&quot;, &quot;voteDate&quot;, &quot;rm&quot;, &quot;label&quot;, &quot;embeddedId.concern&quot;,
@@ -99,9 +95,9 @@ public final class PartyVoteHistoryPageModContentFactoryImpl extends AbstractPar
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;embeddedId.ballotId&quot;),
 					&quot;embeddedId.ballotId&quot;, null);
 
-<span class="fc" id="L102">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="nc" id="L98">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="fc" id="L104">		return panelContent;</span>
+<span class="nc" id="L100">		return panelContent;</span>
 
 	}
 

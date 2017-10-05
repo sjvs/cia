@@ -20,6 +20,7 @@ package com.hack23.cia.web.impl.ui.application.views.user.document.pagemode;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -27,6 +28,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
 import com.hack23.cia.service.api.action.user.SearchDocumentRequest;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
+import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.DocumentMenuItemFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractPageModContentFactoryImpl;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
@@ -36,8 +38,8 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItem;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class SearchDocumentPageModContentFactoryImpl.
@@ -51,58 +53,62 @@ public final class SearchDocumentPageModContentFactoryImpl extends AbstractPageM
 	/** The Constant MAX_RESULT_SIZE. */
 	private static final int MAX_RESULT_SIZE = 100;
 
+	@Autowired
+	private DocumentMenuItemFactory documentMenuItemFactory;
+
 	/**
 	 * Instantiates a new search document page mod content factory impl.
 	 */
 	public SearchDocumentPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L63">		super();</span>
+<span class="fc" id="L64">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L63">		return NAME.equals(page);</span>
+<span class="fc" id="L68">		return NAME.equals(page);</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L69">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L74">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L71">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L76">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L73">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L78">		documentMenuItemFactory.createDocumentsMenuBar(menuBar);</span>
 
-<span class="fc" id="L75">		final VerticalLayout searchLayout = new VerticalLayout();</span>
-<span class="fc" id="L76">		searchLayout.setSizeFull();</span>
-<span class="fc" id="L77">		panelContent.addComponent(searchLayout);</span>
 
-<span class="fc" id="L79">		final VerticalLayout searchresultLayout = new VerticalLayout();</span>
-<span class="fc" id="L80">		searchresultLayout.setSizeFull();</span>
+<span class="fc" id="L81">		final VerticalLayout searchLayout = new VerticalLayout();</span>
+<span class="fc" id="L82">		searchLayout.setSizeFull();</span>
+<span class="fc" id="L83">		panelContent.addComponent(searchLayout);</span>
 
-<span class="fc" id="L82">		final Panel formPanel = new Panel();</span>
-<span class="fc" id="L83">		formPanel.setSizeFull();</span>
+<span class="fc" id="L85">		final VerticalLayout searchresultLayout = new VerticalLayout();</span>
+<span class="fc" id="L86">		searchresultLayout.setSizeFull();</span>
 
-<span class="fc" id="L85">		searchresultLayout.addComponent(formPanel);</span>
+<span class="fc" id="L88">		final Panel formPanel = new Panel();</span>
+<span class="fc" id="L89">		formPanel.setSizeFull();</span>
 
-<span class="fc" id="L87">		final FormLayout formContent = new FormLayout();</span>
-<span class="fc" id="L88">		formPanel.setContent(formContent);</span>
+<span class="fc" id="L91">		searchresultLayout.addComponent(formPanel);</span>
 
-<span class="fc" id="L90">		panelContent.addComponent(searchresultLayout);</span>
-<span class="fc" id="L91">		panelContent.setExpandRatio(searchresultLayout, ContentRatio.LARGE);</span>
+<span class="fc" id="L93">		final FormLayout formContent = new FormLayout();</span>
+<span class="fc" id="L94">		formPanel.setContent(formContent);</span>
 
-<span class="fc" id="L93">		final SearchDocumentRequest searchRequest = new SearchDocumentRequest();</span>
-<span class="fc" id="L94">		searchRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
-<span class="fc" id="L95">		searchRequest.setMaxResults(MAX_RESULT_SIZE);</span>
-<span class="fc" id="L96">		searchRequest.setSearchExpression(&quot;&quot;);</span>
-<span class="fc" id="L97">		getFormFactory().addRequestInputFormFields(formContent, new BeanItem&lt;&gt;(searchRequest),</span>
-<span class="fc" id="L98">				SearchDocumentRequest.class, Arrays.asList(new String[] { &quot;searchExpression&quot; }), &quot;Search&quot;,</span>
-<span class="fc" id="L99">				new SearchDocumentClickListener(searchRequest, new SearchDocumentResponseHandlerImpl(getGridFactory(), formPanel,</span>
+<span class="fc" id="L96">		panelContent.addComponent(searchresultLayout);</span>
+<span class="fc" id="L97">		panelContent.setExpandRatio(searchresultLayout, ContentRatio.LARGE);</span>
+
+<span class="fc" id="L99">		final SearchDocumentRequest searchRequest = new SearchDocumentRequest();</span>
+<span class="fc" id="L100">		searchRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L101">		searchRequest.setMaxResults(MAX_RESULT_SIZE);</span>
+<span class="fc" id="L102">		searchRequest.setSearchExpression(&quot;&quot;);</span>
+<span class="fc" id="L103">		getFormFactory().addRequestInputFormFields(formContent, searchRequest,</span>
+<span class="fc" id="L104">				SearchDocumentRequest.class, Arrays.asList(new String[] { &quot;searchExpression&quot; }), &quot;Search&quot;,</span>
+<span class="fc" id="L105">				new SearchDocumentClickListener(searchRequest, new SearchDocumentResponseHandlerImpl(getGridFactory(), formPanel,</span>
 						searchresultLayout)));
 
-<span class="fc" id="L102">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L108">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="fc" id="L105">		return panelContent;</span>
+<span class="fc" id="L111">		return panelContent;</span>
 
 	}
 

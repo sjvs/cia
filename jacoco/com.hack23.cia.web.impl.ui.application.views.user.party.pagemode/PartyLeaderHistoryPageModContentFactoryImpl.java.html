@@ -32,8 +32,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class LeaderHistoryPageModContentFactoryImpl.
@@ -74,28 +74,22 @@ public final class PartyLeaderHistoryPageModContentFactoryImpl extends AbstractP
 
 <span class="fc" id="L75">			getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
 
+<span class="fc" id="L77">			LabelFactory.createHeader2Label(panelContent,LEADER_HISTORY);</span>
 
-<span class="fc" id="L78">			LabelFactory.createHeader2Label(panelContent,LEADER_HISTORY);</span>
+<span class="fc" id="L79">			final DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()</span>
+<span class="fc" id="L80">					.getDataContainer(ViewRiksdagenPartyRoleMember.class);</span>
 
-
-<span class="fc" id="L81">			final DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()</span>
-<span class="fc" id="L82">					.getDataContainer(ViewRiksdagenPartyRoleMember.class);</span>
-
-<span class="fc" id="L84">			final BeanItemContainer&lt;ViewRiksdagenPartyRoleMember&gt; partyRoleMemberDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenPartyRoleMember.class, partyRoleMemberDataContainer
-<span class="fc" id="L86">							.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()));</span>
-
-<span class="fc" id="L88">			getGridFactory().createBasicBeanItemGrid(</span>
-					panelContent, partyRoleMemberDataSource,
+<span class="pc" id="L82">			getGridFactory().createBasicBeanItemGrid(</span>
+					panelContent, ViewRiksdagenPartyRoleMember.class, partyRoleMemberDataContainer
+<span class="nc" id="L84">					.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()),</span>
 					&quot;Leader History&quot;,
 					new String[] { &quot;roleId&quot;, &quot;roleCode&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;totalDaysServed&quot;, &quot;active&quot;, &quot;detail&quot;,
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;party&quot;, &quot;detail&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-
-<span class="fc" id="L96">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="nc" id="L90">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="fc" id="L98">		return panelContent;</span>
+<span class="nc" id="L92">		return panelContent;</span>
 
 	}
 

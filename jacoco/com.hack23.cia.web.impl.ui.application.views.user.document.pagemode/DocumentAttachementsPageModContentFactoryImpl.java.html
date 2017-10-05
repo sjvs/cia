@@ -41,8 +41,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.DocumentPag
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class DocumentAttachementsPageModContentFactoryImpl.
@@ -96,33 +96,30 @@ public final class DocumentAttachementsPageModContentFactoryImpl extends Abstrac
 
 <span class="pc bpc" id="L97" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentAttachmentContainer() != null</span>
 <span class="pc bpc" id="L98" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList() != null) {</span>
-<span class="fc" id="L99">				final BeanItemContainer&lt;DocumentAttachment&gt; documentAttachmentDataSource = new BeanItemContainer&lt;&gt;(</span>
-						DocumentAttachment.class,
-<span class="fc" id="L101">						documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList());</span>
 
-<span class="fc" id="L103">				getGridFactory().createBasicBeanItemGrid(</span>
-						panelContent, documentAttachmentDataSource,
+<span class="fc" id="L100">				getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L101">						panelContent, DocumentAttachment.class, documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList(),</span>
 						&quot;Document attachements&quot;, new String[] { &quot;fileName&quot;, &quot;fileSize&quot;, &quot;fileType&quot;, &quot;fileUrl&quot; }, new String[] { &quot;hjid&quot; },
 						null, null, null);
 
-<span class="fc" id="L108">				final List&lt;DocumentAttachment&gt; documentAttachmentList = documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList();</span>
+<span class="fc" id="L105">				final List&lt;DocumentAttachment&gt; documentAttachmentList = documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList();</span>
 
-<span class="fc" id="L110">				final VerticalLayout verticalLayout = new VerticalLayout();</span>
-<span class="fc" id="L111">				panelContent.addComponent(verticalLayout);</span>
-<span class="fc" id="L112">				panelContent.setExpandRatio(verticalLayout,ContentRatio.SMALL);</span>
+<span class="fc" id="L107">				final VerticalLayout verticalLayout = new VerticalLayout();</span>
+<span class="fc" id="L108">				panelContent.addComponent(verticalLayout);</span>
+<span class="fc" id="L109">				panelContent.setExpandRatio(verticalLayout,ContentRatio.SMALL);</span>
 
-<span class="fc bfc" id="L114" title="All 2 branches covered.">				for (final DocumentAttachment documentAttachment : documentAttachmentList) {</span>
-<span class="fc" id="L115">					final ExternalAttachmentDownloadLink link = new ExternalAttachmentDownloadLink(documentAttachment.getFileName(), documentAttachment.getFileType(), documentAttachment.getFileUrl());</span>
-<span class="fc" id="L116">					verticalLayout.addComponent(link);</span>
-<span class="fc" id="L117">				}</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">				for (final DocumentAttachment documentAttachment : documentAttachmentList) {</span>
+<span class="fc" id="L112">					final ExternalAttachmentDownloadLink link = new ExternalAttachmentDownloadLink(documentAttachment.getFileName(), documentAttachment.getFileType(), documentAttachment.getFileUrl());</span>
+<span class="fc" id="L113">					verticalLayout.addComponent(link);</span>
+<span class="fc" id="L114">				}</span>
 			}
 
-<span class="fc" id="L120">			panel.setContent(panelContent);</span>
-<span class="fc" id="L121">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L117">			panel.setContent(panelContent);</span>
+<span class="fc" id="L118">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}
 
-<span class="fc" id="L125">		return panelContent;</span>
+<span class="fc" id="L122">		return panelContent;</span>
 
 	}
 

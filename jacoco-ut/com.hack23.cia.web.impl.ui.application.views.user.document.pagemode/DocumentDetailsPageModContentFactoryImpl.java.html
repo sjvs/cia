@@ -37,8 +37,8 @@ import com.hack23.cia.web.impl.ui.application.views.common.viewnames.DocumentPag
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class DocumentDetailsPageModContentFactoryImpl.
@@ -92,21 +92,18 @@ public final class DocumentDetailsPageModContentFactoryImpl extends AbstractDocu
 
 <span class="pc bpc" id="L93" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentDetailContainer() != null</span>
 <span class="pc bpc" id="L94" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList() != null) {</span>
-<span class="fc" id="L95">				final BeanItemContainer&lt;DocumentDetailData&gt; documentDetailDataDataDataSource = new BeanItemContainer&lt;&gt;(</span>
-						DocumentDetailData.class,
-<span class="fc" id="L97">						documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList());</span>
 
-<span class="fc" id="L99">				getGridFactory().createBasicBeanItemGrid(</span>
-						panelContent, documentDetailDataDataDataSource,
+<span class="fc" id="L96">				getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L97">						panelContent, DocumentDetailData.class, documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList(),</span>
 						&quot;Document details&quot;, new String[] { &quot;code&quot;, &quot;detailName&quot;, &quot;text&quot; }, new String[] { &quot;hjid&quot; }, null, null, null);
 			}
 
-<span class="fc" id="L104">			panel.setContent(panelContent);</span>
-<span class="fc" id="L105">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L101">			panel.setContent(panelContent);</span>
+<span class="fc" id="L102">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}
 
-<span class="fc" id="L109">		return panelContent;</span>
+<span class="fc" id="L106">		return panelContent;</span>
 
 	}
 

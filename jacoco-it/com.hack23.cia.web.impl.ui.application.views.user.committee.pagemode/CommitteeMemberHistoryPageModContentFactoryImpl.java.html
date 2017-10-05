@@ -35,8 +35,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class CommitteeMemberHistoryPageModContentFactoryImpl.
@@ -86,23 +86,19 @@ public final class CommitteeMemberHistoryPageModContentFactoryImpl extends Abstr
 <span class="fc" id="L86">			final DataContainer&lt;ViewRiksdagenCommitteeRoleMember, String&gt; committeeRoleMemberDataContainer = getApplicationManager()</span>
 <span class="fc" id="L87">					.getDataContainer(ViewRiksdagenCommitteeRoleMember.class);</span>
 
-<span class="fc" id="L89">			final BeanItemContainer&lt;ViewRiksdagenCommitteeRoleMember&gt; committeeRoleMemberDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenCommitteeRoleMember.class,
-<span class="fc" id="L91">					committeeRoleMemberDataContainer.getAllBy(ViewRiksdagenCommitteeRoleMember_.detail,</span>
-<span class="fc" id="L92">							viewRiksdagenCommittee.getEmbeddedId().getDetail()));</span>
-
-<span class="fc" id="L94">			getGridFactory().createBasicBeanItemGrid(</span>
-					panelContent, committeeRoleMemberDataSource,
+<span class="fc" id="L89">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L90">					panelContent, ViewRiksdagenCommitteeRoleMember.class, committeeRoleMemberDataContainer.getAllBy(ViewRiksdagenCommitteeRoleMember_.detail,</span>
+<span class="fc" id="L91">							viewRiksdagenCommittee.getEmbeddedId().getDetail()),</span>
 					MEMBER_HISTORY,
 					new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;,&quot;detail&quot;,
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-<span class="fc" id="L101">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L102">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L97">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L98">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="fc" id="L105">		return panelContent;</span>
+<span class="fc" id="L101">		return panelContent;</span>
 
 	}
 

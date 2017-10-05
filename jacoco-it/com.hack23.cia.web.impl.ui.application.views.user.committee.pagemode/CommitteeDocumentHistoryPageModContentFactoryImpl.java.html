@@ -35,8 +35,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class CommitteeDocumentHistoryPageModContentFactoryImpl.
@@ -87,15 +87,11 @@ public final class CommitteeDocumentHistoryPageModContentFactoryImpl
 <span class="fc" id="L87">			final DataContainer&lt;ViewRiksdagenPoliticianDocument, String&gt; politicianDocumentDataContainer = getApplicationManager()</span>
 <span class="fc" id="L88">					.getDataContainer(ViewRiksdagenPoliticianDocument.class);</span>
 
-<span class="fc" id="L90">			final BeanItemContainer&lt;ViewRiksdagenPoliticianDocument&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
-					ViewRiksdagenPoliticianDocument.class,
-<span class="fc" id="L92">					politicianDocumentDataContainer.findOrderedListByProperty(</span>
-<span class="fc" id="L93">							ViewRiksdagenPoliticianDocument_.org, viewRiksdagenCommittee.getEmbeddedId().getOrgCode()</span>
-<span class="fc" id="L94">									.replace(&quot; &quot;, &quot;&quot;).replace(&quot;_&quot;, &quot;&quot;).trim(),</span>
-							ViewRiksdagenPoliticianDocument_.madePublicDate));
-
-<span class="fc" id="L97">			getGridFactory().createBasicBeanItemGrid(</span>
-					panelContent, politicianDocumentDataSource,
+<span class="fc" id="L90">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L91">					panelContent, ViewRiksdagenPoliticianDocument.class, politicianDocumentDataContainer.findOrderedListByProperty(</span>
+<span class="fc" id="L92">							ViewRiksdagenPoliticianDocument_.org, viewRiksdagenCommittee.getEmbeddedId().getOrgCode()</span>
+<span class="fc" id="L93">							.replace(&quot; &quot;, &quot;&quot;).replace(&quot;_&quot;, &quot;&quot;).trim(),</span>
+					ViewRiksdagenPoliticianDocument_.madePublicDate),
 					&quot;Documents&quot;,
 					new String[] { &quot;rm&quot;, &quot;madePublicDate&quot;,&quot;id&quot;, &quot;docId&quot;, &quot;personReferenceId&quot;,
 							&quot;roleDescription&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;documentType&quot;, &quot;subType&quot;, &quot;org&quot;, &quot;label&quot;,
@@ -103,11 +99,11 @@ public final class CommitteeDocumentHistoryPageModContentFactoryImpl
 					new String[] { &quot;id&quot;, &quot;numberValue&quot;, &quot;orderNumber&quot;, &quot;tempLabel&quot;, &quot;personReferenceId&quot;, &quot;org&quot;, &quot;docId&quot;, &quot;label&quot;,&quot;roleDescription&quot; }, new PageItemPropertyClickListener(UserViews.DOCUMENT_VIEW_NAME, &quot;docId&quot;), null, null);
 
 
-<span class="fc" id="L106">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L107">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L102">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L103">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="fc" id="L110">		return panelContent;</span>
+<span class="fc" id="L106">		return panelContent;</span>
 
 	}
 

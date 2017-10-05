@@ -20,11 +20,11 @@ package com.hack23.cia.web.impl.ui.application.views.pageclicklistener;
 
 import java.util.Set;
 
+import com.vaadin.event.selection.SelectionEvent;
+import com.vaadin.event.selection.SelectionListener;
 import com.vaadin.ui.UI;
-import com.vaadin.v7.event.SelectionEvent;
-import com.vaadin.v7.event.SelectionEvent.SelectionListener;
-import com.vaadin.v7.ui.renderers.ClickableRenderer.RendererClickEvent;
-import com.vaadin.v7.ui.renderers.ClickableRenderer.RendererClickListener;
+import com.vaadin.ui.renderers.ClickableRenderer.RendererClickEvent;
+import com.vaadin.ui.renderers.ClickableRenderer.RendererClickListener;
 
 /**
  * The class AbstractPageItemRendererClickListener.
@@ -32,7 +32,7 @@ import com.vaadin.v7.ui.renderers.ClickableRenderer.RendererClickListener;
  * @param &lt;T&gt;
  *            the generic type
  */
-public abstract class AbstractPageItemRendererClickListener&lt;T&gt; implements RendererClickListener ,SelectionListener{
+public abstract class AbstractPageItemRendererClickListener&lt;T&gt; implements RendererClickListener&lt;T&gt;, SelectionListener&lt;T&gt; {
 
 	/** The Constant PAGE_SEPARATOR. */
 <span class="fc" id="L38">	private static final Character PAGE_SEPARATOR = '/';</span>
@@ -54,14 +54,14 @@ public abstract class AbstractPageItemRendererClickListener&lt;T&gt; implements 
 <span class="fc" id="L54">	}</span>
 
 	@Override
-	public final void click(final RendererClickEvent event) {
-<span class="nc" id="L58">		UI.getCurrent().getNavigator().navigateTo(page + PAGE_SEPARATOR + getPageId((T)event.getItemId()));</span>
+	public final void click(final RendererClickEvent&lt;T&gt; event) {
+<span class="nc" id="L58">		UI.getCurrent().getNavigator().navigateTo(page + PAGE_SEPARATOR + getPageId(event.getItem()));</span>
 <span class="nc" id="L59">	}</span>
 
 
 	@Override
-	public final void select(final SelectionEvent event) {
-<span class="fc" id="L64">		final Set&lt;T&gt; added =(Set&lt;T&gt;) event.getAdded();</span>
+	public void selectionChange(final SelectionEvent&lt;T&gt; event) {
+<span class="fc" id="L64">		final Set&lt;T&gt; added =event.getAllSelectedItems();</span>
 
 <span class="pc bpc" id="L66" title="1 of 2 branches missed.">		if (!added.isEmpty()) {</span>
 <span class="fc" id="L67">			UI.getCurrent().getNavigator().navigateTo(page + PAGE_SEPARATOR + getPageId(added.iterator().next()));</span>
@@ -69,6 +69,7 @@ public abstract class AbstractPageItemRendererClickListener&lt;T&gt; implements 
 		}
 
 <span class="fc" id="L71">	}</span>
+
 
 	/**
 	 * Gets the page id.

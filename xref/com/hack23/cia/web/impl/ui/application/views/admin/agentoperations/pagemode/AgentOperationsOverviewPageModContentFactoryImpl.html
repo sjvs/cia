@@ -40,14 +40,14 @@
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.pageclicklistener.StartAgentClickListener;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.FontAwesome;
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.icons.VaadinIcons;
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.server.Sizeable.Unit;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Button;
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Layout;
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Panel;
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.ComboBox;
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.ComboBox;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Layout;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Panel;
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment"> * The Class AgentOperationsOverviewPageModContentFactoryImpl.</em>
@@ -116,7 +116,7 @@
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> 		<strong class="jxr_keyword">final</strong> Button startAgentButton = <strong class="jxr_keyword">new</strong> Button(START,
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> 				<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/StartAgentClickListener.html">StartAgentClickListener</a>(targetSelect, operationSelect, agentContainer));
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 		startAgentButton.setId(ViewAction.START_AGENT_BUTTON.name());
-<a class="jxr_linenumber" name="L111" href="#L111">111</a> 		startAgentButton.setIcon(FontAwesome.CROSSHAIRS);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 		startAgentButton.setIcon(VaadinIcons.CROSSHAIRS);
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 		content.addComponent(startAgentButton);
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> 		content.setExpandRatio(startAgentButton, ContentRatio.SMALL3);
 <a class="jxr_linenumber" name="L114" href="#L114">114</a> 

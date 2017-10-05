@@ -21,28 +21,23 @@ package com.hack23.cia.web.impl.ui.application.views.pageclicklistener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.vaadin.data.Binder;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.Notification;
-import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitException;
 
 /**
  * The Class CommitFormWrapperClickListener.
  */
 public final class CommitFormWrapperClickListener implements ClickListener {
 
-	/** The Constant FORM_ERROR. */
-	private static final String FORM_ERROR = &quot;Form Error&quot;;
-
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(CommitFormWrapperClickListener.class);</span>
+<span class="fc" id="L37">	private static final Logger LOGGER = LoggerFactory.getLogger(CommitFormWrapperClickListener.class);</span>
 
 	/** The field group. */
-	private final BeanFieldGroup&lt;?&gt; fieldGroup;
+	private final Binder&lt;?&gt; binder;
 
 	/** The button listener. */
 	private final ClickListener buttonListener;
@@ -55,22 +50,15 @@ public final class CommitFormWrapperClickListener implements ClickListener {
 	 * @param buttonListener
 	 *            the button listener
 	 */
-<span class="fc" id="L58">	public CommitFormWrapperClickListener(final BeanFieldGroup&lt;?&gt; fieldGroup, final ClickListener buttonListener) {</span>
-<span class="fc" id="L59">		this.fieldGroup = fieldGroup;</span>
-<span class="fc" id="L60">		this.buttonListener = buttonListener;</span>
-<span class="fc" id="L61">	}</span>
+<span class="fc" id="L53">	public CommitFormWrapperClickListener(final Binder&lt;?&gt; fieldGroup, final ClickListener buttonListener) {</span>
+<span class="fc" id="L54">		this.binder = fieldGroup;</span>
+<span class="fc" id="L55">		this.buttonListener = buttonListener;</span>
+<span class="fc" id="L56">	}</span>
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-		try {
-<span class="fc" id="L66">			fieldGroup.commit();</span>
-<span class="nc" id="L67">		} catch (final CommitException e) {</span>
-<span class="nc" id="L68">			Notification.show(FORM_ERROR,</span>
-<span class="nc" id="L69">	                  e.getMessage(),</span>
-	                  Notification.Type.WARNING_MESSAGE);
-<span class="nc" id="L71">			LOGGER.warn(FORM_ERROR,e);</span>
-<span class="fc" id="L72">		}</span>
-<span class="fc" id="L73">		buttonListener.buttonClick(event);</span>
-<span class="fc" id="L74">	}</span>
+<span class="fc" id="L60">		binder.isValid();</span>
+<span class="fc" id="L61">		buttonListener.buttonClick(event);</span>
+<span class="fc" id="L62">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

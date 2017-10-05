@@ -33,8 +33,8 @@ import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemPr
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
-import com.vaadin.v7.data.util.BeanItemContainer;
-import com.vaadin.v7.ui.VerticalLayout;
+import com.vaadin.ui.VerticalLayout;
+
 
 /**
  * The Class CommitteeRankingDataGridPageModContentFactoryImpl.
@@ -74,24 +74,22 @@ public final class CommitteeRankingDataGridPageModContentFactoryImpl extends Abs
 <span class="fc" id="L74">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
 <span class="fc" id="L75">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
 
-<span class="fc" id="L77">		final BeanItemContainer&lt;ViewRiksdagenCommittee&gt; politicianDocumentDataSource = new BeanItemContainer&lt;&gt;(</span>
-<span class="fc" id="L78">				ViewRiksdagenCommittee.class, dataContainer.getAllOrderBy(ViewRiksdagenCommittee_.currentMemberSize));</span>
 
-<span class="fc" id="L80">		politicianDocumentDataSource.addNestedContainerProperty(&quot;embeddedId.detail&quot;);</span>
-<span class="fc" id="L81">		politicianDocumentDataSource.addNestedContainerProperty(&quot;embeddedId.orgCode&quot;);</span>
+//		politicianDocumentDataSource.addNestedContainerProperty(&quot;embeddedId.detail&quot;);
+//		politicianDocumentDataSource.addNestedContainerProperty(&quot;embeddedId.orgCode&quot;);
 
-<span class="fc" id="L83">		getGridFactory().createBasicBeanItemGrid(panelContent, politicianDocumentDataSource,</span>
-				&quot;Committees&quot;,
-				new String[] { &quot;embeddedId.orgCode&quot;, &quot;embeddedId.detail&quot;, &quot;totalDaysServed&quot;, &quot;currentMemberSize&quot;,
-						&quot;totalAssignments&quot;, &quot;firstAssignmentDate&quot;, &quot;active&quot;, &quot;lastAssignmentDate&quot; }, new String[] { &quot;embeddedId&quot;,&quot;embeddedId.orgCode&quot; , &quot;active&quot; },
+<span class="fc" id="L81">		getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommittee.class, dataContainer.getAllOrderBy(ViewRiksdagenCommittee_.currentMemberSize),</span>
+				&quot;Committees&quot;, new String[] {&quot;embeddedId.detail&quot;},
+				new String[] { &quot;embeddedId&quot;, &quot;totalDaysServed&quot;, &quot;currentMemberSize&quot;,
+						&quot;totalAssignments&quot;, &quot;firstAssignmentDate&quot;, &quot;active&quot;, &quot;lastAssignmentDate&quot; }, new String[] { &quot;active&quot; },
 				new PageItemPropertyClickListener(UserViews.COMMITTEE_VIEW_NAME, &quot;embeddedId.orgCode&quot;), null, null);
 
-<span class="fc" id="L89">		panel.setCaption(NAME + &quot;::&quot; + DATAGRID);</span>
+<span class="fc" id="L87">		panel.setCaption(NAME + &quot;::&quot; + DATAGRID);</span>
 
-<span class="fc" id="L91">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_RANKING_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L89">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_RANKING_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="fc" id="L94">		return panelContent;</span>
+<span class="fc" id="L92">		return panelContent;</span>
 
 	}
 

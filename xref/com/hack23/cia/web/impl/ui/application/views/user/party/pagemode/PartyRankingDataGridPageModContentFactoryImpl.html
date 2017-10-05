@@ -41,8 +41,8 @@
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Layout;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.MenuBar;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.Panel;
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.data.util.BeanItemContainer;
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.vaadin.v7.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.vaadin.ui.VerticalLayout;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * The Class PartyRankingDataGridPageModContentFactoryImpl.</em>
@@ -76,34 +76,30 @@
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">final</strong> DataContainer&lt;ViewRiksdagenPartySummary, String&gt; dataContainer = getApplicationManager()
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  				.getDataContainer(ViewRiksdagenPartySummary.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		<strong class="jxr_keyword">final</strong> BeanItemContainer&lt;ViewRiksdagenPartySummary&gt; politicianDocumentDataSource = <strong class="jxr_keyword">new</strong> BeanItemContainer&lt;&gt;(
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  				ViewRiksdagenPartySummary.<strong class="jxr_keyword">class</strong>,
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				dataContainer.getAllOrderBy(ViewRiksdagenPartySummary_.currentAssignments));
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		getGridFactory().createBasicBeanItemGrid(panelContent, politicianDocumentDataSource,
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  				<span class="jxr_string">"Parties"</span>,
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"party"</span>, <span class="jxr_string">"currentAssignments"</span>, <span class="jxr_string">"totalActiveGovernment"</span>, <span class="jxr_string">"totalActiveCommittee"</span>, <span class="jxr_string">"totalActiveParliament"</span>, <span class="jxr_string">"totalActiveEu"</span>, <span class="jxr_string">"active"</span>, <span class="jxr_string">"firstAssignmentDate"</span>, <span class="jxr_string">"lastAssignmentDate"</span>,
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  						<span class="jxr_string">"activeEu"</span>,
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>  						<span class="jxr_string">"activeGovernment"</span>, <span class="jxr_string">"activeCommittee"</span>,
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  						<span class="jxr_string">"totalAssignments"</span>,<span class="jxr_string">"totalDaysServed"</span>, <span class="jxr_string">"totalDaysServedGovernment"</span>, <span class="jxr_string">"totalDaysServedCommittee"</span>, <span class="jxr_string">"activeParliament"</span>,
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>  						<span class="jxr_string">"totalDaysServedParliament"</span>, <span class="jxr_string">"totalDaysServedEu"</span> }, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"active"</span>,<span class="jxr_string">"activeParliament"</span>,<span class="jxr_string">"activeGovernment"</span>,<span class="jxr_string">"activeCommittee"</span>, <span class="jxr_string">"activeEu"</span>, <span class="jxr_string">"activeParty"</span>, <span class="jxr_string">"activeSpeaker"</span>}, <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.PARTY_VIEW_NAME, <span class="jxr_string">"party"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>  
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + DATAGRID);
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>  				NAME, parameters, pageId);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenPartySummary.<strong class="jxr_keyword">class</strong>, dataContainer.getAllOrderBy(ViewRiksdagenPartySummary_.currentAssignments),
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  				<span class="jxr_string">"Parties"</span>,
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  				<strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"party"</span>, <span class="jxr_string">"currentAssignments"</span>, <span class="jxr_string">"totalActiveGovernment"</span>, <span class="jxr_string">"totalActiveCommittee"</span>, <span class="jxr_string">"totalActiveParliament"</span>, <span class="jxr_string">"totalActiveEu"</span>, <span class="jxr_string">"active"</span>, <span class="jxr_string">"firstAssignmentDate"</span>, <span class="jxr_string">"lastAssignmentDate"</span>,
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  						<span class="jxr_string">"activeEu"</span>,
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  						<span class="jxr_string">"activeGovernment"</span>, <span class="jxr_string">"activeCommittee"</span>,
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  						<span class="jxr_string">"totalAssignments"</span>,<span class="jxr_string">"totalDaysServed"</span>, <span class="jxr_string">"totalDaysServedGovernment"</span>, <span class="jxr_string">"totalDaysServedCommittee"</span>, <span class="jxr_string">"activeParliament"</span>,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  						<span class="jxr_string">"totalDaysServedParliament"</span>, <span class="jxr_string">"totalDaysServedEu"</span> }, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"active"</span>,<span class="jxr_string">"activeParliament"</span>,<span class="jxr_string">"activeGovernment"</span>,<span class="jxr_string">"activeCommittee"</span>, <span class="jxr_string">"activeEu"</span>, <span class="jxr_string">"activeParty"</span>, <span class="jxr_string">"activeSpeaker"</span>}, <strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/pageclicklistener/PageItemPropertyClickListener.html">PageItemPropertyClickListener</a>(UserViews.PARTY_VIEW_NAME, <span class="jxr_string">"party"</span>), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + DATAGRID);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>  
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARTY_RANKING_VIEW, ApplicationEventGroup.USER,
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>  				NAME, parameters, pageId);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>  
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  		<strong class="jxr_keyword">return</strong> panelContent;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>  	}
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  		<strong class="jxr_keyword">return</strong> panelContent;
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>  	}
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>  	@Override
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> matches(<strong class="jxr_keyword">final</strong> String page, <strong class="jxr_keyword">final</strong> String parameters) {
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  		<strong class="jxr_keyword">return</strong> NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.DATAGRID.toString());
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>  	}
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  }
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>  	@Override
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> matches(<strong class="jxr_keyword">final</strong> String page, <strong class="jxr_keyword">final</strong> String parameters) {
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  		<strong class="jxr_keyword">return</strong> NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.DATAGRID.toString());
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  	}
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>  
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
