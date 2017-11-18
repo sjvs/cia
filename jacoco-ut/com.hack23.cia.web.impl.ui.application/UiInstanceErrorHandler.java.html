@@ -63,7 +63,7 @@ public final class UiInstanceErrorHandler implements ErrorHandler {
 <span class="nc" id="L63">			Notification.show(accessDeniedException.getMessage(), Notification.Type.ERROR_MESSAGE);</span>
 <span class="nc" id="L64">			ui.getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
 <span class="nc" id="L65">			return;</span>
-<span class="fc bfc" id="L66" title="All 4 branches covered.">		} else if (event.getThrowable().getCause() != null &amp;&amp; event.getThrowable().getCause().getCause() != null</span>
+<span class="pc bpc" id="L66" title="1 of 4 branches missed.">		} else if (event.getThrowable().getCause() != null &amp;&amp; event.getThrowable().getCause().getCause() != null</span>
 <span class="pc bpc" id="L67" title="1 of 2 branches missed.">				&amp;&amp; event.getThrowable().getCause().getCause().getCause() instanceof AccessDeniedException) {</span>
 <span class="nc" id="L68">			final AccessDeniedException accessDeniedException = (AccessDeniedException) event.getThrowable().getCause()</span>
 <span class="nc" id="L69">					.getCause().getCause();</span>

@@ -79,7 +79,7 @@ public final class PartyVoteHistoryPageModContentFactoryImpl extends AbstractPar
 
 <span class="fc" id="L80">			LabelFactory.createHeader2Label(panelContent, VOTE_HISTORY);</span>
 
-<span class="nc" id="L82">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPartySummary.class, viewRiksdagenVoteDataBallotPartySummaryChartDataManager.findByValue(pageId), &quot;Ballots&quot;,</span>
+<span class="fc" id="L82">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPartySummary.class, viewRiksdagenVoteDataBallotPartySummaryChartDataManager.findByValue(pageId), &quot;Ballots&quot;,</span>
 					new String[] { &quot;embeddedId.ballotId&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;,
 							&quot;embeddedId.party&quot; },
 					new String[] { &quot;embeddedId.party&quot;, &quot;voteDate&quot;, &quot;rm&quot;, &quot;label&quot;, &quot;embeddedId.concern&quot;,
@@ -95,9 +95,9 @@ public final class PartyVoteHistoryPageModContentFactoryImpl extends AbstractPar
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;embeddedId.ballotId&quot;),
 					&quot;embeddedId.ballotId&quot;, null);
 
-<span class="nc" id="L98">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L98">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="nc" id="L100">		return panelContent;</span>
+<span class="fc" id="L100">		return panelContent;</span>
 
 	}
 

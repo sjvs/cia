@@ -112,7 +112,7 @@ public final class BallotOverviewPageModContentFactoryImpl extends AbstractBallo
 <span class="fc" id="L112">			LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
 
 
-<span class="pc bpc" id="L115" title="1 of 2 branches missed.">			for (final ViewRiksdagenVoteDataBallotSummary viewRiksdagenVoteDataBallotSummary : ballots) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">			for (final ViewRiksdagenVoteDataBallotSummary viewRiksdagenVoteDataBallotSummary : ballots) {</span>
 
 <span class="fc bfc" id="L117" title="All 2 branches covered.">				if (!decisionSummaries.isEmpty()) {</span>
 
@@ -136,7 +136,7 @@ public final class BallotOverviewPageModContentFactoryImpl extends AbstractBallo
 <span class="fc" id="L136">			}</span>
 
 
-<span class="nc" id="L139">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPartySummary.class,</span>
+<span class="fc" id="L139">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPartySummary.class,</span>
 					partyBallotList, &quot;Party Ballot Summary&quot;,
 					new String[] { &quot;embeddedId.ballotId&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;,
 							&quot;embeddedId.party&quot; },
@@ -152,19 +152,19 @@ public final class BallotOverviewPageModContentFactoryImpl extends AbstractBallo
 							&quot;abstainVotes&quot;, &quot;absentVotes&quot;, &quot;embeddedId.ballotId&quot;, &quot;noWinner&quot; },
 					new PageItemPropertyClickListener(UserViews.PARTY_VIEW_NAME, &quot;embeddedId.party&quot;), &quot;embeddedId.party&quot;, null);
 
-<span class="nc" id="L155">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="nc" id="L156">			overviewLayout.setSizeFull();</span>
+<span class="fc" id="L155">			final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L156">			overviewLayout.setSizeFull();</span>
 
-<span class="nc" id="L158">			panelContent.addComponent(overviewLayout);</span>
-<span class="nc" id="L159">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
-<span class="nc" id="L160">			getBallotMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
+<span class="fc" id="L158">			panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L159">			panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+<span class="fc" id="L160">			getBallotMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
 
 
-<span class="nc" id="L163">			panel.setCaption(NAME + &quot;::&quot; + BALLOT + pageId);</span>
-<span class="nc" id="L164">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_BALLOT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L163">			panel.setCaption(NAME + &quot;::&quot; + BALLOT + pageId);</span>
+<span class="fc" id="L164">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_BALLOT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}
-<span class="nc" id="L167">		return panelContent;</span>
+<span class="fc" id="L167">		return panelContent;</span>
 
 	}
 

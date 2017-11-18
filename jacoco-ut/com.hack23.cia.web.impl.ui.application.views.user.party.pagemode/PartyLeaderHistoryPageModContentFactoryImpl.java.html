@@ -79,17 +79,17 @@ public final class PartyLeaderHistoryPageModContentFactoryImpl extends AbstractP
 <span class="fc" id="L79">			final DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()</span>
 <span class="fc" id="L80">					.getDataContainer(ViewRiksdagenPartyRoleMember.class);</span>
 
-<span class="pc" id="L82">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L82">			getGridFactory().createBasicBeanItemGrid(</span>
 					panelContent, ViewRiksdagenPartyRoleMember.class, partyRoleMemberDataContainer
-<span class="nc" id="L84">					.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()),</span>
+<span class="fc" id="L84">					.getAllBy(ViewRiksdagenPartyRoleMember_.party, viewRiksdagenParty.getPartyId()),</span>
 					&quot;Leader History&quot;,
 					new String[] { &quot;roleId&quot;, &quot;roleCode&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;totalDaysServed&quot;, &quot;active&quot;, &quot;detail&quot;,
 							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;party&quot;, &quot;detail&quot; },
 					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
 
-<span class="nc" id="L90">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L90">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
 		}
-<span class="nc" id="L92">		return panelContent;</span>
+<span class="fc" id="L92">		return panelContent;</span>
 
 	}
 

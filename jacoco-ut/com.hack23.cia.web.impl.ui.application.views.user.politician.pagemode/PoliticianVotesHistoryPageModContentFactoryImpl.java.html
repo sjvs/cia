@@ -86,7 +86,7 @@ public final class PoliticianVotesHistoryPageModContentFactoryImpl extends Abstr
 <span class="fc" id="L86">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.VOTEHISTORY.toString());</span>
 
 
-<span class="pc" id="L89">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPoliticianSummary.class,</span>
+<span class="fc" id="L89">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPoliticianSummary.class,</span>
 <span class="fc" id="L90">					viewRiksdagenVoteDataBallotPoliticianSummaryChartDataManager.findByValue(personData.getId()), &quot;Ballots&quot;,</span>
 					new String[] { &quot;embeddedId.ballotId&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot; },
 					new String[] { &quot;voteDate&quot;, &quot;rm&quot;, &quot;label&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;vote&quot;,
@@ -100,10 +100,10 @@ public final class PoliticianVotesHistoryPageModContentFactoryImpl extends Abstr
 							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;embeddedId.ballotId&quot;, &quot;ballotType&quot; },
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;embeddedId.ballotId&quot;), &quot;embeddedId.ballotId&quot;, null);
 
-<span class="nc" id="L103">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L103">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
 
 		}
-<span class="nc" id="L106">		return panelContent;</span>
+<span class="fc" id="L106">		return panelContent;</span>
 
 	}
 }

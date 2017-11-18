@@ -95,7 +95,7 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 <span class="fc" id="L95">							pageId.toUpperCase(Locale.ENGLISH),</span>
 							ViewRiksdagenCommitteeBallotDecisionSummary_.createdDate);
 
-<span class="nc" id="L98">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionSummary.class,</span>
+<span class="fc" id="L98">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionSummary.class,</span>
 					decisionPartySummaryList, &quot;Committee Ballot Decision Summary&quot;,
 					new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;embeddedId.id&quot; },
 					new String[] { &quot;voteDate&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.id&quot;, &quot;committeeReport&quot;,
@@ -110,11 +110,11 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot; },
 					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
 
-<span class="nc" id="L113">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="nc" id="L114">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L113">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L114">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="nc" id="L117">		return panelContent;</span>
+<span class="fc" id="L117">		return panelContent;</span>
 
 	}
 

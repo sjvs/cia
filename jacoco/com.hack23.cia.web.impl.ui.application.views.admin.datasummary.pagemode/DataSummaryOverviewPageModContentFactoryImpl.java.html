@@ -18,16 +18,24 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.admin.datasummary.pagemode;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
+import com.hack23.cia.model.internal.application.data.politician.impl.ViewRiksdagenPolitician;
+import com.hack23.cia.service.api.DataContainer;
+import com.hack23.cia.service.api.DataSummary;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RefreshDataViewsClickListener;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.UpdateSearchIndexClickListener;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
@@ -55,46 +63,59 @@ public final class DataSummaryOverviewPageModContentFactoryImpl extends Abstract
 	 * Instantiates a new data summary overview page mod content factory impl.
 	 */
 	public DataSummaryOverviewPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L66">		super();</span>
+<span class="fc" id="L67">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L63">		return NAME.equals(page);</span>
+<span class="fc" id="L71">		return NAME.equals(page);</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L69">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L77">		final VerticalLayout content = createPanelContent();</span>
 
-<span class="fc" id="L71">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L79">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
-<span class="fc" id="L73">		LabelFactory.createHeader2Label(content,ADMIN_DATA_SUMMARY);</span>
+<span class="fc" id="L81">		LabelFactory.createHeader2Label(content,ADMIN_DATA_SUMMARY);</span>
 
-//		final Table createDataSummaryTable = tableFactory.createDataSummaryTable();
-//		content.addComponent(createDataSummaryTable);
-//		content.setExpandRatio(createDataSummaryTable, ContentRatio.LARGE);
+		
+<span class="fc" id="L84">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
+<span class="fc" id="L85">		horizontalLayout.setSizeFull();</span>
 
-<span class="fc" id="L79">		content.setSizeFull();</span>
-<span class="fc" id="L80">		content.setMargin(false);</span>
-<span class="fc" id="L81">		content.setSpacing(true);</span>
+<span class="fc" id="L87">		content.addComponent(horizontalLayout);</span>
+<span class="fc" id="L88">		content.setExpandRatio(horizontalLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L83">		final Button refreshViewsButton = new Button(REFRESH_VIEWS,VaadinIcons.REFRESH);</span>
+<span class="fc" id="L90">		final DataContainer&lt;DataSummary, String&gt; dataContainer = getApplicationManager().getDataContainer(DataSummary.class);</span>
 
-<span class="fc" id="L85">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
+<span class="fc" id="L92">		final List&lt;DataSummary&gt; all = dataContainer.getAll();</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">		if (!all.isEmpty()) {</span>
+<span class="fc" id="L94">			final DataSummary dataSummary = all.get(0);</span>
 
-<span class="fc" id="L87">		content.addComponent(refreshViewsButton);</span>
-<span class="fc" id="L88">		content.setExpandRatio(refreshViewsButton, ContentRatio.SMALL);</span>
+<span class="fc" id="L96">			getFormFactory().addFormPanelTextFields(horizontalLayout, dataSummary, DataSummary.class,</span>
+<span class="fc" id="L97">					Arrays.asList(new String[] { &quot;personSize&quot;, &quot;totalBallotVotes&quot;, &quot;committeeProposalSize&quot;, &quot;voteSize&quot;,</span>
+							&quot;documentStatusSize&quot;, &quot;documentElementSize&quot;, &quot;documentContentSize&quot; }));
+		}		
+		
+<span class="fc" id="L101">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L102">		overviewLayout.setSizeFull();</span>
+<span class="fc" id="L103">		content.addComponent(overviewLayout);</span>
+<span class="fc" id="L104">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L90">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX,VaadinIcons.REFRESH);</span>
+<span class="fc" id="L106">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
+		
+<span class="fc" id="L108">		final Button refreshViewsButton = new Button(REFRESH_VIEWS,VaadinIcons.REFRESH);</span>
+<span class="fc" id="L109">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
+<span class="fc" id="L110">		createRowItem(grid,refreshViewsButton,&quot;Refresh all views&quot;);</span>
+		
 
-<span class="fc" id="L92">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
-
-<span class="fc" id="L94">		content.addComponent(updateSearchIndexButton);</span>
-<span class="fc" id="L95">		content.setExpandRatio(updateSearchIndexButton, ContentRatio.SMALL);</span>
-
-<span class="fc" id="L97">		return content;</span>
+<span class="fc" id="L113">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX,VaadinIcons.REFRESH);</span>
+<span class="fc" id="L114">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
+<span class="fc" id="L115">		createRowItem(grid,updateSearchIndexButton,&quot;Update document search index&quot;);</span>
+	
+		
+<span class="fc" id="L118">		return content;</span>
 
 	}
 

@@ -850,8 +850,8 @@
 <a class="jxr_linenumber" name="L842" href="#L842">842</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L843" href="#L843">843</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> loginUserCheckView(<strong class="jxr_keyword">final</strong> String username,<strong class="jxr_keyword">final</strong> String password,<strong class="jxr_keyword">final</strong> String view) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L844" href="#L844">844</a> 
-<a class="jxr_linenumber" name="L845" href="#L845">845</a> 		setFieldValue(<span class="jxr_string">"username"</span>,username);
-<a class="jxr_linenumber" name="L846" href="#L846">846</a> 		setFieldValue(<span class="jxr_string">"password"</span>,password);
+<a class="jxr_linenumber" name="L845" href="#L845">845</a> 		setFieldValue(<span class="jxr_string">"Login.email"</span>,username);
+<a class="jxr_linenumber" name="L846" href="#L846">846</a> 		setFieldValue(<span class="jxr_string">"Login.userpassword"</span>,password);
 <a class="jxr_linenumber" name="L847" href="#L847">847</a> 
 <a class="jxr_linenumber" name="L848" href="#L848">848</a> 		<strong class="jxr_keyword">final</strong> WebElement loginButton =findButton(<span class="jxr_string">"Login"</span>);
 <a class="jxr_linenumber" name="L849" href="#L849">849</a> 		assertNotNull(<span class="jxr_string">"Expect to find a Login Button"</span>,loginButton);

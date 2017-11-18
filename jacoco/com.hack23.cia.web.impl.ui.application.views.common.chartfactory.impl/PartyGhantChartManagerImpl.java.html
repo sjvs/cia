@@ -44,26 +44,26 @@ public final class PartyGhantChartManagerImpl extends AbstractGhantChartManagerI
 
 	@Override
 	protected Comparator&lt;ViewRiksdagenPartyRoleMember&gt; getComparator() {
-<span class="nc" id="L47">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
+<span class="fc" id="L47">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
 	}
 
 	@Override
 	protected Function&lt;ViewRiksdagenPartyRoleMember, String&gt; getRoleMapping() {
-<span class="nc" id="L52">		return new RoleMapping();</span>
+<span class="fc" id="L52">		return new RoleMapping();</span>
 	}
 
 	@Override
 	protected StepMapping&lt;ViewRiksdagenPartyRoleMember&gt; getStepMapping() {
-<span class="nc" id="L57">		return new StepMapping&lt;ViewRiksdagenPartyRoleMember&gt;() {</span>
+<span class="fc" id="L57">		return new StepMapping&lt;ViewRiksdagenPartyRoleMember&gt;() {</span>
 
 			@Override
 			public Date getFromDate(final ViewRiksdagenPartyRoleMember t) {
-<span class="nc" id="L61">				return t.getFromDate();</span>
+<span class="fc" id="L61">				return t.getFromDate();</span>
 			}
 
 			@Override
 			public Date getToDate(final ViewRiksdagenPartyRoleMember t) {
-<span class="nc" id="L66">				return t.getToDate();</span>
+<span class="fc" id="L66">				return t.getToDate();</span>
 			}
 
 			@Override
@@ -114,11 +114,11 @@ public final class PartyGhantChartManagerImpl extends AbstractGhantChartManagerI
 	/**
 	 * The Class RoleMapping.
 	 */
-<span class="nc" id="L117">	private static final class RoleMapping implements Function&lt;ViewRiksdagenPartyRoleMember, String&gt; {</span>
+<span class="fc" id="L117">	private static final class RoleMapping implements Function&lt;ViewRiksdagenPartyRoleMember, String&gt; {</span>
 
 		@Override
 		public String apply(final ViewRiksdagenPartyRoleMember t) {
-<span class="nc" id="L121">			return t.getRoleCode();</span>
+<span class="fc" id="L121">			return t.getRoleCode();</span>
 		}
 	}
 
