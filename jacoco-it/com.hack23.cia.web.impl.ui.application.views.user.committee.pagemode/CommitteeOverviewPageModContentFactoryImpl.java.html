@@ -19,6 +19,7 @@
 package com.hack23.cia.web.impl.ui.application.views.user.committee.pagemode;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.access.annotation.Secured;
@@ -44,6 +45,10 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class CommitteeOverviewPageModContentFactoryImpl extends AbstractCommitteePageModContentFactoryImpl {
 
+<span class="fc" id="L48">	private static final List&lt;String&gt; AS_LIST = Arrays.asList( &quot;embeddedId.detail&quot;, &quot;active&quot;, &quot;firstAssignmentDate&quot;,</span>
+			&quot;lastAssignmentDate&quot;, &quot;totalAssignments&quot;, &quot;totalDaysServed&quot;,
+			&quot;currentMemberSize&quot; );
+
 	/** The Constant COMMITTEE. */
 	private static final String COMMITTEE = &quot;Committee:&quot;;
 
@@ -54,59 +59,57 @@ public final class CommitteeOverviewPageModContentFactoryImpl extends AbstractCo
 	 * Instantiates a new committee overview page mod content factory impl.
 	 */
 	public CommitteeOverviewPageModContentFactoryImpl() {
-<span class="fc" id="L57">		super();</span>
-<span class="fc" id="L58">	}</span>
+<span class="fc" id="L62">		super();</span>
+<span class="fc" id="L63">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L62">		final String pageId = getPageId(parameters);</span>
-<span class="pc bpc" id="L63" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
-<span class="fc bfc" id="L64" title="All 2 branches covered.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
+<span class="fc" id="L67">		final String pageId = getPageId(parameters);</span>
+<span class="pc bpc" id="L68" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L70">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L75">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L72">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L77">		final String pageId = getPageId(parameters);</span>
 
 
-<span class="fc" id="L75">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L76">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L80">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L81">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
 
-<span class="fc" id="L78">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
+<span class="fc" id="L83">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L80" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
 
-<span class="fc" id="L82">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L87">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L84">				LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
+<span class="fc" id="L89">				LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
 
-<span class="fc" id="L86">				final Link addCommitteePageLink = getPageLinkFactory().addCommitteePageLink(viewRiksdagenCommittee);</span>
-<span class="fc" id="L87">				panelContent.addComponent(addCommitteePageLink);</span>
+<span class="fc" id="L91">				final Link addCommitteePageLink = getPageLinkFactory().addCommitteePageLink(viewRiksdagenCommittee);</span>
+<span class="fc" id="L92">				panelContent.addComponent(addCommitteePageLink);</span>
 
-<span class="fc" id="L89">				getFormFactory().addFormPanelTextFields(panelContent, viewRiksdagenCommittee,</span>
+<span class="fc" id="L94">				getFormFactory().addFormPanelTextFields(panelContent, viewRiksdagenCommittee,</span>
 						ViewRiksdagenCommittee.class,
-<span class="fc" id="L91">						Arrays.asList(new String[] { &quot;embeddedId.detail&quot;, &quot;active&quot;, &quot;firstAssignmentDate&quot;,</span>
-								&quot;lastAssignmentDate&quot;, &quot;totalAssignments&quot;, &quot;totalDaysServed&quot;,
-								&quot;currentMemberSize&quot; }));
+						AS_LIST);
 
 
-<span class="fc" id="L96">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L97">				overviewLayout.setSizeFull();</span>
+<span class="fc" id="L99">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L100">				overviewLayout.setSizeFull();</span>
 
-<span class="fc" id="L99">				panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L100">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+<span class="fc" id="L102">				panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L103">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
 
-<span class="fc" id="L102">				getCommitteeMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
+<span class="fc" id="L105">				getCommitteeMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
 
-<span class="fc" id="L104">				panelContent.setExpandRatio(addCommitteePageLink,ContentRatio.SMALL);</span>
+<span class="fc" id="L107">				panelContent.setExpandRatio(addCommitteePageLink,ContentRatio.SMALL);</span>
 
-<span class="fc" id="L106">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L107">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+<span class="fc" id="L109">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L110">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
-<span class="fc" id="L109">		return panelContent;</span>
+<span class="fc" id="L112">		return panelContent;</span>
 
 	}
 

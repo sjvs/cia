@@ -51,6 +51,16 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class UserHomeApplicationSessionsPageModContentFactoryImpl extends AbstractUserHomePageModContentFactoryImpl {
 
+<span class="fc" id="L54">	private static final ListPropertyConverter[] COLLECTION_PROPERTY_CONVERTERS = new ListPropertyConverter[] { new ListPropertyConverter(List.class, &quot;page&quot;, &quot;events&quot;,&quot;actionName&quot;)};</span>
+
+<span class="fc" id="L56">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(AdminViews.ADMIN_APPLICATIONS_SESSION_VIEW_NAME, &quot;hjid&quot;);</span>
+
+<span class="fc" id="L58">	private static final String[] HIDE_COLUMNS = new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;, &quot;modelObjectVersion&quot;, &quot;sessionId&quot;, &quot;sessionType&quot;, &quot;userId&quot;, &quot;locale&quot;};</span>
+
+<span class="fc" id="L60">	private static final String[] COLUMN_ORDER = new String[] { &quot;hjid&quot;, &quot;createdDate&quot;,&quot;operatingSystem&quot;, &quot;userAgentInformation&quot;, &quot;ipInformation&quot;, &quot;events&quot;};</span>
+
+	private static final String APPLICATION_SESSION = &quot;ApplicationSession&quot;;
+
 	/** The Constant USERHOME. */
 	private static final String USERHOME = &quot;Userhome:&quot;;
 
@@ -66,49 +76,49 @@ public final class UserHomeApplicationSessionsPageModContentFactoryImpl extends 
 	 * impl.
 	 */
 	public UserHomeApplicationSessionsPageModContentFactoryImpl() {
-<span class="fc" id="L69">		super();</span>
-<span class="fc" id="L70">	}</span>
+<span class="fc" id="L79">		super();</span>
+<span class="fc" id="L80">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc bfc" id="L74" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
+<span class="fc bfc" id="L84" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L80">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L90">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L82">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L92">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L84">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L94">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L86">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
+<span class="fc" id="L96">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
 
-<span class="fc" id="L88">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
+<span class="fc" id="L98">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
 
-<span class="pc bpc" id="L90" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
-<span class="nc" id="L91">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
+<span class="nc" id="L101">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
 		} else {
 
-<span class="fc" id="L94">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
+<span class="fc" id="L104">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
 
-<span class="fc" id="L96">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
+<span class="fc" id="L106">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
 
-<span class="fc" id="L98">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
+<span class="fc" id="L108">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
 
-<span class="fc" id="L100">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationSession.class, sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate),</span>
-					&quot;ApplicationSession&quot;,
-					new String[] { &quot;hjid&quot;, &quot;createdDate&quot;,&quot;operatingSystem&quot;, &quot;userAgentInformation&quot;, &quot;ipInformation&quot;, &quot;events&quot;}, new String[] { &quot;hjid&quot;, &quot;modelObjectId&quot;, &quot;modelObjectVersion&quot;, &quot;sessionId&quot;, &quot;sessionType&quot;, &quot;userId&quot;, &quot;locale&quot;},
-					new PageItemPropertyClickListener(AdminViews.ADMIN_APPLICATIONS_SESSION_VIEW_NAME, &quot;hjid&quot;), null, new ListPropertyConverter[] { new ListPropertyConverter(List.class, &quot;page&quot;, &quot;events&quot;,&quot;actionName&quot;)});
+<span class="fc" id="L110">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationSession.class, sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate),</span>
+					APPLICATION_SESSION,
+					COLUMN_ORDER, HIDE_COLUMNS,
+					LISTENER, null, COLLECTION_PROPERTY_CONVERTERS);
 		}
 
-<span class="fc" id="L106">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
+<span class="fc" id="L116">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
 
-<span class="fc" id="L108">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L118">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="fc" id="L111">		return panelContent;</span>
+<span class="fc" id="L121">		return panelContent;</span>
 
 	}
 

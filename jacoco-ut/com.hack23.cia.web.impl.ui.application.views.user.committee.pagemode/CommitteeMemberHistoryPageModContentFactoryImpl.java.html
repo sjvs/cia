@@ -44,6 +44,13 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class CommitteeMemberHistoryPageModContentFactoryImpl extends AbstractCommitteePageModContentFactoryImpl {
 
+<span class="fc" id="L47">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;);</span>
+
+<span class="fc" id="L49">	private static final String[] HIDE_COLUMNS = new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; };</span>
+
+<span class="fc" id="L51">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;,&quot;detail&quot;,</span>
+			&quot;fromDate&quot;, &quot;toDate&quot; };
+
 	/** The Constant COMMITTEE. */
 	private static final String COMMITTEE = &quot;Committee:&quot;;
 
@@ -55,50 +62,49 @@ public final class CommitteeMemberHistoryPageModContentFactoryImpl extends Abstr
 	 * impl.
 	 */
 	public CommitteeMemberHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L65">		super();</span>
+<span class="fc" id="L66">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L63" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L64" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.MEMBERHISTORY.toString());</span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.MEMBERHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L70">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L77">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L72">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L79">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L74">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L75">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L81">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L82">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
 
-<span class="fc" id="L77">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
+<span class="fc" id="L84">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L79" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
 
-<span class="fc" id="L81">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L88">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L83">			LabelFactory.createHeader2Label(panelContent,MEMBER_HISTORY);</span>
+<span class="fc" id="L90">			LabelFactory.createHeader2Label(panelContent,MEMBER_HISTORY);</span>
 
 
-<span class="fc" id="L86">			final DataContainer&lt;ViewRiksdagenCommitteeRoleMember, String&gt; committeeRoleMemberDataContainer = getApplicationManager()</span>
-<span class="fc" id="L87">					.getDataContainer(ViewRiksdagenCommitteeRoleMember.class);</span>
+<span class="fc" id="L93">			final DataContainer&lt;ViewRiksdagenCommitteeRoleMember, String&gt; committeeRoleMemberDataContainer = getApplicationManager()</span>
+<span class="fc" id="L94">					.getDataContainer(ViewRiksdagenCommitteeRoleMember.class);</span>
 
-<span class="fc" id="L89">			getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L90">					panelContent, ViewRiksdagenCommitteeRoleMember.class, committeeRoleMemberDataContainer.getAllBy(ViewRiksdagenCommitteeRoleMember_.detail,</span>
-<span class="fc" id="L91">							viewRiksdagenCommittee.getEmbeddedId().getDetail()),</span>
+<span class="fc" id="L96">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L97">					panelContent, ViewRiksdagenCommitteeRoleMember.class, committeeRoleMemberDataContainer.getAllBy(ViewRiksdagenCommitteeRoleMember_.detail,</span>
+<span class="fc" id="L98">							viewRiksdagenCommittee.getEmbeddedId().getDetail()),</span>
 					MEMBER_HISTORY,
-					new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;,&quot;detail&quot;,
-							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; },
-					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;), null, null);
+					COLUMN_ORDER, HIDE_COLUMNS,
+					LISTENER, null, null);
 
-<span class="fc" id="L97">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L98">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L103">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L104">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="fc" id="L101">		return panelContent;</span>
+<span class="fc" id="L107">		return panelContent;</span>
 
 	}
 

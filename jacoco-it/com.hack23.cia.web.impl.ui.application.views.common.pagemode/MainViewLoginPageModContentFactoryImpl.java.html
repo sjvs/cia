@@ -19,6 +19,7 @@
 package com.hack23.cia.web.impl.ui.application.views.common.pagemode;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.access.annotation.Secured;
@@ -27,25 +28,19 @@ import org.springframework.web.context.request.RequestContextHolder;
 
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
 import com.hack23.cia.service.api.action.application.LoginRequest;
-import com.hack23.cia.service.api.action.application.RegisterUserRequest;
-import com.hack23.cia.web.impl.ui.application.action.ApplicationAction;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ApplicationPageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.CommonsViews;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.ApplicationLoginListener;
-import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RefreshDataViewsClickListener;
-import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RegisterUserClickListener;
 import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.Layout;
-import com.vaadin.ui.LoginForm;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Button.ClickListener;
 
 
 /**
@@ -53,6 +48,12 @@ import com.vaadin.ui.Button.ClickListener;
  */
 @Component
 public final class MainViewLoginPageModContentFactoryImpl extends AbstractPageModContentFactoryImpl {
+
+	private static final String LOGIN = &quot;Login&quot;;
+
+	private static final String REGISTER_A_NEW_USER = &quot;Register a new user&quot;;
+
+<span class="fc" id="L56">	private static final List&lt;String&gt; AS_LIST = Arrays.asList( &quot;email&quot;, &quot;otpCode&quot;, &quot;userpassword&quot; );</span>
 
 	/** The Constant CITIZEN_INTELLIGENCE_AGENCY_MAIN. */
 	private static final String CITIZEN_INTELLIGENCE_AGENCY_MAIN = &quot;Citizen Intelligence Agency&quot;;
@@ -64,68 +65,63 @@ public final class MainViewLoginPageModContentFactoryImpl extends AbstractPageMo
 	 * Instantiates a new main view login page mod content factory impl.
 	 */
 	public MainViewLoginPageModContentFactoryImpl() {
-<span class="fc" id="L67">		super();</span>
-<span class="fc" id="L68">	}</span>
+<span class="fc" id="L68">		super();</span>
+<span class="fc" id="L69">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc bfc" id="L72" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="fc bfc" id="L73" title="All 4 branches covered.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.LOGIN.toString());</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		return NAME.equals(page)</span>
+<span class="fc bfc" id="L74" title="All 4 branches covered.">				&amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(ApplicationPageMode.LOGIN.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L79">		final VerticalLayout content = createPanelContent();</span>
-<span class="fc" id="L80">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L80">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L81">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L82">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
+<span class="fc" id="L83">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
 
-<span class="fc" id="L84">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L85">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
+<span class="fc" id="L87">		final VerticalLayout loginLayout = new VerticalLayout();</span>
+<span class="fc" id="L88">		loginLayout.setSizeFull();</span>
 
-//		final LoginForm loginForm = new EmailPasswordLoginForm();
-//		loginForm.addLoginListener(new ApplicationLoginListener(loginRequest));
-//		loginForm.setId(ApplicationAction.LOGIN.toString());
+<span class="fc" id="L90">		final Panel formPanel = new Panel();</span>
+<span class="fc" id="L91">		formPanel.setSizeFull();</span>
 
-<span class="fc" id="L91">		final VerticalLayout loginLayout = new VerticalLayout();</span>
-<span class="fc" id="L92">		loginLayout.setSizeFull();</span>
+<span class="fc" id="L93">		loginLayout.addComponent(formPanel);</span>
 
-<span class="fc" id="L94">		final Panel formPanel = new Panel();</span>
-<span class="fc" id="L95">		formPanel.setSizeFull();</span>
+<span class="fc" id="L95">		final FormLayout formContent = new FormLayout();</span>
+<span class="fc" id="L96">		formContent.setIcon(VaadinIcons.SIGN_IN);</span>
+<span class="fc" id="L97">		formPanel.setContent(formContent);</span>
 
-<span class="fc" id="L97">		loginLayout.addComponent(formPanel);</span>
-
-<span class="fc" id="L99">		final FormLayout formContent = new FormLayout();</span>
-<span class="fc" id="L100">		formContent.setIcon(VaadinIcons.SIGN_IN);</span>
-<span class="fc" id="L101">		formPanel.setContent(formContent);</span>
-
-<span class="fc" id="L103">		final LoginRequest loginRequest = new LoginRequest();</span>
-<span class="fc" id="L104">		loginRequest.setOtpCode(&quot;&quot;);</span>
-<span class="fc" id="L105">		loginRequest.setEmail(&quot;&quot;);</span>
-<span class="fc" id="L106">		loginRequest.setUserpassword(&quot;&quot;);</span>
+<span class="fc" id="L99">		final LoginRequest loginRequest = new LoginRequest();</span>
+<span class="fc" id="L100">		loginRequest.setOtpCode(&quot;&quot;);</span>
+<span class="fc" id="L101">		loginRequest.setEmail(&quot;&quot;);</span>
+<span class="fc" id="L102">		loginRequest.setUserpassword(&quot;&quot;);</span>
 		
-<span class="fc" id="L108">		loginRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
-<span class="fc" id="L109">		final ClickListener loginListener = new ApplicationLoginListener(loginRequest);</span>
-<span class="fc" id="L110">		getFormFactory().addRequestInputFormFields(formContent, loginRequest,</span>
+<span class="fc" id="L104">		loginRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L105">		final ClickListener loginListener = new ApplicationLoginListener(loginRequest);</span>
+<span class="fc" id="L106">		getFormFactory().addRequestInputFormFields(formContent, loginRequest,</span>
 				LoginRequest.class,
-<span class="fc" id="L112">				Arrays.asList(new String[] { &quot;email&quot;, &quot;otpCode&quot;, &quot;userpassword&quot; }), &quot;Login&quot;,</span>
+				AS_LIST, LOGIN,
 				loginListener);
 
-<span class="fc" id="L115">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L116">		overviewLayout.setSizeFull();</span>
-<span class="fc" id="L117">		content.addComponent(overviewLayout);</span>
-<span class="fc" id="L118">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
+<span class="fc" id="L111">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L112">		overviewLayout.setSizeFull();</span>
+<span class="fc" id="L113">		content.addComponent(overviewLayout);</span>
+<span class="fc" id="L114">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L120">		final ResponsiveRow grid = createGridLayout(overviewLayout);		</span>
-<span class="fc" id="L121">		createRowComponent(grid,loginLayout,&quot;Register a new user&quot;);</span>
+<span class="fc" id="L116">		final ResponsiveRow grid = createGridLayout(overviewLayout);		</span>
+<span class="fc" id="L117">		createRowComponent(grid,loginLayout,REGISTER_A_NEW_USER);</span>
 		
-<span class="fc" id="L123">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
-<span class="fc" id="L124">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L119">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
+<span class="fc" id="L120">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,</span>
 				CommonsViews.MAIN_VIEW_NAME, parameters, pageId);
 
 
-<span class="fc" id="L128">		return content;</span>
+<span class="fc" id="L124">		return content;</span>
 
 	}
 

@@ -22,21 +22,22 @@ import com.vaadin.data.Converter;
 import com.vaadin.data.Result;
 import com.vaadin.data.ValueContext;
 
-<span class="fc" id="L25">final class StringToEnumConverter implements Converter&lt;String, Enum&gt; {</span>
+/**
+ * The Class StringToEnumConverter.
+ */
+<span class="fc" id="L28">final class StringToEnumConverter implements Converter&lt;String, Enum&gt; {</span>
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	public Result&lt;Enum&gt; convertToModel(final String value, final ValueContext context) {
-<span class="nc" id="L34">		return Result.ok(null);</span>
+<span class="nc" id="L35">		return Result.ok(null);</span>
 	}
 
 	@Override
 	public String convertToPresentation(final Enum value, final ValueContext context) {
-<span class="fc" id="L39">		return value.toString();</span>
+<span class="fc" id="L40">		return value.toString();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

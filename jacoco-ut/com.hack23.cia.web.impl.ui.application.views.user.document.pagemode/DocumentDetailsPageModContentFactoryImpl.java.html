@@ -46,6 +46,9 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class DocumentDetailsPageModContentFactoryImpl extends AbstractDocumentPageModContentFactoryImpl {
 
+<span class="fc" id="L49">	private static final String[] HIDE_COLUMNS = new String[] { &quot;hjid&quot; };</span>
+<span class="fc" id="L50">	private static final String[] COLUMN_ORDER = new String[] { &quot;code&quot;, &quot;detailName&quot;, &quot;text&quot; };</span>
+	private static final String DOCUMENT_DETAILS2 = &quot;Document details&quot;;
 	/** The Constant DOCUMENT_DETAILS. */
 	private static final String DOCUMENT_DETAILS = &quot;Document Details&quot;;
 
@@ -53,57 +56,57 @@ public final class DocumentDetailsPageModContentFactoryImpl extends AbstractDocu
 	 * Instantiates a new document details page mod content factory impl.
 	 */
 	public DocumentDetailsPageModContentFactoryImpl() {
-<span class="fc" id="L56">		super();</span>
-<span class="fc" id="L57">	}</span>
+<span class="fc" id="L59">		super();</span>
+<span class="fc" id="L60">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L61" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L62" title="All 2 branches covered.">				&amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTDETAILS.toString());</span>
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">				&amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTDETAILS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L68">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L71">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L70">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L73">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L72">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
-<span class="fc" id="L73">				.getDataContainer(DocumentElement.class);</span>
+<span class="fc" id="L75">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
+<span class="fc" id="L76">				.getDataContainer(DocumentElement.class);</span>
 
-<span class="fc" id="L75">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
-<span class="fc" id="L76">				.getDataContainer(DocumentStatusContainer.class);</span>
+<span class="fc" id="L78">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
+<span class="fc" id="L79">				.getDataContainer(DocumentStatusContainer.class);</span>
 
-<span class="fc" id="L78">		getApplicationManager().getDataContainer(CommitteeProposalComponentData.class);</span>
+<span class="fc" id="L81">		getApplicationManager().getDataContainer(CommitteeProposalComponentData.class);</span>
 
-<span class="fc" id="L80">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
+<span class="fc" id="L83">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
 
-<span class="fc" id="L84">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L87">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L86">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
-<span class="fc" id="L87">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
+<span class="fc" id="L89">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
+<span class="fc" id="L90">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
 							DocumentData.class, DocumentData_.id, pageId);
 
-<span class="fc" id="L90">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_DETAILS);</span>
+<span class="fc" id="L93">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_DETAILS);</span>
 
 
-<span class="pc bpc" id="L93" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentDetailContainer() != null</span>
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList() != null) {</span>
+<span class="pc bpc" id="L96" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentDetailContainer() != null</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList() != null) {</span>
 
-<span class="fc" id="L96">				getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L97">						panelContent, DocumentDetailData.class, documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList(),</span>
-						&quot;Document details&quot;, new String[] { &quot;code&quot;, &quot;detailName&quot;, &quot;text&quot; }, new String[] { &quot;hjid&quot; }, null, null, null);
+<span class="fc" id="L99">				getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L100">						panelContent, DocumentDetailData.class, documentStatusContainer.getDocumentDetailContainer().getDocumentDetailList(),</span>
+						DOCUMENT_DETAILS2, COLUMN_ORDER, HIDE_COLUMNS, null, null, null);
 			}
 
-<span class="fc" id="L101">			panel.setContent(panelContent);</span>
-<span class="fc" id="L102">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L104">			panel.setContent(panelContent);</span>
+<span class="fc" id="L105">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}
 
-<span class="fc" id="L106">		return panelContent;</span>
+<span class="fc" id="L109">		return panelContent;</span>
 
 	}
 

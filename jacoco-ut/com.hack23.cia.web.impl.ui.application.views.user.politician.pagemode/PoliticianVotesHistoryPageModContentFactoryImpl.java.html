@@ -43,6 +43,19 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class PoliticianVotesHistoryPageModContentFactoryImpl extends AbstractPoliticianPageModContentFactoryImpl {
 
+	private static final String EMBEDDED_ID_BALLOT_ID = &quot;embeddedId.ballotId&quot;;
+<span class="fc" id="L47">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, EMBEDDED_ID_BALLOT_ID);</span>
+<span class="fc" id="L48">	private static final String[] HIDE_COLUMNS = new String[] { &quot;embeddedId&quot;, &quot;partyNoWinner&quot;, &quot;partyPercentageYes&quot;, &quot;partyPercentageNo&quot;,</span>
+			&quot;partyPercentageAbsent&quot;, &quot;partyPercentageAbstain&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
+			&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, EMBEDDED_ID_BALLOT_ID, &quot;ballotType&quot; };
+<span class="fc" id="L51">	private static final String[] COLUMN_ORDER = new String[] { &quot;voteDate&quot;, &quot;rm&quot;, &quot;label&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;vote&quot;,</span>
+			&quot;won&quot;, &quot;partyWon&quot;, &quot;rebel&quot;, &quot;noWinner&quot;, &quot;approved&quot;, &quot;partyApproved&quot;, &quot;totalVotes&quot;,
+			&quot;partyTotalVotes&quot;, &quot;yesVotes&quot;, &quot;partyYesVotes&quot;, &quot;noVotes&quot;, &quot;partyNoVotes&quot;,
+			&quot;partyAbstainVotes&quot;, &quot;abstainVotes&quot;, &quot;partyAbsentVotes&quot;, &quot;absentVotes&quot;, &quot;bornYear&quot;,
+			&quot;partyAvgBornYear&quot;, &quot;avgBornYear&quot;, &quot;gender&quot;, &quot;partyPercentageMale&quot;,
+			&quot;percentageMale&quot;, &quot;ballotType&quot;, EMBEDDED_ID_BALLOT_ID };
+<span class="fc" id="L57">	private static final String[] NESTED_PROPERTIES = new String[] { EMBEDDED_ID_BALLOT_ID, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot; };</span>
+	private static final String BALLOTS = &quot;Ballots&quot;;
 	/**
 	 * The view riksdagen vote data ballot politician summary chart data
 	 * manager.
@@ -55,55 +68,48 @@ public final class PoliticianVotesHistoryPageModContentFactoryImpl extends Abstr
 	 * impl.
 	 */
 	public PoliticianVotesHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L71">		super();</span>
+<span class="fc" id="L72">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L63" title="2 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(PoliticianPageMode.VOTEHISTORY.toString());</span>
+<span class="pc bpc" id="L76" title="2 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(PoliticianPageMode.VOTEHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L69">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L82">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L71">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L84">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L73">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L74">				.getDataContainer(PersonData.class);</span>
+<span class="fc" id="L86">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L87">				.getDataContainer(PersonData.class);</span>
 
-<span class="fc" id="L76">		final PersonData personData = dataContainer.load(pageId);</span>
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if (personData != null) {</span>
+<span class="fc" id="L89">		final PersonData personData = dataContainer.load(pageId);</span>
+<span class="pc bpc" id="L90" title="1 of 2 branches missed.">		if (personData != null) {</span>
 
-<span class="fc" id="L79">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
-<span class="fc" id="L80">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
+<span class="fc" id="L92">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
+<span class="fc" id="L93">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
 
-<span class="fc" id="L82">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
+<span class="fc" id="L95">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
 
-<span class="fc" id="L84">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L97">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L86">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.VOTEHISTORY.toString());</span>
+<span class="fc" id="L99">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.VOTEHISTORY.toString());</span>
 
 
-<span class="fc" id="L89">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPoliticianSummary.class,</span>
-<span class="fc" id="L90">					viewRiksdagenVoteDataBallotPoliticianSummaryChartDataManager.findByValue(personData.getId()), &quot;Ballots&quot;,</span>
-					new String[] { &quot;embeddedId.ballotId&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot; },
-					new String[] { &quot;voteDate&quot;, &quot;rm&quot;, &quot;label&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;vote&quot;,
-							&quot;won&quot;, &quot;partyWon&quot;, &quot;rebel&quot;, &quot;noWinner&quot;, &quot;approved&quot;, &quot;partyApproved&quot;, &quot;totalVotes&quot;,
-							&quot;partyTotalVotes&quot;, &quot;yesVotes&quot;, &quot;partyYesVotes&quot;, &quot;noVotes&quot;, &quot;partyNoVotes&quot;,
-							&quot;partyAbstainVotes&quot;, &quot;abstainVotes&quot;, &quot;partyAbsentVotes&quot;, &quot;absentVotes&quot;, &quot;bornYear&quot;,
-							&quot;partyAvgBornYear&quot;, &quot;avgBornYear&quot;, &quot;gender&quot;, &quot;partyPercentageMale&quot;,
-							&quot;percentageMale&quot;, &quot;ballotType&quot;, &quot;embeddedId.ballotId&quot; },
-					new String[] { &quot;embeddedId&quot;, &quot;partyNoWinner&quot;, &quot;partyPercentageYes&quot;, &quot;partyPercentageNo&quot;,
-							&quot;partyPercentageAbsent&quot;, &quot;partyPercentageAbstain&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
-							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;embeddedId.ballotId&quot;, &quot;ballotType&quot; },
-					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;embeddedId.ballotId&quot;), &quot;embeddedId.ballotId&quot;, null);
+<span class="fc" id="L102">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenVoteDataBallotPoliticianSummary.class,</span>
+<span class="fc" id="L103">					viewRiksdagenVoteDataBallotPoliticianSummaryChartDataManager.findByValue(personData.getId()), BALLOTS,</span>
+					NESTED_PROPERTIES,
+					COLUMN_ORDER,
+					HIDE_COLUMNS,
+					LISTENER, EMBEDDED_ID_BALLOT_ID, null);
 
-<span class="fc" id="L103">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L109">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
 
 		}
-<span class="fc" id="L106">		return panelContent;</span>
+<span class="fc" id="L112">		return panelContent;</span>
 
 	}
 }

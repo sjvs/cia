@@ -111,40 +111,41 @@ public abstract class AbstractChartDataManagerImpl {
 	 *            the caption
 	 * @param chart
 	 *            the chart
-	 * @param fullPage TODO
+	 * @param fullPage
+	 *            the full page
 	 */
 	protected final void addChart(final AbstractOrderedLayout content,final String caption, final DCharts chart, final boolean fullPage) {
-<span class="fc" id="L117">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
+<span class="fc" id="L118">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
 
-<span class="fc" id="L119">		final int browserWindowWidth = getChartWindowWidth();</span>
+<span class="fc" id="L120">		final int browserWindowWidth = getChartWindowWidth();</span>
 
-<span class="fc" id="L121">		final int browserWindowHeight = getChartWindowHeight(fullPage);</span>
+<span class="fc" id="L122">		final int browserWindowHeight = getChartWindowHeight(fullPage);</span>
 
-<span class="fc" id="L123">		horizontalLayout.setWidth(browserWindowWidth, Unit.PIXELS);</span>
-<span class="fc" id="L124">		horizontalLayout.setHeight(browserWindowHeight, Unit.PIXELS);</span>
-<span class="fc" id="L125">		horizontalLayout.setMargin(true);</span>
-<span class="fc" id="L126">		horizontalLayout.setSpacing(false);</span>
-<span class="fc" id="L127">		horizontalLayout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
+<span class="fc" id="L124">		horizontalLayout.setWidth(browserWindowWidth, Unit.PIXELS);</span>
+<span class="fc" id="L125">		horizontalLayout.setHeight(browserWindowHeight, Unit.PIXELS);</span>
+<span class="fc" id="L126">		horizontalLayout.setMargin(true);</span>
+<span class="fc" id="L127">		horizontalLayout.setSpacing(false);</span>
+<span class="fc" id="L128">		horizontalLayout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
 
-<span class="fc" id="L129">		final Panel formPanel = new Panel();</span>
-<span class="fc" id="L130">		formPanel.setSizeFull();</span>
-<span class="fc" id="L131">		formPanel.setContent(horizontalLayout);</span>
-<span class="fc" id="L132">		formPanel.setCaption(caption);</span>
+<span class="fc" id="L130">		final Panel formPanel = new Panel();</span>
+<span class="fc" id="L131">		formPanel.setSizeFull();</span>
+<span class="fc" id="L132">		formPanel.setContent(horizontalLayout);</span>
+<span class="fc" id="L133">		formPanel.setCaption(caption);</span>
 
-<span class="fc" id="L134">		content.addComponent(formPanel);</span>
-<span class="fc" id="L135">		content.setExpandRatio(formPanel, ContentRatio.LARGE);</span>
+<span class="fc" id="L135">		content.addComponent(formPanel);</span>
+<span class="fc" id="L136">		content.setExpandRatio(formPanel, ContentRatio.LARGE);</span>
 
 
-<span class="fc" id="L138">		chart.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L139">		chart.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L140">		chart.setMarginRight(CHART_RIGHT_MARGIN);</span>
-<span class="fc" id="L141">		chart.setMarginLeft(CHART_LEFT_MARGIN);</span>
-<span class="fc" id="L142">		chart.setMarginBottom(CHART_BOTTOM_MARGIN_SIZE);</span>
-<span class="fc" id="L143">		chart.setMarginTop(CHART_TOP_MARGIN_SIZE);</span>
+<span class="fc" id="L139">		chart.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L140">		chart.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L141">		chart.setMarginRight(CHART_RIGHT_MARGIN);</span>
+<span class="fc" id="L142">		chart.setMarginLeft(CHART_LEFT_MARGIN);</span>
+<span class="fc" id="L143">		chart.setMarginBottom(CHART_BOTTOM_MARGIN_SIZE);</span>
+<span class="fc" id="L144">		chart.setMarginTop(CHART_TOP_MARGIN_SIZE);</span>
 
-<span class="fc" id="L145">		horizontalLayout.addComponent(chart);</span>
-<span class="fc" id="L146">		chart.setCaption(caption);</span>
-<span class="fc" id="L147">	}</span>
+<span class="fc" id="L146">		horizontalLayout.addComponent(chart);</span>
+<span class="fc" id="L147">		chart.setCaption(caption);</span>
+<span class="fc" id="L148">	}</span>
 
 	/**
 	 * Gets the chart window width.
@@ -152,7 +153,7 @@ public abstract class AbstractChartDataManagerImpl {
 	 * @return the chart window width
 	 */
 	private static int getChartWindowWidth() {
-<span class="fc" id="L155">		return Math.max(Page.getCurrent().getBrowserWindowWidth() - CHART_WIDTH_REDUCTION,MINIMUM_CHART_WIDTH);</span>
+<span class="fc" id="L156">		return Math.max(Page.getCurrent().getBrowserWindowWidth() - CHART_WIDTH_REDUCTION,MINIMUM_CHART_WIDTH);</span>
 	}
 
 	/**
@@ -162,10 +163,10 @@ public abstract class AbstractChartDataManagerImpl {
 	 * @return the chart window height
 	 */
 	private static int getChartWindowHeight(final boolean fullPage) {
-<span class="fc bfc" id="L165" title="All 2 branches covered.">		if (fullPage) {</span>
-<span class="fc" id="L166">			return Math.max((int) (Page.getCurrent().getBrowserWindowHeight() * HEIGHT_PERCENTAGE_FULL_PAGE) ,MINIMUM_CHART_HEIGHT_FULL_PAGE);</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">		if (fullPage) {</span>
+<span class="fc" id="L167">			return Math.max((int) (Page.getCurrent().getBrowserWindowHeight() * HEIGHT_PERCENTAGE_FULL_PAGE) ,MINIMUM_CHART_HEIGHT_FULL_PAGE);</span>
 		} else {
-<span class="fc" id="L168">			return Math.max((int) (Page.getCurrent().getBrowserWindowHeight() * HEIGHT_PERCETAGE_HALF_PAGE),NINIMUM_CHART_HEIGHT_HALF_PAGE);</span>
+<span class="fc" id="L169">			return Math.max((int) (Page.getCurrent().getBrowserWindowHeight() * HEIGHT_PERCETAGE_HALF_PAGE),NINIMUM_CHART_HEIGHT_HALF_PAGE);</span>
 		}
 	}
 
@@ -177,18 +178,18 @@ public abstract class AbstractChartDataManagerImpl {
 	 * @return the party name
 	 */
 	protected final String getPartyName(final String party) {
-<span class="fc" id="L180">		final DataContainer&lt;ViewRiksdagenParty, String&gt; dataContainer = applicationManager</span>
-<span class="fc" id="L181">				.getDataContainer(ViewRiksdagenParty.class);</span>
+<span class="fc" id="L181">		final DataContainer&lt;ViewRiksdagenParty, String&gt; dataContainer = applicationManager</span>
+<span class="fc" id="L182">				.getDataContainer(ViewRiksdagenParty.class);</span>
 
-<span class="fc" id="L183">		final Optional&lt;ViewRiksdagenParty&gt; matchingObjects =dataContainer.getAll().stream().</span>
-<span class="fc" id="L184">			    filter(p -&gt; p.getPartyId().equalsIgnoreCase(party)).</span>
-<span class="fc" id="L185">			    findFirst();</span>
+<span class="fc" id="L184">		final Optional&lt;ViewRiksdagenParty&gt; matchingObjects =dataContainer.getAll().stream().</span>
+<span class="fc" id="L185">			    filter(p -&gt; p.getPartyId().equalsIgnoreCase(party)).</span>
+<span class="fc" id="L186">			    findFirst();</span>
 
-<span class="pc bpc" id="L187" title="1 of 2 branches missed.">		if (matchingObjects.isPresent()) {</span>
-<span class="fc" id="L188">			return matchingObjects.get().getPartyName();</span>
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">		if (matchingObjects.isPresent()) {</span>
+<span class="fc" id="L189">			return matchingObjects.get().getPartyName();</span>
 
 		} else {
-<span class="nc" id="L191">			return party;</span>
+<span class="nc" id="L192">			return party;</span>
 		}
 	}
 

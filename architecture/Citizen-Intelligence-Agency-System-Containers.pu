@@ -1,0 +1,11 @@
+@startuml
+title Citizen Intelligence Agency System - Containers
+caption Application Overview
+package CitizenIntelligenceAgencySystem {
+  component "Database" <<Container>> as 99
+  component "Loadbalancer" <<Container>> as 8
+  component "Web Application" <<Container>> as 9
+}
+8 ..> 9 : HTTPS/H2
+9 ..> 99 : JDBC
+@enduml

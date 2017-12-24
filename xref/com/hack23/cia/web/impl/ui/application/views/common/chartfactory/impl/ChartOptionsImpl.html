@@ -304,7 +304,7 @@
 <a class="jxr_linenumber" name="L296" href="#L296">296</a> <em class="jxr_javadoccomment">	 *</em>
 <a class="jxr_linenumber" name="L297" href="#L297">297</a> <em class="jxr_javadoccomment">	 * @return the series defaults</em>
 <a class="jxr_linenumber" name="L298" href="#L298">298</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> 	<strong class="jxr_keyword">private</strong> SeriesDefaults createDonoutSeriesDefault() {
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> SeriesDefaults createDonoutSeriesDefault() {
 <a class="jxr_linenumber" name="L300" href="#L300">300</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> SeriesDefaults().setRenderer(SeriesRenderers.DONUT)
 <a class="jxr_linenumber" name="L301" href="#L301">301</a> 				.setRendererOptions(<strong class="jxr_keyword">new</strong> DonutRenderer().setSliceMargin(SLICE_MARGIN).setStartAngle(START_ANGLE).setShowDataLabels(<strong class="jxr_keyword">true</strong>)
 <a class="jxr_linenumber" name="L302" href="#L302">302</a> 						.setDataLabels(DataLabels.VALUE));

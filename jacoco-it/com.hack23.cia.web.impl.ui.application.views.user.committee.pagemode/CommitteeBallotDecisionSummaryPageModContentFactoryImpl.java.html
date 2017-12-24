@@ -49,6 +49,26 @@ import com.vaadin.ui.VerticalLayout;
 public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 		extends AbstractCommitteePageModContentFactoryImpl {
 
+	private static final String BALLOT_ID = &quot;ballotId&quot;;
+
+<span class="fc" id="L54">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, BALLOT_ID);</span>
+
+<span class="fc" id="L56">	private static final String[] HIDE_COLUMNS = new String[] { &quot;embeddedId&quot;, &quot;embeddedId.id&quot;, &quot;endNumber&quot;, &quot;org&quot;, &quot;createdDate&quot;, &quot;publicDate&quot;,</span>
+			BALLOT_ID, &quot;decisionType&quot;, &quot;label&quot;, &quot;againstProposalNumber&quot;, &quot;avgBornYear&quot;,
+			&quot;percentageMale&quot;, &quot;approved&quot;, &quot;noWinner&quot;, &quot;ballotType&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
+			&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot; };
+
+<span class="fc" id="L61">	private static final String[] COLUMN_ORDER = new String[] { &quot;voteDate&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.id&quot;, &quot;committeeReport&quot;,</span>
+			&quot;embeddedId.issue&quot;, &quot;rm&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;endNumber&quot;, &quot;org&quot;, &quot;createdDate&quot;,
+			&quot;publicDate&quot;, BALLOT_ID, &quot;decisionType&quot;, &quot;againstProposalParties&quot;, &quot;againstProposalNumber&quot;,
+			&quot;winner&quot;, &quot;ballotType&quot;, &quot;label&quot;, &quot;avgBornYear&quot;, &quot;totalVotes&quot;, &quot;yesVotes&quot;, &quot;noVotes&quot;,
+			&quot;abstainVotes&quot;, &quot;absentVotes&quot;, &quot;approved&quot;, &quot;noWinner&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
+			&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;percentageMale&quot; };
+
+<span class="fc" id="L68">	private static final String[] NESTED_PROPERTIES = new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;embeddedId.id&quot; };</span>
+
+	private static final String COMMITTEE_BALLOT_DECISION_SUMMARY = &quot;Committee Ballot Decision Summary&quot;;
+
 	/** The Constant COMMITTEE. */
 	private static final String COMMITTEE = &quot;Committee:&quot;;
 
@@ -60,61 +80,53 @@ public final class CommitteeBallotDecisionSummaryPageModContentFactoryImpl
 	 * factory impl.
 	 */
 	public CommitteeBallotDecisionSummaryPageModContentFactoryImpl() {
-<span class="fc" id="L63">		super();</span>
-<span class="fc" id="L64">	}</span>
+<span class="fc" id="L83">		super();</span>
+<span class="fc" id="L84">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L68" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.BALLOTDECISIONSUMMARY.toString());</span>
+<span class="pc bpc" id="L88" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.BALLOTDECISIONSUMMARY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L75">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L95">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L77">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L97">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L79">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L80">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L99">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L100">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
 
-<span class="fc" id="L82">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
+<span class="fc" id="L102">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
 
-<span class="fc" id="L86">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L106">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L88">			LabelFactory.createHeader2Label(panelContent, BALLOT_DECISION_SUMMARY);</span>
+<span class="fc" id="L108">			LabelFactory.createHeader2Label(panelContent, BALLOT_DECISION_SUMMARY);</span>
 
-<span class="fc" id="L90">			final DataContainer&lt;ViewRiksdagenCommitteeBallotDecisionSummary, ViewRiksdagenCommitteeBallotDecisionPartyEmbeddedId&gt; committeeBallotDecisionPartyDataContainer = getApplicationManager()</span>
-<span class="fc" id="L91">					.getDataContainer(ViewRiksdagenCommitteeBallotDecisionSummary.class);</span>
+<span class="fc" id="L110">			final DataContainer&lt;ViewRiksdagenCommitteeBallotDecisionSummary, ViewRiksdagenCommitteeBallotDecisionPartyEmbeddedId&gt; committeeBallotDecisionPartyDataContainer = getApplicationManager()</span>
+<span class="fc" id="L111">					.getDataContainer(ViewRiksdagenCommitteeBallotDecisionSummary.class);</span>
 
-<span class="fc" id="L93">			final List&lt;ViewRiksdagenCommitteeBallotDecisionSummary&gt; decisionPartySummaryList = committeeBallotDecisionPartyDataContainer</span>
-<span class="fc" id="L94">					.findOrderedListByProperty(ViewRiksdagenCommitteeBallotDecisionSummary_.org,</span>
-<span class="fc" id="L95">							pageId.toUpperCase(Locale.ENGLISH),</span>
+<span class="fc" id="L113">			final List&lt;ViewRiksdagenCommitteeBallotDecisionSummary&gt; decisionPartySummaryList = committeeBallotDecisionPartyDataContainer</span>
+<span class="fc" id="L114">					.findOrderedListByProperty(ViewRiksdagenCommitteeBallotDecisionSummary_.org,</span>
+<span class="fc" id="L115">							pageId.toUpperCase(Locale.ENGLISH),</span>
 							ViewRiksdagenCommitteeBallotDecisionSummary_.createdDate);
 
-<span class="fc" id="L98">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionSummary.class,</span>
-					decisionPartySummaryList, &quot;Committee Ballot Decision Summary&quot;,
-					new String[] { &quot;embeddedId.concern&quot;, &quot;embeddedId.issue&quot;, &quot;embeddedId.id&quot; },
-					new String[] { &quot;voteDate&quot;, &quot;embeddedId.concern&quot;, &quot;embeddedId.id&quot;, &quot;committeeReport&quot;,
-							&quot;embeddedId.issue&quot;, &quot;rm&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;endNumber&quot;, &quot;org&quot;, &quot;createdDate&quot;,
-							&quot;publicDate&quot;, &quot;ballotId&quot;, &quot;decisionType&quot;, &quot;againstProposalParties&quot;, &quot;againstProposalNumber&quot;,
-							&quot;winner&quot;, &quot;ballotType&quot;, &quot;label&quot;, &quot;avgBornYear&quot;, &quot;totalVotes&quot;, &quot;yesVotes&quot;, &quot;noVotes&quot;,
-							&quot;abstainVotes&quot;, &quot;absentVotes&quot;, &quot;approved&quot;, &quot;noWinner&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
-							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot;, &quot;percentageMale&quot; },
-					new String[] { &quot;embeddedId&quot;, &quot;embeddedId.id&quot;, &quot;endNumber&quot;, &quot;org&quot;, &quot;createdDate&quot;, &quot;publicDate&quot;,
-							&quot;ballotId&quot;, &quot;decisionType&quot;, &quot;label&quot;, &quot;againstProposalNumber&quot;, &quot;avgBornYear&quot;,
-							&quot;percentageMale&quot;, &quot;approved&quot;, &quot;noWinner&quot;, &quot;ballotType&quot;, &quot;percentageYes&quot;, &quot;percentageNo&quot;,
-							&quot;percentageAbsent&quot;, &quot;percentageAbstain&quot; },
-					new PageItemPropertyClickListener(UserViews.BALLOT_VIEW_NAME, &quot;ballotId&quot;), &quot;ballotId&quot;, null);
+<span class="fc" id="L118">			getGridFactory().createBasicBeanItemNestedPropertiesGrid(panelContent, ViewRiksdagenCommitteeBallotDecisionSummary.class,</span>
+					decisionPartySummaryList, COMMITTEE_BALLOT_DECISION_SUMMARY,
+					NESTED_PROPERTIES,
+					COLUMN_ORDER,
+					HIDE_COLUMNS,
+					LISTENER, BALLOT_ID, null);
 
-<span class="fc" id="L113">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L114">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L125">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L126">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
 					NAME, parameters, pageId);
 		}
-<span class="fc" id="L117">		return panelContent;</span>
+<span class="fc" id="L129">		return panelContent;</span>
 
 	}
 

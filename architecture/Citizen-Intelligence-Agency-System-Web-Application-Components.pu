@@ -1,0 +1,94 @@
+@startuml
+title Citizen Intelligence Agency System - Web Application - Components
+caption Web
+package WebApplication {
+  component "AgencyDAO" <<Spring Repository>> as 41
+  component "AgentContainer" <<Spring Component>> as 37
+  component "ApplicationActionEventDAO" <<Spring Repository>> as 47
+  component "ApplicationConfigurationDAO" <<Spring Repository>> as 49
+  component "ApplicationConfigurationService" <<Spring Service>> as 30
+  component "ApplicationManager" <<Spring Service>> as 20
+  component "ApplicationSessionDAO" <<Spring Repository>> as 44
+  component "AuthenticationProvider" <<Spring Component>> as 39
+  component "BootstrapDefaultConfig" <<Spring Component>> as 35
+  component "CommitteeProposalComponentDataDAO" <<Spring Repository>> as 46
+  component "ConfigurationManager" <<Spring Service>> as 33
+  component "CountryElementDAO" <<Spring Repository>> as 59
+  component "CreateApplicationEventService" <<Spring Service>> as 17
+  component "CreateApplicationSessionService" <<Spring Service>> as 15
+  component "DataContainer" <<Spring Component>> as 36
+  component "DataDAO" <<Spring Repository>> as 58
+  component "DataViewer" <<Spring Repository>> as 45
+  component "DestroyApplicationSessionService" <<Spring Service>> as 29
+  component "DisableGoogleAuthenticatorCredentialService" <<Spring Service>> as 13
+  component "DocumentContentDataDAO" <<Spring Repository>> as 55
+  component "DocumentElementDAO" <<Spring Repository>> as 48
+  component "DocumentStatusContainerDAO" <<Spring Repository>> as 60
+  component "DocumentWordCountService" <<Spring Service>> as 22
+  component "EmailService" <<Spring Component>> as 40
+  component "IndicatorElementDAO" <<Spring Repository>> as 53
+  component "JobContextHolder" <<Spring Service>> as 25
+  component "LanguageContentDataDAO" <<Spring Repository>> as 51
+  component "LanguageContentService" <<Spring Service>> as 23
+  component "LanguageDataDAO" <<Spring Repository>> as 43
+  component "LoginBlockedAccess" <<Spring Service>> as 18
+  component "LoginService" <<Spring Service>> as 16
+  component "LogoutService" <<Spring Service>> as 10
+  component "PersonDataDAO" <<Spring Repository>> as 52
+  component "RefreshDataViewsService" <<Spring Service>> as 32
+  component "RegisterUserService" <<Spring Service>> as 24
+  component "RemoveDataManager" <<Spring Service>> as 31
+  component "RemoveDataService" <<Spring Service>> as 21
+  component "SearchDocumentService" <<Spring Service>> as 27
+  component "SearchIndexer" <<Spring Repository>> as 54
+  component "SendEmailService" <<Spring Service>> as 11
+  component "SetGoogleAuthenticatorCredentialService" <<Spring Service>> as 19
+  component "SwedenPoliticalPartyDAO" <<Spring Repository>> as 56
+  component "UpdateApplicationConfigurationService" <<Spring Service>> as 14
+  component "UpdateSearchIndexService" <<Spring Service>> as 12
+  component "UserDAO" <<Spring Repository>> as 42
+  component "ViewDataDataContainerFactory" <<Spring Component>> as 34
+  component "ViewDataManager" <<Spring Service>> as 26
+  component "ViewRiksdagenCommitteeDAO" <<Spring Repository>> as 57
+  component "ViewRiksdagenMinistryDAO" <<Spring Repository>> as 50
+  component "VoteDataDAO" <<Spring Repository>> as 61
+  component "WordCounter" <<Spring Service>> as 28
+}
+30 ..> 49 
+20 ..> 37 
+20 ..> 36 
+20 ..> 34 
+35 ..> 33 
+33 ..> 41 
+33 ..> 43 
+17 ..> 44 
+15 ..> 44 
+36 ..> 57 
+29 ..> 44 
+13 ..> 42 
+22 ..> 55 
+22 ..> 28 
+40 ..> 30 
+25 ..> 54 
+25 ..> 26 
+23 ..> 51 
+18 ..> 47 
+18 ..> 30 
+18 ..> 44 
+18 ..> 42 
+16 ..> 18 
+16 ..> 42 
+32 ..> 26 
+24 ..> 30 
+24 ..> 42 
+21 ..> 31 
+27 ..> 55 
+27 ..> 48 
+11 ..> 40 
+19 ..> 41 
+19 ..> 42 
+14 ..> 49 
+12 ..> 54 
+34 ..> 36 
+34 ..> 45 
+@enduml

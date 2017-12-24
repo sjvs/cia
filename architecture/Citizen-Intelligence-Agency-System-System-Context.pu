@@ -1,0 +1,17 @@
+@startuml
+title Citizen Intelligence Agency System - System Context
+caption System context
+actor "Admin" <<Person>> as 2
+component "Citizen Intelligence Agency System" <<Software System>> as 3
+actor "User" <<Person>> as 1
+component "data.riksdagen.se" <<Software System>> as 4
+component "data.wordbank.org" <<Software System>> as 5
+component "www.esv.se" <<Software System>> as 7
+component "www.val.se" <<Software System>> as 6
+2 ..> 3 : Manages
+3 ..> 4 : Loads data
+3 ..> 5 : Loads data
+3 ..> 7 : Loads data
+3 ..> 6 : Loads data
+1 ..> 3 : Uses
+@enduml

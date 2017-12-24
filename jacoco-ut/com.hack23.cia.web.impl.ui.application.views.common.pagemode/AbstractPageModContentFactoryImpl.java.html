@@ -102,9 +102,6 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	/** The Constant DISPLAY_SIZE_XS_DEVICE. */
 	private static final int DISPLAY_SIZE_XS_DEVICE = 12;
 
-	/** The Constant LINK_STYLE_NAME. */
-	private static final String LINK_STYLE_NAME = &quot;link&quot;;
-
 	/** The application manager. */
 	@Autowired
 	private ApplicationManager applicationManager;
@@ -137,8 +134,8 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * Instantiates a new abstract page mod content factory impl.
 	 */
 	protected AbstractPageModContentFactoryImpl() {
-<span class="fc" id="L140">		super();</span>
-<span class="fc" id="L141">	}</span>
+<span class="fc" id="L137">		super();</span>
+<span class="fc" id="L138">	}</span>
 
 	/**
 	 * Gets the page id.
@@ -148,13 +145,13 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page id
 	 */
 	protected final String getPageId(final String parameters) {
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">		if (parameters != null) {</span>
-<span class="fc" id="L152">			final int pageNr = getPageNr(parameters);</span>
-<span class="fc" id="L153">			final String cleanedString = parameters.replace(&quot;[&quot; + pageNr + &quot;]&quot;, &quot;&quot;);</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">		if (parameters != null) {</span>
+<span class="fc" id="L149">			final int pageNr = getPageNr(parameters);</span>
+<span class="fc" id="L150">			final String cleanedString = parameters.replace(&quot;[&quot; + pageNr + &quot;]&quot;, &quot;&quot;);</span>
 
-<span class="fc" id="L155">			return cleanedString.substring(cleanedString.lastIndexOf('/') + &quot;/&quot;.length(), cleanedString.length());</span>
+<span class="fc" id="L152">			return cleanedString.substring(cleanedString.lastIndexOf('/') + &quot;/&quot;.length(), cleanedString.length());</span>
 		} else {
-<span class="nc" id="L157">			return &quot;&quot;;</span>
+<span class="nc" id="L154">			return &quot;&quot;;</span>
 		}
 	}
 
@@ -167,18 +164,18 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 */
 	protected final int getPageNr(final String parameters) {
 		String pageNrValue;
-<span class="pc bpc" id="L170" title="4 of 6 branches missed.">		if (parameters != null &amp;&amp; parameters.contains(&quot;[&quot;) &amp;&amp; parameters.contains(&quot;]&quot;)) {</span>
-<span class="nc" id="L171">			pageNrValue = parameters.substring(parameters.indexOf('[') + 1, parameters.lastIndexOf(']'));</span>
+<span class="pc bpc" id="L167" title="4 of 6 branches missed.">		if (parameters != null &amp;&amp; parameters.contains(&quot;[&quot;) &amp;&amp; parameters.contains(&quot;]&quot;)) {</span>
+<span class="nc" id="L168">			pageNrValue = parameters.substring(parameters.indexOf('[') + 1, parameters.lastIndexOf(']'));</span>
 		} else {
-<span class="fc" id="L173">			pageNrValue = &quot;&quot;;</span>
+<span class="fc" id="L170">			pageNrValue = &quot;&quot;;</span>
 		}
 
-<span class="fc" id="L176">		int pageNr = 1;</span>
+<span class="fc" id="L173">		int pageNr = 1;</span>
 
-<span class="pc bpc" id="L178" title="1 of 2 branches missed.">		if (pageNrValue.length() &gt; 0) {</span>
-<span class="nc" id="L179">			pageNr = Integer.parseInt(pageNrValue);</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">		if (pageNrValue.length() &gt; 0) {</span>
+<span class="nc" id="L176">			pageNr = Integer.parseInt(pageNrValue);</span>
 		}
-<span class="fc" id="L181">		return pageNr;</span>
+<span class="fc" id="L178">		return pageNr;</span>
 	}
 
 	/**
@@ -187,7 +184,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the application manager
 	 */
 	protected final ApplicationManager getApplicationManager() {
-<span class="fc" id="L190">		return applicationManager;</span>
+<span class="fc" id="L187">		return applicationManager;</span>
 	}
 
 	/**
@@ -196,7 +193,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the menu item factory
 	 */
 	protected final ApplicationMenuItemFactory getMenuItemFactory() {
-<span class="fc" id="L199">		return menuItemFactory;</span>
+<span class="fc" id="L196">		return menuItemFactory;</span>
 	}
 
 	/**
@@ -205,7 +202,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the grid factory
 	 */
 	protected final GridFactory getGridFactory() {
-<span class="fc" id="L208">		return gridFactory;</span>
+<span class="fc" id="L205">		return gridFactory;</span>
 	}
 
 	/**
@@ -214,7 +211,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the form factory
 	 */
 	protected final FormFactory getFormFactory() {
-<span class="fc" id="L217">		return formFactory;</span>
+<span class="fc" id="L214">		return formFactory;</span>
 	}
 
 	/**
@@ -223,11 +220,11 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page link factory
 	 */
 	protected final PageLinkFactory getPageLinkFactory() {
-<span class="fc" id="L226">		return pageLinkFactory;</span>
+<span class="fc" id="L223">		return pageLinkFactory;</span>
 	}
 
 	protected final AdminChartDataManager getAdminChartDataManager() {
-<span class="fc" id="L230">		return adminChartDataManager;</span>
+<span class="fc" id="L227">		return adminChartDataManager;</span>
 	}
 
 	/**
@@ -236,7 +233,7 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the page action event helper
 	 */
 	protected final PageActionEventHelper getPageActionEventHelper() {
-<span class="fc" id="L239">		return pageActionEventHelper;</span>
+<span class="fc" id="L236">		return pageActionEventHelper;</span>
 	}
 
 	/**
@@ -245,12 +242,12 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @return the vertical layout
 	 */
 	protected final VerticalLayout createPanelContent() {
-<span class="fc" id="L248">		final VerticalLayout panelContent = new VerticalLayout();</span>
-<span class="fc" id="L249">		panelContent.setMargin(true);</span>
-<span class="fc" id="L250">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L251">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L252">		panelContent.setStyleName(&quot;Header&quot;);</span>
-<span class="fc" id="L253">		return panelContent;</span>
+<span class="fc" id="L245">		final VerticalLayout panelContent = new VerticalLayout();</span>
+<span class="fc" id="L246">		panelContent.setMargin(true);</span>
+<span class="fc" id="L247">		panelContent.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L248">		panelContent.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L249">		panelContent.setStyleName(&quot;Header&quot;);</span>
+<span class="fc" id="L250">		return panelContent;</span>
 	}
 
 	/**
@@ -266,32 +263,32 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	protected final void createPageVisitHistory(final String pageName, final String pageId,
 			final VerticalLayout panelContent) {
 
-<span class="fc" id="L269">		final TabSheet tabsheet = new TabSheet();</span>
-<span class="fc" id="L270">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L271">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L266">		final TabSheet tabsheet = new TabSheet();</span>
+<span class="fc" id="L267">		tabsheet.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L268">		tabsheet.setHeight(100, Unit.PERCENTAGE);</span>
 
-<span class="fc" id="L273">		panelContent.addComponent(tabsheet);</span>
-<span class="fc" id="L274">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
+<span class="fc" id="L270">		panelContent.addComponent(tabsheet);</span>
+<span class="fc" id="L271">		panelContent.setExpandRatio(tabsheet, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L276">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
-<span class="fc" id="L277">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L278">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L279">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
+<span class="fc" id="L273">		final HorizontalLayout tabContentPageItemRankHistory = new HorizontalLayout();</span>
+<span class="fc" id="L274">		tabContentPageItemRankHistory.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L275">		tabContentPageItemRankHistory.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L276">		final Tab tabPageItemRankHistory = tabsheet.addTab(tabContentPageItemRankHistory);</span>
 
-<span class="fc" id="L281">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
-<span class="fc" id="L282">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
+<span class="fc" id="L278">		tabPageItemRankHistory.setCaption(CURRENT_PAGE_VISIT_HISTORY);</span>
+<span class="fc" id="L279">		adminChartDataManager.createApplicationActionEventPageElementDailySummaryChart(tabContentPageItemRankHistory,</span>
 				pageName, pageId);
 
-<span class="fc" id="L285">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
-<span class="fc" id="L286">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L287">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L288">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
-<span class="fc" id="L289">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
+<span class="fc" id="L282">		final HorizontalLayout tabContentPageModeSummary = new HorizontalLayout();</span>
+<span class="fc" id="L283">		tabContentPageModeSummary.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L284">		tabContentPageModeSummary.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L285">		final Tab tabPageModeSummary = tabsheet.addTab(tabContentPageModeSummary);</span>
+<span class="fc" id="L286">		tabPageModeSummary.setCaption(GENERAL_PAGE_MODE_PAGE_VISIT);</span>
 
-<span class="fc" id="L291">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
+<span class="fc" id="L288">		adminChartDataManager.createApplicationActionEventPageModeDailySummaryChart(tabContentPageModeSummary,</span>
 				pageName);
 
-<span class="fc" id="L294">	}</span>
+<span class="fc" id="L291">	}</span>
 
 	/**
 	 * Creates the paging controls.
@@ -311,47 +308,47 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 */
 	protected final void createPagingControls(final AbstractOrderedLayout content, final String name, final String pageId, final int size, final int pageNr,
 			final int resultPerPage) {
-<span class="fc" id="L314">				final HorizontalLayout pagingControls = new HorizontalLayout();</span>
-<span class="fc" id="L315">				pagingControls.setSpacing(true);</span>
-<span class="fc" id="L316">				pagingControls.setMargin(true);</span>
+<span class="fc" id="L311">				final HorizontalLayout pagingControls = new HorizontalLayout();</span>
+<span class="fc" id="L312">				pagingControls.setSpacing(true);</span>
+<span class="fc" id="L313">				pagingControls.setMargin(true);</span>
 
-<span class="fc" id="L318">				final int maxPages = (size +resultPerPage-1) / resultPerPage;</span>
+<span class="fc" id="L315">				final int maxPages = (size +resultPerPage-1) / resultPerPage;</span>
 
-<span class="fc" id="L320">				final StringBuilder stringBuilder = new StringBuilder();</span>
-<span class="fc" id="L321">				stringBuilder.append(PAGE_HEADER)</span>
-<span class="fc" id="L322">				.append(pageNr)</span>
-<span class="fc" id="L323">				.append(PAGE_SEPARATOR)</span>
-<span class="fc" id="L324">				.append(maxPages)</span>
-<span class="fc" id="L325">				.append(PAGES_TOTAL_RESULTS)</span>
-<span class="fc" id="L326">				.append(size)</span>
-<span class="fc" id="L327">				.append(RESULTS_PER_PAGE)</span>
-<span class="fc" id="L328">				.append(resultPerPage)</span>
-<span class="fc" id="L329">				.append(SHOW);</span>
-<span class="fc" id="L330">				final Label pageInfo = new Label(stringBuilder.toString());</span>
-<span class="fc" id="L331">				pagingControls.addComponent(pageInfo);</span>
-<span class="fc" id="L332">				pagingControls.setExpandRatio(pageInfo, ContentRatio.SMALL);</span>
+<span class="fc" id="L317">				final StringBuilder stringBuilder = new StringBuilder();</span>
+<span class="fc" id="L318">				stringBuilder.append(PAGE_HEADER)</span>
+<span class="fc" id="L319">				.append(pageNr)</span>
+<span class="fc" id="L320">				.append(PAGE_SEPARATOR)</span>
+<span class="fc" id="L321">				.append(maxPages)</span>
+<span class="fc" id="L322">				.append(PAGES_TOTAL_RESULTS)</span>
+<span class="fc" id="L323">				.append(size)</span>
+<span class="fc" id="L324">				.append(RESULTS_PER_PAGE)</span>
+<span class="fc" id="L325">				.append(resultPerPage)</span>
+<span class="fc" id="L326">				.append(SHOW);</span>
+<span class="fc" id="L327">				final Label pageInfo = new Label(stringBuilder.toString());</span>
+<span class="fc" id="L328">				pagingControls.addComponent(pageInfo);</span>
+<span class="fc" id="L329">				pagingControls.setExpandRatio(pageInfo, ContentRatio.SMALL);</span>
 
 
-<span class="pc bpc" id="L335" title="1 of 2 branches missed.">				if (pageNr &gt; PAGE_ONE) {</span>
-<span class="nc" id="L336">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
+<span class="pc bpc" id="L332" title="1 of 2 branches missed.">				if (pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L333">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L339" title="3 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
-<span class="nc" id="L340">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
+<span class="pc bpc" id="L336" title="3 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L337">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L343" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
-<span class="nc" id="L344">					addPagingLink(FIRST_PAGE,name, pageId, 1,pagingControls);</span>
+<span class="pc bpc" id="L340" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
+<span class="nc" id="L341">					addPagingLink(FIRST_PAGE,name, pageId, 1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L347" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
-<span class="nc" id="L348">					addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
+<span class="pc bpc" id="L344" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="nc" id="L345">					addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
 				}
 
-<span class="fc" id="L351">				content.addComponent(pagingControls);</span>
-<span class="fc" id="L352">				content.setExpandRatio(pagingControls, ContentRatio.SMALL2);</span>
+<span class="fc" id="L348">				content.addComponent(pagingControls);</span>
+<span class="fc" id="L349">				content.setExpandRatio(pagingControls, ContentRatio.SMALL2);</span>
 
-<span class="fc" id="L354">			}</span>
+<span class="fc" id="L351">			}</span>
 
 	/**
 	 * Adds the paging link.
@@ -368,66 +365,66 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 *            the paging controls
 	 */
 	private void addPagingLink(final String label, final String name, final String pageId, final int pageNr, final HorizontalLayout pagingControls) {
-<span class="nc" id="L371">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));</span>
-<span class="nc" id="L372">		pagingControls.addComponent(previousPageLink);</span>
-<span class="nc" id="L373">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
-<span class="nc" id="L374">	}</span>
+<span class="nc" id="L368">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));</span>
+<span class="nc" id="L369">		pagingControls.addComponent(previousPageLink);</span>
+<span class="nc" id="L370">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
+<span class="nc" id="L371">	}</span>
 
 	protected final void createRowItem(final ResponsiveRow row, final Button button, final String description) {
-<span class="fc" id="L377">		final CssLayout layout = new CssLayout();</span>
-<span class="fc" id="L378">		layout.addStyleName(&quot;v-layout-content-overview-panel-level2&quot;);</span>
-<span class="fc" id="L379">		Responsive.makeResponsive(layout);</span>
-<span class="fc" id="L380">		layout.setSizeUndefined();</span>
+<span class="fc" id="L374">		final CssLayout layout = new CssLayout();</span>
+<span class="fc" id="L375">		layout.addStyleName(&quot;v-layout-content-overview-panel-level2&quot;);</span>
+<span class="fc" id="L376">		Responsive.makeResponsive(layout);</span>
+<span class="fc" id="L377">		layout.setSizeUndefined();</span>
 		
-<span class="fc" id="L382">		button.addStyleName(&quot;itembox&quot;);</span>
-<span class="fc" id="L383">		button.addStyleName(&quot;title&quot;);</span>
-<span class="fc" id="L384">		Responsive.makeResponsive(button);</span>
-<span class="fc" id="L385">		button.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L386">		layout.addComponent(button);</span>
+<span class="fc" id="L379">		button.addStyleName(&quot;itembox&quot;);</span>
+<span class="fc" id="L380">		button.addStyleName(&quot;title&quot;);</span>
+<span class="fc" id="L381">		Responsive.makeResponsive(button);</span>
+<span class="fc" id="L382">		button.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L383">		layout.addComponent(button);</span>
 	
-<span class="fc" id="L388">		final Label descriptionLabel = new Label(description);</span>
-<span class="fc" id="L389">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
-<span class="fc" id="L390">		Responsive.makeResponsive(descriptionLabel);</span>
-<span class="fc" id="L391">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L392">		layout.addComponent(descriptionLabel);</span>
+<span class="fc" id="L385">		final Label descriptionLabel = new Label(description);</span>
+<span class="fc" id="L386">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
+<span class="fc" id="L387">		Responsive.makeResponsive(descriptionLabel);</span>
+<span class="fc" id="L388">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L389">		layout.addComponent(descriptionLabel);</span>
 	
-<span class="fc" id="L394">		row.addColumn().withDisplayRules(DISPLAY_SIZE_XS_DEVICE,DISPLAYS_SIZE_XM_DEVICE,DISPLAY_SIZE_MD_DEVICE,DISPLAY_SIZE_LG_DEVICE).withComponent(layout);</span>
-<span class="fc" id="L395">	}</span>
+<span class="fc" id="L391">		row.addColumn().withDisplayRules(DISPLAY_SIZE_XS_DEVICE,DISPLAYS_SIZE_XM_DEVICE,DISPLAY_SIZE_MD_DEVICE,DISPLAY_SIZE_LG_DEVICE).withComponent(layout);</span>
+<span class="fc" id="L392">	}</span>
 
 	protected final void createRowComponent(final ResponsiveRow row, final Component component, final String description) {
-<span class="fc" id="L398">		final CssLayout layout = new CssLayout();</span>
-<span class="fc" id="L399">		layout.addStyleName(&quot;.v-layout-content-pagemode-panel-level2&quot;);</span>
-<span class="fc" id="L400">		Responsive.makeResponsive(layout);</span>
-<span class="fc" id="L401">		layout.setSizeUndefined();</span>
+<span class="fc" id="L395">		final CssLayout layout = new CssLayout();</span>
+<span class="fc" id="L396">		layout.addStyleName(&quot;.v-layout-content-pagemode-panel-level2&quot;);</span>
+<span class="fc" id="L397">		Responsive.makeResponsive(layout);</span>
+<span class="fc" id="L398">		layout.setSizeUndefined();</span>
 
-<span class="fc" id="L403">		final Label descriptionLabel = new Label(description);</span>
-<span class="fc" id="L404">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
-<span class="fc" id="L405">		Responsive.makeResponsive(descriptionLabel);</span>
-<span class="fc" id="L406">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L407">		layout.addComponent(descriptionLabel);</span>
+<span class="fc" id="L400">		final Label descriptionLabel = new Label(description);</span>
+<span class="fc" id="L401">		descriptionLabel.addStyleName(&quot;itembox&quot;);</span>
+<span class="fc" id="L402">		Responsive.makeResponsive(descriptionLabel);</span>
+<span class="fc" id="L403">		descriptionLabel.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L404">		layout.addComponent(descriptionLabel);</span>
 
-<span class="fc" id="L409">		component.addStyleName(&quot;itembox&quot;);</span>
-<span class="fc" id="L410">		component.addStyleName(&quot;title&quot;);</span>
-<span class="fc" id="L411">		Responsive.makeResponsive(component);</span>
-<span class="fc" id="L412">		component.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L413">		layout.addComponent(component);	</span>
+<span class="fc" id="L406">		component.addStyleName(&quot;itembox&quot;);</span>
+<span class="fc" id="L407">		component.addStyleName(&quot;title&quot;);</span>
+<span class="fc" id="L408">		Responsive.makeResponsive(component);</span>
+<span class="fc" id="L409">		component.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L410">		layout.addComponent(component);	</span>
 	
-<span class="fc" id="L415">		row.addColumn().withDisplayRules(DISPLAY_SIZE_XS_DEVICE,DISPLAYS_SIZE_XM_DEVICE,DISPLAY_SIZE_MD_DEVICE,DISPLAY_SIZE_LG_DEVICE).withComponent(layout);</span>
-<span class="fc" id="L416">	}</span>
+<span class="fc" id="L412">		row.addColumn().withDisplayRules(DISPLAY_SIZE_XS_DEVICE,DISPLAYS_SIZE_XM_DEVICE,DISPLAY_SIZE_MD_DEVICE,DISPLAY_SIZE_LG_DEVICE).withComponent(layout);</span>
+<span class="fc" id="L413">	}</span>
 
 	
 	
 	
 	
 	protected final ResponsiveRow createGridLayout(final VerticalLayout panelContent) {
-<span class="fc" id="L423">		final ResponsiveLayout layout = new ResponsiveLayout();</span>
-<span class="fc" id="L424">		Responsive.makeResponsive(layout);</span>
-<span class="fc" id="L425">		layout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
-<span class="fc" id="L426">		layout.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L427">		layout.setHeight(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L428">		panelContent.addComponent(layout);</span>
-<span class="fc" id="L429">		panelContent.setExpandRatio(layout, ContentRatio.LARGE);</span>
-<span class="fc" id="L430">		return layout.addRow();</span>
+<span class="fc" id="L420">		final ResponsiveLayout layout = new ResponsiveLayout();</span>
+<span class="fc" id="L421">		Responsive.makeResponsive(layout);</span>
+<span class="fc" id="L422">		layout.addStyleName(&quot;v-layout-content-overview-panel-level1&quot;);</span>
+<span class="fc" id="L423">		layout.setWidth(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L424">		layout.setHeight(100, Unit.PERCENTAGE);</span>
+<span class="fc" id="L425">		panelContent.addComponent(layout);</span>
+<span class="fc" id="L426">		panelContent.setExpandRatio(layout, ContentRatio.LARGE);</span>
+<span class="fc" id="L427">		return layout.addRow();</span>
 	}
 
 }

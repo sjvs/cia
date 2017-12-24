@@ -44,6 +44,13 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class MinistryMemberHistoryPageModContentFactoryImpl extends AbstractMinistryPageModContentFactoryImpl {
 
+<span class="fc" id="L47">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME,&quot;personId&quot;);</span>
+
+<span class="fc" id="L49">	private static final String[] HIDE_COLUMNS = new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; };</span>
+
+<span class="fc" id="L51">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;,&quot;totalDaysServed&quot;, &quot;detail&quot;,</span>
+			&quot;fromDate&quot;, &quot;toDate&quot; };
+
 	/** The Constant MEMBER_HISTORY. */
 	private static final String MEMBER_HISTORY = &quot;Member History&quot;;
 
@@ -54,51 +61,50 @@ public final class MinistryMemberHistoryPageModContentFactoryImpl extends Abstra
 	 * Instantiates a new ministry member history page mod content factory impl.
 	 */
 	public MinistryMemberHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L57">		super();</span>
-<span class="fc" id="L58">	}</span>
+<span class="fc" id="L64">		super();</span>
+<span class="fc" id="L65">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L62" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(MinistryPageMode.MEMBERHISTORY.toString());</span>
+<span class="pc bpc" id="L69" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(MinistryPageMode.MEMBERHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L68">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L75">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L70">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L77">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L72">		final DataContainer&lt;ViewRiksdagenMinistry, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L73">				.getDataContainer(ViewRiksdagenMinistry.class);</span>
+<span class="fc" id="L79">		final DataContainer&lt;ViewRiksdagenMinistry, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L80">				.getDataContainer(ViewRiksdagenMinistry.class);</span>
 
-<span class="fc" id="L75">		final ViewRiksdagenMinistry viewRiksdagenMinistry = dataContainer.load(pageId);</span>
+<span class="fc" id="L82">		final ViewRiksdagenMinistry viewRiksdagenMinistry = dataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if (viewRiksdagenMinistry != null) {</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">		if (viewRiksdagenMinistry != null) {</span>
 
-<span class="fc" id="L79">			getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L86">			getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L81">			LabelFactory.createHeader2Label(panelContent,MEMBER_HISTORY);</span>
+<span class="fc" id="L88">			LabelFactory.createHeader2Label(panelContent,MEMBER_HISTORY);</span>
 
 
-<span class="fc" id="L84">			final DataContainer&lt;ViewRiksdagenGovermentRoleMember, String&gt; govermentRoleMemberDataContainer = getApplicationManager()</span>
-<span class="fc" id="L85">					.getDataContainer(ViewRiksdagenGovermentRoleMember.class);</span>
+<span class="fc" id="L91">			final DataContainer&lt;ViewRiksdagenGovermentRoleMember, String&gt; govermentRoleMemberDataContainer = getApplicationManager()</span>
+<span class="fc" id="L92">					.getDataContainer(ViewRiksdagenGovermentRoleMember.class);</span>
 
-<span class="fc" id="L87">			getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L88">					panelContent, ViewRiksdagenGovermentRoleMember.class, govermentRoleMemberDataContainer.getAllBy(</span>
-<span class="fc" id="L89">							ViewRiksdagenGovermentRoleMember_.detail, viewRiksdagenMinistry.getNameId()),</span>
+<span class="fc" id="L94">			getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L95">					panelContent, ViewRiksdagenGovermentRoleMember.class, govermentRoleMemberDataContainer.getAllBy(</span>
+<span class="fc" id="L96">							ViewRiksdagenGovermentRoleMember_.detail, viewRiksdagenMinistry.getNameId()),</span>
 					MEMBER_HISTORY,
-					new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;,&quot;totalDaysServed&quot;, &quot;detail&quot;,
-							&quot;fromDate&quot;, &quot;toDate&quot; }, new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; },
-					new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME,&quot;personId&quot;), null, null);
+					COLUMN_ORDER, HIDE_COLUMNS,
+					LISTENER, null, null);
 
-<span class="fc" id="L95">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
-<span class="fc" id="L96">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L101">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="fc" id="L102">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 
 		}
 
-<span class="fc" id="L101">		return panelContent;</span>
+<span class="fc" id="L107">		return panelContent;</span>
 
 	}
 

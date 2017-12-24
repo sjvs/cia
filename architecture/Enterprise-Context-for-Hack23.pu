@@ -1,0 +1,16 @@
+@startuml
+title Enterprise Context for Hack23
+caption Enterprise
+component "data.riksdagen.se" <<Software System>> as 4
+component "data.wordbank.org" <<Software System>> as 5
+component "www.esv.se" <<Software System>> as 7
+component "www.val.se" <<Software System>> as 6
+package Hack23 {
+}
+2 ..> 3 : Manages
+3 ..> 4 : Loads data
+3 ..> 5 : Loads data
+3 ..> 7 : Loads data
+3 ..> 6 : Loads data
+1 ..> 3 : Uses
+@enduml

@@ -19,6 +19,7 @@
 package com.hack23.cia.web.impl.ui.application.views.user.document.pagemode;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.access.annotation.Secured;
@@ -48,6 +49,9 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class DocumentDecisionPageModContentFactoryImpl extends AbstractDocumentPageModContentFactoryImpl {
 
+<span class="fc" id="L52">	private static final List&lt;String&gt; AS_LIST = Arrays.asList( &quot;committee&quot;, &quot;chamber&quot;, &quot;processedIn&quot;, &quot;decisionType&quot;,</span>
+			&quot;proposalNumber&quot;, &quot;designation&quot;, &quot;wording&quot;, &quot;wording2&quot;, &quot;wording3&quot;,
+			&quot;wording4&quot; );
 	/** The Constant DOCUMENT_DECISION. */
 	private static final String DOCUMENT_DECISION = &quot;Document Decision&quot;;
 
@@ -55,62 +59,60 @@ public final class DocumentDecisionPageModContentFactoryImpl extends AbstractDoc
 	 * Instantiates a new document decision page mod content factory impl.
 	 */
 	public DocumentDecisionPageModContentFactoryImpl() {
-<span class="fc" id="L58">		super();</span>
-<span class="fc" id="L59">	}</span>
+<span class="fc" id="L62">		super();</span>
+<span class="fc" id="L63">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L63" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTDECISION.toString());</span>
+<span class="pc bpc" id="L67" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTDECISION.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L69">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L73">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L71">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L75">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L73">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
-<span class="fc" id="L74">				.getDataContainer(DocumentElement.class);</span>
+<span class="fc" id="L77">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
+<span class="fc" id="L78">				.getDataContainer(DocumentElement.class);</span>
 
-<span class="fc" id="L76">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
-<span class="fc" id="L77">				.getDataContainer(DocumentStatusContainer.class);</span>
+<span class="fc" id="L80">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
+<span class="fc" id="L81">				.getDataContainer(DocumentStatusContainer.class);</span>
 
-<span class="fc" id="L79">		getApplicationManager()</span>
-<span class="fc" id="L80">				.getDataContainer(CommitteeProposalComponentData.class);</span>
+<span class="fc" id="L83">		getApplicationManager()</span>
+<span class="fc" id="L84">				.getDataContainer(CommitteeProposalComponentData.class);</span>
 
-<span class="fc" id="L82">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
+<span class="fc" id="L86">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
 
-<span class="fc" id="L86">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L90">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L88">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
-<span class="fc" id="L89">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
+<span class="fc" id="L92">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
+<span class="fc" id="L93">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
 							DocumentData.class, DocumentData_.id, pageId);
 
 
 
 
-<span class="fc" id="L95">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_DECISION);</span>
+<span class="fc" id="L99">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_DECISION);</span>
 
-<span class="pc bpc" id="L97" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentProposal() != null</span>
-<span class="pc bpc" id="L98" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentProposal().getProposal() != null) {</span>
+<span class="pc bpc" id="L101" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentProposal() != null</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentProposal().getProposal() != null) {</span>
 
-<span class="fc" id="L100">				getFormFactory().addFormPanelTextFields(panelContent,</span>
-<span class="fc" id="L101">						documentStatusContainer.getDocumentProposal().getProposal(),</span>
+<span class="fc" id="L104">				getFormFactory().addFormPanelTextFields(panelContent,</span>
+<span class="fc" id="L105">						documentStatusContainer.getDocumentProposal().getProposal(),</span>
 						DocumentProposalData.class,
-<span class="fc" id="L103">						Arrays.asList(new String[] { &quot;committee&quot;, &quot;chamber&quot;, &quot;processedIn&quot;, &quot;decisionType&quot;,</span>
-								&quot;proposalNumber&quot;, &quot;designation&quot;, &quot;wording&quot;, &quot;wording2&quot;, &quot;wording3&quot;,
-								&quot;wording4&quot; }));
+						AS_LIST);
 
 			}
 
-<span class="fc" id="L109">			panel.setContent(panelContent);</span>
-<span class="fc" id="L110">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
+<span class="fc" id="L111">			panel.setContent(panelContent);</span>
+<span class="fc" id="L112">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 
-<span class="fc" id="L113">		return panelContent;</span>
+<span class="fc" id="L115">		return panelContent;</span>
 
 	}
 

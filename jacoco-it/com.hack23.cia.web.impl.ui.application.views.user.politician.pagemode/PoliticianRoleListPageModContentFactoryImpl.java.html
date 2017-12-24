@@ -42,51 +42,56 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class PoliticianRoleListPageModContentFactoryImpl extends AbstractPoliticianPageModContentFactoryImpl {
 
+<span class="fc" id="L45">	private static final String[] HIDE_COLUMNS = new String[] { &quot;hjid&quot;, &quot;intressentId&quot;, &quot;orderNumber&quot;, &quot;orgCode&quot; };</span>
+<span class="fc" id="L46">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;assignmentType&quot;, &quot;status&quot;, &quot;detail&quot;, &quot;orgCode&quot;, &quot;fromDate&quot;,</span>
+			&quot;toDate&quot; };
+	private static final String ASSIGNMENTS = &quot;Assignments&quot;;
+
 	/**
 	 * Instantiates a new politician role list page mod content factory impl.
 	 */
 	public PoliticianRoleListPageModContentFactoryImpl() {
-<span class="fc" id="L49">		super();</span>
-<span class="fc" id="L50">	}</span>
+<span class="fc" id="L54">		super();</span>
+<span class="fc" id="L55">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L54" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(PoliticianPageMode.ROLELIST.toString());</span>
+<span class="pc bpc" id="L59" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(PoliticianPageMode.ROLELIST.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L60">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L65">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L62">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L67">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L64">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L65">				.getDataContainer(PersonData.class);</span>
+<span class="fc" id="L69">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L70">				.getDataContainer(PersonData.class);</span>
 
-<span class="fc" id="L67">		final PersonData personData = dataContainer.load(pageId);</span>
-<span class="pc bpc" id="L68" title="1 of 2 branches missed.">		if (personData != null) {</span>
+<span class="fc" id="L72">		final PersonData personData = dataContainer.load(pageId);</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if (personData != null) {</span>
 
-<span class="fc" id="L70">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
-<span class="fc" id="L71">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
+<span class="fc" id="L75">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
+<span class="fc" id="L76">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
 
-<span class="fc" id="L73">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
+<span class="fc" id="L78">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
 
-<span class="fc" id="L75">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L80">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L77">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.ROLELIST.toString());</span>
+<span class="fc" id="L82">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.ROLELIST.toString());</span>
 
 
 
-<span class="fc" id="L81">			final List&lt;AssignmentData&gt; assignmentList = personData.getPersonAssignmentData()</span>
-<span class="fc" id="L82">					.getAssignmentList();</span>
+<span class="fc" id="L86">			final List&lt;AssignmentData&gt; assignmentList = personData.getPersonAssignmentData()</span>
+<span class="fc" id="L87">					.getAssignmentList();</span>
 
-<span class="fc" id="L84">			createRoleList(panelContent, assignmentList);</span>
+<span class="fc" id="L89">			createRoleList(panelContent, assignmentList);</span>
 
-<span class="fc" id="L86">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L91">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
 
 		}
-<span class="fc" id="L89">		return panelContent;</span>
+<span class="fc" id="L94">		return panelContent;</span>
 
 	}
 
@@ -100,17 +105,16 @@ public final class PoliticianRoleListPageModContentFactoryImpl extends AbstractP
 	 */
 	private void createRoleList(final VerticalLayout roleSummaryLayoutTabsheet, final List&lt;AssignmentData&gt; assignmentList) {
 
-<span class="fc" id="L103">		final Comparator&lt;AssignmentData&gt; compare = (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
+<span class="fc" id="L108">		final Comparator&lt;AssignmentData&gt; compare = (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
 
-<span class="fc" id="L105">		Collections.sort(assignmentList, compare);</span>
+<span class="fc" id="L110">		Collections.sort(assignmentList, compare);</span>
 
-<span class="fc" id="L107">		getGridFactory()</span>
-<span class="fc" id="L108">				.createBasicBeanItemGrid(roleSummaryLayoutTabsheet, AssignmentData.class, assignmentList,</span>
-						&quot;Assignments&quot;,
-						new String[] { &quot;roleCode&quot;, &quot;assignmentType&quot;, &quot;status&quot;, &quot;detail&quot;, &quot;orgCode&quot;, &quot;fromDate&quot;,
-								&quot;toDate&quot; }, new String[] { &quot;hjid&quot;, &quot;intressentId&quot;, &quot;orderNumber&quot;, &quot;orgCode&quot; }, null, null, null);
+<span class="fc" id="L112">		getGridFactory()</span>
+<span class="fc" id="L113">				.createBasicBeanItemGrid(roleSummaryLayoutTabsheet, AssignmentData.class, assignmentList,</span>
+						ASSIGNMENTS,
+						COLUMN_ORDER, HIDE_COLUMNS, null, null, null);
 
-<span class="fc" id="L113">	}</span>
+<span class="fc" id="L117">	}</span>
 
 
 }
