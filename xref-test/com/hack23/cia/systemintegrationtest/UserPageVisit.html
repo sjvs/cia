@@ -407,7 +407,7 @@
 <a class="jxr_linenumber" name="L399" href="#L399">399</a> 				.id(ViewAction.VISIT_POLITICIAN_RANKING_VIEW.name()));
 <a class="jxr_linenumber" name="L400" href="#L400">400</a> 		performClickAction(politiciansViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L401" href="#L401">401</a> 
-<a class="jxr_linenumber" name="L402" href="#L402">402</a> 		assertEquals(<span class="jxr_string">"http://localhost:8080/#!politicianranking"</span>,
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> 		assertEquals(<span class="jxr_string">"https://localhost:28443/#!politicianranking"</span>,
 <a class="jxr_linenumber" name="L403" href="#L403">403</a> 				driver.getCurrentUrl());
 <a class="jxr_linenumber" name="L404" href="#L404">404</a> 
 <a class="jxr_linenumber" name="L405" href="#L405">405</a> 		verifyViewActions(<strong class="jxr_keyword">new</strong> ViewAction[] {ViewAction.VISIT_MAIN_VIEW });
@@ -429,7 +429,7 @@
 <a class="jxr_linenumber" name="L421" href="#L421">421</a> 		performClickAction(politicianViewLink, WAIT_FOR_PAGE_DELAY*4);
 <a class="jxr_linenumber" name="L422" href="#L422">422</a> 
 <a class="jxr_linenumber" name="L423" href="#L423">423</a> 		<em class="jxr_comment">//		assertEquals(</em>
-<a class="jxr_linenumber" name="L424" href="#L424">424</a> 		<em class="jxr_comment">//				"http://localhost:8080/#!politicia/"</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> 		<em class="jxr_comment">//				"https://localhost:28443/#!politicia/"</em>
 <a class="jxr_linenumber" name="L425" href="#L425">425</a> 		<em class="jxr_comment">//						+ URLEncoder.encode(id.replace(ViewAction.VisitPoliticianView.name() + "/", "")</em>
 <a class="jxr_linenumber" name="L426" href="#L426">426</a> 		<em class="jxr_comment">//								.trim(),StandardCharsets.UTF_8), driver.getCurrentUrl());</em>
 <a class="jxr_linenumber" name="L427" href="#L427">427</a> 
@@ -448,7 +448,7 @@
 <a class="jxr_linenumber" name="L440" href="#L440">440</a> 				.id(ViewAction.VISIT_COMMITTEE_RANKING_VIEW.name()));
 <a class="jxr_linenumber" name="L441" href="#L441">441</a> 		performClickAction(committeeViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L442" href="#L442">442</a> 
-<a class="jxr_linenumber" name="L443" href="#L443">443</a> 		assertEquals(<span class="jxr_string">"http://localhost:8080/#!committeeranking"</span>,
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 		assertEquals(<span class="jxr_string">"https://localhost:28443/#!committeeranking"</span>,
 <a class="jxr_linenumber" name="L444" href="#L444">444</a> 				driver.getCurrentUrl());
 <a class="jxr_linenumber" name="L445" href="#L445">445</a> 
 <a class="jxr_linenumber" name="L446" href="#L446">446</a> 		verifyViewActions(<strong class="jxr_keyword">new</strong> ViewAction[] {ViewAction.VISIT_MAIN_VIEW });
@@ -470,7 +470,7 @@
 <a class="jxr_linenumber" name="L462" href="#L462">462</a> 		performClickAction(committeeViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L463" href="#L463">463</a> 
 <a class="jxr_linenumber" name="L464" href="#L464">464</a> 		<em class="jxr_comment">//		assertEquals(</em>
-<a class="jxr_linenumber" name="L465" href="#L465">465</a> 		<em class="jxr_comment">//				"http://localhost:8080/#!committee/"</em>
+<a class="jxr_linenumber" name="L465" href="#L465">465</a> 		<em class="jxr_comment">//				"https://localhost:28443/#!committee/"</em>
 <a class="jxr_linenumber" name="L466" href="#L466">466</a> 		<em class="jxr_comment">//						+ URLEncoder.encode(id.replace(ViewAction.VisitCommitteeView.name() + "/", "")</em>
 <a class="jxr_linenumber" name="L467" href="#L467">467</a> 		<em class="jxr_comment">//								.trim(),StandardCharsets.UTF_8), driver.getCurrentUrl());</em>
 <a class="jxr_linenumber" name="L468" href="#L468">468</a> 
@@ -503,7 +503,7 @@
 <a class="jxr_linenumber" name="L495" href="#L495">495</a> 				.id(ViewAction.VISIT_MINISTRY_RANKING_VIEW.name()));
 <a class="jxr_linenumber" name="L496" href="#L496">496</a> 		performClickAction(ministryViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L497" href="#L497">497</a> 
-<a class="jxr_linenumber" name="L498" href="#L498">498</a> 		assertEquals(<span class="jxr_string">"http://localhost:8080/#!ministryranking"</span>,
+<a class="jxr_linenumber" name="L498" href="#L498">498</a> 		assertEquals(<span class="jxr_string">"https://localhost:28443/#!ministryranking"</span>,
 <a class="jxr_linenumber" name="L499" href="#L499">499</a> 				driver.getCurrentUrl());
 <a class="jxr_linenumber" name="L500" href="#L500">500</a> 
 <a class="jxr_linenumber" name="L501" href="#L501">501</a> 		verifyViewActions(<strong class="jxr_keyword">new</strong> ViewAction[] {ViewAction.VISIT_MAIN_VIEW});
@@ -525,7 +525,7 @@
 <a class="jxr_linenumber" name="L517" href="#L517">517</a> 		performClickAction(ministryViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L518" href="#L518">518</a> 
 <a class="jxr_linenumber" name="L519" href="#L519">519</a> 		<em class="jxr_comment">//		assertEquals(</em>
-<a class="jxr_linenumber" name="L520" href="#L520">520</a> 		<em class="jxr_comment">//				"http://localhost:8080/#!ministry/"</em>
+<a class="jxr_linenumber" name="L520" href="#L520">520</a> 		<em class="jxr_comment">//				"https://localhost:28443/#!ministry/"</em>
 <a class="jxr_linenumber" name="L521" href="#L521">521</a> 		<em class="jxr_comment">//						+ URLEncoder.encode(id.replace(ViewAction.VisitMinistryView.name() + "/", "")</em>
 <a class="jxr_linenumber" name="L522" href="#L522">522</a> 		<em class="jxr_comment">//								.trim(),StandardCharsets.UTF_8), driver.getCurrentUrl());</em>
 <a class="jxr_linenumber" name="L523" href="#L523">523</a> 
@@ -673,7 +673,7 @@
 <a class="jxr_linenumber" name="L665" href="#L665">665</a> 		performClickAction(politicianViewLink, WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L666" href="#L666">666</a> 
 <a class="jxr_linenumber" name="L667" href="#L667">667</a> 		<em class="jxr_comment">//		assertEquals(</em>
-<a class="jxr_linenumber" name="L668" href="#L668">668</a> 		<em class="jxr_comment">//				"http://localhost:8080/#!party/"</em>
+<a class="jxr_linenumber" name="L668" href="#L668">668</a> 		<em class="jxr_comment">//				"https://localhost:28443/#!party/"</em>
 <a class="jxr_linenumber" name="L669" href="#L669">669</a> 		<em class="jxr_comment">//						+ URLEncoder.encode(id.replace(ViewAction.VisitPartyView.name() + "/", "")</em>
 <a class="jxr_linenumber" name="L670" href="#L670">670</a> 		<em class="jxr_comment">//								.trim(),StandardCharsets.UTF_8), driver.getCurrentUrl());</em>
 <a class="jxr_linenumber" name="L671" href="#L671">671</a> 
@@ -736,7 +736,7 @@
 <a class="jxr_linenumber" name="L728" href="#L728">728</a> 				.id(ViewAction.VISIT_PARTY_RANKING_VIEW.name())),
 <a class="jxr_linenumber" name="L729" href="#L729">729</a> 				WAIT_FOR_PAGE_DELAY);
 <a class="jxr_linenumber" name="L730" href="#L730">730</a> 
-<a class="jxr_linenumber" name="L731" href="#L731">731</a> 		assertEquals(<span class="jxr_string">"http://localhost:8080/#!partyranking"</span>,
+<a class="jxr_linenumber" name="L731" href="#L731">731</a> 		assertEquals(<span class="jxr_string">"https://localhost:28443/#!partyranking"</span>,
 <a class="jxr_linenumber" name="L732" href="#L732">732</a> 				driver.getCurrentUrl());
 <a class="jxr_linenumber" name="L733" href="#L733">733</a> 		verifyViewActions(<strong class="jxr_keyword">new</strong> ViewAction[] {ViewAction.VISIT_MAIN_VIEW });
 <a class="jxr_linenumber" name="L734" href="#L734">734</a> 
@@ -1014,6 +1014,6 @@
 <a class="jxr_linenumber" name="L1006" href="#L1006">1006</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2008&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
 </body>
 </html>

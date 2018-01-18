@@ -1,15 +1,17 @@
 @startuml
 title Citizen Intelligence Agency System - Deployment
 caption Deployment Aws.
-node "Application (x2)" <<EC2>> as 110 {
-  artifact "Web Application" <<Container>> as 111
+node "Application (x2)" <<EC2>> as 112 {
+  node "Jetty" <<JVM>> as 113 {
+    artifact "Web Application" <<Container>> as 114
+  }
 }
-node "Application Loadbalancer" <<ALB>> as 108 {
-  artifact "Loadbalancer" <<Container>> as 109
+node "Application Loadbalancer" <<ALB>> as 109 {
+  artifact "Loadbalancer" <<Container>> as 110
 }
-node "Database (x2)" <<RDS>> as 114 {
-  artifact "Database" <<Container>> as 115
+node "Database (x2)" <<RDS>> as 117 {
+  artifact "Database" <<Container>> as 118
 }
-109 ..> 111 : HTTPS/H2
-111 ..> 115 : JDBC
+114 ..> 118 : JDBC
+110 ..> 114 : HTTPS/H2
 @enduml
