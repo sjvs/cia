@@ -87,10 +87,10 @@
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  				<strong class="jxr_keyword">final</strong> List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>  				<strong class="jxr_keyword">final</strong> Integer totalHeadcount = item.stream().filter(p -&gt; p.getName().equalsIgnoreCase(govBodyName))
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>  				<strong class="jxr_keyword">final</strong> Integer totalHeadcount = item.stream().filter((GovernmentBodyAnnualSummary p) -&gt; p.getName().equalsIgnoreCase(govBodyName))
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  				<strong class="jxr_keyword">if</strong> (entry.getKey() != <strong class="jxr_keyword">null</strong> &amp;&amp; item != <strong class="jxr_keyword">null</strong> &amp;&amp; totalHeadcount &gt; 0) {
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  				<strong class="jxr_keyword">if</strong> (entry.getKey() != <strong class="jxr_keyword">null</strong> &amp;&amp; totalHeadcount &gt; 0) {
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  				}
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  			}
@@ -120,10 +120,10 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> 
 <a class="jxr_linenumber" name="L114" href="#L114">114</a> 				<strong class="jxr_keyword">final</strong> List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();
-<a class="jxr_linenumber" name="L115" href="#L115">115</a> 				<strong class="jxr_keyword">final</strong> Integer totalHeadcount = item.stream().filter(p -&gt; p.getMinistry().equalsIgnoreCase(ministryName))
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 				<strong class="jxr_keyword">final</strong> Integer totalHeadcount = item.stream().filter((GovernmentBodyAnnualSummary p) -&gt; p.getMinistry().equalsIgnoreCase(ministryName))
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));
 <a class="jxr_linenumber" name="L117" href="#L117">117</a> 
-<a class="jxr_linenumber" name="L118" href="#L118">118</a> 				<strong class="jxr_keyword">if</strong> (entry.getKey() != <strong class="jxr_keyword">null</strong> &amp;&amp; item != <strong class="jxr_keyword">null</strong> &amp;&amp; totalHeadcount &gt; 0) {
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> 				<strong class="jxr_keyword">if</strong> (entry.getKey() != <strong class="jxr_keyword">null</strong> &amp;&amp; totalHeadcount &gt; 0) {
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> 					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> 				}
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 			}

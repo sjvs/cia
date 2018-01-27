@@ -79,10 +79,10 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 <span class="fc bfc" id="L79" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
 
 <span class="fc" id="L81">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
-<span class="fc" id="L82">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getName().equalsIgnoreCase(govBodyName))</span>
+<span class="fc" id="L82">				final Integer totalHeadcount = item.stream().filter((GovernmentBodyAnnualSummary p) -&gt; p.getName().equalsIgnoreCase(govBodyName))</span>
 <span class="fc" id="L83">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
 
-<span class="pc bpc" id="L85" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">				if (entry.getKey() != null &amp;&amp; totalHeadcount &gt; 0) {</span>
 <span class="fc" id="L86">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
 				}
 <span class="fc" id="L88">			}</span>
@@ -112,10 +112,10 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 <span class="fc bfc" id="L112" title="All 2 branches covered.">			for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; entry : map.entrySet()) {</span>
 
 <span class="fc" id="L114">				final List&lt;GovernmentBodyAnnualSummary&gt; item = entry.getValue();</span>
-<span class="fc" id="L115">				final Integer totalHeadcount = item.stream().filter(p -&gt; p.getMinistry().equalsIgnoreCase(ministryName))</span>
+<span class="fc" id="L115">				final Integer totalHeadcount = item.stream().filter((GovernmentBodyAnnualSummary p) -&gt; p.getMinistry().equalsIgnoreCase(ministryName))</span>
 <span class="fc" id="L116">						.collect(Collectors.summingInt(GovernmentBodyAnnualSummary::getHeadCount));</span>
 
-<span class="pc bpc" id="L118" title="2 of 6 branches missed.">				if (entry.getKey() != null &amp;&amp; item != null &amp;&amp; totalHeadcount &gt; 0) {</span>
+<span class="pc bpc" id="L118" title="1 of 4 branches missed.">				if (entry.getKey() != null &amp;&amp; totalHeadcount &gt; 0) {</span>
 <span class="fc" id="L119">					dataSeries.add(FIRST_OF_JAN + entry.getKey(), totalHeadcount);</span>
 				}
 <span class="fc" id="L121">			}</span>

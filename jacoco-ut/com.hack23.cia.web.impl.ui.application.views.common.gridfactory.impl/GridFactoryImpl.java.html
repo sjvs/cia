@@ -188,7 +188,7 @@ public final class GridFactoryImpl implements GridFactory {
 	 * @param &lt;T&gt;
 	 *            the generic type
 	 */
-	public class BeanNestedPropertyValueProvider&lt;T&gt; implements ValueProvider&lt;T, String&gt; {
+	public static final class BeanNestedPropertyValueProvider&lt;T&gt; implements ValueProvider&lt;T, String&gt; {
 
 		/** The Constant serialVersionUID. */
 		private static final long serialVersionUID = 1L;
@@ -202,7 +202,7 @@ public final class GridFactoryImpl implements GridFactory {
 		 * @param property
 		 *            the property
 		 */
-<span class="fc" id="L205">		public BeanNestedPropertyValueProvider(final String property) {</span>
+		public BeanNestedPropertyValueProvider(final String property) {
 <span class="fc" id="L206">			super();</span>
 <span class="fc" id="L207">			this.property = property;</span>
 <span class="fc" id="L208">		}</span>
