@@ -1,17 +1,60 @@
 @startuml
 title Citizen Intelligence Agency System - Deployment
 caption Deployment Aws.
-node "Application (x2)" <<EC2>> as 117 {
-  node "Jetty" <<JVM>> as 118 {
-    artifact "Web Application" <<Container>> as 119
+node "AppOrg Account" <<Aws Account>> as 113 {
+  node "Patch Compliance" <<System Mananger>> as 127 {
+    artifact "InventoryList" <<Container>> as 129
+  }
+  node "System Compliance checks" <<Inspector>> as 123 {
+    artifact "ScanningRules" <<Container>> as 125
+  }
+  node "Project Network" <<VPC>> as 114 {
+    node "Database (x2)" <<RDS>> as 166 {
+      artifact "Database" <<Container>> as 167
+    }
+    node "Application (x2)" <<EC2>> as 158 {
+      node "Jetty" <<JVM>> as 159 {
+        artifact "Web Application" <<Container>> as 160
+      }
+    }
+  }
+  node "Application Loadbalancer" <<ALB>> as 153 {
+    artifact "Loadbalancer" <<Container>> as 154
+  }
+  node "Web Application Firewall" <<WAF>> as 115 {
+    artifact "WebACL Rules" <<Container>> as 117
+  }
+  node "Business analytics" <<QuickSight>> as 131 {
+    artifact "Dashboards" <<Container>> as 133
   }
 }
-node "Application Loadbalancer" <<ALB>> as 114 {
-  artifact "Loadbalancer" <<Container>> as 115
+node "Audit Account" <<Aws Account>> as 119 {
+  node "Guard Duty" <<GuardDuty>> as 135 {
+    artifact "Intelligent threat detection and continuous monitoring" <<Container>> as 137
+  }
+  node "LogGroup" <<Cloudwatch>> as 141 {
+    artifact "Logstreams" <<Container>> as 143
+  }
+  node "Audit" <<Cloudtrail>> as 146 {
+    artifact "LogBucket" <<Container>> as 148
+  }
+  node "A machine learning-powered security" <<macie>> as 138 {
+    artifact "discover, classify, and protect sensitive data" <<Container>> as 140
+  }
+  node "Access Logs" <<S3>> as 149 {
+    artifact "AccessLogBucket" <<Container>> as 151
+  }
+  node "Config" <<Config>> as 120 {
+    artifact "Rules" <<Container>> as 122
+  }
 }
-node "Database (x2)" <<RDS>> as 122 {
-  artifact "Database" <<Container>> as 123
-}
-115 ..> 119 : HTTPS/H2
-119 ..> 123 : JDBC
+160 ..> 143 : Write logs
+125 ..> 160 : Inspects
+154 ..> 160 : HTTPS/H2
+167 ..> 143 : Write logs
+129 ..> 160 : Run Commands
+133 ..> 167 : Loads Data
+117 ..> 154 : Protects/Filter
+154 ..> 151 : Write logs
+160 ..> 167 : JDBC
 @enduml
