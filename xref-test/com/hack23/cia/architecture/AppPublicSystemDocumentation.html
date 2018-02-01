@@ -172,160 +172,204 @@
 <a class="jxr_linenumber" name="L164" href="#L164">164</a> 
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 		DeploymentNode awsAuditAccountNode = model.addDeploymentNode(<span class="jxr_string">"Audit Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L166" href="#L166">166</a> 
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		DeploymentNode awsConfigNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Config"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Config"</span>);
-<a class="jxr_linenumber" name="L168" href="#L168">168</a> 		<strong class="jxr_keyword">final</strong> Container awsConfigContainer = ciaSystem.addContainer(<span class="jxr_string">"Rules"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Config Rules"</span>);
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 		awsConfigNode.add(awsConfigContainer);
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 		DeploymentNode awsInspectorNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"System Compliance checks"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Inspector"</span>);
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> 		<strong class="jxr_keyword">final</strong> Container awsInspectorContainer = ciaSystem.addContainer(<span class="jxr_string">"ScanningRules"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Scanning Rules"</span>);
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> 		awsInspectorNode.add(awsInspectorContainer);
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		awsInspectorContainer.uses(ciaWebContainer, <span class="jxr_string">"Inspects"</span>);
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 		DeploymentNode awsConfigNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Config"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Config"</span>);
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 		<strong class="jxr_keyword">final</strong> Container awsConfigContainer = ciaSystem.addContainer(<span class="jxr_string">"Rules"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Config Rules"</span>);
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 		awsConfigNode.add(awsConfigContainer);
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 		DeploymentNode awsInspectorNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"System Compliance checks"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Inspector"</span>);
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 		<strong class="jxr_keyword">final</strong> Container awsInspectorContainer = ciaSystem.addContainer(<span class="jxr_string">"ScanningRules"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Scanning Rules"</span>);
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		awsInspectorNode.add(awsInspectorContainer);
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		awsInspectorContainer.uses(ciaWebContainer, <span class="jxr_string">"Inspects"</span>);
 <a class="jxr_linenumber" name="L176" href="#L176">176</a> 		
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		DeploymentNode awsSSMNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Patch Compliance"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"System Mananger"</span>);
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		<strong class="jxr_keyword">final</strong> Container awsSSMContainer = ciaSystem.addContainer(<span class="jxr_string">"InventoryList"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"InventoryList"</span>);
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		awsSSMNode.add(awsSSMContainer);						
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		awsSSMContainer.uses(ciaWebContainer, <span class="jxr_string">"Run Commands"</span>);	
-<a class="jxr_linenumber" name="L181" href="#L181">181</a> 		
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		DeploymentNode awsQuickSightNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Business analytics"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"QuickSight"</span>);
-<a class="jxr_linenumber" name="L183" href="#L183">183</a> 		<strong class="jxr_keyword">final</strong> Container awsQuickSightContainer = ciaSystem.addContainer(<span class="jxr_string">"Dashboards"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Dashboards"</span>);
-<a class="jxr_linenumber" name="L184" href="#L184">184</a> 		awsQuickSightNode.add(awsQuickSightContainer);						
-<a class="jxr_linenumber" name="L185" href="#L185">185</a> 		awsQuickSightContainer.uses(relationalDatabase, <span class="jxr_string">"Loads Data"</span>);			
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 		
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 		DeploymentNode awsGuardDutyNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Guard Duty"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"GuardDuty"</span>);
-<a class="jxr_linenumber" name="L188" href="#L188">188</a> 		<strong class="jxr_keyword">final</strong> Container awsGuardDutyContainer = ciaSystem.addContainer(<span class="jxr_string">"Intelligent threat detection and continuous monitoring"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Intelligent threat detection and continuous monitoring"</span>);
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> 		awsGuardDutyNode.add(awsGuardDutyContainer);
-<a class="jxr_linenumber" name="L190" href="#L190">190</a> 
-<a class="jxr_linenumber" name="L191" href="#L191">191</a> 		DeploymentNode awsMacieNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"A machine learning-powered security"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"macie"</span>);
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> 		<strong class="jxr_keyword">final</strong> Container awsMacieContainer = ciaSystem.addContainer(<span class="jxr_string">"discover, classify, and protect sensitive data"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"discover, classify, and protect sensitive data"</span>);
-<a class="jxr_linenumber" name="L193" href="#L193">193</a> 		awsMacieNode.add(awsMacieContainer);
-<a class="jxr_linenumber" name="L194" href="#L194">194</a> 
-<a class="jxr_linenumber" name="L195" href="#L195">195</a> 		DeploymentNode awsLogGroupNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"LogGroup"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Cloudwatch"</span>);
-<a class="jxr_linenumber" name="L196" href="#L196">196</a> 		<strong class="jxr_keyword">final</strong> Container awsLogstreamContainer = ciaSystem.addContainer(<span class="jxr_string">"Logstreams"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"LogStream"</span>);
-<a class="jxr_linenumber" name="L197" href="#L197">197</a> 		awsLogGroupNode.add(awsLogstreamContainer);
-<a class="jxr_linenumber" name="L198" href="#L198">198</a> 
-<a class="jxr_linenumber" name="L199" href="#L199">199</a> 		ciaWebContainer.uses(awsLogstreamContainer, <span class="jxr_string">"Write logs"</span>);
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> 		relationalDatabase.uses(awsLogstreamContainer, <span class="jxr_string">"Write logs"</span>);
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> 
-<a class="jxr_linenumber" name="L202" href="#L202">202</a> 		DeploymentNode awsCloudtrailNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Audit"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Cloudtrail"</span>);
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> 		<strong class="jxr_keyword">final</strong> Container awsAuditLogBucketContainer = ciaSystem.addContainer(<span class="jxr_string">"LogBucket"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
-<a class="jxr_linenumber" name="L204" href="#L204">204</a> 		awsCloudtrailNode.add(awsAuditLogBucketContainer);
-<a class="jxr_linenumber" name="L205" href="#L205">205</a> 
-<a class="jxr_linenumber" name="L206" href="#L206">206</a> 		DeploymentNode awsAcessLogsNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Access Logs"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
-<a class="jxr_linenumber" name="L207" href="#L207">207</a> 		<strong class="jxr_keyword">final</strong> Container awsAccessLogBucketContainer = ciaSystem.addContainer(<span class="jxr_string">"AccessLogBucket"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
-<a class="jxr_linenumber" name="L208" href="#L208">208</a> 		awsAcessLogsNode.add(awsAccessLogBucketContainer);
-<a class="jxr_linenumber" name="L209" href="#L209">209</a> 
-<a class="jxr_linenumber" name="L210" href="#L210">210</a> 		loadBalancerContainer.uses(awsAccessLogBucketContainer, <span class="jxr_string">"Write logs"</span>);
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		DeploymentNode awsSSMNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Patch Compliance"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"System Mananger"</span>);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		<strong class="jxr_keyword">final</strong> Container awsSSMContainer = ciaSystem.addContainer(<span class="jxr_string">"InventoryList"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"InventoryList"</span>);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		awsSSMNode.add(awsSSMContainer);						
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 		awsSSMContainer.uses(ciaWebContainer, <span class="jxr_string">"Run Commands"</span>);	
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 		DeploymentNode awsQuickSightNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Business analytics"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"QuickSight"</span>);
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 		<strong class="jxr_keyword">final</strong> Container awsQuickSightContainer = ciaSystem.addContainer(<span class="jxr_string">"Dashboards"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Dashboards"</span>);
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 		awsQuickSightNode.add(awsQuickSightContainer);						
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 		awsQuickSightContainer.uses(relationalDatabase, <span class="jxr_string">"Loads Data"</span>);			
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 		
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 		DeploymentNode awsGuardDutyNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Guard Duty"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"GuardDuty"</span>);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> 		<strong class="jxr_keyword">final</strong> Container awsGuardDutyContainer = ciaSystem.addContainer(<span class="jxr_string">"Intelligent threat detection and continuous monitoring"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Intelligent threat detection and continuous monitoring"</span>);
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> 		awsGuardDutyNode.add(awsGuardDutyContainer);
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> 
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 		DeploymentNode awsMacieNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"A machine learning-powered security"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"macie"</span>);
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> 		<strong class="jxr_keyword">final</strong> Container awsMacieContainer = ciaSystem.addContainer(<span class="jxr_string">"discover, classify, and protect sensitive data"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"discover, classify, and protect sensitive data"</span>);
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> 		awsMacieNode.add(awsMacieContainer);
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> 
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> 		DeploymentNode awsLogGroupNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"LogGroup"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Cloudwatch"</span>);
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> 		<strong class="jxr_keyword">final</strong> Container awsLogstreamContainer = ciaSystem.addContainer(<span class="jxr_string">"Logstreams"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"LogStream"</span>);
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> 		awsLogGroupNode.add(awsLogstreamContainer);
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> 		ciaWebContainer.uses(awsLogstreamContainer, <span class="jxr_string">"Write logs"</span>);
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> 		relationalDatabase.uses(awsLogstreamContainer, <span class="jxr_string">"Write logs"</span>);
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 		DeploymentNode awsCloudtrailNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Audit"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Cloudtrail"</span>);
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> 		<strong class="jxr_keyword">final</strong> Container awsAuditLogBucketContainer = ciaSystem.addContainer(<span class="jxr_string">"LogBucket"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 		awsCloudtrailNode.add(awsAuditLogBucketContainer);
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> 
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> 		DeploymentNode awsAcessLogsNode = awsAuditAccountNode.addDeploymentNode(<span class="jxr_string">"Access Logs"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> 		<strong class="jxr_keyword">final</strong> Container awsAccessLogBucketContainer = ciaSystem.addContainer(<span class="jxr_string">"AccessLogBucket"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"S3"</span>);
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 		awsAcessLogsNode.add(awsAccessLogBucketContainer);
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> 
 <a class="jxr_linenumber" name="L211" href="#L211">211</a> 		
-<a class="jxr_linenumber" name="L212" href="#L212">212</a> 		DeploymentNode applicationLoadbalancerNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Application Loadbalancer"</span>, <span class="jxr_string">"AWS"</span>,
-<a class="jxr_linenumber" name="L213" href="#L213">213</a> 				<span class="jxr_string">"ALB"</span>);
-<a class="jxr_linenumber" name="L214" href="#L214">214</a> 		applicationLoadbalancerNode.add(loadBalancerContainer);
-<a class="jxr_linenumber" name="L215" href="#L215">215</a> 		wafNode.uses(applicationLoadbalancerNode, <span class="jxr_string">"Protects"</span>, <span class="jxr_string">"filter rules"</span>);
-<a class="jxr_linenumber" name="L216" href="#L216">216</a> 
-<a class="jxr_linenumber" name="L217" href="#L217">217</a> 		DeploymentNode webNode = awsVpcNode.addDeploymentNode(<span class="jxr_string">"Application"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"EC2"</span>, 2);
-<a class="jxr_linenumber" name="L218" href="#L218">218</a> 		webNode.addDeploymentNode(<span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"JVM"</span>).add(ciaWebContainer);
-<a class="jxr_linenumber" name="L219" href="#L219">219</a> 		applicationLoadbalancerNode.uses(webNode, <span class="jxr_string">"Uses"</span>, <span class="jxr_string">"https"</span>);
-<a class="jxr_linenumber" name="L220" href="#L220">220</a> 
-<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		DeploymentNode databaseNode = awsVpcNode.addDeploymentNode(<span class="jxr_string">"Database"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"RDS"</span>, 2);
-<a class="jxr_linenumber" name="L222" href="#L222">222</a> 		databaseNode.add(relationalDatabase);
-<a class="jxr_linenumber" name="L223" href="#L223">223</a> 		webNode.uses(databaseNode, <span class="jxr_string">"Uses"</span>, <span class="jxr_string">"jdbc"</span>);
-<a class="jxr_linenumber" name="L224" href="#L224">224</a> 
-<a class="jxr_linenumber" name="L225" href="#L225">225</a> 		DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Deployment"</span>,
-<a class="jxr_linenumber" name="L226" href="#L226">226</a> 				<span class="jxr_string">"Deployment Aws."</span>);
-<a class="jxr_linenumber" name="L227" href="#L227">227</a> 
-<a class="jxr_linenumber" name="L228" href="#L228">228</a> 		developmentDeploymentView.add(awsAuditAccountNode);
-<a class="jxr_linenumber" name="L229" href="#L229">229</a> 		developmentDeploymentView.add(wafNode);
-<a class="jxr_linenumber" name="L230" href="#L230">230</a> 		developmentDeploymentView.add(awsQuickSightNode);
-<a class="jxr_linenumber" name="L231" href="#L231">231</a> 		developmentDeploymentView.add(awsInspectorNode);
-<a class="jxr_linenumber" name="L232" href="#L232">232</a> 		developmentDeploymentView.add(awsSSMNode);
-<a class="jxr_linenumber" name="L233" href="#L233">233</a> 		
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> 		loadBalancerContainer.uses(awsAccessLogBucketContainer, <span class="jxr_string">"Write logs"</span>);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 		
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> 		DeploymentNode applicationLoadbalancerNode = awsAccountNode.addDeploymentNode(<span class="jxr_string">"Application Loadbalancer"</span>, <span class="jxr_string">"AWS"</span>,
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> 				<span class="jxr_string">"ALB"</span>);
+<a class="jxr_linenumber" name="L216" href="#L216">216</a> 		applicationLoadbalancerNode.add(loadBalancerContainer);
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> 		wafNode.uses(applicationLoadbalancerNode, <span class="jxr_string">"Protects"</span>, <span class="jxr_string">"filter rules"</span>);
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> 
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> 		DeploymentNode webNode = awsVpcNode.addDeploymentNode(<span class="jxr_string">"Application"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"EC2"</span>, 2);
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 		webNode.addDeploymentNode(<span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"JVM"</span>).add(ciaWebContainer);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		applicationLoadbalancerNode.uses(webNode, <span class="jxr_string">"Uses"</span>, <span class="jxr_string">"https"</span>);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> 
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 		DeploymentNode databaseNode = awsVpcNode.addDeploymentNode(<span class="jxr_string">"Database"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"RDS"</span>, 2);
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> 		databaseNode.add(relationalDatabase);
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> 		webNode.uses(databaseNode, <span class="jxr_string">"Uses"</span>, <span class="jxr_string">"jdbc"</span>);
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> 		
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 		DeploymentNode sumologicSecurityAccountNode = model.addDeploymentNode(<span class="jxr_string">"Security Account"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"Sumologic Account"</span>);
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> 		DeploymentNode sumologicNetworkSecurityDashboardNode = sumologicSecurityAccountNode.addDeploymentNode(<span class="jxr_string">"Nework Security Dashboard"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Nework Security Dashboard"</span>);
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> 		
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> 		DeploymentNode sumologicServerSecurityDashboardNode = sumologicSecurityAccountNode.addDeploymentNode(<span class="jxr_string">"Server Security Dashboard"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Server Security Dashboard"</span>);
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> 		DeploymentNode sumologicAwsAccountSecurityDashboardNode = sumologicSecurityAccountNode.addDeploymentNode(<span class="jxr_string">"AWS Account Security Dashboard"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"AWS Account Security Dashboard"</span>);
 <a class="jxr_linenumber" name="L234" href="#L234">234</a> 
-<a class="jxr_linenumber" name="L235" href="#L235">235</a> 		developmentDeploymentView.add(applicationLoadbalancerNode);
-<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		developmentDeploymentView.add(webNode);
-<a class="jxr_linenumber" name="L237" href="#L237">237</a> 		developmentDeploymentView.add(databaseNode);
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> 
-<a class="jxr_linenumber" name="L239" href="#L239">239</a> 		<strong class="jxr_keyword">final</strong> Styles styles = viewSet.getConfiguration().getStyles();
-<a class="jxr_linenumber" name="L240" href="#L240">240</a> 		styles.addElementStyle(Tags.COMPONENT).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
-<a class="jxr_linenumber" name="L241" href="#L241">241</a> 		styles.addElementStyle(Tags.CONTAINER).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
-<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		styles.addElementStyle(Tags.SOFTWARE_SYSTEM).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a> 		styles.addElementStyle(Tags.PERSON).background(<span class="jxr_string">"#519823"</span>).color(<span class="jxr_string">"#ffffff"</span>).shape(Shape.Person);
-<a class="jxr_linenumber" name="L244" href="#L244">244</a> 		styles.addElementStyle(<span class="jxr_string">"Database"</span>).shape(Shape.Cylinder);
-<a class="jxr_linenumber" name="L245" href="#L245">245</a> 
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		<em class="jxr_comment">// StructurizrClient structurizrClient = new StructurizrClient(API_KEY,</em>
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> 		<em class="jxr_comment">// API_SECRET);</em>
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		<em class="jxr_comment">// structurizrClient.putWorkspace(WORKSPACE_ID, workspace);</em>
-<a class="jxr_linenumber" name="L249" href="#L249">249</a> 
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		printPlantUml(workspace);
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> 		System.setProperty(<span class="jxr_string">"PLANTUML_LIMIT_SIZE"</span>, <span class="jxr_string">"8192"</span>);
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		Run.main(<strong class="jxr_keyword">new</strong> String[] { Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator + <span class="jxr_string">"target"</span>
-<a class="jxr_linenumber" name="L253" href="#L253">253</a> 				+ File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator });
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 	}
-<a class="jxr_linenumber" name="L255" href="#L255">255</a> 
-<a class="jxr_linenumber" name="L256" href="#L256">256</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L257" href="#L257">257</a> <em class="jxr_javadoccomment">	 * Prints the plant uml.</em>
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">	 * @param workspace</em>
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">	 *            the workspace</em>
-<a class="jxr_linenumber" name="L261" href="#L261">261</a> <em class="jxr_javadoccomment">	 * @throws WorkspaceWriterException</em>
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> <em class="jxr_javadoccomment">	 *             the workspace writer exception</em>
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> <em class="jxr_javadoccomment">	 * @throws IOException</em>
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> <em class="jxr_javadoccomment">	 *             Signals that an I/O exception has occurred.</em>
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> <em class="jxr_javadoccomment">	 * @throws InterruptedException</em>
-<a class="jxr_linenumber" name="L266" href="#L266">266</a> <em class="jxr_javadoccomment">	 *             the interrupted exception</em>
-<a class="jxr_linenumber" name="L267" href="#L267">267</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L268" href="#L268">268</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> printPlantUml(<strong class="jxr_keyword">final</strong> Workspace workspace)
-<a class="jxr_linenumber" name="L269" href="#L269">269</a> 			<strong class="jxr_keyword">throws</strong> WorkspaceWriterException, IOException, InterruptedException {
-<a class="jxr_linenumber" name="L270" href="#L270">270</a> 		StringWriter stringWriter = <strong class="jxr_keyword">new</strong> StringWriter();
-<a class="jxr_linenumber" name="L271" href="#L271">271</a> 		PlantUMLWriter plantUMLWriter = <strong class="jxr_keyword">new</strong> PlantUMLWriter();
-<a class="jxr_linenumber" name="L272" href="#L272">272</a> 		plantUMLWriter.write(workspace, stringWriter);
-<a class="jxr_linenumber" name="L273" href="#L273">273</a> 		String allPlantUmlsString = stringWriter.toString();
-<a class="jxr_linenumber" name="L274" href="#L274">274</a> 
-<a class="jxr_linenumber" name="L275" href="#L275">275</a> 		String systemUml2 = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
-<a class="jxr_linenumber" name="L276" href="#L276">276</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
-<a class="jxr_linenumber" name="L277" href="#L277">277</a> 		allPlantUmlsString = allPlantUmlsString.replace(systemUml2, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L278" href="#L278">278</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-System-Deployment"</span>, systemUml2);
-<a class="jxr_linenumber" name="L279" href="#L279">279</a> 
-<a class="jxr_linenumber" name="L280" href="#L280">280</a> 		String componentUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
-<a class="jxr_linenumber" name="L281" href="#L281">281</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
-<a class="jxr_linenumber" name="L282" href="#L282">282</a> 		allPlantUmlsString = allPlantUmlsString.replace(componentUml, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L283" href="#L283">283</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-Web-Application-Components"</span>, componentUml);
-<a class="jxr_linenumber" name="L284" href="#L284">284</a> 
-<a class="jxr_linenumber" name="L285" href="#L285">285</a> 		String containersUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
-<a class="jxr_linenumber" name="L286" href="#L286">286</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> 		allPlantUmlsString = allPlantUmlsString.replace(containersUml, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L288" href="#L288">288</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-Containers"</span>, containersUml);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 		DeploymentNode sumologicApplicationSecurityDashboardNode = sumologicSecurityAccountNode.addDeploymentNode(<span class="jxr_string">"Application Security Dashboard"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Application Security Dashboard"</span>);
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 		<strong class="jxr_keyword">final</strong> Container sumologicVpcFlowLogsContainer = ciaSystem.addContainer(<span class="jxr_string">"VpcFlowLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"VpcFlowLogs"</span>);
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 		sumologicVpcFlowLogsContainer.uses(awsLogstreamContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 		sumologicNetworkSecurityDashboardNode.add(sumologicVpcFlowLogsContainer);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a> 
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> 		<strong class="jxr_keyword">final</strong> Container sumologicCloudtrailConfigContainer = ciaSystem.addContainer(<span class="jxr_string">"CloudTrailLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"CloudTrailLogs"</span>);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		sumologicCloudtrailConfigContainer.uses(awsAuditLogBucketContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> 		sumologicAwsAccountSecurityDashboardNode.add(sumologicCloudtrailConfigContainer);
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 		<strong class="jxr_keyword">final</strong> Container sumologicAwsConfigContainer = ciaSystem.addContainer(<span class="jxr_string">"AwsConfigLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"AwsConfigLogs"</span>);
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		sumologicAwsConfigContainer.uses(awsConfigContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 		sumologicAwsAccountSecurityDashboardNode.add(sumologicAwsConfigContainer);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 		
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> 		<strong class="jxr_keyword">final</strong> Container sumologicEc2SystemLogsContainer = ciaSystem.addContainer(<span class="jxr_string">"Ec2SystemLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"Ec2SystemLogs"</span>);
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		sumologicEc2SystemLogsContainer.uses(awsLogstreamContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 		sumologicServerSecurityDashboardNode.add(sumologicEc2SystemLogsContainer);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> 		<strong class="jxr_keyword">final</strong> Container sumologicEc2ApplicationLogsContainer = ciaSystem.addContainer(<span class="jxr_string">"Ec2ApplicationLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"Ec2ApplicationLogs"</span>);
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 		sumologicEc2ApplicationLogsContainer.uses(awsLogstreamContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> 		sumologicApplicationSecurityDashboardNode.add(sumologicEc2ApplicationLogsContainer);
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> 		
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 		<strong class="jxr_keyword">final</strong> Container sumologicAwsInspectorResultsContainer = ciaSystem.addContainer(<span class="jxr_string">"AwsInspectorResults"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"AwsInspectorResults"</span>);
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 		sumologicAwsInspectorResultsContainer.uses(awsInspectorContainer, <span class="jxr_string">"Recieve reports"</span>);
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> 		sumologicServerSecurityDashboardNode.add(sumologicAwsInspectorResultsContainer);
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 		
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 		<strong class="jxr_keyword">final</strong> Container sumologicAwsAlbLogsContainer = ciaSystem.addContainer(<span class="jxr_string">"AwsLoadbalancerAccessLogs"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"AwsLoadbalancerAccessLogs"</span>);
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 		sumologicAwsAlbLogsContainer.uses(awsAccessLogBucketContainer, <span class="jxr_string">"Recieve logs"</span>);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 		sumologicNetworkSecurityDashboardNode.add(sumologicAwsAlbLogsContainer);
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 		
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 		
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> 
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 		DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Deployment"</span>,
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> 				<span class="jxr_string">"Deployment Aws."</span>);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> 
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 		developmentDeploymentView.add(awsAuditAccountNode);
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> 		developmentDeploymentView.add(wafNode);
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> 		developmentDeploymentView.add(awsQuickSightNode);
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 		developmentDeploymentView.add(awsInspectorNode);
+<a class="jxr_linenumber" name="L275" href="#L275">275</a> 		developmentDeploymentView.add(awsSSMNode);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 		developmentDeploymentView.add(sumologicSecurityAccountNode);
+<a class="jxr_linenumber" name="L277" href="#L277">277</a> 		
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 		developmentDeploymentView.add(applicationLoadbalancerNode);
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> 		developmentDeploymentView.add(webNode);
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 		developmentDeploymentView.add(databaseNode);
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 		<strong class="jxr_keyword">final</strong> Styles styles = viewSet.getConfiguration().getStyles();
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 		styles.addElementStyle(Tags.COMPONENT).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 		styles.addElementStyle(Tags.CONTAINER).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> 		styles.addElementStyle(Tags.SOFTWARE_SYSTEM).background(<span class="jxr_string">"#1168bd"</span>).color(<span class="jxr_string">"#ffffff"</span>);
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> 		styles.addElementStyle(Tags.PERSON).background(<span class="jxr_string">"#519823"</span>).color(<span class="jxr_string">"#ffffff"</span>).shape(Shape.Person);
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 		styles.addElementStyle(<span class="jxr_string">"Database"</span>).shape(Shape.Cylinder);
 <a class="jxr_linenumber" name="L289" href="#L289">289</a> 
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		String systemUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
-<a class="jxr_linenumber" name="L292" href="#L292">292</a> 		allPlantUmlsString = allPlantUmlsString.replace(systemUml, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L293" href="#L293">293</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-System-Context"</span>, systemUml);
-<a class="jxr_linenumber" name="L294" href="#L294">294</a> 
-<a class="jxr_linenumber" name="L295" href="#L295">295</a> 		String enterpriseUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
-<a class="jxr_linenumber" name="L296" href="#L296">296</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
-<a class="jxr_linenumber" name="L297" href="#L297">297</a> 		allPlantUmlsString = allPlantUmlsString.replace(enterpriseUml, <span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L298" href="#L298">298</a> 		writePlantUml(<span class="jxr_string">"Enterprise-Context-for-Hack23"</span>, enterpriseUml);
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> 	}
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> 
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">	 * Write plant uml.</em>
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L304" href="#L304">304</a> <em class="jxr_javadoccomment">	 * @param filename</em>
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> <em class="jxr_javadoccomment">	 *            the filename</em>
-<a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">	 * @param content</em>
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">	 *            the content</em>
-<a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">	 * @throws IOException</em>
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> <em class="jxr_javadoccomment">	 *             Signals that an I/O exception has occurred.</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">	 * @throws InterruptedException</em>
-<a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">	 *             the interrupted exception</em>
-<a class="jxr_linenumber" name="L312" href="#L312">312</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L313" href="#L313">313</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> writePlantUml(String filename, String content) <strong class="jxr_keyword">throws</strong> IOException, InterruptedException {
-<a class="jxr_linenumber" name="L314" href="#L314">314</a> 		<strong class="jxr_keyword">final</strong> String fullFilePathPlantUmlFile = Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 				+ <span class="jxr_string">"target"</span> + File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator + filename
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 				+ <span class="jxr_string">".pu"</span>;
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		System.out.println(<span class="jxr_string">"Writing file:"</span> + fullFilePathPlantUmlFile);
-<a class="jxr_linenumber" name="L318" href="#L318">318</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 	}
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> }
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		<em class="jxr_comment">// StructurizrClient structurizrClient = new StructurizrClient(API_KEY,</em>
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 		<em class="jxr_comment">// API_SECRET);</em>
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> 		<em class="jxr_comment">// structurizrClient.putWorkspace(WORKSPACE_ID, workspace);</em>
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 
+<a class="jxr_linenumber" name="L294" href="#L294">294</a> 		printPlantUml(workspace);
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> 		System.setProperty(<span class="jxr_string">"PLANTUML_LIMIT_SIZE"</span>, <span class="jxr_string">"8192"</span>);
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 		Run.main(<strong class="jxr_keyword">new</strong> String[] { Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator + <span class="jxr_string">"target"</span>
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 				+ File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator });
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 	}
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> <em class="jxr_javadoccomment">	 * Prints the plant uml.</em>
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> <em class="jxr_javadoccomment">	 * @param workspace</em>
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> <em class="jxr_javadoccomment">	 *            the workspace</em>
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> <em class="jxr_javadoccomment">	 * @throws WorkspaceWriterException</em>
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">	 *             the workspace writer exception</em>
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">	 * @throws IOException</em>
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">	 *             Signals that an I/O exception has occurred.</em>
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> <em class="jxr_javadoccomment">	 * @throws InterruptedException</em>
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">	 *             the interrupted exception</em>
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> printPlantUml(<strong class="jxr_keyword">final</strong> Workspace workspace)
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> 			<strong class="jxr_keyword">throws</strong> WorkspaceWriterException, IOException, InterruptedException {
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> 		StringWriter stringWriter = <strong class="jxr_keyword">new</strong> StringWriter();
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		PlantUMLWriter plantUMLWriter = <strong class="jxr_keyword">new</strong> PlantUMLWriter();
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		plantUMLWriter.write(workspace, stringWriter);
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		String allPlantUmlsString = stringWriter.toString();
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 		String systemUml2 = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 		allPlantUmlsString = allPlantUmlsString.replace(systemUml2, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-System-Deployment"</span>, systemUml2);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 		String componentUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 		allPlantUmlsString = allPlantUmlsString.replace(componentUml, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-Web-Application-Components"</span>, componentUml);
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 		String containersUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> 		allPlantUmlsString = allPlantUmlsString.replace(containersUml, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-Containers"</span>, containersUml);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 		String systemUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 		allPlantUmlsString = allPlantUmlsString.replace(systemUml, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-System-System-Context"</span>, systemUml);
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> 
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 		String enterpriseUml = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> 		allPlantUmlsString = allPlantUmlsString.replace(enterpriseUml, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 		writePlantUml(<span class="jxr_string">"Enterprise-Context-for-Hack23"</span>, enterpriseUml);
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 	}
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> 
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> <em class="jxr_javadoccomment">	 * Write plant uml.</em>
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> <em class="jxr_javadoccomment">	 * @param filename</em>
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> <em class="jxr_javadoccomment">	 *            the filename</em>
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> <em class="jxr_javadoccomment">	 * @param content</em>
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> <em class="jxr_javadoccomment">	 *            the content</em>
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> <em class="jxr_javadoccomment">	 * @throws IOException</em>
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> <em class="jxr_javadoccomment">	 *             Signals that an I/O exception has occurred.</em>
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> <em class="jxr_javadoccomment">	 * @throws InterruptedException</em>
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> <em class="jxr_javadoccomment">	 *             the interrupted exception</em>
+<a class="jxr_linenumber" name="L356" href="#L356">356</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L357" href="#L357">357</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> writePlantUml(String filename, String content) <strong class="jxr_keyword">throws</strong> IOException, InterruptedException {
+<a class="jxr_linenumber" name="L358" href="#L358">358</a> 		<strong class="jxr_keyword">final</strong> String fullFilePathPlantUmlFile = Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> 				+ <span class="jxr_string">"target"</span> + File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator + filename
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 				+ <span class="jxr_string">".pu"</span>;
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> 		System.out.println(<span class="jxr_string">"Writing file:"</span> + fullFilePathPlantUmlFile);
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> 	}
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
