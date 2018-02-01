@@ -2,7 +2,7 @@
 title Citizen Intelligence Agency System - Web Application - Components
 caption Web
 package WebApplication {
-  component "AgencyDAO" <<Spring Repository>> as 60
+  component "AgencyDAO" <<Spring Repository>> as 51
   component "AgentContainer" <<Spring Component>> as 39
   component "ApplicationActionEventDAO" <<Spring Repository>> as 41
   component "ApplicationConfigurationDAO" <<Spring Repository>> as 58
@@ -13,7 +13,7 @@ package WebApplication {
   component "BootstrapDefaultConfig" <<Spring Component>> as 40
   component "CommitteeProposalComponentDataDAO" <<Spring Repository>> as 47
   component "ConfigurationManager" <<Spring Service>> as 21
-  component "CountryElementDAO" <<Spring Repository>> as 51
+  component "CountryElementDAO" <<Spring Repository>> as 60
   component "CreateApplicationEventService" <<Spring Service>> as 22
   component "CreateApplicationSessionService" <<Spring Service>> as 32
   component "DataContainer" <<Spring Component>> as 34
@@ -35,11 +35,11 @@ package WebApplication {
   component "LoginService" <<Spring Service>> as 15
   component "LogoutService" <<Spring Service>> as 33
   component "PersonDataDAO" <<Spring Repository>> as 46
-  component "RefreshDataViewsService" <<Spring Service>> as 16
+  component "RefreshDataViewsService" <<Spring Service>> as 25
   component "RegisterUserService" <<Spring Service>> as 13
   component "RemoveDataManager" <<Spring Service>> as 19
   component "RemoveDataService" <<Spring Service>> as 26
-  component "SearchDocumentService" <<Spring Service>> as 25
+  component "SearchDocumentService" <<Spring Service>> as 16
   component "SearchIndexer" <<Spring Repository>> as 61
   component "SendEmailService" <<Spring Service>> as 31
   component "SetGoogleAuthenticatorCredentialService" <<Spring Service>> as 23
@@ -59,7 +59,7 @@ package WebApplication {
 14 ..> 34 
 14 ..> 36 
 40 ..> 21 
-21 ..> 60 
+21 ..> 51 
 21 ..> 54 
 22 ..> 50 
 32 ..> 50 
@@ -78,14 +78,14 @@ package WebApplication {
 24 ..> 53 
 15 ..> 24 
 15 ..> 53 
-16 ..> 28 
+25 ..> 28 
 13 ..> 27 
 13 ..> 53 
 26 ..> 19 
-25 ..> 42 
-25 ..> 48 
+16 ..> 42 
+16 ..> 48 
 31 ..> 35 
-23 ..> 60 
+23 ..> 51 
 23 ..> 53 
 11 ..> 58 
 18 ..> 61 
