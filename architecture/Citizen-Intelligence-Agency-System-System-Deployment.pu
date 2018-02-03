@@ -5,8 +5,14 @@ node "AppOrg Account" <<Aws Account>> as 108 {
   node "Patch Compliance" <<System Mananger>> as 122 {
     artifact "InventoryList" <<Container>> as 124
   }
-  node "System Compliance checks" <<Inspector>> as 118 {
-    artifact "ScanningRules" <<Container>> as 120
+  node "Business analytics" <<QuickSight>> as 126 {
+    artifact "Dashboards" <<Container>> as 128
+  }
+  node "Application Loadbalancer" <<ALB>> as 148 {
+    artifact "Loadbalancer" <<Container>> as 149
+  }
+  node "Web Application Firewall" <<WAF>> as 110 {
+    artifact "WebACL Rules" <<Container>> as 112
   }
   node "Project Network" <<VPC>> as 109 {
     node "Database (x2)" <<RDS>> as 161 {
@@ -18,67 +24,72 @@ node "AppOrg Account" <<Aws Account>> as 108 {
       }
     }
   }
-  node "Business analytics" <<QuickSight>> as 126 {
-    artifact "Dashboards" <<Container>> as 128
-  }
-  node "Application Loadbalancer" <<ALB>> as 148 {
-    artifact "Loadbalancer" <<Container>> as 149
-  }
-  node "Web Application Firewall" <<WAF>> as 110 {
-    artifact "WebACL Rules" <<Container>> as 112
+  node "System Compliance checks" <<Inspector>> as 118 {
+    artifact "ScanningRules" <<Container>> as 120
   }
 }
 node "Audit Account" <<Aws Account>> as 114 {
   node "Guard Duty" <<GuardDuty>> as 130 {
     artifact "Intelligent threat detection and continuous monitoring" <<Container>> as 132
   }
-  node "Access Logs" <<S3>> as 144 {
-    artifact "AccessLogBucket" <<Container>> as 146
-  }
-  node "A machine learning-powered security" <<macie>> as 133 {
-    artifact "discover, classify, and protect sensitive data" <<Container>> as 135
-  }
   node "LogGroup" <<Cloudwatch>> as 136 {
     artifact "Logstreams" <<Container>> as 138
   }
-  node "Audit" <<Cloudtrail>> as 141 {
-    artifact "LogBucket" <<Container>> as 143
+  node "Access Logs" <<S3>> as 144 {
+    artifact "AccessLogBucket" <<Container>> as 146
   }
   node "Config" <<Config>> as 115 {
     artifact "Rules" <<Container>> as 117
   }
-}
-node "Security Account" <<Sumologic Account>> as 167 {
-  node "Application Security Dashboard" <<Application Security Dashboard>> as 171 {
-    artifact "Ec2ApplicationLogs" <<Container>> as 190
+  node "A machine learning-powered security" <<macie>> as 133 {
+    artifact "discover, classify, and protect sensitive data" <<Container>> as 135
   }
-  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 170 {
-    artifact "CloudTrailLogs" <<Container>> as 178
-    artifact "AwsConfigLogs" <<Container>> as 182
-  }
-  node "Server Security Dashboard" <<Server Security Dashboard>> as 169 {
-    artifact "Ec2SystemLogs" <<Container>> as 186
-    artifact "AwsInspectorResults" <<Container>> as 194
-  }
-  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 168 {
-    artifact "VpcFlowLogs" <<Container>> as 174
-    artifact "AwsLoadbalancerAccessLogs" <<Container>> as 198
+  node "Audit" <<Cloudtrail>> as 141 {
+    artifact "LogBucket" <<Container>> as 143
   }
 }
-182 ..> 117 : Recieve logs
-194 ..> 120 : Recieve reports
-174 ..> 138 : Recieve logs
-190 ..> 138 : Recieve logs
+node "Dev Network" <<Dev Network>> as 172 {
+  node "Jetty" <<JVM>> as 174 {
+    artifact "Nexus" <<Container>> as 175
+  }
+  artifact "Jenkins" <<Container>> as 179
+  artifact "Sonarqube" <<Container>> as 177
+}
+node "Github Org" <<Github Org>> as 167 {
+  artifact "Documentation" <<Container>> as 171
+  artifact "SCM" <<Container>> as 169
+}
+node "Security Account" <<Sumologic Account>> as 184 {
+  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 185 {
+    artifact "AwsLoadbalancerAccessLogs" <<Container>> as 215
+    artifact "VpcFlowLogs" <<Container>> as 191
+  }
+  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 187 {
+    artifact "CloudTrailLogs" <<Container>> as 195
+    artifact "AwsConfigLogs" <<Container>> as 199
+  }
+  node "Server Security Dashboard" <<Server Security Dashboard>> as 186 {
+    artifact "Ec2SystemLogs" <<Container>> as 203
+    artifact "AwsInspectorResults" <<Container>> as 211
+  }
+  node "Application Security Dashboard" <<Application Security Dashboard>> as 188 {
+    artifact "Ec2ApplicationLogs" <<Container>> as 207
+  }
+}
+215 ..> 146 : Recieve logs
+203 ..> 138 : Recieve logs
+195 ..> 143 : Recieve logs
+211 ..> 120 : Recieve reports
 128 ..> 162 : Loads Data
+199 ..> 117 : Recieve logs
 155 ..> 162 : JDBC
-149 ..> 146 : Write logs
 112 ..> 149 : Protects/Filter
-155 ..> 138 : Write logs
+191 ..> 138 : Recieve logs
+149 ..> 146 : Write logs
+207 ..> 138 : Recieve logs
+149 ..> 155 : HTTPS/H2
 124 ..> 155 : Run Commands
 162 ..> 138 : Write logs
-186 ..> 138 : Recieve logs
-198 ..> 146 : Recieve logs
 120 ..> 155 : Inspects
-178 ..> 143 : Recieve logs
-149 ..> 155 : HTTPS/H2
+155 ..> 138 : Write logs
 @enduml
