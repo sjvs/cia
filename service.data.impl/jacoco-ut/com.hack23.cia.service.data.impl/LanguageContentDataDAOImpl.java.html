@@ -81,19 +81,5 @@ LanguageContentDataDAO {
 
 	}
 
-	/**
-	 * Gets the id list.
-	 *
-	 * @return the id list
-	 */
-	private List&lt;Long&gt; getIdList() {
-<span class="nc" id="L90">		final CriteriaQuery&lt;Long&gt; criteria = getCriteriaBuilder().createQuery(</span>
-				Long.class);
-<span class="nc" id="L92">		final Root&lt;LanguageContentData&gt; root = criteria</span>
-<span class="nc" id="L93">				.from(LanguageContentData.class);</span>
-<span class="nc" id="L94">		criteria.select(root.get(LanguageContentData_.hjid));</span>
-<span class="nc" id="L95">		return getEntityManager().createQuery(criteria).getResultList();</span>
-	}
-
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

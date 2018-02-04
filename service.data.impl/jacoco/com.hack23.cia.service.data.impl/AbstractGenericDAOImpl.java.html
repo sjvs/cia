@@ -26,6 +26,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Path;
@@ -72,9 +73,9 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @param persistentClass
 	 *            the persistent class
 	 */
-<span class="fc" id="L75">	protected AbstractGenericDAOImpl(final Class&lt;T&gt; persistentClass) {</span>
-<span class="fc" id="L76">		this.persistentClass = persistentClass;</span>
-<span class="fc" id="L77">	}</span>
+<span class="fc" id="L76">	protected AbstractGenericDAOImpl(final Class&lt;T&gt; persistentClass) {</span>
+<span class="fc" id="L77">		this.persistentClass = persistentClass;</span>
+<span class="fc" id="L78">	}</span>
 
 	/**
 	 * Adds the cache hints.
@@ -85,84 +86,114 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 *            the comment
 	 */
 	protected final void addCacheHints(final TypedQuery&lt;?&gt; typedQuery, final String comment) {
-<span class="fc" id="L88">		typedQuery.setHint(&quot;org.hibernate.cacheMode&quot;, CacheMode.NORMAL);</span>
-<span class="fc" id="L89">		typedQuery.setHint(&quot;org.hibernate.cacheable&quot;, Boolean.TRUE);</span>
-<span class="fc" id="L90">		typedQuery.setHint(&quot;org.hibernate.comment&quot;, comment);</span>
-<span class="fc" id="L91">	}</span>
+<span class="fc" id="L89">		typedQuery.setHint(&quot;org.hibernate.cacheMode&quot;, CacheMode.NORMAL);</span>
+<span class="fc" id="L90">		typedQuery.setHint(&quot;org.hibernate.cacheable&quot;, Boolean.TRUE);</span>
+<span class="fc" id="L91">		typedQuery.setHint(&quot;org.hibernate.comment&quot;, comment);</span>
+<span class="fc" id="L92">	}</span>
+
+	/**
+	 * Gets the string id list.
+	 *
+	 * @param property
+	 *            the property
+	 * @return the string id list
+	 */
+	protected final List&lt;String&gt; getStringIdList(final SingularAttribute&lt;T, String&gt; property) {
+<span class="fc" id="L102">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="fc" id="L103">		final Root&lt;T&gt; root = criteria.from(persistentClass);</span>
+<span class="fc" id="L104">		criteria.select(getCriteriaBuilder().construct(String.class,root.get(property)));</span>
+<span class="fc" id="L105">		return getEntityManager().createQuery(criteria).getResultList();</span>
+	}
 
 	@Override
 	public final void delete(final T entity) {
-<span class="nc" id="L95">		getEntityManager().remove(entity);</span>
+<span class="fc" id="L110">		getEntityManager().remove(entity);</span>
 
-<span class="nc" id="L97">	}</span>
+<span class="fc" id="L112">	}</span>
 
 	@Override
 	public final T findFirstByProperty(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object value) {
-<span class="nc" id="L101">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="nc" id="L102">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
-<span class="nc" id="L103">		criteriaQuery.select(root);</span>
-<span class="nc" id="L104">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
-<span class="nc" id="L105">		criteriaQuery.where(condition);</span>
-<span class="nc" id="L106">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="nc" id="L107">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
+<span class="fc" id="L116">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="fc" id="L117">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="fc" id="L118">		criteriaQuery.select(root);</span>
+<span class="fc" id="L119">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
+<span class="fc" id="L120">		criteriaQuery.where(condition);</span>
+<span class="fc" id="L121">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="fc" id="L122">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
 
-<span class="nc" id="L109">		final List&lt;T&gt; resultList = typedQuery.getResultList();</span>
+<span class="fc" id="L124">		final List&lt;T&gt; resultList = typedQuery.getResultList();</span>
 
-<span class="nc bnc" id="L111" title="All 2 branches missed.">		if (resultList.isEmpty()) {</span>
-<span class="nc" id="L112">			return null;</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">		if (resultList.isEmpty()) {</span>
+<span class="nc" id="L127">			return null;</span>
 		} else {
-<span class="nc" id="L114">			return LoadHelper.recursiveInitialize(resultList.get(0));</span>
+<span class="fc" id="L129">			return LoadHelper.recursiveInitialize(resultList.get(0));</span>
 		}
 	}
 
 	@Override
 	public final List&lt;T&gt; findListByProperty(final Object[] values,
 			final SingularAttribute&lt;T, ? extends Object&gt;... properties) {
-<span class="fc" id="L121">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(persistentClass);</span>
-<span class="fc" id="L122">		final Root&lt;T&gt; root = criteriaQuery.from(persistentClass);</span>
-<span class="fc" id="L123">		criteriaQuery.select(root);</span>
+<span class="fc" id="L136">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(persistentClass);</span>
+<span class="fc" id="L137">		final Root&lt;T&gt; root = criteriaQuery.from(persistentClass);</span>
+<span class="fc" id="L138">		criteriaQuery.select(root);</span>
 
-<span class="fc" id="L125">		final Object value = values[0];</span>
-<span class="fc" id="L126">		final SingularAttribute&lt;T, ? extends Object&gt; property = properties[0];</span>
+<span class="fc" id="L140">		final Object value = values[0];</span>
+<span class="fc" id="L141">		final SingularAttribute&lt;T, ? extends Object&gt; property = properties[0];</span>
 		Predicate condition;
 
-<span class="fc" id="L129">		condition = QueryHelper.equalsIgnoreCaseIfStringPredicate(criteriaBuilder, root, value, property);</span>
+<span class="fc" id="L144">		condition = QueryHelper.equalsIgnoreCaseIfStringPredicate(criteriaBuilder, root, value, property);</span>
 
-<span class="pc bpc" id="L131" title="1 of 2 branches missed.">		if (values.length &gt; 1) {</span>
-<span class="fc bfc" id="L132" title="All 2 branches covered.">			for (int i = 1; i &lt; properties.length; i++) {</span>
-<span class="fc" id="L133">				final SingularAttribute&lt;T, ? extends Object&gt; property2 = properties[i];</span>
-<span class="fc" id="L134">				final Object value2 = values[i];</span>
-<span class="fc" id="L135">				final Predicate condition2 = QueryHelper.equalsIgnoreCaseIfStringPredicate(criteriaBuilder, root,</span>
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">		if (values.length &gt; 1) {</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">			for (int i = 1; i &lt; properties.length; i++) {</span>
+<span class="fc" id="L148">				final SingularAttribute&lt;T, ? extends Object&gt; property2 = properties[i];</span>
+<span class="fc" id="L149">				final Object value2 = values[i];</span>
+<span class="fc" id="L150">				final Predicate condition2 = QueryHelper.equalsIgnoreCaseIfStringPredicate(criteriaBuilder, root,</span>
 						value2, property2);
 
-<span class="fc" id="L138">				condition = criteriaBuilder.and(condition, condition2);</span>
+<span class="fc" id="L153">				condition = criteriaBuilder.and(condition, condition2);</span>
 			}
 		}
 
-<span class="fc" id="L142">		criteriaQuery.where(condition);</span>
+<span class="fc" id="L157">		criteriaQuery.where(condition);</span>
 
-<span class="fc" id="L144">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="fc" id="L145">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
+<span class="fc" id="L159">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="fc" id="L160">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
 
-<span class="fc" id="L147">		return typedQuery.getResultList();</span>
+<span class="fc" id="L162">		return typedQuery.getResultList();</span>
 	}
 
 	@Override
 	public final List&lt;T&gt; findListByProperty(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object value) {
-<span class="nc" id="L152">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="nc" id="L153">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
-<span class="nc" id="L154">		criteriaQuery.select(root);</span>
-<span class="nc" id="L155">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
-<span class="nc" id="L156">		criteriaQuery.where(condition);</span>
-<span class="nc" id="L157">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="nc" id="L158">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
-<span class="nc" id="L159">		return typedQuery.getResultList();</span>
+<span class="fc" id="L167">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="fc" id="L168">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="fc" id="L169">		criteriaQuery.select(root);</span>
+<span class="fc" id="L170">		final Predicate condition = criteriaBuilder.equal(root.get(property), value);</span>
+<span class="fc" id="L171">		criteriaQuery.where(condition);</span>
+<span class="fc" id="L172">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="fc" id="L173">		addCacheHints(typedQuery, &quot;findListByProperty&quot;);</span>
+<span class="fc" id="L174">		return typedQuery.getResultList();</span>
 	}
+
+	@Override
+	public final List&lt;T&gt; findListByPropertyInList(final SingularAttribute&lt;T, ? extends Object&gt; property, final Object[] values) {
+<span class="fc" id="L179">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="fc" id="L180">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="fc" id="L181">		criteriaQuery.select(root);</span>
+<span class="fc" id="L182">		final In&lt;Object&gt; in = criteriaBuilder.in((Path&lt;Object&gt;) root.get(property));</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">		for (final Object object : values) {</span>
+<span class="fc" id="L184">			in.value(object);</span>
+		}
+<span class="fc" id="L186">		criteriaQuery.where(in);</span>
+<span class="fc" id="L187">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="fc" id="L188">		addCacheHints(typedQuery, &quot;findListByPropertyInList&quot;);</span>
+<span class="fc" id="L189">		return typedQuery.getResultList();</span>
+	}
+
 
 	@Override
 	public &lt;V&gt; List&lt;T&gt; findListByEmbeddedProperty(final SingularAttribute&lt;T, V&gt; property, final Class&lt;V&gt; clazz2,
 			final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value) {
-<span class="nc" id="L165">		return findOrderedByPropertyListByEmbeddedProperty(property,clazz2,property2,value,null);</span>
+<span class="nc" id="L196">		return findOrderedByPropertyListByEmbeddedProperty(property,clazz2,property2,value,null);</span>
 
 	}
 
@@ -170,42 +201,42 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	public &lt;V&gt; List&lt;T&gt; findOrderedByPropertyListByEmbeddedProperty(final SingularAttribute&lt;T, V&gt; property,
 			final Class&lt;V&gt; clazz2, final SingularAttribute&lt;V, ? extends Object&gt; property2, final Object value,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderByProperty) {
-<span class="nc" id="L173">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
-<span class="nc" id="L174">				.createQuery(persistentClass);</span>
-<span class="nc" id="L175">		final Root&lt;T&gt; root = criteriaQuery.from(persistentClass);</span>
-<span class="nc" id="L176">		criteriaQuery.select(root);</span>
+<span class="nc" id="L204">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder</span>
+<span class="nc" id="L205">				.createQuery(persistentClass);</span>
+<span class="nc" id="L206">		final Root&lt;T&gt; root = criteriaQuery.from(persistentClass);</span>
+<span class="nc" id="L207">		criteriaQuery.select(root);</span>
 
-<span class="nc bnc" id="L178" title="All 2 branches missed.">		if (orderByProperty != null) {</span>
-<span class="nc" id="L179">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">		if (orderByProperty != null) {</span>
+<span class="nc" id="L210">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderByProperty)));</span>
 		}
 
 
-<span class="nc" id="L183">		final Join&lt;T, V&gt; join = root.join(property);</span>
+<span class="nc" id="L214">		final Join&lt;T, V&gt; join = root.join(property);</span>
 
-<span class="nc" id="L185">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
+<span class="nc" id="L216">		final Path&lt;? extends Object&gt; path = join.get(property2);</span>
 
-<span class="nc" id="L187">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
+<span class="nc" id="L218">		final Predicate condition = criteriaBuilder.equal(path, value);</span>
 
-<span class="nc" id="L189">		criteriaQuery.where(condition);</span>
+<span class="nc" id="L220">		criteriaQuery.where(condition);</span>
 
-<span class="nc" id="L191">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
-<span class="nc" id="L192">				.createQuery(criteriaQuery);</span>
+<span class="nc" id="L222">		final TypedQuery&lt;T&gt; typedQuery = entityManager</span>
+<span class="nc" id="L223">				.createQuery(criteriaQuery);</span>
 
-<span class="nc" id="L194">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + persistentClass.getSimpleName());</span>
+<span class="nc" id="L225">		addCacheHints(typedQuery, &quot;findListByEmbeddedProperty.&quot; + persistentClass.getSimpleName());</span>
 
 
-<span class="nc" id="L197">		return typedQuery.getResultList();</span>
+<span class="nc" id="L228">		return typedQuery.getResultList();</span>
 	}
 
-	
+
 	@Override
 	public final List&lt;T&gt; getAll() {
-<span class="nc" id="L203">		return getAllOrderBy(null);</span>
+<span class="fc" id="L234">		return getAllOrderBy(null);</span>
 	}
 
 	@Override
 	public final List&lt;T&gt; getAllOrderBy(final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="nc" id="L208">		return getPageOrderBy(null, null, orderBy);</span>
+<span class="fc" id="L239">		return getPageOrderBy(null, null, orderBy);</span>
 	}
 
 	/**
@@ -214,7 +245,7 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the criteria builder
 	 */
 	public final CriteriaBuilder getCriteriaBuilder() {
-<span class="fc" id="L217">		return criteriaBuilder;</span>
+<span class="fc" id="L248">		return criteriaBuilder;</span>
 	}
 
 	/**
@@ -223,7 +254,7 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the entity manager
 	 */
 	protected final EntityManager getEntityManager() {
-<span class="fc" id="L226">		return entityManager;</span>
+<span class="fc" id="L257">		return entityManager;</span>
 	}
 
 	/**
@@ -232,7 +263,7 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the full text entity manager
 	 */
 	protected final FullTextEntityManager getFullTextEntityManager() {
-<span class="nc" id="L235">		return Search.getFullTextEntityManager(getEntityManager());</span>
+<span class="nc" id="L266">		return Search.getFullTextEntityManager(getEntityManager());</span>
 	}
 
 	/**
@@ -241,40 +272,40 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the metamodel
 	 */
 	protected final Metamodel getMetamodel() {
-<span class="nc" id="L244">		return metamodel;</span>
+<span class="nc" id="L275">		return metamodel;</span>
 	}
 
 	@Override
-	public final List&lt;T&gt; getPage(int pageNr, int resultPerPage) {
-<span class="nc" id="L249">		return getPageOrderBy(pageNr, resultPerPage, null);</span>
+	public final List&lt;T&gt; getPage(final int pageNr, final int resultPerPage) {
+<span class="fc" id="L280">		return getPageOrderBy(pageNr, resultPerPage, null);</span>
 	}
 
 	@Override
-	public final List&lt;T&gt; getPageOrderBy(int pageNr, int resultPerPage, final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="nc" id="L254">		return getPageOrderBy(Integer.valueOf(pageNr), Integer.valueOf(resultPerPage), orderBy);</span>
+	public final List&lt;T&gt; getPageOrderBy(final int pageNr, final int resultPerPage, final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
+<span class="fc" id="L285">		return getPageOrderBy(Integer.valueOf(pageNr), Integer.valueOf(resultPerPage), orderBy);</span>
 	}
 
-	private List&lt;T&gt; getPageOrderBy(Integer pageNr, Integer resultPerPage,
+	private List&lt;T&gt; getPageOrderBy(final Integer pageNr, final Integer resultPerPage,
 			final SingularAttribute&lt;T, ? extends Object&gt; orderBy) {
-<span class="nc" id="L259">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
-<span class="nc" id="L260">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
+<span class="fc" id="L290">		final CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder.createQuery(getPersistentClass());</span>
+<span class="fc" id="L291">		final Root&lt;T&gt; root = criteriaQuery.from(getPersistentClass());</span>
 
-<span class="nc" id="L262">		criteriaQuery.select(root);</span>
+<span class="fc" id="L293">		criteriaQuery.select(root);</span>
 
-<span class="nc bnc" id="L264" title="All 2 branches missed.">		if (orderBy != null) {</span>
-<span class="nc" id="L265">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderBy)));</span>
+<span class="fc bfc" id="L295" title="All 2 branches covered.">		if (orderBy != null) {</span>
+<span class="fc" id="L296">			criteriaQuery.orderBy(criteriaBuilder.desc(root.get(orderBy)));</span>
 		}
 
-<span class="nc" id="L268">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
-<span class="nc" id="L269">		addCacheHints(typedQuery, &quot;getAll&quot;);</span>
+<span class="fc" id="L299">		final TypedQuery&lt;T&gt; typedQuery = getEntityManager().createQuery(criteriaQuery);</span>
+<span class="fc" id="L300">		addCacheHints(typedQuery, &quot;getAll&quot;);</span>
 
-<span class="nc bnc" id="L271" title="All 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
-<span class="nc" id="L272">			typedQuery.setFirstResult((pageNr - 1) * resultPerPage);</span>
-<span class="nc" id="L273">			typedQuery.setMaxResults(resultPerPage);</span>
+<span class="pc bpc" id="L302" title="1 of 4 branches missed.">		if (pageNr != null &amp;&amp; resultPerPage != null) {</span>
+<span class="fc" id="L303">			typedQuery.setFirstResult((pageNr - 1) * resultPerPage);</span>
+<span class="fc" id="L304">			typedQuery.setMaxResults(resultPerPage);</span>
 
 		}
 
-<span class="nc" id="L277">		return typedQuery.getResultList();</span>
+<span class="fc" id="L308">		return typedQuery.getResultList();</span>
 
 	}
 
@@ -284,14 +315,14 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 * @return the persistent class
 	 */
 	public final Class&lt;T&gt; getPersistentClass() {
-<span class="fc" id="L287">		return this.persistentClass;</span>
+<span class="fc" id="L318">		return this.persistentClass;</span>
 	}
 
 	@Override
 	public final Long getSize() {
-<span class="fc" id="L292">		final CriteriaQuery&lt;Long&gt; countQuery = criteriaBuilder.createQuery(Long.class);</span>
-<span class="fc" id="L293">		countQuery.select(criteriaBuilder.count(countQuery.from(persistentClass)));</span>
-<span class="fc" id="L294">		return getEntityManager().createQuery(countQuery).getSingleResult();</span>
+<span class="fc" id="L323">		final CriteriaQuery&lt;Long&gt; countQuery = criteriaBuilder.createQuery(Long.class);</span>
+<span class="fc" id="L324">		countQuery.select(criteriaBuilder.count(countQuery.from(persistentClass)));</span>
+<span class="fc" id="L325">		return getEntityManager().createQuery(countQuery).getSingleResult();</span>
 	}
 
 	/**
@@ -299,39 +330,39 @@ abstract class AbstractGenericDAOImpl&lt;T extends Serializable, I extends Seria
 	 */
 	@PostConstruct
 	private void init() {
-<span class="fc" id="L302">		this.criteriaBuilder = getEntityManager().getCriteriaBuilder();</span>
-<span class="fc" id="L303">		this.metamodel = getEntityManager().getMetamodel();</span>
-<span class="fc" id="L304">	}</span>
+<span class="fc" id="L333">		this.criteriaBuilder = getEntityManager().getCriteriaBuilder();</span>
+<span class="fc" id="L334">		this.metamodel = getEntityManager().getMetamodel();</span>
+<span class="fc" id="L335">	}</span>
 
 	@Override
 	public final T load(final I id) {
-<span class="nc" id="L308">		return LoadHelper.recursiveInitialize(getEntityManager().find(getPersistentClass(), id));</span>
+<span class="fc" id="L339">		return LoadHelper.recursiveInitialize(getEntityManager().find(getPersistentClass(), id));</span>
 	}
 
 	@Override
 	public final T merge(final T entity) {
-<span class="nc" id="L313">		return getEntityManager().merge(entity);</span>
+<span class="fc" id="L344">		return getEntityManager().merge(entity);</span>
 	}
 
 	@Override
 	public final void persist(final List&lt;T&gt; list) {
-<span class="nc bnc" id="L318" title="All 2 branches missed.">		for (final T t : list) {</span>
-<span class="nc" id="L319">			getEntityManager().persist(t);</span>
-<span class="nc" id="L320">		}</span>
-<span class="nc" id="L321">	}</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">		for (final T t : list) {</span>
+<span class="nc" id="L350">			getEntityManager().persist(t);</span>
+<span class="nc" id="L351">		}</span>
+<span class="nc" id="L352">	}</span>
 
 	@Override
 	public final void persist(final T entity) {
-<span class="fc" id="L325">		getEntityManager().persist(entity);</span>
-<span class="fc" id="L326">	}</span>
+<span class="fc" id="L356">		getEntityManager().persist(entity);</span>
+<span class="fc" id="L357">	}</span>
 
 	@Override
 	public final List&lt;T&gt; search(final String searchExpression, final Integer maxResults, final String... fields) {
-<span class="nc" id="L330">		return getFullTextEntityManager().createFullTextQuery(</span>
-<span class="nc" id="L331">				getFullTextEntityManager().getSearchFactory().buildQueryBuilder().forEntity(persistentClass).get()</span>
-<span class="nc" id="L332">						.keyword().wildcard().onFields(fields).matching(searchExpression).createQuery(),</span>
-<span class="nc" id="L333">				persistentClass).setMaxResults(maxResults).getResultList();</span>
+<span class="nc" id="L361">		return getFullTextEntityManager().createFullTextQuery(</span>
+<span class="nc" id="L362">				getFullTextEntityManager().getSearchFactory().buildQueryBuilder().forEntity(persistentClass).get()</span>
+<span class="nc" id="L363">						.keyword().wildcard().onFields(fields).matching(searchExpression).createQuery(),</span>
+<span class="nc" id="L364">				persistentClass).setMaxResults(maxResults).getResultList();</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

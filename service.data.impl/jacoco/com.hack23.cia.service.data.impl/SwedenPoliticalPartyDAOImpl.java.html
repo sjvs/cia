@@ -20,9 +20,6 @@ package com.hack23.cia.service.data.impl;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.springframework.stereotype.Repository;
 
 import com.hack23.cia.model.external.val.partier.impl.SwedenPoliticalParty;
@@ -41,19 +38,13 @@ SwedenPoliticalPartyDAO {
 	 * Instantiates a new sweden political party dao impl.
 	 */
 	public SwedenPoliticalPartyDAOImpl() {
-<span class="fc" id="L44">		super(SwedenPoliticalParty.class);</span>
-<span class="fc" id="L45">	}</span>
+<span class="fc" id="L41">		super(SwedenPoliticalParty.class);</span>
+<span class="fc" id="L42">	}</span>
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="nc" id="L49">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder()</span>
-<span class="nc" id="L50">				.createQuery(String.class);</span>
-<span class="nc" id="L51">		final Root&lt;SwedenPoliticalParty&gt; root = criteria</span>
-<span class="nc" id="L52">				.from(SwedenPoliticalParty.class);</span>
-<span class="nc" id="L53">		criteria.select(getCriteriaBuilder().construct(String.class,</span>
-<span class="nc" id="L54">				root.get(SwedenPoliticalParty_.partyId)));</span>
-<span class="nc" id="L55">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L46">		return getStringIdList(SwedenPoliticalParty_.partyId);</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

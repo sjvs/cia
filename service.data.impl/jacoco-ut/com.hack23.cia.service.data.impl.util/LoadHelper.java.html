@@ -40,8 +40,8 @@ public final class LoadHelper {
 	 * Instantiates a new load helper.
 	 */
 	private LoadHelper() {
-<span class="nc" id="L43">		super();</span>
-<span class="nc" id="L44">	}</span>
+		super();
+	}
 
 	/**
 	 * Handle reflection exception.
@@ -95,6 +95,28 @@ public final class LoadHelper {
 <span class="fc" id="L95">	}</span>
 
 	/**
+	 * Recursive initliaze.
+	 *
+	 * @param &lt;T&gt;
+	 *            the generic type
+	 * @param obj
+	 *            the obj
+	 * @return the t
+	 */
+	public static &lt;T&gt; T recursiveInitialize(final T obj) {
+<span class="fc bfc" id="L107" title="All 2 branches covered.">		if (obj != null) {</span>
+
+<span class="fc" id="L109">			final Set&lt;Object&gt; dejaVu = Collections.newSetFromMap(new IdentityHashMap&lt;Object, Boolean&gt;());</span>
+			try {
+<span class="fc" id="L111">				recursiveInitialize(obj, dejaVu);</span>
+<span class="nc" id="L112">			} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {</span>
+<span class="nc" id="L113">				handleReflectionException(e);</span>
+<span class="fc" id="L114">			}</span>
+		}
+<span class="fc" id="L116">		return obj;</span>
+	}
+
+	/**
 	 * Inits the proxy and collections.
 	 *
 	 * @param obj
@@ -112,12 +134,12 @@ public final class LoadHelper {
 	 */
 	private static void initProxyAndCollections(final Object obj, final PropertyDescriptor[] properties,
 			final Set&lt;Object&gt; dejaVu) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-<span class="nc bnc" id="L115" title="All 2 branches missed.">		for (final PropertyDescriptor propertyDescriptor : properties) {</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">			if (PropertyUtils.getReadMethod(propertyDescriptor) != null) {</span>
-<span class="nc" id="L117">				initProxies(dejaVu, PropertyUtils.getProperty(obj, propertyDescriptor.getName()));</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">		for (final PropertyDescriptor propertyDescriptor : properties) {</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">			if (PropertyUtils.getReadMethod(propertyDescriptor) != null) {</span>
+<span class="nc" id="L139">				initProxies(dejaVu, PropertyUtils.getProperty(obj, propertyDescriptor.getName()));</span>
 			}
 		}
-<span class="nc" id="L120">	}</span>
+<span class="nc" id="L142">	}</span>
 
 	/**
 	 * Inits the proxies.
@@ -135,37 +157,15 @@ public final class LoadHelper {
 	 */
 	private static void initProxies(final Set&lt;Object&gt; dejaVu, final Object origProp)
 			throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-<span class="nc bnc" id="L138" title="All 2 branches missed.">		if (origProp != null) {</span>
-<span class="nc" id="L139">			recursiveInitialize(origProp, dejaVu);</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">		if (origProp != null) {</span>
+<span class="nc" id="L161">			recursiveInitialize(origProp, dejaVu);</span>
 		}
-<span class="nc bnc" id="L141" title="All 2 branches missed.">		if (origProp instanceof Collection) {</span>
-<span class="nc bnc" id="L142" title="All 2 branches missed.">			for (final Object item : (Collection&lt;?&gt;) origProp) {</span>
-<span class="nc" id="L143">				recursiveInitialize(item, dejaVu);</span>
-<span class="nc" id="L144">			}</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">		if (origProp instanceof Collection) {</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">			for (final Object item : (Collection&lt;?&gt;) origProp) {</span>
+<span class="nc" id="L165">				recursiveInitialize(item, dejaVu);</span>
+<span class="nc" id="L166">			}</span>
 		}
-<span class="nc" id="L146">	}</span>
-
-	/**
-	 * Recursive initliaze.
-	 *
-	 * @param &lt;T&gt;
-	 *            the generic type
-	 * @param obj
-	 *            the obj
-	 * @return the t
-	 */
-	public static &lt;T&gt; T recursiveInitialize(final T obj) {
-<span class="pc bpc" id="L158" title="1 of 2 branches missed.">		if (obj != null) {</span>
-
-<span class="fc" id="L160">			final Set&lt;Object&gt; dejaVu = Collections.newSetFromMap(new IdentityHashMap&lt;Object, Boolean&gt;());</span>
-			try {
-<span class="fc" id="L162">				recursiveInitialize(obj, dejaVu);</span>
-<span class="nc" id="L163">			} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {</span>
-<span class="nc" id="L164">				handleReflectionException(e);</span>
-<span class="fc" id="L165">			}</span>
-		}
-<span class="fc" id="L167">		return obj;</span>
-	}
+<span class="nc" id="L168">	}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -998,21 +998,23 @@
 </g>
 <!-- com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession -->
 <g id="node44" class="node"><title>com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession</title>
-<g id="a_node44"><a xlink:href="com/hack23/cia/model/internal/application/system/impl/ApplicationSession.html" xlink:title="{ com\.hack23\.cia\.model\.internal\.application\.system\.impl\.ApplicationSession| createdDate\l destroyedDate\l ipInformation\l locale\l modelObjectId\l modelObjectVersion\l operatingSystem\l sessionId\l sessionType\l userAgentInformation\l userId\l }">
-<polygon fill="#d4e5fe" stroke="black" points="17867.5,-2026 17867.5,-2174 18208.5,-2174 18208.5,-2026 17867.5,-2026"/>
-<text text-anchor="middle" x="18038" y="-2162" font-family="Helvetica,sans-Serif" font-size="10.00">com.hack23.cia.model.internal.application.system.impl.ApplicationSession</text>
-<polyline fill="none" stroke="black" points="17867.5,-2155 18208.5,-2155 "/>
-<text text-anchor="start" x="17875.5" y="-2143" font-family="Helvetica,sans-Serif" font-size="10.00">createdDate</text>
-<text text-anchor="start" x="17875.5" y="-2132" font-family="Helvetica,sans-Serif" font-size="10.00"> destroyedDate</text>
-<text text-anchor="start" x="17875.5" y="-2121" font-family="Helvetica,sans-Serif" font-size="10.00"> ipInformation</text>
-<text text-anchor="start" x="17875.5" y="-2110" font-family="Helvetica,sans-Serif" font-size="10.00"> locale</text>
-<text text-anchor="start" x="17875.5" y="-2099" font-family="Helvetica,sans-Serif" font-size="10.00"> modelObjectId</text>
-<text text-anchor="start" x="17875.5" y="-2088" font-family="Helvetica,sans-Serif" font-size="10.00"> modelObjectVersion</text>
-<text text-anchor="start" x="17875.5" y="-2077" font-family="Helvetica,sans-Serif" font-size="10.00"> operatingSystem</text>
+<g id="a_node44"><a xlink:href="com/hack23/cia/model/internal/application/system/impl/ApplicationSession.html" xlink:title="{ com\.hack23\.cia\.model\.internal\.application\.system\.impl\.ApplicationSession| createdDate\l destroyedDate\l ipInformation\l locale\l modelObjectId\l modelObjectVersion\l operatingSystem\l screenSize\l sessionId\l sessionType\l timeZone\l userAgentInformation\l userId\l }">
+<polygon fill="#d4e5fe" stroke="black" points="17867.5,-2015 17867.5,-2185 18208.5,-2185 18208.5,-2015 17867.5,-2015"/>
+<text text-anchor="middle" x="18038" y="-2173" font-family="Helvetica,sans-Serif" font-size="10.00">com.hack23.cia.model.internal.application.system.impl.ApplicationSession</text>
+<polyline fill="none" stroke="black" points="17867.5,-2166 18208.5,-2166 "/>
+<text text-anchor="start" x="17875.5" y="-2154" font-family="Helvetica,sans-Serif" font-size="10.00">createdDate</text>
+<text text-anchor="start" x="17875.5" y="-2143" font-family="Helvetica,sans-Serif" font-size="10.00"> destroyedDate</text>
+<text text-anchor="start" x="17875.5" y="-2132" font-family="Helvetica,sans-Serif" font-size="10.00"> ipInformation</text>
+<text text-anchor="start" x="17875.5" y="-2121" font-family="Helvetica,sans-Serif" font-size="10.00"> locale</text>
+<text text-anchor="start" x="17875.5" y="-2110" font-family="Helvetica,sans-Serif" font-size="10.00"> modelObjectId</text>
+<text text-anchor="start" x="17875.5" y="-2099" font-family="Helvetica,sans-Serif" font-size="10.00"> modelObjectVersion</text>
+<text text-anchor="start" x="17875.5" y="-2088" font-family="Helvetica,sans-Serif" font-size="10.00"> operatingSystem</text>
+<text text-anchor="start" x="17875.5" y="-2077" font-family="Helvetica,sans-Serif" font-size="10.00"> screenSize</text>
 <text text-anchor="start" x="17875.5" y="-2066" font-family="Helvetica,sans-Serif" font-size="10.00"> sessionId</text>
 <text text-anchor="start" x="17875.5" y="-2055" font-family="Helvetica,sans-Serif" font-size="10.00"> sessionType</text>
-<text text-anchor="start" x="17875.5" y="-2044" font-family="Helvetica,sans-Serif" font-size="10.00"> userAgentInformation</text>
-<text text-anchor="start" x="17875.5" y="-2033" font-family="Helvetica,sans-Serif" font-size="10.00"> userId</text>
+<text text-anchor="start" x="17875.5" y="-2044" font-family="Helvetica,sans-Serif" font-size="10.00"> timeZone</text>
+<text text-anchor="start" x="17875.5" y="-2033" font-family="Helvetica,sans-Serif" font-size="10.00"> userAgentInformation</text>
+<text text-anchor="start" x="17875.5" y="-2022" font-family="Helvetica,sans-Serif" font-size="10.00"> userId</text>
 </a>
 </g>
 </g>
@@ -1040,8 +1042,8 @@
 </g>
 <!-- com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession&#45;&gt;com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationActionEvent -->
 <g id="edge10" class="edge"><title>com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession&#45;&gt;com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationActionEvent</title>
-<path fill="none" stroke="lightgrey" d="M18038,-2025.93C18038,-1904.76 18038,-1662.33 18038,-1528.37"/>
-<polygon fill="lightgrey" stroke="lightgrey" points="18041.5,-1528.13 18038,-1518.13 18034.5,-1528.13 18041.5,-1528.13"/>
+<path fill="none" stroke="lightgrey" d="M18038,-2014.78C18038,-1890.4 18038,-1658.36 18038,-1528.39"/>
+<polygon fill="lightgrey" stroke="lightgrey" points="18041.5,-1528.06 18038,-1518.06 18034.5,-1528.06 18041.5,-1528.06"/>
 <text text-anchor="middle" x="18050" y="-1764.6" font-family="Helvetica,sans-Serif" font-size="8.00">events</text>
 </g>
 <!-- com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_data_dot_impl_dot_ViewApplicationActionEventPageModeWeeklySummary -->

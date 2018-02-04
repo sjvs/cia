@@ -66,11 +66,8 @@ implements DocumentContentDataDAO {
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="nc" id="L69">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="nc" id="L70">		final Root&lt;DocumentContentData&gt; root = criteria.from(DocumentContentData.class);</span>
-<span class="nc" id="L71">		criteria.select(root.get(DocumentContentData_.id));</span>
-<span class="nc" id="L72">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="nc" id="L69">		return getStringIdList(DocumentContentData_.id);</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

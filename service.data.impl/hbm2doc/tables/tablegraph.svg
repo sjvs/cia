@@ -97,38 +97,42 @@
 </g>
 <!-- APPLICATION_SESSION -->
 <g id="node5" class="node"><title>APPLICATION_SESSION</title>
-<polygon fill="yellow" stroke="black" points="1149,-2173 1149,-2420 1310,-2420 1310,-2173 1149,-2173"/>
-<text text-anchor="middle" x="1229.5" y="-2408" font-family="Helvetica,sans-Serif" font-size="10.00">APPLICATION_SESSION</text>
+<polygon fill="yellow" stroke="black" points="1149,-2154 1149,-2439 1310,-2439 1310,-2154 1149,-2154"/>
+<text text-anchor="middle" x="1229.5" y="-2427" font-family="Helvetica,sans-Serif" font-size="10.00">APPLICATION_SESSION</text>
+<polyline fill="none" stroke="black" points="1149,-2420 1310,-2420 "/>
+<text text-anchor="start" x="1157" y="-2408" font-family="Helvetica,sans-Serif" font-size="10.00">HJID</text>
 <polyline fill="none" stroke="black" points="1149,-2401 1310,-2401 "/>
-<text text-anchor="start" x="1157" y="-2389" font-family="Helvetica,sans-Serif" font-size="10.00">HJID</text>
+<text text-anchor="start" x="1157" y="-2389" font-family="Helvetica,sans-Serif" font-size="10.00">CREATED_DATE</text>
 <polyline fill="none" stroke="black" points="1149,-2382 1310,-2382 "/>
-<text text-anchor="start" x="1157" y="-2370" font-family="Helvetica,sans-Serif" font-size="10.00">CREATED_DATE</text>
+<text text-anchor="start" x="1157" y="-2370" font-family="Helvetica,sans-Serif" font-size="10.00">DESTROYED_DATE</text>
 <polyline fill="none" stroke="black" points="1149,-2363 1310,-2363 "/>
-<text text-anchor="start" x="1157" y="-2351" font-family="Helvetica,sans-Serif" font-size="10.00">DESTROYED_DATE</text>
+<text text-anchor="start" x="1157" y="-2351" font-family="Helvetica,sans-Serif" font-size="10.00">IP_INFORMATION</text>
 <polyline fill="none" stroke="black" points="1149,-2344 1310,-2344 "/>
-<text text-anchor="start" x="1157" y="-2332" font-family="Helvetica,sans-Serif" font-size="10.00">IP_INFORMATION</text>
+<text text-anchor="start" x="1157" y="-2332" font-family="Helvetica,sans-Serif" font-size="10.00">LOCALE</text>
 <polyline fill="none" stroke="black" points="1149,-2325 1310,-2325 "/>
-<text text-anchor="start" x="1157" y="-2313" font-family="Helvetica,sans-Serif" font-size="10.00">LOCALE</text>
+<text text-anchor="start" x="1157" y="-2313" font-family="Helvetica,sans-Serif" font-size="10.00">MODEL_OBJECT_ID</text>
 <polyline fill="none" stroke="black" points="1149,-2306 1310,-2306 "/>
-<text text-anchor="start" x="1157" y="-2294" font-family="Helvetica,sans-Serif" font-size="10.00">MODEL_OBJECT_ID</text>
+<text text-anchor="start" x="1157" y="-2294" font-family="Helvetica,sans-Serif" font-size="10.00">MODEL_OBJECT_VERSION</text>
 <polyline fill="none" stroke="black" points="1149,-2287 1310,-2287 "/>
-<text text-anchor="start" x="1157" y="-2275" font-family="Helvetica,sans-Serif" font-size="10.00">MODEL_OBJECT_VERSION</text>
+<text text-anchor="start" x="1157" y="-2275" font-family="Helvetica,sans-Serif" font-size="10.00">OPERATING_SYSTEM</text>
 <polyline fill="none" stroke="black" points="1149,-2268 1310,-2268 "/>
-<text text-anchor="start" x="1157" y="-2256" font-family="Helvetica,sans-Serif" font-size="10.00">OPERATING_SYSTEM</text>
+<text text-anchor="start" x="1157" y="-2256" font-family="Helvetica,sans-Serif" font-size="10.00">SCREEN_SIZE</text>
 <polyline fill="none" stroke="black" points="1149,-2249 1310,-2249 "/>
 <text text-anchor="start" x="1157" y="-2237" font-family="Helvetica,sans-Serif" font-size="10.00">SESSION_ID</text>
 <polyline fill="none" stroke="black" points="1149,-2230 1310,-2230 "/>
 <text text-anchor="start" x="1157" y="-2218" font-family="Helvetica,sans-Serif" font-size="10.00">SESSION_TYPE</text>
 <polyline fill="none" stroke="black" points="1149,-2211 1310,-2211 "/>
-<text text-anchor="start" x="1157" y="-2199" font-family="Helvetica,sans-Serif" font-size="10.00">USER_AGENT_INFORMATION</text>
+<text text-anchor="start" x="1157" y="-2199" font-family="Helvetica,sans-Serif" font-size="10.00">TIME_ZONE</text>
 <polyline fill="none" stroke="black" points="1149,-2192 1310,-2192 "/>
-<text text-anchor="start" x="1157" y="-2180" font-family="Helvetica,sans-Serif" font-size="10.00">USER_ID</text>
+<text text-anchor="start" x="1157" y="-2180" font-family="Helvetica,sans-Serif" font-size="10.00">USER_AGENT_INFORMATION</text>
+<polyline fill="none" stroke="black" points="1149,-2173 1310,-2173 "/>
+<text text-anchor="start" x="1157" y="-2161" font-family="Helvetica,sans-Serif" font-size="10.00">USER_ID</text>
 </g>
 <!-- APPLICATION_ACTION_EVENT&#45;&gt;APPLICATION_SESSION -->
 <g id="edge2" class="edge"><title>APPLICATION_ACTION_EVENT:se&#45;&gt;APPLICATION_SESSION:nw</title>
-<path fill="none" stroke="lightgrey" d="M1148.5,-3272.5C1413.46,-3007.54 890.912,-2694.8 1141.26,-2428.96"/>
-<polygon fill="lightgrey" stroke="lightgrey" points="1144.05,-2431.11 1148.5,-2421.5 1139.02,-2426.24 1144.05,-2431.11"/>
-<text text-anchor="middle" x="1212" y="-2859.1" font-family="Helvetica,sans-Serif" font-size="8.00">FKhspx4sv9i3guoah9wjfci9c9n</text>
+<path fill="none" stroke="lightgrey" d="M1148.5,-3272.5C1407.55,-3013.45 896.663,-2707.7 1141.42,-2447.79"/>
+<polygon fill="lightgrey" stroke="lightgrey" points="1144.05,-2450.11 1148.5,-2440.5 1139.02,-2445.24 1144.05,-2450.11"/>
+<text text-anchor="middle" x="1203" y="-2859.1" font-family="Helvetica,sans-Serif" font-size="8.00">FKhspx4sv9i3guoah9wjfci9c9n</text>
 </g>
 <!-- application_configuration -->
 <g id="node6" class="node"><title>application_configuration</title>

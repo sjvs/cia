@@ -57,8 +57,8 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  	@Test
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> getLanguageResourceAlreadyExistGetConfiguredValueTest() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		String defaultEnglishValue = <span class="jxr_string">"defaultValue"</span>;
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		String key = UUID.randomUUID().toString();
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		<strong class="jxr_keyword">final</strong> String defaultEnglishValue = <span class="jxr_string">"defaultValue"</span>;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  		<strong class="jxr_keyword">final</strong> String key = UUID.randomUUID().toString();
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  		<strong class="jxr_keyword">final</strong> String languageResource = languageContentService.getLanguageResource(key, <span class="jxr_string">"test"</span>,<span class="jxr_string">"en"</span>,
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  				defaultEnglishValue);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
@@ -79,8 +79,8 @@
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  	@Test
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> getLanguageResourceNoValueExistTest() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		String defaultEnglishValue = <span class="jxr_string">"defaultValue"</span>;
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		String key = UUID.randomUUID().toString();
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		<strong class="jxr_keyword">final</strong> String defaultEnglishValue = <span class="jxr_string">"defaultValue"</span>;
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		<strong class="jxr_keyword">final</strong> String key = UUID.randomUUID().toString();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  		<strong class="jxr_keyword">final</strong> String languageResource = languageContentService.getLanguageResource(key, <span class="jxr_string">"test"</span>,<span class="jxr_string">"en"</span>,
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  				defaultEnglishValue);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  
@@ -91,6 +91,6 @@
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2010&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2010&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
 </body>
 </html>

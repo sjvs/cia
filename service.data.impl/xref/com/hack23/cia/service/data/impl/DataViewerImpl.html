@@ -301,17 +301,17 @@
 <a class="jxr_linenumber" name="L293" href="#L293">293</a> 
 <a class="jxr_linenumber" name="L294" href="#L294">294</a> 
 <a class="jxr_linenumber" name="L295" href="#L295">295</a> 	@Override
-<a class="jxr_linenumber" name="L296" href="#L296">296</a> 	<strong class="jxr_keyword">public</strong> &lt;T&gt; List&lt;T&gt; getPage(Class&lt;T&gt; clazz, <strong class="jxr_keyword">int</strong> pageNr, <strong class="jxr_keyword">int</strong> resultPerPage) {
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 	<strong class="jxr_keyword">public</strong> &lt;T&gt; List&lt;T&gt; getPage(<strong class="jxr_keyword">final</strong> Class&lt;T&gt; clazz, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pageNr, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> resultPerPage) {
 <a class="jxr_linenumber" name="L297" href="#L297">297</a> 		<strong class="jxr_keyword">return</strong> getPageOrderBy(clazz, pageNr, resultPerPage, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L298" href="#L298">298</a> 	}
 <a class="jxr_linenumber" name="L299" href="#L299">299</a> 
 <a class="jxr_linenumber" name="L300" href="#L300">300</a> 	@Override
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 	<strong class="jxr_keyword">public</strong> &lt;T&gt; List&lt;T&gt; getPageOrderBy(Class&lt;T&gt; clazz, <strong class="jxr_keyword">int</strong> pageNr, <strong class="jxr_keyword">int</strong> resultPerPage,
-<a class="jxr_linenumber" name="L302" href="#L302">302</a> 			SingularAttribute&lt;T, ? <strong class="jxr_keyword">extends</strong> Object&gt; property) {
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 	<strong class="jxr_keyword">public</strong> &lt;T&gt; List&lt;T&gt; getPageOrderBy(<strong class="jxr_keyword">final</strong> Class&lt;T&gt; clazz, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pageNr, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> resultPerPage,
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> 			<strong class="jxr_keyword">final</strong> SingularAttribute&lt;T, ? <strong class="jxr_keyword">extends</strong> Object&gt; property) {
 <a class="jxr_linenumber" name="L303" href="#L303">303</a> 		<strong class="jxr_keyword">return</strong> getInternalPageOrderBy(clazz, pageNr, resultPerPage, property);
 <a class="jxr_linenumber" name="L304" href="#L304">304</a> 	}
 <a class="jxr_linenumber" name="L305" href="#L305">305</a> 
-<a class="jxr_linenumber" name="L306" href="#L306">306</a> 	<strong class="jxr_keyword">private</strong> &lt;T&gt; List&lt;T&gt; getInternalPageOrderBy(<strong class="jxr_keyword">final</strong> Class&lt;T&gt; clazz, Integer pageNr,Integer resultPerPage,<strong class="jxr_keyword">final</strong> SingularAttribute&lt;T, ? <strong class="jxr_keyword">extends</strong> Object&gt; property) {
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 	<strong class="jxr_keyword">private</strong> &lt;T&gt; List&lt;T&gt; getInternalPageOrderBy(<strong class="jxr_keyword">final</strong> Class&lt;T&gt; clazz, <strong class="jxr_keyword">final</strong> Integer pageNr,<strong class="jxr_keyword">final</strong> Integer resultPerPage,<strong class="jxr_keyword">final</strong> SingularAttribute&lt;T, ? <strong class="jxr_keyword">extends</strong> Object&gt; property) {
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> 		<strong class="jxr_keyword">final</strong> CriteriaQuery&lt;T&gt; criteriaQuery = criteriaBuilder
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> 				.createQuery(clazz);
 <a class="jxr_linenumber" name="L309" href="#L309">309</a> 		<strong class="jxr_keyword">final</strong> Root&lt;T&gt; root = criteriaQuery.from(clazz);
@@ -359,6 +359,6 @@
 <a class="jxr_linenumber" name="L351" href="#L351">351</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2010&#x2013;2017 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2010&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>
 </body>
 </html>

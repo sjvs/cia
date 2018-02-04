@@ -18,15 +18,9 @@
 */
 package com.hack23.cia.service.data.impl;
 
-import java.util.List;
-
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import org.springframework.stereotype.Repository;
 
 import com.hack23.cia.model.internal.application.system.impl.LanguageData;
-import com.hack23.cia.model.internal.application.system.impl.LanguageData_;
 import com.hack23.cia.service.data.api.LanguageDataDAO;
 
 /**
@@ -41,23 +35,8 @@ LanguageDataDAO {
 	 * Instantiates a new language data dao impl.
 	 */
 	public LanguageDataDAOImpl() {
-<span class="fc" id="L44">		super(LanguageData.class);</span>
-<span class="fc" id="L45">	}</span>
-
-
-	/**
-	 * Gets the id list.
-	 *
-	 * @return the id list
-	 */
-	private List&lt;Long&gt; getIdList() {
-<span class="nc" id="L54">		final CriteriaQuery&lt;Long&gt; criteria = getCriteriaBuilder().createQuery(</span>
-				Long.class);
-<span class="nc" id="L56">		final Root&lt;LanguageData&gt; root = criteria</span>
-<span class="nc" id="L57">				.from(LanguageData.class);</span>
-<span class="nc" id="L58">		criteria.select(root.get(LanguageData_.hjid));</span>
-<span class="nc" id="L59">		return getEntityManager().createQuery(criteria).getResultList();</span>
-	}
+<span class="fc" id="L38">		super(LanguageData.class);</span>
+<span class="fc" id="L39">	}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

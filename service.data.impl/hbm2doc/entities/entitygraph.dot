@@ -642,7 +642,7 @@ digraph EntityGraph {
   /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_data_dot_document_dot_impl_dot_ViewRiksdagenPoliticianDocumentDailySummary */
      
   /* Node com.hack23.cia.model.internal.application.system.impl.ApplicationSession */
-  com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession [ label = "{ com\.hack23\.cia\.model\.internal\.application\.system\.impl\.ApplicationSession| createdDate\l destroyedDate\l ipInformation\l locale\l modelObjectId\l modelObjectVersion\l operatingSystem\l sessionId\l sessionType\l userAgentInformation\l userId\l }", URL="com/hack23/cia/model/internal/application/system/impl/ApplicationSession.html" ]
+  com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession [ label = "{ com\.hack23\.cia\.model\.internal\.application\.system\.impl\.ApplicationSession| createdDate\l destroyedDate\l ipInformation\l locale\l modelObjectId\l modelObjectVersion\l operatingSystem\l screenSize\l sessionId\l sessionType\l timeZone\l userAgentInformation\l userId\l }", URL="com/hack23/cia/model/internal/application/system/impl/ApplicationSession.html" ]
   /* Subclass edges for com.hack23.cia.model.internal.application.system.impl.ApplicationSession */
   
   /* Property edges/nodes for com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession */
@@ -651,6 +651,8 @@ digraph EntityGraph {
      com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationSession -> com_dot_hack23_dot_cia_dot_model_dot_internal_dot_application_dot_system_dot_impl_dot_ApplicationActionEvent [ 
         label="events" 
         ]
+     
+     
      
      
      

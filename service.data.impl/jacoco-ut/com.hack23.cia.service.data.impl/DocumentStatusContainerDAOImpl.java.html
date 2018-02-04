@@ -49,36 +49,36 @@ DocumentStatusContainerDAO {
 
 	@Override
 	public int checkExistByDocumentId(final String id) {
-<span class="nc" id="L52">		final CriteriaQuery&lt;DocumentData&gt; criteriaQuery = getCriteriaBuilder()</span>
-<span class="nc" id="L53">				.createQuery(DocumentData.class);</span>
-<span class="nc" id="L54">		final Root&lt;DocumentData&gt; root = criteriaQuery.from(DocumentData.class);</span>
-<span class="nc" id="L55">		criteriaQuery.select(root);</span>
-<span class="nc" id="L56">		final Predicate condition = getCriteriaBuilder().equal(root.get(DocumentData_.id), id);</span>
-<span class="nc" id="L57">		criteriaQuery.where(condition);</span>
-<span class="nc" id="L58">		final TypedQuery&lt;DocumentData&gt; typedQuery = getEntityManager()</span>
-<span class="nc" id="L59">				.createQuery(criteriaQuery);</span>
-<span class="nc" id="L60">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
+<span class="fc" id="L52">		final CriteriaQuery&lt;DocumentData&gt; criteriaQuery = getCriteriaBuilder()</span>
+<span class="fc" id="L53">				.createQuery(DocumentData.class);</span>
+<span class="fc" id="L54">		final Root&lt;DocumentData&gt; root = criteriaQuery.from(DocumentData.class);</span>
+<span class="fc" id="L55">		criteriaQuery.select(root);</span>
+<span class="fc" id="L56">		final Predicate condition = getCriteriaBuilder().equal(root.get(DocumentData_.id), id);</span>
+<span class="fc" id="L57">		criteriaQuery.where(condition);</span>
+<span class="fc" id="L58">		final TypedQuery&lt;DocumentData&gt; typedQuery = getEntityManager()</span>
+<span class="fc" id="L59">				.createQuery(criteriaQuery);</span>
+<span class="fc" id="L60">		addCacheHints(typedQuery, &quot;findFirstByProperty&quot;);</span>
 
-<span class="nc" id="L62">		return typedQuery.getResultList().size();</span>
+<span class="fc" id="L62">		return typedQuery.getResultList().size();</span>
 	}
 
 	@Override
 	public List&lt;String&gt; getAvaibleCommitteeProposal() {
-<span class="nc" id="L67">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="nc" id="L68">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
-<span class="nc" id="L69">		criteria.select(root.get(DocumentData_.id));</span>
-<span class="nc" id="L70">		criteria.where(getCriteriaBuilder().isNotNull(root.get(DocumentData_.committeeReportUrlXml)));</span>
-<span class="nc" id="L71">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="fc" id="L67">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="fc" id="L68">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
+<span class="fc" id="L69">		criteria.select(root.get(DocumentData_.id));</span>
+<span class="fc" id="L70">		criteria.where(getCriteriaBuilder().isNotNull(root.get(DocumentData_.committeeReportUrlXml)));</span>
+<span class="fc" id="L71">		return getEntityManager().createQuery(criteria).getResultList();</span>
 
 	}
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="nc" id="L77">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
-<span class="nc" id="L78">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
-<span class="nc" id="L79">		criteria.select(root.get(DocumentData_.id));</span>
-<span class="nc" id="L80">		return getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="fc" id="L77">		final CriteriaQuery&lt;String&gt; criteria = getCriteriaBuilder().createQuery(String.class);</span>
+<span class="fc" id="L78">		final Root&lt;DocumentData&gt; root = criteria.from(DocumentData.class);</span>
+<span class="fc" id="L79">		criteria.select(root.get(DocumentData_.id));</span>
+<span class="fc" id="L80">		return getEntityManager().createQuery(criteria).getResultList();</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -42,33 +42,39 @@ final class DataDAOImpl extends AbstractGenericDAOImpl&lt;WorldBankData, Long&gt
 	/** The Constant EXPECTED_NR_ELEMENTS. */
 	private static final int EXPECTED_NR_ELEMENTS = 2;
 
+	/** The Constant FIRST_ELEMENT. */
+	private static final int FIRST_ELEMENT = 0;
+
+	/** The Constant SECOND_ELEMENT. */
+	private static final int SECOND_ELEMENT = 1;
+
 	/**
 	 * Instantiates a new data dao impl.
 	 */
 	public DataDAOImpl() {
-<span class="fc" id="L49">		super(WorldBankData.class);</span>
-<span class="fc" id="L50">	}</span>
+<span class="fc" id="L55">		super(WorldBankData.class);</span>
+<span class="fc" id="L56">	}</span>
 
 	@Override
 	public List&lt;String&gt; getIdList() {
-<span class="nc" id="L54">		final CriteriaQuery&lt;Object[]&gt; criteria = getCriteriaBuilder().createQuery(Object[].class);</span>
-<span class="nc" id="L55">		final Root&lt;WorldBankData&gt; personRoot = criteria.from(WorldBankData.class);</span>
-<span class="nc" id="L56">		final Path&lt;Country&gt; countryPath = personRoot.get(WorldBankData_.country);</span>
-<span class="nc" id="L57">		final Path&lt;Indicator&gt; indicatorPath = personRoot.get(WorldBankData_.indicator);</span>
-<span class="nc" id="L58">		criteria.select(getCriteriaBuilder().array(countryPath, indicatorPath));</span>
-<span class="nc" id="L59">		criteria.distinct(true);</span>
-<span class="nc" id="L60">		final List&lt;Object[]&gt; valueArray = getEntityManager().createQuery(criteria).getResultList();</span>
-<span class="nc" id="L61">		final List&lt;String&gt; resultList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L60">		final CriteriaQuery&lt;Object[]&gt; criteria = getCriteriaBuilder().createQuery(Object[].class);</span>
+<span class="fc" id="L61">		final Root&lt;WorldBankData&gt; personRoot = criteria.from(WorldBankData.class);</span>
+<span class="fc" id="L62">		final Path&lt;Country&gt; countryPath = personRoot.get(WorldBankData_.country);</span>
+<span class="fc" id="L63">		final Path&lt;Indicator&gt; indicatorPath = personRoot.get(WorldBankData_.indicator);</span>
+<span class="fc" id="L64">		criteria.select(getCriteriaBuilder().array(countryPath, indicatorPath));</span>
+<span class="fc" id="L65">		criteria.distinct(true);</span>
+<span class="fc" id="L66">		final List&lt;Object[]&gt; valueArray = getEntityManager().createQuery(criteria).getResultList();</span>
+<span class="fc" id="L67">		final List&lt;String&gt; resultList = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">		for (final Object[] objects : valueArray) {</span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">			if (objects.length == EXPECTED_NR_ELEMENTS) {</span>
-<span class="nc" id="L65">				final StringBuilder stringBuilder = new StringBuilder().append(((Country) objects[0]).getId())</span>
-<span class="nc" id="L66">						.append('.').append(((Indicator) objects[1]).getId());</span>
-<span class="nc" id="L67">				resultList.add(stringBuilder.toString());</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		for (final Object[] objects : valueArray) {</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">			if (objects.length == EXPECTED_NR_ELEMENTS) {</span>
+<span class="fc" id="L71">				final StringBuilder stringBuilder = new StringBuilder().append(((Country) objects[FIRST_ELEMENT]).getId())</span>
+<span class="fc" id="L72">						.append('.').append(((Indicator) objects[SECOND_ELEMENT]).getId());</span>
+<span class="fc" id="L73">				resultList.add(stringBuilder.toString());</span>
 			}
-<span class="nc" id="L69">		}</span>
-<span class="nc" id="L70">		return resultList;</span>
+<span class="fc" id="L75">		}</span>
+<span class="fc" id="L76">		return resultList;</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
