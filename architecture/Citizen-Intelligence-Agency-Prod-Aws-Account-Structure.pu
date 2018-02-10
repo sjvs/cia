@@ -1,0 +1,36 @@
+@startuml
+title Citizen Intelligence Agency - Deployment
+caption Production Aws Account structure
+node "Application Account" <<Aws Account>> as 12 {
+  artifact "Application Account" <<Container>> as 34
+}
+node "Audit Account" <<Aws Account>> as 10 {
+  artifact "Audit Account" <<Container>> as 30
+}
+node "Development Account" <<Aws Account>> as 6 {
+  artifact "Development Account" <<Container>> as 29
+}
+node "IAM Account" <<Aws Account>> as 4 {
+  artifact "IAM Account" <<Container>> as 36
+}
+node "Master Account" <<Aws Account>> as 2 {
+  artifact "Master Account" <<Container>> as 41
+}
+node "Operation Center Account" <<Aws Account>> as 8 {
+  artifact "Operation Center Account" <<Container>> as 28
+}
+36 ..> 28 : manage access
+41 ..> 34 : create/restrict
+41 ..> 30 : create/restrict
+28 ..> 30 : publish event/audit
+29 ..> 30 : publish event/audit
+36 ..> 34 : manage access
+34 ..> 30 : publish event/audit
+28 ..> 30 : Monitor event/audit
+41 ..> 30 : publish event/audit
+41 ..> 29 : create/restrict
+41 ..> 28 : create/restrict
+41 ..> 36 : create/restrict
+36 ..> 30 : publish event/audit
+36 ..> 29 : manage access
+@enduml
