@@ -241,17 +241,17 @@
 <a class="jxr_linenumber" name="L233" href="#L233">233</a> 		DeploymentNode devNetworkNode = model.addDeploymentNode(<span class="jxr_string">"Dev Network"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Dev Network"</span>);
 <a class="jxr_linenumber" name="L234" href="#L234">234</a> 
 <a class="jxr_linenumber" name="L235" href="#L235">235</a> 		<strong class="jxr_keyword">final</strong> Container nexusContainer = ciaSystem.addContainer(<span class="jxr_string">"Nexus"</span>, <span class="jxr_string">"Dev"</span>, <span class="jxr_string">"Nexus"</span>);
-<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		devNetworkNode.addDeploymentNode(<span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"Jetty"</span>, <span class="jxr_string">"JVM"</span>).add(nexusContainer);
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		devNetworkNode.add(nexusContainer);
 <a class="jxr_linenumber" name="L237" href="#L237">237</a> 
 <a class="jxr_linenumber" name="L238" href="#L238">238</a> 		<strong class="jxr_keyword">final</strong> Container sonarContainer = ciaSystem.addContainer(<span class="jxr_string">"Sonarqube"</span>, <span class="jxr_string">"Dev"</span>, <span class="jxr_string">"Sonarqube"</span>);
 <a class="jxr_linenumber" name="L239" href="#L239">239</a> 		devNetworkNode.add(sonarContainer);
 <a class="jxr_linenumber" name="L240" href="#L240">240</a> 
 <a class="jxr_linenumber" name="L241" href="#L241">241</a> 		<strong class="jxr_keyword">final</strong> Container jenkinsContainer = ciaSystem.addContainer(<span class="jxr_string">"Jenkins"</span>, <span class="jxr_string">"Dev"</span>, <span class="jxr_string">"Jenkins"</span>);
-<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		devNetworkNode.add(jenkinsContainer);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a> 		jenkinsContainer.uses(sourceCodeContainer,<span class="jxr_string">"builds"</span>);
-<a class="jxr_linenumber" name="L244" href="#L244">244</a> 		jenkinsContainer.uses(sonarContainer, <span class="jxr_string">"Publish QA metrics"</span>,<span class="jxr_string">"https"</span>);
-<a class="jxr_linenumber" name="L245" href="#L245">245</a> 		jenkinsContainer.uses(nexusContainer, <span class="jxr_string">"publish artifacts"</span>,<span class="jxr_string">"https"</span>);
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		jenkinsContainer.uses(documentationContainer, <span class="jxr_string">"publish Documentation"</span>,<span class="jxr_string">"https"</span>);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		jenkinsContainer.uses(sourceCodeContainer,<span class="jxr_string">"builds"</span>);
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> 		jenkinsContainer.uses(sonarContainer, <span class="jxr_string">"Publish QA metrics"</span>,<span class="jxr_string">"https"</span>);
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 		jenkinsContainer.uses(nexusContainer, <span class="jxr_string">"publish artifacts"</span>,<span class="jxr_string">"https"</span>);
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 		jenkinsContainer.uses(documentationContainer, <span class="jxr_string">"publish Documentation"</span>,<span class="jxr_string">"https"</span>);
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		devNetworkNode.add(jenkinsContainer);
 <a class="jxr_linenumber" name="L247" href="#L247">247</a> 				
 <a class="jxr_linenumber" name="L248" href="#L248">248</a> 
 <a class="jxr_linenumber" name="L249" href="#L249">249</a> 		DeploymentNode sumologicSecurityAccountNode = model.addDeploymentNode(<span class="jxr_string">"Security Account"</span>, <span class="jxr_string">"Sumologic"</span>, <span class="jxr_string">"Sumologic Account"</span>);
