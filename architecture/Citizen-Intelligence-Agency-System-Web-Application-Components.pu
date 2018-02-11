@@ -2,7 +2,7 @@
 title Citizen Intelligence Agency System - Web Application - Components
 caption Web
 package WebApplication {
-  component "AgencyDAO" <<Spring Repository>> as 57
+  component "AgencyDAO" <<Spring Repository>> as 47
   component "AgentContainer" <<Spring Component>> as 35
   component "ApplicationActionEventDAO" <<Spring Repository>> as 45
   component "ApplicationConfigurationDAO" <<Spring Repository>> as 50
@@ -13,13 +13,13 @@ package WebApplication {
   component "BootstrapDefaultConfig" <<Spring Component>> as 34
   component "CommitteeProposalComponentDataDAO" <<Spring Repository>> as 43
   component "ConfigurationManager" <<Spring Service>> as 33
-  component "CountryElementDAO" <<Spring Repository>> as 47
-  component "CreateApplicationEventService" <<Spring Service>> as 28
+  component "CountryElementDAO" <<Spring Repository>> as 57
+  component "CreateApplicationEventService" <<Spring Service>> as 29
   component "CreateApplicationSessionService" <<Spring Service>> as 24
   component "DataContainer" <<Spring Component>> as 36
   component "DataDAO" <<Spring Repository>> as 41
   component "DataViewer" <<Spring Repository>> as 60
-  component "DestroyApplicationSessionService" <<Spring Service>> as 16
+  component "DestroyApplicationSessionService" <<Spring Service>> as 20
   component "DisableGoogleAuthenticatorCredentialService" <<Spring Service>> as 18
   component "DocumentContentDataDAO" <<Spring Repository>> as 49
   component "DocumentElementDAO" <<Spring Repository>> as 44
@@ -32,19 +32,19 @@ package WebApplication {
   component "LanguageContentService" <<Spring Service>> as 26
   component "LanguageDataDAO" <<Spring Repository>> as 48
   component "LoginBlockedAccess" <<Spring Service>> as 11
-  component "LoginService" <<Spring Service>> as 20
+  component "LoginService" <<Spring Service>> as 16
   component "LogoutService" <<Spring Service>> as 27
   component "PersonDataDAO" <<Spring Repository>> as 51
-  component "RefreshDataViewsService" <<Spring Service>> as 14
+  component "RefreshDataViewsService" <<Spring Service>> as 23
   component "RegisterUserService" <<Spring Service>> as 21
   component "RemoveDataManager" <<Spring Service>> as 22
   component "RemoveDataService" <<Spring Service>> as 30
-  component "SearchDocumentService" <<Spring Service>> as 23
+  component "SearchDocumentService" <<Spring Service>> as 14
   component "SearchIndexer" <<Spring Repository>> as 55
   component "SendEmailService" <<Spring Service>> as 10
   component "SetGoogleAuthenticatorCredentialService" <<Spring Service>> as 19
   component "SwedenPoliticalPartyDAO" <<Spring Repository>> as 56
-  component "UpdateApplicationConfigurationService" <<Spring Service>> as 29
+  component "UpdateApplicationConfigurationService" <<Spring Service>> as 28
   component "UpdateSearchIndexService" <<Spring Service>> as 25
   component "UserDAO" <<Spring Repository>> as 54
   component "ViewDataDataContainerFactory" <<Spring Component>> as 40
@@ -59,9 +59,9 @@ package WebApplication {
 31 ..> 36 
 31 ..> 40 
 34 ..> 33 
-33 ..> 57 
+33 ..> 47 
 33 ..> 48 
-28 ..> 52 
+29 ..> 52 
 24 ..> 52 
 36 ..> 43 
 36 ..> 49 
@@ -69,7 +69,7 @@ package WebApplication {
 36 ..> 42 
 36 ..> 51 
 36 ..> 59 
-16 ..> 52 
+20 ..> 52 
 18 ..> 54 
 32 ..> 49 
 32 ..> 15 
@@ -81,18 +81,18 @@ package WebApplication {
 11 ..> 17 
 11 ..> 52 
 11 ..> 54 
-20 ..> 11 
-20 ..> 54 
-14 ..> 13 
+16 ..> 11 
+16 ..> 54 
+23 ..> 13 
 21 ..> 17 
 21 ..> 54 
 30 ..> 22 
-23 ..> 49 
-23 ..> 44 
+14 ..> 49 
+14 ..> 44 
 10 ..> 37 
-19 ..> 57 
+19 ..> 47 
 19 ..> 54 
-29 ..> 50 
+28 ..> 50 
 25 ..> 55 
 40 ..> 36 
 40 ..> 60 
