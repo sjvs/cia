@@ -145,7 +145,7 @@
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> 				.filter(Objects::nonNull)
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 				.collect(Collectors.groupingBy(t -&gt; StringUtils.defaultIfBlank(t.getDocumentType(), NO_INFO)));
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">final</strong> SimpleDateFormat simpleDateFormat = <strong class="jxr_keyword">new</strong> SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		<strong class="jxr_keyword">final</strong> SimpleDateFormat parseIncomingDateFormat = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd"</span>);
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		<strong class="jxr_keyword">final</strong> SimpleDateFormat parseIncomingDateFormat = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd"</span>,Locale.ENGLISH);
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, List&lt;ViewRiksdagenOrgDocumentDailySummary&gt;&gt; entry : map.entrySet()) {
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 			addNewDataSerie(dataSeries, series, simpleDateFormat, parseIncomingDateFormat, entry);

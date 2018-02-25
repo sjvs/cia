@@ -70,22 +70,22 @@
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  		<strong class="jxr_keyword">final</strong> SoftwareSystem ciaSystem = model.addSoftwareSystem(<span class="jxr_string">"Citizen Intelligence Agency"</span>,
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  				<span class="jxr_string">"Tracking politicians like bugs!"</span>);
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		DeploymentNode masterAccountNode = model.addDeploymentNode(<span class="jxr_string">"Master Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode masterAccountNode = model.addDeploymentNode(<span class="jxr_string">"Master Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  		<strong class="jxr_keyword">final</strong> Container awsAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"Master Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		DeploymentNode iamAccountNode = model.addDeploymentNode(<span class="jxr_string">"IAM Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode iamAccountNode = model.addDeploymentNode(<span class="jxr_string">"IAM Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  		<strong class="jxr_keyword">final</strong> Container iamAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"IAM Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  		
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		DeploymentNode devAccountNode = model.addDeploymentNode(<span class="jxr_string">"Development Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode devAccountNode = model.addDeploymentNode(<span class="jxr_string">"Development Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  		<strong class="jxr_keyword">final</strong> Container devAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"Development Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		DeploymentNode opCenterAccountNode = model.addDeploymentNode(<span class="jxr_string">"Operation Center Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode opCenterAccountNode = model.addDeploymentNode(<span class="jxr_string">"Operation Center Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  		<strong class="jxr_keyword">final</strong> Container opCenterAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"Operation Center Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		DeploymentNode auditAccountNode = model.addDeploymentNode(<span class="jxr_string">"Audit Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode auditAccountNode = model.addDeploymentNode(<span class="jxr_string">"Audit Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>  		<strong class="jxr_keyword">final</strong> Container auditAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"Audit Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  		
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		DeploymentNode appAccountNode = model.addDeploymentNode(<span class="jxr_string">"Application Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>  		<strong class="jxr_keyword">final</strong> DeploymentNode appAccountNode = model.addDeploymentNode(<span class="jxr_string">"Application Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  		<strong class="jxr_keyword">final</strong> Container appAccountContainer = ciaSystem.addContainer(<span class="jxr_string">"Application Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  		
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  		awsAccountContainer.uses(iamAccountContainer, <span class="jxr_string">"create/restrict"</span>);
@@ -113,7 +113,7 @@
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 		iamAccountNode.add(iamAccountContainer);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 		masterAccountNode.add(awsAccountContainer);
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 		
-<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Production Aws Account structure"</span>,
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		<strong class="jxr_keyword">final</strong> DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Production Aws Account structure"</span>,
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> 				<span class="jxr_string">"Production Aws Account structure"</span>);
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 		developmentDeploymentView.add(masterAccountNode);
@@ -151,12 +151,12 @@
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> printPlantUml(<strong class="jxr_keyword">final</strong> Workspace workspace)
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 			<strong class="jxr_keyword">throws</strong> WorkspaceWriterException, IOException, InterruptedException {
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> 		StringWriter stringWriter = <strong class="jxr_keyword">new</strong> StringWriter();
-<a class="jxr_linenumber" name="L147" href="#L147">147</a> 		PlantUMLWriter plantUMLWriter = <strong class="jxr_keyword">new</strong> PlantUMLWriter();
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 		<strong class="jxr_keyword">final</strong> StringWriter stringWriter = <strong class="jxr_keyword">new</strong> StringWriter();
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 		<strong class="jxr_keyword">final</strong> PlantUMLWriter plantUMLWriter = <strong class="jxr_keyword">new</strong> PlantUMLWriter();
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 		plantUMLWriter.write(workspace, stringWriter);
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		String allPlantUmlsString = stringWriter.toString();
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 		<strong class="jxr_keyword">final</strong> String allPlantUmlsString = stringWriter.toString();
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		String awsSystem = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> String awsSystem = allPlantUmlsString.substring(allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@startuml"</span>),
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 				allPlantUmlsString.lastIndexOf(<span class="jxr_string">"@enduml"</span>) + <span class="jxr_string">"@enduml"</span>.length());
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> 		writePlantUml(<span class="jxr_string">"Citizen-Intelligence-Agency-Prod-Aws-Account-Structure"</span>, awsSystem);
@@ -175,7 +175,7 @@
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> <em class="jxr_javadoccomment">	 * @throws InterruptedException</em>
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> <em class="jxr_javadoccomment">	 *             the interrupted exception</em>
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> writePlantUml(String filename, String content) <strong class="jxr_keyword">throws</strong> IOException, InterruptedException {
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> writePlantUml(<strong class="jxr_keyword">final</strong> String filename, <strong class="jxr_keyword">final</strong> String content) <strong class="jxr_keyword">throws</strong> IOException, InterruptedException {
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 		<strong class="jxr_keyword">final</strong> String fullFilePathPlantUmlFile = Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 				+ <span class="jxr_string">"target"</span> + File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator + filename
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 				+ <span class="jxr_string">".pu"</span>;

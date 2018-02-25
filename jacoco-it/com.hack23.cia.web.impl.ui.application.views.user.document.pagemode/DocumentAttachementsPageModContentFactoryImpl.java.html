@@ -25,6 +25,8 @@ import java.net.URL;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
@@ -56,10 +58,15 @@ import com.whitestein.vaadin.widgets.wtpdfviewer.WTPdfViewer;
 @Component
 public final class DocumentAttachementsPageModContentFactoryImpl extends AbstractDocumentPageModContentFactoryImpl {
 
+	/** The Constant PDF. */
 	private static final String PDF = &quot;pdf&quot;;
-<span class="fc" id="L60">	private static final String[] HIDE_COLUMNS = new String[] { &quot;hjid&quot; };</span>
-<span class="fc" id="L61">	private static final String[] COLUMN_ORDER = new String[] { &quot;fileName&quot;, &quot;fileSize&quot;, &quot;fileType&quot;, &quot;fileUrl&quot; };</span>
-	private static final String DOCUMENT_ATTACHEMENTS = &quot;Document attachements&quot;;
+	
+	/** The Constant HIDE_COLUMNS. */
+<span class="fc" id="L65">	private static final String[] HIDE_COLUMNS = new String[] { &quot;hjid&quot; };</span>
+	
+	/** The Constant COLUMN_ORDER. */
+<span class="fc" id="L68">	private static final String[] COLUMN_ORDER = new String[] { &quot;fileName&quot;, &quot;fileSize&quot;, &quot;fileType&quot;, &quot;fileUrl&quot; };</span>
+	
 	/** The Constant DOCUMENT_ATTACHMENTS. */
 	private static final String DOCUMENT_ATTACHMENTS = &quot;Document Attachments&quot;;
 
@@ -67,97 +74,128 @@ public final class DocumentAttachementsPageModContentFactoryImpl extends Abstrac
 	 * Instantiates a new document attachements page mod content factory impl.
 	 */
 	public DocumentAttachementsPageModContentFactoryImpl() {
-<span class="fc" id="L70">		super();</span>
-<span class="fc" id="L71">	}</span>
+<span class="fc" id="L77">		super();</span>
+<span class="fc" id="L78">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L75" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L76" title="All 2 branches covered.">				&amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTATTACHMENTS.toString());</span>
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">				&amp;&amp; parameters.contains(DocumentPageMode.DOCUMENTATTACHMENTS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L82">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L89">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L84">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L91">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L86">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
-<span class="fc" id="L87">				.getDataContainer(DocumentElement.class);</span>
+<span class="fc" id="L93">		final DataContainer&lt;DocumentElement, String&gt; documentElementDataContainer = getApplicationManager()</span>
+<span class="fc" id="L94">				.getDataContainer(DocumentElement.class);</span>
 
-<span class="fc" id="L89">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
-<span class="fc" id="L90">				.getDataContainer(DocumentStatusContainer.class);</span>
+<span class="fc" id="L96">		final DataContainer&lt;DocumentStatusContainer, String&gt; documentStatusContainerDataContainer = getApplicationManager()</span>
+<span class="fc" id="L97">				.getDataContainer(DocumentStatusContainer.class);</span>
 
-<span class="fc" id="L92">		getApplicationManager().getDataContainer(CommitteeProposalComponentData.class);</span>
+<span class="fc" id="L99">		getApplicationManager().getDataContainer(CommitteeProposalComponentData.class);</span>
 
-<span class="fc" id="L94">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
+<span class="fc" id="L101">		final DocumentElement documentElement = documentElementDataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L96" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">		if (documentElement != null) {</span>
 
-<span class="fc" id="L98">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L105">			getDocumentMenuItemFactory().createDocumentMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L100">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
-<span class="fc" id="L101">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
+<span class="fc" id="L107">			final DocumentStatusContainer documentStatusContainer = documentStatusContainerDataContainer</span>
+<span class="fc" id="L108">					.findByQueryProperty(DocumentStatusContainer.class, DocumentStatusContainer_.document,</span>
 							DocumentData.class, DocumentData_.id, pageId);
 
-<span class="fc" id="L104">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_ATTACHMENTS);</span>
+<span class="fc" id="L111">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_ATTACHMENTS);</span>
 
 
-<span class="pc bpc" id="L107" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentAttachmentContainer() != null</span>
-<span class="pc bpc" id="L108" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList() != null) {</span>
+<span class="pc bpc" id="L114" title="2 of 4 branches missed.">			if (documentStatusContainer != null &amp;&amp; documentStatusContainer.getDocumentAttachmentContainer() != null</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">					&amp;&amp; documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList() != null) {</span>
 
-<span class="fc" id="L110">				getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L111">						panelContent, DocumentAttachment.class, documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList(),</span>
-						DOCUMENT_ATTACHEMENTS, COLUMN_ORDER, HIDE_COLUMNS,
+<span class="fc" id="L117">				getGridFactory().createBasicBeanItemGrid(</span>
+<span class="fc" id="L118">						panelContent, DocumentAttachment.class, documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList(),</span>
+						DOCUMENT_ATTACHMENTS, COLUMN_ORDER, HIDE_COLUMNS,
 						null, null, null);
 
-<span class="fc" id="L115">				final List&lt;DocumentAttachment&gt; documentAttachmentList = documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList();</span>
-
-<span class="fc bfc" id="L117" title="All 2 branches covered.">				for (final DocumentAttachment documentAttachment : documentAttachmentList) {</span>
-					
-<span class="pc bpc" id="L119" title="1 of 2 branches missed.">					if (PDF.equalsIgnoreCase(documentAttachment.getFileType())) {</span>
-<span class="nc" id="L120">						final WTPdfViewer wtPdfViewer = new WTPdfViewer();</span>
-<span class="nc" id="L121">						wtPdfViewer.setSizeFull();</span>
-
-<span class="nc" id="L123">						final StreamResource.StreamSource source = new StreamResource.StreamSource() {</span>
-
-							/** The Constant serialVersionUID. */
-							private static final long serialVersionUID = 1L;
-
-							@Override
-							public InputStream getStream() {
-
-								try {
-<span class="nc" id="L132">									return new URL(documentAttachment.getFileUrl()).openStream();</span>
-<span class="nc" id="L133">								} catch (final IOException e) {</span>
-<span class="nc" id="L134">									return new ByteArrayInputStream(new byte[0]);</span>
-								}
-							}
-						};
-
-						
-<span class="nc" id="L140">						wtPdfViewer.setResource(new StreamResource(source, documentAttachment.getFileName()));</span>
-						
-<span class="nc" id="L142">						panelContent.addComponent(wtPdfViewer);						</span>
-<span class="nc" id="L143">						panelContent.setExpandRatio(wtPdfViewer,ContentRatio.LARGE);</span>
-<span class="nc" id="L144">					} else {</span>
-<span class="fc" id="L145">						final VerticalLayout verticalLayout = new VerticalLayout();</span>
-<span class="fc" id="L146">						panelContent.addComponent(verticalLayout);</span>
-<span class="fc" id="L147">						panelContent.setExpandRatio(verticalLayout,ContentRatio.SMALL);</span>
-<span class="fc" id="L148">						final ExternalAttachmentDownloadLink link = new ExternalAttachmentDownloadLink(documentAttachment.getFileName(), documentAttachment.getFileType(), documentAttachment.getFileUrl());</span>
-<span class="fc" id="L149">						verticalLayout.addComponent(link);</span>
-					}
-<span class="fc" id="L151">				}</span>
+<span class="fc" id="L122">				displayDocumentAttachements(panelContent, documentStatusContainer.getDocumentAttachmentContainer().getDocumentAttachmentList());</span>
 			}
 
-<span class="fc" id="L154">			panel.setContent(panelContent);</span>
-<span class="fc" id="L155">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L125">			panel.setContent(panelContent);</span>
+<span class="fc" id="L126">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_DOCUMENT_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 		}
 
-<span class="fc" id="L159">		return panelContent;</span>
+<span class="fc" id="L130">		return panelContent;</span>
 
+	}
+
+	/**
+	 * Display document attachements.
+	 *
+	 * @param panelContent
+	 *            the panel content
+	 * @param documentAttachmentList
+	 *            the document attachment list
+	 */
+	private static void displayDocumentAttachements(final VerticalLayout panelContent,
+			final List&lt;DocumentAttachment&gt; documentAttachmentList) {
+<span class="fc bfc" id="L144" title="All 2 branches covered.">		for (final DocumentAttachment documentAttachment : documentAttachmentList) {</span>
+			
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">			if (PDF.equalsIgnoreCase(documentAttachment.getFileType())) {</span>
+<span class="nc" id="L147">				final WTPdfViewer wtPdfViewer = new WTPdfViewer();</span>
+<span class="nc" id="L148">				wtPdfViewer.setSizeFull();</span>
+
+<span class="nc" id="L150">				final StreamResource.StreamSource source = new StreamSourceImplementation(documentAttachment);</span>
+
+				
+<span class="nc" id="L153">				wtPdfViewer.setResource(new StreamResource(source, documentAttachment.getFileName()));</span>
+				
+<span class="nc" id="L155">				panelContent.addComponent(wtPdfViewer);						</span>
+<span class="nc" id="L156">				panelContent.setExpandRatio(wtPdfViewer,ContentRatio.LARGE);</span>
+<span class="nc" id="L157">			} else {</span>
+<span class="fc" id="L158">				final VerticalLayout verticalLayout = new VerticalLayout();</span>
+<span class="fc" id="L159">				panelContent.addComponent(verticalLayout);</span>
+<span class="fc" id="L160">				panelContent.setExpandRatio(verticalLayout,ContentRatio.SMALL);</span>
+<span class="fc" id="L161">				final ExternalAttachmentDownloadLink link = new ExternalAttachmentDownloadLink(documentAttachment.getFileName(), documentAttachment.getFileType(), documentAttachment.getFileUrl());</span>
+<span class="fc" id="L162">				verticalLayout.addComponent(link);</span>
+			}
+<span class="fc" id="L164">		}</span>
+<span class="fc" id="L165">	}</span>
+
+	/**
+	 * The Class StreamSourceImplementation.
+	 */
+	private static final class StreamSourceImplementation implements StreamResource.StreamSource {
+
+		/** The Constant LOGGER. */
+<span class="nc" id="L173">		private static final Logger LOGGER = LoggerFactory.getLogger(StreamSourceImplementation.class);		</span>
+
+		/** The document attachment. */
+		private final DocumentAttachment documentAttachment;
+		/** The Constant serialVersionUID. */
+		private static final long serialVersionUID = 1L;
+
+		/**
+		 * Instantiates a new stream source implementation.
+		 *
+		 * @param documentAttachment
+		 *            the document attachment
+		 */
+<span class="nc" id="L186">		private StreamSourceImplementation(final DocumentAttachment documentAttachment) {</span>
+<span class="nc" id="L187">			this.documentAttachment = documentAttachment;</span>
+<span class="nc" id="L188">		}</span>
+
+		@Override
+		public InputStream getStream() {
+			try {
+<span class="nc" id="L193">				return new URL(documentAttachment.getFileUrl()).openStream();</span>
+<span class="nc" id="L194">			} catch (final IOException e) {</span>
+<span class="nc" id="L195">				LOGGER.warn(documentAttachment.getFileUrl(),e);</span>
+<span class="nc" id="L196">				return new ByteArrayInputStream(new byte[0]);</span>
+			}
+		}
 	}
 
 }

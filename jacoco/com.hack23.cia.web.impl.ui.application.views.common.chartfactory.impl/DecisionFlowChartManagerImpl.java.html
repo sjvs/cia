@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DecisionFlowChartManagerImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Citizen Intelligence Agency</a> &gt; <a href="index.source.html" class="el_package">com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl</a> &gt; <span class="el_source">DecisionFlowChartManagerImpl.java</span></div><h1>DecisionFlowChartManagerImpl.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 James Pether Sörling
+ * 
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ *	$Id$
+ *  $HeadURL$
+*/
+package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommittee;
+import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.DecisionFlowChartManager;
+import com.hack23.cia.web.impl.ui.application.views.common.dataseriesfactory.api.DecisionDataFactory;
+import com.hack23.cia.web.impl.ui.application.views.common.dataseriesfactory.api.ProposalCommitteeeSummary;
+import com.hack23.cia.web.widgets.charts.SankeyChart;
+
+/**
+ * The Class DecisionFlowChartManagerImpl.
+ */
+@Service
+public final class DecisionFlowChartManagerImpl implements DecisionFlowChartManager {
+	
+	/** The decision data factory. */
+	@Autowired
+	private DecisionDataFactory decisionDataFactory;
+
+	
+	/**
+	 * Instantiates a new decision flow chart manager impl.
+	 */
+	public DecisionFlowChartManagerImpl() {
+<span class="fc" id="L50">		super();</span>
+<span class="fc" id="L51">	}</span>
+
+	@Override
+	public SankeyChart createAllDecisionFlow(final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap) {
+<span class="fc" id="L55">		final List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(&quot;20&quot;);</span>
+				
+<span class="fc" id="L57">		final SankeyChart chart = new SankeyChart();</span>
+		
+<span class="fc" id="L59">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; orgProposalMap = createCommitteeSummary.stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getOrg));</span>
+		
+<span class="fc bfc" id="L61" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; entry : orgProposalMap.entrySet()) {</span>
+			
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">			if(committeeMap.containsKey(entry.getKey())) {</span>
+				
+<span class="fc" id="L65">				final ViewRiksdagenCommittee vewRiksdagenCommittee = committeeMap.get(entry.getKey()).iterator().next();</span>
+			
+<span class="fc" id="L67">				final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));</span>
+	
+<span class="fc bfc" id="L69" title="All 2 branches covered.">				for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {</span>
+<span class="pc bpc" id="L70" title="2 of 4 branches missed.">					if (docEntry.getKey().trim().length()&gt; 0 &amp;&amp; entry.getKey().trim().length() &gt;0) {</span>
+<span class="fc" id="L71">						chart.addDataRow(docEntry.getKey(),vewRiksdagenCommittee.getEmbeddedId().getDetail(),docEntry.getValue().size());</span>
+	
+					}
+<span class="fc" id="L74">				}</span>
+							
+<span class="fc" id="L76">				final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = entry.getValue().stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));</span>
+				
+<span class="fc bfc" id="L78" title="All 2 branches covered.">				for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {</span>
+<span class="pc bpc" id="L79" title="2 of 4 branches missed.">					if (decisionEntry.getKey().trim().length()&gt; 0 &amp;&amp; entry.getKey().trim().length() &gt;0) {</span>
+<span class="fc" id="L80">						chart.addDataRow(vewRiksdagenCommittee.getEmbeddedId().getDetail(),decisionEntry.getKey(),decisionEntry.getValue().size());</span>
+					}
+<span class="fc" id="L82">				}</span>
+			}
+<span class="fc" id="L84">		}</span>
+				
+<span class="fc" id="L86">        chart.drawChart();</span>
+<span class="fc" id="L87">		return chart;</span>
+	}
+
+	@Override
+	public SankeyChart createCommitteeDecisionFlow(final ViewRiksdagenCommittee viewRiksdagenCommittee,
+			final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap) {
+<span class="fc" id="L93">		final List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(&quot;20&quot;);		</span>
+		
+<span class="fc" id="L95">		final SankeyChart chart = new SankeyChart();</span>
+		
+<span class="fc" id="L97">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; orgProposalMap = createCommitteeSummary.stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getOrg));</span>
+		
+		
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; entry : orgProposalMap.entrySet()) {</span>
+							
+<span class="pc bpc" id="L102" title="1 of 4 branches missed.">			if(committeeMap.containsKey(entry.getKey()) &amp;&amp; viewRiksdagenCommittee.getEmbeddedId().getOrgCode().equals(entry.getKey())) {</span>
+								
+<span class="fc" id="L104">				final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));</span>
+
+<span class="fc bfc" id="L106" title="All 2 branches covered.">				for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {</span>
+					
+<span class="fc" id="L108">					final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = docEntry.getValue().stream().collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));</span>
+					
+<span class="fc bfc" id="L110" title="All 2 branches covered.">					for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {</span>
+<span class="pc bpc" id="L111" title="2 of 4 branches missed.">						if (decisionEntry.getKey().trim().length()&gt; 0 &amp;&amp; entry.getKey().trim().length() &gt;0) {</span>
+<span class="fc" id="L112">							chart.addDataRow(docEntry.getKey(),decisionEntry.getKey(),decisionEntry.getValue().size());</span>
+						}
+<span class="fc" id="L114">					}</span>
+<span class="fc" id="L115">				}</span>
+			}
+<span class="fc" id="L117">		}</span>
+			
+<span class="fc" id="L119">      chart.drawChart();</span>
+<span class="fc" id="L120">		return chart;</span>
+	}
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

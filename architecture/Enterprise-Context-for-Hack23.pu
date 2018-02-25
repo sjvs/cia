@@ -2,7 +2,7 @@
 title Enterprise Context for Hack23
 caption Enterprise
 component "data.riksdagen.se" <<Software System>> as 4
-component "data.wordbank.org" <<Software System>> as 5
+component "data.worldbank.org" <<Software System>> as 5
 component "www.esv.se" <<Software System>> as 7
 component "www.val.se" <<Software System>> as 6
 package Hack23 {

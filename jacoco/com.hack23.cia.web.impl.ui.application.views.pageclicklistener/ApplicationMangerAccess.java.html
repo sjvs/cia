@@ -27,7 +27,14 @@ import com.hack23.cia.service.api.ApplicationManager;
 /**
  * The Class ApplicationMangerAccess.
  */
-<span class="nc" id="L30">public final class ApplicationMangerAccess {</span>
+public final class ApplicationMangerAccess {
+
+	/**
+	 * Instantiates a new application manger access.
+	 */
+	private ApplicationMangerAccess() {
+		super();
+	}
 
 	/**
 	 * Gets the application manager.
@@ -35,10 +42,10 @@ import com.hack23.cia.service.api.ApplicationManager;
 	 * @return the application manager
 	 */
 	public static ApplicationManager getApplicationManager() {
-<span class="fc" id="L38">		return WebApplicationContextUtils</span>
-<span class="fc" id="L39">				.getWebApplicationContext(((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())</span>
-<span class="fc" id="L40">						.getRequest().getSession(true).getServletContext())</span>
-<span class="fc" id="L41">				.getBean(ApplicationManager.class);</span>
+<span class="fc" id="L45">		return WebApplicationContextUtils</span>
+<span class="fc" id="L46">				.getWebApplicationContext(((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())</span>
+<span class="fc" id="L47">						.getRequest().getSession(true).getServletContext())</span>
+<span class="fc" id="L48">				.getBean(ApplicationManager.class);</span>
 	}
 
 }

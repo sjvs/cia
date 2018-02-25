@@ -182,7 +182,7 @@ public abstract class AbstractChartDataManagerImpl {
 <span class="fc" id="L182">				.getDataContainer(ViewRiksdagenParty.class);</span>
 
 <span class="fc" id="L184">		final Optional&lt;ViewRiksdagenParty&gt; matchingObjects =dataContainer.getAll().stream().</span>
-<span class="fc" id="L185">			    filter((ViewRiksdagenParty p) -&gt; p.getPartyId().equalsIgnoreCase(party)).</span>
+<span class="fc" id="L185">			    filter((final ViewRiksdagenParty p) -&gt; p.getPartyId().equalsIgnoreCase(party)).</span>
 <span class="fc" id="L186">			    findFirst();</span>
 
 <span class="pc bpc" id="L188" title="1 of 2 branches missed.">		if (matchingObjects.isPresent()) {</span>

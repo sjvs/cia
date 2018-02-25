@@ -137,7 +137,7 @@ public final class OrgDocumentChartDataManagerImpl extends AbstractChartDataMana
 <span class="fc" id="L137">				.filter(Objects::nonNull)</span>
 <span class="fc" id="L138">				.collect(Collectors.groupingBy(t -&gt; StringUtils.defaultIfBlank(t.getDocumentType(), NO_INFO)));</span>
 <span class="fc" id="L139">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DD_MMM_YYYY, Locale.ENGLISH);</span>
-<span class="fc" id="L140">		final SimpleDateFormat parseIncomingDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+<span class="fc" id="L140">		final SimpleDateFormat parseIncomingDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;,Locale.ENGLISH);</span>
 
 <span class="fc bfc" id="L142" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ViewRiksdagenOrgDocumentDailySummary&gt;&gt; entry : map.entrySet()) {</span>
 <span class="fc" id="L143">			addNewDataSerie(dataSeries, series, simpleDateFormat, parseIncomingDateFormat, entry);</span>

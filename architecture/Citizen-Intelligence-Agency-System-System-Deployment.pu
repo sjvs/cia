@@ -1,97 +1,97 @@
 @startuml
 title Citizen Intelligence Agency System - Deployment
 caption Deployment Aws.
-node "AppOrg Account" <<Aws Account>> as 113 {
-  node "Business analytics" <<QuickSight>> as 131 {
-    artifact "Dashboards" <<Container>> as 133
+node "AppOrg Account" <<Aws Account>> as 108 {
+  node "Business analytics" <<QuickSight>> as 126 {
+    artifact "Dashboards" <<Container>> as 128
   }
-  node "Web Application Firewall" <<WAF>> as 115 {
-    artifact "WebACL Rules" <<Container>> as 117
+  node "Web Application Firewall" <<WAF>> as 110 {
+    artifact "WebACL Rules" <<Container>> as 112
   }
-  node "System Compliance checks" <<Inspector>> as 123 {
-    artifact "ScanningRules" <<Container>> as 125
+  node "System Compliance checks" <<Inspector>> as 118 {
+    artifact "ScanningRules" <<Container>> as 120
   }
-  node "Patch Compliance" <<System Mananger>> as 127 {
-    artifact "InventoryList" <<Container>> as 129
-  }
-  node "Application Loadbalancer" <<ALB>> as 153 {
-    artifact "Loadbalancer" <<Container>> as 154
-  }
-  node "Project Network" <<VPC>> as 114 {
-    node "Database (x2)" <<RDS>> as 166 {
-      artifact "Database" <<Container>> as 167
-    }
-    node "Application (x2)" <<EC2>> as 158 {
-      node "Jetty" <<JVM>> as 159 {
-        artifact "Web Application" <<Container>> as 160
+  node "Project Network" <<VPC>> as 109 {
+    node "Application (x2)" <<EC2>> as 153 {
+      node "Jetty" <<JVM>> as 154 {
+        artifact "Web Application" <<Container>> as 155
       }
     }
+    node "Database (x2)" <<RDS>> as 161 {
+      artifact "Database" <<Container>> as 162
+    }
+  }
+  node "Patch Compliance" <<System Mananger>> as 122 {
+    artifact "InventoryList" <<Container>> as 124
+  }
+  node "Application Loadbalancer" <<ALB>> as 148 {
+    artifact "Loadbalancer" <<Container>> as 149
   }
 }
-node "Audit Account" <<Aws Account>> as 119 {
-  node "Config" <<Config>> as 120 {
-    artifact "Rules" <<Container>> as 122
+node "Audit Account" <<Aws Account>> as 114 {
+  node "Guard Duty" <<GuardDuty>> as 130 {
+    artifact "Intelligent threat detection and continuous monitoring" <<Container>> as 132
   }
-  node "Guard Duty" <<GuardDuty>> as 135 {
-    artifact "Intelligent threat detection and continuous monitoring" <<Container>> as 137
+  node "Config" <<Config>> as 115 {
+    artifact "Rules" <<Container>> as 117
   }
-  node "Audit" <<Cloudtrail>> as 146 {
-    artifact "LogBucket" <<Container>> as 148
+  node "A machine learning-powered security" <<macie>> as 133 {
+    artifact "discover, classify, and protect sensitive data" <<Container>> as 135
   }
-  node "A machine learning-powered security" <<macie>> as 138 {
-    artifact "discover, classify, and protect sensitive data" <<Container>> as 140
+  node "Audit" <<Cloudtrail>> as 141 {
+    artifact "LogBucket" <<Container>> as 143
   }
-  node "Access Logs" <<S3>> as 149 {
-    artifact "AccessLogBucket" <<Container>> as 151
+  node "LogGroup" <<Cloudwatch>> as 136 {
+    artifact "Logstreams" <<Container>> as 138
   }
-  node "LogGroup" <<Cloudwatch>> as 141 {
-    artifact "Logstreams" <<Container>> as 143
-  }
-}
-node "Dev Network" <<Dev Network>> as 177 {
-  artifact "Nexus" <<Container>> as 179
-  artifact "Sonarqube" <<Container>> as 181
-  artifact "Jenkins" <<Container>> as 187
-}
-node "Github Org" <<Github Org>> as 172 {
-  artifact "Documentation" <<Container>> as 176
-  artifact "SCM" <<Container>> as 174
-}
-node "Security Account" <<Sumologic Account>> as 192 {
-  node "Application Security Dashboard" <<Application Security Dashboard>> as 196 {
-    artifact "Ec2ApplicationLogs" <<Container>> as 215
-  }
-  node "Server Security Dashboard" <<Server Security Dashboard>> as 194 {
-    artifact "Ec2SystemLogs" <<Container>> as 211
-    artifact "AwsInspectorResults" <<Container>> as 219
-  }
-  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 195 {
-    artifact "AwsConfigLogs" <<Container>> as 207
-    artifact "CloudTrailLogs" <<Container>> as 203
-  }
-  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 193 {
-    artifact "AwsLoadbalancerAccessLogs" <<Container>> as 223
-    artifact "VpcFlowLogs" <<Container>> as 199
+  node "Access Logs" <<S3>> as 144 {
+    artifact "AccessLogBucket" <<Container>> as 146
   }
 }
-215 ..> 143 : Recieve logs
-203 ..> 148 : Recieve logs
-211 ..> 143 : Recieve logs
-187 ..> 174 : builds
-129 ..> 160 : Run Commands
-199 ..> 143 : Recieve logs
-187 ..> 181 : Publish QA metrics <<https>>
-125 ..> 160 : Inspects
-160 ..> 143 : Write logs
-133 ..> 167 : Loads Data
-154 ..> 160 : HTTPS/H2
-219 ..> 125 : Recieve reports
-223 ..> 151 : Recieve logs
-207 ..> 122 : Recieve logs
-160 ..> 167 : JDBC
-154 ..> 151 : Write logs
-117 ..> 154 : Protects/Filter
-187 ..> 176 : publish Documentation <<https>>
-187 ..> 179 : publish artifacts <<https>>
-167 ..> 143 : Write logs
+node "Dev Network" <<Dev Network>> as 172 {
+  artifact "Nexus" <<Container>> as 174
+  artifact "Sonarqube" <<Container>> as 176
+  artifact "Jenkins" <<Container>> as 182
+}
+node "Github Org" <<Github Org>> as 167 {
+  artifact "Documentation" <<Container>> as 171
+  artifact "SCM" <<Container>> as 169
+}
+node "Security Account" <<Sumologic Account>> as 187 {
+  node "Application Security Dashboard" <<Application Security Dashboard>> as 191 {
+    artifact "Ec2ApplicationLogs" <<Container>> as 210
+  }
+  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 188 {
+    artifact "AwsLoadbalancerAccessLogs" <<Container>> as 218
+    artifact "VpcFlowLogs" <<Container>> as 194
+  }
+  node "Server Security Dashboard" <<Server Security Dashboard>> as 189 {
+    artifact "AwsInspectorResults" <<Container>> as 214
+    artifact "Ec2SystemLogs" <<Container>> as 206
+  }
+  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 190 {
+    artifact "AwsConfigLogs" <<Container>> as 202
+    artifact "CloudTrailLogs" <<Container>> as 198
+  }
+}
+194 ..> 138 : Recieve logs
+182 ..> 174 : publish artifacts <<https>>
+214 ..> 120 : Recieve reports
+182 ..> 171 : publish Documentation <<https>>
+202 ..> 117 : Recieve logs
+182 ..> 176 : Publish QA metrics <<https>>
+182 ..> 169 : builds
+128 ..> 162 : Loads Data
+210 ..> 138 : Recieve logs
+162 ..> 138 : Write logs
+149 ..> 146 : Write logs
+112 ..> 149 : Protects/Filter
+218 ..> 146 : Recieve logs
+206 ..> 138 : Recieve logs
+155 ..> 138 : Write logs
+120 ..> 155 : Inspects
+155 ..> 162 : JDBC
+198 ..> 143 : Recieve logs
+124 ..> 155 : Run Commands
+149 ..> 155 : HTTPS/H2
 @enduml

@@ -25,6 +25,7 @@ import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.Appli
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.CommitteeMenuItemFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.CommitteeRankingMenuItemFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.pagelinks.api.PageModeMenuCommand;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.CommitteePageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
@@ -95,93 +96,101 @@ public final class CommitteeMenuItemFactoryImpl extends AbstractMenuItemFactoryI
 	 * Instantiates a new committee menu item factory impl.
 	 */
 	public CommitteeMenuItemFactoryImpl() {
-<span class="fc" id="L98">		super();</span>
-<span class="fc" id="L99">	}</span>
+<span class="fc" id="L99">		super();</span>
+<span class="fc" id="L100">	}</span>
 
 	@Override
 	public void createCommitteeeMenuBar(final MenuBar menuBar, final String pageId) {
-<span class="fc" id="L103">		initApplicationMenuBar(menuBar);</span>
+<span class="fc" id="L104">		initApplicationMenuBar(menuBar);</span>
 
-<span class="fc" id="L105">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
+<span class="fc" id="L106">		applicationMenuItemFactory.addRankingMenu(menuBar);</span>
 
-<span class="fc" id="L107">		committeeRankingMenuItemFactory.createCommitteeRankingTopics(menuBar.addItem(COMMITTEE_RANKING_TEXT, VaadinIcons.GROUP, null));</span>
+<span class="fc" id="L108">		committeeRankingMenuItemFactory.createCommitteeRankingTopics(menuBar.addItem(COMMITTEE_RANKING_TEXT, VaadinIcons.GROUP, null));</span>
 
-<span class="fc" id="L109">		final MenuItem committeeItem = menuBar.addItem(&quot;Committee &quot;+ pageId, VaadinIcons.GROUP,null);</span>
+<span class="fc" id="L110">		final MenuItem committeeItem = menuBar.addItem(&quot;Committee &quot;+ pageId, VaadinIcons.GROUP,null);</span>
 
 
-<span class="fc" id="L112">		committeeItem.addItem(OVERVIEW_TEXT, VaadinIcons.GROUP,</span>
+<span class="fc" id="L113">		committeeItem.addItem(OVERVIEW_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.OVERVIEW, pageId));
 
-<span class="fc" id="L115">		final MenuItem rolesItem = committeeItem.addItem(ROLES_TEXT, VaadinIcons.GROUP, null);</span>
+<span class="fc" id="L116">		final MenuItem rolesItem = committeeItem.addItem(ROLES_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L117">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L118">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId));</span>
+<span class="fc" id="L118">		rolesItem.addItem(CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L119">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId));</span>
 
-<span class="fc" id="L120">		rolesItem.addItem(MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L121">				CommitteePageMode.MEMBERHISTORY.toString(), pageId));</span>
+<span class="fc" id="L121">		rolesItem.addItem(MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L122">				CommitteePageMode.MEMBERHISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L123">		rolesItem.addItem(ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
-<span class="fc" id="L124">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId));</span>
+<span class="fc" id="L124">		rolesItem.addItem(ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
+<span class="fc" id="L125">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId));</span>
 
-<span class="fc" id="L126">		final MenuItem documentItem = committeeItem.addItem(DOCUMENTS_TEXT, VaadinIcons.GROUP, null);</span>
+<span class="fc" id="L127">		final MenuItem documentItem = committeeItem.addItem(DOCUMENTS_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L128">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L129">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
+<span class="fc" id="L129">		documentItem.addItem(DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L130">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId));</span>
 
-<span class="fc" id="L131">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L132">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId));</span>
+<span class="fc" id="L132">		documentItem.addItem(DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L133">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId));</span>
 
-<span class="fc" id="L134">		final MenuItem ballotItem = committeeItem.addItem(BALLOTS_TEXT, VaadinIcons.GROUP, null);</span>
+<span class="fc" id="L135">		final MenuItem ballotItem = committeeItem.addItem(BALLOTS_TEXT, VaadinIcons.GROUP, null);</span>
 
-<span class="fc" id="L136">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L137">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId));</span>
+<span class="fc" id="L137">		ballotItem.addItem(BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L138">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId));</span>
 
-<span class="fc" id="L139">		ballotItem.addItem(DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L140">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId));</span>
+<span class="fc" id="L140">		ballotItem.addItem(DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L141">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId));</span>
 
-<span class="fc" id="L142">		ballotItem.addItem(DECISION_TYPE_DAILY_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
-<span class="fc" id="L143">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId));</span>
+<span class="fc" id="L143">		ballotItem.addItem(DECISION_TYPE_DAILY_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
+<span class="fc" id="L144">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId));		</span>
 
-<span class="fc" id="L145">		committeeItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
+<span class="fc" id="L146">		ballotItem.addItem(&quot;Decision flow&quot;, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
+<span class="fc" id="L147">				UserViews.COMMITTEE_VIEW_NAME, PageMode.CHARTS+&quot;/&quot;+ ChartIndicators.DECISION_FLOW_CHART.toString(), pageId));		</span>
+
+		
+<span class="fc" id="L150">		committeeItem.addItem(PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId));
 
-<span class="fc" id="L148">	}</span>
+<span class="fc" id="L153">	}</span>
 
 	@Override
 	public void createOverviewPage(final VerticalLayout panelContent, final String pageId) {
-<span class="fc" id="L152">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
+<span class="fc" id="L157">		final ResponsiveRow grid = createGridLayout(panelContent);</span>
 
-<span class="fc" id="L154">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L155">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId), &quot;Current roles and days served&quot;);</span>
+<span class="fc" id="L159">		createButtonLink(grid,CURRENT_MEMBERS_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L160">				CommitteePageMode.CURRENT_MEMBERS.toString(), pageId), &quot;Current roles and days served&quot;);</span>
 
-<span class="fc" id="L157">		createButtonLink(grid,MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L158">				CommitteePageMode.MEMBERHISTORY.toString(), pageId), &quot;History of all roles and days served&quot;);</span>
+<span class="fc" id="L162">		createButtonLink(grid,MEMBER_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L163">				CommitteePageMode.MEMBERHISTORY.toString(), pageId), &quot;History of all roles and days served&quot;);</span>
 
-<span class="fc" id="L160">		createButtonLink(grid,ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
-<span class="fc" id="L161">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart of all roles over time&quot;);</span>
-
-
-<span class="fc" id="L164">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L165">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Chart of document activity by document type.&quot;);</span>
-
-<span class="fc" id="L167">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L168">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId), &quot;Document history list&quot;);</span>
+<span class="fc" id="L165">		createButtonLink(grid,ROLE_GHANT_TEXT, VaadinIcons.GROUP,</span>
+<span class="fc" id="L166">				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.ROLEGHANT.toString(), pageId), &quot;Gantt chart of all roles over time&quot;);</span>
 
 
-<span class="fc" id="L171">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L172">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId), &quot;Summary of all ballot decisions&quot;);</span>
+<span class="fc" id="L169">		createButtonLink(grid,DOCUMENT_ACTIVITY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L170">				CommitteePageMode.DOCUMENTACTIVITY.toString(), pageId), &quot;Chart of document activity by document type.&quot;);</span>
 
-<span class="fc" id="L174">		createButtonLink(grid,DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
-<span class="fc" id="L175">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId), &quot;Summary of all ballots&quot;);</span>
+<span class="fc" id="L172">		createButtonLink(grid,DOCUMENT_HISTORY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L173">				CommitteePageMode.DOCUMENT_HISTORY.toString(), pageId), &quot;Document history list&quot;);</span>
 
-<span class="fc" id="L177">		createButtonLink(grid,DECISION_TYPE_DAILY_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
-<span class="fc" id="L178">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId), &quot;Chart over decisions by decisions type, daily summary&quot;);</span>
 
-<span class="fc" id="L180">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
+<span class="fc" id="L176">		createButtonLink(grid,BALLOT_DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L177">				CommitteePageMode.BALLOTDECISIONSUMMARY.toString(), pageId), &quot;Summary of all ballot decisions&quot;);</span>
+
+<span class="fc" id="L179">		createButtonLink(grid,DECISION_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME,</span>
+<span class="fc" id="L180">				CommitteePageMode.DECISIONSUMMARY.toString(), pageId), &quot;Summary of all ballots&quot;);</span>
+
+<span class="fc" id="L182">		createButtonLink(grid,DECISION_TYPE_DAILY_SUMMARY_TEXT, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
+<span class="fc" id="L183">				UserViews.COMMITTEE_VIEW_NAME, CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString(), pageId), &quot;Chart over decisions by decisions type, daily summary&quot;);</span>
+
+<span class="fc" id="L185">		createButtonLink(grid,&quot;Decision flow&quot;, VaadinIcons.GROUP, new PageModeMenuCommand(</span>
+<span class="fc" id="L186">				UserViews.COMMITTEE_VIEW_NAME, PageMode.CHARTS+&quot;/&quot;+ ChartIndicators.DECISION_FLOW_CHART.toString(), pageId),&quot;desc&quot;);		</span>
+
+		
+<span class="fc" id="L189">		createButtonLink(grid,PAGE_VISIT_HISTORY_TEXT, VaadinIcons.GROUP,</span>
 				new PageModeMenuCommand(UserViews.COMMITTEE_VIEW_NAME, PageMode.PAGEVISITHISTORY, pageId), &quot;View history of page visit for this page.&quot;);
 
 
-<span class="fc" id="L184">	}</span>
+<span class="fc" id="L193">	}</span>
 
 
 }

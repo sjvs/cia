@@ -137,7 +137,7 @@ public final class BallotChartsPageModContentFactoryImpl extends AbstractBallotP
 <span class="fc" id="L137">				}</span>
 
 
-<span class="fc" id="L140">				panel.setCaption(NAME + &quot;::&quot; + BALLOT + pageId);</span>
+<span class="fc" id="L140">				panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(BALLOT).append(pageId).toString());</span>
 <span class="fc" id="L141">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_BALLOT_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
 		}
 <span class="fc" id="L143">		return panelContent;</span>
@@ -160,11 +160,13 @@ public final class BallotChartsPageModContentFactoryImpl extends AbstractBallotP
 <span class="fc bfc" id="L160" title="All 2 branches covered.">				if (concernIssuePartyBallotSummaryMap.get(key) == null) {</span>
 <span class="fc" id="L161">					concernIssuePartyBallotSummaryMap.put(key, new ArrayList&lt;&gt;());</span>
 				}
-<span class="fc" id="L163">				concernIssuePartyBallotSummaryMap.get(key).add(partySummary);</span>
+				
+<span class="pc" id="L164">				final List&lt;ViewRiksdagenVoteDataBallotPartySummary&gt; partySummarList = concernIssuePartyBallotSummaryMap.computeIfAbsent(key, k -&gt; new ArrayList&lt;&gt;());				</span>
+<span class="fc" id="L165">				partySummarList.add(partySummary);</span>
 			}
-<span class="fc" id="L165">		}</span>
+<span class="fc" id="L167">		}</span>
 
-<span class="fc" id="L167">		return concernIssuePartyBallotSummaryMap;</span>
+<span class="fc" id="L169">		return concernIssuePartyBallotSummaryMap;</span>
 	}
 
 }

@@ -118,15 +118,17 @@ public final class CitizenIntelligenceAgencyUI extends UI {
 
 <span class="fc" id="L119">			final String ipInformation = WebBrowserUtil.getIpInformation(webBrowser);</span>
 <span class="fc" id="L120">			serviceRequest.setIpInformation(ipInformation);</span>
-<span class="fc" id="L121">			serviceRequest.setUserAgentInformation(webBrowser.getBrowserApplication());</span>
-<span class="fc" id="L122">			serviceRequest.setLocale(webBrowser.getLocale().toString());</span>
-<span class="fc" id="L123">			serviceRequest.setOperatingSystem(WebBrowserUtil.getOperatingSystem(webBrowser));</span>
-<span class="fc" id="L124">			serviceRequest.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
+<span class="fc" id="L121">			serviceRequest.setTimeZone(webBrowser.getTimeZoneId());</span>
+<span class="fc" id="L122">			serviceRequest.setScreenSize(webBrowser.getScreenWidth() + &quot;x&quot; + webBrowser.getScreenHeight());</span>
+<span class="fc" id="L123">			serviceRequest.setUserAgentInformation(webBrowser.getBrowserApplication());</span>
+<span class="fc" id="L124">			serviceRequest.setLocale(webBrowser.getLocale().toString());</span>
+<span class="fc" id="L125">			serviceRequest.setOperatingSystem(WebBrowserUtil.getOperatingSystem(webBrowser));</span>
+<span class="fc" id="L126">			serviceRequest.setSessionType(ApplicationSessionType.ANONYMOUS);</span>
 
-<span class="fc" id="L126">			final ServiceResponse serviceResponse = applicationManager.service(serviceRequest);</span>
-<span class="fc" id="L127">			LOGGER.info(LOG_INFO_BROWSER_ADDRESS_APPLICATION_SESSION_ID_RESULT,requestUrl.replaceAll(CRLF,CRLF_REPLACEMENT),language.replaceAll(CRLF,CRLF_REPLACEMENT),ipInformation.replaceAll(CRLF,CRLF_REPLACEMENT),webBrowser.getBrowserApplication().replaceAll(CRLF,CRLF_REPLACEMENT),serviceRequest.getSessionId().replaceAll(CRLF,CRLF_REPLACEMENT),serviceResponse.getResult().toString().replaceAll(CRLF,CRLF_REPLACEMENT));</span>
+<span class="fc" id="L128">			final ServiceResponse serviceResponse = applicationManager.service(serviceRequest);</span>
+<span class="fc" id="L129">			LOGGER.info(LOG_INFO_BROWSER_ADDRESS_APPLICATION_SESSION_ID_RESULT,requestUrl.replaceAll(CRLF,CRLF_REPLACEMENT),language.replaceAll(CRLF,CRLF_REPLACEMENT),ipInformation.replaceAll(CRLF,CRLF_REPLACEMENT),webBrowser.getBrowserApplication().replaceAll(CRLF,CRLF_REPLACEMENT),serviceRequest.getSessionId().replaceAll(CRLF,CRLF_REPLACEMENT),serviceResponse.getResult().toString().replaceAll(CRLF,CRLF_REPLACEMENT));</span>
 		}
-<span class="fc" id="L129">	}</span>
+<span class="fc" id="L131">	}</span>
 
 
 }

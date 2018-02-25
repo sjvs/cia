@@ -112,42 +112,43 @@ public final class PoliticianOverviewPageModContentFactoryImpl extends AbstractP
 	 * @param viewRiksdagenPolitician
 	 *            the view riksdagen politician
 	 * @param pageId
+	 *            the page id
 	 */
 	private void createOverviewContent(final VerticalLayout panelContent, final PersonData personData,
 			final ViewRiksdagenPolitician viewRiksdagenPolitician, final String pageId) {
-<span class="fc" id="L118">		LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
+<span class="fc" id="L119">		LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
 
-<span class="fc" id="L120">		final Link createPoliticianPageLink = getPageLinkFactory().createPoliticianPageLink(personData);</span>
-<span class="fc" id="L121">		panelContent.addComponent(createPoliticianPageLink);</span>
+<span class="fc" id="L121">		final Link createPoliticianPageLink = getPageLinkFactory().createPoliticianPageLink(personData);</span>
+<span class="fc" id="L122">		panelContent.addComponent(createPoliticianPageLink);</span>
 
-<span class="fc" id="L123">		final Image image = new Image(&quot;&quot;,</span>
-<span class="fc" id="L124">				new ExternalResource(personData.getImageUrl192().replace(&quot;http://&quot;, &quot;https://&quot;)));</span>
+<span class="fc" id="L124">		final Image image = new Image(&quot;&quot;,</span>
+<span class="fc" id="L125">				new ExternalResource(personData.getImageUrl192().replace(&quot;http://&quot;, &quot;https://&quot;)));</span>
 
-<span class="fc" id="L126">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
-<span class="fc" id="L127">		horizontalLayout.setSizeFull();</span>
+<span class="fc" id="L127">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
+<span class="fc" id="L128">		horizontalLayout.setSizeFull();</span>
 
-<span class="fc" id="L129">		panelContent.addComponent(horizontalLayout);</span>
+<span class="fc" id="L130">		panelContent.addComponent(horizontalLayout);</span>
 
 
 
-<span class="fc" id="L133">		horizontalLayout.addComponent(image);</span>
+<span class="fc" id="L134">		horizontalLayout.addComponent(image);</span>
 
-<span class="fc" id="L135">		getFormFactory().addFormPanelTextFields(horizontalLayout, viewRiksdagenPolitician,</span>
+<span class="fc" id="L136">		getFormFactory().addFormPanelTextFields(horizontalLayout, viewRiksdagenPolitician,</span>
 				ViewRiksdagenPolitician.class,
 				AS_LIST);
 
-<span class="fc" id="L139">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L140">		overviewLayout.setSizeFull();</span>
+<span class="fc" id="L140">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L141">		overviewLayout.setSizeFull();</span>
 
-<span class="fc" id="L142">		panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L143">		panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
+<span class="fc" id="L143">		panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L144">		panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
 
-<span class="fc" id="L145">		getPoliticianMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
+<span class="fc" id="L146">		getPoliticianMenuItemFactory().createOverviewPage(overviewLayout, pageId);</span>
 
-<span class="fc" id="L147">		panelContent.setExpandRatio(createPoliticianPageLink, ContentRatio.SMALL);</span>
-<span class="fc" id="L148">		panelContent.setExpandRatio(horizontalLayout, ContentRatio.GRID);</span>
+<span class="fc" id="L148">		panelContent.setExpandRatio(createPoliticianPageLink, ContentRatio.SMALL);</span>
+<span class="fc" id="L149">		panelContent.setExpandRatio(horizontalLayout, ContentRatio.GRID);</span>
 
-<span class="fc" id="L150">	}</span>
+<span class="fc" id="L151">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
