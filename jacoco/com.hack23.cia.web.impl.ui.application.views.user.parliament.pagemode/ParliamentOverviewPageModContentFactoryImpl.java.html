@@ -50,8 +50,8 @@ public final class ParliamentOverviewPageModContentFactoryImpl extends AbstractP
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc" id="L52">		final String pageId = getPageId(parameters);</span>
-<span class="pc bpc" id="L53" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
-<span class="pc bnc" id="L54" title="All 2 branches missed.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
+<span class="pc bpc" id="L53" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

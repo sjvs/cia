@@ -20,6 +20,9 @@ package com.hack23.cia.web.impl.ui.application.views.common.dataseriesfactory.ap
 
 import java.util.Locale;
 
+/**
+ * The Class ProposalCommitteeeSummary.
+ */
 public final class ProposalCommitteeeSummary {
 
 	/** The org. */
@@ -47,12 +50,12 @@ public final class ProposalCommitteeeSummary {
 	 *            the hangar id
 	 */
 	public ProposalCommitteeeSummary(final String org, final String docType, final String decision, final String hangarId) {
-<span class="fc" id="L50">		super();</span>
-<span class="fc" id="L51">		this.org = org.trim().toUpperCase(Locale.ENGLISH);</span>
-<span class="fc" id="L52">		this.docType = docType.toUpperCase(Locale.ENGLISH);</span>
-<span class="fc" id="L53">		this.decision = decision.replace(&quot;=&quot;, &quot;&quot;).replaceAll(&quot;,&quot;, &quot;&quot;).trim().toUpperCase(Locale.ENGLISH);</span>
-<span class="fc" id="L54">		this.hangarId = hangarId;</span>
-<span class="fc" id="L55">	}</span>
+<span class="fc" id="L53">		super();</span>
+<span class="fc" id="L54">		this.org = org.trim().toUpperCase(Locale.ENGLISH);</span>
+<span class="fc" id="L55">		this.docType = docType.toUpperCase(Locale.ENGLISH);</span>
+<span class="fc" id="L56">		this.decision = decision.replace(&quot;=&quot;, &quot;&quot;).replaceAll(&quot;,&quot;, &quot;&quot;).trim().toUpperCase(Locale.ENGLISH);</span>
+<span class="fc" id="L57">		this.hangarId = hangarId;</span>
+<span class="fc" id="L58">	}</span>
 
 	/**
 	 * Gets the org.
@@ -60,7 +63,7 @@ public final class ProposalCommitteeeSummary {
 	 * @return the org
 	 */
 	public String getOrg() {
-<span class="fc" id="L63">		return org;</span>
+<span class="fc" id="L66">		return org;</span>
 	}
 
 	/**
@@ -69,7 +72,7 @@ public final class ProposalCommitteeeSummary {
 	 * @return the doc type
 	 */
 	public String getDocType() {
-<span class="fc" id="L72">		return docType;</span>
+<span class="fc" id="L75">		return docType;</span>
 	}
 
 	/**
@@ -78,7 +81,7 @@ public final class ProposalCommitteeeSummary {
 	 * @return the decision
 	 */
 	public String getDecision() {
-<span class="fc" id="L81">		return decision;</span>
+<span class="fc" id="L84">		return decision;</span>
 	}
 
 	/**
@@ -87,12 +90,12 @@ public final class ProposalCommitteeeSummary {
 	 * @return the hangar id
 	 */
 	public String getHangarId() {
-<span class="nc" id="L90">		return hangarId;</span>
+<span class="nc" id="L93">		return hangarId;</span>
 	}
 
 	@Override
 	public String toString() {
-<span class="nc" id="L95">		return String.format(Locale.ENGLISH,&quot;ProposalCommitteeeSummary [org=%s, docType=%s, decision=%s, hangarId=%s]&quot;, org,</span>
+<span class="nc" id="L98">		return String.format(Locale.ENGLISH,&quot;ProposalCommitteeeSummary [org=%s, docType=%s, decision=%s, hangarId=%s]&quot;, org,</span>
 				docType, decision, hangarId);
 	}				
 }

@@ -44,66 +44,66 @@ public final class CommitteeGhantChartManagerImpl
 
 	@Override
 	protected Comparator&lt;ViewRiksdagenCommitteeRoleMember&gt; getComparator() {
-<span class="nc" id="L47">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
+<span class="fc" id="L47">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
 	}
 
 	@Override
 	protected Function&lt;ViewRiksdagenCommitteeRoleMember, String&gt; getRoleMapping() {
-<span class="nc" id="L52">		return new RoleMapping();</span>
+<span class="fc" id="L52">		return new RoleMapping();</span>
 	}
 
 	@Override
 	protected StepMapping&lt;ViewRiksdagenCommitteeRoleMember&gt; getStepMapping() {
-<span class="nc" id="L57">		return new StepMapping&lt;ViewRiksdagenCommitteeRoleMember&gt;() {</span>
+<span class="fc" id="L57">		return new StepMapping&lt;ViewRiksdagenCommitteeRoleMember&gt;() {</span>
 
 			@Override
 			public Date getFromDate(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L61">				return t.getFromDate();</span>
+<span class="fc" id="L61">				return t.getFromDate();</span>
 			}
 
 			@Override
 			public Date getToDate(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L66">				return t.getToDate();</span>
+<span class="fc" id="L66">				return t.getToDate();</span>
 			}
 
 			@Override
 			public String getRoleCode(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L71">				return t.getRoleCode();</span>
+<span class="fc" id="L71">				return t.getRoleCode();</span>
 			}
 
 			@Override
 			public String getOrg(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L76">				return t.getDetail();</span>
+<span class="fc" id="L76">				return t.getDetail();</span>
 			}
 
 			@Override
 			public String getParty(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L81">				return t.getParty();</span>
+<span class="fc" id="L81">				return t.getParty();</span>
 			}
 
 			@Override
 			public String getBackgroundColor(final ViewRiksdagenCommitteeRoleMember t) {
 				String color;
 
-<span class="nc bnc" id="L88" title="All 2 branches missed.">				if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;suppleant&quot;)) {</span>
-<span class="nc" id="L89">					color = &quot;ded858&quot;;</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">				} else if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;ordförande&quot;)) {</span>
-<span class="nc" id="L91">					color = &quot;3271c8&quot;;</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">				if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;suppleant&quot;)) {</span>
+<span class="fc" id="L89">					color = &quot;ded858&quot;;</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">				} else if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;ordförande&quot;)) {</span>
+<span class="fc" id="L91">					color = &quot;3271c8&quot;;</span>
 				} else {
-<span class="nc" id="L93">					color = &quot;0eab76&quot;;</span>
+<span class="fc" id="L93">					color = &quot;0eab76&quot;;</span>
 				}
 
-<span class="nc" id="L96">				return color;</span>
+<span class="fc" id="L96">				return color;</span>
 			}
 
 			@Override
 			public Object getFirstName(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L101">				return t.getFirstName();</span>
+<span class="fc" id="L101">				return t.getFirstName();</span>
 			}
 
 			@Override
 			public Object getLastName(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L106">				return t.getLastName();</span>
+<span class="fc" id="L106">				return t.getLastName();</span>
 			}
 
 		};
@@ -116,7 +116,7 @@ public final class CommitteeGhantChartManagerImpl
 
 		@Override
 		public String apply(final ViewRiksdagenCommitteeRoleMember t) {
-<span class="nc" id="L119">			return t.getRoleCode() +&quot;.[&quot;+ t.getPersonId() +&quot;]&quot;;</span>
+<span class="fc" id="L119">			return t.getRoleCode() +&quot;.[&quot;+ t.getPersonId() +&quot;]&quot;;</span>
 		}
 	}
 
