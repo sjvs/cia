@@ -110,7 +110,7 @@ public final class CitizenIntelligenceAgencyUI extends UI {
 
 <span class="fc" id="L111">		currentPage.setTitle(userConfiguration.getAgency().getAgencyName() + &quot;:&quot; + userConfiguration.getPortal().getPortalName() + &quot;:&quot; + userConfiguration.getLanguage().getLanguageName());</span>
 
-<span class="fc bfc" id="L113" title="All 2 branches covered.">		if (getSession().getUIs().isEmpty()) {</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">		if (getSession().getUIs().isEmpty()) {</span>
 <span class="fc" id="L114">			final WebBrowser webBrowser = currentPage.getWebBrowser();</span>
 
 <span class="fc" id="L116">			final CreateApplicationSessionRequest serviceRequest = new CreateApplicationSessionRequest();</span>

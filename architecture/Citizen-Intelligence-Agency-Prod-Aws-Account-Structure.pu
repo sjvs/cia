@@ -19,9 +19,9 @@ node "Master Account" <<Aws Account>> as 2 {
 node "Operation Center Account" <<Aws Account>> as 8 {
   artifact "Operation Center Account" <<Container>> as 28
 }
-36 ..> 30 : publish event/audit
+36 ..> 28 : manage access
+41 ..> 36 : create/restrict
 41 ..> 29 : create/restrict
-41 ..> 28 : create/restrict
 28 ..> 30 : publish event/audit
 29 ..> 30 : publish event/audit
 36 ..> 29 : manage access
@@ -30,7 +30,7 @@ node "Operation Center Account" <<Aws Account>> as 8 {
 41 ..> 34 : create/restrict
 41 ..> 30 : create/restrict
 41 ..> 30 : publish event/audit
-41 ..> 36 : create/restrict
-36 ..> 28 : manage access
+41 ..> 28 : create/restrict
 36 ..> 34 : manage access
+36 ..> 30 : publish event/audit
 @enduml

@@ -54,7 +54,7 @@ public final class MainViewOverviewPageModContentFactoryImpl extends AbstractPag
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="fc bfc" id="L56" title="All 2 branches covered.">		return NAME.equals(page)</span>
-<span class="fc bfc" id="L57" title="All 4 branches covered.">				&amp;&amp; (StringUtils.isEmpty(parameters) || parameters.contains(PageMode.OVERVIEW.toString()));</span>
+<span class="pc bpc" id="L57" title="1 of 4 branches missed.">				&amp;&amp; (StringUtils.isEmpty(parameters) || parameters.contains(PageMode.OVERVIEW.toString()));</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

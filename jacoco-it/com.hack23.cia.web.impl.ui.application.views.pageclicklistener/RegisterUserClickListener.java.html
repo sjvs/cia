@@ -66,9 +66,9 @@ public final class RegisterUserClickListener implements ClickListener {
 	@Override
 	public void buttonClick(final ClickEvent event) {
 <span class="fc" id="L68">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(reqisterRequest);</span>
-<span class="fc bfc" id="L69" title="All 2 branches covered.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="fc" id="L70">			LOGGER.info(LOG_MSG_REGISTER_USER,reqisterRequest.getUsername());</span>
-<span class="fc" id="L71">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="nc" id="L70">			LOGGER.info(LOG_MSG_REGISTER_USER,reqisterRequest.getUsername());</span>
+<span class="nc" id="L71">			UI.getCurrent().getNavigator().navigateTo(UserViews.USERHOME_VIEW_NAME);</span>
 		} else {
 <span class="fc" id="L73">			Notification.show(REGISTER_FAILED,</span>
 <span class="fc" id="L74">					response.getErrorMessage(),</span>
