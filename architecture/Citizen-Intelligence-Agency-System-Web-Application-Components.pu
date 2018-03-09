@@ -36,12 +36,12 @@ package WebApplication {
   component "LoginService" <<Spring Service>> as 20
   component "LogoutService" <<Spring Service>> as 32
   component "PersonDataDAO" <<Spring Repository>> as 58
-  component "RefreshDataViewsService" <<Spring Service>> as 35
+  component "RefreshDataViewsService" <<Spring Service>> as 17
   component "RegisterUserService" <<Spring Service>> as 29
   component "RemoveDataManager" <<Spring Service>> as 19
   component "RemoveDataService" <<Spring Service>> as 14
   component "RulesEngine" <<Spring Service>> as 24
-  component "SearchDocumentService" <<Spring Service>> as 17
+  component "SearchDocumentService" <<Spring Service>> as 35
   component "SearchIndexer" <<Spring Repository>> as 43
   component "SendEmailService" <<Spring Service>> as 12
   component "SetGoogleAuthenticatorCredentialService" <<Spring Service>> as 27
@@ -86,13 +86,13 @@ package WebApplication {
 25 ..> 53 
 20 ..> 25 
 20 ..> 53 
-35 ..> 28 
+17 ..> 28 
 29 ..> 15 
 29 ..> 53 
 14 ..> 19 
 24 ..> 57 
-17 ..> 47 
-17 ..> 61 
+35 ..> 47 
+35 ..> 61 
 12 ..> 40 
 27 ..> 59 
 27 ..> 53 

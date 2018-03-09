@@ -79,44 +79,44 @@ public final class UserHomeApplicationSessionsPageModContentFactoryImpl extends 
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L82" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
+<span class="fc bfc" id="L82" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(UserHomePageMode.USER_VISITS.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="nc" id="L88">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L88">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="nc" id="L90">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L90">		final String pageId = getPageId(parameters);</span>
 
-<span class="nc" id="L92">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L92">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
 
-<span class="nc" id="L94">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
+<span class="fc" id="L94">		LabelFactory.createHeader2Label(panelContent, USER_VISITS);</span>
 
-<span class="nc" id="L96">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
+<span class="fc" id="L96">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
 
-<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
 <span class="nc" id="L99">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
 		} else {
 
-<span class="nc" id="L102">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
+<span class="fc" id="L102">			final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
 
-<span class="nc" id="L104">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
+<span class="fc" id="L104">			final UserAccount userAccount = dataContainer.load(userIdFromSecurityContext);</span>
 
-<span class="nc" id="L106">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
+<span class="fc" id="L106">			final DataContainer&lt;ApplicationSession, Long&gt; sessionDataContainer = getApplicationManager().getDataContainer(ApplicationSession.class);</span>
 
-<span class="nc" id="L108">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationSession.class, sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate),</span>
+<span class="fc" id="L108">			getGridFactory().createBasicBeanItemGrid(panelContent, ApplicationSession.class, sessionDataContainer.findOrderedListByProperty(ApplicationSession_.userId,userAccount.getUserId(),ApplicationSession_.createdDate),</span>
 					APPLICATION_SESSION,
 					COLUMN_ORDER, HIDE_COLUMNS,
 					LISTENER, null, COLLECTION_PROPERTY_CONVERTERS);
 		}
 
-<span class="nc" id="L114">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
+<span class="fc" id="L114">		panel.setCaption(NAME + &quot;::&quot; + USERHOME + USER_VISITS);</span>
 
-<span class="nc" id="L116">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L116">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
 
-<span class="nc" id="L119">		return panelContent;</span>
+<span class="fc" id="L119">		return panelContent;</span>
 
 	}
 

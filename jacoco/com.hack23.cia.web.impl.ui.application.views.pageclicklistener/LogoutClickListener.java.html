@@ -66,19 +66,19 @@ public final class LogoutClickListener implements ClickListener {
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="nc" id="L69">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(logoutRequest);</span>
+<span class="fc" id="L69">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(logoutRequest);</span>
 
 
-<span class="nc bnc" id="L72" title="All 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="nc" id="L73">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
-<span class="nc" id="L74">			UI.getCurrent().getSession().close();</span>
-<span class="nc" id="L75">			VaadinService.getCurrentRequest().getWrappedSession().invalidate();</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="fc" id="L73">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
+<span class="fc" id="L74">			UI.getCurrent().getSession().close();</span>
+<span class="fc" id="L75">			VaadinService.getCurrentRequest().getWrappedSession().invalidate();</span>
 		} else {
 <span class="nc" id="L77">			Notification.show(LOGOUT_FAILED,</span>
 	                  ERROR_MESSAGE,
 	                  Notification.Type.WARNING_MESSAGE);
 <span class="nc" id="L80">			LOGGER.info(LOG_MSG_LOGOUT_FAILURE,logoutRequest.getSessionId());</span>
 		}
-<span class="nc" id="L82">	}</span>
+<span class="fc" id="L82">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
