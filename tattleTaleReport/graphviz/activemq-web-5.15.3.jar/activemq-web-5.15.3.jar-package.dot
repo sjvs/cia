@@ -1,0 +1,22 @@
+digraph activemq_web_5_15_3_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_apache_activemq_web -> org_apache_activemq;
+  org_apache_activemq_web -> org_apache_activemq_broker;
+  org_apache_activemq_web -> org_apache_activemq_broker_jmx;
+  org_apache_activemq_web -> org_apache_activemq_broker_region;
+  org_apache_activemq_web -> org_apache_activemq_broker_util;
+  org_apache_activemq_web -> org_apache_activemq_command;
+  org_apache_activemq_web -> org_apache_activemq_util;
+  org_apache_activemq_web -> org_apache_activemq_web_config;
+  org_apache_activemq_web -> org_apache_activemq_web_util;
+  org_apache_activemq_web -> org_apache_activemq_web_view;
+  org_apache_activemq_web -> org_apache_activemq_xbean;
+  org_apache_activemq_web -> org_eclipse_jetty_continuation;
+  org_apache_activemq_web_config -> org_apache_activemq;
+  org_apache_activemq_web_config -> org_eclipse_jetty_server;
+  org_apache_activemq_web_config -> org_eclipse_jetty_server_handler;
+  org_apache_activemq_web_config -> org_eclipse_jetty_webapp;
+  org_apache_activemq_web_view -> com_sun_syndication_feed_synd;
+  org_apache_activemq_web_view -> com_sun_syndication_io;
+  org_apache_activemq_web_view -> com_thoughtworks_xstream;
+}

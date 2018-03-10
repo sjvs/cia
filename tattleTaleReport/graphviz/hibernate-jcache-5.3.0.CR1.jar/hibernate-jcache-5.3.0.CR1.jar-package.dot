@@ -1,0 +1,21 @@
+digraph hibernate_jcache_5_3_0_CR1_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_hibernate_cache_jcache -> javax_cache;
+  org_hibernate_cache_jcache -> javax_cache_configuration;
+  org_hibernate_cache_jcache -> javax_cache_spi;
+  org_hibernate_cache_jcache -> org_hibernate_boot_spi;
+  org_hibernate_cache_jcache -> org_hibernate_cache_jcache_access;
+  org_hibernate_cache_jcache -> org_hibernate_cache_jcache_time;
+  org_hibernate_cache_jcache -> org_hibernate_cache_spi;
+  org_hibernate_cache_jcache -> org_hibernate_cache_spi_access;
+  org_hibernate_cache_jcache -> org_hibernate_engine_jdbc_dialect_spi;
+  org_hibernate_cache_jcache -> org_hibernate_engine_jndi;
+  org_hibernate_cache_jcache -> org_hibernate_engine_spi;
+  org_hibernate_cache_jcache -> org_jboss_logging_annotations;
+  org_hibernate_cache_jcache_access -> org_hibernate_boot_spi;
+  org_hibernate_cache_jcache_access -> org_hibernate_cache_internal;
+  org_hibernate_cache_jcache_access -> org_hibernate_cache_jcache;
+  org_hibernate_cache_jcache_access -> org_hibernate_cache_spi;
+  org_hibernate_cache_jcache_access -> org_hibernate_cache_spi_access;
+  org_hibernate_cache_jcache_access -> org_hibernate_engine_spi;
+}

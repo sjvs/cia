@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-Description: Protocol Buffers are a way of encoding structured 
+ data in an efficient yet    extensible format.
+Bundle-License: http://www.opensource.org/licenses/bsd-license.php
+Bundle-SymbolicName: com.google.protobuf
+Built-By: xiaofeng
+Bnd-LastModified: 1409706734058
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://code.google.com/p/protobuf
+Bundle-Vendor: Google
+Tool: Bnd-1.50.0
+Export-Package: com.google.protobuf;version="2.5.0"
+Bundle-Name: Protocol Buffer Java API
+Bundle-Version: 2.6.0
+Build-Jdk: 1.7.0-google-v6
+Created-By: Apache Maven Bundle Plugin
+

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: cruise
+Created-By: Apache Maven
+Build-Jdk: 1.6.0_27
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: net.sf.ehcache.constructs.web.filter
+Bundle-Description: ehcache-web-2.0.4
+Bundle-Name: ehcache-web-2.0.4
+Bundle-Version: 0.0.0
+Export-Package: net.sf.ehcache.constructs.web;uses:="net.sf.ehcache,ne
+ t.sf.ehcache.constructs.web.filter",net.sf.ehcache.constructs.web.fil
+ ter;uses:="net.sf.ehcache,net.sf.ehcache.config,net.sf.ehcache.constr
+ ucts.blocking,net.sf.ehcache.constructs.web"
+Import-Package: java.io,java.lang,java.text,java.util,java.util.concur
+ rent,java.util.zip,javax.servlet,javax.servlet.http,net.sf.ehcache;ve
+ rsion="0.0.0",net.sf.ehcache.config;version="0.0.0",net.sf.ehcache.co
+ nstructs.blocking;version="0.0.0",org.slf4j;version="0.0.0"

@@ -1,0 +1,5 @@
+digraph hawtdispatch_transport_1_22_dependencies {
+  node [shape = box, fontsize=10.0];
+  hawtdispatch_transport_1_22 -> hawtbuf_1_11;
+  hawtdispatch_transport_1_22 -> hawtdispatch_1_22;
+}

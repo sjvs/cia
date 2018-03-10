@@ -1,0 +1,14 @@
+digraph poi_ooxml_3_17_dependencies {
+  node [shape = box, fontsize=10.0];
+  poi_ooxml_3_17 -> bcpkix_jdk15on_1_59;
+  poi_ooxml_3_17 -> bcprov_jdk15on_1_59;
+  poi_ooxml_3_17 -> commons_collections4_4_1;
+  poi_ooxml_3_17 -> curvesapi_1_05;
+  poi_ooxml_3_17 -> jaxb_api_2_3_0;
+  poi_ooxml_3_17 -> junit_4_12;
+  poi_ooxml_3_17 -> poi_3_17;
+  poi_ooxml_3_17 -> poi_ooxml_schemas_3_17;
+  poi_ooxml_3_17 -> poi_scratchpad_3_17;
+  poi_ooxml_3_17 -> xml_apis_1_4_01;
+  poi_ooxml_3_17 -> xmlbeans_2_6_0;
+}

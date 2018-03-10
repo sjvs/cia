@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Implementation-Title: HawtDispatch: The libdispatch style API for Java
+Bundle-Description: HawtDispatch: The libdispatch style API for Java
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.fusesource.hawtdispatch.hawtdispatch
+Implementation-Version: 1.22
+Built-By: chirino
+Bnd-LastModified: 1438008554152
+Bundle-ManifestVersion: 2
+Bundle-Vendor: FuseSource, Corp.
+Bundle-DocURL: http://fusesource.com/
+Import-Package: javax.management,javax.management.openmbean,org.object
+ web.asm;resolution:=optional,org.osgi.framework;version="[1.5,2)";res
+ olution:=optional
+Tool: Bnd-1.15.0
+Export-Package: org.fusesource.hawtdispatch;uses:="org.objectweb.asm";
+ version="1.22",org.fusesource.hawtdispatch.jmx;uses:="javax.managemen
+ t,javax.management.openmbean,org.fusesource.hawtdispatch";version="1.
+ 22"
+Bundle-Name: hawtdispatch
+Bundle-Version: 1.22.0
+Bundle-Activator: org.fusesource.hawtdispatch.internal.Activator
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.7.0_45
+

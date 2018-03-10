@@ -1,0 +1,4 @@
+digraph hawtbuf_1_11_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_fusesource_hawtbuf_codec -> org_fusesource_hawtbuf;
+}

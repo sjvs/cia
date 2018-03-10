@@ -1,0 +1,9 @@
+digraph commons_configuration_1_10_dependencies {
+  node [shape = box, fontsize=10.0];
+  commons_configuration_1_10 -> commons_beanutils_1_9_3_redhat_1;
+  commons_configuration_1_10 -> commons_codec_1_11;
+  commons_configuration_1_10 -> commons_collections_3_2_2_redhat_2;
+  commons_configuration_1_10 -> commons_lang_2_6_0_redhat_6;
+  commons_configuration_1_10 -> jcl_over_slf4j_1_8_0_beta1;
+  commons_configuration_1_10 -> xml_apis_1_4_01;
+}

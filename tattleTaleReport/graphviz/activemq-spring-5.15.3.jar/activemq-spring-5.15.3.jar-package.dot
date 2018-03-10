@@ -1,0 +1,16 @@
+digraph activemq_spring_5_15_3_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_apache_activemq_pool -> org_apache_activemq_jms_pool;
+  org_apache_activemq_security -> org_apache_activemq_filter;
+  org_apache_activemq_spring -> org_apache_activemq;
+  org_apache_activemq_spring -> org_apache_activemq_broker;
+  org_apache_activemq_store -> org_apache_activemq_store_journal;
+  org_apache_activemq_xbean -> org_apache_activemq_broker;
+  org_apache_activemq_xbean -> org_apache_activemq_broker_scheduler;
+  org_apache_activemq_xbean -> org_apache_activemq_spring;
+  org_apache_activemq_xbean -> org_apache_activemq_store;
+  org_apache_activemq_xbean -> org_apache_activemq_usage;
+  org_apache_activemq_xbean -> org_apache_activemq_util;
+  org_apache_activemq_xbean -> org_apache_xbean_spring_context;
+  org_apache_activemq_xbean -> org_apache_xbean_spring_context_impl;
+}

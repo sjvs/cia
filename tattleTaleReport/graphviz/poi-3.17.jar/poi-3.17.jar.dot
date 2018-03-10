@@ -1,0 +1,8 @@
+digraph poi_3_17_dependencies {
+  node [shape = box, fontsize=10.0];
+  poi_3_17 -> commons_codec_1_11;
+  poi_3_17 -> commons_collections4_4_1;
+  poi_3_17 -> jaxb_api_2_3_0;
+  poi_3_17 -> jcl_over_slf4j_1_8_0_beta1;
+  poi_3_17 -> xml_apis_1_4_01;
+}

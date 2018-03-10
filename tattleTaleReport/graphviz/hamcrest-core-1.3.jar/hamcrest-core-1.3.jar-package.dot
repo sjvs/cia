@@ -1,0 +1,6 @@
+digraph hamcrest_core_1_3_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_hamcrest -> org_hamcrest_core;
+  org_hamcrest -> org_hamcrest_internal;
+  org_hamcrest_core -> org_hamcrest;
+}

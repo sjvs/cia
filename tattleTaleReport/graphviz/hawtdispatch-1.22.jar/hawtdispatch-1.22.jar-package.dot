@@ -1,0 +1,13 @@
+digraph hawtdispatch_1_22_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_fusesource_hawtdispatch -> org_fusesource_hawtdispatch_internal;
+  org_fusesource_hawtdispatch_internal -> org_fusesource_hawtdispatch;
+  org_fusesource_hawtdispatch_internal -> org_fusesource_hawtdispatch_internal_pool;
+  org_fusesource_hawtdispatch_internal -> org_fusesource_hawtdispatch_internal_util;
+  org_fusesource_hawtdispatch_internal -> org_fusesource_hawtdispatch_jmx;
+  org_fusesource_hawtdispatch_internal_pool -> org_fusesource_hawtdispatch;
+  org_fusesource_hawtdispatch_internal_pool -> org_fusesource_hawtdispatch_internal;
+  org_fusesource_hawtdispatch_internal_util -> org_fusesource_hawtdispatch;
+  org_fusesource_hawtdispatch_jmx -> org_fusesource_hawtdispatch;
+  org_fusesource_hawtdispatch_jmx -> org_fusesource_hawtdispatch_internal;
+}

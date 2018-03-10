@@ -1,0 +1,6 @@
+digraph activemq_jms_pool_5_15_3_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_apache_activemq_jms_pool -> org_apache_commons_pool2;
+  org_apache_activemq_jms_pool -> org_apache_commons_pool2_impl;
+  org_apache_activemq_jms_pool -> org_apache_geronimo_transaction_manager;
+}

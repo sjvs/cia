@@ -1,0 +1,4 @@
+digraph junit_4_12_dependencies {
+  node [shape = box, fontsize=10.0];
+  junit_4_12 -> hamcrest_core_1_3;
+}

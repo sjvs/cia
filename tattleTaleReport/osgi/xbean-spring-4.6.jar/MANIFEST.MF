@@ -1,0 +1,64 @@
+Manifest-Version: 1.0
+Bundle-Description: xbean-spring provides a schema-driven proprietary 
+ namespace handler for spring contexts
+Implementation-Title: Apache XBean :: Spring
+Automatic-Module-Name: org.apache.xbean.spring
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.apache.xbean.spring
+Implementation-Version: 4.6
+Built-By: rmannibucau
+Bnd-LastModified: 1511164338501
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://geronimo.apache.org/maven/xbean/4.6/xbean-spring
+Bundle-Vendor: The Apache Software Foundation
+Import-Package: com.thoughtworks.qdox;resolution:=optional,com.thought
+ works.qdox.model;resolution:=optional,org.apache.tools.ant;resolution
+ :=optional,org.apache.tools.ant.taskdefs;resolution:=optional,org.apa
+ che.tools.ant.types;resolution:=optional,org.springframework.beans;ve
+ rsion="[2.5,4)",org.springframework.beans.factory;version="[2.5,4)",o
+ rg.springframework.beans.factory.config;version="[2.5,4)",org.springf
+ ramework.beans.factory.parsing;version="[2.5,4)",org.springframework.
+ beans.factory.support;version="[2.5,4)",org.springframework.beans.fac
+ tory.xml;version="[2.5,4)",org.springframework.context;version="[2.5,
+ 4)",org.springframework.context.support;version="[2.5,4)",org.springf
+ ramework.core.io;version="[2.5,4)",org.springframework.core.io.suppor
+ t;version="[2.5,4)",org.springframework.util;version="[2.5,4)",org.sp
+ ringframework.util.xml;version="[2.5,4)",org.springframework.web.cont
+ ext.support;version="[2.5,4)";resolution:=optional,javax.management,j
+ avax.naming,javax.naming.spi,javax.xml,javax.xml.namespace,org.apache
+ .commons.logging,org.w3c.dom,org.xml.sax,org.springframework.core;res
+ olution:=optional;version="[2.5,4)"
+DynamicImport-Package: META-INF.services.org.apache.xbean.spring.*,MET
+ A-INF.services.org.xbean.spring
+Tool: Bnd-2.1.0.20130426-122213
+Export-Package: org.apache.xbean.spring;version="4.6",org.apache.xbean
+ .spring.context;version="4.6";uses:="org.springframework.beans,org.sp
+ ringframework.beans.factory,org.springframework.beans.factory.support
+ ,org.springframework.beans.factory.xml,org.springframework.context,or
+ g.springframework.context.support,org.springframework.core.io,org.spr
+ ingframework.web.context.support,org.w3c.dom",org.apache.xbean.spring
+ .context.impl;version="4.6";uses:="javax.xml.namespace,org.apache.xbe
+ an.spring.context,org.springframework.beans,org.springframework.beans
+ .factory,org.springframework.beans.factory.config,org.springframework
+ .beans.factory.support,org.springframework.beans.factory.xml,org.spri
+ ngframework.core.io,org.w3c.dom",org.apache.xbean.spring.context.v2;v
+ ersion="4.6";uses:="org.apache.xbean.spring.context,org.springframewo
+ rk.beans,org.springframework.beans.factory,org.springframework.beans.
+ factory.config,org.springframework.beans.factory.support,org.springfr
+ amework.beans.factory.xml,org.springframework.context,org.springframe
+ work.core.io,org.w3c.dom",org.apache.xbean.spring.context.v2c;version
+ ="4.6";uses:="org.apache.xbean.spring.context.impl,org.springframewor
+ k.beans.factory,org.springframework.beans.factory.config,org.springfr
+ amework.beans.factory.support,org.springframework.beans.factory.xml,o
+ rg.springframework.context.support,org.w3c.dom",org.apache.xbean.spri
+ ng.generator;version="4.6";uses:="org.apache.tools.ant,org.apache.too
+ ls.ant.taskdefs,org.apache.tools.ant.types",org.apache.xbean.spring.j
+ ndi;version="4.6";uses:="javax.naming,javax.naming.spi,org.springfram
+ ework.beans.factory,org.springframework.core.io",org.apache.xbean.spr
+ ing.util;version="4.6";uses:="org.springframework.beans,org.springfra
+ mework.beans.factory.config"
+Bundle-Name: Apache XBean :: Spring
+Bundle-Version: 4.6.0
+Build-Jdk: 1.8.0_131
+Created-By: Apache Maven Bundle Plugin
+

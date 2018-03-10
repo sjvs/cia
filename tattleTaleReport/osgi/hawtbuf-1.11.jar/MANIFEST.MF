@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Implementation-Title: hawtbuf
+Bundle-Description: HawtBuf: a rich byte buffer library
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.fusesource.hawtbuf.hawtbuf
+Implementation-Version: 1.11
+Built-By: chirino
+Specification-Vendor: FuseSource, Corp.
+Bnd-LastModified: 1403278358253
+Bundle-ManifestVersion: 2
+Implementation-Vendor-Id: org.fusesource.hawtbuf
+Specification-Title: hawtbuf
+Bundle-Vendor: FuseSource, Corp.
+Bundle-DocURL: http://fusesource.com/
+DynamicImport-Package: *
+Tool: Bnd-1.15.0
+Implementation-Vendor: FuseSource, Corp.
+Export-Package: org.fusesource.hawtbuf;version="1.11",org.fusesource.h
+ awtbuf.codec;uses:="org.fusesource.hawtbuf";version="1.11"
+Bundle-Name: hawtbuf
+Bundle-Version: 1.11.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.7.0_45
+Specification-Version: 1.11
+

@@ -1,0 +1,5 @@
+digraph jackson_datatype_jdk8_2_9_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  jackson_datatype_jdk8_2_9_4 -> jackson_core_2_9_4;
+  jackson_datatype_jdk8_2_9_4 -> jackson_databind_2_9_4;
+}

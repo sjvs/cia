@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Implementation-Version: 2.0.0
+Created-By: 1.7.0_01-b08 (Oracle Corporation)
+Implementation-URL: http://checkerframework.org/
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.checkerframework.checker.nullness.compatqual
+Bundle-Description: checker-compat-qual-2.0.0
+Bundle-Name: checker-compat-qual-2.0.0
+Bundle-Version: 2.0.0
+Export-Package: afu.org.checkerframework.checker.formatter;uses:="afu.
+ org.checkerframework.checker.formatter.qual",afu.org.checkerframework
+ .checker.nullness;uses:="afu.org.checkerframework.checker.nullness.qu
+ al",afu.org.checkerframework.checker.regex;uses:="afu.org.checkerfram
+ ework.checker.nullness.qual,afu.org.checkerframework.checker.regex.qu
+ al,afu.org.checkerframework.dataflow.qual,afu.org.checkerframework.fr
+ amework.qual",afu.org.checkerframework.checker.units;uses:="afu.org.c
+ heckerframework.checker.units.qual",afu.plume,org.checkerframework.ch
+ ecker.formatter;uses:="org.checkerframework.checker.formatter.qual",o
+ rg.checkerframework.checker.nullness;uses:="org.checkerframework.chec
+ ker.nullness.qual",org.checkerframework.checker.nullness.compatqual,o
+ rg.checkerframework.checker.regex;uses:="org.checkerframework.checker
+ .nullness.qual,org.checkerframework.checker.regex.qual,org.checkerfra
+ mework.dataflow.qual,org.checkerframework.framework.qual",org.checker
+ framework.checker.units;uses:="org.checkerframework.checker.units.qua
+ l"
+Import-Package: afu.org.checkerframework.checker.formatter.qual,afu.or
+ g.checkerframework.checker.nullness.qual,afu.org.checkerframework.che
+ cker.regex.qual,afu.org.checkerframework.checker.units.qual,afu.org.c
+ heckerframework.dataflow.qual,afu.org.checkerframework.framework.qual
+ ,java.lang,java.lang.annotation,java.util,java.util.regex,org.checker
+ framework.checker.formatter.qual,org.checkerframework.checker.nullnes
+ s.qual,org.checkerframework.checker.regex.qual,org.checkerframework.c
+ hecker.units.qual,org.checkerframework.dataflow.qual,org.checkerframe
+ work.framework.qual

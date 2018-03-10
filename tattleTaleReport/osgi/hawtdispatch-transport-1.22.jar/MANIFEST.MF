@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Implementation-Title: HawtDispatch Transport: Transport abstractions f
+ or HawtDispatch
+Bundle-Description: HawtDispatch Transport: Transport abstractions for
+  HawtDispatch
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.fusesource.hawtdispatch.hawtdispatch-transpor
+ t
+Implementation-Version: 1.22
+Built-By: chirino
+Bnd-LastModified: 1438008580733
+Bundle-ManifestVersion: 2
+Bundle-Vendor: FuseSource, Corp.
+Bundle-DocURL: http://fusesource.com/
+Import-Package: javax.net.ssl,org.fusesource.hawtbuf;version="[1.9,2)"
+ ;resolution:=optional,org.fusesource.hawtdispatch;version="[1.22,2)"
+Tool: Bnd-1.15.0
+Export-Package: org.fusesource.hawtdispatch.transport;uses:="org.fuses
+ ource.hawtdispatch.util,org.fusesource.hawtbuf,org.fusesource.hawtdis
+ patch,javax.net.ssl";version="1.22",org.fusesource.hawtdispatch.util;
+ version="1.22"
+Bundle-Name: hawtdispatch-transport
+Bundle-Version: 1.22.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.7.0_45
+

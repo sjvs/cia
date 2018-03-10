@@ -1,0 +1,9 @@
+digraph activemq_client_5_15_3_dependencies {
+  node [shape = box, fontsize=10.0];
+  activemq_client_5_15_3 -> commons_net_3_6;
+  activemq_client_5_15_3 -> geronimo_j2ee_management_1_1_spec_1_0_1;
+  activemq_client_5_15_3 -> hawtbuf_1_11;
+  activemq_client_5_15_3 -> jms_1_1;
+  activemq_client_5_15_3 -> slf4j_api_1_8_0_beta1;
+  activemq_client_5_15_3 -> xml_apis_1_4_01;
+}

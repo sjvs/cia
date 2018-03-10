@@ -1,0 +1,4 @@
+digraph activemq_openwire_legacy_5_15_3_dependencies {
+  node [shape = box, fontsize=10.0];
+  activemq_openwire_legacy_5_15_3 -> activemq_client_5_15_3;
+}

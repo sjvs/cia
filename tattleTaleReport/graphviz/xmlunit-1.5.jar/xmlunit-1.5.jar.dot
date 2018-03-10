@@ -1,0 +1,5 @@
+digraph xmlunit_1_5_dependencies {
+  node [shape = box, fontsize=10.0];
+  xmlunit_1_5 -> junit_4_12;
+  xmlunit_1_5 -> xml_apis_1_4_01;
+}

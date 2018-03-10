@@ -1,0 +1,8 @@
+digraph weka_dev_3_9_2_dependencies {
+  node [shape = box, fontsize=10.0];
+  weka_dev_3_9_2 -> bounce_0_18;
+  weka_dev_3_9_2 -> java_cup_11b_2015_03_26;
+  weka_dev_3_9_2 -> jaxb_api_2_3_0;
+  weka_dev_3_9_2 -> mtj_1_0_4;
+  weka_dev_3_9_2 -> xml_apis_1_4_01;
+}

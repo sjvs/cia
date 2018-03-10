@@ -1,0 +1,25 @@
+digraph jaxb_xjc_2_3_0_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  com_sun_istack_tools -> org_apache_tools_ant;
+  com_sun_tools_xjc -> com_sun_istack_tools;
+  com_sun_tools_xjc -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc -> java_lang_invoke;
+  com_sun_tools_xjc -> java_util_function;
+  com_sun_tools_xjc -> java_util_stream;
+  com_sun_tools_xjc -> javax_xml_catalog;
+  com_sun_tools_xjc -> org_apache_tools_ant;
+  com_sun_tools_xjc -> org_apache_tools_ant_taskdefs;
+  com_sun_tools_xjc -> org_apache_tools_ant_types;
+  com_sun_tools_xjc_addon_code_injector -> com_sun_tools_xjc_outline;
+  com_sun_tools_xjc_addon_episode -> com_sun_xml_bind_v2_schemagen_episode;
+  com_sun_tools_xjc_api_impl_s2j -> com_sun_xml_bind_v2_runtime;
+  com_sun_tools_xjc_api_impl_s2j -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc_generator_bean -> com_sun_xml_bind_v2_runtime;
+  com_sun_tools_xjc_model -> com_sun_xml_bind_v2_model_util;
+  com_sun_tools_xjc_reader_dtd_bindinfo -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc_reader_internalizer -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc_reader_xmlschema -> com_sun_xml_bind_v2_runtime;
+  com_sun_tools_xjc_reader_xmlschema -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc_reader_xmlschema_bindinfo -> com_sun_xml_bind_v2_util;
+  com_sun_tools_xjc_reader_xmlschema_parser -> com_sun_xml_bind_v2_util;
+}

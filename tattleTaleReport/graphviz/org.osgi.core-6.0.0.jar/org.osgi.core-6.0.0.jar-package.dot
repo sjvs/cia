@@ -1,0 +1,29 @@
+digraph org_osgi_core_6_0_0_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_osgi_dto -> org_osgi_annotation_versioning;
+  org_osgi_framework -> org_osgi_annotation_versioning;
+  org_osgi_framework_dto -> org_osgi_annotation_versioning;
+  org_osgi_framework_dto -> org_osgi_dto;
+  org_osgi_framework_hooks_bundle -> org_osgi_annotation_versioning;
+  org_osgi_framework_hooks_resolver -> org_osgi_annotation_versioning;
+  org_osgi_framework_hooks_service -> org_osgi_annotation_versioning;
+  org_osgi_framework_hooks_weaving -> org_osgi_annotation_versioning;
+  org_osgi_framework_launch -> org_osgi_annotation_versioning;
+  org_osgi_framework_namespace -> org_osgi_annotation_versioning;
+  org_osgi_framework_namespace -> org_osgi_resource;
+  org_osgi_framework_startlevel -> org_osgi_annotation_versioning;
+  org_osgi_framework_startlevel_dto -> org_osgi_annotation_versioning;
+  org_osgi_framework_startlevel_dto -> org_osgi_dto;
+  org_osgi_framework_wiring -> org_osgi_annotation_versioning;
+  org_osgi_framework_wiring -> org_osgi_resource;
+  org_osgi_framework_wiring_dto -> org_osgi_annotation_versioning;
+  org_osgi_framework_wiring_dto -> org_osgi_dto;
+  org_osgi_framework_wiring_dto -> org_osgi_resource_dto;
+  org_osgi_resource -> org_osgi_annotation_versioning;
+  org_osgi_resource_dto -> org_osgi_annotation_versioning;
+  org_osgi_resource_dto -> org_osgi_dto;
+  org_osgi_service_condpermadmin -> org_osgi_annotation_versioning;
+  org_osgi_service_permissionadmin -> org_osgi_annotation_versioning;
+  org_osgi_service_url -> org_osgi_annotation_versioning;
+  org_osgi_util_tracker -> org_osgi_annotation_versioning;
+}

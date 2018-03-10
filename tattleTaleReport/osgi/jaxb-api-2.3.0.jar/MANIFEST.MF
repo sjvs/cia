@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Bundle-License: https://oss.oracle.com/licenses/CDDL+GPL-1.1, https://
+ oss.oracle.com/licenses/CDDL+GPL-1.1
+Bundle-SymbolicName: jaxb-api
+Archiver-Version: Plexus Archiver
+Built-By: build
+Bnd-LastModified: 1501500436975
+Specification-Title: jaxb-api
+Implementation-Vendor-Id: org.glassfish
+Bundle-DocURL: http://www.oracle.com/
+Import-Package: javax.activation,javax.xml.bind;version="[2.3,3)",java
+ x.xml.bind.annotation;version="[2.3,3)",javax.xml.bind.annotation.ada
+ pters;version="[2.3,3)",javax.xml.bind.attachment;version="[2.3,3)",j
+ avax.xml.datatype,javax.xml.namespace,javax.xml.parsers,javax.xml.str
+ eam,javax.xml.transform,javax.xml.transform.dom,javax.xml.transform.s
+ ax,javax.xml.transform.stream,javax.xml.validation,org.w3c.dom,org.xm
+ l.sax,org.xml.sax.ext,org.xml.sax.helpers,javax.xml.bind.helpers;vers
+ ion="[2.3,3)",javax.xml.bind.util;version="[2.3,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+DynamicImport-Package: org.glassfish.hk2.osgiresourcelocator
+Export-Package: javax.xml.bind;version="2.3";uses:="javax.xml.bind.ann
+ otation.adapters,javax.xml.bind.attachment,javax.xml.namespace,javax.
+ xml.stream,javax.xml.transform,javax.xml.validation,org.w3c.dom,org.x
+ ml.sax",javax.xml.bind.annotation;version="2.3";uses:="javax.xml.bind
+ ,javax.xml.parsers,javax.xml.transform,javax.xml.transform.dom,org.w3
+ c.dom",javax.xml.bind.annotation.adapters;version="2.3",javax.xml.bin
+ d.attachment;version="2.3";uses:="javax.activation",javax.xml.bind.he
+ lpers;version="2.3";uses:="javax.xml.bind,javax.xml.bind.annotation.a
+ dapters,javax.xml.bind.attachment,javax.xml.stream,javax.xml.transfor
+ m,javax.xml.validation,org.w3c.dom,org.xml.sax",javax.xml.bind.util;v
+ ersion="2.3";uses:="javax.xml.bind,javax.xml.transform.sax"
+Bundle-Name: jaxb-api
+Multi-Release: true
+Extension-Name: javax.xml.bind
+Bundle-Description: JAXB (JSR 222) API
+Implementation-Version: 2.3.0
+Specification-Vendor: Oracle Corporation
+Bundle-ManifestVersion: 2
+Bundle-Vendor: Oracle Corporation
+Tool: Bnd-3.3.0.201609221906
+Implementation-Vendor: Oracle Corporation
+Bundle-Version: 2.3.0
+Implementation-Build-Id: UNKNOWN-3fe234d268b9b70c95ef0ea736ff66135487a
+ 2d8, 2017-07-31T13:27:12+0200
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 9-ea
+Specification-Version: 2.3.0
+

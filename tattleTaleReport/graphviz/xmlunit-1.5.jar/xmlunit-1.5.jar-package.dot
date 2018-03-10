@@ -1,0 +1,10 @@
+digraph xmlunit_1_5_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_custommonkey_xmlunit -> org_custommonkey_xmlunit_examples;
+  org_custommonkey_xmlunit -> org_custommonkey_xmlunit_exceptions;
+  org_custommonkey_xmlunit -> org_custommonkey_xmlunit_util;
+  org_custommonkey_xmlunit_examples -> org_custommonkey_xmlunit;
+  org_custommonkey_xmlunit_examples -> org_custommonkey_xmlunit_exceptions;
+  org_custommonkey_xmlunit_jaxp13 -> org_custommonkey_xmlunit;
+  org_custommonkey_xmlunit_jaxp13 -> org_custommonkey_xmlunit_exceptions;
+}

@@ -1,0 +1,10 @@
+digraph hawtdispatch_scala_1_22_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_fusesource_hawtdispatch -> scala;
+  org_fusesource_hawtdispatch -> scala_collection;
+  org_fusesource_hawtdispatch -> scala_collection_generic;
+  org_fusesource_hawtdispatch -> scala_collection_immutable;
+  org_fusesource_hawtdispatch -> scala_collection_mutable;
+  org_fusesource_hawtdispatch -> scala_reflect;
+  org_fusesource_hawtdispatch -> scala_runtime;
+}

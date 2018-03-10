@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Bundle-Description: JAXB2 Basics is a part of JAXB2 Commons project wh
+ ich implements plugins and tools for JAXB 2.x reference implementatio
+ n.
+Bundle-License: http://www.opensource.org/licenses/bsd-license.php
+Bundle-SymbolicName: org.jvnet.jaxb2_commons.jaxb2-basics-runtime
+Archiver-Version: Plexus Archiver
+Built-By: Alexey Valikov
+Bnd-LastModified: 1467316307529
+Bundle-ManifestVersion: 2
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Import-Package: com.sun.xml.bind.api.impl,com.sun.xml.bind.v2.model.co
+ re,javax.activation,javax.xml.bind;version="[2.2,3)",javax.xml.bind.a
+ nnotation;version="[2.2,3)",javax.xml.bind.annotation.adapters;versio
+ n="[2.2,3)",javax.xml.namespace,org.w3c.dom,org.xml.sax
+Tool: Bnd-2.3.0.201405100607
+Export-Package: org.jvnet.jaxb2_commons.i18n;version="0.11.1",org.jvne
+ t.jaxb2_commons.lang;uses:="javax.xml.bind,org.jvnet.jaxb2_commons.lo
+ cator,org.w3c.dom";version="0.11.1",org.jvnet.jaxb2_commons.locator;u
+ ses:="javax.xml.bind,org.jvnet.jaxb2_commons.i18n,org.w3c.dom";versio
+ n="0.11.1",org.jvnet.jaxb2_commons.locator.util;uses:="org.jvnet.jaxb
+ 2_commons.locator,org.xml.sax";version="0.11.1",org.jvnet.jaxb2_commo
+ ns.xml.bind;uses:="javax.xml.bind";version="0.11.1",org.jvnet.jaxb2_c
+ ommons.xml.bind.annotation.adapters;uses:="javax.xml.bind.annotation.
+ adapters";version="0.11.1",org.jvnet.jaxb2_commons.xml.bind.model.con
+ crete;uses:="com.sun.xml.bind.v2.model.core,javax.activation,javax.xm
+ l.namespace,org.jvnet.jaxb2_commons.xml.bind.model,org.jvnet.jaxb2_co
+ mmons.xml.bind.model.origin,org.w3c.dom";version="0.11.1",org.jvnet.j
+ axb2_commons.xml.bind.model.concrete.origin;uses:="com.sun.xml.bind.v
+ 2.model.core,org.jvnet.jaxb2_commons.xml.bind.model,org.jvnet.jaxb2_c
+ ommons.xml.bind.model.origin";version="0.11.1",org.jvnet.jaxb2_common
+ s.xml.bind.model;uses:="javax.xml.namespace,org.jvnet.jaxb2_commons.x
+ ml.bind.model.origin";version="0.11.1",org.jvnet.jaxb2_commons.xml.bi
+ nd.model.origin;version="0.11.1",org.jvnet.jaxb2_commons.xml.bind.mod
+ el.util;uses:="javax.xml.namespace,org.jvnet.jaxb2_commons.xml.bind.m
+ odel";version="0.11.1",org.jvnet.jaxb2_commons.xml.namespace.util;use
+ s:="javax.xml.namespace";version="0.11.1",org.jvnet.jaxb2_commons.xml
+ schema;uses:="javax.xml.namespace";version="0.11.1"
+Bundle-Name: JAXB2 Basics - Runtime
+Bundle-Version: 0.11.1
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.7.0_80
+

@@ -1,0 +1,4 @@
+digraph jboss_connector_api_1_7_spec_1_0_0_Final_dependencies {
+  node [shape = box, fontsize=10.0];
+  jboss_connector_api_1_7_spec_1_0_0_Final -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+}

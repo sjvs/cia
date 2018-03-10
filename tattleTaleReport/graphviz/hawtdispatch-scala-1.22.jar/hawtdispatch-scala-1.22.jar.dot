@@ -1,0 +1,4 @@
+digraph hawtdispatch_scala_1_22_dependencies {
+  node [shape = box, fontsize=10.0];
+  hawtdispatch_scala_1_22 -> hawtdispatch_1_22;
+}

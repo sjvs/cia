@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Bundle-Description: OSGi Core Release 6, Interfaces and Classes for us
+ e in compiling bundles.
+Bundle-License: http://opensource.org/licenses/apache2.0.php; link="ht
+ tp://www.apache.org/licenses/LICENSE-2.0"; description="Apache Licens
+ e, Version 2.0"
+Bundle-SymbolicName: osgi.core
+Bnd-LastModified: 1394131053386
+Bundle-ManifestVersion: 2
+Bundle-Copyright: Copyright (c) OSGi Alliance (2000, 2014). All Rights
+  Reserved.
+Bundle-Vendor: OSGi Alliance
+Import-Package: javax.security.auth.x500;resolution:=optional
+DynamicImport-Package: *
+Tool: Bnd-2.2.0.20130927-173453
+Export-Package: org.osgi.dto;version="1.0",org.osgi.resource;version="
+ 1.0",org.osgi.resource.dto;version="1.0";uses:="org.osgi.dto",org.osg
+ i.framework;version="1.8",org.osgi.framework.dto;version="1.8";uses:=
+ "org.osgi.dto",org.osgi.framework.hooks.bundle;version="1.1";uses:="o
+ rg.osgi.framework",org.osgi.framework.hooks.resolver;version="1.0";us
+ es:="org.osgi.framework.wiring",org.osgi.framework.hooks.service;vers
+ ion="1.1";uses:="org.osgi.framework",org.osgi.framework.hooks.weaving
+ ;version="1.1";uses:="org.osgi.framework.wiring",org.osgi.framework.l
+ aunch;version="1.2";uses:="org.osgi.framework",org.osgi.framework.nam
+ espace;version="1.1";uses:="org.osgi.resource",org.osgi.framework.sta
+ rtlevel;version="1.0";uses:="org.osgi.framework",org.osgi.framework.s
+ tartlevel.dto;version="1.0";uses:="org.osgi.dto",org.osgi.framework.w
+ iring;version="1.2";uses:="org.osgi.framework,org.osgi.resource",org.
+ osgi.framework.wiring.dto;version="1.2";uses:="org.osgi.dto,org.osgi.
+ resource.dto",org.osgi.service.condpermadmin;version="1.1.1";uses:="o
+ rg.osgi.framework,org.osgi.service.permissionadmin",org.osgi.service.
+ packageadmin;version="1.2";uses:="org.osgi.framework",org.osgi.servic
+ e.permissionadmin;version="1.2",org.osgi.service.startlevel;version="
+ 1.1";uses:="org.osgi.framework",org.osgi.service.url;version="1.0",or
+ g.osgi.util.tracker;version="1.5.1";uses:="org.osgi.framework"
+Bundle-Name: osgi.core
+Bundle-Version: 6.0.0.201403061837
+Created-By: 1.6.0_45 (Sun Microsystems Inc.)
+

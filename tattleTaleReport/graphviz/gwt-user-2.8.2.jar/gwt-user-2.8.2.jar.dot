@@ -1,0 +1,15 @@
+digraph gwt_user_2_8_2_dependencies {
+  node [shape = box, fontsize=10.0];
+  gwt_user_2_8_2 -> asm_6_1_beta2;
+  gwt_user_2_8_2 -> commons_io_2_6;
+  gwt_user_2_8_2 -> gson_2_8_2;
+  gwt_user_2_8_2 -> gwt_dev_2_8_2;
+  gwt_user_2_8_2 -> icu4j_60_2;
+  gwt_user_2_8_2 -> jcl_over_slf4j_1_8_0_beta1;
+  gwt_user_2_8_2 -> jsinterop_annotations_1_0_2;
+  gwt_user_2_8_2 -> jsr305_1_3_9;
+  gwt_user_2_8_2 -> junit_4_12;
+  gwt_user_2_8_2 -> sac_1_3;
+  gwt_user_2_8_2 -> validation_api_2_0_1_Final;
+  gwt_user_2_8_2 -> xml_apis_1_4_01;
+}

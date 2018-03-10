@@ -27,10 +27,10 @@ node "Operation Center Account" <<Aws Account>> as 8 {
 36 ..> 29 : manage access
 34 ..> 30 : publish event/audit
 28 ..> 30 : Monitor event/audit
-41 ..> 34 : create/restrict
 41 ..> 30 : create/restrict
 41 ..> 30 : publish event/audit
+41 ..> 34 : create/restrict
 41 ..> 28 : create/restrict
-36 ..> 34 : manage access
 36 ..> 30 : publish event/audit
+36 ..> 34 : manage access
 @enduml

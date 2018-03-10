@@ -1,0 +1,9 @@
+digraph ehcache_web_2_0_4_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  net_sf_ehcache_constructs_web -> net_sf_ehcache;
+  net_sf_ehcache_constructs_web -> net_sf_ehcache_constructs_web_filter;
+  net_sf_ehcache_constructs_web_filter -> net_sf_ehcache;
+  net_sf_ehcache_constructs_web_filter -> net_sf_ehcache_config;
+  net_sf_ehcache_constructs_web_filter -> net_sf_ehcache_constructs_blocking;
+  net_sf_ehcache_constructs_web_filter -> net_sf_ehcache_constructs_web;
+}

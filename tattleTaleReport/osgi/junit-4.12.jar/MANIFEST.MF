@@ -1,0 +1,45 @@
+Manifest-Version: 1.0
+Implementation-Title: JUnit
+Implementation-Version: 4.12
+Archiver-Version: Plexus Archiver
+Built-By: jenkins
+Implementation-Vendor-Id: junit
+Build-Jdk: 1.6.0_45
+Created-By: Apache Maven 3.0.4
+Implementation-Vendor: JUnit
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.junit.rules
+Bundle-Description: junit-4.12
+Bundle-Name: junit-4.12
+Bundle-Version: 4.12
+Export-Package: junit.extensions,junit.framework;uses:="org.junit.inte
+ rnal",junit.runner,junit.textui,org.junit;uses:="org.hamcrest,org.jun
+ it.runners",org.junit.experimental,org.junit.experimental.categories;
+ uses:="org.junit.internal,org.junit.runner,org.junit.validator",org.j
+ unit.experimental.max,org.junit.experimental.results;uses:="org.hamcr
+ est",org.junit.experimental.runners,org.junit.experimental.theories;u
+ ses:="org.junit.experimental.theories.internal",org.junit.experimenta
+ l.theories.internal;uses:="org.junit.experimental.theories",org.junit
+ .experimental.theories.suppliers,org.junit.internal;uses:="org.junit,
+ org.junit.runners",org.junit.internal.builders,org.junit.internal.mat
+ chers;uses:="org.hamcrest,org.junit.internal",org.junit.internal.requ
+ ests,org.junit.internal.runners;uses:="org.junit.internal,org.junit.r
+ unners.model",org.junit.internal.runners.model,org.junit.internal.run
+ ners.rules,org.junit.internal.runners.statements;uses:="org.junit.run
+ ners.model",org.junit.matchers;uses:="org.hamcrest.core,org.junit.int
+ ernal.matchers",org.junit.rules;uses:="org.junit,org.junit.internal.m
+ atchers,org.junit.internal.runners.statements",org.junit.runner;uses:
+ ="org.junit.internal,org.junit.runner.notification",org.junit.runner.
+ manipulation,org.junit.runner.notification,org.junit.runners;uses:="o
+ rg.junit.internal,org.junit.internal.runners.rules,org.junit.internal
+ .runners.statements,org.junit.runners.parameterized,org.junit.validat
+ or",org.junit.runners.model;uses:="org.junit.internal",org.junit.runn
+ ers.parameterized;uses:="org.junit.runners",org.junit.validator;uses:
+ ="org.junit.runners.model"
+Import-Package: java.io,java.lang,java.lang.annotation,java.lang.manag
+ ement,java.lang.reflect,java.text,java.util,java.util.concurrent,java
+ .util.concurrent.atomic,java.util.regex,org.hamcrest;version="1.3",or
+ g.hamcrest.core;version="1.3"

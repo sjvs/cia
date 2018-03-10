@@ -1,0 +1,7 @@
+digraph hibernate_jcache_5_3_0_CR1_dependencies {
+  node [shape = box, fontsize=10.0];
+  hibernate_jcache_5_3_0_CR1 -> cache_api_1_0_0;
+  hibernate_jcache_5_3_0_CR1 -> hibernate_core_5_3_0_CR1;
+  hibernate_jcache_5_3_0_CR1 -> jboss_logging_3_3_2_Final;
+  hibernate_jcache_5_3_0_CR1 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+}

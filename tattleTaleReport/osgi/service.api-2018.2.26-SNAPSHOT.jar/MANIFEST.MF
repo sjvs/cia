@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Built-By: pether
+Created-By: Apache Maven 3.5.3
+Build-Jdk: 1.8.0_161
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.hack23.cia.service.api.action.admin
+Bundle-Description: service.api-2018.2.26-SNAPSHOT
+Bundle-Name: service.api-2018.2.26-SNAPSHOT
+Bundle-Version: 0.0.0
+Export-Package: com.hack23.cia.service.api;uses:="com.hack23.cia.model
+ .internal.application.data.impl,com.hack23.cia.model.internal.applica
+ tion.system.impl,com.hack23.cia.service.api.action.common,java.lang,o
+ rg.apache.commons.lang3.builder",com.hack23.cia.service.api.action.ad
+ min;uses:="com.hack23.cia.service.api.action.common,javax.validation.
+ constraints",com.hack23.cia.service.api.action.application;uses:="com
+ .hack23.cia.model.internal.application.system.impl,com.hack23.cia.mod
+ el.internal.application.user.impl,com.hack23.cia.service.api.action.c
+ ommon,javax.validation.constraints",com.hack23.cia.service.api.action
+ .common;uses:="org.apache.commons.lang3.builder",com.hack23.cia.servi
+ ce.api.action.kpi;uses:="com.hack23.cia.service.api.action.common,org
+ .apache.commons.collections4,org.apache.commons.lang3.builder",com.ha
+ ck23.cia.service.api.action.user;uses:="com.hack23.cia.service.api.ac
+ tion.common,java.util.stream"
+Import-Package: com.hack23.cia.model.internal.application.data.impl;ve
+ rsion="0.0.0",com.hack23.cia.model.internal.application.system.impl;v
+ ersion="0.0.0",com.hack23.cia.model.internal.application.user.impl;ve
+ rsion="0.0.0",java.io,java.lang,java.util,java.util.concurrent,java.u
+ til.stream,javax.persistence.metamodel;version="2.2",javax.validation
+ .constraints;version="0.0.0",org.apache.commons.collections4;version=
+ "4.1",org.apache.commons.lang3.builder;version="3.7"

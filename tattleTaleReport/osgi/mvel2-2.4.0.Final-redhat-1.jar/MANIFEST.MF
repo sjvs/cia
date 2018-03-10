@@ -1,0 +1,89 @@
+Manifest-Version: 1.0
+Bundle-Description: MVEL is a powerful expression language for Java-ba
+ sed applications.        It provides a plethora of features and is su
+ ited for everything        from the smallest property binding and ext
+ raction, to full blown scripts.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Package: org.mvel2
+Bundle-SymbolicName: org.mvel2
+Archiver-Version: Plexus Archiver
+Built-By: mockbuild
+Bnd-LastModified: 1510045199899
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://www.jboss.org/
+Bundle-Vendor: JBoss by Red Hat
+Import-Package: javax.script,javax.xml.transform,javax.xml.transform.s
+ ax,javax.xml.transform.stream,org.xml.sax,org.xml.sax.ext,org.xml.sax
+ .helpers
+Tool: Bnd-1.50.0
+Main-Class: org.mvel2.sh.Main
+Export-Package: org.mvel2.templates.util.io;uses:="org.mvel2.templates
+ .util,org.mvel2.util";version="2.4.0.Final-redhat-1",org.mvel2.jsr223
+ ;uses:="javax.script,org.mvel2";version="2.4.0.Final-redhat-1",org.mv
+ el2.sh.text;version="2.4.0.Final-redhat-1",org.mvel2.templates;uses:=
+ "org.mvel2.templates.res,org.mvel2,org.mvel2.util,org.mvel2.templates
+ .util,org.mvel2.templates.util.io,org.mvel2.integration,org.mvel2.int
+ egration.impl";version="2.4.0.Final-redhat-1",org.mvel2.asm.xml;uses:
+ ="org.mvel2.asm,org.xml.sax,org.xml.sax.helpers,org.xml.sax.ext,javax
+ .xml.transform.sax,javax.xml.transform,javax.xml.transform.stream,org
+ .mvel2.asm.util";version="2.4.0.Final-redhat-1",org.mvel2.optimizers.
+ impl.refl;uses:="org.mvel2.compiler,org.mvel2.optimizers,org.mvel2.op
+ timizers.impl.refl.collection,org.mvel2.ast,org.mvel2,org.mvel2.util,
+ org.mvel2.integration,org.mvel2.optimizers.impl.refl.nodes";version="
+ 2.4.0.Final-redhat-1",org.mvel2.sh.command.basic;uses:="org.mvel2.sh,
+ org.mvel2.sh.text,org.mvel2.util,org.mvel2";version="2.4.0.Final-redh
+ at-1",org.mvel2.asm.tree;uses:="org.mvel2.asm";version="2.4.0.Final-r
+ edhat-1",org.mvel2;uses:="org.mvel2.util,org.mvel2.conversion,org.mve
+ l2.compiler,org.mvel2.integration,org.mvel2.integration.impl,org.mvel
+ 2.optimizers.impl.refl.nodes,org.mvel2.ast,org.mvel2.debug,org.mvel2.
+ optimizers";version="2.4.0.Final-redhat-1",org.mvel2.asm.signature;us
+ es:="org.mvel2.asm";version="2.4.0.Final-redhat-1",org.mvel2.optimize
+ rs.impl.asm;uses:="org.mvel2.asm,org.mvel2.compiler,org.mvel2.optimiz
+ ers,org.mvel2.ast,org.mvel2,org.mvel2.util,org.mvel2.integration,org.
+ mvel2.optimizers.impl.refl.nodes";version="2.4.0.Final-redhat-1",org.
+ mvel2.debug;uses:="org.mvel2,org.mvel2.compiler,org.mvel2.util,org.mv
+ el2.integration,org.mvel2.ast";version="2.4.0.Final-redhat-1",org.mve
+ l2.integration.impl;uses:="org.mvel2,org.mvel2.integration,org.mvel2.
+ ast,org.mvel2.util";version="2.4.0.Final-redhat-1",org.mvel2.optimize
+ rs.impl.refl.nodes;uses:="org.mvel2.compiler,org.mvel2.integration,or
+ g.mvel2,org.mvel2.util,org.mvel2.ast,org.mvel2.optimizers";version="2
+ .4.0.Final-redhat-1",org.mvel2.asm.commons;uses:="org.mvel2.asm,org.m
+ vel2.asm.tree,org.mvel2.asm.signature";version="2.4.0.Final-redhat-1"
+ ,org.mvel2.asm.util;uses:="org.mvel2.asm,org.mvel2.asm.tree.analysis,
+ org.mvel2.asm.tree,org.mvel2.asm.signature";version="2.4.0.Final-redh
+ at-1",org.mvel2.asm;version="2.4.0.Final-redhat-1",org.mvel2.compiler
+ ;uses:="org.mvel2,org.mvel2.util,org.mvel2.integration,org.mvel2.ast,
+ org.mvel2.optimizers,org.mvel2.integration.impl,org.mvel2.optimizers.
+ impl.refl.nodes";version="2.4.0.Final-redhat-1",org.mvel2.optimizers;
+ uses:="org.mvel2,org.mvel2.compiler,org.mvel2.util,org.mvel2.integrat
+ ion,org.mvel2.optimizers.impl.asm,org.mvel2.optimizers.impl.refl,org.
+ mvel2.optimizers.dynamic";version="2.4.0.Final-redhat-1",org.mvel2.op
+ timizers.impl.refl.collection;uses:="org.mvel2.compiler,org.mvel2.int
+ egration,org.mvel2,org.mvel2.util";version="2.4.0.Final-redhat-1",org
+ .mvel2.templates.util;uses:="org.mvel2.util,org.mvel2.templates,org.m
+ vel2.templates.res";version="2.4.0.Final-redhat-1",org.mvel2.ast;uses
+ :="org.mvel2,org.mvel2.compiler,org.mvel2.util,org.mvel2.integration,
+ org.mvel2.optimizers,org.mvel2.debug,org.mvel2.math,org.mvel2.integra
+ tion.impl";version="2.4.0.Final-redhat-1",org.mvel2.templates.res;use
+ s:="org.mvel2,org.mvel2.integration,org.mvel2.templates,org.mvel2.tem
+ plates.util,org.mvel2.util,org.mvel2.integration.impl";version="2.4.0
+ .Final-redhat-1",org.mvel2.optimizers.dynamic;uses:="org.mvel2.compil
+ er,org.mvel2.util,org.mvel2,org.mvel2.optimizers,org.mvel2.integratio
+ n,org.mvel2.optimizers.impl.asm";version="2.4.0.Final-redhat-1",org.m
+ vel2.conversion;uses:="org.mvel2,org.mvel2.compiler";version="2.4.0.F
+ inal-redhat-1",org.mvel2.sh;uses:="org.mvel2,org.mvel2.templates,org.
+ mvel2.sh.command.file,org.mvel2.util,org.mvel2.integration,org.mvel2.
+ integration.impl,org.mvel2.sh.command.basic";version="2.4.0.Final-red
+ hat-1",org.mvel2.math;uses:="org.mvel2,org.mvel2.compiler,org.mvel2.u
+ til,org.mvel2.debug";version="2.4.0.Final-redhat-1",org.mvel2.sh.comm
+ and.file;uses:="org.mvel2.sh";version="2.4.0.Final-redhat-1",org.mvel
+ 2.util;uses:="org.mvel2,org.mvel2.ast,org.mvel2.integration,org.mvel2
+ .compiler,org.mvel2.integration.impl,org.mvel2.math";version="2.4.0.F
+ inal-redhat-1",org.mvel2.integration;uses:="org.mvel2.ast";version="2
+ .4.0.Final-redhat-1",org.mvel2.asm.tree.analysis;uses:="org.mvel2.asm
+ ,org.mvel2.asm.tree";version="2.4.0.Final-redhat-1"
+Bundle-Name: mvel2
+Bundle-Version: 2.4.0.Final-redhat-1
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_151
+

@@ -1,0 +1,6 @@
+digraph hawtdispatch_transport_1_22_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  org_fusesource_hawtdispatch_transport -> org_fusesource_hawtbuf;
+  org_fusesource_hawtdispatch_transport -> org_fusesource_hawtdispatch;
+  org_fusesource_hawtdispatch_transport -> org_fusesource_hawtdispatch_util;
+}

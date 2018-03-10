@@ -1,0 +1,6 @@
+digraph jackson_mapper_asl_1_9_13_redhat_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  jackson_mapper_asl_1_9_13_redhat_4 -> jackson_core_asl_1_9_13_redhat_4;
+  jackson_mapper_asl_1_9_13_redhat_4 -> joda_time_2_9_9;
+  jackson_mapper_asl_1_9_13_redhat_4 -> xml_apis_1_4_01;
+}

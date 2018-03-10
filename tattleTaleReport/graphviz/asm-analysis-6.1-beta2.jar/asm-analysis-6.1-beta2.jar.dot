@@ -1,0 +1,5 @@
+digraph asm_analysis_6_1_beta2_dependencies {
+  node [shape = box, fontsize=10.0];
+  asm_analysis_6_1_beta2 -> asm_6_1_beta2;
+  asm_analysis_6_1_beta2 -> asm_tree_6_1_beta2;
+}
