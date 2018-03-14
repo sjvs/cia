@@ -20,15 +20,12 @@ package com.hack23.cia.web.impl.ui.application.views.pageclicklistener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hack23.cia.model.internal.application.data.impl.DataAgentOperation;
 import com.hack23.cia.model.internal.application.data.impl.DataAgentTarget;
 import com.hack23.cia.model.internal.application.data.impl.DataAgentWorkOrder;
-import com.hack23.cia.service.api.AgentContainer;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
-import com.vaadin.ui.ComboBox;
 
 /**
  * The Class StartAgentClickListener.
@@ -42,47 +39,38 @@ public final class StartAgentClickListener implements ClickListener {
 	private static final String LOG_MSG_EXECUTE_WORKORDER = &quot;Execute workorder:{}&quot;;
 
 	/** The Constant LOGGER. */
-<span class="fc" id="L45">	private static final Logger LOGGER = LoggerFactory.getLogger(StartAgentClickListener.class);</span>
+<span class="fc" id="L42">	private static final Logger LOGGER = LoggerFactory.getLogger(StartAgentClickListener.class);</span>
 
-	/** The target select. */
-	private final ComboBox targetSelect;
+	/** The data agent target. */
+	private final DataAgentTarget dataAgentTarget;
 
-	/** The operation select. */
-	private final ComboBox operationSelect;
-
-	/** The agent container. */
-	@Autowired
-	private transient AgentContainer agentContainer;
+	/** The data agent operation. */
+	private final DataAgentOperation dataAgentOperation;
 
 	/**
 	 * Instantiates a new start agent click listener.
 	 *
-	 * @param targetSelect
-	 *            the target select
-	 * @param operationSelect
-	 *            the operation select
+	 * @param dataAgentTarget
+	 *            the data agent target
+	 * @param dataAgentOperation
+	 *            the data agent operation
 	 * @param agentContainer
 	 *            the agent container
 	 */
-	public StartAgentClickListener(final ComboBox targetSelect, final ComboBox operationSelect, final AgentContainer agentContainer) {
-<span class="fc" id="L68">		super();</span>
-<span class="fc" id="L69">		this.targetSelect = targetSelect;</span>
-<span class="fc" id="L70">		this.operationSelect = operationSelect;</span>
-<span class="fc" id="L71">		this.agentContainer = agentContainer;</span>
-<span class="fc" id="L72">	}</span>
+	public StartAgentClickListener(final DataAgentTarget dataAgentTarget, final DataAgentOperation dataAgentOperation) {
+<span class="fc" id="L61">		super();</span>
+<span class="fc" id="L62">		this.dataAgentTarget = dataAgentTarget;</span>
+<span class="fc" id="L63">		this.dataAgentOperation = dataAgentOperation;</span>
+<span class="fc" id="L64">	}</span>
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="pc bpc" id="L76" title="3 of 4 branches missed.">		if (targetSelect.getValue() != null &amp;&amp; operationSelect.getValue() != null) {</span>
-<span class="nc" id="L77">			final DataAgentWorkOrder dataAgentWorkOrder = new DataAgentWorkOrder();</span>
-<span class="nc" id="L78">			final DataAgentTarget target = DataAgentTarget.valueOf(targetSelect.getValue().toString());</span>
-<span class="nc" id="L79">			dataAgentWorkOrder.setTarget(target);</span>
-<span class="nc" id="L80">			dataAgentWorkOrder.setOperation(DataAgentOperation.valueOf(operationSelect.getValue().toString()));</span>
-<span class="nc" id="L81">			LOGGER.info(LOG_MSG_EXECUTE_WORKORDER, dataAgentWorkOrder);</span>
-<span class="nc" id="L82">			agentContainer.execute(dataAgentWorkOrder);</span>
-		}
-<span class="fc" id="L84">	}</span>
-
+<span class="fc" id="L68">		final DataAgentWorkOrder dataAgentWorkOrder = new DataAgentWorkOrder();</span>
+<span class="fc" id="L69">		dataAgentWorkOrder.setTarget(dataAgentTarget);</span>
+<span class="fc" id="L70">		dataAgentWorkOrder.setOperation(dataAgentOperation);</span>
+<span class="fc" id="L71">		LOGGER.info(LOG_MSG_EXECUTE_WORKORDER, dataAgentWorkOrder);</span>
+<span class="fc" id="L72">		ApplicationMangerAccess.getApplicationManager().getAgentContainer().execute(dataAgentWorkOrder);</span>
+<span class="fc" id="L73">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -91,7 +91,7 @@ public final class AdminLanguagePageModContentFactoryImpl extends AbstractAdminS
 
 <span class="fc" id="L92">		final List&lt;LanguageData&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,LanguageData_.languageName);</span>
 
-<span class="fc" id="L94">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L94">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L96">		getGridFactory().createBasicBeanItemGrid(content,</span>
 				LanguageData.class, pageOrderBy, LANGUAGE_DATA,

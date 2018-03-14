@@ -21,6 +21,7 @@ package com.hack23.cia.web.impl.ui.application.views.common.chartfactory.impl;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Function;
 
 import org.springframework.stereotype.Service;
@@ -39,71 +40,71 @@ public final class MinistryGhantChartManagerImpl extends AbstractGhantChartManag
 	 * Instantiates a new ministry ghant chart manager impl.
 	 */
 	public MinistryGhantChartManagerImpl() {
-<span class="fc" id="L42">		super();</span>
-<span class="fc" id="L43">	}</span>
+<span class="fc" id="L43">		super();</span>
+<span class="fc" id="L44">	}</span>
 
 	@Override
 	protected Comparator&lt;ViewRiksdagenGovermentRoleMember&gt; getComparator() {
-<span class="fc" id="L47">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
+<span class="fc" id="L48">		return (o1, o2) -&gt; o1.getFromDate().compareTo(o2.getFromDate());</span>
 	}
 
 	@Override
 	protected Function&lt;ViewRiksdagenGovermentRoleMember, String&gt; getRoleMapping() {
-<span class="fc" id="L52">		return new RoleMapping();</span>
+<span class="fc" id="L53">		return new RoleMapping();</span>
 	}
 
 	@Override
 	protected StepMapping&lt;ViewRiksdagenGovermentRoleMember&gt; getStepMapping() {
-<span class="fc" id="L57">		return new StepMapping&lt;ViewRiksdagenGovermentRoleMember&gt;() {</span>
+<span class="fc" id="L58">		return new StepMapping&lt;ViewRiksdagenGovermentRoleMember&gt;() {</span>
 
 			@Override
 			public Date getFromDate(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L61">				return t.getFromDate();</span>
+<span class="fc" id="L62">				return t.getFromDate();</span>
 			}
 
 			@Override
 			public Date getToDate(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L66">				return t.getToDate();</span>
+<span class="fc" id="L67">				return Optional.ofNullable(t.getToDate()).orElse(new Date());</span>
 			}
 
 			@Override
 			public String getRoleCode(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L71">				return t.getRoleCode();</span>
+<span class="fc" id="L72">				return t.getRoleCode();</span>
 			}
 
 			@Override
 			public String getOrg(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L76">				return t.getDetail();</span>
+<span class="fc" id="L77">				return t.getDetail();</span>
 			}
 
 			@Override
 			public String getParty(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L81">				return t.getParty();</span>
+<span class="fc" id="L82">				return t.getParty();</span>
 			}
 
 			@Override
 			public String getBackgroundColor(final ViewRiksdagenGovermentRoleMember t) {
 				String color;
 
-<span class="fc bfc" id="L88" title="All 2 branches covered.">				if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;statsråd&quot;)) {</span>
-<span class="fc" id="L89">					color = &quot;ded858&quot;;</span>
-<span class="fc bfc" id="L90" title="All 2 branches covered.">				} else if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;statsminister&quot;)) {</span>
-<span class="fc" id="L91">					color = &quot;3271c8&quot;;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">				if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;statsråd&quot;)) {</span>
+<span class="fc" id="L90">					color = &quot;ded858&quot;;</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">				} else if (t.getRoleCode().toLowerCase(Locale.ENGLISH).contains(&quot;statsminister&quot;)) {</span>
+<span class="fc" id="L92">					color = &quot;3271c8&quot;;</span>
 				} else {
-<span class="fc" id="L93">					color = &quot;0eab76&quot;;</span>
+<span class="fc" id="L94">					color = &quot;0eab76&quot;;</span>
 				}
 
-<span class="fc" id="L96">				return color;</span>
+<span class="fc" id="L97">				return color;</span>
 			}
 
 			@Override
 			public Object getFirstName(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L101">				return t.getFirstName();</span>
+<span class="fc" id="L102">				return t.getFirstName();</span>
 			}
 
 			@Override
 			public Object getLastName(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L106">				return t.getLastName();</span>
+<span class="fc" id="L107">				return t.getLastName();</span>
 			}
 
 		};
@@ -116,7 +117,7 @@ public final class MinistryGhantChartManagerImpl extends AbstractGhantChartManag
 
 		@Override
 		public String apply(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L119">			return t.getRoleCode()+ &quot;.[&quot;+ t.getPersonId() +&quot;].&quot; + t.getDetail();</span>
+<span class="fc" id="L120">			return t.getRoleCode()+ &quot;.[&quot;+ t.getPersonId() +&quot;].&quot; + t.getDetail();</span>
 		}
 	}
 

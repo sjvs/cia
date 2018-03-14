@@ -18,24 +18,22 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.admin.agentoperations.pagemode;
 
-import java.util.Arrays;
+import java.text.MessageFormat;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.impl.DataAgentOperation;
 import com.hack23.cia.model.internal.application.data.impl.DataAgentTarget;
-import com.hack23.cia.service.api.AgentContainer;
+import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.StartAgentClickListener;
+import com.jarektoro.responsivelayout.ResponsiveRow;
 import com.vaadin.icons.VaadinIcons;
-import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
@@ -48,78 +46,63 @@ import com.vaadin.ui.VerticalLayout;
 public final class AgentOperationsOverviewPageModContentFactoryImpl
 		extends AbstractAgentOperationsPageModContentFactoryImpl {
 
+	/** The Constant WILL_FETCH_DATA_FROM_SOURCE. */
+	private static final String WILL_FETCH_DATA_FROM_SOURCE = &quot;Will fetch data from source&quot;;
+
+	/** The Constant BUTTON_ID_PATTERN. */
+	private static final String BUTTON_ID_PATTERN = &quot;{0}.{1}.{2}&quot;;
+
+	/** The Constant BUTTON_PATTERN. */
+	private static final String BUTTON_PATTERN = &quot;Start {0} {1}&quot;;
+
 	/** The Constant NAME. */
 	public static final String NAME = AdminViews.ADMIN_AGENT_OPERATIONVIEW_NAME;
 
-	/** The Constant OPERATION2. */
-	private static final String OPERATION2 = &quot;/Operation&quot;;
-
-	/** The Constant TARGET2. */
-	private static final String TARGET2 = &quot;/Target&quot;;
-
-	/** The Constant START. */
-	private static final String START = &quot;Start&quot;;
-
-	/** The Constant OPERATION. */
-	private static final String OPERATION = &quot;Operation&quot;;
-
-	/** The Constant TARGET. */
-	private static final String TARGET = &quot;Target&quot;;
-
 	/** The Constant ADMIN_AGENT_OPERATION. */
 	private static final String ADMIN_AGENT_OPERATION = &quot;Admin Agent Operation&quot;;
-
-	/** The agent container. */
-	@Autowired
-	private AgentContainer agentContainer;
 
 	/**
 	 * Instantiates a new agent operations overview page mod content factory
 	 * impl.
 	 */
 	public AgentOperationsOverviewPageModContentFactoryImpl() {
-<span class="fc" id="L81">		super();</span>
-<span class="fc" id="L82">	}</span>
+<span class="fc" id="L69">		super();</span>
+<span class="fc" id="L70">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L86">		return NAME.equals(page);</span>
+<span class="fc" id="L74">		return NAME.equals(page);</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L92">		final VerticalLayout content = createPanelContent();</span>
+<span class="fc" id="L80">		final VerticalLayout content = createPanelContent();</span>
 
-<span class="fc" id="L94">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
+<span class="fc" id="L82">		getMenuItemFactory().createMainPageMenuBar(menuBar);</span>
 
-<span class="fc" id="L96">		LabelFactory.createHeader2Label(content,ADMIN_AGENT_OPERATION);</span>
+<span class="fc" id="L84">		LabelFactory.createHeader2Label(content,ADMIN_AGENT_OPERATION);</span>
+				
+<span class="fc" id="L86">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L87">		overviewLayout.setSizeFull();</span>
+<span class="fc" id="L88">		content.addComponent(overviewLayout);</span>
+<span class="fc" id="L89">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L98">		final ComboBox targetSelect = new ComboBox(TARGET, Arrays.asList(DataAgentTarget.values()));</span>
-<span class="fc" id="L99">		targetSelect.setId(ViewAction.START_AGENT_BUTTON + TARGET2);</span>
-<span class="fc" id="L100">		content.addComponent(targetSelect);</span>
-<span class="fc" id="L101">		content.setExpandRatio(targetSelect, ContentRatio.SMALL2);</span>
+<span class="fc" id="L91">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
+	
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		for (final DataAgentTarget dataAgentTarget : DataAgentTarget.values()) {</span>
+<span class="fc" id="L94">			final Button importDataButton = new Button(MessageFormat.format(BUTTON_PATTERN, DataAgentOperation.IMPORT, dataAgentTarget) , VaadinIcons.BULLSEYE);</span>
+<span class="fc" id="L95">			importDataButton.addClickListener(new StartAgentClickListener(dataAgentTarget, DataAgentOperation.IMPORT));</span>
+<span class="fc" id="L96">			importDataButton.setId(MessageFormat.format(BUTTON_ID_PATTERN, ViewAction.START_AGENT_BUTTON, DataAgentOperation.IMPORT, dataAgentTarget));</span>
+<span class="fc" id="L97">			createRowItem(grid, importDataButton, WILL_FETCH_DATA_FROM_SOURCE);</span>
+		}
+		
+<span class="fc" id="L100">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L101">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_ADMIN_AGENT_OPERATION_VIEW, ApplicationEventGroup.ADMIN,</span>
+				NAME, null, pageId);
 
-<span class="fc" id="L103">		final ComboBox operationSelect = new ComboBox(OPERATION, Arrays.asList(DataAgentOperation.values()));</span>
-<span class="fc" id="L104">		operationSelect.setId(ViewAction.START_AGENT_BUTTON + OPERATION2);</span>
-<span class="fc" id="L105">		content.addComponent(operationSelect);</span>
-<span class="fc" id="L106">		content.setExpandRatio(operationSelect, ContentRatio.SMALL2);</span>
 
-<span class="fc" id="L108">		final Button startAgentButton = new Button(START,</span>
-				new StartAgentClickListener(targetSelect, operationSelect, agentContainer));
-<span class="fc" id="L110">		startAgentButton.setId(ViewAction.START_AGENT_BUTTON.name());</span>
-<span class="fc" id="L111">		startAgentButton.setIcon(VaadinIcons.CROSSHAIRS);</span>
-<span class="fc" id="L112">		content.addComponent(startAgentButton);</span>
-<span class="fc" id="L113">		content.setExpandRatio(startAgentButton, ContentRatio.SMALL3);</span>
-
-<span class="fc" id="L115">		content.setSizeFull();</span>
-<span class="fc" id="L116">		content.setMargin(false);</span>
-<span class="fc" id="L117">		content.setSpacing(true);</span>
-
-<span class="fc" id="L119">		content.setWidth(100, Unit.PERCENTAGE);</span>
-<span class="fc" id="L120">		content.setHeight(100, Unit.PERCENTAGE);</span>
-
-<span class="fc" id="L122">		return content;</span>
+<span class="fc" id="L105">		return content;</span>
 	}
 
 }

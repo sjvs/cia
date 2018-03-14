@@ -41,7 +41,7 @@
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.converters.ListPropertyConverter;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.gridfactory.api.GridFactory;
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.pageclicklistener.AbstractPageItemRendererClickListener;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <strong class="jxr_keyword">import</strong> com.hack23.cia.web.impl.ui.application.views.pageclicklistener.PageItemRendererClickListener;
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <strong class="jxr_keyword">import</strong> com.vaadin.data.BeanPropertySet;
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <strong class="jxr_keyword">import</strong> com.vaadin.data.ValueProvider;
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <strong class="jxr_keyword">import</strong> com.vaadin.event.selection.SelectionListener;
@@ -72,7 +72,7 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  	@Override
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  	<strong class="jxr_keyword">public</strong> &lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> createBasicBeanItemGrid(<strong class="jxr_keyword">final</strong> AbstractOrderedLayout panelContent,
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  			<strong class="jxr_keyword">final</strong> Class&lt;T&gt; dataType, <strong class="jxr_keyword">final</strong> List&lt;T&gt; datasource, <strong class="jxr_keyword">final</strong> String caption, <strong class="jxr_keyword">final</strong> String[] columnOrder,
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  			<strong class="jxr_keyword">final</strong> String[] hideColumns, <strong class="jxr_keyword">final</strong> AbstractPageItemRendererClickListener&lt;?&gt; listener, <strong class="jxr_keyword">final</strong> String actionId,
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  			<strong class="jxr_keyword">final</strong> String[] hideColumns, <strong class="jxr_keyword">final</strong> PageItemRendererClickListener&lt;?&gt; listener, <strong class="jxr_keyword">final</strong> String actionId,
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  			<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/converters/ListPropertyConverter.html">ListPropertyConverter</a>[] collectionPropertyConverters) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>  		createBasicBeanItemNestedPropertiesGrid(panelContent, dataType, datasource, caption, <strong class="jxr_keyword">null</strong>, columnOrder,
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  				hideColumns, listener, actionId, collectionPropertyConverters);
@@ -83,7 +83,7 @@
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  	<strong class="jxr_keyword">public</strong> &lt;T <strong class="jxr_keyword">extends</strong> Serializable&gt; <strong class="jxr_keyword">void</strong> createBasicBeanItemNestedPropertiesGrid(
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  			<strong class="jxr_keyword">final</strong> AbstractOrderedLayout panelContent, <strong class="jxr_keyword">final</strong> Class&lt;T&gt; dataType, <strong class="jxr_keyword">final</strong> List&lt;T&gt; datasource,
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>  			<strong class="jxr_keyword">final</strong> String caption, <strong class="jxr_keyword">final</strong> String[] nestedProperties, <strong class="jxr_keyword">final</strong> String[] columnOrder,
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  			<strong class="jxr_keyword">final</strong> String[] hideColumns, <strong class="jxr_keyword">final</strong> AbstractPageItemRendererClickListener&lt;?&gt; listener, <strong class="jxr_keyword">final</strong> String actionId,
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  			<strong class="jxr_keyword">final</strong> String[] hideColumns, <strong class="jxr_keyword">final</strong> PageItemRendererClickListener&lt;?&gt; listener, <strong class="jxr_keyword">final</strong> String actionId,
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>  			<strong class="jxr_keyword">final</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/converters/ListPropertyConverter.html">ListPropertyConverter</a>[] collectionPropertyConverters) {
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  		<strong class="jxr_keyword">final</strong> Grid&lt;T&gt; grid = Grid.withPropertySet(BeanPropertySet.get(dataType));

@@ -153,14 +153,14 @@ import com.vaadin.ui.Link;
 
 	@Override
 	public Link createAdminPagingLink(final String label,final String page, final String pageId, final String pageNr) {
-<span class="nc" id="L156">		final Link pageLink = new Link(label,</span>
+<span class="fc" id="L156">		final Link pageLink = new Link(label,</span>
 				new ExternalResource(PAGE_PREFIX + page + PAGE_SEPARATOR
 						+ &quot;[&quot; + pageNr + &quot;]&quot;));
-<span class="nc" id="L159">		pageLink.setId(page +&quot;ShowPage&quot; + PAGE_SEPARATOR</span>
+<span class="fc" id="L159">		pageLink.setId(page +&quot;ShowPage&quot; + PAGE_SEPARATOR</span>
 				+ pageNr);
-<span class="nc" id="L161">		pageLink.setIcon(VaadinIcons.SERVER);</span>
+<span class="fc" id="L161">		pageLink.setIcon(VaadinIcons.SERVER);</span>
 
-<span class="nc" id="L163">		return pageLink;</span>
+<span class="fc" id="L163">		return pageLink;</span>
 	}
 
 	@Override

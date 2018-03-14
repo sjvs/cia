@@ -106,7 +106,7 @@ public final class AdminApplicationConfigurationPageModContentFactoryImpl
 
 <span class="fc" id="L107">		final List&lt;ApplicationConfiguration&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationConfiguration_.configurationGroup);</span>
 
-<span class="fc" id="L109">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L109">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L111">		getGridFactory().createBasicBeanItemGrid(content,ApplicationConfiguration.class,</span>
 				pageOrderBy,

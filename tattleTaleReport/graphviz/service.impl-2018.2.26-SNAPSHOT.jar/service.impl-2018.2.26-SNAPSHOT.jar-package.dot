@@ -22,6 +22,9 @@ digraph service_impl_2018_2_26_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_impl_action_admin -> com_hack23_cia_service_data_api;
   com_hack23_cia_service_impl_action_admin -> com_hack23_cia_service_impl_action_common;
   com_hack23_cia_service_impl_action_admin -> com_hack23_cia_service_impl_email;
+  com_hack23_cia_service_impl_action_admin -> java_lang_invoke;
+  com_hack23_cia_service_impl_action_admin -> java_util_function;
+  com_hack23_cia_service_impl_action_admin -> java_util_stream;
   com_hack23_cia_service_impl_action_admin -> org_springframework_security_access_annotation;
   com_hack23_cia_service_impl_action_application -> com_hack23_cia_model_internal_application_system_impl;
   com_hack23_cia_service_impl_action_application -> com_hack23_cia_model_internal_application_user_impl;
@@ -93,6 +96,7 @@ digraph service_impl_2018_2_26_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_impl_rules -> com_hack23_cia_service_api_action_kpi;
   com_hack23_cia_service_impl_rules -> com_hack23_cia_service_data_api;
   com_hack23_cia_service_impl_rules -> java_lang_invoke;
+  com_hack23_cia_service_impl_rules -> java_time;
   com_hack23_cia_service_impl_rules -> java_util;
   com_hack23_cia_service_impl_rules -> java_util_function;
   com_hack23_cia_service_impl_rules -> java_util_stream;

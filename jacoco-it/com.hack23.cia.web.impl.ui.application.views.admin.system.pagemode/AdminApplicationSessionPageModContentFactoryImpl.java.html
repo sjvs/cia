@@ -104,7 +104,7 @@ public final class AdminApplicationSessionPageModContentFactoryImpl extends Abst
 
 <span class="fc" id="L105">		final List&lt;ApplicationSession&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationSession_.createdDate);</span>
 
-<span class="fc" id="L107">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L107">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L109">		getGridFactory().createBasicBeanItemGrid(content, ApplicationSession.class, pageOrderBy,</span>
 				APPLICATION_SESSION,

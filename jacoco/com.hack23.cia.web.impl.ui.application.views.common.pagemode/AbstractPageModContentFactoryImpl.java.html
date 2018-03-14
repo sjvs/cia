@@ -306,13 +306,13 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 * @param resultPerPage
 	 *            the result per page
 	 */
-	protected final void createPagingControls(final AbstractOrderedLayout content, final String name, final String pageId, final int size, final int pageNr,
+	protected final void createPagingControls(final AbstractOrderedLayout content, final String name, final String pageId, final Long size, final int pageNr,
 			final int resultPerPage) {
 <span class="fc" id="L311">				final HorizontalLayout pagingControls = new HorizontalLayout();</span>
 <span class="fc" id="L312">				pagingControls.setSpacing(true);</span>
 <span class="fc" id="L313">				pagingControls.setMargin(true);</span>
 
-<span class="fc" id="L315">				final int maxPages = (size +resultPerPage-1) / resultPerPage;</span>
+<span class="fc" id="L315">				final long maxPages = (size +resultPerPage-1) / resultPerPage;</span>
 
 <span class="fc" id="L317">				final StringBuilder stringBuilder = new StringBuilder();</span>
 <span class="fc" id="L318">				stringBuilder.append(PAGE_HEADER)</span>
@@ -333,16 +333,16 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 <span class="nc" id="L333">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L336" title="3 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
-<span class="nc" id="L337">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
+<span class="pc bpc" id="L336" title="1 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="fc" id="L337">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L340" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
+<span class="pc bpc" id="L340" title="1 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
 <span class="nc" id="L341">					addPagingLink(FIRST_PAGE,name, pageId, 1,pagingControls);</span>
 				}
 
-<span class="pc bpc" id="L344" title="3 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
-<span class="nc" id="L345">					addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
+<span class="pc bpc" id="L344" title="1 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &lt; maxPages) {</span>
+<span class="fc" id="L345">					addPagingLink(LAST_PAGE,name, pageId, maxPages,pagingControls);</span>
 				}
 
 <span class="fc" id="L348">				content.addComponent(pagingControls);</span>
@@ -359,16 +359,16 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	 *            the name
 	 * @param pageId
 	 *            the page id
-	 * @param pageNr
+	 * @param maxPages
 	 *            the page nr
 	 * @param pagingControls
 	 *            the paging controls
 	 */
-	private void addPagingLink(final String label, final String name, final String pageId, final int pageNr, final HorizontalLayout pagingControls) {
-<span class="nc" id="L368">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));</span>
-<span class="nc" id="L369">		pagingControls.addComponent(previousPageLink);</span>
-<span class="nc" id="L370">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
-<span class="nc" id="L371">	}</span>
+	private void addPagingLink(final String label, final String name, final String pageId, final long maxPages, final HorizontalLayout pagingControls) {
+<span class="fc" id="L368">		final Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(maxPages));</span>
+<span class="fc" id="L369">		pagingControls.addComponent(previousPageLink);</span>
+<span class="fc" id="L370">		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);</span>
+<span class="fc" id="L371">	}</span>
 
 	protected final void createRowItem(final ResponsiveRow row, final Button button, final String description) {
 <span class="fc" id="L374">		final CssLayout layout = new CssLayout();</span>

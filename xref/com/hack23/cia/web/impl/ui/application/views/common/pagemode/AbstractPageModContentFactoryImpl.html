@@ -314,13 +314,13 @@
 <a class="jxr_linenumber" name="L306" href="#L306">306</a> <em class="jxr_javadoccomment">	 * @param resultPerPage</em>
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">	 *            the result per page</em>
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> createPagingControls(<strong class="jxr_keyword">final</strong> AbstractOrderedLayout content, <strong class="jxr_keyword">final</strong> String name, <strong class="jxr_keyword">final</strong> String pageId, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> size, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pageNr,
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">void</strong> createPagingControls(<strong class="jxr_keyword">final</strong> AbstractOrderedLayout content, <strong class="jxr_keyword">final</strong> String name, <strong class="jxr_keyword">final</strong> String pageId, <strong class="jxr_keyword">final</strong> Long size, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pageNr,
 <a class="jxr_linenumber" name="L310" href="#L310">310</a> 			<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> resultPerPage) {
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> 				<strong class="jxr_keyword">final</strong> HorizontalLayout pagingControls = <strong class="jxr_keyword">new</strong> HorizontalLayout();
 <a class="jxr_linenumber" name="L312" href="#L312">312</a> 				pagingControls.setSpacing(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L313" href="#L313">313</a> 				pagingControls.setMargin(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L314" href="#L314">314</a> 
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 				<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> maxPages = (size +resultPerPage-1) / resultPerPage;
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 				<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> maxPages = (size +resultPerPage-1) / resultPerPage;
 <a class="jxr_linenumber" name="L316" href="#L316">316</a> 
 <a class="jxr_linenumber" name="L317" href="#L317">317</a> 				<strong class="jxr_keyword">final</strong> StringBuilder stringBuilder = <strong class="jxr_keyword">new</strong> StringBuilder();
 <a class="jxr_linenumber" name="L318" href="#L318">318</a> 				stringBuilder.append(PAGE_HEADER)
@@ -367,13 +367,13 @@
 <a class="jxr_linenumber" name="L359" href="#L359">359</a> <em class="jxr_javadoccomment">	 *            the name</em>
 <a class="jxr_linenumber" name="L360" href="#L360">360</a> <em class="jxr_javadoccomment">	 * @param pageId</em>
 <a class="jxr_linenumber" name="L361" href="#L361">361</a> <em class="jxr_javadoccomment">	 *            the page id</em>
-<a class="jxr_linenumber" name="L362" href="#L362">362</a> <em class="jxr_javadoccomment">	 * @param pageNr</em>
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> <em class="jxr_javadoccomment">	 * @param maxPages</em>
 <a class="jxr_linenumber" name="L363" href="#L363">363</a> <em class="jxr_javadoccomment">	 *            the page nr</em>
 <a class="jxr_linenumber" name="L364" href="#L364">364</a> <em class="jxr_javadoccomment">	 * @param pagingControls</em>
 <a class="jxr_linenumber" name="L365" href="#L365">365</a> <em class="jxr_javadoccomment">	 *            the paging controls</em>
 <a class="jxr_linenumber" name="L366" href="#L366">366</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L367" href="#L367">367</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addPagingLink(<strong class="jxr_keyword">final</strong> String label, <strong class="jxr_keyword">final</strong> String name, <strong class="jxr_keyword">final</strong> String pageId, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> pageNr, <strong class="jxr_keyword">final</strong> HorizontalLayout pagingControls) {
-<a class="jxr_linenumber" name="L368" href="#L368">368</a> 		<strong class="jxr_keyword">final</strong> Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(pageNr));
+<a class="jxr_linenumber" name="L367" href="#L367">367</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addPagingLink(<strong class="jxr_keyword">final</strong> String label, <strong class="jxr_keyword">final</strong> String name, <strong class="jxr_keyword">final</strong> String pageId, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> maxPages, <strong class="jxr_keyword">final</strong> HorizontalLayout pagingControls) {
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 		<strong class="jxr_keyword">final</strong> Link previousPageLink = getPageLinkFactory().createAdminPagingLink(label,name, pageId, String.valueOf(maxPages));
 <a class="jxr_linenumber" name="L369" href="#L369">369</a> 		pagingControls.addComponent(previousPageLink);
 <a class="jxr_linenumber" name="L370" href="#L370">370</a> 		pagingControls.setExpandRatio(previousPageLink, ContentRatio.SMALL);
 <a class="jxr_linenumber" name="L371" href="#L371">371</a> 	}

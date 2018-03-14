@@ -2,10 +2,10 @@
 title Citizen Intelligence Agency System - Containers
 caption Application Overview
 package CitizenIntelligenceAgencySystem {
-  component "Database" <<Container>> as 103
+  component "Database" <<Container>> as 106
   component "Loadbalancer" <<Container>> as 8
   component "Web Application" <<Container>> as 9
 }
 8 ..> 9 : HTTPS/H2
-9 ..> 103 : JDBC
+9 ..> 106 : JDBC
 @enduml

@@ -39,6 +39,7 @@ import com.hack23.cia.service.api.action.kpi.Status;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.RiskIndicators;
+import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.ComplianceCheckPageItemRendererClickListener;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Layout;
@@ -52,6 +53,7 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class ParliamentRiskPageModContentFactoryImpl extends AbstractParliamentPageModContentFactoryImpl {
 
+<span class="fc" id="L56">	private static final ComplianceCheckPageItemRendererClickListener CLICK_LISTENER = new ComplianceCheckPageItemRendererClickListener();</span>
 	/** The Constant PARLIAMENT_DECISION_FLOW. */
 	private static final String PARLIAMENT_RISK_SUMMARY = &quot;Parliament Risk Summary&quot;;
 
@@ -59,53 +61,53 @@ public final class ParliamentRiskPageModContentFactoryImpl extends AbstractParli
 	 * Instantiates a new parliament risk page mod content factory impl.
 	 */
 	public ParliamentRiskPageModContentFactoryImpl() {
-<span class="fc" id="L62">		super();</span>
-<span class="fc" id="L63">	}</span>
+<span class="fc" id="L64">		super();</span>
+<span class="fc" id="L65">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L67" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.RULES.toString())</span>
-<span class="fc bfc" id="L68" title="All 2 branches covered.">				&amp;&amp; parameters.contains(RiskIndicators.RISK_SUMMARY.toString());</span>
+<span class="pc bpc" id="L69" title="2 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.RULES.toString())</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">				&amp;&amp; parameters.contains(RiskIndicators.RISK_SUMMARY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L74">		final VerticalLayout panelContent = createPanelContent();</span>
-<span class="fc" id="L75">		getParliamentMenuItemFactory().createParliamentTopicMenu(menuBar);</span>
+<span class="fc" id="L76">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L77">		getParliamentMenuItemFactory().createParliamentTopicMenu(menuBar);</span>
 
-<span class="fc" id="L77">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L79">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L79">		ComplianceCheckRequest serviceRequest = new ComplianceCheckRequest();</span>
-<span class="fc" id="L80">		serviceRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
-<span class="fc" id="L81">		ComplianceCheckResponse serviceResponse = (ComplianceCheckResponse) getApplicationManager()</span>
-<span class="fc" id="L82">				.service(serviceRequest);</span>
+<span class="fc" id="L81">		final ComplianceCheckRequest serviceRequest = new ComplianceCheckRequest();</span>
+<span class="fc" id="L82">		serviceRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L83">		final ComplianceCheckResponse serviceResponse = (ComplianceCheckResponse) getApplicationManager()</span>
+<span class="fc" id="L84">				.service(serviceRequest);</span>
 		
-<span class="fc" id="L84">		HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
+<span class="fc" id="L86">		final HorizontalLayout horizontalLayout = new HorizontalLayout();</span>
 
-<span class="fc bfc" id="L86" title="All 2 branches covered.">		for (Entry&lt;Status, List&lt;RuleViolation&gt;&gt; statusEntry : serviceResponse.getStatusMap().entrySet()) {</span>
-<span class="fc" id="L87">			horizontalLayout.addComponent(new CounterStatisticsCard(</span>
-<span class="fc" id="L88">					VaadinIcons.WARNING,new CounterStatisticModel(&quot;ALL:&quot; +statusEntry.getKey(),statusEntry.getValue().size()).withShow(StatisticShow.Sum)</span>
-<span class="fc" id="L89">                    .withIconHidden().withShowOnlyStatistic(true),&quot;ALL:&quot; +statusEntry.getKey()));			</span>
-<span class="fc" id="L90">		}</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		for (final Entry&lt;Status, List&lt;RuleViolation&gt;&gt; statusEntry : serviceResponse.getStatusMap().entrySet()) {</span>
+<span class="fc" id="L89">			horizontalLayout.addComponent(new CounterStatisticsCard(</span>
+<span class="fc" id="L90">					VaadinIcons.WARNING,new CounterStatisticModel(&quot;ALL:&quot; +statusEntry.getKey(),statusEntry.getValue().size()).withShow(StatisticShow.Sum)</span>
+<span class="fc" id="L91">                    .withIconHidden().withShowOnlyStatistic(true),&quot;ALL:&quot; +statusEntry.getKey()));			</span>
+<span class="fc" id="L92">		}</span>
 
-<span class="fc bfc" id="L92" title="All 2 branches covered.">		for (Entry&lt;ResourceType, List&lt;RuleViolation&gt;&gt; statusEntry : serviceResponse.getResourceTypeMap().entrySet()) {</span>
-<span class="fc" id="L93">			horizontalLayout.addComponent(new CounterStatisticsCard(</span>
-<span class="fc" id="L94">					VaadinIcons.WARNING,new CounterStatisticModel(&quot;ALL:&quot; +statusEntry.getKey(),statusEntry.getValue().size()).withShow(StatisticShow.Sum)</span>
-<span class="fc" id="L95">                    .withIconHidden().withShowOnlyStatistic(true),&quot;ALL:&quot; +statusEntry.getKey()));			</span>
-<span class="fc" id="L96">		}</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		for (final Entry&lt;ResourceType, List&lt;RuleViolation&gt;&gt; statusEntry : serviceResponse.getResourceTypeMap().entrySet()) {</span>
+<span class="fc" id="L95">			horizontalLayout.addComponent(new CounterStatisticsCard(</span>
+<span class="fc" id="L96">					VaadinIcons.WARNING,new CounterStatisticModel(&quot;ALL:&quot; +statusEntry.getKey(),statusEntry.getValue().size()).withShow(StatisticShow.Sum)</span>
+<span class="fc" id="L97">                    .withIconHidden().withShowOnlyStatistic(true),&quot;ALL:&quot; +statusEntry.getKey()));			</span>
+<span class="fc" id="L98">		}</span>
 
 		
-<span class="fc" id="L99">		panelContent.addComponent(horizontalLayout);		</span>
+<span class="fc" id="L101">		panelContent.addComponent(horizontalLayout);		</span>
 		
-<span class="fc" id="L101">		getGridFactory().createBasicBeanItemGrid(panelContent, ComplianceCheck.class, serviceResponse.getList(), &quot;Risk&quot;,</span>
-				new String[] { &quot;name&quot;, &quot;resourceType&quot;, &quot;numberRuleViolations&quot;, &quot;ruleSummary&quot; }, new String[] { &quot;id&quot;, &quot;ruleViolations&quot; }, null, null, null);
+<span class="fc" id="L103">		getGridFactory().createBasicBeanItemGrid(panelContent, ComplianceCheck.class, serviceResponse.getList(), &quot;Risk&quot;,</span>
+				new String[] { &quot;name&quot;, &quot;resourceType&quot;, &quot;numberRuleViolations&quot;, &quot;ruleSummary&quot; }, new String[] { &quot;id&quot;, &quot;ruleViolations&quot; }, CLICK_LISTENER, null, null);
 
-<span class="fc" id="L104">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARLIAMENT_RANKING_VIEW, ApplicationEventGroup.USER,</span>
+<span class="fc" id="L106">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_PARLIAMENT_RANKING_VIEW, ApplicationEventGroup.USER,</span>
 				NAME, parameters, pageId);
-<span class="fc" id="L106">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(PARLIAMENT_RISK_SUMMARY).toString());</span>
+<span class="fc" id="L108">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(PARLIAMENT_RISK_SUMMARY).toString());</span>
 
-<span class="fc" id="L108">		return panelContent;</span>
+<span class="fc" id="L110">		return panelContent;</span>
 
 	}
 

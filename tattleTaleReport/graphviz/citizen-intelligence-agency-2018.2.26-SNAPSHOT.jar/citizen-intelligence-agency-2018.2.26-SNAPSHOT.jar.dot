@@ -32,8 +32,8 @@ digraph citizen_intelligence_agency_2018_2_26_SNAPSHOT_dependencies {
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> spring_web_5_0_4_RELEASE;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> statistics_card_0_3_0;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_grid_util_2_1_1;
-  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_server_8_3_1;
-  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_shared_8_3_1;
+  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_server_8_3_2;
+  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_shared_8_3_2;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> vaadin_spring_3_0_0;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> web_widgets_2018_2_26_SNAPSHOT;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> wt_pdf_viewer_1_0_4;

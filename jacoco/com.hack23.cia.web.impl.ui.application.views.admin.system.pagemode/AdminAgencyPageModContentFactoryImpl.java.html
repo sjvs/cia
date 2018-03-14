@@ -113,7 +113,7 @@ public final class AdminAgencyPageModContentFactoryImpl extends AbstractAdminSys
 
 <span class="fc" id="L114">		final List&lt;Agency&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE,Agency_.agencyName);</span>
 
-<span class="fc" id="L116">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L116">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L118">		getGridFactory().createBasicBeanItemGrid(content,</span>
 				Agency.class,pageOrderBy, AGENCY,

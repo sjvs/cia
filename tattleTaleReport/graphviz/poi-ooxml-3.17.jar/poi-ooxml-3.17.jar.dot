@@ -3,7 +3,7 @@ digraph poi_ooxml_3_17_dependencies {
   poi_ooxml_3_17 -> bcpkix_jdk15on_1_59;
   poi_ooxml_3_17 -> bcprov_jdk15on_1_59;
   poi_ooxml_3_17 -> commons_collections4_4_1;
-  poi_ooxml_3_17 -> curvesapi_1_05;
+  poi_ooxml_3_17 -> curvesapi_1_06;
   poi_ooxml_3_17 -> jaxb_api_2_3_0;
   poi_ooxml_3_17 -> junit_4_12;
   poi_ooxml_3_17 -> poi_3_17;

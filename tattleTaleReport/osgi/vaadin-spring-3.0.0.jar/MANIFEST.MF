@@ -36,10 +36,10 @@ Export-Package: com.vaadin.spring;uses:="com.vaadin.spring.annotation,
  ava.lang.invoke,java.nio.charset,java.util,java.util.function,java.ut
  il.stream,org.springframework.beans.factory,org.springframework.core.
  env"
-Import-Package: com.vaadin.navigator;version="8.3.1",com.vaadin.server
- ;version="8.3.1",com.vaadin.server.communication;version="8.3.1",com.
- vaadin.shared;version="8.3.1",com.vaadin.ui;version="8.3.1",com.vaadi
- n.ui.declarative;version="8.3.1",com.vaadin.util;version="8.3.1",java
+Import-Package: com.vaadin.navigator;version="8.3.2",com.vaadin.server
+ ;version="8.3.2",com.vaadin.server.communication;version="8.3.2",com.
+ vaadin.shared;version="8.3.2",com.vaadin.ui;version="8.3.2",com.vaadi
+ n.ui.declarative;version="8.3.2",com.vaadin.util;version="8.3.2",java
  .io,java.lang,java.lang.annotation,java.lang.invoke,java.lang.reflect
  ,java.net,java.nio.charset,java.util,java.util.concurrent,java.util.f
  unction,java.util.stream,javax.annotation,javax.servlet,javax.servlet

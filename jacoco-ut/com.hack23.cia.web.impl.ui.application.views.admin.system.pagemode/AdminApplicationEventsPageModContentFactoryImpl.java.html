@@ -93,7 +93,7 @@ public final class AdminApplicationEventsPageModContentFactoryImpl extends Abstr
 
 <span class="fc" id="L94">		final List&lt;ApplicationActionEvent&gt; pageOrderBy = dataContainer.getPageOrderBy(pageNr,DEFAULT_RESULTS_PER_PAGE, ApplicationActionEvent_.createdDate);</span>
 
-<span class="fc" id="L96">		createPagingControls(content,NAME,pageId, pageOrderBy.size(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
+<span class="fc" id="L96">		createPagingControls(content,NAME,pageId, dataContainer.getSize(), pageNr, DEFAULT_RESULTS_PER_PAGE);</span>
 
 <span class="fc" id="L98">		getGridFactory().createBasicBeanItemGrid(content, ApplicationActionEvent.class, pageOrderBy,</span>
 				APPLICATION_ACTION_EVENT,
