@@ -22,7 +22,7 @@ digraph citizen_intelligence_agency_2018_2_26_SNAPSHOT_dependencies {
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> responsive_layout_2_1_1;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> service_api_2018_2_26_SNAPSHOT;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> service_external_esv_2018_2_26_SNAPSHOT;
-  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> slf4j_api_1_8_0_beta1;
+  citizen_intelligence_agency_2018_2_26_SNAPSHOT -> slf4j_api_1_8_0_beta2;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> spring_aop_5_0_4_RELEASE;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> spring_beans_5_0_4_RELEASE;
   citizen_intelligence_agency_2018_2_26_SNAPSHOT -> spring_context_5_0_4_RELEASE;

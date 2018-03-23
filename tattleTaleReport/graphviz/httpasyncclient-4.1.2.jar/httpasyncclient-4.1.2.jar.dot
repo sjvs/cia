@@ -3,5 +3,5 @@ digraph httpasyncclient_4_1_2_dependencies {
   httpasyncclient_4_1_2 -> httpclient_4_5_5;
   httpasyncclient_4_1_2 -> httpcore_4_4_9;
   httpasyncclient_4_1_2 -> httpcore_nio_4_4_5;
-  httpasyncclient_4_1_2 -> jcl_over_slf4j_1_8_0_beta1;
+  httpasyncclient_4_1_2 -> jcl_over_slf4j_1_8_0_beta2;
 }

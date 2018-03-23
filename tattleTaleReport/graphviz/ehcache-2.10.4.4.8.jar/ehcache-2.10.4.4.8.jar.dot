@@ -3,6 +3,6 @@ digraph ehcache_2_10_4_4_8_dependencies {
   ehcache_2_10_4_4_8 -> hibernate_core_5_3_0_CR1;
   ehcache_2_10_4_4_8 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
   ehcache_2_10_4_4_8 -> quartz_2_3_0;
-  ehcache_2_10_4_4_8 -> slf4j_api_1_8_0_beta1;
+  ehcache_2_10_4_4_8 -> slf4j_api_1_8_0_beta2;
   ehcache_2_10_4_4_8 -> xml_apis_1_4_01;
 }

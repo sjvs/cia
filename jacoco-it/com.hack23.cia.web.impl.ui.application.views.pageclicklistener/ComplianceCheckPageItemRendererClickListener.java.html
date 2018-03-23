@@ -58,7 +58,7 @@ public final class ComplianceCheckPageItemRendererClickListener implements PageI
 	 *            the violation
 	 */
 	private static void navigateToPage(final ComplianceCheck violation) {
-<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (violation.getResourceType().equals(ResourceType.PARTY)) {			</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">		if (violation.getResourceType() == ResourceType.PARTY) {			</span>
 <span class="nc" id="L62">			UI.getCurrent().getNavigator().navigateTo(UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
 		} else {
 <span class="nc" id="L64">			UI.getCurrent().getNavigator().navigateTo(UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
@@ -75,4 +75,4 @@ public final class ComplianceCheckPageItemRendererClickListener implements PageI
 		}
 <span class="nc" id="L76">	}</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

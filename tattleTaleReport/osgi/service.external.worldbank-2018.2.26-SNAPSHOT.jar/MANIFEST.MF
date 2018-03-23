@@ -1,5 +1,7 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: com.hack23.cia.service.external.worldbank
 Built-By: pether
+Sealed: true
 Created-By: Apache Maven 3.5.3
 Build-Jdk: 1.8.0_161
 

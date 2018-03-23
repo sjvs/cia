@@ -3,5 +3,5 @@ digraph activemq_jms_pool_5_15_3_dependencies {
   activemq_jms_pool_5_15_3 -> commons_pool2_2_5_0;
   activemq_jms_pool_5_15_3 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
   activemq_jms_pool_5_15_3 -> jms_1_1;
-  activemq_jms_pool_5_15_3 -> slf4j_api_1_8_0_beta1;
+  activemq_jms_pool_5_15_3 -> slf4j_api_1_8_0_beta2;
 }

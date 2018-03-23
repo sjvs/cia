@@ -7,12 +7,12 @@ digraph javamelody_core_1_71_0_dependencies {
   javamelody_core_1_71_0 -> javax_mail_1_6_1;
   javamelody_core_1_71_0 -> javax_persistence_api_2_2;
   javamelody_core_1_71_0 -> jrobin_1_6_0;
-  javamelody_core_1_71_0 -> log4j_over_slf4j_1_8_0_beta1;
+  javamelody_core_1_71_0 -> log4j_over_slf4j_1_8_0_beta2;
   javamelody_core_1_71_0 -> logback_classic_1_3_0_alpha4;
   javamelody_core_1_71_0 -> logback_core_1_3_0_alpha4;
   javamelody_core_1_71_0 -> openpdf_1_0_5;
   javamelody_core_1_71_0 -> quartz_2_3_0;
-  javamelody_core_1_71_0 -> slf4j_api_1_8_0_beta1;
+  javamelody_core_1_71_0 -> slf4j_api_1_8_0_beta2;
   javamelody_core_1_71_0 -> spring_aop_5_0_4_RELEASE;
   javamelody_core_1_71_0 -> spring_beans_5_0_4_RELEASE;
   javamelody_core_1_71_0 -> spring_context_5_0_4_RELEASE;

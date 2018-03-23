@@ -5,7 +5,7 @@ digraph spring_webmvc_5_0_4_RELEASE_dependencies {
   spring_webmvc_5_0_4_RELEASE -> jackson_databind_2_9_4;
   spring_webmvc_5_0_4_RELEASE -> jackson_dataformat_cbor_2_9_4;
   spring_webmvc_5_0_4_RELEASE -> jaxb_api_2_3_0;
-  spring_webmvc_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta1;
+  spring_webmvc_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta2;
   spring_webmvc_5_0_4_RELEASE -> openpdf_1_0_5;
   spring_webmvc_5_0_4_RELEASE -> poi_3_17;
   spring_webmvc_5_0_4_RELEASE -> poi_ooxml_3_17;

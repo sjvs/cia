@@ -9,9 +9,9 @@ digraph jbpm_flow_7_6_0_Final_dependencies {
   jbpm_flow_7_6_0_Final -> kie_soup_commons_7_6_0_Final;
   jbpm_flow_7_6_0_Final -> kie_soup_project_datamodel_commons_7_6_0_Final;
   jbpm_flow_7_6_0_Final -> mvel2_2_4_0_Final_redhat_1;
-  jbpm_flow_7_6_0_Final -> protobuf_java_2_6_0;
+  jbpm_flow_7_6_0_Final -> protobuf_java_3_5_1;
   jbpm_flow_7_6_0_Final -> quartz_2_3_0;
-  jbpm_flow_7_6_0_Final -> slf4j_api_1_8_0_beta1;
+  jbpm_flow_7_6_0_Final -> slf4j_api_1_8_0_beta2;
   jbpm_flow_7_6_0_Final -> xml_apis_1_4_01;
   jbpm_flow_7_6_0_Final -> xstream_1_4_10;
 }

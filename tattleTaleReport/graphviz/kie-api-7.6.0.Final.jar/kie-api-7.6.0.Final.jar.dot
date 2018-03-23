@@ -3,5 +3,5 @@ digraph kie_api_7_6_0_Final_dependencies {
   kie_api_7_6_0_Final -> jaxb_api_2_3_0;
   kie_api_7_6_0_Final -> kie_soup_maven_support_7_6_0_Final;
   kie_api_7_6_0_Final -> org_osgi_core_6_0_0;
-  kie_api_7_6_0_Final -> slf4j_api_1_8_0_beta1;
+  kie_api_7_6_0_Final -> slf4j_api_1_8_0_beta2;
 }

@@ -21,7 +21,7 @@ digraph service_data_impl_2018_2_26_SNAPSHOT_dependencies {
   service_data_impl_2018_2_26_SNAPSHOT -> model_external_worldbank_indicators_impl_2018_2_26_SNAPSHOT;
   service_data_impl_2018_2_26_SNAPSHOT -> model_internal_application_user_impl_2018_2_26_SNAPSHOT;
   service_data_impl_2018_2_26_SNAPSHOT -> service_data_api_2018_2_26_SNAPSHOT;
-  service_data_impl_2018_2_26_SNAPSHOT -> slf4j_api_1_8_0_beta1;
+  service_data_impl_2018_2_26_SNAPSHOT -> slf4j_api_1_8_0_beta2;
   service_data_impl_2018_2_26_SNAPSHOT -> spring_beans_5_0_4_RELEASE;
   service_data_impl_2018_2_26_SNAPSHOT -> spring_context_5_0_4_RELEASE;
   service_data_impl_2018_2_26_SNAPSHOT -> spring_jdbc_5_0_4_RELEASE;

@@ -64,7 +64,7 @@ public final class MinistryGhantChartManagerImpl extends AbstractGhantChartManag
 
 			@Override
 			public Date getToDate(final ViewRiksdagenGovermentRoleMember t) {
-<span class="fc" id="L67">				return Optional.ofNullable(t.getToDate()).orElse(new Date());</span>
+<span class="fc" id="L67">				return Optional.ofNullable(t.getToDate()).orElseGet(Date::new);</span>
 			}
 
 			@Override
@@ -122,4 +122,4 @@ public final class MinistryGhantChartManagerImpl extends AbstractGhantChartManag
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

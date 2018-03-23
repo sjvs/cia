@@ -7,7 +7,7 @@ Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-SymbolicName: org.apache.xbean.spring
 Implementation-Version: 4.7
 Built-By: rmannibucau
-Bnd-LastModified: 1521045773099
+Bnd-LastModified: 1521467604255
 Bundle-ManifestVersion: 2
 Bundle-DocURL: http://geronimo.apache.org/maven/xbean/4.7/xbean-spring
 Bundle-Vendor: The Apache Software Foundation

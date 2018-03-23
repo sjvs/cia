@@ -330,11 +330,11 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 
 
 <span class="pc bpc" id="L332" title="1 of 2 branches missed.">				if (pageNr &gt; PAGE_ONE) {</span>
-<span class="nc" id="L333">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1,pagingControls);</span>
+<span class="nc" id="L333">					addPagingLink(PREVIOUS_PAGE,name, pageId, pageNr -1L,pagingControls);</span>
 				}
 
 <span class="pc bpc" id="L336" title="1 of 4 branches missed.">				if (maxPages &gt; PAGE_ONE &amp;&amp; pageNr &lt; maxPages) {</span>
-<span class="fc" id="L337">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1,pagingControls);</span>
+<span class="fc" id="L337">					addPagingLink(NEXT_PAGE,name, pageId, pageNr +1L,pagingControls);</span>
 				}
 
 <span class="pc bpc" id="L340" title="1 of 4 branches missed.">				if (maxPages &gt; LIMIT_FOR_DISPLAYING_START_END_LINKS &amp;&amp; pageNr &gt; PAGE_ONE) {</span>
@@ -428,4 +428,4 @@ public abstract class AbstractPageModContentFactoryImpl implements PageModeConte
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

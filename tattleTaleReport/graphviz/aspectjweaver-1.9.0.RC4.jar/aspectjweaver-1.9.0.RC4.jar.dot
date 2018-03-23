@@ -1,5 +1,5 @@
 digraph aspectjweaver_1_9_0_RC4_dependencies {
   node [shape = box, fontsize=10.0];
-  aspectjweaver_1_9_0_RC4 -> jcl_over_slf4j_1_8_0_beta1;
+  aspectjweaver_1_9_0_RC4 -> jcl_over_slf4j_1_8_0_beta2;
   aspectjweaver_1_9_0_RC4 -> xml_apis_1_4_01;
 }

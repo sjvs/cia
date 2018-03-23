@@ -4,5 +4,5 @@ digraph elasticsearch_rest_client_5_6_7_dependencies {
   elasticsearch_rest_client_5_6_7 -> httpclient_4_5_5;
   elasticsearch_rest_client_5_6_7 -> httpcore_4_4_9;
   elasticsearch_rest_client_5_6_7 -> httpcore_nio_4_4_5;
-  elasticsearch_rest_client_5_6_7 -> jcl_over_slf4j_1_8_0_beta1;
+  elasticsearch_rest_client_5_6_7 -> jcl_over_slf4j_1_8_0_beta2;
 }

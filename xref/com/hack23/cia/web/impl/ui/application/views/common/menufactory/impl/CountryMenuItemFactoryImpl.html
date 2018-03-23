@@ -136,7 +136,7 @@
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L129" href="#L129">129</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> addSourcesAndIndicatorsToMenu(<strong class="jxr_keyword">final</strong> MenuItem countryIndicators,
 <a class="jxr_linenumber" name="L130" href="#L130">130</a> 			<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewWorldbankIndicatorDataCountrySummary&gt;&gt; sourceIndicatorMap) {
-<a class="jxr_linenumber" name="L131" href="#L131">131</a> 
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 		
 <a class="jxr_linenumber" name="L132" href="#L132">132</a> 		<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewWorldbankIndicatorDataCountrySummary&gt;&gt; sortedIndicatorMap = sourceIndicatorMap
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 				.entrySet().stream().sorted((e1, e2) -&gt; e1.getKey().compareTo(e2.getKey()))
 <a class="jxr_linenumber" name="L134" href="#L134">134</a> 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -&gt; e1, LinkedHashMap::<strong class="jxr_keyword">new</strong>));
@@ -145,50 +145,51 @@
 <a class="jxr_linenumber" name="L137" href="#L137">137</a> 				.entrySet()) {
 <a class="jxr_linenumber" name="L138" href="#L138">138</a> 
 <a class="jxr_linenumber" name="L139" href="#L139">139</a> 			<strong class="jxr_keyword">final</strong> MenuItem sourceItems = countryIndicators.addItem(entry.getKey(), <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>);
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 			
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> 			<strong class="jxr_keyword">final</strong> List&lt;ViewWorldbankIndicatorDataCountrySummary&gt; sortedEntries = entry.getValue().stream()
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 					.sorted((e1, e2) -&gt; e1.getIndicatorName().compareTo(e2.getIndicatorName()))
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> 					.collect(Collectors.toList());
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> 
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> ViewWorldbankIndicatorDataCountrySummary indciatorSummary : sortedEntries) {
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> 				sourceItems.addItem(indciatorSummary.getIndicatorName(),
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> 				MenuItem addItem = sourceItems.addItem(indciatorSummary.getIndicatorName(),
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 						<strong class="jxr_keyword">new</strong> <a href="../../../../../../../../../../../com/hack23/cia/web/impl/ui/application/views/common/pagelinks/api/PageModeMenuCommand.html">PageModeMenuCommand</a>(UserViews.COUNTRY_RANKING_VIEW_NAME, PageMode.INDICATORS,
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 								indciatorSummary.getEmbeddedId().getIndicatorId()));
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 			}
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> 		}
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> 	}
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> 
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> <em class="jxr_javadoccomment">	 * Gets the topic indicator map.</em>
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> <em class="jxr_javadoccomment">	 * @return the topic indicator map</em>
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, List&lt;ViewWorldbankIndicatorDataCountrySummary&gt;&gt; getTopicIndicatorMap() {
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		<strong class="jxr_keyword">final</strong> DataContainer&lt;ViewWorldbankIndicatorDataCountrySummary, WorldbankIndicatorDataCountrySummaryEmbeddedId&gt; indicatorDataCountrSummaryDailyDataContainer = applicationManager
-<a class="jxr_linenumber" name="L161" href="#L161">161</a> 				.getDataContainer(ViewWorldbankIndicatorDataCountrySummary.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> 
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		<strong class="jxr_keyword">return</strong> indicatorDataCountrSummaryDailyDataContainer
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> 				.findListByEmbeddedProperty(ViewWorldbankIndicatorDataCountrySummary.<strong class="jxr_keyword">class</strong>,ViewWorldbankIndicatorDataCountrySummary_.embeddedId,WorldbankIndicatorDataCountrySummaryEmbeddedId.<strong class="jxr_keyword">class</strong>,WorldbankIndicatorDataCountrySummaryEmbeddedId_.countryId,<span class="jxr_string">"SE"</span>).parallelStream()
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> 				.filter(t -&gt; t != <strong class="jxr_keyword">null</strong> &amp;&amp; t.getSourceValue() != <strong class="jxr_keyword">null</strong> &amp;&amp; t.getEndYear() &gt; DATA_POINTS_FOR_YEAR_ABOVE &amp;&amp; t.getDataPoint() &gt; MINIMUM_NUMBER_DATA_POINTS)
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> 				.flatMap(t -&gt; Arrays.asList(t.getTopics().split(<span class="jxr_string">";"</span>)).stream()
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 						.map(topic -&gt; <strong class="jxr_keyword">new</strong> AbstractMap.SimpleEntry&lt;&gt;(topic, t)))
-<a class="jxr_linenumber" name="L168" href="#L168">168</a> 
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 				.collect(Collectors.groupingBy(SimpleEntry::getKey,
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 						Collectors.mapping(SimpleEntry::getValue, Collectors.toList())));
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 	}
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> 
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> 	@Override
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createOverviewPage(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		<strong class="jxr_keyword">final</strong> MenuBar menuBar = <strong class="jxr_keyword">new</strong> MenuBar();
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		panelContent.addComponent(menuBar);
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		panelContent.setComponentAlignment(menuBar, Alignment.TOP_LEFT);
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		panelContent.setExpandRatio(menuBar, ContentRatio.LARGE);
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 		addSourcesAndIndicatorsToMenu(menuBar.addItem(<span class="jxr_string">"By Topic"</span>,VaadinIcons.LINE_CHART, <strong class="jxr_keyword">null</strong>), getTopicIndicatorMap());
-<a class="jxr_linenumber" name="L181" href="#L181">181</a> 		menuBar.setAutoOpen(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 	}
-<a class="jxr_linenumber" name="L183" href="#L183">183</a> }
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 				addItem.setStyleName(<span class="jxr_string">"RestrictedHeader"</span>);
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> 			}
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		}
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> 	}
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> <em class="jxr_javadoccomment">	 * Gets the topic indicator map.</em>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> <em class="jxr_javadoccomment">	 * @return the topic indicator map</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 	<strong class="jxr_keyword">private</strong> Map&lt;String, List&lt;ViewWorldbankIndicatorDataCountrySummary&gt;&gt; getTopicIndicatorMap() {
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> 		<strong class="jxr_keyword">final</strong> DataContainer&lt;ViewWorldbankIndicatorDataCountrySummary, WorldbankIndicatorDataCountrySummaryEmbeddedId&gt; indicatorDataCountrSummaryDailyDataContainer = applicationManager
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> 				.getDataContainer(ViewWorldbankIndicatorDataCountrySummary.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 		<strong class="jxr_keyword">return</strong> indicatorDataCountrSummaryDailyDataContainer
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 				.findListByEmbeddedProperty(ViewWorldbankIndicatorDataCountrySummary.<strong class="jxr_keyword">class</strong>,ViewWorldbankIndicatorDataCountrySummary_.embeddedId,WorldbankIndicatorDataCountrySummaryEmbeddedId.<strong class="jxr_keyword">class</strong>,WorldbankIndicatorDataCountrySummaryEmbeddedId_.countryId,<span class="jxr_string">"SE"</span>).parallelStream()
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 				.filter(t -&gt; t != <strong class="jxr_keyword">null</strong> &amp;&amp; t.getSourceValue() != <strong class="jxr_keyword">null</strong> &amp;&amp; t.getEndYear() &gt; DATA_POINTS_FOR_YEAR_ABOVE &amp;&amp; t.getDataPoint() &gt; MINIMUM_NUMBER_DATA_POINTS)
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 				.flatMap(t -&gt; Arrays.asList(t.getTopics().split(<span class="jxr_string">";"</span>)).stream()
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 						.map(topic -&gt; <strong class="jxr_keyword">new</strong> AbstractMap.SimpleEntry&lt;&gt;(topic, t)))
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 				.collect(Collectors.groupingBy(SimpleEntry::getKey,
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 						Collectors.mapping(SimpleEntry::getValue, Collectors.toList())));
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 	}
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 	@Override
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createOverviewPage(<strong class="jxr_keyword">final</strong> VerticalLayout panelContent) {
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 		<strong class="jxr_keyword">final</strong> MenuBar menuBar = <strong class="jxr_keyword">new</strong> MenuBar();
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 		panelContent.addComponent(menuBar);
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 		panelContent.setComponentAlignment(menuBar, Alignment.TOP_LEFT);
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 		panelContent.setExpandRatio(menuBar, ContentRatio.LARGE);
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 		addSourcesAndIndicatorsToMenu(menuBar.addItem(<span class="jxr_string">"By Topic"</span>,VaadinIcons.LINE_CHART, <strong class="jxr_keyword">null</strong>), getTopicIndicatorMap());
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		menuBar.setAutoOpen(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 	}
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

@@ -34,9 +34,6 @@ digraph service_impl_2018_2_26_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_impl_action_application -> com_hack23_cia_service_impl_action_application_access;
   com_hack23_cia_service_impl_action_application -> com_hack23_cia_service_impl_action_common;
   com_hack23_cia_service_impl_action_application -> com_warrenstrange_googleauth;
-  com_hack23_cia_service_impl_action_application -> java_lang_invoke;
-  com_hack23_cia_service_impl_action_application -> java_util_function;
-  com_hack23_cia_service_impl_action_application -> java_util_stream;
   com_hack23_cia_service_impl_action_application -> org_apache_commons_lang3;
   com_hack23_cia_service_impl_action_application -> org_passay;
   com_hack23_cia_service_impl_action_application -> org_springframework_security_access_annotation;
@@ -55,7 +52,11 @@ digraph service_impl_2018_2_26_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_impl_action_application_access -> java_util_stream;
   com_hack23_cia_service_impl_action_application_access -> org_apache_commons_lang3_math;
   com_hack23_cia_service_impl_action_common -> com_hack23_cia_model_internal_application_user_impl;
+  com_hack23_cia_service_impl_action_common -> com_hack23_cia_service_api_action_application;
   com_hack23_cia_service_impl_action_common -> com_hack23_cia_service_api_action_common;
+  com_hack23_cia_service_impl_action_common -> java_lang_invoke;
+  com_hack23_cia_service_impl_action_common -> java_util_function;
+  com_hack23_cia_service_impl_action_common -> java_util_stream;
   com_hack23_cia_service_impl_action_common -> org_springframework_security_core;
   com_hack23_cia_service_impl_action_common -> org_springframework_security_core_context;
   com_hack23_cia_service_impl_action_kpi -> com_hack23_cia_model_internal_application_system_impl;

@@ -3,7 +3,7 @@ digraph spring_jms_5_0_4_RELEASE_dependencies {
   spring_jms_5_0_4_RELEASE -> jackson_annotations_2_9_0;
   spring_jms_5_0_4_RELEASE -> jackson_databind_2_9_4;
   spring_jms_5_0_4_RELEASE -> jboss_connector_api_1_7_spec_1_0_0_Final;
-  spring_jms_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta1;
+  spring_jms_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta2;
   spring_jms_5_0_4_RELEASE -> jms_1_1;
   spring_jms_5_0_4_RELEASE -> spring_aop_5_0_4_RELEASE;
   spring_jms_5_0_4_RELEASE -> spring_beans_5_0_4_RELEASE;

@@ -82,8 +82,8 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 
 <span class="fc" id="L83">			final DocumentProposalData proposal = document.getDocumentProposal().getProposal();</span>
 
-<span class="pc bpc" id="L85" title="1 of 4 branches missed.">			if (proposal.getProcessedIn() != null &amp;&amp; !proposal.getProcessedIn().trim().isEmpty()</span>
-<span class="pc bpc" id="L86" title="1 of 4 branches missed.">					&amp;&amp; proposal.getCommittee() != null &amp;&amp; !proposal.getCommittee().trim().isEmpty()</span>
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">			if (proposal.getProcessedIn() != null &amp;&amp; !proposal.getProcessedIn().isEmpty()</span>
+<span class="pc bpc" id="L86" title="1 of 4 branches missed.">					&amp;&amp; proposal.getCommittee() != null &amp;&amp; !proposal.getCommittee().isEmpty()</span>
 <span class="pc bpc" id="L87" title="1 of 6 branches missed.">					&amp;&amp; proposal.getProcessedIn().contains(processedIn) &amp;&amp; proposal.getChamber().length() &lt;= &quot;återförvisning till utskottet&quot;.length() &amp;&amp; proposal.getChamber().length() &gt;= &quot;avslag&quot;.length()) {</span>
 				
 <span class="fc" id="L89">				summary.add(new ProposalCommitteeeSummary(getCommittteeShortName(proposal), getDocumentName(document) , cleanupDecision(proposal.getChamber()) , document.getDocument().getHangarId()));</span>
@@ -100,7 +100,7 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 	 * @return the string
 	 */
 	private static String cleanupDecision(final String chamber) {
-<span class="fc" id="L103">		return chamber.toUpperCase(Locale.ENGLISH).replace(&quot;(UTSKOTTET)&quot;, &quot;&quot;).replace(&quot;UTKOTTET&quot;, &quot;UTSKOTTET&quot;).replace(&quot;UTBSKOTTET&quot;, &quot;UTSKOTTET&quot;).replace(&quot;UBTSKOTTET&quot;, &quot;UTSKOTTET&quot;).trim().replace(&quot;(&quot;, &quot;&quot;).replace(&quot;)&quot;,&quot;&quot;).trim();</span>
+<span class="fc" id="L103">		return chamber.toUpperCase(Locale.ENGLISH).replace(&quot;(UTSKOTTET)&quot;, &quot;&quot;).replace(&quot;UTKOTTET&quot;, &quot;UTSKOTTET&quot;).replace(&quot;UTBSKOTTET&quot;, &quot;UTSKOTTET&quot;).replace(&quot;UBTSKOTTET&quot;, &quot;UTSKOTTET&quot;).replace(&quot;(&quot;, &quot;&quot;).replace(&quot;)&quot;,&quot;&quot;);</span>
 	}
 
 	/**
@@ -113,7 +113,7 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 	private static String getDocumentName(final DocumentStatusContainer document) {
 <span class="fc bfc" id="L114" title="All 2 branches covered.">		if (&quot;prop&quot;.equalsIgnoreCase(document.getDocument().getDocumentType())) {</span>
 <span class="fc" id="L115">			return &quot;Proposition&quot;;</span>
-<span class="pc bpc" id="L116" title="1 of 4 branches missed.">		} else if (document.getDocument().getSubType() != null &amp;&amp; document.getDocument().getSubType().trim().length() &gt; &quot;motion&quot;.length()) {</span>
+<span class="pc bpc" id="L116" title="1 of 4 branches missed.">		} else if (document.getDocument().getSubType() != null &amp;&amp; document.getDocument().getSubType().length() &gt; &quot;motion&quot;.length()) {</span>
 <span class="fc" id="L117">			return document.getDocument().getSubType();</span>
 		} else {
 <span class="fc" id="L119">			return &quot;Motion&quot;;</span>
@@ -129,7 +129,7 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 	 * @return the committtee short name
 	 */
 	private static String getCommittteeShortName(final DocumentProposalData proposal) {
-<span class="fc" id="L132">		final String upperCase = proposal.getProcessedIn().replaceAll(&quot;\\d&quot;,&quot;&quot;).replace(&quot;/:&quot;,&quot;&quot;).trim().toUpperCase(Locale.ENGLISH);</span>
+<span class="fc" id="L132">		final String upperCase = proposal.getProcessedIn().replaceAll(&quot;\\d&quot;,&quot;&quot;).replace(&quot;/:&quot;,&quot;&quot;).toUpperCase(Locale.ENGLISH);</span>
 				
 <span class="fc bfc" id="L134" title="All 2 branches covered.">		if (upperCase.contains(&quot;,&quot;)) {</span>
 <span class="fc" id="L135">			return upperCase.substring(0, upperCase.indexOf(','));</span>
@@ -139,4 +139,4 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 	}
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
