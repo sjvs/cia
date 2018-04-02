@@ -167,7 +167,7 @@ Export-Package: org.apache.activemq.advisory;uses:="org.apache.activem
  he.activemq.util.osgi;uses:="org.apache.activemq,org.apache.activemq.
  store,org.apache.activemq.transport,org.apache.activemq.transport.dis
  covery,org.apache.activemq.util"
-Import-Package: com.fasterxml.jackson.databind;version="2.9.4",com.goo
+Import-Package: com.fasterxml.jackson.databind;version="2.9.5",com.goo
  gle.common.base;version="0.0.0",com.google.common.collect;version="0.
  0.0",java.beans,java.io,java.lang,java.lang.annotation,java.lang.ref,
  java.lang.reflect,java.net,java.nio,java.nio.channels,java.nio.charse

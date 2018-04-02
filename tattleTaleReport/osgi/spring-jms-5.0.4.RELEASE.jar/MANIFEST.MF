@@ -52,8 +52,8 @@ Export-Package: org.springframework.jms;uses:="org.springframework.lan
  pringframework.jms.support.destination;uses:="java.lang,org.springfra
  mework.lang"
 Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
- asterxml.jackson.databind;version="2.9.4",com.fasterxml.jackson.datab
- ind.type;version="2.9.4",java.io,java.lang,java.lang.annotation,java.
+ asterxml.jackson.databind;version="2.9.5",com.fasterxml.jackson.datab
+ ind.type;version="2.9.5",java.io,java.lang,java.lang.annotation,java.
  lang.invoke,java.lang.reflect,java.util,java.util.concurrent,java.uti
  l.concurrent.atomic,java.util.function,javax.jms;version="0.0.0",java
  x.naming,javax.resource;version="1.7",javax.resource.spi;version="1.7

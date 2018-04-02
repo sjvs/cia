@@ -587,7 +587,7 @@ Import-Package: com.gargoylesoftware.htmlunit,com.gargoylesoftware.htm
  rsion="0.0.0",com.google.gwt.thirdparty.json;version="0.0.0",com.goog
  le.gwt.util.regexfilter;version="0.0.0",com.google.gwt.util.tools;ver
  sion="0.0.0",com.google.gwt.util.tools.shared;version="0.0.0",com.ibm
- .icu.text;version="60",com.ibm.icu.util;version="60",com.thoughtworks
+ .icu.text;version="61",com.ibm.icu.util;version="61",com.thoughtworks
  .selenium,java.awt,java.awt.geom,java.awt.image,java.beans,java.io,ja
  va.lang,java.lang.annotation,java.lang.ref,java.lang.reflect,java.mat
  h,java.net,java.nio,java.nio.charset,java.security,java.sql,java.text
@@ -601,12 +601,12 @@ Import-Package: com.gargoylesoftware.htmlunit,com.gargoylesoftware.htm
  lidation.constraints;version="0.0.0",javax.validation.groups;version=
  "0.0.0",javax.validation.metadata;version="0.0.0",javax.validation.sp
  i;version="0.0.0",javax.xml.parsers;version="1.0",jsinterop.annotatio
- ns;version="0.0.0",junit.framework;version="4.12",net.sourceforge.htm
- lunit.corejs.javascript,org.apache.commons.io;version="2.6",org.apach
- e.commons.logging;version="0.0.0",org.apache.tapestry.util.text,org.e
- clipse.jetty.server,org.eclipse.jetty.servlet,org.eclipse.jetty.webap
- p,org.hibernate.validator.engine,org.hibernate.validator.metadata,org
- .kohsuke.args4j,org.objectweb.asm;version="0.0.0",org.objectweb.asm.c
- ommons,org.w3c.css.sac;version="0.0.0",org.w3c.dom;version="1.0",org.
- xml.sax;version="1.0",org.xml.sax.ext;version="1.0",org.xml.sax.helpe
- rs;version="1.0"
+ ns;version="0.0.0",junit.framework,net.sourceforge.htmlunit.corejs.ja
+ vascript,org.apache.commons.io;version="2.6",org.apache.commons.loggi
+ ng;version="0.0.0",org.apache.tapestry.util.text,org.eclipse.jetty.se
+ rver,org.eclipse.jetty.servlet,org.eclipse.jetty.webapp,org.hibernate
+ .validator.engine,org.hibernate.validator.metadata,org.kohsuke.args4j
+ ,org.objectweb.asm;version="0.0.0",org.objectweb.asm.commons,org.w3c.
+ css.sac;version="0.0.0",org.w3c.dom;version="1.0",org.xml.sax;version
+ ="1.0",org.xml.sax.ext;version="1.0",org.xml.sax.helpers;version="1.0
+ "

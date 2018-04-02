@@ -1,7 +1,7 @@
 digraph spring_jms_5_0_4_RELEASE_dependencies {
   node [shape = box, fontsize=10.0];
   spring_jms_5_0_4_RELEASE -> jackson_annotations_2_9_0;
-  spring_jms_5_0_4_RELEASE -> jackson_databind_2_9_4;
+  spring_jms_5_0_4_RELEASE -> jackson_databind_2_9_5;
   spring_jms_5_0_4_RELEASE -> jboss_connector_api_1_7_spec_1_0_0_Final;
   spring_jms_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta2;
   spring_jms_5_0_4_RELEASE -> jms_1_1;

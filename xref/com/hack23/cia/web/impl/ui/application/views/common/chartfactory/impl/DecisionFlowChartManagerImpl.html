@@ -59,8 +59,8 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  	}
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  	@Override
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">public</strong> SankeyChart createAllDecisionFlow(<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap) {
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		<strong class="jxr_keyword">final</strong> List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(<span class="jxr_string">"20"</span>);
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">public</strong> SankeyChart createAllDecisionFlow(<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap,<strong class="jxr_keyword">final</strong> String rm) {
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  		<strong class="jxr_keyword">final</strong> List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(rm);
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  		<strong class="jxr_keyword">final</strong> SankeyChart chart = <strong class="jxr_keyword">new</strong> SankeyChart();
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  
@@ -134,8 +134,8 @@
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 
 <a class="jxr_linenumber" name="L127" href="#L127">127</a> 	@Override
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 	<strong class="jxr_keyword">public</strong> SankeyChart createCommitteeDecisionFlow(<strong class="jxr_keyword">final</strong> ViewRiksdagenCommittee viewRiksdagenCommittee,
-<a class="jxr_linenumber" name="L129" href="#L129">129</a> 			<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap) {
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 		<strong class="jxr_keyword">final</strong> List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(<span class="jxr_string">"20"</span>);
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> 			<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap, <strong class="jxr_keyword">final</strong> String rm) {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> 		<strong class="jxr_keyword">final</strong> List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(rm);
 <a class="jxr_linenumber" name="L131" href="#L131">131</a> 
 <a class="jxr_linenumber" name="L132" href="#L132">132</a> 		<strong class="jxr_keyword">final</strong> SankeyChart chart = <strong class="jxr_keyword">new</strong> SankeyChart();
 <a class="jxr_linenumber" name="L133" href="#L133">133</a> 

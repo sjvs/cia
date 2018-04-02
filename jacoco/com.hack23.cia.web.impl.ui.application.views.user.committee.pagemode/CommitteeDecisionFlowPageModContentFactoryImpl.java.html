@@ -18,6 +18,8 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.user.committee.pagemode;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -33,11 +35,15 @@ import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGro
 import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.DecisionFlowChartManager;
+import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.ChartIndicators;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
+import com.hack23.cia.web.widgets.charts.SankeyChart;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -57,41 +63,57 @@ public final class CommitteeDecisionFlowPageModContentFactoryImpl extends Abstra
 	 * Instantiates a new parliament decision flow page mod content factory impl.
 	 */
 	public CommitteeDecisionFlowPageModContentFactoryImpl() {
-<span class="fc" id="L60">		super();</span>
-<span class="fc" id="L61">	}</span>
+<span class="fc" id="L66">		super();</span>
+<span class="fc" id="L67">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L65" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString())</span>
-<span class="pc bpc" id="L66" title="1 of 2 branches missed.">				&amp;&amp; parameters.contains(ChartIndicators.DECISION_FLOW_CHART.toString());</span>
+<span class="pc bpc" id="L71" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString())</span>
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">				&amp;&amp; parameters.contains(ChartIndicators.DECISION_FLOW_CHART.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L72">		final VerticalLayout panelContent = createPanelContent();</span>
-<span class="fc" id="L73">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L78">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L79">		final String pageId = getPageId(parameters);</span>
 		
-<span class="fc" id="L75">		getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L81">		getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 		
-<span class="fc" id="L77">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L78">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L83">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L84">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
 
-<span class="fc" id="L80">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
+<span class="fc" id="L86">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
 
-<span class="pc bpc" id="L82" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {	</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {	</span>
 			
-<span class="fc" id="L84">			final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap = dataContainer.getAll().stream().collect(Collectors.groupingBy(c -&gt; c.getEmbeddedId().getOrgCode().toUpperCase(Locale.ENGLISH)));			</span>
-		
-<span class="fc" id="L86">			panelContent.addComponent(decisionFlowChartManager.createCommitteeDecisionFlow(viewRiksdagenCommittee, committeeMap));		</span>
+<span class="fc" id="L90">			String selectedYear = &quot;2017/18&quot;;</span>
+<span class="pc bpc" id="L91" title="4 of 6 branches missed.">			if (parameters != null &amp;&amp; parameters.contains(&quot;[&quot;) &amp;&amp; parameters.contains(&quot;]&quot;)) {</span>
+<span class="nc" id="L92">				selectedYear = parameters.substring(parameters.indexOf('[') + 1, parameters.lastIndexOf(']'));</span>
+			} 
 
+<span class="fc" id="L95">			ComboBox&lt;String&gt; comboBox = new ComboBox&lt;&gt;(&quot;Select year&quot;, Collections.unmodifiableList(Arrays.asList(&quot;2017/18&quot;,&quot;2016/17&quot;,&quot;2015/16&quot;,&quot;2014/15&quot;,&quot;2013/14&quot;,&quot;2012/13&quot;,&quot;2011/12&quot;,&quot;2010/11&quot;)));</span>
+<span class="fc" id="L96">			panelContent.addComponent(comboBox);</span>
+<span class="fc" id="L97">			panelContent.setExpandRatio(comboBox, ContentRatio.SMALL2);</span>
+<span class="fc" id="L98">			comboBox.setSelectedItem(selectedYear);</span>
+<span class="fc" id="L99">			comboBox.addValueChangeListener(event -&gt; {</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			    if (!event.getSource().isEmpty()) {</span>
+<span class="nc" id="L101">			    	UI.getCurrent().getNavigator().navigateTo(NAME + &quot;/&quot; + PageMode.CHARTS.toString() + &quot;/&quot; + ChartIndicators.DECISION_FLOW_CHART.toString() +&quot;/&quot; +pageId +&quot;[&quot; + event.getValue() +&quot;]&quot;);</span>
+			    }
+<span class="nc" id="L103">			});</span>
+
+<span class="fc" id="L105">			final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap = dataContainer.getAll().stream().collect(Collectors.groupingBy(c -&gt; c.getEmbeddedId().getOrgCode().toUpperCase(Locale.ENGLISH)));			</span>
+		
+<span class="fc" id="L107">			SankeyChart chart = decisionFlowChartManager.createCommitteeDecisionFlow(viewRiksdagenCommittee, committeeMap,comboBox.getSelectedItem().orElse(selectedYear));</span>
+<span class="fc" id="L108">			panelContent.addComponent(chart);		</span>
+<span class="fc" id="L109">			panelContent.setExpandRatio(chart, ContentRatio.LARGE);</span>
 		}
         
-<span class="fc" id="L90">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L112">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
-<span class="fc" id="L92">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(COMMITTEE_DECISION_FLOW).toString());</span>
+<span class="fc" id="L114">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(COMMITTEE_DECISION_FLOW).toString());</span>
 
-<span class="fc" id="L94">		return panelContent;</span>
+<span class="fc" id="L116">		return panelContent;</span>
 
 	}
 

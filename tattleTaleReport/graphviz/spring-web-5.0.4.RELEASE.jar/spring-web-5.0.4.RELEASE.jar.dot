@@ -6,9 +6,9 @@ digraph spring_web_5_0_4_RELEASE_dependencies {
   spring_web_5_0_4_RELEASE -> httpcore_4_4_9;
   spring_web_5_0_4_RELEASE -> httpcore_nio_4_4_5;
   spring_web_5_0_4_RELEASE -> jackson_annotations_2_9_0;
-  spring_web_5_0_4_RELEASE -> jackson_core_2_9_4;
-  spring_web_5_0_4_RELEASE -> jackson_databind_2_9_4;
-  spring_web_5_0_4_RELEASE -> jackson_dataformat_cbor_2_9_4;
+  spring_web_5_0_4_RELEASE -> jackson_core_2_9_5;
+  spring_web_5_0_4_RELEASE -> jackson_databind_2_9_5;
+  spring_web_5_0_4_RELEASE -> jackson_dataformat_cbor_2_9_5;
   spring_web_5_0_4_RELEASE -> javax_mail_1_6_1;
   spring_web_5_0_4_RELEASE -> jaxb_api_2_3_0;
   spring_web_5_0_4_RELEASE -> jcl_over_slf4j_1_8_0_beta2;

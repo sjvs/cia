@@ -1,36 +1,47 @@
-@startuml
+@startuml(id=Production Aws Account structure)
+scale max 2000x2000
 title Citizen Intelligence Agency - Deployment
 caption Production Aws Account structure
+
+skinparam {
+  shadowing false
+  arrowColor #707070
+  actorBorderColor #707070
+  componentBorderColor #707070
+  rectangleBorderColor #707070
+  noteBackgroundColor #ffffff
+  noteBorderColor #707070
+}
 node "Application Account" <<Aws Account>> as 12 {
-  artifact "Application Account" <<Container>> as 34
+  rectangle "Application Account" <<Container>> as 34 #1168bd
 }
 node "Audit Account" <<Aws Account>> as 10 {
-  artifact "Audit Account" <<Container>> as 30
+  rectangle "Audit Account" <<Container>> as 30 #1168bd
 }
 node "Development Account" <<Aws Account>> as 6 {
-  artifact "Development Account" <<Container>> as 29
+  rectangle "Development Account" <<Container>> as 29 #1168bd
 }
 node "IAM Account" <<Aws Account>> as 4 {
-  artifact "IAM Account" <<Container>> as 36
+  rectangle "IAM Account" <<Container>> as 36 #1168bd
 }
 node "Master Account" <<Aws Account>> as 2 {
-  artifact "Master Account" <<Container>> as 41
+  rectangle "Master Account" <<Container>> as 41 #1168bd
 }
 node "Operation Center Account" <<Aws Account>> as 8 {
-  artifact "Operation Center Account" <<Container>> as 28
+  rectangle "Operation Center Account" <<Container>> as 28 #1168bd
 }
-36 ..> 30 : publish event/audit
-41 ..> 34 : create/restrict
-41 ..> 28 : create/restrict
-28 ..> 30 : Monitor event/audit
-28 ..> 30 : publish event/audit
-36 ..> 34 : manage access
-34 ..> 30 : publish event/audit
-29 ..> 30 : publish event/audit
-41 ..> 36 : create/restrict
-41 ..> 29 : create/restrict
-41 ..> 30 : create/restrict
-41 ..> 30 : publish event/audit
-36 ..> 28 : manage access
-36 ..> 29 : manage access
+36 .[#707070].> 30 : publish event/audit
+41 .[#707070].> 29 : create/restrict
+41 .[#707070].> 36 : create/restrict
+28 .[#707070].> 30 : publish event/audit
+29 .[#707070].> 30 : publish event/audit
+36 .[#707070].> 29 : manage access
+34 .[#707070].> 30 : publish event/audit
+28 .[#707070].> 30 : Monitor event/audit
+41 .[#707070].> 28 : create/restrict
+41 .[#707070].> 34 : create/restrict
+41 .[#707070].> 30 : create/restrict
+41 .[#707070].> 30 : publish event/audit
+36 .[#707070].> 28 : manage access
+36 .[#707070].> 34 : manage access
 @enduml

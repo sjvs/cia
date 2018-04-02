@@ -113,10 +113,10 @@ public final class DecisionDataFactoryImpl implements DecisionDataFactory {
 	private static String getDocumentName(final DocumentStatusContainer document) {
 <span class="fc bfc" id="L114" title="All 2 branches covered.">		if (&quot;prop&quot;.equalsIgnoreCase(document.getDocument().getDocumentType())) {</span>
 <span class="fc" id="L115">			return &quot;Proposition&quot;;</span>
-<span class="pc bpc" id="L116" title="1 of 4 branches missed.">		} else if (document.getDocument().getSubType() != null &amp;&amp; document.getDocument().getSubType().length() &gt; &quot;motion&quot;.length()) {</span>
+<span class="pc bpc" id="L116" title="2 of 4 branches missed.">		} else if (document.getDocument().getSubType() != null &amp;&amp; document.getDocument().getSubType().length() &gt; &quot;motion&quot;.length()) {</span>
 <span class="fc" id="L117">			return document.getDocument().getSubType();</span>
 		} else {
-<span class="fc" id="L119">			return &quot;Motion&quot;;</span>
+<span class="nc" id="L119">			return &quot;Motion&quot;;</span>
 		}
 		
 	}

@@ -1,11 +1,34 @@
-@startuml
+@startuml(id=Container view)
+scale max 2000x2000
 title Citizen Intelligence Agency System - Containers
 caption Application Overview
-package CitizenIntelligenceAgencySystem {
-  component "Database" <<Container>> as 106
-  component "Loadbalancer" <<Container>> as 8
-  component "Web Application" <<Container>> as 9
+
+skinparam {
+  shadowing false
+  arrowColor #707070
+  actorBorderColor #707070
+  componentBorderColor #707070
+  rectangleBorderColor #707070
+  noteBackgroundColor #ffffff
+  noteBorderColor #707070
 }
-8 ..> 9 : HTTPS/H2
-9 ..> 106 : JDBC
+package "Citizen Intelligence Agency System" <<Software System>> {
+  database 37 <<Container>> #1168bd [
+    Database
+    --
+    Stores information
+  ]
+  rectangle 8 <<Container>> #1168bd [
+    Loadbalancer
+    --
+    Loadbalancer
+  ]
+  rectangle 9 <<Container>> #1168bd [
+    Web Application
+    --
+    Web Application
+  ]
+}
+8 .[#707070].> 9 : HTTPS/H2
+9 .[#707070].> 37 : JDBC
 @enduml

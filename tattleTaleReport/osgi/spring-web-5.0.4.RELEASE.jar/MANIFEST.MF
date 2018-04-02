@@ -218,17 +218,17 @@ Export-Package: org.springframework.http;uses:="java.lang,java.lang.in
 Import-Package: com.caucho.hessian,com.caucho.hessian.client,com.cauch
  o.hessian.io,com.caucho.hessian.server,com.fasterxml.aalto,com.faster
  xml.aalto.evt,com.fasterxml.aalto.stax,com.fasterxml.jackson.annotati
- on;version="2.9.0",com.fasterxml.jackson.core;version="2.9.4",com.fas
- terxml.jackson.core.async;version="2.9.4",com.fasterxml.jackson.core.
- util;version="2.9.4",com.fasterxml.jackson.databind;version="2.9.4",c
- om.fasterxml.jackson.databind.cfg;version="2.9.4",com.fasterxml.jacks
- on.databind.deser;version="2.9.4",com.fasterxml.jackson.databind.exc;
- version="2.9.4",com.fasterxml.jackson.databind.introspect;version="2.
- 9.4",com.fasterxml.jackson.databind.jsontype;version="2.9.4",com.fast
- erxml.jackson.databind.module;version="2.9.4",com.fasterxml.jackson.d
- atabind.ser;version="2.9.4",com.fasterxml.jackson.databind.type;versi
- on="2.9.4",com.fasterxml.jackson.databind.util;version="2.9.4",com.fa
- sterxml.jackson.dataformat.cbor;version="2.9.4",com.fasterxml.jackson
+ on;version="2.9.0",com.fasterxml.jackson.core;version="2.9.5",com.fas
+ terxml.jackson.core.async;version="2.9.5",com.fasterxml.jackson.core.
+ util;version="2.9.5",com.fasterxml.jackson.databind;version="2.9.5",c
+ om.fasterxml.jackson.databind.cfg;version="2.9.5",com.fasterxml.jacks
+ on.databind.deser;version="2.9.5",com.fasterxml.jackson.databind.exc;
+ version="2.9.5",com.fasterxml.jackson.databind.introspect;version="2.
+ 9.5",com.fasterxml.jackson.databind.jsontype;version="2.9.5",com.fast
+ erxml.jackson.databind.module;version="2.9.5",com.fasterxml.jackson.d
+ atabind.ser;version="2.9.5",com.fasterxml.jackson.databind.type;versi
+ on="2.9.5",com.fasterxml.jackson.databind.util;version="2.9.5",com.fa
+ sterxml.jackson.dataformat.cbor;version="2.9.5",com.fasterxml.jackson
  .dataformat.smile,com.fasterxml.jackson.dataformat.xml,com.google.gso
  n;version="0.0.0",com.google.protobuf;version="0.0.0",com.google.prot
  obuf.util,com.googlecode.protobuf.format,com.rometools.rome.feed,com.

@@ -28,7 +28,7 @@ Bundle-Name: elasticsearch-rest-client-sniffer-5.6.7
 Bundle-Version: 5.6.7
 Export-Package: org.elasticsearch.client.sniff;uses:="com.fasterxml.ja
  ckson.core,java.util,org.elasticsearch.client"
-Import-Package: com.fasterxml.jackson.core;version="2.9.4",java.io,jav
+Import-Package: com.fasterxml.jackson.core;version="2.9.5",java.io,jav
  a.lang,java.net,java.security,java.util,java.util.concurrent,java.uti
  l.concurrent.atomic,org.apache.commons.logging;version="0.0.0",org.ap
  ache.http;version="4.4.9",org.elasticsearch.client;version="5.6.7"

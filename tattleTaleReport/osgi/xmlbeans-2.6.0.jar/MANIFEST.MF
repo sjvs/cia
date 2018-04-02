@@ -135,7 +135,7 @@ Import-Package: com.sun.javadoc,com.sun.tools.javadoc,java.io,java.lan
  va.util.regex,java.util.zip,javax.xml.namespace;version="1.0",javax.x
  ml.parsers;version="1.0",javax.xml.stream;version="1.0",javax.xml.str
  eam.util;version="1.0",javax.xml.transform;version="1.0",org.apache.t
- ools.ant;version="1.10.2",org.apache.tools.ant.taskdefs;version="1.10
- .2",org.apache.tools.ant.types;version="1.10.2",org.w3c.dom;version="
+ ools.ant;version="1.10.3",org.apache.tools.ant.taskdefs;version="1.10
+ .3",org.apache.tools.ant.types;version="1.10.3",org.w3c.dom;version="
  1.0",org.xml.sax;version="1.0",org.xml.sax.ext;version="1.0",org.xml.
  sax.helpers;version="1.0"
