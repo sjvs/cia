@@ -74,7 +74,7 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  on="1.0",javax.xml.stream;version="1.0",net.sf.ehcache;version="0.0.0
  ",net.sf.ehcache.config;version="0.0.0",net.sf.ehcache.management;ver
  sion="0.0.0",net.sf.ehcache.store;version="0.0.0",org.aopalliance.aop
- ;version="5.0.4.RELEASE",org.aopalliance.intercept;version="5.0.4.REL
+ ;version="5.0.5.RELEASE",org.aopalliance.intercept;version="5.0.5.REL
  EASE",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="2.2.0
  ",org.apache.log4j;version="0.0.0",org.apache.log4j.spi;version="0.0.
  0",org.apache.logging.log4j,org.apache.logging.log4j.core,org.apache.
@@ -85,13 +85,13 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  ="1.6.0",org.jrobin.data;version="1.6.0",org.jrobin.graph;version="1.
  6.0",org.quartz;version="0.0.0",org.quartz.impl;version="0.0.0",org.q
  uartz.impl.matchers;version="0.0.0",org.slf4j;version="0.0.0",org.spr
- ingframework.aop;version="5.0.4.RELEASE",org.springframework.aop.supp
- ort;version="5.0.4.RELEASE",org.springframework.beans;version="5.0.4.
- RELEASE",org.springframework.beans.factory;version="5.0.4.RELEASE",or
- g.springframework.beans.factory.config;version="5.0.4.RELEASE",org.sp
- ringframework.context;version="5.0.4.RELEASE",org.springframework.cor
- e;version="5.0.4.RELEASE",org.springframework.http;version="5.0.4.REL
- EASE",org.springframework.http.client;version="5.0.4.RELEASE",org.spr
- ingframework.jndi;version="5.0.4.RELEASE",org.springframework.web.cli
- ent;version="5.0.4.RELEASE",org.w3c.dom;version="1.0",org.xml.sax;ver
+ ingframework.aop;version="5.0.5.RELEASE",org.springframework.aop.supp
+ ort;version="5.0.5.RELEASE",org.springframework.beans;version="5.0.5.
+ RELEASE",org.springframework.beans.factory;version="5.0.5.RELEASE",or
+ g.springframework.beans.factory.config;version="5.0.5.RELEASE",org.sp
+ ringframework.context;version="5.0.5.RELEASE",org.springframework.cor
+ e;version="5.0.5.RELEASE",org.springframework.http;version="5.0.5.REL
+ EASE",org.springframework.http.client;version="5.0.5.RELEASE",org.spr
+ ingframework.jndi;version="5.0.5.RELEASE",org.springframework.web.cli
+ ent;version="5.0.5.RELEASE",org.w3c.dom;version="1.0",org.xml.sax;ver
  sion="1.0",sun.misc,sun.nio.ch

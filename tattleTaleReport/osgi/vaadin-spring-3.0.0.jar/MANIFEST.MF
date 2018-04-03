@@ -44,16 +44,16 @@ Import-Package: com.vaadin.navigator;version="8.4.0.alpha1",com.vaadin
  ang.annotation,java.lang.invoke,java.lang.reflect,java.net,java.nio.c
  harset,java.util,java.util.concurrent,java.util.function,java.util.st
  ream,javax.annotation,javax.servlet,javax.servlet.http,org.slf4j;vers
- ion="0.0.0",org.springframework.beans;version="5.0.4.RELEASE",org.spr
- ingframework.beans.factory;version="5.0.4.RELEASE",org.springframewor
- k.beans.factory.annotation;version="5.0.4.RELEASE",org.springframewor
- k.beans.factory.config;version="5.0.4.RELEASE",org.springframework.be
- ans.factory.support;version="5.0.4.RELEASE",org.springframework.conte
- xt;version="5.0.4.RELEASE",org.springframework.context.annotation;ver
- sion="5.0.4.RELEASE",org.springframework.core.annotation;version="5.0
- .4.RELEASE",org.springframework.core.env;version="5.0.4.RELEASE",org.
- springframework.core.type;version="5.0.4.RELEASE",org.springframework
- .stereotype;version="5.0.4.RELEASE",org.springframework.util;version=
- "5.0.4.RELEASE",org.springframework.web.context;version="5.0.4.RELEAS
- E",org.springframework.web.context.support;version="5.0.4.RELEASE",or
- g.springframework.web.util;version="5.0.4.RELEASE"
+ ion="0.0.0",org.springframework.beans;version="5.0.5.RELEASE",org.spr
+ ingframework.beans.factory;version="5.0.5.RELEASE",org.springframewor
+ k.beans.factory.annotation;version="5.0.5.RELEASE",org.springframewor
+ k.beans.factory.config;version="5.0.5.RELEASE",org.springframework.be
+ ans.factory.support;version="5.0.5.RELEASE",org.springframework.conte
+ xt;version="5.0.5.RELEASE",org.springframework.context.annotation;ver
+ sion="5.0.5.RELEASE",org.springframework.core.annotation;version="5.0
+ .5.RELEASE",org.springframework.core.env;version="5.0.5.RELEASE",org.
+ springframework.core.type;version="5.0.5.RELEASE",org.springframework
+ .stereotype;version="5.0.5.RELEASE",org.springframework.util;version=
+ "5.0.5.RELEASE",org.springframework.web.context;version="5.0.5.RELEAS
+ E",org.springframework.web.context.support;version="5.0.5.RELEASE",or
+ g.springframework.web.util;version="5.0.5.RELEASE"

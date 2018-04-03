@@ -13,11 +13,11 @@ digraph javamelody_core_1_71_0_dependencies {
   javamelody_core_1_71_0 -> openpdf_1_0_5;
   javamelody_core_1_71_0 -> quartz_2_3_0;
   javamelody_core_1_71_0 -> slf4j_api_1_8_0_beta2;
-  javamelody_core_1_71_0 -> spring_aop_5_0_4_RELEASE;
-  javamelody_core_1_71_0 -> spring_beans_5_0_4_RELEASE;
-  javamelody_core_1_71_0 -> spring_context_5_0_4_RELEASE;
-  javamelody_core_1_71_0 -> spring_core_5_0_4_RELEASE;
-  javamelody_core_1_71_0 -> spring_web_5_0_4_RELEASE;
+  javamelody_core_1_71_0 -> spring_aop_5_0_5_RELEASE;
+  javamelody_core_1_71_0 -> spring_beans_5_0_5_RELEASE;
+  javamelody_core_1_71_0 -> spring_context_5_0_5_RELEASE;
+  javamelody_core_1_71_0 -> spring_core_5_0_5_RELEASE;
+  javamelody_core_1_71_0 -> spring_web_5_0_5_RELEASE;
   javamelody_core_1_71_0 -> xml_apis_1_4_01;
   javamelody_core_1_71_0 -> xstream_1_4_10;
 }

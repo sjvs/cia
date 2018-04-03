@@ -39,9 +39,9 @@ Import-Package: java.beans,java.io,java.lang,java.net,java.security,ja
  q.store.journal,org.apache.activemq.usage;version="5.15.3",org.apache
  .activemq.util;version="5.15.3",org.apache.xbean.spring.context;versi
  on="4.7",org.apache.xbean.spring.context.impl;version="4.7",org.slf4j
- ;version="0.0.0",org.springframework.beans;version="5.0.4.RELEASE",or
- g.springframework.beans.factory;version="5.0.4.RELEASE",org.springfra
- mework.beans.factory.xml;version="5.0.4.RELEASE",org.springframework.
- context;version="5.0.4.RELEASE",org.springframework.core.io;version="
- 5.0.4.RELEASE",org.springframework.jndi;version="5.0.4.RELEASE",org.s
- pringframework.util;version="5.0.4.RELEASE"
+ ;version="0.0.0",org.springframework.beans;version="5.0.5.RELEASE",or
+ g.springframework.beans.factory;version="5.0.5.RELEASE",org.springfra
+ mework.beans.factory.xml;version="5.0.5.RELEASE",org.springframework.
+ context;version="5.0.5.RELEASE",org.springframework.core.io;version="
+ 5.0.5.RELEASE",org.springframework.jndi;version="5.0.5.RELEASE",org.s
+ pringframework.util;version="5.0.5.RELEASE"
