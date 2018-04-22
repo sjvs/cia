@@ -1,0 +1,8 @@
+digraph ehcache_2_10_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  ehcache_2_10_4 -> hibernate_core_5_3_0_CR1;
+  ehcache_2_10_4 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+  ehcache_2_10_4 -> quartz_2_3_0;
+  ehcache_2_10_4 -> slf4j_api_1_8_0_beta2;
+  ehcache_2_10_4 -> xml_apis_1_4_01;
+}

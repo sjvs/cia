@@ -1,0 +1,13 @@
+digraph hibernate_search_engine_5_10_0_Beta2_dependencies {
+  node [shape = box, fontsize=10.0];
+  hibernate_search_engine_5_10_0_Beta2 -> hibernate_commons_annotations_5_0_3_Final;
+  hibernate_search_engine_5_10_0_Beta2 -> jboss_logging_3_3_2_Final;
+  hibernate_search_engine_5_10_0_Beta2 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_analyzers_common_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_core_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_facet_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_misc_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_queries_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> lucene_queryparser_5_5_5;
+  hibernate_search_engine_5_10_0_Beta2 -> xml_apis_1_4_01;
+}

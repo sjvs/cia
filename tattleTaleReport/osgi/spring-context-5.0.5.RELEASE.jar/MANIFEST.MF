@@ -177,7 +177,7 @@ Import-Package: bsh,com.sun.net.httpserver,groovy.lang,java.beans,java
  n.collections,kotlin.jvm.functions,kotlin.jvm.internal,kotlin.reflect
  ,org.aopalliance.aop;version="5.0.5.RELEASE",org.aopalliance.intercep
  t;version="5.0.5.RELEASE",org.apache.commons.logging;version="0.0.0",
- org.aspectj.weaver.loadtime;version="1.9.0",org.codehaus.groovy.contr
+ org.aspectj.weaver.loadtime;version="1.9.1",org.codehaus.groovy.contr
  ol,org.codehaus.groovy.control.customizers,org.hibernate.validator.me
  ssageinterpolation;version="2.0",org.hibernate.validator.spi.resource
  loading;version="2.0",org.jetbrains.annotations,org.joda.time;version

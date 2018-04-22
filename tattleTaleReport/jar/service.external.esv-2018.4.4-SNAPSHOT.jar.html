@@ -41,7 +41,7 @@
   </tr>
   <tr class="rowodd">
      <td>Requires</td>
-     <td>java.io.IOException<br>java.io.InputStream<br>java.lang.Character<br>java.lang.Class<br>java.lang.Integer<br>java.lang.Object<br>java.lang.String<br>java.lang.Throwable<br>java.lang.invoke.CallSite<br>java.lang.invoke.LambdaMetafactory<br>java.lang.invoke.MethodHandle<br>java.lang.invoke.MethodHandles<br>java.lang.invoke.MethodHandles$Lookup<br>java.lang.invoke.MethodType<br>java.util.ArrayList<br>java.util.Collection<br>java.util.HashMap<br>java.util.HashSet<br>java.util.Iterator<br>java.util.List<br>java.util.Map<br>java.util.Set<br>java.util.TreeMap<br>java.util.function.IntPredicate<br>java.util.stream.IntStream<br>org.apache.commons.lang3.builder.EqualsBuilder<br>org.apache.commons.lang3.builder.HashCodeBuilder<br>org.apache.commons.lang3.builder.ToStringBuilder<br>org.apache.commons.lang3.builder.ToStringStyle<br>org.apache.poi.hssf.usermodel.HSSFSheet<br>org.apache.poi.hssf.usermodel.HSSFWorkbook<br>org.apache.poi.ss.usermodel.Cell<br>org.apache.poi.ss.usermodel.Row<br>org.slf4j.Logger<br>org.slf4j.LoggerFactory<br>org.springframework.beans.factory.annotation.Autowired<br>org.springframework.stereotype.Component</td>
+     <td>java.io.BufferedInputStream<br>java.io.IOException<br>java.io.InputStream<br>java.io.InputStreamReader<br>java.io.Reader<br>java.io.Serializable<br>java.lang.Character<br>java.lang.Class<br>java.lang.Comparable<br>java.lang.Double<br>java.lang.Enum<br>java.lang.Integer<br>java.lang.Object<br>java.lang.String<br>java.lang.Throwable<br>java.lang.invoke.CallSite<br>java.lang.invoke.LambdaMetafactory<br>java.lang.invoke.MethodHandle<br>java.lang.invoke.MethodHandles<br>java.lang.invoke.MethodHandles$Lookup<br>java.lang.invoke.MethodType<br>java.nio.charset.Charset<br>java.time.Month<br>java.util.ArrayList<br>java.util.Collection<br>java.util.Date<br>java.util.GregorianCalendar<br>java.util.HashMap<br>java.util.HashSet<br>java.util.Iterator<br>java.util.List<br>java.util.Map<br>java.util.Set<br>java.util.TreeMap<br>java.util.function.Function<br>java.util.function.IntPredicate<br>java.util.function.Predicate<br>java.util.stream.Collector<br>java.util.stream.Collectors<br>java.util.stream.IntStream<br>java.util.stream.Stream<br>java.util.zip.ZipEntry<br>java.util.zip.ZipInputStream<br>org.apache.commons.codec.Charsets<br>org.apache.commons.csv.CSVFormat<br>org.apache.commons.csv.CSVParser<br>org.apache.commons.csv.CSVRecord<br>org.apache.commons.lang3.builder.EqualsBuilder<br>org.apache.commons.lang3.builder.HashCodeBuilder<br>org.apache.commons.lang3.builder.ToStringBuilder<br>org.apache.commons.lang3.builder.ToStringStyle<br>org.apache.http.client.fluent.Content<br>org.apache.http.client.fluent.Request<br>org.apache.http.client.fluent.Response<br>org.apache.poi.hssf.usermodel.HSSFSheet<br>org.apache.poi.hssf.usermodel.HSSFWorkbook<br>org.apache.poi.ss.usermodel.Cell<br>org.apache.poi.ss.usermodel.Row<br>org.apache.poi.xssf.usermodel.XSSFCell<br>org.apache.poi.xssf.usermodel.XSSFRow<br>org.apache.poi.xssf.usermodel.XSSFSheet<br>org.apache.poi.xssf.usermodel.XSSFWorkbook<br>org.slf4j.Logger<br>org.slf4j.LoggerFactory<br>org.springframework.beans.factory.annotation.Autowired<br>org.springframework.stereotype.Component</td>
   </tr>
   <tr class="roweven">
      <td>Provides</td>
@@ -50,7 +50,19 @@
            <td>&nbsp;</td>
          </tr>
          <tr>
+           <td>com.hack23.cia.service.external.esv.api.GovernmentBodyAnnualOutcomeSummary</td>
+           <td>1</td>
+         </tr>
+         <tr>
            <td>com.hack23.cia.service.external.esv.api.GovernmentBodyAnnualSummary</td>
+           <td>1</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.api.GovernmentOperationPeriodOutcome</td>
+           <td>1</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.api.GovernmentOperationPeriodOutcome$Variables</td>
            <td>&nbsp;</td>
          </tr>
          <tr>
@@ -63,6 +75,22 @@
          </tr>
          <tr>
            <td>com.hack23.cia.service.external.esv.impl.EsvExcelReaderImpl</td>
+           <td>&nbsp;</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.impl.EsvGovernmentBodyOperationOutcomeReader</td>
+           <td>&nbsp;</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.impl.EsvGovernmentBodyOperationOutcomeReaderImpl</td>
+           <td>&nbsp;</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.impl.EsvGovernmentOperationsExcelReader</td>
+           <td>&nbsp;</td>
+         </tr>
+         <tr>
+           <td>com.hack23.cia.service.external.esv.impl.EsvGovernmentOperationsExcelReaderImpl</td>
            <td>&nbsp;</td>
          </tr>
          <tr>

@@ -1,5 +1,5 @@
 digraph ehcache_web_2_0_4_dependencies {
   node [shape = box, fontsize=10.0];
-  ehcache_web_2_0_4 -> ehcache_2_10_4_4_8;
+  ehcache_web_2_0_4 -> ehcache_2_10_4;
   ehcache_web_2_0_4 -> slf4j_api_1_8_0_beta2;
 }

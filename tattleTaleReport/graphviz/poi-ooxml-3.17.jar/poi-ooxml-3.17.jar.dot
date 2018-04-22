@@ -6,8 +6,8 @@ digraph poi_ooxml_3_17_dependencies {
   poi_ooxml_3_17 -> curvesapi_1_06;
   poi_ooxml_3_17 -> jaxb_api_2_3_0;
   poi_ooxml_3_17 -> poi_3_17;
+  poi_ooxml_3_17 -> poi_all_3_17;
   poi_ooxml_3_17 -> poi_ooxml_schemas_3_17;
-  poi_ooxml_3_17 -> poi_scratchpad_3_17;
   poi_ooxml_3_17 -> xml_apis_1_4_01;
   poi_ooxml_3_17 -> xmlbeans_2_6_0;
 }

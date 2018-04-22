@@ -103,7 +103,7 @@
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  		comboBox.setSelectedItem(selectedYear);
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  		comboBox.addValueChangeListener(event -&gt; {
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  			<strong class="jxr_keyword">if</strong> (!event.getSource().isEmpty()) {
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  				UI.getCurrent().getNavigator().navigateTo(NAME + <span class="jxr_string">"/"</span> + PageMode.CHARTS.toString() + <span class="jxr_string">"/"</span> + ChartIndicators.DECISION_FLOW_CHART.toString() +<span class="jxr_string">"["</span> + event.getValue() +<span class="jxr_string">"]"</span>);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>  				UI.getCurrent().getNavigator().navigateTo(NAME + <span class="jxr_string">"/"</span> + PageMode.CHARTS + <span class="jxr_string">"/"</span> + ChartIndicators.DECISION_FLOW_CHART +<span class="jxr_string">"["</span> + event.getValue() +<span class="jxr_string">"]"</span>);
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  			}
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 		});
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> 		

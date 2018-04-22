@@ -5,6 +5,6 @@ digraph vaadin_spring_3_0_0_dependencies {
   vaadin_spring_3_0_0 -> spring_context_5_0_5_RELEASE;
   vaadin_spring_3_0_0 -> spring_core_5_0_5_RELEASE;
   vaadin_spring_3_0_0 -> spring_web_5_0_5_RELEASE;
-  vaadin_spring_3_0_0 -> vaadin_server_8_4_0_alpha1;
-  vaadin_spring_3_0_0 -> vaadin_shared_8_4_0_alpha1;
+  vaadin_spring_3_0_0 -> vaadin_server_8_4_0_beta1;
+  vaadin_spring_3_0_0 -> vaadin_shared_8_4_0_beta1;
 }

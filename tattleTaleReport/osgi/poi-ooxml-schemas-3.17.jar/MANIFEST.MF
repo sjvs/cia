@@ -164,22 +164,22 @@ Import-Package: com.microsoft.schemas.office.excel,com.microsoft.schem
  .schemas.office.word,com.microsoft.schemas.office.x2006.digsig,com.mi
  crosoft.schemas.vml,com.microsoft.schemas.vml.impl,java.io,java.lang,
  java.lang.reflect,java.math,java.net,java.util,javax.xml.namespace;ve
- rsion="1.0",javax.xml.stream;version="1.0",org.apache.poi;version="3.
- 17",org.apache.xmlbeans;version="0.0.0",org.apache.xmlbeans.impl.valu
- es;version="0.0.0",org.apache.xmlbeans.impl.xb.xmlschema;version="0.0
- .0",org.apache.xmlbeans.xml.stream;version="0.0.0",org.etsi.uri.x0190
- 3.v13,org.etsi.uri.x01903.v13.impl,org.openxmlformats.schemas.drawing
- ml.x2006.chart,org.openxmlformats.schemas.drawingml.x2006.chart.impl,
- org.openxmlformats.schemas.drawingml.x2006.main,org.openxmlformats.sc
- hemas.drawingml.x2006.main.impl,org.openxmlformats.schemas.drawingml.
- x2006.spreadsheetDrawing.impl,org.openxmlformats.schemas.drawingml.x2
- 006.wordprocessingDrawing,org.openxmlformats.schemas.officeDocument.x
- 2006.docPropsVTypes,org.openxmlformats.schemas.officeDocument.x2006.d
- ocPropsVTypes.impl,org.openxmlformats.schemas.officeDocument.x2006.ma
- th,org.openxmlformats.schemas.presentationml.x2006.main,org.openxmlfo
- rmats.schemas.presentationml.x2006.main.impl,org.openxmlformats.schem
- as.schemaLibrary.x2006.main,org.openxmlformats.schemas.spreadsheetml.
- x2006.main,org.openxmlformats.schemas.spreadsheetml.x2006.main.impl,o
- rg.openxmlformats.schemas.wordprocessingml.x2006.main,org.openxmlform
- ats.schemas.wordprocessingml.x2006.main.impl,org.w3.x2000.x09.xmldsig
- ,org.w3.x2000.x09.xmldsig.impl,org.w3c.dom;version="1.0"
+ rsion="1.0",javax.xml.stream;version="1.0",org.apache.poi;version="0.
+ 0.0",org.apache.xmlbeans;version="0.0.0",org.apache.xmlbeans.impl.val
+ ues;version="0.0.0",org.apache.xmlbeans.impl.xb.xmlschema;version="0.
+ 0.0",org.apache.xmlbeans.xml.stream;version="0.0.0",org.etsi.uri.x019
+ 03.v13,org.etsi.uri.x01903.v13.impl,org.openxmlformats.schemas.drawin
+ gml.x2006.chart,org.openxmlformats.schemas.drawingml.x2006.chart.impl
+ ,org.openxmlformats.schemas.drawingml.x2006.main,org.openxmlformats.s
+ chemas.drawingml.x2006.main.impl,org.openxmlformats.schemas.drawingml
+ .x2006.spreadsheetDrawing.impl,org.openxmlformats.schemas.drawingml.x
+ 2006.wordprocessingDrawing,org.openxmlformats.schemas.officeDocument.
+ x2006.docPropsVTypes,org.openxmlformats.schemas.officeDocument.x2006.
+ docPropsVTypes.impl,org.openxmlformats.schemas.officeDocument.x2006.m
+ ath,org.openxmlformats.schemas.presentationml.x2006.main,org.openxmlf
+ ormats.schemas.presentationml.x2006.main.impl,org.openxmlformats.sche
+ mas.schemaLibrary.x2006.main,org.openxmlformats.schemas.spreadsheetml
+ .x2006.main,org.openxmlformats.schemas.spreadsheetml.x2006.main.impl,
+ org.openxmlformats.schemas.wordprocessingml.x2006.main,org.openxmlfor
+ mats.schemas.wordprocessingml.x2006.main.impl,org.w3.x2000.x09.xmldsi
+ g,org.w3.x2000.x09.xmldsig.impl,org.w3c.dom;version="1.0"

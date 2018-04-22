@@ -113,8 +113,8 @@
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 		iamAccountNode.add(iamAccountContainer);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 		masterAccountNode.add(awsAccountContainer);
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 		
-<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		<strong class="jxr_keyword">final</strong> DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Production Aws Account structure"</span>,
-<a class="jxr_linenumber" name="L109" href="#L109">109</a> 				<span class="jxr_string">"Production Aws Account structure"</span>);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		<strong class="jxr_keyword">final</strong> DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"\&quot;Production Aws Account structure\&quot;"</span>,
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 				<span class="jxr_string">"\&quot;Production Aws Account structure\&quot;"</span>);
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 		developmentDeploymentView.add(masterAccountNode);
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 		developmentDeploymentView.add(iamAccountNode);
@@ -179,10 +179,9 @@
 <a class="jxr_linenumber" name="L171" href="#L171">171</a> 		<strong class="jxr_keyword">final</strong> String fullFilePathPlantUmlFile = Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 				+ <span class="jxr_string">"target"</span> + File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator + filename
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 				+ <span class="jxr_string">".pu"</span>;
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		System.out.println(<span class="jxr_string">"Writing file:"</span> + fullFilePathPlantUmlFile);
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 	}
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> }
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 	}
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

@@ -1,7 +1,7 @@
-@startuml(id=Enterprise)
+@startuml(id="Enterprise")
 scale max 2000x2000
 title System Landscape for Hack23
-caption Enterprise
+caption "Enterprise"
 
 skinparam {
   shadowing false

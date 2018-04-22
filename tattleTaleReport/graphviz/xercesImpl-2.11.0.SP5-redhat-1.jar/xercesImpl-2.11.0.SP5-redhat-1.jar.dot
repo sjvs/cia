@@ -1,0 +1,4 @@
+digraph xercesImpl_2_11_0_SP5_redhat_1_dependencies {
+  node [shape = box, fontsize=10.0];
+  xercesImpl_2_11_0_SP5_redhat_1 -> xml_apis_1_4_01;
+}

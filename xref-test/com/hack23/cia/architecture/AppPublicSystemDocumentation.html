@@ -153,15 +153,15 @@
 <a class="jxr_linenumber" name="L145" href="#L145">145</a> 
 <a class="jxr_linenumber" name="L146" href="#L146">146</a> 		ciaWebContainer.uses(relationalDatabase, <span class="jxr_string">"JDBC"</span>);
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		<strong class="jxr_keyword">final</strong> SystemLandscapeView enterpriseContextView = viewSet.createSystemLandscapeView(<span class="jxr_string">"Enterprise"</span>,
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 				<span class="jxr_string">"Enterprise"</span>);
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		<strong class="jxr_keyword">final</strong> SystemLandscapeView enterpriseContextView = viewSet.createSystemLandscapeView(<span class="jxr_string">"\&quot;Enterprise\&quot;"</span>,
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> 				<span class="jxr_string">"\&quot;Enterprise\&quot;"</span>);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 		enterpriseContextView.addAllElements();
 <a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> Enterprise enterprise = <strong class="jxr_keyword">new</strong> Enterprise(<span class="jxr_string">"Hack23"</span>);
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 		enterpriseContextView.getModel().setEnterprise(enterprise);
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		viewSet.createSystemContextView(ciaSystem, <span class="jxr_string">"System context"</span>, <span class="jxr_string">"System context"</span>).addAllElements();
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		viewSet.createContainerView(ciaSystem, <span class="jxr_string">"Container view"</span>, <span class="jxr_string">"Application Overview"</span>).addAllContainers();
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		viewSet.createComponentView(ciaWebContainer, <span class="jxr_string">"Web"</span>, <span class="jxr_string">"Web"</span>).addAllComponents();
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> 		viewSet.createSystemContextView(ciaSystem, <span class="jxr_string">"\&quot;System context\&quot;"</span>, <span class="jxr_string">"\&quot;System context\&quot;"</span>).addAllElements();
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		viewSet.createContainerView(ciaSystem, <span class="jxr_string">"\&quot;Container view\&quot;"</span>, <span class="jxr_string">"\&quot;Application Overview\&quot;"</span>).addAllContainers();
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		viewSet.createComponentView(ciaWebContainer, <span class="jxr_string">"\&quot;Web\&quot;"</span>, <span class="jxr_string">"\&quot;Web\&quot;"</span>).addAllComponents();
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 		<strong class="jxr_keyword">final</strong> DeploymentNode awsAccountNode = model.addDeploymentNode(<span class="jxr_string">"AppOrg Account"</span>, <span class="jxr_string">"AWS"</span>, <span class="jxr_string">"Aws Account"</span>);
 <a class="jxr_linenumber" name="L159" href="#L159">159</a> 
@@ -295,8 +295,8 @@
 <a class="jxr_linenumber" name="L287" href="#L287">287</a> 		sumologicNetworkSecurityDashboardNode.add(sumologicAwsAlbLogsContainer);
 <a class="jxr_linenumber" name="L288" href="#L288">288</a> 		
 <a class="jxr_linenumber" name="L289" href="#L289">289</a> 
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		<strong class="jxr_keyword">final</strong> DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"Deployment"</span>,
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> 				<span class="jxr_string">"Deployment Aws."</span>);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		<strong class="jxr_keyword">final</strong> DeploymentView developmentDeploymentView = viewSet.createDeploymentView(ciaSystem, <span class="jxr_string">"\&quot;Deployment\&quot;"</span>,
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 				<span class="jxr_string">"\&quot;Deployment Aws.\&quot;"</span>);
 <a class="jxr_linenumber" name="L292" href="#L292">292</a> 
 <a class="jxr_linenumber" name="L293" href="#L293">293</a> 		developmentDeploymentView.add(awsAuditAccountNode);
 <a class="jxr_linenumber" name="L294" href="#L294">294</a> 		developmentDeploymentView.add(wafNode);
@@ -389,10 +389,9 @@
 <a class="jxr_linenumber" name="L381" href="#L381">381</a> 		<strong class="jxr_keyword">final</strong> String fullFilePathPlantUmlFile = Paths.get(<span class="jxr_string">"."</span>).toAbsolutePath().normalize().toString() + File.separator
 <a class="jxr_linenumber" name="L382" href="#L382">382</a> 				+ <span class="jxr_string">"target"</span> + File.separator + <span class="jxr_string">"site"</span> + File.separator + <span class="jxr_string">"architecture"</span> + File.separator + filename
 <a class="jxr_linenumber" name="L383" href="#L383">383</a> 				+ <span class="jxr_string">".pu"</span>;
-<a class="jxr_linenumber" name="L384" href="#L384">384</a> 		System.out.println(<span class="jxr_string">"Writing file:"</span> + fullFilePathPlantUmlFile);
-<a class="jxr_linenumber" name="L385" href="#L385">385</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
-<a class="jxr_linenumber" name="L386" href="#L386">386</a> 	}
-<a class="jxr_linenumber" name="L387" href="#L387">387</a> }
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> 		FileUtils.writeStringToFile(<strong class="jxr_keyword">new</strong> File(fullFilePathPlantUmlFile), content, Charset.defaultCharset());
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> 	}
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

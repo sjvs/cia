@@ -1,7 +1,7 @@
-@startuml(id=System context)
+@startuml(id="System context")
 scale max 2000x2000
 title Citizen Intelligence Agency System - System Context
-caption System context
+caption "System context"
 
 skinparam {
   shadowing false

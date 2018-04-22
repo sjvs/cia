@@ -10,5 +10,5 @@ digraph activemq_spring_5_15_3_dependencies {
   activemq_spring_5_15_3 -> spring_beans_5_0_5_RELEASE;
   activemq_spring_5_15_3 -> spring_context_5_0_5_RELEASE;
   activemq_spring_5_15_3 -> spring_core_5_0_5_RELEASE;
-  activemq_spring_5_15_3 -> xbean_spring_4_7;
+  activemq_spring_5_15_3 -> xbean_spring_4_8;
 }

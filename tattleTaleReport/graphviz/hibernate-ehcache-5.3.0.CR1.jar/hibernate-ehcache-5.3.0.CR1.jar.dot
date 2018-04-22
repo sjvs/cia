@@ -1,6 +1,6 @@
 digraph hibernate_ehcache_5_3_0_CR1_dependencies {
   node [shape = box, fontsize=10.0];
-  hibernate_ehcache_5_3_0_CR1 -> ehcache_2_10_4_4_8;
+  hibernate_ehcache_5_3_0_CR1 -> ehcache_2_10_4;
   hibernate_ehcache_5_3_0_CR1 -> hibernate_core_5_3_0_CR1;
   hibernate_ehcache_5_3_0_CR1 -> jboss_logging_3_3_2_Final;
   hibernate_ehcache_5_3_0_CR1 -> jboss_transaction_api_1_2_spec_1_1_1_Final;

@@ -14,12 +14,16 @@ Bundle-Name: service.external.esv-2018.4.4-SNAPSHOT
 Bundle-Version: 0.0.0
 Export-Package: com.hack23.cia.service.external.esv.api;uses:="org.apa
  che.commons.lang3.builder",com.hack23.cia.service.external.esv.impl;u
- ses:="com.hack23.cia.service.external.esv.api,java.lang.invoke,java.u
- til.function,java.util.stream,org.apache.poi.hssf.usermodel,org.apach
- e.poi.ss.usermodel"
-Import-Package: java.io,java.lang,java.lang.invoke,java.util,java.util
- .function,java.util.stream,org.apache.commons.lang3.builder;version="
- 3.7",org.apache.poi.hssf.usermodel;version="3.17",org.apache.poi.ss.u
- sermodel;version="3.17",org.slf4j;version="0.0.0",org.springframework
- .beans.factory.annotation;version="5.0.5.RELEASE",org.springframework
- .stereotype;version="5.0.5.RELEASE"
+ ses:="com.hack23.cia.service.external.esv.api,java.lang.invoke,java.t
+ ime,java.util.function,java.util.stream,org.apache.commons.codec,org.
+ apache.commons.csv,org.apache.http.client.fluent,org.apache.poi.hssf.
+ usermodel,org.apache.poi.ss.usermodel,org.apache.poi.xssf.usermodel"
+Import-Package: java.io,java.lang,java.lang.invoke,java.nio.charset,ja
+ va.time,java.util,java.util.function,java.util.stream,java.util.zip,o
+ rg.apache.commons.codec;version="1.11",org.apache.commons.csv;version
+ ="1.5",org.apache.commons.lang3.builder;version="3.7",org.apache.http
+ .client.fluent;version="4.5.5",org.apache.poi.hssf.usermodel;version=
+ "3.17",org.apache.poi.ss.usermodel;version="3.17",org.apache.poi.xssf
+ .usermodel;version="0.0.0",org.slf4j;version="0.0.0",org.springframew
+ ork.beans.factory.annotation;version="5.0.5.RELEASE",org.springframew
+ ork.stereotype;version="5.0.5.RELEASE"

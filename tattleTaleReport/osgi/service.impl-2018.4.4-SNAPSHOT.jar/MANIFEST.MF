@@ -101,12 +101,12 @@ Import-Package: com.google.common.collect;version="0.0.0",com.hack23.c
  etamodel;version="2.2",javax.validation;version="0.0.0",org.apache.co
  mmons.lang;version="2.6.0.redhat-6",org.apache.commons.lang3;version=
  "3.7",org.apache.commons.lang3.builder;version="3.7",org.apache.commo
- ns.lang3.math;version="3.7",org.drools.core.common;version="7.6.0.Fin
- al",org.kie.api;version="7.6.0.Final",org.kie.api.builder;version="7.
- 6.0.Final",org.kie.api.definition;version="7.6.0.Final",org.kie.api.d
- efinition.rule;version="7.6.0.Final",org.kie.api.event.rule;version="
- 7.6.0.Final",org.kie.api.runtime;version="7.6.0.Final",org.kie.api.ru
- ntime.rule;version="7.6.0.Final",org.passay;version="0.0.0",org.quart
+ ns.lang3.math;version="3.7",org.drools.core.common;version="7.7.0.Fin
+ al",org.kie.api;version="7.7.0.Final",org.kie.api.builder;version="7.
+ 7.0.Final",org.kie.api.definition;version="7.7.0.Final",org.kie.api.d
+ efinition.rule;version="7.7.0.Final",org.kie.api.event.rule;version="
+ 7.7.0.Final",org.kie.api.runtime;version="7.7.0.Final",org.kie.api.ru
+ ntime.rule;version="7.7.0.Final",org.passay;version="0.0.0",org.quart
  z;version="0.0.0",org.slf4j;version="0.0.0",org.springframework.beans
  ;version="5.0.5.RELEASE",org.springframework.beans.factory.annotation
  ;version="5.0.5.RELEASE",org.springframework.cache.annotation;version
@@ -116,12 +116,12 @@ Import-Package: com.google.common.collect;version="0.0.0",com.hack23.c
  avamail;version="5.0.5.RELEASE",org.springframework.scheduling.annota
  tion;version="5.0.5.RELEASE",org.springframework.scheduling.quartz;ve
  rsion="5.0.5.RELEASE",org.springframework.security.access.annotation;
- version="5.0.3.RELEASE",org.springframework.security.authentication;v
- ersion="5.0.3.RELEASE",org.springframework.security.core;version="5.0
- .3.RELEASE",org.springframework.security.core.authority;version="5.0.
- 3.RELEASE",org.springframework.security.core.context;version="5.0.3.R
- ELEASE",org.springframework.security.crypto.bcrypt;version="5.0.3.REL
- EASE",org.springframework.security.crypto.password;version="5.0.3.REL
+ version="5.0.4.RELEASE",org.springframework.security.authentication;v
+ ersion="5.0.4.RELEASE",org.springframework.security.core;version="5.0
+ .4.RELEASE",org.springframework.security.core.authority;version="5.0.
+ 4.RELEASE",org.springframework.security.core.context;version="5.0.4.R
+ ELEASE",org.springframework.security.crypto.bcrypt;version="5.0.4.REL
+ EASE",org.springframework.security.crypto.password;version="5.0.4.REL
  EASE",org.springframework.stereotype;version="5.0.5.RELEASE",org.spri
  ngframework.transaction.annotation;version="5.0.5.RELEASE",weka.core;
  version="0.0.0",weka.core.stopwords;version="0.0.0",weka.core.tokeniz

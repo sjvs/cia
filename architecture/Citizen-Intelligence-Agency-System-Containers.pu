@@ -1,7 +1,7 @@
-@startuml(id=Container view)
+@startuml(id="Container view")
 scale max 2000x2000
 title Citizen Intelligence Agency System - Containers
-caption Application Overview
+caption "Application Overview"
 
 skinparam {
   shadowing false

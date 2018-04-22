@@ -31,9 +31,9 @@ Export-Package: org.springframework.beans.factory.aspectj;uses:="org.a
  g.springframework.transaction.interceptor"
 Import-Package: java.io,java.lang,java.lang.annotation,java.lang.refle
  ct,java.util.concurrent,org.aspectj.internal.lang.annotation;version=
- "1.9.0",org.aspectj.lang;version="1.9.0",org.aspectj.lang.annotation;
- version="1.9.0",org.aspectj.lang.reflect;version="1.9.0",org.aspectj.
- runtime.internal;version="1.9.0",org.springframework.aop.interceptor;
+ "1.9.1",org.aspectj.lang;version="1.9.1",org.aspectj.lang.annotation;
+ version="1.9.1",org.aspectj.lang.reflect;version="1.9.1",org.aspectj.
+ runtime.internal;version="1.9.1",org.springframework.aop.interceptor;
  version="5.0.5.RELEASE",org.springframework.beans.factory;version="5.
  0.5.RELEASE",org.springframework.beans.factory.annotation;version="5.
  0.5.RELEASE",org.springframework.beans.factory.wiring;version="5.0.5.

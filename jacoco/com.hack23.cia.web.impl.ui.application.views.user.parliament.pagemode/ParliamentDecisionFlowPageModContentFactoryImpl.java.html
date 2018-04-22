@@ -95,7 +95,7 @@ public final class ParliamentDecisionFlowPageModContentFactoryImpl extends Abstr
 <span class="fc" id="L95">		comboBox.setSelectedItem(selectedYear);</span>
 <span class="fc" id="L96">		comboBox.addValueChangeListener(event -&gt; {</span>
 <span class="nc bnc" id="L97" title="All 2 branches missed.">			if (!event.getSource().isEmpty()) {</span>
-<span class="nc" id="L98">				UI.getCurrent().getNavigator().navigateTo(NAME + &quot;/&quot; + PageMode.CHARTS.toString() + &quot;/&quot; + ChartIndicators.DECISION_FLOW_CHART.toString() +&quot;[&quot; + event.getValue() +&quot;]&quot;);</span>
+<span class="nc" id="L98">				UI.getCurrent().getNavigator().navigateTo(NAME + &quot;/&quot; + PageMode.CHARTS + &quot;/&quot; + ChartIndicators.DECISION_FLOW_CHART +&quot;[&quot; + event.getValue() +&quot;]&quot;);</span>
 			}
 <span class="nc" id="L100">		});</span>
 		

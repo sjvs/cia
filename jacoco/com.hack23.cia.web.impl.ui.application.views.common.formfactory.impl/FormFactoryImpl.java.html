@@ -214,7 +214,7 @@ import com.vaadin.ui.VerticalLayout;
 <span class="nc" id="L214">			converter = new StringToFloatConverter(&quot;Input value should be an float&quot;);</span>
 <span class="pc bpc" id="L215" title="1 of 2 branches missed.">		} else if (Double.class.equals(typeOfProperty)) {</span>
 <span class="nc" id="L216">			converter = new StringToDoubleConverter(&quot;Input value should be an double&quot;);</span>
-<span class="pc bpc" id="L217" title="1 of 4 branches missed.">		} else if (Long.class.equals(typeOfProperty) || &quot;long&quot;.equalsIgnoreCase(typeOfProperty.getName())) {</span>
+<span class="fc bfc" id="L217" title="All 4 branches covered.">		} else if (Long.class.equals(typeOfProperty) || &quot;long&quot;.equalsIgnoreCase(typeOfProperty.getName())) {</span>
 <span class="fc" id="L218">			converter = new StringToLongConverter(&quot;Input value should be an long&quot;);</span>
 <span class="fc bfc" id="L219" title="All 2 branches covered.">		} else if (BigInteger.class.equals(typeOfProperty)) {</span>
 <span class="fc" id="L220">			converter = new StringToBigIntegerConverter(&quot;Input value should be an biginteger&quot;);</span>

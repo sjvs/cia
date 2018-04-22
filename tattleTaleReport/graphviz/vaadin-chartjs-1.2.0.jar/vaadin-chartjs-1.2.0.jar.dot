@@ -1,6 +1,6 @@
 digraph vaadin_chartjs_1_2_0_dependencies {
   node [shape = box, fontsize=10.0];
   vaadin_chartjs_1_2_0 -> gwt_elemental_2_8_2;
-  vaadin_chartjs_1_2_0 -> vaadin_server_8_4_0_alpha1;
-  vaadin_chartjs_1_2_0 -> vaadin_shared_8_4_0_alpha1;
+  vaadin_chartjs_1_2_0 -> vaadin_server_8_4_0_beta1;
+  vaadin_chartjs_1_2_0 -> vaadin_shared_8_4_0_beta1;
 }

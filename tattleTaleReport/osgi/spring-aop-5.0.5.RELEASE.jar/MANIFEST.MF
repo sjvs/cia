@@ -56,13 +56,13 @@ Import-Package: com.jamonapi,com.jamonapi.utils,java.beans,java.io,jav
  til,java.util.concurrent,java.util.function,java.util.regex,org.apach
  e.commons.logging;version="0.0.0",org.apache.commons.pool2;version="2
  .5.0",org.apache.commons.pool2.impl;version="2.5.0",org.aspectj.bridg
- e;version="1.9.0",org.aspectj.lang;version="1.9.0",org.aspectj.lang.a
- nnotation;version="1.9.0",org.aspectj.lang.reflect;version="1.9.0",or
- g.aspectj.runtime.internal;version="1.9.0",org.aspectj.util;version="
- 1.9.0",org.aspectj.weaver;version="1.9.0",org.aspectj.weaver.ast;vers
- ion="1.9.0",org.aspectj.weaver.internal.tools;version="1.9.0",org.asp
- ectj.weaver.patterns;version="1.9.0",org.aspectj.weaver.reflect;versi
- on="1.9.0",org.aspectj.weaver.tools;version="1.9.0",org.springframewo
+ e;version="1.9.1",org.aspectj.lang;version="1.9.1",org.aspectj.lang.a
+ nnotation;version="1.9.1",org.aspectj.lang.reflect;version="1.9.1",or
+ g.aspectj.runtime.internal;version="1.9.1",org.aspectj.util;version="
+ 1.9.1",org.aspectj.weaver;version="1.9.1",org.aspectj.weaver.ast;vers
+ ion="1.9.1",org.aspectj.weaver.internal.tools;version="1.9.1",org.asp
+ ectj.weaver.patterns;version="1.9.1",org.aspectj.weaver.reflect;versi
+ on="1.9.1",org.aspectj.weaver.tools;version="1.9.1",org.springframewo
  rk.beans;version="5.0.5.RELEASE",org.springframework.beans.factory;ve
  rsion="5.0.5.RELEASE",org.springframework.beans.factory.annotation;ve
  rsion="5.0.5.RELEASE",org.springframework.beans.factory.config;versio
