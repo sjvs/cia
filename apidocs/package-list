@@ -51,5 +51,4 @@ com.hack23.cia.web.impl.ui.application.views.user.party
 com.hack23.cia.web.impl.ui.application.views.user.party.pagemode
 com.hack23.cia.web.impl.ui.application.views.user.politician
 com.hack23.cia.web.impl.ui.application.views.user.politician.pagemode
-com.hack23.cia.web.impl.ui.application.web.filter
 com.hack23.cia.web.impl.ui.application.web.listener

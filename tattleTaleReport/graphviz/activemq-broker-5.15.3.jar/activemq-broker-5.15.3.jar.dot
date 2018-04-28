@@ -1,7 +1,7 @@
 digraph activemq_broker_5_15_3_dependencies {
   node [shape = box, fontsize=10.0];
   activemq_broker_5_15_3 -> activemq_client_5_15_3;
-  activemq_broker_5_15_3 -> guava_24_1_jre;
+  activemq_broker_5_15_3 -> guava_25_0_jre;
   activemq_broker_5_15_3 -> hawtbuf_1_11;
   activemq_broker_5_15_3 -> jackson_databind_2_9_5;
   activemq_broker_5_15_3 -> jms_1_1;

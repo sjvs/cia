@@ -1,0 +1,4 @@
+digraph fast_classpath_scanner_2_18_2_dependencies {
+  node [shape = box, fontsize=10.0];
+  fast_classpath_scanner_2_18_2 -> xml_apis_1_4_01;
+}

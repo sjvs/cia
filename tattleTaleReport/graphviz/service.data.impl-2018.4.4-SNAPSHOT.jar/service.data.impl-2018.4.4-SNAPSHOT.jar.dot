@@ -3,10 +3,12 @@ digraph service_data_impl_2018_4_4_SNAPSHOT_dependencies {
   service_data_impl_2018_4_4_SNAPSHOT -> commons_beanutils_1_9_3_redhat_1;
   service_data_impl_2018_4_4_SNAPSHOT -> commons_lang_2_6_0_redhat_6;
   service_data_impl_2018_4_4_SNAPSHOT -> commons_lang3_3_7;
+  service_data_impl_2018_4_4_SNAPSHOT -> guava_25_0_jre;
   service_data_impl_2018_4_4_SNAPSHOT -> hibernate_core_5_3_0_CR1;
   service_data_impl_2018_4_4_SNAPSHOT -> hibernate_search_engine_5_10_0_Beta2;
   service_data_impl_2018_4_4_SNAPSHOT -> hibernate_search_orm_5_10_0_Beta2;
   service_data_impl_2018_4_4_SNAPSHOT -> javax_persistence_api_2_2;
+  service_data_impl_2018_4_4_SNAPSHOT -> javers_all_3_9_3;
   service_data_impl_2018_4_4_SNAPSHOT -> liquibase_core_3_6_1;
   service_data_impl_2018_4_4_SNAPSHOT -> lucene_analyzers_common_5_5_5;
   service_data_impl_2018_4_4_SNAPSHOT -> lucene_core_5_5_5;
@@ -25,5 +27,6 @@ digraph service_data_impl_2018_4_4_SNAPSHOT_dependencies {
   service_data_impl_2018_4_4_SNAPSHOT -> spring_beans_5_0_5_RELEASE;
   service_data_impl_2018_4_4_SNAPSHOT -> spring_context_5_0_5_RELEASE;
   service_data_impl_2018_4_4_SNAPSHOT -> spring_jdbc_5_0_5_RELEASE;
+  service_data_impl_2018_4_4_SNAPSHOT -> spring_security_core_5_0_4_RELEASE;
   service_data_impl_2018_4_4_SNAPSHOT -> spring_tx_5_0_5_RELEASE;
 }

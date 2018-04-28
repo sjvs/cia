@@ -2,7 +2,6 @@ digraph spring_security_core_5_0_4_RELEASE_dependencies {
   node [shape = box, fontsize=10.0];
   spring_security_core_5_0_4_RELEASE -> aspectjweaver_1_9_1;
   spring_security_core_5_0_4_RELEASE -> bcprov_jdk15on_1_59;
-  spring_security_core_5_0_4_RELEASE -> ehcache_2_10_4;
   spring_security_core_5_0_4_RELEASE -> jackson_annotations_2_9_0;
   spring_security_core_5_0_4_RELEASE -> jackson_core_2_9_5;
   spring_security_core_5_0_4_RELEASE -> jackson_databind_2_9_5;

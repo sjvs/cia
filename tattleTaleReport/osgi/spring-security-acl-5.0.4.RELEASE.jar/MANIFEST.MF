@@ -30,19 +30,19 @@ Export-Package: org.springframework.security.acls;uses:="org.aopallian
  xt,org.springframework.security.util",org.springframework.security.ac
  ls.model;uses:="org.springframework.security.core"
 Import-Package: java.io,java.lang,java.lang.reflect,java.sql,java.util
- ,javax.sql,net.sf.ehcache;version="2.10.4",org.aopalliance.intercept;
- version="5.0.5.RELEASE",org.apache.commons.logging;version="0.0.0",or
- g.springframework.cache;version="5.0.5.RELEASE",org.springframework.c
- ontext;version="5.0.5.RELEASE",org.springframework.context.support;ve
- rsion="5.0.5.RELEASE",org.springframework.core.convert;version="5.0.5
- .RELEASE",org.springframework.dao;version="5.0.5.RELEASE",org.springf
- ramework.jdbc.core;version="5.0.5.RELEASE",org.springframework.securi
- ty.access;version="5.0.4.RELEASE",org.springframework.security.access
- .hierarchicalroles;version="5.0.4.RELEASE",org.springframework.securi
- ty.access.vote;version="5.0.4.RELEASE",org.springframework.security.c
- ore;version="5.0.4.RELEASE",org.springframework.security.core.authori
- ty;version="5.0.4.RELEASE",org.springframework.security.core.context;
- version="5.0.4.RELEASE",org.springframework.security.core.userdetails
- ;version="5.0.4.RELEASE",org.springframework.security.util;version="5
- .0.4.RELEASE",org.springframework.transaction.support;version="5.0.5.
- RELEASE",org.springframework.util;version="5.0.5.RELEASE"
+ ,javax.sql,net.sf.ehcache,org.aopalliance.intercept;version="5.0.5.RE
+ LEASE",org.apache.commons.logging;version="0.0.0",org.springframework
+ .cache;version="5.0.5.RELEASE",org.springframework.context;version="5
+ .0.5.RELEASE",org.springframework.context.support;version="5.0.5.RELE
+ ASE",org.springframework.core.convert;version="5.0.5.RELEASE",org.spr
+ ingframework.dao;version="5.0.5.RELEASE",org.springframework.jdbc.cor
+ e;version="5.0.5.RELEASE",org.springframework.security.access;version
+ ="5.0.4.RELEASE",org.springframework.security.access.hierarchicalrole
+ s;version="5.0.4.RELEASE",org.springframework.security.access.vote;ve
+ rsion="5.0.4.RELEASE",org.springframework.security.core;version="5.0.
+ 4.RELEASE",org.springframework.security.core.authority;version="5.0.4
+ .RELEASE",org.springframework.security.core.context;version="5.0.4.RE
+ LEASE",org.springframework.security.core.userdetails;version="5.0.4.R
+ ELEASE",org.springframework.security.util;version="5.0.4.RELEASE",org
+ .springframework.transaction.support;version="5.0.5.RELEASE",org.spri
+ ngframework.util;version="5.0.5.RELEASE"

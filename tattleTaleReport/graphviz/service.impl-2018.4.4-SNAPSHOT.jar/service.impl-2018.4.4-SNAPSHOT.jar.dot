@@ -4,7 +4,7 @@ digraph service_impl_2018_4_4_SNAPSHOT_dependencies {
   service_impl_2018_4_4_SNAPSHOT -> commons_lang3_3_7;
   service_impl_2018_4_4_SNAPSHOT -> drools_core_7_7_0_Final;
   service_impl_2018_4_4_SNAPSHOT -> googleauth_1_1_5;
-  service_impl_2018_4_4_SNAPSHOT -> guava_24_1_jre;
+  service_impl_2018_4_4_SNAPSHOT -> guava_25_0_jre;
   service_impl_2018_4_4_SNAPSHOT -> javax_mail_1_6_1;
   service_impl_2018_4_4_SNAPSHOT -> javax_persistence_api_2_2;
   service_impl_2018_4_4_SNAPSHOT -> kie_api_7_7_0_Final;

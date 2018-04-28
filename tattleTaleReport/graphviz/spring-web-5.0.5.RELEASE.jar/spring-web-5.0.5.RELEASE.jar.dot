@@ -1,6 +1,6 @@
 digraph spring_web_5_0_5_RELEASE_dependencies {
   node [shape = box, fontsize=10.0];
-  spring_web_5_0_5_RELEASE -> gson_2_8_2;
+  spring_web_5_0_5_RELEASE -> gson_2_8_3;
   spring_web_5_0_5_RELEASE -> httpasyncclient_4_1_2;
   spring_web_5_0_5_RELEASE -> httpclient_4_5_5;
   spring_web_5_0_5_RELEASE -> httpcore_4_4_9;

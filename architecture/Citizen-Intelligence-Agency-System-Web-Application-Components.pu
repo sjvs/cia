@@ -13,32 +13,32 @@ skinparam {
   noteBorderColor #707070
 }
 package "Web Application" <<Container>> {
-  component "AgencyDAO" <<Spring Repository>> as 31 #1168bd
-  component "ApplicationActionEventDAO" <<Spring Repository>> as 22 #1168bd
-  component "ApplicationConfigurationDAO" <<Spring Repository>> as 30 #1168bd
-  component "ApplicationConfigurationService" <<Spring Service>> as 13 #1168bd
-  component "ApplicationSessionDAO" <<Spring Repository>> as 15 #1168bd
-  component "CommitteeProposalComponentDataDAO" <<Spring Repository>> as 27 #1168bd
-  component "CountryElementDAO" <<Spring Repository>> as 19 #1168bd
-  component "DataDAO" <<Spring Repository>> as 33 #1168bd
-  component "DataViewer" <<Spring Repository>> as 21 #1168bd
-  component "DocumentContentDataDAO" <<Spring Repository>> as 14 #1168bd
-  component "DocumentElementDAO" <<Spring Repository>> as 23 #1168bd
-  component "DocumentStatusContainerDAO" <<Spring Repository>> as 26 #1168bd
-  component "IndicatorElementDAO" <<Spring Repository>> as 34 #1168bd
-  component "LanguageContentDataDAO" <<Spring Repository>> as 25 #1168bd
+  component "AgencyDAO" <<Spring Repository>> as 21 #1168bd
+  component "ApplicationActionEventDAO" <<Spring Repository>> as 25 #1168bd
+  component "ApplicationConfigurationDAO" <<Spring Repository>> as 18 #1168bd
+  component "ApplicationConfigurationService" <<Spring Service>> as 10 #1168bd
+  component "ApplicationSessionDAO" <<Spring Repository>> as 32 #1168bd
+  component "CommitteeProposalComponentDataDAO" <<Spring Repository>> as 22 #1168bd
+  component "CountryElementDAO" <<Spring Repository>> as 16 #1168bd
+  component "DataDAO" <<Spring Repository>> as 28 #1168bd
+  component "DataViewer" <<Spring Repository>> as 31 #1168bd
+  component "DocumentContentDataDAO" <<Spring Repository>> as 24 #1168bd
+  component "DocumentElementDAO" <<Spring Repository>> as 14 #1168bd
+  component "DocumentStatusContainerDAO" <<Spring Repository>> as 27 #1168bd
+  component "IndicatorElementDAO" <<Spring Repository>> as 20 #1168bd
+  component "LanguageContentDataDAO" <<Spring Repository>> as 34 #1168bd
   component "LanguageContentService" <<Spring Service>> as 12 #1168bd
-  component "LanguageDataDAO" <<Spring Repository>> as 18 #1168bd
-  component "PersonDataDAO" <<Spring Repository>> as 28 #1168bd
-  component "RemoveDataManager" <<Spring Service>> as 11 #1168bd
-  component "SearchIndexer" <<Spring Repository>> as 24 #1168bd
-  component "SwedenPoliticalPartyDAO" <<Spring Repository>> as 29 #1168bd
-  component "UserDAO" <<Spring Repository>> as 20 #1168bd
-  component "ViewDataManager" <<Spring Service>> as 10 #1168bd
-  component "ViewRiksdagenCommitteeDAO" <<Spring Repository>> as 32 #1168bd
-  component "ViewRiksdagenMinistryDAO" <<Spring Repository>> as 16 #1168bd
-  component "VoteDataDAO" <<Spring Repository>> as 17 #1168bd
+  component "LanguageDataDAO" <<Spring Repository>> as 33 #1168bd
+  component "PersonDataDAO" <<Spring Repository>> as 23 #1168bd
+  component "RemoveDataManager" <<Spring Service>> as 13 #1168bd
+  component "SearchIndexer" <<Spring Repository>> as 15 #1168bd
+  component "SwedenPoliticalPartyDAO" <<Spring Repository>> as 19 #1168bd
+  component "UserDAO" <<Spring Repository>> as 29 #1168bd
+  component "ViewDataManager" <<Spring Service>> as 11 #1168bd
+  component "ViewRiksdagenCommitteeDAO" <<Spring Repository>> as 26 #1168bd
+  component "ViewRiksdagenMinistryDAO" <<Spring Repository>> as 17 #1168bd
+  component "VoteDataDAO" <<Spring Repository>> as 30 #1168bd
 }
-13 .[#707070].> 30 
-12 .[#707070].> 25 
+10 .[#707070].> 18 
+12 .[#707070].> 34 
 @enduml

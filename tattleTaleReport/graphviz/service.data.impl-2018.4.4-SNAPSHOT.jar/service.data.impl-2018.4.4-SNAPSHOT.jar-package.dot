@@ -16,6 +16,7 @@ digraph service_data_impl_2018_4_4_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_data_impl -> com_hack23_cia_model_internal_application_user_impl;
   com_hack23_cia_service_data_impl -> com_hack23_cia_service_data_api;
   com_hack23_cia_service_data_impl -> com_hack23_cia_service_data_impl_util;
+  com_hack23_cia_service_data_impl -> java_lang_invoke;
   com_hack23_cia_service_data_impl -> org_apache_lucene_analysis_core;
   com_hack23_cia_service_data_impl -> org_apache_lucene_analysis_en;
   com_hack23_cia_service_data_impl -> org_apache_lucene_analysis_ngram;
@@ -29,6 +30,17 @@ digraph service_data_impl_2018_4_4_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_data_impl -> org_hibernate_search_cfg;
   com_hack23_cia_service_data_impl -> org_hibernate_search_jpa;
   com_hack23_cia_service_data_impl -> org_hibernate_search_query_dsl;
+  com_hack23_cia_service_data_impl -> org_javers_core;
+  com_hack23_cia_service_data_impl -> org_javers_core_graph;
+  com_hack23_cia_service_data_impl -> org_javers_hibernate_integration;
+  com_hack23_cia_service_data_impl -> org_javers_repository_api;
+  com_hack23_cia_service_data_impl -> org_javers_repository_sql;
+  com_hack23_cia_service_data_impl -> org_javers_spring_annotation;
+  com_hack23_cia_service_data_impl -> org_javers_spring_auditable;
+  com_hack23_cia_service_data_impl -> org_javers_spring_auditable_aspect;
+  com_hack23_cia_service_data_impl -> org_javers_spring_jpa;
+  com_hack23_cia_service_data_impl -> org_springframework_security_core;
+  com_hack23_cia_service_data_impl -> org_springframework_security_core_context;
   com_hack23_cia_service_data_impl_liquidbase -> liquibase_exception;
   com_hack23_cia_service_data_impl_liquidbase -> liquibase_integration_spring;
   com_hack23_cia_service_data_impl_liquidbase -> org_apache_commons_lang3_exception;

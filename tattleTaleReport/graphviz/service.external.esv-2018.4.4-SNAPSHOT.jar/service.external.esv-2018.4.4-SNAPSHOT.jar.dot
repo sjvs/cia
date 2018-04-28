@@ -4,7 +4,6 @@ digraph service_external_esv_2018_4_4_SNAPSHOT_dependencies {
   service_external_esv_2018_4_4_SNAPSHOT -> commons_csv_1_5;
   service_external_esv_2018_4_4_SNAPSHOT -> commons_lang3_3_7;
   service_external_esv_2018_4_4_SNAPSHOT -> fluent_hc_4_5_5;
-  service_external_esv_2018_4_4_SNAPSHOT -> poi_3_17;
   service_external_esv_2018_4_4_SNAPSHOT -> poi_all_3_17;
   service_external_esv_2018_4_4_SNAPSHOT -> slf4j_api_1_8_0_beta2;
   service_external_esv_2018_4_4_SNAPSHOT -> spring_beans_5_0_5_RELEASE;

@@ -253,7 +253,7 @@
 <a class="jxr_linenumber" name="L245" href="#L245">245</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Highlighter createHighLighterNorth() {
 <a class="jxr_linenumber" name="L246" href="#L246">246</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Highlighter().setShow(<strong class="jxr_keyword">true</strong>).setShowTooltip(<strong class="jxr_keyword">true</strong>).setTooltipAlwaysVisible(<strong class="jxr_keyword">true</strong>)
 <a class="jxr_linenumber" name="L247" href="#L247">247</a> 				.setKeepTooltipInsideChart(<strong class="jxr_keyword">true</strong>).setTooltipLocation(TooltipLocations.NORTH)
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> 				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(<strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(<strong class="jxr_keyword">true</strong>).setBringSeriesToFront(<strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L249" href="#L249">249</a> 	}
 <a class="jxr_linenumber" name="L250" href="#L250">250</a> 
 <a class="jxr_linenumber" name="L251" href="#L251">251</a> 	<em class="jxr_javadoccomment">/**</em>
@@ -347,8 +347,8 @@
 <a class="jxr_linenumber" name="L339" href="#L339">339</a> 
 <a class="jxr_linenumber" name="L340" href="#L340">340</a> 	@Override
 <a class="jxr_linenumber" name="L341" href="#L341">341</a> 	<strong class="jxr_keyword">public</strong> Options createOptionsXYDateFloatLogYAxisLegendOutside(<strong class="jxr_keyword">final</strong> Series series) {
-<a class="jxr_linenumber" name="L342" href="#L342">342</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Options().addOption(<strong class="jxr_keyword">new</strong> SeriesDefaults()).addOption(createAxesXYDateFloatLog())
-<a class="jxr_linenumber" name="L343" href="#L343">343</a> 				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Options().addOption(<strong class="jxr_keyword">new</strong> SeriesDefaults()).addOption(series).addOption(createAxesXYDateFloatLog())
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 				.addOption(createHighLighterNorth()).addOption(createLegendOutside())
 <a class="jxr_linenumber" name="L344" href="#L344">344</a> 				.addOption(createDefaultGrid()).addOption(createCursor());
 <a class="jxr_linenumber" name="L345" href="#L345">345</a> 	}
 <a class="jxr_linenumber" name="L346" href="#L346">346</a> 

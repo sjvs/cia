@@ -245,7 +245,7 @@ public final class ChartOptionsImpl implements ChartOptions {
 	private static Highlighter createHighLighterNorth() {
 <span class="fc" id="L246">		return new Highlighter().setShow(true).setShowTooltip(true).setTooltipAlwaysVisible(true)</span>
 <span class="fc" id="L247">				.setKeepTooltipInsideChart(true).setTooltipLocation(TooltipLocations.NORTH)</span>
-<span class="fc" id="L248">				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(true);</span>
+<span class="fc" id="L248">				.setTooltipAxes(TooltipAxes.XY_BAR).setShowMarker(true).setBringSeriesToFront(true);</span>
 	}
 
 	/**
@@ -339,8 +339,8 @@ public final class ChartOptionsImpl implements ChartOptions {
 
 	@Override
 	public Options createOptionsXYDateFloatLogYAxisLegendOutside(final Series series) {
-<span class="fc" id="L342">		return new Options().addOption(new SeriesDefaults()).addOption(createAxesXYDateFloatLog())</span>
-<span class="fc" id="L343">				.addOption(createHighLighterNorth()).addOption(series).addOption(createLegendOutside())</span>
+<span class="fc" id="L342">		return new Options().addOption(new SeriesDefaults()).addOption(series).addOption(createAxesXYDateFloatLog())</span>
+<span class="fc" id="L343">				.addOption(createHighLighterNorth()).addOption(createLegendOutside())</span>
 <span class="fc" id="L344">				.addOption(createDefaultGrid()).addOption(createCursor());</span>
 	}
 

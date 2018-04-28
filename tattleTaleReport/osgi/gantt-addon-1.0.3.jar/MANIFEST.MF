@@ -51,15 +51,14 @@ Import-Package: com.google.gwt.animation.client;version="0.0.0",com.go
  0.0.0",com.google.gwt.touch.client;version="0.0.0",com.google.gwt.use
  r.client;version="0.0.0",com.google.gwt.user.client.rpc;version="0.0.
  0",com.google.gwt.user.client.ui;version="0.0.0",com.vaadin.client;ve
- rsion="8.4.0.beta1",com.vaadin.client.communication;version="8.4.0.be
- ta1",com.vaadin.client.connectors.grid;version="8.4.0.beta1",com.vaad
- in.client.event;version="8.4.0.beta1",com.vaadin.client.ui;version="8
- .4.0.beta1",com.vaadin.client.ui.layout;version="8.4.0.beta1",com.vaa
- din.client.widget.escalator;version="8.4.0.beta1",com.vaadin.client.w
- idget.grid.events;version="8.4.0.beta1",com.vaadin.client.widgets;ver
- sion="8.4.0.beta1",com.vaadin.server;version="8.4.0.beta1",com.vaadin
- .shared;version="8.4.0.beta1",com.vaadin.shared.annotations;version="
- 8.4.0.beta1",com.vaadin.shared.communication;version="8.4.0.beta1",co
- m.vaadin.shared.ui;version="8.4.0.beta1",com.vaadin.ui;version="8.4.0
- .beta1",com.vaadin.util;version="8.4.0.beta1",java.io,java.lang,java.
- lang.reflect,java.text,java.time,java.util,java.util.regex
+ rsion="8.4.0",com.vaadin.client.communication;version="8.4.0",com.vaa
+ din.client.connectors.grid;version="8.4.0",com.vaadin.client.event;ve
+ rsion="8.4.0",com.vaadin.client.ui;version="8.4.0",com.vaadin.client.
+ ui.layout;version="8.4.0",com.vaadin.client.widget.escalator;version=
+ "8.4.0",com.vaadin.client.widget.grid.events;version="8.4.0",com.vaad
+ in.client.widgets;version="8.4.0",com.vaadin.server;version="8.4.0",c
+ om.vaadin.shared;version="8.4.0",com.vaadin.shared.annotations;versio
+ n="8.4.0",com.vaadin.shared.communication;version="8.4.0",com.vaadin.
+ shared.ui;version="8.4.0",com.vaadin.ui;version="8.4.0",com.vaadin.ut
+ il;version="8.4.0",java.io,java.lang,java.lang.reflect,java.text,java
+ .time,java.util,java.util.regex

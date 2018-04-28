@@ -2,7 +2,7 @@ digraph hibernate_search_elasticsearch_5_10_0_Beta2_dependencies {
   node [shape = box, fontsize=10.0];
   hibernate_search_elasticsearch_5_10_0_Beta2 -> elasticsearch_rest_client_5_6_8;
   hibernate_search_elasticsearch_5_10_0_Beta2 -> elasticsearch_rest_client_sniffer_5_6_8;
-  hibernate_search_elasticsearch_5_10_0_Beta2 -> gson_2_8_2;
+  hibernate_search_elasticsearch_5_10_0_Beta2 -> gson_2_8_3;
   hibernate_search_elasticsearch_5_10_0_Beta2 -> hibernate_search_engine_5_10_0_Beta2;
   hibernate_search_elasticsearch_5_10_0_Beta2 -> httpasyncclient_4_1_2;
   hibernate_search_elasticsearch_5_10_0_Beta2 -> httpclient_4_5_5;
