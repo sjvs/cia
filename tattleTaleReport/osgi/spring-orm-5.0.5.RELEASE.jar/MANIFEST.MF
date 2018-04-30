@@ -45,22 +45,22 @@ Import-Package: java.beans,java.io,java.lang,java.lang.annotation,java
  tercept;version="5.0.5.RELEASE",org.apache.commons.logging;version="0
  .0.0",org.eclipse.persistence.config,org.eclipse.persistence.jpa,org.
  eclipse.persistence.logging,org.eclipse.persistence.sessions,org.hibe
- rnate;version="5.3.0.CR1",org.hibernate.boot;version="5.3.0.CR1",org.
- hibernate.boot.model.naming;version="5.3.0.CR1",org.hibernate.boot.re
- gistry;version="5.3.0.CR1",org.hibernate.cfg;version="5.3.0.CR1",org.
- hibernate.context.internal;version="5.3.0.CR1",org.hibernate.context.
- spi;version="5.3.0.CR1",org.hibernate.criterion;version="5.3.0.CR1",o
- rg.hibernate.dialect;version="5.3.0.CR1",org.hibernate.dialect.lock;v
- ersion="5.3.0.CR1",org.hibernate.engine.jdbc.connections.spi;version=
- "5.3.0.CR1",org.hibernate.engine.jdbc.spi;version="5.3.0.CR1",org.hib
- ernate.engine.spi;version="5.3.0.CR1",org.hibernate.engine.transactio
- n.jta.platform.spi;version="5.3.0.CR1",org.hibernate.exception;versio
- n="5.3.0.CR1",org.hibernate.jpa;version="5.3.0.CR1",org.hibernate.jpa
- .boot.internal;version="5.3.0.CR1",org.hibernate.jpa.boot.spi;version
- ="5.3.0.CR1",org.hibernate.resource.jdbc.spi;version="5.3.0.CR1",org.
- hibernate.resource.transaction.spi;version="5.3.0.CR1",org.hibernate.
- service;version="5.3.0.CR1",org.hibernate.service.spi;version="5.3.0.
- CR1",org.hibernate.transform;version="5.3.0.CR1",org.springframework.
+ rnate;version="5.3.0.CR2",org.hibernate.boot;version="5.3.0.CR2",org.
+ hibernate.boot.model.naming;version="5.3.0.CR2",org.hibernate.boot.re
+ gistry;version="5.3.0.CR2",org.hibernate.cfg;version="5.3.0.CR2",org.
+ hibernate.context.internal;version="5.3.0.CR2",org.hibernate.context.
+ spi;version="5.3.0.CR2",org.hibernate.criterion;version="5.3.0.CR2",o
+ rg.hibernate.dialect;version="5.3.0.CR2",org.hibernate.dialect.lock;v
+ ersion="5.3.0.CR2",org.hibernate.engine.jdbc.connections.spi;version=
+ "5.3.0.CR2",org.hibernate.engine.jdbc.spi;version="5.3.0.CR2",org.hib
+ ernate.engine.spi;version="5.3.0.CR2",org.hibernate.engine.transactio
+ n.jta.platform.spi;version="5.3.0.CR2",org.hibernate.exception;versio
+ n="5.3.0.CR2",org.hibernate.jpa;version="5.3.0.CR2",org.hibernate.jpa
+ .boot.internal;version="5.3.0.CR2",org.hibernate.jpa.boot.spi;version
+ ="5.3.0.CR2",org.hibernate.resource.jdbc.spi;version="5.3.0.CR2",org.
+ hibernate.resource.transaction.spi;version="5.3.0.CR2",org.hibernate.
+ service;version="5.3.0.CR2",org.hibernate.service.spi;version="5.3.0.
+ CR2",org.hibernate.transform;version="5.3.0.CR2",org.springframework.
  beans;version="5.0.5.RELEASE",org.springframework.beans.factory;versi
  on="5.0.5.RELEASE",org.springframework.beans.factory.annotation;versi
  on="5.0.5.RELEASE",org.springframework.beans.factory.config;version="

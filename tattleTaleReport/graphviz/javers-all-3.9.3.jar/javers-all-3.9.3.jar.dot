@@ -4,7 +4,7 @@ digraph javers_all_3_9_3_dependencies {
   javers_all_3_9_3 -> fast_classpath_scanner_2_18_2;
   javers_all_3_9_3 -> gson_2_8_3;
   javers_all_3_9_3 -> guava_25_0_jre;
-  javers_all_3_9_3 -> hibernate_core_5_3_0_CR1;
+  javers_all_3_9_3 -> hibernate_core_5_3_0_CR2;
   javers_all_3_9_3 -> javax_persistence_api_2_2;
   javers_all_3_9_3 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
   javers_all_3_9_3 -> joda_time_2_9_9;

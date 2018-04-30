@@ -1,0 +1,5 @@
+digraph hibernate_jcache_5_3_0_CR2_dependencies {
+  node [shape = box, fontsize=10.0];
+  hibernate_jcache_5_3_0_CR2 -> cache_api_1_0_0;
+  hibernate_jcache_5_3_0_CR2 -> hibernate_core_5_3_0_CR2;
+}

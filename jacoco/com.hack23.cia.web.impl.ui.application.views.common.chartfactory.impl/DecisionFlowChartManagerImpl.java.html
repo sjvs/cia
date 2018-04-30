@@ -127,22 +127,22 @@ public final class DecisionFlowChartManagerImpl implements DecisionFlowChartMana
 	@Override
 	public SankeyChart createCommitteeDecisionFlow(final ViewRiksdagenCommittee viewRiksdagenCommittee,
 			final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap, final String rm) {
-<span class="nc" id="L130">		final List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(rm);</span>
+<span class="fc" id="L130">		final List&lt;ProposalCommitteeeSummary&gt; createCommitteeSummary = decisionDataFactory.createCommitteeSummary(rm);</span>
 
-<span class="nc" id="L132">		final SankeyChart chart = new SankeyChart();</span>
+<span class="fc" id="L132">		final SankeyChart chart = new SankeyChart();</span>
 
-<span class="nc" id="L134">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; orgProposalMap = createCommitteeSummary.stream()</span>
-<span class="nc" id="L135">				.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getOrg));</span>
+<span class="fc" id="L134">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; orgProposalMap = createCommitteeSummary.stream()</span>
+<span class="fc" id="L135">				.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getOrg));</span>
 
-<span class="nc bnc" id="L137" title="All 2 branches missed.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; entry : orgProposalMap.entrySet()) {</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">			if (committeeMap.containsKey(entry.getKey())</span>
-<span class="nc bnc" id="L139" title="All 2 branches missed.">					&amp;&amp; viewRiksdagenCommittee.getEmbeddedId().getOrgCode().equals(entry.getKey())) {</span>
-<span class="nc" id="L140">				addDocTypeDecisionDataRows(chart, entry);</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; entry : orgProposalMap.entrySet()) {</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">			if (committeeMap.containsKey(entry.getKey())</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">					&amp;&amp; viewRiksdagenCommittee.getEmbeddedId().getOrgCode().equals(entry.getKey())) {</span>
+<span class="fc" id="L140">				addDocTypeDecisionDataRows(chart, entry);</span>
 			}
-<span class="nc" id="L142">		}</span>
+<span class="fc" id="L142">		}</span>
 
-<span class="nc" id="L144">		chart.drawChart();</span>
-<span class="nc" id="L145">		return chart;</span>
+<span class="fc" id="L144">		chart.drawChart();</span>
+<span class="fc" id="L145">		return chart;</span>
 	}
 
 	/**
@@ -155,21 +155,21 @@ public final class DecisionFlowChartManagerImpl implements DecisionFlowChartMana
 	 */
 	private static void addDocTypeDecisionDataRows(final SankeyChart chart,
 			final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; entry) {
-<span class="nc" id="L158">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream()</span>
-<span class="nc" id="L159">				.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));</span>
+<span class="fc" id="L158">		final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream()</span>
+<span class="fc" id="L159">				.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));</span>
 
-<span class="nc bnc" id="L161" title="All 2 branches missed.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {</span>
 
-<span class="nc" id="L163">			final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = docEntry.getValue().stream()</span>
-<span class="nc" id="L164">					.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));</span>
+<span class="fc" id="L163">			final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = docEntry.getValue().stream()</span>
+<span class="fc" id="L164">					.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));</span>
 
-<span class="nc bnc" id="L166" title="All 2 branches missed.">			for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {</span>
-<span class="nc bnc" id="L167" title="All 4 branches missed.">				if (decisionEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {</span>
-<span class="nc" id="L168">					chart.addDataRow(docEntry.getKey(), decisionEntry.getKey(), decisionEntry.getValue().size());</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">			for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {</span>
+<span class="pc bpc" id="L167" title="2 of 4 branches missed.">				if (decisionEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {</span>
+<span class="fc" id="L168">					chart.addDataRow(docEntry.getKey(), decisionEntry.getKey(), decisionEntry.getValue().size());</span>
 				}
-<span class="nc" id="L170">			}</span>
-<span class="nc" id="L171">		}</span>
-<span class="nc" id="L172">	}</span>
+<span class="fc" id="L170">			}</span>
+<span class="fc" id="L171">		}</span>
+<span class="fc" id="L172">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

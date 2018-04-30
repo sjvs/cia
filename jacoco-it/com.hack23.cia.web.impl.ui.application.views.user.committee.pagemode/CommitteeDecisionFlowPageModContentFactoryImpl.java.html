@@ -104,16 +104,16 @@ public final class CommitteeDecisionFlowPageModContentFactoryImpl extends Abstra
 
 <span class="fc" id="L105">			final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap = dataContainer.getAll().stream().collect(Collectors.groupingBy(c -&gt; c.getEmbeddedId().getOrgCode().toUpperCase(Locale.ENGLISH)));			</span>
 		
-<span class="nc" id="L107">			SankeyChart chart = decisionFlowChartManager.createCommitteeDecisionFlow(viewRiksdagenCommittee, committeeMap,comboBox.getSelectedItem().orElse(selectedYear));</span>
-<span class="nc" id="L108">			panelContent.addComponent(chart);		</span>
-<span class="nc" id="L109">			panelContent.setExpandRatio(chart, ContentRatio.LARGE);</span>
+<span class="fc" id="L107">			SankeyChart chart = decisionFlowChartManager.createCommitteeDecisionFlow(viewRiksdagenCommittee, committeeMap,comboBox.getSelectedItem().orElse(selectedYear));</span>
+<span class="fc" id="L108">			panelContent.addComponent(chart);		</span>
+<span class="fc" id="L109">			panelContent.setExpandRatio(chart, ContentRatio.LARGE);</span>
 		}
         
-<span class="nc" id="L112">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L112">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
 				parameters, pageId);
-<span class="nc" id="L114">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(COMMITTEE_DECISION_FLOW).toString());</span>
+<span class="fc" id="L114">		panel.setCaption(new StringBuilder().append(NAME).append(&quot;::&quot;).append(COMMITTEE_DECISION_FLOW).toString());</span>
 
-<span class="nc" id="L116">		return panelContent;</span>
+<span class="fc" id="L116">		return panelContent;</span>
 
 	}
 

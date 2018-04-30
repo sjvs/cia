@@ -231,9 +231,9 @@ Import-Package: com.google.common.base;version="0.0.0",com.google.comm
  til.function,java.util.stream,javax.annotation,javax.persistence;vers
  ion="2.2",javax.transaction;version="1.2",org.aspectj.lang;version="1
  .9.1",org.aspectj.lang.annotation;version="1.9.1",org.hibernate;versi
- on="5.3.0.CR1",org.hibernate.internal;version="5.3.0.CR1",org.hiberna
- te.proxy;version="5.3.0.CR1",org.hibernate.proxy.pojo.javassist;versi
- on="5.3.0.CR1",org.joda.time;version="2.9",org.joda.time.format;versi
+ on="5.3.0.CR2",org.hibernate.internal;version="5.3.0.CR2",org.hiberna
+ te.proxy;version="5.3.0.CR2",org.hibernate.proxy.pojo.javassist;versi
+ on="5.3.0.CR2",org.joda.time;version="2.9",org.joda.time.format;versi
  on="2.9",org.picocontainer;version="0.0.0",org.picocontainer.adapters
  ;version="0.0.0",org.picocontainer.behaviors;version="0.0.0",org.poly
  jdbc.core;version="0.0.0",org.polyjdbc.core.dialect;version="0.0.0",o

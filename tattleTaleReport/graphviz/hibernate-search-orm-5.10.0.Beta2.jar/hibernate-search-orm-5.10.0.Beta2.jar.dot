@@ -1,7 +1,7 @@
 digraph hibernate_search_orm_5_10_0_Beta2_dependencies {
   node [shape = box, fontsize=10.0];
   hibernate_search_orm_5_10_0_Beta2 -> hibernate_commons_annotations_5_0_3_Final;
-  hibernate_search_orm_5_10_0_Beta2 -> hibernate_core_5_3_0_CR1;
+  hibernate_search_orm_5_10_0_Beta2 -> hibernate_core_5_3_0_CR2;
   hibernate_search_orm_5_10_0_Beta2 -> hibernate_search_engine_5_10_0_Beta2;
   hibernate_search_orm_5_10_0_Beta2 -> javax_persistence_api_2_2;
   hibernate_search_orm_5_10_0_Beta2 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
