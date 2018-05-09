@@ -197,7 +197,7 @@
 <a class="jxr_linenumber" name="L189" href="#L189">189</a> 		<strong class="jxr_keyword">if</strong> (collectionPropertyConverter != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L190" href="#L190">190</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> ListPropertyConverter converter : collectionPropertyConverter) {
 <a class="jxr_linenumber" name="L191" href="#L191">191</a> 				grid.removeColumn(converter.getColumn());
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> 				Column column = grid.addColumn(converter);
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 				<strong class="jxr_keyword">final</strong> Column column = grid.addColumn(converter);
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> 				column.setCaption(WordUtils.capitalize(converter.getColumn()));
 <a class="jxr_linenumber" name="L194" href="#L194">194</a> 				column.setId(converter.getColumn());
 <a class="jxr_linenumber" name="L195" href="#L195">195</a> 			}

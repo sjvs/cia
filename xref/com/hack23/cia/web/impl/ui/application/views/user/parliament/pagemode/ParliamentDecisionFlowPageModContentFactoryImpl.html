@@ -97,7 +97,7 @@
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>  		<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap = allCommittess.stream().collect(Collectors.groupingBy(c -&gt; c.getEmbeddedId().getOrgCode().toUpperCase(Locale.ENGLISH)));
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  		
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		ComboBox&lt;String&gt; comboBox = <strong class="jxr_keyword">new</strong> ComboBox&lt;&gt;(<span class="jxr_string">"Select year"</span>, Collections.unmodifiableList(Arrays.asList(<span class="jxr_string">"2017/18"</span>,<span class="jxr_string">"2016/17"</span>,<span class="jxr_string">"2015/16"</span>,<span class="jxr_string">"2014/15"</span>,<span class="jxr_string">"2013/14"</span>,<span class="jxr_string">"2012/13"</span>,<span class="jxr_string">"2011/12"</span>,<span class="jxr_string">"2010/11"</span>)));
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>  		<strong class="jxr_keyword">final</strong> ComboBox&lt;String&gt; comboBox = <strong class="jxr_keyword">new</strong> ComboBox&lt;&gt;(<span class="jxr_string">"Select year"</span>, Collections.unmodifiableList(Arrays.asList(<span class="jxr_string">"2017/18"</span>,<span class="jxr_string">"2016/17"</span>,<span class="jxr_string">"2015/16"</span>,<span class="jxr_string">"2014/15"</span>,<span class="jxr_string">"2013/14"</span>,<span class="jxr_string">"2012/13"</span>,<span class="jxr_string">"2011/12"</span>,<span class="jxr_string">"2010/11"</span>)));
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  		panelContent.addComponent(comboBox);
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  		panelContent.setExpandRatio(comboBox, ContentRatio.SMALL);
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  		comboBox.setSelectedItem(selectedYear);
@@ -107,7 +107,7 @@
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  			}
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 		});
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> 		
-<a class="jxr_linenumber" name="L102" href="#L102">102</a> 		SankeyChart chart = decisionFlowChartManager.createAllDecisionFlow(committeeMap,comboBox.getSelectedItem().orElse(selectedYear));
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 		<strong class="jxr_keyword">final</strong> SankeyChart chart = decisionFlowChartManager.createAllDecisionFlow(committeeMap,comboBox.getSelectedItem().orElse(selectedYear));
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> 		panelContent.addComponent(chart);
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> 		panelContent.setExpandRatio(chart, ContentRatio.LARGE);
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 		

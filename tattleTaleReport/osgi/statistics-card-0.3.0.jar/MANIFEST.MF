@@ -41,13 +41,13 @@ Export-Package: com.github.markash.ui.component.card;uses:="com.github
  .util.stream"
 Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
  asterxml.jackson.databind;version="2.9.5",com.fasterxml.jackson.datat
- ype.jdk8;version="2.9.5",com.vaadin.annotations;version="8.4.0",com.v
- aadin.data;version="8.4.0",com.vaadin.icons;version="8.4.0",com.vaadi
- n.navigator;version="8.4.0",com.vaadin.server;version="8.4.0",com.vaa
- din.shared;version="8.4.0",com.vaadin.shared.communication;version="8
- .4.0",com.vaadin.shared.ui;version="8.4.0",com.vaadin.shared.ui.color
- picker;version="8.4.0",com.vaadin.ui;version="8.4.0",com.vaadin.ui.th
- emes;version="8.4.0",java.io,java.lang,java.lang.invoke,java.math,jav
+ ype.jdk8;version="2.9.5",com.vaadin.annotations;version="8.4.1",com.v
+ aadin.data;version="8.4.1",com.vaadin.icons;version="8.4.1",com.vaadi
+ n.navigator;version="8.4.1",com.vaadin.server;version="8.4.1",com.vaa
+ din.shared;version="8.4.1",com.vaadin.shared.communication;version="8
+ .4.1",com.vaadin.shared.ui;version="8.4.1",com.vaadin.shared.ui.color
+ picker;version="8.4.1",com.vaadin.ui;version="8.4.1",com.vaadin.ui.th
+ emes;version="8.4.1",java.io,java.lang,java.lang.invoke,java.math,jav
  a.text,java.time,java.util,java.util.function,java.util.stream,org.ap
  ache.commons.lang3;version="3.7",org.vaadin.viritin.button;version="2
  .1",org.vaadin.viritin.fluency.server;version="2.1",org.vaadin.viriti

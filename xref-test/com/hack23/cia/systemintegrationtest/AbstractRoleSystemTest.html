@@ -160,7 +160,7 @@
 <a class="jxr_linenumber" name="L152" href="#L152">152</a> 			driver = <strong class="jxr_keyword">new</strong> FirefoxDriver(capabilities);
 <a class="jxr_linenumber" name="L153" href="#L153">153</a> 			driver.manage().window().maximize();
 <a class="jxr_linenumber" name="L154" href="#L154">154</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"chrome"</span>.equals(browser)) {
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			ChromeOptions chromeOptions = <strong class="jxr_keyword">new</strong> ChromeOptions();
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			<strong class="jxr_keyword">final</strong> ChromeOptions chromeOptions = <strong class="jxr_keyword">new</strong> ChromeOptions();
 <a class="jxr_linenumber" name="L156" href="#L156">156</a> 		    chromeOptions.addArguments(<span class="jxr_string">"--allow-insecure-localhost"</span>,<span class="jxr_string">"--start-maximized"</span>);		
 <a class="jxr_linenumber" name="L157" href="#L157">157</a> 			driver = <strong class="jxr_keyword">new</strong> ChromeDriver(chromeOptions);
 <a class="jxr_linenumber" name="L158" href="#L158">158</a> 		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"htmlunit-firefox"</span>.equals(browser)) {

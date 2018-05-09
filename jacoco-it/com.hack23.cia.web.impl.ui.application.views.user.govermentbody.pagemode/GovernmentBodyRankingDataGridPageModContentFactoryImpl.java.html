@@ -81,9 +81,9 @@ public final class GovernmentBodyRankingDataGridPageModContentFactoryImpl
 
 <span class="fc" id="L82">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L84">		Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; dataMap = esvApi.getData();</span>
+<span class="fc" id="L84">		final Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; dataMap = esvApi.getData();</span>
 
-<span class="fc" id="L86">		List&lt;GovernmentBodyAnnualSummary&gt; list = dataMap.get(2018);</span>
+<span class="fc" id="L86">		final List&lt;GovernmentBodyAnnualSummary&gt; list = dataMap.get(2018);</span>
 
 <span class="fc" id="L88">		getGridFactory().createBasicBeanItemGrid(panelContent, GovernmentBodyAnnualSummary.class, list,</span>
 				GOVERNMENT_BODIES, COLUMN_ORDER, HIDE_COLUMNS, LISTENER, null, null);

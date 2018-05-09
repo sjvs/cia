@@ -90,7 +90,7 @@ public final class UserHomeSecuritySettingsPageModContentFactoryImpl extends Abs
 
 <span class="fc" id="L91">		LabelFactory.createHeader2Label(panelContent, SECURITY_SETTINGS);</span>
 
-<span class="fc" id="L93">		final Long userIdFromSecurityContext = UserContextUtil.getUserInternalIdFromSecurityContext();</span>
+<span class="fc" id="L93">		final String userIdFromSecurityContext = UserContextUtil.getUserIdFromSecurityContext();</span>
 
 <span class="pc bpc" id="L95" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
 <span class="nc" id="L96">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>

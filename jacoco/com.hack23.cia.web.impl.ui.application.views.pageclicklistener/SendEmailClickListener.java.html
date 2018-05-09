@@ -66,16 +66,16 @@ public final class SendEmailClickListener implements ClickListener {
 
 	@Override
 	public void buttonClick(final ClickEvent event) {
-<span class="fc" id="L69">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(sendEmailRequest);</span>
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
-<span class="fc" id="L71">			LOGGER.info(LOG_MSG_SEND_EMAIL,sendEmailRequest.getEmail());</span>
-<span class="fc" id="L72">			Notification.show(EMAIL_SENT);</span>
+<span class="nc" id="L69">		final ServiceResponse response = ApplicationMangerAccess.getApplicationManager().service(sendEmailRequest);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">		if (ServiceResult.SUCCESS == response.getResult()) {</span>
+<span class="nc" id="L71">			LOGGER.info(LOG_MSG_SEND_EMAIL,sendEmailRequest.getEmail());</span>
+<span class="nc" id="L72">			Notification.show(EMAIL_SENT);</span>
 		} else {
 <span class="nc" id="L74">			Notification.show(SEND_EMAIL_FAILEDFAILED,</span>
 <span class="nc" id="L75">	                  response.getErrorMessage(),</span>
 	                  Notification.Type.WARNING_MESSAGE);
 <span class="nc" id="L77">			LOGGER.info(SEND_EMAIL_FAILURE,sendEmailRequest.getEmail());</span>
 		}
-<span class="fc" id="L79">	}</span>
+<span class="nc" id="L79">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

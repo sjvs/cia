@@ -36,24 +36,24 @@ Export-Package: com.vaadin.spring;uses:="com.vaadin.spring.annotation,
  ava.lang.invoke,java.nio.charset,java.util,java.util.function,java.ut
  il.stream,org.springframework.beans.factory,org.springframework.core.
  env"
-Import-Package: com.vaadin.navigator;version="8.4.0",com.vaadin.server
- ;version="8.4.0",com.vaadin.server.communication;version="8.4.0",com.
- vaadin.shared;version="8.4.0",com.vaadin.ui;version="8.4.0",com.vaadi
- n.ui.declarative;version="8.4.0",com.vaadin.util;version="8.4.0",java
+Import-Package: com.vaadin.navigator;version="8.4.1",com.vaadin.server
+ ;version="8.4.1",com.vaadin.server.communication;version="8.4.1",com.
+ vaadin.shared;version="8.4.1",com.vaadin.ui;version="8.4.1",com.vaadi
+ n.ui.declarative;version="8.4.1",com.vaadin.util;version="8.4.1",java
  .io,java.lang,java.lang.annotation,java.lang.invoke,java.lang.reflect
  ,java.net,java.nio.charset,java.util,java.util.concurrent,java.util.f
  unction,java.util.stream,javax.annotation,javax.servlet,javax.servlet
  .http,org.slf4j;version="0.0.0",org.springframework.beans;version="5.
- 0.5.RELEASE",org.springframework.beans.factory;version="5.0.5.RELEASE
- ",org.springframework.beans.factory.annotation;version="5.0.5.RELEASE
- ",org.springframework.beans.factory.config;version="5.0.5.RELEASE",or
- g.springframework.beans.factory.support;version="5.0.5.RELEASE",org.s
- pringframework.context;version="5.0.5.RELEASE",org.springframework.co
- ntext.annotation;version="5.0.5.RELEASE",org.springframework.core.ann
- otation;version="5.0.5.RELEASE",org.springframework.core.env;version=
- "5.0.5.RELEASE",org.springframework.core.type;version="5.0.5.RELEASE"
- ,org.springframework.stereotype;version="5.0.5.RELEASE",org.springfra
- mework.util;version="5.0.5.RELEASE",org.springframework.web.context;v
- ersion="5.0.5.RELEASE",org.springframework.web.context.support;versio
- n="5.0.5.RELEASE",org.springframework.web.util;version="5.0.5.RELEASE
+ 0.6.RELEASE",org.springframework.beans.factory;version="5.0.6.RELEASE
+ ",org.springframework.beans.factory.annotation;version="5.0.6.RELEASE
+ ",org.springframework.beans.factory.config;version="5.0.6.RELEASE",or
+ g.springframework.beans.factory.support;version="5.0.6.RELEASE",org.s
+ pringframework.context;version="5.0.6.RELEASE",org.springframework.co
+ ntext.annotation;version="5.0.6.RELEASE",org.springframework.core.ann
+ otation;version="5.0.6.RELEASE",org.springframework.core.env;version=
+ "5.0.6.RELEASE",org.springframework.core.type;version="5.0.6.RELEASE"
+ ,org.springframework.stereotype;version="5.0.6.RELEASE",org.springfra
+ mework.util;version="5.0.6.RELEASE",org.springframework.web.context;v
+ ersion="5.0.6.RELEASE",org.springframework.web.context.support;versio
+ n="5.0.6.RELEASE",org.springframework.web.util;version="5.0.6.RELEASE
  "

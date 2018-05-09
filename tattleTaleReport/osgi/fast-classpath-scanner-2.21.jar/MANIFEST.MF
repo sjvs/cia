@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Implementation-Title: FastClasspathScanner
+Bundle-Description: Uber-fast, ultra-lightweight Java classpath scanne
+ r. Scans the classpath by parsing the classfile  binary format direct
+ ly rather than by using reflection.See https://github.com/lukehutch/f
+ ast-classpath-scanner
+Bundle-License: http://opensource.org/licenses/MIT
+Bundle-SymbolicName: io.github.lukehutch.fast-classpath-scanner
+Implementation-Version: 2.21
+Bundle-Category: Utilities
+Built-By: luke
+Bnd-LastModified: 1525752949368
+Bundle-ManifestVersion: 2
+Specification-Title: FastClasspathScanner
+Implementation-Vendor-Id: io.github.lukehutch
+Bundle-Vendor: Luke Hutchison
+Import-Package: io.github.lukehutch.fastclasspathscanner,io.github.luk
+ ehutch.fastclasspathscanner.classloaderhandler,io.github.lukehutch.fa
+ stclasspathscanner.matchprocessor,io.github.lukehutch.fastclasspathsc
+ anner.scanner,io.github.lukehutch.fastclasspathscanner.scanner.matche
+ rs,io.github.lukehutch.fastclasspathscanner.typesignature,io.github.l
+ ukehutch.fastclasspathscanner.utils,javax.xml.namespace,javax.xml.par
+ sers,javax.xml.xpath,org.w3c.dom
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-3.2.0.201605172007
+Export-Package: io.github.lukehutch.fastclasspathscanner;uses:="io.git
+ hub.lukehutch.fastclasspathscanner.classloaderhandler,io.github.lukeh
+ utch.fastclasspathscanner.matchprocessor,io.github.lukehutch.fastclas
+ spathscanner.scanner";version="2.21.0",io.github.lukehutch.fastclassp
+ athscanner.classloaderhandler;uses:="io.github.lukehutch.fastclasspat
+ hscanner.scanner,io.github.lukehutch.fastclasspathscanner.utils";vers
+ ion="2.21.0",io.github.lukehutch.fastclasspathscanner.typesignature;u
+ ses:="io.github.lukehutch.fastclasspathscanner.scanner";version="2.21
+ .0",io.github.lukehutch.fastclasspathscanner.scanner;uses:="io.github
+ .lukehutch.fastclasspathscanner,io.github.lukehutch.fastclasspathscan
+ ner.classloaderhandler,io.github.lukehutch.fastclasspathscanner.match
+ processor,io.github.lukehutch.fastclasspathscanner.scanner.matchers,i
+ o.github.lukehutch.fastclasspathscanner.typesignature,io.github.lukeh
+ utch.fastclasspathscanner.utils";version="2.21.0",io.github.lukehutch
+ .fastclasspathscanner.scanner.matchers;uses:="io.github.lukehutch.fas
+ tclasspathscanner.scanner,io.github.lukehutch.fastclasspathscanner.ut
+ ils";version="2.21.0",io.github.lukehutch.fastclasspathscanner.utils;
+ version="2.21.0",io.github.lukehutch.fastclasspathscanner.matchproces
+ sor;uses:="io.github.lukehutch.fastclasspathscanner.scanner.matchers"
+ ;version="2.21.0"
+Bundle-Name: FastClasspathScanner
+Bundle-Version: 2.21.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_144
+Specification-Version: 2.21
+Implementation-URL: https://github.com/lukehutch/fast-classpath-scanne
+ r
+

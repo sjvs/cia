@@ -189,7 +189,7 @@ public final class GridFactoryImpl implements GridFactory {
 <span class="fc bfc" id="L189" title="All 2 branches covered.">		if (collectionPropertyConverter != null) {</span>
 <span class="fc bfc" id="L190" title="All 2 branches covered.">			for (final ListPropertyConverter converter : collectionPropertyConverter) {</span>
 <span class="fc" id="L191">				grid.removeColumn(converter.getColumn());</span>
-<span class="fc" id="L192">				Column column = grid.addColumn(converter);</span>
+<span class="fc" id="L192">				final Column column = grid.addColumn(converter);</span>
 <span class="fc" id="L193">				column.setCaption(WordUtils.capitalize(converter.getColumn()));</span>
 <span class="fc" id="L194">				column.setId(converter.getColumn());</span>
 			}

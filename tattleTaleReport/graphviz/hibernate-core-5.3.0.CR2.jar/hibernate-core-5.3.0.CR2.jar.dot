@@ -2,7 +2,7 @@ digraph hibernate_core_5_3_0_CR2_dependencies {
   node [shape = box, fontsize=10.0];
   hibernate_core_5_3_0_CR2 -> ant_1_10_3;
   hibernate_core_5_3_0_CR2 -> antlr_2_7_7_redhat_7;
-  hibernate_core_5_3_0_CR2 -> byte_buddy_1_8_10;
+  hibernate_core_5_3_0_CR2 -> byte_buddy_1_8_11;
   hibernate_core_5_3_0_CR2 -> classmate_1_4_0;
   hibernate_core_5_3_0_CR2 -> dom4j_1_6_1;
   hibernate_core_5_3_0_CR2 -> hibernate_commons_annotations_5_0_3_Final;

@@ -73,8 +73,8 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  2",javax.servlet,javax.servlet.http,javax.sql,javax.xml.parsers;versi
  on="1.0",javax.xml.stream;version="1.0",net.sf.ehcache,net.sf.ehcache
  .config,net.sf.ehcache.management,net.sf.ehcache.store,org.aopallianc
- e.aop;version="5.0.5.RELEASE",org.aopalliance.intercept;version="5.0.
- 5.RELEASE",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="
+ e.aop;version="5.0.6.RELEASE",org.aopalliance.intercept;version="5.0.
+ 6.RELEASE",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="
  2.2.0",org.apache.log4j;version="0.0.0",org.apache.log4j.spi;version=
  "0.0.0",org.apache.logging.log4j,org.apache.logging.log4j.core,org.ap
  ache.logging.log4j.core.appender,org.apache.logging.log4j.core.config
@@ -84,13 +84,13 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  rsion="1.6.0",org.jrobin.data;version="1.6.0",org.jrobin.graph;versio
  n="1.6.0",org.quartz;version="0.0.0",org.quartz.impl;version="0.0.0",
  org.quartz.impl.matchers;version="0.0.0",org.slf4j;version="0.0.0",or
- g.springframework.aop;version="5.0.5.RELEASE",org.springframework.aop
- .support;version="5.0.5.RELEASE",org.springframework.beans;version="5
- .0.5.RELEASE",org.springframework.beans.factory;version="5.0.5.RELEAS
- E",org.springframework.beans.factory.config;version="5.0.5.RELEASE",o
- rg.springframework.context;version="5.0.5.RELEASE",org.springframewor
- k.core;version="5.0.5.RELEASE",org.springframework.http;version="5.0.
- 5.RELEASE",org.springframework.http.client;version="5.0.5.RELEASE",or
- g.springframework.jndi;version="5.0.5.RELEASE",org.springframework.we
- b.client;version="5.0.5.RELEASE",org.w3c.dom;version="1.0",org.xml.sa
+ g.springframework.aop;version="5.0.6.RELEASE",org.springframework.aop
+ .support;version="5.0.6.RELEASE",org.springframework.beans;version="5
+ .0.6.RELEASE",org.springframework.beans.factory;version="5.0.6.RELEAS
+ E",org.springframework.beans.factory.config;version="5.0.6.RELEASE",o
+ rg.springframework.context;version="5.0.6.RELEASE",org.springframewor
+ k.core;version="5.0.6.RELEASE",org.springframework.http;version="5.0.
+ 6.RELEASE",org.springframework.http.client;version="5.0.6.RELEASE",or
+ g.springframework.jndi;version="5.0.6.RELEASE",org.springframework.we
+ b.client;version="5.0.6.RELEASE",org.w3c.dom;version="1.0",org.xml.sa
  x;version="1.0",sun.misc,sun.nio.ch

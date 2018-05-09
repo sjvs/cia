@@ -176,7 +176,7 @@
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 	}
 <a class="jxr_linenumber" name="L169" href="#L169">169</a> 
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 	@Override
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyHeadcountSummaryChart(VerticalLayout content) {
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyHeadcountSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content) {
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 		<strong class="jxr_keyword">final</strong> Map&lt;Integer, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getData();
 <a class="jxr_linenumber" name="L173" href="#L173">173</a> 
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 		<strong class="jxr_keyword">final</strong> DataSeries dataSeries = <strong class="jxr_keyword">new</strong> DataSeries();
@@ -205,8 +205,8 @@
 <a class="jxr_linenumber" name="L197" href="#L197">197</a> 	}
 <a class="jxr_linenumber" name="L198" href="#L198">198</a> 
 <a class="jxr_linenumber" name="L199" href="#L199">199</a> 	@Override
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyHeadcountSummaryChart(VerticalLayout content, String name) {
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> 		Map&lt;Integer, GovernmentBodyAnnualSummary&gt; map = esvApi.getDataPerGovernmentBody(name);
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyHeadcountSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content, <strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> 		<strong class="jxr_keyword">final</strong> Map&lt;Integer, GovernmentBodyAnnualSummary&gt; map = esvApi.getDataPerGovernmentBody(name);
 <a class="jxr_linenumber" name="L202" href="#L202">202</a> 
 <a class="jxr_linenumber" name="L203" href="#L203">203</a> 		<strong class="jxr_keyword">final</strong> DataSeries dataSeries = <strong class="jxr_keyword">new</strong> DataSeries();
 <a class="jxr_linenumber" name="L204" href="#L204">204</a> 		<strong class="jxr_keyword">final</strong> Series series = <strong class="jxr_keyword">new</strong> Series();
@@ -232,12 +232,12 @@
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> 	}
 <a class="jxr_linenumber" name="L225" href="#L225">225</a> 
 <a class="jxr_linenumber" name="L226" href="#L226">226</a> 	@Override
-<a class="jxr_linenumber" name="L227" href="#L227">227</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyIncomeSummaryChart(VerticalLayout content) {
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyIncomeSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content) {
 <a class="jxr_linenumber" name="L228" href="#L228">228</a> 		addAnnualSummary(esvApi.getGovernmentBodyReportByField(INKOMSTTITELGRUPPSNAMN), content, ANNUAL_INCOME);
 <a class="jxr_linenumber" name="L229" href="#L229">229</a> 	}
 <a class="jxr_linenumber" name="L230" href="#L230">230</a> 
 <a class="jxr_linenumber" name="L231" href="#L231">231</a> 	@Override
-<a class="jxr_linenumber" name="L232" href="#L232">232</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyExpenditureSummaryChart(VerticalLayout content) {
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyExpenditureSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content) {
 <a class="jxr_linenumber" name="L233" href="#L233">233</a> 		addAnnualSummary(esvApi.getGovernmentBodyReportByField(UTGIFTSOMRÅDESNAMN), content, ANNUAL_EXPENDITURE);
 <a class="jxr_linenumber" name="L234" href="#L234">234</a> 	}
 <a class="jxr_linenumber" name="L235" href="#L235">235</a> 
@@ -251,26 +251,26 @@
 <a class="jxr_linenumber" name="L243" href="#L243">243</a> <em class="jxr_javadoccomment">	 * @param label</em>
 <a class="jxr_linenumber" name="L244" href="#L244">244</a> <em class="jxr_javadoccomment">	 *            the label</em>
 <a class="jxr_linenumber" name="L245" href="#L245">245</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addAnnualSummary(Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; report, VerticalLayout content,
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> 			String label) {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addAnnualSummary(<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; report, <strong class="jxr_keyword">final</strong> VerticalLayout content,
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 			<strong class="jxr_keyword">final</strong> String label) {
 <a class="jxr_linenumber" name="L248" href="#L248">248</a> 
 <a class="jxr_linenumber" name="L249" href="#L249">249</a> 		<strong class="jxr_keyword">final</strong> DataSeries dataSeries = <strong class="jxr_keyword">new</strong> DataSeries();
 <a class="jxr_linenumber" name="L250" href="#L250">250</a> 		<strong class="jxr_keyword">final</strong> Series series = <strong class="jxr_keyword">new</strong> Series();
 <a class="jxr_linenumber" name="L251" href="#L251">251</a> 
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		<strong class="jxr_keyword">for</strong> (Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : report.entrySet()) {
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : report.entrySet()) {
 <a class="jxr_linenumber" name="L253" href="#L253">253</a> 
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 			List&lt;GovernmentBodyAnnualOutcomeSummary&gt; allValues = entry.getValue();
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 			<strong class="jxr_keyword">final</strong> List&lt;GovernmentBodyAnnualOutcomeSummary&gt; allValues = entry.getValue();
 <a class="jxr_linenumber" name="L255" href="#L255">255</a> 
 <a class="jxr_linenumber" name="L256" href="#L256">256</a> 			<strong class="jxr_keyword">if</strong> (!allValues.isEmpty()) {
 <a class="jxr_linenumber" name="L257" href="#L257">257</a> 				series.addSeries(<strong class="jxr_keyword">new</strong> XYseries().setLabel(entry.getKey()).setShowLabel(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L258" href="#L258">258</a> 				dataSeries.newSeries();
 <a class="jxr_linenumber" name="L259" href="#L259">259</a> 
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 				Map&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; map = allValues.stream()
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 				<strong class="jxr_keyword">final</strong> Map&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; map = allValues.stream()
 <a class="jxr_linenumber" name="L261" href="#L261">261</a> 						.collect(Collectors.groupingBy(GovernmentBodyAnnualOutcomeSummary::getYear));
 <a class="jxr_linenumber" name="L262" href="#L262">262</a> 
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> 				<strong class="jxr_keyword">for</strong> (Entry&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; data : map.entrySet()) {
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> 					List&lt;GovernmentBodyAnnualOutcomeSummary&gt; values = data.getValue();
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> 					Double sum = values.stream().mapToDouble(GovernmentBodyAnnualOutcomeSummary::getYearTotal).sum();
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 				<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; data : map.entrySet()) {
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 					<strong class="jxr_keyword">final</strong> List&lt;GovernmentBodyAnnualOutcomeSummary&gt; values = data.getValue();
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 					<strong class="jxr_keyword">final</strong> Double sum = values.stream().mapToDouble(GovernmentBodyAnnualOutcomeSummary::getYearTotal).sum();
 <a class="jxr_linenumber" name="L266" href="#L266">266</a> 					<strong class="jxr_keyword">if</strong> (sum.intValue() &gt; 0) {
 <a class="jxr_linenumber" name="L267" href="#L267">267</a> 						dataSeries.add(data.getKey() + _01_01, sum.intValue());
 <a class="jxr_linenumber" name="L268" href="#L268">268</a> 					}
@@ -285,8 +285,8 @@
 <a class="jxr_linenumber" name="L277" href="#L277">277</a> 	}
 <a class="jxr_linenumber" name="L278" href="#L278">278</a> 
 <a class="jxr_linenumber" name="L279" href="#L279">279</a> 	@Override
-<a class="jxr_linenumber" name="L280" href="#L280">280</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyIncomeSummaryChart(VerticalLayout content, String name) {
-<a class="jxr_linenumber" name="L281" href="#L281">281</a> 		Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyIncomeSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content, <strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 		<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)
 <a class="jxr_linenumber" name="L282" href="#L282">282</a> 				.stream().filter(p -&gt; p.getDescriptionFields().get(INKOMSTTITELSNAMN) != <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="L283" href="#L283">283</a> 				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(INKOMSTTITELSNAMN)));
 <a class="jxr_linenumber" name="L284" href="#L284">284</a> 
@@ -295,8 +295,8 @@
 <a class="jxr_linenumber" name="L287" href="#L287">287</a> 	}
 <a class="jxr_linenumber" name="L288" href="#L288">288</a> 
 <a class="jxr_linenumber" name="L289" href="#L289">289</a> 	@Override
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyExpenditureSummaryChart(VerticalLayout content, String name) {
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> 		Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> createGovernmentBodyExpenditureSummaryChart(<strong class="jxr_keyword">final</strong> VerticalLayout content, <strong class="jxr_keyword">final</strong> String name) {
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 		<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)
 <a class="jxr_linenumber" name="L292" href="#L292">292</a> 				.stream().filter(p -&gt; p.getDescriptionFields().get(ANSLAGSPOSTSNAMN) != <strong class="jxr_keyword">null</strong>)
 <a class="jxr_linenumber" name="L293" href="#L293">293</a> 				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(ANSLAGSPOSTSNAMN)));
 <a class="jxr_linenumber" name="L294" href="#L294">294</a> 
@@ -315,20 +315,20 @@
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">	 * @param collect</em>
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">	 *            the collect</em>
 <a class="jxr_linenumber" name="L309" href="#L309">309</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addAnnualData(VerticalLayout content, String name, String label,
-<a class="jxr_linenumber" name="L311" href="#L311">311</a> 			Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect) {
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> addAnnualData(<strong class="jxr_keyword">final</strong> VerticalLayout content, <strong class="jxr_keyword">final</strong> String name, <strong class="jxr_keyword">final</strong> String label,
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> 			<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect) {
 <a class="jxr_linenumber" name="L312" href="#L312">312</a> 		<strong class="jxr_keyword">final</strong> DataSeries dataSeries = <strong class="jxr_keyword">new</strong> DataSeries();
 <a class="jxr_linenumber" name="L313" href="#L313">313</a> 		<strong class="jxr_keyword">final</strong> Series series = <strong class="jxr_keyword">new</strong> Series();
 <a class="jxr_linenumber" name="L314" href="#L314">314</a> 
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		SimpleDateFormat simpleDateFormat = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd"</span>,Locale.ENGLISH);
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		<strong class="jxr_keyword">for</strong> (Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : collect.entrySet()) {
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		<strong class="jxr_keyword">final</strong> SimpleDateFormat simpleDateFormat = <strong class="jxr_keyword">new</strong> SimpleDateFormat(<span class="jxr_string">"yyyy-MM-dd"</span>,Locale.ENGLISH);
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : collect.entrySet()) {
 <a class="jxr_linenumber" name="L317" href="#L317">317</a> 			series.addSeries(<strong class="jxr_keyword">new</strong> XYseries().setLabel(entry.getKey()));
 <a class="jxr_linenumber" name="L318" href="#L318">318</a> 			dataSeries.newSeries();
 <a class="jxr_linenumber" name="L319" href="#L319">319</a> 			
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> 			<strong class="jxr_keyword">for</strong> (GovernmentBodyAnnualOutcomeSummary data : entry.getValue()) {
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> 				Map&lt;Date, Double&gt; valueMap = data.getValueMap();
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> GovernmentBodyAnnualOutcomeSummary data : entry.getValue()) {
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 				<strong class="jxr_keyword">final</strong> Map&lt;Date, Double&gt; valueMap = data.getValueMap();
 <a class="jxr_linenumber" name="L322" href="#L322">322</a> 
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> 				<strong class="jxr_keyword">for</strong> (Entry&lt;Date, Double&gt; entryData : valueMap.entrySet()) {
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 				<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;Date, Double&gt; entryData : valueMap.entrySet()) {
 <a class="jxr_linenumber" name="L324" href="#L324">324</a> 					<strong class="jxr_keyword">if</strong> (entryData.getValue() != <strong class="jxr_keyword">null</strong> &amp;&amp; entryData.getValue().intValue() &gt; 0) {
 <a class="jxr_linenumber" name="L325" href="#L325">325</a> 						dataSeries.add(simpleDateFormat.format(entryData.getKey()) , entryData.getValue().intValue());
 <a class="jxr_linenumber" name="L326" href="#L326">326</a> 					}

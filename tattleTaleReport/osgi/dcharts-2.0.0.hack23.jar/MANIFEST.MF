@@ -162,11 +162,11 @@ Import-Package: com.google.gwt.core.client;version="0.0.0",com.google.
  gwt.resources.client;version="0.0.0",com.google.gwt.user.client;versi
  on="0.0.0",com.google.gwt.user.client.ui;version="0.0.0",com.google.w
  eb.bindery.event.shared;version="0.0.0",com.vaadin.client;version="8.
- 4.0",com.vaadin.client.communication;version="8.4.0",com.vaadin.clien
- t.ui;version="8.4.0",com.vaadin.client.ui.layout;version="8.4.0",com.
- vaadin.server;version="8.4.0",com.vaadin.shared;version="8.4.0",com.v
- aadin.shared.communication;version="8.4.0",com.vaadin.shared.ui;versi
- on="8.4.0",com.vaadin.ui;version="8.4.0",java.awt.image,java.io,java.
+ 4.1",com.vaadin.client.communication;version="8.4.1",com.vaadin.clien
+ t.ui;version="8.4.1",com.vaadin.client.ui.layout;version="8.4.1",com.
+ vaadin.server;version="8.4.1",com.vaadin.shared;version="8.4.1",com.v
+ aadin.shared.communication;version="8.4.1",com.vaadin.shared.ui;versi
+ on="8.4.1",com.vaadin.ui;version="8.4.1",java.awt.image,java.io,java.
  lang,java.lang.reflect,java.net,java.text,java.util,java.util.jar,jav
  ax.imageio,org.apache.commons.codec.binary;version="1.11",org.apache.
  commons.lang3;version="3.7",org.apache.commons.lang3.math;version="3.

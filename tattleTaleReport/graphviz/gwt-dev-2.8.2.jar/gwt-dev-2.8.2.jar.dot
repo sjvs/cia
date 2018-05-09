@@ -4,7 +4,7 @@ digraph gwt_dev_2_8_2_dependencies {
   gwt_dev_2_8_2 -> ant_1_10_3;
   gwt_dev_2_8_2 -> asm_6_1_1;
   gwt_dev_2_8_2 -> colt_2_1_4;
-  gwt_dev_2_8_2 -> gson_2_8_3;
+  gwt_dev_2_8_2 -> gson_2_8_4;
   gwt_dev_2_8_2 -> j2objc_annotations_1_1;
   gwt_dev_2_8_2 -> jsr305_1_3_9;
   gwt_dev_2_8_2 -> org_osgi_core_6_0_0;

@@ -151,7 +151,7 @@ public final class ListPropertyConverter implements Converter&lt;String, List&lt
 <span class="fc" id="L151">	}</span>
 
 	@Override
-	public String apply(Object source) {
+	public String apply(final Object source) {
 		List&lt;?&gt; list;
 		try {
 <span class="fc" id="L157">			list = (List&lt;?&gt;) PROPERTY_UTILS_BEAN.getProperty(source, column);</span>

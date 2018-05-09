@@ -1,0 +1,30 @@
+digraph fast_classpath_scanner_2_21_package_dependencies {
+  node [shape = box, fontsize=10.0];
+  io_github_lukehutch_fastclasspathscanner -> io_github_lukehutch_fastclasspathscanner_matchprocessor;
+  io_github_lukehutch_fastclasspathscanner -> io_github_lukehutch_fastclasspathscanner_scanner;
+  io_github_lukehutch_fastclasspathscanner -> io_github_lukehutch_fastclasspathscanner_scanner_matchers;
+  io_github_lukehutch_fastclasspathscanner -> io_github_lukehutch_fastclasspathscanner_utils;
+  io_github_lukehutch_fastclasspathscanner -> java_lang;
+  io_github_lukehutch_fastclasspathscanner_classloaderhandler -> io_github_lukehutch_fastclasspathscanner_scanner;
+  io_github_lukehutch_fastclasspathscanner_classloaderhandler -> io_github_lukehutch_fastclasspathscanner_utils;
+  io_github_lukehutch_fastclasspathscanner_classloaderhandler -> java_nio_file;
+  io_github_lukehutch_fastclasspathscanner_matchprocessor -> io_github_lukehutch_fastclasspathscanner_scanner_matchers;
+  io_github_lukehutch_fastclasspathscanner_matchprocessor -> java_lang;
+  io_github_lukehutch_fastclasspathscanner_matchprocessor -> java_lang_reflect;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner_classloaderhandler;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner_matchprocessor;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner_scanner_matchers;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner_typesignature;
+  io_github_lukehutch_fastclasspathscanner_scanner -> io_github_lukehutch_fastclasspathscanner_utils;
+  io_github_lukehutch_fastclasspathscanner_scanner -> java_lang;
+  io_github_lukehutch_fastclasspathscanner_scanner -> java_lang_reflect;
+  io_github_lukehutch_fastclasspathscanner_scanner_matchers -> io_github_lukehutch_fastclasspathscanner_scanner;
+  io_github_lukehutch_fastclasspathscanner_scanner_matchers -> io_github_lukehutch_fastclasspathscanner_utils;
+  io_github_lukehutch_fastclasspathscanner_typesignature -> io_github_lukehutch_fastclasspathscanner_scanner;
+  io_github_lukehutch_fastclasspathscanner_utils -> io_github_lukehutch_fastclasspathscanner;
+  io_github_lukehutch_fastclasspathscanner_utils -> java_lang;
+  io_github_lukehutch_fastclasspathscanner_utils -> java_nio_charset;
+  io_github_lukehutch_fastclasspathscanner_utils -> java_nio_file;
+  io_github_lukehutch_fastclasspathscanner_utils -> java_util_concurrent;
+}

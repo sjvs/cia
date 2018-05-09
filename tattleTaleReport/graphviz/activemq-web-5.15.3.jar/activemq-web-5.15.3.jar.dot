@@ -6,9 +6,9 @@ digraph activemq_web_5_15_3_dependencies {
   activemq_web_5_15_3 -> jaxb_api_2_3_0;
   activemq_web_5_15_3 -> jms_1_1;
   activemq_web_5_15_3 -> slf4j_api_1_8_0_beta2;
-  activemq_web_5_15_3 -> spring_beans_5_0_5_RELEASE;
-  activemq_web_5_15_3 -> spring_core_5_0_5_RELEASE;
-  activemq_web_5_15_3 -> spring_web_5_0_5_RELEASE;
-  activemq_web_5_15_3 -> spring_webmvc_5_0_5_RELEASE;
+  activemq_web_5_15_3 -> spring_beans_5_0_6_RELEASE;
+  activemq_web_5_15_3 -> spring_core_5_0_6_RELEASE;
+  activemq_web_5_15_3 -> spring_web_5_0_6_RELEASE;
+  activemq_web_5_15_3 -> spring_webmvc_5_0_6_RELEASE;
   activemq_web_5_15_3 -> xstream_1_4_10;
 }

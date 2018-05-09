@@ -89,7 +89,7 @@ public final class ParliamentDecisionFlowPageModContentFactoryImpl extends Abstr
 
 <span class="fc" id="L90">		final Map&lt;String, List&lt;ViewRiksdagenCommittee&gt;&gt; committeeMap = allCommittess.stream().collect(Collectors.groupingBy(c -&gt; c.getEmbeddedId().getOrgCode().toUpperCase(Locale.ENGLISH)));</span>
 		
-<span class="fc" id="L92">		ComboBox&lt;String&gt; comboBox = new ComboBox&lt;&gt;(&quot;Select year&quot;, Collections.unmodifiableList(Arrays.asList(&quot;2017/18&quot;,&quot;2016/17&quot;,&quot;2015/16&quot;,&quot;2014/15&quot;,&quot;2013/14&quot;,&quot;2012/13&quot;,&quot;2011/12&quot;,&quot;2010/11&quot;)));</span>
+<span class="fc" id="L92">		final ComboBox&lt;String&gt; comboBox = new ComboBox&lt;&gt;(&quot;Select year&quot;, Collections.unmodifiableList(Arrays.asList(&quot;2017/18&quot;,&quot;2016/17&quot;,&quot;2015/16&quot;,&quot;2014/15&quot;,&quot;2013/14&quot;,&quot;2012/13&quot;,&quot;2011/12&quot;,&quot;2010/11&quot;)));</span>
 <span class="fc" id="L93">		panelContent.addComponent(comboBox);</span>
 <span class="fc" id="L94">		panelContent.setExpandRatio(comboBox, ContentRatio.SMALL);</span>
 <span class="fc" id="L95">		comboBox.setSelectedItem(selectedYear);</span>
@@ -99,7 +99,7 @@ public final class ParliamentDecisionFlowPageModContentFactoryImpl extends Abstr
 			}
 <span class="nc" id="L100">		});</span>
 		
-<span class="fc" id="L102">		SankeyChart chart = decisionFlowChartManager.createAllDecisionFlow(committeeMap,comboBox.getSelectedItem().orElse(selectedYear));</span>
+<span class="fc" id="L102">		final SankeyChart chart = decisionFlowChartManager.createAllDecisionFlow(committeeMap,comboBox.getSelectedItem().orElse(selectedYear));</span>
 <span class="fc" id="L103">		panelContent.addComponent(chart);</span>
 <span class="fc" id="L104">		panelContent.setExpandRatio(chart, ContentRatio.LARGE);</span>
 		
