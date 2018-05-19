@@ -1,7 +1,7 @@
 digraph kie_internal_7_7_0_Final_dependencies {
   node [shape = box, fontsize=10.0];
   kie_internal_7_7_0_Final -> jaxb_api_2_3_0;
-  kie_internal_7_7_0_Final -> jaxb_xjc_2_3_0;
+  kie_internal_7_7_0_Final -> jaxb_xjc_2_3_0_1;
   kie_internal_7_7_0_Final -> kie_api_7_7_0_Final;
   kie_internal_7_7_0_Final -> org_osgi_core_6_0_0;
   kie_internal_7_7_0_Final -> slf4j_api_1_8_0_beta2;

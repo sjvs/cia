@@ -1,7 +1,7 @@
 digraph gantt_addon_1_0_3_dependencies {
   node [shape = box, fontsize=10.0];
   gantt_addon_1_0_3 -> gwt_user_2_8_2;
-  gantt_addon_1_0_3 -> vaadin_client_8_4_1;
-  gantt_addon_1_0_3 -> vaadin_server_8_4_1;
-  gantt_addon_1_0_3 -> vaadin_shared_8_4_1;
+  gantt_addon_1_0_3 -> vaadin_client_8_5_0_alpha1;
+  gantt_addon_1_0_3 -> vaadin_server_8_5_0_alpha1;
+  gantt_addon_1_0_3 -> vaadin_shared_8_5_0_alpha1;
 }

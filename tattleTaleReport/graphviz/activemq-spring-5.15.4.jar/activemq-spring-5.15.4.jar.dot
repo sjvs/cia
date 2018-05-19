@@ -1,0 +1,14 @@
+digraph activemq_spring_5_15_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  activemq_spring_5_15_4 -> activemq_broker_5_15_4;
+  activemq_spring_5_15_4 -> activemq_client_5_15_4;
+  activemq_spring_5_15_4 -> activemq_jms_pool_5_15_4;
+  activemq_spring_5_15_4 -> activemq_pool_5_15_4;
+  activemq_spring_5_15_4 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+  activemq_spring_5_15_4 -> jms_1_1;
+  activemq_spring_5_15_4 -> slf4j_api_1_8_0_beta2;
+  activemq_spring_5_15_4 -> spring_beans_5_0_6_RELEASE;
+  activemq_spring_5_15_4 -> spring_context_5_0_6_RELEASE;
+  activemq_spring_5_15_4 -> spring_core_5_0_6_RELEASE;
+  activemq_spring_5_15_4 -> xbean_spring_4_8;
+}

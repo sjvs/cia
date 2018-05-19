@@ -4,7 +4,7 @@ digraph drools_compiler_7_7_0_Final_dependencies {
   drools_compiler_7_7_0_Final -> drools_core_7_7_0_Final;
   drools_compiler_7_7_0_Final -> gwt_dev_2_8_2;
   drools_compiler_7_7_0_Final -> jaxb_api_2_3_0;
-  drools_compiler_7_7_0_Final -> jaxb_xjc_2_3_0;
+  drools_compiler_7_7_0_Final -> jaxb_xjc_2_3_0_1;
   drools_compiler_7_7_0_Final -> kie_api_7_7_0_Final;
   drools_compiler_7_7_0_Final -> kie_internal_7_7_0_Final;
   drools_compiler_7_7_0_Final -> kie_soup_commons_7_7_0_Final;

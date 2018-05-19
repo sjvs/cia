@@ -1,7 +1,7 @@
 digraph javamelody_core_1_72_0_dependencies {
   node [shape = box, fontsize=10.0];
   javamelody_core_1_72_0 -> activation_1_1;
-  javamelody_core_1_72_0 -> commons_dbcp2_2_2_0;
+  javamelody_core_1_72_0 -> commons_dbcp2_2_3_0;
   javamelody_core_1_72_0 -> javax_interceptor_api_1_2;
   javamelody_core_1_72_0 -> javax_mail_1_6_1;
   javamelody_core_1_72_0 -> javax_persistence_api_2_2;

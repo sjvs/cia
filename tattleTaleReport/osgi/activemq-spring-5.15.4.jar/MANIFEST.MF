@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Implementation-Title: ActiveMQ :: Spring
+Implementation-Version: 5.15.4
+Archiver-Version: Plexus Archiver
+Built-By: cshannon
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: ActiveMQ :: Spring
+Implementation-Vendor-Id: org.apache.activemq
+Created-By: Apache Maven 3.5.0
+Build-Jdk: 1.8.0_172
+Specification-Version: 5.15.4
+Implementation-Vendor: The Apache Software Foundation
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.apache.activemq.xbean
+Bundle-Description: activemq-spring-5.15.4
+Bundle-Name: activemq-spring-5.15.4
+Bundle-Version: 5.15.4
+Export-Package: org.apache.activemq.hooks,org.apache.activemq.network.
+ jms,org.apache.activemq.pool;uses:="org.apache.activemq.jms.pool",org
+ .apache.activemq.security;uses:="org.apache.activemq.filter",org.apac
+ he.activemq.spring;uses:="org.apache.activemq,org.apache.activemq.bro
+ ker",org.apache.activemq.store;uses:="org.apache.activemq.store.journ
+ al",org.apache.activemq.xbean;uses:="org.apache.activemq.broker,org.a
+ pache.activemq.broker.scheduler,org.apache.activemq.spring,org.apache
+ .activemq.store,org.apache.activemq.usage,org.apache.activemq.util,or
+ g.apache.xbean.spring.context,org.apache.xbean.spring.context.impl"
+Import-Package: java.beans,java.io,java.lang,java.net,java.security,ja
+ va.security.cert,java.util,javax.annotation,javax.jms;version="0.0.0"
+ ,javax.naming,javax.net.ssl,javax.transaction;version="1.2",org.apach
+ e.activemq;version="5.15.4",org.apache.activemq.broker;version="5.15.
+ 4",org.apache.activemq.broker.scheduler;version="5.15.4",org.apache.a
+ ctivemq.filter;version="5.15.4",org.apache.activemq.jms.pool;version=
+ "5.15.4",org.apache.activemq.network.jms;version="5.15.4",org.apache.
+ activemq.pool;version="5.15.4",org.apache.activemq.security;version="
+ 5.15.4",org.apache.activemq.store;version="5.15.4",org.apache.activem
+ q.store.journal,org.apache.activemq.usage;version="5.15.4",org.apache
+ .activemq.util;version="5.15.4",org.apache.xbean.spring.context;versi
+ on="4.8",org.apache.xbean.spring.context.impl;version="4.8",org.slf4j
+ ;version="0.0.0",org.springframework.beans;version="5.0.6.RELEASE",or
+ g.springframework.beans.factory;version="5.0.6.RELEASE",org.springfra
+ mework.beans.factory.xml;version="5.0.6.RELEASE",org.springframework.
+ context;version="5.0.6.RELEASE",org.springframework.core.io;version="
+ 5.0.6.RELEASE",org.springframework.jndi;version="5.0.6.RELEASE",org.s
+ pringframework.util;version="5.0.6.RELEASE"

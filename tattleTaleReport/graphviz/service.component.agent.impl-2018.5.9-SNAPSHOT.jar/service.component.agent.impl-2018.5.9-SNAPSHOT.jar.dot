@@ -24,6 +24,6 @@ digraph service_component_agent_impl_2018_5_9_SNAPSHOT_dependencies {
   service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_beans_5_0_6_RELEASE;
   service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_context_5_0_6_RELEASE;
   service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_jms_5_0_6_RELEASE;
-  service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_security_core_5_0_5_RELEASE;
+  service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_security_core_5_1_0_M1;
   service_component_agent_impl_2018_5_9_SNAPSHOT -> spring_tx_5_0_6_RELEASE;
 }

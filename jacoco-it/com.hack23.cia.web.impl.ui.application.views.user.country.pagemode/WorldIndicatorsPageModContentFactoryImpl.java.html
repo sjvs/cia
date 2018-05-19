@@ -111,7 +111,7 @@ public final class WorldIndicatorsPageModContentFactoryImpl extends AbstractCoun
 <span class="fc" id="L111">		final Optional&lt;ViewWorldbankIndicatorDataCountrySummary&gt; indicatorSummary = indicatorDataCountrSummaryDailyDataContainer</span>
 <span class="fc" id="L112">				.getAll()</span>
 <span class="fc" id="L113">				.parallelStream()</span>
-<span class="pc bnc" id="L114" title="All 4 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getEmbeddedId().getIndicatorId().equals(indicator)).findFirst();</span>
+<span class="pc bpc" id="L114" title="2 of 4 branches missed.">				.filter(t -&gt; t != null &amp;&amp; t.getEmbeddedId().getIndicatorId().equals(indicator)).findFirst();</span>
 
 
 <span class="fc" id="L117">		ViewWorldbankIndicatorDataCountrySummary indicatorSummaryValue = null;</span>

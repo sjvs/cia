@@ -103,9 +103,8 @@ Import-Package: com.hack23.cia.model.external.riksdagen.documentconten
  .0",org.springframework.beans.factory.annotation;version="5.0.6.RELEA
  SE",org.springframework.context;version="5.0.6.RELEASE",org.springfra
  mework.jms.core;version="5.0.6.RELEASE",org.springframework.security.
- authentication;version="5.0.5.RELEASE",org.springframework.security.c
- ore;version="5.0.5.RELEASE",org.springframework.security.core.authori
- ty;version="5.0.5.RELEASE",org.springframework.security.core.context;
- version="5.0.5.RELEASE",org.springframework.stereotype;version="5.0.6
- .RELEASE",org.springframework.transaction.annotation;version="5.0.6.R
- ELEASE"
+ authentication;version="5.1.0.M1",org.springframework.security.core;v
+ ersion="5.1.0.M1",org.springframework.security.core.authority;version
+ ="5.1.0.M1",org.springframework.security.core.context;version="5.1.0.
+ M1",org.springframework.stereotype;version="5.0.6.RELEASE",org.spring
+ framework.transaction.annotation;version="5.0.6.RELEASE"

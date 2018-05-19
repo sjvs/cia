@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-Description: ActiveMQ Pooled ConnectionFactory
+Implementation-Title: Apache ActiveMQ
+Bundle-License: https://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.apache.activemq.activemq-pool
+Implementation-Version: 5.15.4
+Built-By: cshannon
+Bnd-LastModified: 1526580135372
+Bundle-ManifestVersion: 2
+Bundle-DocURL: https://www.apache.org/
+Bundle-Vendor: The Apache Software Foundation
+Import-Package: javax.jms;version="[1.1,2)",javax.naming,javax.transac
+ tion;version="[1.1,2)";resolution:=optional,javax.transaction.xa;vers
+ ion="[1.1,2)";resolution:=optional,org.apache.activemq;version="[5.15
+ ,6)",org.apache.activemq.advisory;version="[5.15,6)",org.apache.activ
+ emq.jms.pool;version="[5.15,6)";resolution:=optional,org.apache.activ
+ emq.jndi;version="[5.15,6)",org.apache.activemq.transport;version="[5
+ .15,6)",org.apache.activemq.util;version="[5.15,6)",org.slf4j;version
+ ="[1.7,2)"
+Tool: Bnd-1.50.0
+Export-Package: org.apache.activemq.pool;uses:="org.apache.activemq.jm
+ s.pool,org.slf4j,javax.jms,org.apache.activemq.transport,org.apache.a
+ ctivemq,javax.transaction,org.apache.activemq.advisory,org.apache.act
+ ivemq.util,org.apache.activemq.jndi,javax.naming,javax.transaction.xa
+ ";version="5.15.4"
+Bundle-Name: activemq-pool
+Bundle-Version: 5.15.4
+Build-Jdk: 1.8.0_172
+Created-By: Apache Maven Bundle Plugin
+

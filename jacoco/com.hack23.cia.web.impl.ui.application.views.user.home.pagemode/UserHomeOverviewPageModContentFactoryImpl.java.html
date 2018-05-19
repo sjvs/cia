@@ -20,6 +20,7 @@ package com.hack23.cia.web.impl.ui.application.views.user.home.pagemode;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,14 +49,14 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-
 /**
  * The Class UserHomeOverviewPageModContentFactoryImpl.
  */
 @Component
 public final class UserHomeOverviewPageModContentFactoryImpl extends AbstractUserHomePageModContentFactoryImpl {
 
-<span class="fc" id="L58">	private static final List&lt;String&gt; AS_LIST = Arrays.asList(&quot;username&quot;,&quot;createdDate&quot;,&quot;email&quot;,&quot;country&quot;,&quot;userType&quot;,&quot;userRole&quot;,&quot;userEmailStatus&quot;, &quot;numberOfVisits&quot;);</span>
+<span class="fc" id="L58">	private static final List&lt;String&gt; AS_LIST = Arrays.asList(&quot;username&quot;, &quot;createdDate&quot;, &quot;email&quot;, &quot;country&quot;, &quot;userType&quot;,</span>
+			&quot;userRole&quot;, &quot;userEmailStatus&quot;, &quot;numberOfVisits&quot;);
 
 	/** The Constant LOGOUT. */
 	private static final String LOGOUT = &quot;Logout&quot;;
@@ -74,70 +75,67 @@ public final class UserHomeOverviewPageModContentFactoryImpl extends AbstractUse
 	 * Instantiates a new user home overview page mod content factory impl.
 	 */
 	public UserHomeOverviewPageModContentFactoryImpl() {
-<span class="fc" id="L77">		super();</span>
-<span class="fc" id="L78">	}</span>
+<span class="fc" id="L78">		super();</span>
+<span class="fc" id="L79">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L82">		final String pageId = getPageId(parameters);</span>
-<span class="pc bpc" id="L83" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
-<span class="pc bpc" id="L84" title="1 of 2 branches missed.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
+<span class="fc" id="L83">		final String pageId = getPageId(parameters);</span>
+<span class="pc bpc" id="L84" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.equals(pageId)</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">				|| parameters.contains(PageMode.OVERVIEW.toString()));</span>
 	}
 
-	@Secured({&quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
+	@Secured({ &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L90">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L91">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L92">		final String pageId = getPageId(parameters);</span>
-
+<span class="fc" id="L93">		final String pageId = getPageId(parameters);</span>
 
 <span class="fc" id="L95">		userHomeMenuItemFactory.createUserHomeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L97">		LabelFactory.createHeader2Label(panelContent,OVERVIEW);</span>
+<span class="fc" id="L97">		LabelFactory.createHeader2Label(panelContent, OVERVIEW);</span>
 
+<span class="fc" id="L99">		final Button logoutButton = new Button(LOGOUT, VaadinIcons.SIGN_OUT);</span>
 
-<span class="fc" id="L100">		final Button logoutButton = new Button(LOGOUT,VaadinIcons.SIGN_OUT);</span>
+<span class="fc" id="L101">		final LogoutRequest logoutRequest = new LogoutRequest();</span>
+<span class="fc" id="L102">		logoutRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
+<span class="fc" id="L103">		logoutButton.addClickListener(new LogoutClickListener(logoutRequest));</span>
 
-<span class="fc" id="L102">		final LogoutRequest logoutRequest = new LogoutRequest();</span>
-<span class="fc" id="L103">		logoutRequest.setSessionId(RequestContextHolder.currentRequestAttributes().getSessionId());</span>
-<span class="fc" id="L104">		logoutButton.addClickListener(new LogoutClickListener(logoutRequest));</span>
+<span class="fc" id="L105">		panelContent.addComponent(logoutButton);</span>
 
-<span class="fc" id="L106">		panelContent.addComponent(logoutButton);</span>
+<span class="fc" id="L107">		final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L108">				.getDataContainer(UserAccount.class);</span>
 
+<span class="fc" id="L110">		final String userIdFromSecurityContext = UserContextUtil.getUserIdFromSecurityContext();</span>
 
-<span class="fc" id="L109">		final DataContainer&lt;UserAccount, Long&gt; dataContainer = getApplicationManager().getDataContainer(UserAccount.class);</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">		if (userIdFromSecurityContext == null) {</span>
+<span class="nc" id="L113">			UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
+		} else {
+<span class="fc" id="L115">			final Optional&lt;UserAccount&gt; userAccount = dataContainer</span>
+<span class="fc" id="L116">					.getAllBy(UserAccount_.userId, userIdFromSecurityContext).stream().findFirst();</span>
 
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">			if (userAccount.isPresent()) {</span>
+<span class="fc" id="L119">				getFormFactory().addFormPanelTextFields(panelContent, userAccount.get(), UserAccount.class, AS_LIST);</span>
 
-<span class="fc" id="L112">			final String userIdFromSecurityContext = UserContextUtil.getUserIdFromSecurityContext();</span>
+<span class="fc" id="L121">				panelContent.setExpandRatio(logoutButton, ContentRatio.SMALL);</span>
 
-<span class="pc bpc" id="L114" title="1 of 2 branches missed.">			if (userIdFromSecurityContext == null) {</span>
-<span class="nc" id="L115">				UI.getCurrent().getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);</span>
-			} else {
+<span class="fc" id="L123">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L124">				overviewLayout.setSizeFull();</span>
 
-<span class="fc" id="L118">				final UserAccount userAccount = dataContainer.getAllBy(UserAccount_.userId, userIdFromSecurityContext).stream().findFirst().get();</span>
+<span class="fc" id="L126">				panelContent.addComponent(overviewLayout);</span>
+<span class="fc" id="L127">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
 
-
-<span class="fc" id="L121">				getFormFactory().addFormPanelTextFields(panelContent, userAccount, UserAccount.class,</span>
-						AS_LIST);
-
-<span class="fc" id="L124">				panelContent.setExpandRatio(logoutButton, ContentRatio.SMALL);</span>
-
-<span class="fc" id="L126">				final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L127">				overviewLayout.setSizeFull();</span>
-
-<span class="fc" id="L129">				panelContent.addComponent(overviewLayout);</span>
-<span class="fc" id="L130">				panelContent.setExpandRatio(overviewLayout, ContentRatio.LARGE_FORM);</span>
-
-<span class="fc" id="L132">				userHomeMenuItemFactory.createOverviewPage(overviewLayout);</span>
+<span class="fc" id="L129">				userHomeMenuItemFactory.createOverviewPage(overviewLayout);</span>
 			}
+		}
 
-<span class="fc" id="L135">			panel.setCaption(NAME + &quot;::&quot; + USERHOME);</span>
+<span class="fc" id="L133">		panel.setCaption(NAME + &quot;::&quot; + USERHOME);</span>
 
-<span class="fc" id="L137">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
-					parameters, pageId);
+<span class="fc" id="L135">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_USER_HOME_VIEW, ApplicationEventGroup.USER, NAME,</span>
+				parameters, pageId);
 
-<span class="fc" id="L140">		return panelContent;</span>
+<span class="fc" id="L138">		return panelContent;</span>
 
 	}
 

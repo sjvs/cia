@@ -42,8 +42,5 @@ digraph service_data_impl_2018_5_9_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_data_impl -> org_javers_spring_jpa;
   com_hack23_cia_service_data_impl -> org_springframework_security_core;
   com_hack23_cia_service_data_impl -> org_springframework_security_core_context;
-  com_hack23_cia_service_data_impl_liquidbase -> liquibase_exception;
-  com_hack23_cia_service_data_impl_liquidbase -> liquibase_integration_spring;
-  com_hack23_cia_service_data_impl_liquidbase -> org_apache_commons_lang3_exception;
   com_hack23_cia_service_data_impl_util -> java_lang;
 }

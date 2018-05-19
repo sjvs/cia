@@ -75,7 +75,7 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  .config,net.sf.ehcache.management,net.sf.ehcache.store,org.aopallianc
  e.aop;version="5.0.6.RELEASE",org.aopalliance.intercept;version="5.0.
  6.RELEASE",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="
- 2.2.0",org.apache.log4j;version="0.0.0",org.apache.log4j.spi;version=
+ 2.3.0",org.apache.log4j;version="0.0.0",org.apache.log4j.spi;version=
  "0.0.0",org.apache.logging.log4j,org.apache.logging.log4j.core,org.ap
  ache.logging.log4j.core.appender,org.apache.logging.log4j.core.config
  ,org.apache.logging.log4j.core.filter,org.apache.logging.log4j.core.l

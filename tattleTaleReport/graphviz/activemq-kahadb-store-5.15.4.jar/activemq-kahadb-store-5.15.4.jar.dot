@@ -1,0 +1,7 @@
+digraph activemq_kahadb_store_5_15_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  activemq_kahadb_store_5_15_4 -> activemq_broker_5_15_4;
+  activemq_kahadb_store_5_15_4 -> activemq_client_5_15_4;
+  activemq_kahadb_store_5_15_4 -> jms_1_1;
+  activemq_kahadb_store_5_15_4 -> slf4j_api_1_8_0_beta2;
+}

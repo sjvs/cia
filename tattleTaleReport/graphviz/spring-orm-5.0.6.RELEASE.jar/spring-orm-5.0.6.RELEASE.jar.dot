@@ -1,6 +1,6 @@
 digraph spring_orm_5_0_6_RELEASE_dependencies {
   node [shape = box, fontsize=10.0];
-  spring_orm_5_0_6_RELEASE -> hibernate_core_5_3_0_CR2;
+  spring_orm_5_0_6_RELEASE -> hibernate_core_5_3_0_Final;
   spring_orm_5_0_6_RELEASE -> javax_persistence_api_2_2;
   spring_orm_5_0_6_RELEASE -> jboss_transaction_api_1_2_spec_1_1_1_Final;
   spring_orm_5_0_6_RELEASE -> jcl_over_slf4j_1_8_0_beta2;

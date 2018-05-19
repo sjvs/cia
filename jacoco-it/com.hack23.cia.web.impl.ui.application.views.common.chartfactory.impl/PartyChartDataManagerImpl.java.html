@@ -111,7 +111,7 @@ public final class PartyChartDataManagerImpl extends AbstractChartDataManagerImp
 	/**
 	 * Inits the party map.
 	 */
-	private void initPartyMap() {
+	private synchronized void initPartyMap() {
 <span class="fc bfc" id="L115" title="All 2 branches covered.">		if (partyMap == null) {</span>
 <span class="fc" id="L116">			final DataContainer&lt;ViewRiksdagenVoteDataBallotPartySummaryDaily, RiksdagenVoteDataBallotPartyPeriodSummaryEmbeddedId&gt; partyBallotSummaryDailyDataContainer = getApplicationManager()</span>
 <span class="fc" id="L117">					.getDataContainer(ViewRiksdagenVoteDataBallotPartySummaryDaily.class);</span>
