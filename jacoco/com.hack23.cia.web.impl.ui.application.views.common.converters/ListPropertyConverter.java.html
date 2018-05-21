@@ -131,13 +131,13 @@ public final class ListPropertyConverter implements Converter&lt;String, List&lt
 		try {
 <span class="fc" id="L132">			final String beanProperty = BeanUtils.getProperty(object, property);</span>
 
-<span class="pc bpc" id="L134" title="1 of 2 branches missed.">			if (beanProperty != null) {</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">			if (beanProperty != null) {</span>
 <span class="fc" id="L135">				stringBuilder.append(beanProperty);</span>
 			} else {
-<span class="nc bnc" id="L137" title="All 2 branches missed.">				if (fallbackColumn != null) {</span>
-<span class="nc" id="L138">					final String beanPropertyFallBack = BeanUtils.getProperty(object, fallbackColumn);</span>
-<span class="nc bnc" id="L139" title="All 2 branches missed.">					if (beanPropertyFallBack != null) {</span>
-<span class="nc" id="L140">						stringBuilder.append(beanPropertyFallBack);</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">				if (fallbackColumn != null) {</span>
+<span class="fc" id="L138">					final String beanPropertyFallBack = BeanUtils.getProperty(object, fallbackColumn);</span>
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">					if (beanPropertyFallBack != null) {</span>
+<span class="fc" id="L140">						stringBuilder.append(beanPropertyFallBack);</span>
 					}
 				}
 

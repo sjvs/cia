@@ -61,17 +61,17 @@ node "Audit Account" <<Aws Account>> as 53 {
 }
 node "Dev Network" <<Dev Network>> as 111 {
   rectangle "Nexus" <<Container>> as 113 #1168bd
-  rectangle "Jenkins" <<Container>> as 121 #1168bd
   rectangle "Sonarqube" <<Container>> as 115 #1168bd
+  rectangle "Jenkins" <<Container>> as 121 #1168bd
 }
 node "Github Org" <<Github Org>> as 106 {
-  rectangle "SCM" <<Container>> as 108 #1168bd
   rectangle "Documentation" <<Container>> as 110 #1168bd
+  rectangle "SCM" <<Container>> as 108 #1168bd
 }
 node "Security Account" <<Sumologic Account>> as 126 {
   node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 129 {
-    rectangle "CloudTrailLogs" <<Container>> as 137 #1168bd
     rectangle "AwsConfigLogs" <<Container>> as 141 #1168bd
+    rectangle "CloudTrailLogs" <<Container>> as 137 #1168bd
   }
   node "Server Security Dashboard" <<Server Security Dashboard>> as 128 {
     rectangle "AwsInspectorResults" <<Container>> as 153 #1168bd
@@ -85,24 +85,24 @@ node "Security Account" <<Sumologic Account>> as 126 {
     rectangle "Ec2ApplicationLogs" <<Container>> as 149 #1168bd
   }
 }
-59 .[#707070].> 94 : Inspects
+94 .[#707070].> 77 : Write logs
 141 .[#707070].> 56 : Recieve logs
 63 .[#707070].> 94 : Run Commands
-88 .[#707070].> 94 : HTTPS/H2
+59 .[#707070].> 94 : Inspects
 149 .[#707070].> 77 : Recieve logs
-94 .[#707070].> 77 : Write logs
-51 .[#707070].> 88 : Protects/Filter
-133 .[#707070].> 77 : Recieve logs
-121 .[#707070].> 108 : builds
-145 .[#707070].> 77 : Recieve logs
-121 .[#707070].> 110 : <<https>>\npublish Documentation
-101 .[#707070].> 77 : Write logs
-153 .[#707070].> 59 : Recieve reports
-121 .[#707070].> 115 : <<https>>\nPublish QA metrics
+88 .[#707070].> 94 : HTTPS/H2
 88 .[#707070].> 85 : Write logs
+133 .[#707070].> 77 : Recieve logs
+121 .[#707070].> 110 : <<https>>\npublish Documentation
+145 .[#707070].> 77 : Recieve logs
+121 .[#707070].> 108 : builds
+94 .[#707070].> 101 : JDBC
+153 .[#707070].> 59 : Recieve reports
+121 .[#707070].> 113 : <<https>>\npublish artifacts
+51 .[#707070].> 88 : Protects/Filter
 137 .[#707070].> 82 : Recieve logs
 67 .[#707070].> 101 : Loads Data
-94 .[#707070].> 101 : JDBC
-121 .[#707070].> 113 : <<https>>\npublish artifacts
+101 .[#707070].> 77 : Write logs
+121 .[#707070].> 115 : <<https>>\nPublish QA metrics
 157 .[#707070].> 85 : Recieve logs
 @enduml
