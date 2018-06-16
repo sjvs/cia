@@ -22,10 +22,10 @@ Export-Package: org.springframework.security.taglibs,org.springframewo
  mework.security.web.csrf"
 Import-Package: java.io,java.lang,java.util,javax.servlet,javax.servle
  t.http,javax.servlet.jsp,javax.servlet.jsp.tagext,org.apache.commons.
- logging;version="0.0.0",org.springframework.beans;version="5.0.6.RELE
- ASE",org.springframework.context;version="5.0.6.RELEASE",org.springfr
- amework.core;version="5.0.6.RELEASE",org.springframework.expression;v
- ersion="5.0.6.RELEASE",org.springframework.security.access;version="5
+ logging;version="0.0.0",org.springframework.beans;version="5.0.7.RELE
+ ASE",org.springframework.context;version="5.0.7.RELEASE",org.springfr
+ amework.core;version="5.0.7.RELEASE",org.springframework.expression;v
+ ersion="5.0.7.RELEASE",org.springframework.security.access;version="5
  .1.0.M1",org.springframework.security.access.expression;version="5.1.
  0.M1",org.springframework.security.core;version="5.1.0.M1",org.spring
  framework.security.core.context;version="5.1.0.M1",org.springframewor
@@ -33,6 +33,6 @@ Import-Package: java.io,java.lang,java.util,javax.servlet,javax.servle
  cess;version="5.1.0.M1",org.springframework.security.web.context.supp
  ort;version="5.1.0.M1",org.springframework.security.web.csrf;version=
  "5.1.0.M1",org.springframework.security.web.util;version="5.1.0.M1",o
- rg.springframework.util;version="5.0.6.RELEASE",org.springframework.w
- eb.context;version="5.0.6.RELEASE",org.springframework.web.util;versi
- on="5.0.6.RELEASE"
+ rg.springframework.util;version="5.0.7.RELEASE",org.springframework.w
+ eb.context;version="5.0.7.RELEASE",org.springframework.web.util;versi
+ on="5.0.7.RELEASE"

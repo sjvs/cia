@@ -32,12 +32,12 @@ Export-Package: org.springframework.security.acls;uses:="org.aopallian
  .acls.model;uses:="org.springframework.security.core"
 Import-Package: java.io,java.lang,java.lang.invoke,java.lang.reflect,j
  ava.sql,java.util,java.util.function,javax.sql,net.sf.ehcache,org.aop
- alliance.intercept;version="5.0.6.RELEASE",org.apache.commons.logging
- ;version="0.0.0",org.springframework.cache;version="5.0.6.RELEASE",or
- g.springframework.context;version="5.0.6.RELEASE",org.springframework
- .context.support;version="5.0.6.RELEASE",org.springframework.core.con
- vert;version="5.0.6.RELEASE",org.springframework.dao;version="5.0.6.R
- ELEASE",org.springframework.jdbc.core;version="5.0.6.RELEASE",org.spr
+ alliance.intercept;version="5.0.7.RELEASE",org.apache.commons.logging
+ ;version="0.0.0",org.springframework.cache;version="5.0.7.RELEASE",or
+ g.springframework.context;version="5.0.7.RELEASE",org.springframework
+ .context.support;version="5.0.7.RELEASE",org.springframework.core.con
+ vert;version="5.0.7.RELEASE",org.springframework.dao;version="5.0.7.R
+ ELEASE",org.springframework.jdbc.core;version="5.0.7.RELEASE",org.spr
  ingframework.security.access;version="5.1.0.M1",org.springframework.s
  ecurity.access.hierarchicalroles;version="5.1.0.M1",org.springframewo
  rk.security.access.vote;version="5.1.0.M1",org.springframework.securi
@@ -45,5 +45,5 @@ Import-Package: java.io,java.lang,java.lang.invoke,java.lang.reflect,j
  y;version="5.1.0.M1",org.springframework.security.core.context;versio
  n="5.1.0.M1",org.springframework.security.core.userdetails;version="5
  .1.0.M1",org.springframework.security.util;version="5.1.0.M1",org.spr
- ingframework.transaction.support;version="5.0.6.RELEASE",org.springfr
- amework.util;version="5.0.6.RELEASE"
+ ingframework.transaction.support;version="5.0.7.RELEASE",org.springfr
+ amework.util;version="5.0.7.RELEASE"

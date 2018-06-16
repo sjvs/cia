@@ -143,42 +143,42 @@ Export-Package: org.springframework.security.access;uses:="org.springf
  t",org.springframework.security.util;uses:="org.aopalliance.intercept
  "
 Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
- asterxml.jackson.core;version="2.9.5",com.fasterxml.jackson.core.type
- ;version="2.9.5",com.fasterxml.jackson.databind;version="2.9.5",com.f
- asterxml.jackson.databind.annotation;version="2.9.5",com.fasterxml.ja
- ckson.databind.cfg;version="2.9.5",com.fasterxml.jackson.databind.jso
- ntype;version="2.9.5",com.fasterxml.jackson.databind.module;version="
- 2.9.5",com.fasterxml.jackson.databind.node;version="2.9.5",java.beans
+ asterxml.jackson.core;version="2.9.6",com.fasterxml.jackson.core.type
+ ;version="2.9.6",com.fasterxml.jackson.databind;version="2.9.6",com.f
+ asterxml.jackson.databind.annotation;version="2.9.6",com.fasterxml.ja
+ ckson.databind.cfg;version="2.9.6",com.fasterxml.jackson.databind.jso
+ ntype;version="2.9.6",com.fasterxml.jackson.databind.module;version="
+ 2.9.6",com.fasterxml.jackson.databind.node;version="2.9.6",java.beans
  ,java.io,java.lang,java.lang.annotation,java.lang.invoke,java.lang.re
  flect,java.math,java.net,java.nio,java.nio.charset,java.security,java
  .security.spec,java.sql,java.util,java.util.concurrent,java.util.func
  tion,java.util.regex,java.util.stream,javax.annotation.security,javax
  .crypto,javax.crypto.spec,javax.security.auth,javax.security.auth.cal
  lback,javax.security.auth.login,javax.security.auth.spi,net.sf.ehcach
- e,org.aopalliance.aop;version="5.0.6.RELEASE",org.aopalliance.interce
- pt;version="5.0.6.RELEASE",org.apache.commons.logging;version="0.0.0"
+ e,org.aopalliance.aop;version="5.0.7.RELEASE",org.aopalliance.interce
+ pt;version="5.0.7.RELEASE",org.apache.commons.logging;version="0.0.0"
  ,org.aspectj.lang;version="1.9.1",org.aspectj.lang.reflect;version="1
  .9.1",org.bouncycastle.crypto;version="1.1",org.bouncycastle.crypto.e
  ngines;version="1.1",org.bouncycastle.crypto.generators;version="1.1"
  ,org.bouncycastle.crypto.modes;version="1.1",org.bouncycastle.crypto.
  paddings;version="1.1",org.bouncycastle.crypto.params;version="1.1",o
- rg.reactivestreams,org.springframework.aop;version="5.0.6.RELEASE",or
- g.springframework.aop.framework;version="5.0.6.RELEASE",org.springfra
- mework.aop.support;version="5.0.6.RELEASE",org.springframework.beans;
- version="5.0.6.RELEASE",org.springframework.beans.factory;version="5.
- 0.6.RELEASE",org.springframework.cache;version="5.0.6.RELEASE",org.sp
- ringframework.context;version="5.0.6.RELEASE",org.springframework.con
- text.event;version="5.0.6.RELEASE",org.springframework.context.expres
- sion;version="5.0.6.RELEASE",org.springframework.context.support;vers
- ion="5.0.6.RELEASE",org.springframework.core;version="5.0.6.RELEASE",
- org.springframework.core.annotation;version="5.0.6.RELEASE",org.sprin
- gframework.core.io;version="5.0.6.RELEASE",org.springframework.core.t
- ask;version="5.0.6.RELEASE",org.springframework.dao;version="5.0.6.RE
- LEASE",org.springframework.expression;version="5.0.6.RELEASE",org.spr
- ingframework.expression.spel.standard;version="5.0.6.RELEASE",org.spr
- ingframework.expression.spel.support;version="5.0.6.RELEASE",org.spri
- ngframework.jdbc.core;version="5.0.6.RELEASE",org.springframework.jdb
- c.core.support;version="5.0.6.RELEASE",org.springframework.scheduling
- ;version="5.0.6.RELEASE",org.springframework.util;version="5.0.6.RELE
+ rg.reactivestreams,org.springframework.aop;version="5.0.7.RELEASE",or
+ g.springframework.aop.framework;version="5.0.7.RELEASE",org.springfra
+ mework.aop.support;version="5.0.7.RELEASE",org.springframework.beans;
+ version="5.0.7.RELEASE",org.springframework.beans.factory;version="5.
+ 0.7.RELEASE",org.springframework.cache;version="5.0.7.RELEASE",org.sp
+ ringframework.context;version="5.0.7.RELEASE",org.springframework.con
+ text.event;version="5.0.7.RELEASE",org.springframework.context.expres
+ sion;version="5.0.7.RELEASE",org.springframework.context.support;vers
+ ion="5.0.7.RELEASE",org.springframework.core;version="5.0.7.RELEASE",
+ org.springframework.core.annotation;version="5.0.7.RELEASE",org.sprin
+ gframework.core.io;version="5.0.7.RELEASE",org.springframework.core.t
+ ask;version="5.0.7.RELEASE",org.springframework.dao;version="5.0.7.RE
+ LEASE",org.springframework.expression;version="5.0.7.RELEASE",org.spr
+ ingframework.expression.spel.standard;version="5.0.7.RELEASE",org.spr
+ ingframework.expression.spel.support;version="5.0.7.RELEASE",org.spri
+ ngframework.jdbc.core;version="5.0.7.RELEASE",org.springframework.jdb
+ c.core.support;version="5.0.7.RELEASE",org.springframework.scheduling
+ ;version="5.0.7.RELEASE",org.springframework.util;version="5.0.7.RELE
  ASE",reactor.core,reactor.core.publisher,reactor.core.scheduler,react
  or.util.context

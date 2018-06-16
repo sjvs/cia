@@ -70,20 +70,18 @@
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  			<strong class="jxr_keyword">final</strong> AccessDeniedException accessDeniedException = (AccessDeniedException) event.getThrowable();
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  			Notification.show(accessDeniedException.getMessage(), Notification.Type.ERROR_MESSAGE);
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  			ui.getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  			<strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (event.getThrowable().getCause() != <strong class="jxr_keyword">null</strong> &amp;&amp; event.getThrowable().getCause().getCause() != <strong class="jxr_keyword">null</strong>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  				&amp;&amp; event.getThrowable().getCause().getCause().getCause() instanceof AccessDeniedException) {
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  			<strong class="jxr_keyword">final</strong> AccessDeniedException accessDeniedException = (AccessDeniedException) event.getThrowable().getCause()
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  					.getCause().getCause();
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>  			Notification.show(accessDeniedException.getMessage(), Notification.Type.ERROR_MESSAGE);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>  			ui.getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  			<strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  			LOGGER.warn(LOG_WARN_VAADIN_ERROR, event.getThrowable());
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  		}
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>  	}
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>  }
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>  		} <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (event.getThrowable().getCause() != <strong class="jxr_keyword">null</strong> &amp;&amp; event.getThrowable().getCause().getCause() != <strong class="jxr_keyword">null</strong>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  				&amp;&amp; event.getThrowable().getCause().getCause().getCause() instanceof AccessDeniedException) {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  			<strong class="jxr_keyword">final</strong> AccessDeniedException accessDeniedException = (AccessDeniedException) event.getThrowable().getCause()
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  					.getCause().getCause();
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  			Notification.show(accessDeniedException.getMessage(), Notification.Type.ERROR_MESSAGE);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  			ui.getNavigator().navigateTo(CommonsViews.MAIN_VIEW_NAME);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  		} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  			LOGGER.warn(LOG_WARN_VAADIN_ERROR, event.getThrowable());
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  		}
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  	}
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2008&#x2013;2018 <a href="http://www.hack23.com">www.hack23.com</a>. All rights reserved.</div>

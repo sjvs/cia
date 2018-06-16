@@ -1,0 +1,5 @@
+digraph kie_soup_maven_support_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  kie_soup_maven_support_7_7_0_Final_redhat_7 -> slf4j_api_1_8_0_beta2;
+  kie_soup_maven_support_7_7_0_Final_redhat_7 -> xml_apis_1_4_01;
+}

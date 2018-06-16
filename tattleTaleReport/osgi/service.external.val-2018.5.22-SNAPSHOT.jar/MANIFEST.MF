@@ -26,5 +26,5 @@ Import-Package: com.hack23.cia.model.external.val.kommunvalkrets.impl;
  ;version="0.0.0",com.hack23.cia.service.external.common.api;version="
  0.0.0",java.lang,java.net,java.util,javax.xml.bind;version="2.3.0",or
  g.slf4j;version="0.0.0",org.springframework.beans.factory.annotation;
- version="5.0.6.RELEASE",org.springframework.oxm;version="5.0.6.RELEAS
- E",org.springframework.stereotype;version="5.0.6.RELEASE"
+ version="5.0.7.RELEASE",org.springframework.oxm;version="5.0.7.RELEAS
+ E",org.springframework.stereotype;version="5.0.7.RELEASE"

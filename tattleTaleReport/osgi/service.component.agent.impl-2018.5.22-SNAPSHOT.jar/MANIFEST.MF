@@ -99,12 +99,12 @@ Import-Package: com.hack23.cia.model.external.riksdagen.documentconten
  ava.lang,java.nio.charset,java.text,java.util,java.util.concurrent,ja
  vax.annotation,javax.jms;version="0.0.0",javax.persistence.metamodel;
  version="2.2",org.apache.commons.lang3;version="3.7",org.joda.time;ve
- rsion="2.9",org.joda.time.format;version="2.9",org.slf4j;version="0.0
- .0",org.springframework.beans.factory.annotation;version="5.0.6.RELEA
- SE",org.springframework.context;version="5.0.6.RELEASE",org.springfra
- mework.jms.core;version="5.0.6.RELEASE",org.springframework.security.
- authentication;version="5.1.0.M1",org.springframework.security.core;v
- ersion="5.1.0.M1",org.springframework.security.core.authority;version
- ="5.1.0.M1",org.springframework.security.core.context;version="5.1.0.
- M1",org.springframework.stereotype;version="5.0.6.RELEASE",org.spring
- framework.transaction.annotation;version="5.0.6.RELEASE"
+ rsion="2.10",org.joda.time.format;version="2.10",org.slf4j;version="0
+ .0.0",org.springframework.beans.factory.annotation;version="5.0.7.REL
+ EASE",org.springframework.context;version="5.0.7.RELEASE",org.springf
+ ramework.jms.core;version="5.0.7.RELEASE",org.springframework.securit
+ y.authentication;version="5.1.0.M1",org.springframework.security.core
+ ;version="5.1.0.M1",org.springframework.security.core.authority;versi
+ on="5.1.0.M1",org.springframework.security.core.context;version="5.1.
+ 0.M1",org.springframework.stereotype;version="5.0.7.RELEASE",org.spri
+ ngframework.transaction.annotation;version="5.0.7.RELEASE"

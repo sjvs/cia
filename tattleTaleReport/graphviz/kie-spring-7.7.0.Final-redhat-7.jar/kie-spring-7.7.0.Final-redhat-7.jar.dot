@@ -1,0 +1,16 @@
+digraph kie_spring_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  kie_spring_7_7_0_Final_redhat_7 -> drools_compiler_7_7_0_Final_redhat_7;
+  kie_spring_7_7_0_Final_redhat_7 -> drools_core_7_7_0_Final_redhat_7;
+  kie_spring_7_7_0_Final_redhat_7 -> javax_persistence_api_2_2;
+  kie_spring_7_7_0_Final_redhat_7 -> jbpm_flow_7_7_0_Final_redhat_7;
+  kie_spring_7_7_0_Final_redhat_7 -> kie_api_7_7_0_Final_redhat_7;
+  kie_spring_7_7_0_Final_redhat_7 -> kie_internal_7_7_0_Final_redhat_7;
+  kie_spring_7_7_0_Final_redhat_7 -> slf4j_api_1_8_0_beta2;
+  kie_spring_7_7_0_Final_redhat_7 -> spring_beans_5_0_7_RELEASE;
+  kie_spring_7_7_0_Final_redhat_7 -> spring_context_5_0_7_RELEASE;
+  kie_spring_7_7_0_Final_redhat_7 -> spring_core_5_0_7_RELEASE;
+  kie_spring_7_7_0_Final_redhat_7 -> spring_orm_5_0_7_RELEASE;
+  kie_spring_7_7_0_Final_redhat_7 -> spring_tx_5_0_7_RELEASE;
+  kie_spring_7_7_0_Final_redhat_7 -> xml_apis_1_4_01;
+}

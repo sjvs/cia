@@ -1,5 +1,5 @@
 digraph hawtdispatch_1_22_dependencies {
   node [shape = box, fontsize=10.0];
-  hawtdispatch_1_22 -> asm_6_1_1;
+  hawtdispatch_1_22 -> asm_6_2;
   hawtdispatch_1_22 -> org_osgi_core_6_0_0;
 }

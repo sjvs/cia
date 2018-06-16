@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Implementation-Title: Utilities for ASM, a very small and fast Java by
+ tecode manipulation framework
+Bundle-SymbolicName: org.objectweb.asm.util
+Export-Package: org.objectweb.asm.util;version="6.2";uses:="org.object
+ web.asm,org.objectweb.asm.signature"
+Bundle-Name: org.objectweb.asm.util
+Bundle-Version: 6.2.0
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-DocURL: http://asm.ow2.org
+Import-Package: org.objectweb.asm;version="[6.2,7)",org.objectweb.asm.
+ signature;version="[6.2,7)",org.objectweb.asm.tree;version="[6.2,7)",
+ org.objectweb.asm.tree.analysis;version="[6.2,7)"
+Module-Requires: org.objectweb.asm;transitive=true,org.objectweb.asm.t
+ ree;transitive=true,org.objectweb.asm.tree.analysis;transitive=true
+

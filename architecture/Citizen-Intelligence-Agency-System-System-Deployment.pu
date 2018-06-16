@@ -1,5 +1,5 @@
 @startuml(id="Deployment")
-scale max 2000x2000
+scale max 16384x16384
 title Citizen Intelligence Agency System - Deployment
 caption "Deployment Aws."
 
@@ -12,97 +12,97 @@ skinparam {
   noteBackgroundColor #ffffff
   noteBorderColor #707070
 }
-node "AppOrg Account" <<Aws Account>> as 47 {
-  node "Project Network" <<VPC>> as 48 {
-    node "Database (x2)" <<RDS>> as 100 {
-      database "Database" <<Container>> as 101 #1168bd
+node "AppOrg Account" <<Aws Account>> as 190 {
+  node "Project Network" <<VPC>> as 191 {
+    node "Database (x2)" <<RDS>> as 243 {
+      database "Database" <<Container>> as 244 #1168bd
     }
-    node "Application (x2)" <<EC2>> as 92 {
-      node "Jetty" <<JVM>> as 93 {
-        rectangle "Web Application" <<Container>> as 94 #1168bd
+    node "Application (x2)" <<EC2>> as 235 {
+      node "Jetty" <<JVM>> as 236 {
+        rectangle "Web Application" <<Container>> as 237 #1168bd
       }
     }
   }
-  node "Business analytics" <<QuickSight>> as 65 {
-    rectangle "Dashboards" <<Container>> as 67 #1168bd
+  node "Business analytics" <<QuickSight>> as 208 {
+    rectangle "Dashboards" <<Container>> as 210 #1168bd
   }
-  node "Patch Compliance" <<System Mananger>> as 61 {
-    rectangle "InventoryList" <<Container>> as 63 #1168bd
+  node "Patch Compliance" <<System Mananger>> as 204 {
+    rectangle "InventoryList" <<Container>> as 206 #1168bd
   }
-  node "System Compliance checks" <<Inspector>> as 57 {
-    rectangle "ScanningRules" <<Container>> as 59 #1168bd
+  node "System Compliance checks" <<Inspector>> as 200 {
+    rectangle "ScanningRules" <<Container>> as 202 #1168bd
   }
-  node "Application Loadbalancer" <<ALB>> as 87 {
-    rectangle "Loadbalancer" <<Container>> as 88 #1168bd
+  node "Application Loadbalancer" <<ALB>> as 230 {
+    rectangle "Loadbalancer" <<Container>> as 231 #1168bd
   }
-  node "Web Application Firewall" <<WAF>> as 49 {
-    rectangle "WebACL Rules" <<Container>> as 51 #1168bd
-  }
-}
-node "Audit Account" <<Aws Account>> as 53 {
-  node "Audit" <<Cloudtrail>> as 80 {
-    rectangle "LogBucket" <<Container>> as 82 #1168bd
-  }
-  node "Guard Duty" <<GuardDuty>> as 69 {
-    rectangle "Intelligent threat detection and continuous monitoring" <<Container>> as 71 #1168bd
-  }
-  node "LogGroup" <<Cloudwatch>> as 75 {
-    rectangle "Logstreams" <<Container>> as 77 #1168bd
-  }
-  node "Config" <<Config>> as 54 {
-    rectangle "Rules" <<Container>> as 56 #1168bd
-  }
-  node "A machine learning-powered security" <<macie>> as 72 {
-    rectangle "discover, classify, and protect sensitive data" <<Container>> as 74 #1168bd
-  }
-  node "Access Logs" <<S3>> as 83 {
-    rectangle "AccessLogBucket" <<Container>> as 85 #1168bd
+  node "Web Application Firewall" <<WAF>> as 192 {
+    rectangle "WebACL Rules" <<Container>> as 194 #1168bd
   }
 }
-node "Dev Network" <<Dev Network>> as 111 {
-  rectangle "Nexus" <<Container>> as 113 #1168bd
-  rectangle "Sonarqube" <<Container>> as 115 #1168bd
-  rectangle "Jenkins" <<Container>> as 121 #1168bd
-}
-node "Github Org" <<Github Org>> as 106 {
-  rectangle "Documentation" <<Container>> as 110 #1168bd
-  rectangle "SCM" <<Container>> as 108 #1168bd
-}
-node "Security Account" <<Sumologic Account>> as 126 {
-  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 129 {
-    rectangle "AwsConfigLogs" <<Container>> as 141 #1168bd
-    rectangle "CloudTrailLogs" <<Container>> as 137 #1168bd
+node "Audit Account" <<Aws Account>> as 196 {
+  node "Audit" <<Cloudtrail>> as 223 {
+    rectangle "LogBucket" <<Container>> as 225 #1168bd
   }
-  node "Server Security Dashboard" <<Server Security Dashboard>> as 128 {
-    rectangle "AwsInspectorResults" <<Container>> as 153 #1168bd
-    rectangle "Ec2SystemLogs" <<Container>> as 145 #1168bd
+  node "Guard Duty" <<GuardDuty>> as 212 {
+    rectangle "Intelligent threat detection and continuous monitoring" <<Container>> as 214 #1168bd
   }
-  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 127 {
-    rectangle "AwsLoadbalancerAccessLogs" <<Container>> as 157 #1168bd
-    rectangle "VpcFlowLogs" <<Container>> as 133 #1168bd
+  node "LogGroup" <<Cloudwatch>> as 218 {
+    rectangle "Logstreams" <<Container>> as 220 #1168bd
   }
-  node "Application Security Dashboard" <<Application Security Dashboard>> as 130 {
-    rectangle "Ec2ApplicationLogs" <<Container>> as 149 #1168bd
+  node "Config" <<Config>> as 197 {
+    rectangle "Rules" <<Container>> as 199 #1168bd
+  }
+  node "A machine learning-powered security" <<macie>> as 215 {
+    rectangle "discover, classify, and protect sensitive data" <<Container>> as 217 #1168bd
+  }
+  node "Access Logs" <<S3>> as 226 {
+    rectangle "AccessLogBucket" <<Container>> as 228 #1168bd
   }
 }
-94 .[#707070].> 77 : Write logs
-141 .[#707070].> 56 : Recieve logs
-63 .[#707070].> 94 : Run Commands
-59 .[#707070].> 94 : Inspects
-149 .[#707070].> 77 : Recieve logs
-88 .[#707070].> 94 : HTTPS/H2
-88 .[#707070].> 85 : Write logs
-133 .[#707070].> 77 : Recieve logs
-121 .[#707070].> 110 : <<https>>\npublish Documentation
-145 .[#707070].> 77 : Recieve logs
-121 .[#707070].> 108 : builds
-94 .[#707070].> 101 : JDBC
-153 .[#707070].> 59 : Recieve reports
-121 .[#707070].> 113 : <<https>>\npublish artifacts
-51 .[#707070].> 88 : Protects/Filter
-137 .[#707070].> 82 : Recieve logs
-67 .[#707070].> 101 : Loads Data
-101 .[#707070].> 77 : Write logs
-121 .[#707070].> 115 : <<https>>\nPublish QA metrics
-157 .[#707070].> 85 : Recieve logs
+node "Dev Network" <<Dev Network>> as 254 {
+  rectangle "Nexus" <<Container>> as 256 #1168bd
+  rectangle "Jenkins" <<Container>> as 264 #1168bd
+  rectangle "Sonarqube" <<Container>> as 258 #1168bd
+}
+node "Github Org" <<Github Org>> as 249 {
+  rectangle "SCM" <<Container>> as 251 #1168bd
+  rectangle "Documentation" <<Container>> as 253 #1168bd
+}
+node "Security Account" <<Sumologic Account>> as 269 {
+  node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 272 {
+    rectangle "AwsConfigLogs" <<Container>> as 284 #1168bd
+    rectangle "CloudTrailLogs" <<Container>> as 280 #1168bd
+  }
+  node "Server Security Dashboard" <<Server Security Dashboard>> as 271 {
+    rectangle "Ec2SystemLogs" <<Container>> as 288 #1168bd
+    rectangle "AwsInspectorResults" <<Container>> as 296 #1168bd
+  }
+  node "Nework Security Dashboard" <<Nework Security Dashboard>> as 270 {
+    rectangle "VpcFlowLogs" <<Container>> as 276 #1168bd
+    rectangle "AwsLoadbalancerAccessLogs" <<Container>> as 300 #1168bd
+  }
+  node "Application Security Dashboard" <<Application Security Dashboard>> as 273 {
+    rectangle "Ec2ApplicationLogs" <<Container>> as 292 #1168bd
+  }
+}
+206 .[#707070].> 237 : Run Commands
+276 .[#707070].> 220 : Recieve logs
+264 .[#707070].> 251 : builds
+288 .[#707070].> 220 : Recieve logs
+231 .[#707070].> 228 : Write logs
+264 .[#707070].> 256 : <<https>>\npublish artifacts
+194 .[#707070].> 231 : Protects/Filter
+237 .[#707070].> 244 : JDBC
+296 .[#707070].> 202 : Recieve reports
+264 .[#707070].> 253 : <<https>>\npublish Documentation
+244 .[#707070].> 220 : Write logs
+264 .[#707070].> 258 : <<https>>\nPublish QA metrics
+210 .[#707070].> 244 : Loads Data
+231 .[#707070].> 237 : HTTPS/H2
+280 .[#707070].> 225 : Recieve logs
+300 .[#707070].> 228 : Recieve logs
+284 .[#707070].> 199 : Recieve logs
+202 .[#707070].> 237 : Inspects
+292 .[#707070].> 220 : Recieve logs
+237 .[#707070].> 220 : Write logs
 @enduml

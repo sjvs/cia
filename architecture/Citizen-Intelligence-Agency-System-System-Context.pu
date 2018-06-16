@@ -1,5 +1,5 @@
-@startuml(id="System context")
-scale max 2000x2000
+@startuml(id="System_context")
+scale max 16384x16384
 title Citizen Intelligence Agency System - System Context
 caption "System context"
 

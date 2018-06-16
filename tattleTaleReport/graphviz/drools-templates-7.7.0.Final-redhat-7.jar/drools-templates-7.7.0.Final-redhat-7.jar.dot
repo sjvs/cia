@@ -1,0 +1,7 @@
+digraph drools_templates_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  drools_templates_7_7_0_Final_redhat_7 -> drools_compiler_7_7_0_Final_redhat_7;
+  drools_templates_7_7_0_Final_redhat_7 -> drools_core_7_7_0_Final_redhat_7;
+  drools_templates_7_7_0_Final_redhat_7 -> kie_api_7_7_0_Final_redhat_7;
+  drools_templates_7_7_0_Final_redhat_7 -> mvel2_2_4_0_Final_redhat_1;
+}

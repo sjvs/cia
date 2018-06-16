@@ -1,0 +1,79 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.kie.soup.kie-soup-project-datamodel-api
+Built-By: mockbuild
+Bnd-LastModified: 1527241198972
+Implementation-Vendor-Id: org.kie.soup
+Specification-Title: Project Datamodel API
+Bundle-DocURL: http://www.jboss.org/
+Include-Resource: org/kie/soup/project/datamodel/packages/HasPackageNa
+ me.java=src/main/java/org/kie/soup/project/datamodel/packages/HasPack
+ ageName.java,org/kie/soup/project/datamodel/oracle/FieldAccessorsAndM
+ utators.java=src/main/java/org/kie/soup/project/datamodel/oracle/Fiel
+ dAccessorsAndMutators.java,org/kie/soup/project/datamodel/oracle/Data
+ Type.java=src/main/java/org/kie/soup/project/datamodel/oracle/DataTyp
+ e.java,org/kie/soup/project/datamodel/oracle/DateConverter.java=src/m
+ ain/java/org/kie/soup/project/datamodel/oracle/DateConverter.java,org
+ /kie/soup/project/datamodel/oracle/ExtensionKind.java=src/main/java/o
+ rg/kie/soup/project/datamodel/oracle/ExtensionKind.java,org/kie/soup/
+ project/datamodel/oracle/DropDownData.java=src/main/java/org/kie/soup
+ /project/datamodel/oracle/DropDownData.java,org/kie/soup/project/data
+ model/oracle/TypeSource.java=src/main/java/org/kie/soup/project/datam
+ odel/oracle/TypeSource.java,org/kie/soup/project/datamodel/oracle/Ann
+ otation.java=src/main/java/org/kie/soup/project/datamodel/oracle/Anno
+ tation.java,org/kie/soup/project/datamodel/oracle/ModuleDataModelOrac
+ le.java=src/main/java/org/kie/soup/project/datamodel/oracle/ModuleDat
+ aModelOracle.java,org/kie/soup/project/datamodel/oracle/MethodInfo.ja
+ va=src/main/java/org/kie/soup/project/datamodel/oracle/MethodInfo.jav
+ a,org/kie/soup/project/datamodel/oracle/PackageDataModelOracle.java=s
+ rc/main/java/org/kie/soup/project/datamodel/oracle/PackageDataModelOr
+ acle.java,org/kie/soup/project/datamodel/oracle/OperatorsOracle.java=
+ src/main/java/org/kie/soup/project/datamodel/oracle/OperatorsOracle.j
+ ava,org/kie/soup/project/datamodel/oracle/ModelField.java=src/main/ja
+ va/org/kie/soup/project/datamodel/oracle/ModelField.java,org/kie/soup
+ /project/datamodel/imports/Imports.java=src/main/java/org/kie/soup/pr
+ oject/datamodel/imports/Imports.java,org/kie/soup/project/datamodel/i
+ mports/Import.java=src/main/java/org/kie/soup/project/datamodel/impor
+ ts/Import.java,org/kie/soup/project/datamodel/imports/HasImports.java
+ =src/main/java/org/kie/soup/project/datamodel/imports/HasImports.java
+ ,META-INF/ErraiApp.properties=src/main/resources/META-INF/ErraiApp.pr
+ operties,org/kie/soup/project/datamodel/ProjectDataModelAPI.gwt.xml=s
+ rc/main/resources/org/kie/soup/project/datamodel/ProjectDataModelAPI.
+ gwt.xml
+Import-Package: org.kie.soup.commons.validation
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Scm-Url: https://github.com/kiegroup/kie-soup/kie-soup-project-datamod
+ el/kie-soup-project-datamodel-api
+Export-Package: org.kie.soup.project.datamodel;version="7.7.0.osgisnap
+ shotqualifier",org.kie.soup.project.datamodel.imports;version="7.7.0.
+ osgisnapshotqualifier",org.kie.soup.project.datamodel.oracle;version=
+ "7.7.0.osgisnapshotqualifier",org.kie.soup.project.datamodel.packages
+ ;version="7.7.0.osgisnapshotqualifier"
+Bundle-Name: Project Datamodel API
+Bundle-Description: The parent contains all metadata (including plugin
+ s) and also dependency versions. All KIE Soup modules    (except for 
+ user BOMs like 'kie-soup-bom') should (transitively) inherit from thi
+ s POM.
+Implementation-Title: Project Datamodel API
+Implementation-Version: 7.7.0.Final-redhat-7
+Java-Version: 1.8.0_171
+Scm-Connection: scm:git:git@github.com:kiegroup/kie-soup.git/kie-soup-
+ project-datamodel/kie-soup-project-datamodel-api
+Bundle-ManifestVersion: 2
+Os-Arch: amd64
+Specification-Vendor: JBoss by Red Hat
+Bundle-Vendor: JBoss by Red Hat
+Java-Vendor: Oracle Corporation
+Os-Name: Linux
+Tool: Bnd-3.3.0.201609221906
+Implementation-Vendor: JBoss by Red Hat
+Os-Version: 2.6.32-696.20.1.el6.x86_64
+Bundle-Version: 7.7.0.osgisnapshotqualifier
+Scm-Revision: 4c89d3d14ab9941d86703260e3d396275282e937
+Build-Jdk: 1.8.0_171
+Created-By: Apache Maven Bundle Plugin
+Implementation-URL: http://www.jboss.org/jboss-integration-platform-bo
+ m/kie-soup-parent/kie-soup-project-datamodel/kie-soup-project-datamod
+ el-api
+Specification-Version: 7.7.0.Final-redhat-7
+

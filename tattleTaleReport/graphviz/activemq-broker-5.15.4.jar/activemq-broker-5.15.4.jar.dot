@@ -1,9 +1,9 @@
 digraph activemq_broker_5_15_4_dependencies {
   node [shape = box, fontsize=10.0];
   activemq_broker_5_15_4 -> activemq_client_5_15_4;
-  activemq_broker_5_15_4 -> guava_25_0_jre;
+  activemq_broker_5_15_4 -> guava_25_1_jre;
   activemq_broker_5_15_4 -> hawtbuf_1_11;
-  activemq_broker_5_15_4 -> jackson_databind_2_9_5;
+  activemq_broker_5_15_4 -> jackson_databind_2_9_6;
   activemq_broker_5_15_4 -> jms_1_1;
   activemq_broker_5_15_4 -> org_osgi_core_6_0_0;
   activemq_broker_5_15_4 -> slf4j_api_1_8_0_beta2;

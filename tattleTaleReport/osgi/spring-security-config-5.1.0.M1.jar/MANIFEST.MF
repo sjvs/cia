@@ -322,34 +322,34 @@ Export-Package: org.springframework.security.config;uses:="org.springf
 Import-Package: java.io,java.lang,java.lang.annotation,java.lang.invok
  e,java.lang.reflect,java.net,java.security,java.time,java.util,java.u
  til.concurrent.atomic,java.util.function,javax.servlet,javax.servlet.
- http,javax.sql,org.aopalliance.intercept;version="5.0.6.RELEASE",org.
+ http,javax.sql,org.aopalliance.intercept;version="5.0.7.RELEASE",org.
  apache.commons.logging;version="0.0.0",org.aspectj.weaver.tools;versi
  on="1.9.1",org.openid4java.consumer,org.springframework.aop;version="
- 5.0.6.RELEASE",org.springframework.aop.config;version="5.0.6.RELEASE"
- ,org.springframework.aop.framework;version="5.0.6.RELEASE",org.spring
- framework.aop.target;version="5.0.6.RELEASE",org.springframework.bean
- s;version="5.0.6.RELEASE",org.springframework.beans.factory;version="
- 5.0.6.RELEASE",org.springframework.beans.factory.annotation;version="
- 5.0.6.RELEASE",org.springframework.beans.factory.config;version="5.0.
- 6.RELEASE",org.springframework.beans.factory.parsing;version="5.0.6.R
- ELEASE",org.springframework.beans.factory.support;version="5.0.6.RELE
- ASE",org.springframework.beans.factory.xml;version="5.0.6.RELEASE",or
- g.springframework.context;version="5.0.6.RELEASE",org.springframework
- .context.annotation;version="5.0.6.RELEASE",org.springframework.conte
- xt.event;version="5.0.6.RELEASE",org.springframework.context.expressi
- on;version="5.0.6.RELEASE",org.springframework.core;version="5.0.6.RE
- LEASE",org.springframework.core.annotation;version="5.0.6.RELEASE",or
- g.springframework.core.io;version="5.0.6.RELEASE",org.springframework
- .core.io.support;version="5.0.6.RELEASE",org.springframework.core.typ
- e;version="5.0.6.RELEASE",org.springframework.expression;version="5.0
- .6.RELEASE",org.springframework.http;version="5.0.6.RELEASE",org.spri
- ngframework.jdbc.datasource.init;version="5.0.6.RELEASE",org.springfr
- amework.lang;version="5.0.6.RELEASE",org.springframework.ldap.core,or
+ 5.0.7.RELEASE",org.springframework.aop.config;version="5.0.7.RELEASE"
+ ,org.springframework.aop.framework;version="5.0.7.RELEASE",org.spring
+ framework.aop.target;version="5.0.7.RELEASE",org.springframework.bean
+ s;version="5.0.7.RELEASE",org.springframework.beans.factory;version="
+ 5.0.7.RELEASE",org.springframework.beans.factory.annotation;version="
+ 5.0.7.RELEASE",org.springframework.beans.factory.config;version="5.0.
+ 7.RELEASE",org.springframework.beans.factory.parsing;version="5.0.7.R
+ ELEASE",org.springframework.beans.factory.support;version="5.0.7.RELE
+ ASE",org.springframework.beans.factory.xml;version="5.0.7.RELEASE",or
+ g.springframework.context;version="5.0.7.RELEASE",org.springframework
+ .context.annotation;version="5.0.7.RELEASE",org.springframework.conte
+ xt.event;version="5.0.7.RELEASE",org.springframework.context.expressi
+ on;version="5.0.7.RELEASE",org.springframework.core;version="5.0.7.RE
+ LEASE",org.springframework.core.annotation;version="5.0.7.RELEASE",or
+ g.springframework.core.io;version="5.0.7.RELEASE",org.springframework
+ .core.io.support;version="5.0.7.RELEASE",org.springframework.core.typ
+ e;version="5.0.7.RELEASE",org.springframework.expression;version="5.0
+ .7.RELEASE",org.springframework.http;version="5.0.7.RELEASE",org.spri
+ ngframework.jdbc.datasource.init;version="5.0.7.RELEASE",org.springfr
+ amework.lang;version="5.0.7.RELEASE",org.springframework.ldap.core,or
  g.springframework.ldap.core.support,org.springframework.messaging.sim
- p;version="5.0.6.RELEASE",org.springframework.messaging.simp.annotati
- on.support;version="5.0.6.RELEASE",org.springframework.messaging.simp
- .config;version="5.0.6.RELEASE",org.springframework.messaging.support
- ;version="5.0.6.RELEASE",org.springframework.security.access;version=
+ p;version="5.0.7.RELEASE",org.springframework.messaging.simp.annotati
+ on.support;version="5.0.7.RELEASE",org.springframework.messaging.simp
+ .config;version="5.0.7.RELEASE",org.springframework.messaging.support
+ ;version="5.0.7.RELEASE",org.springframework.security.access;version=
  "5.1.0.M1",org.springframework.security.access.annotation;version="5.
  1.0.M1",org.springframework.security.access.expression;version="5.1.0
  .M1",org.springframework.security.access.expression.method;version="5
@@ -438,16 +438,16 @@ Import-Package: java.io,java.lang,java.lang.annotation,java.lang.invok
  .M1",org.springframework.security.web.session;version="5.1.0.M1",org.
  springframework.security.web.util;version="5.1.0.M1",org.springframew
  ork.security.web.util.matcher;version="5.1.0.M1",org.springframework.
- util;version="5.0.6.RELEASE",org.springframework.util.xml;version="5.
- 0.6.RELEASE",org.springframework.web.accept;version="5.0.6.RELEASE",o
- rg.springframework.web.cors;version="5.0.6.RELEASE",org.springframewo
- rk.web.filter;version="5.0.6.RELEASE",org.springframework.web.reactiv
+ util;version="5.0.7.RELEASE",org.springframework.util.xml;version="5.
+ 0.7.RELEASE",org.springframework.web.accept;version="5.0.7.RELEASE",o
+ rg.springframework.web.cors;version="5.0.7.RELEASE",org.springframewo
+ rk.web.filter;version="5.0.7.RELEASE",org.springframework.web.reactiv
  e.config,org.springframework.web.reactive.result.method,org.springfra
  mework.web.reactive.result.method.annotation,org.springframework.web.
- server;version="5.0.6.RELEASE",org.springframework.web.servlet.config
- .annotation;version="5.0.6.RELEASE",org.springframework.web.servlet.h
- andler;version="5.0.6.RELEASE",org.springframework.web.servlet.suppor
- t;version="5.0.6.RELEASE",org.springframework.web.socket.config.annot
+ server;version="5.0.7.RELEASE",org.springframework.web.servlet.config
+ .annotation;version="5.0.7.RELEASE",org.springframework.web.servlet.h
+ andler;version="5.0.7.RELEASE",org.springframework.web.servlet.suppor
+ t;version="5.0.7.RELEASE",org.springframework.web.socket.config.annot
  ation,org.springframework.web.socket.server.support,org.springframewo
  rk.web.socket.sockjs,org.springframework.web.socket.sockjs.support,or
  g.springframework.web.socket.sockjs.transport,org.w3c.dom;version="1.

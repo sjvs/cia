@@ -2,7 +2,6 @@
 <jboss-deployment-structure>
   <deployment>
      <dependencies>
-        <module name="com.google.guava"/>
         <module name="javax.annotation.api"/>
         <module name="javax.mail.api"/>
         <module name="javax.persistence.api"/>

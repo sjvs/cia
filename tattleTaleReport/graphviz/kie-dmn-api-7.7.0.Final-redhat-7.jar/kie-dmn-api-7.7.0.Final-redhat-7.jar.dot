@@ -1,0 +1,5 @@
+digraph kie_dmn_api_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  kie_dmn_api_7_7_0_Final_redhat_7 -> kie_api_7_7_0_Final_redhat_7;
+  kie_dmn_api_7_7_0_Final_redhat_7 -> xstream_1_4_10;
+}

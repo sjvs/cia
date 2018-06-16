@@ -4,7 +4,6 @@ digraph service_api_2018_5_22_SNAPSHOT_package_dependencies {
   com_hack23_cia_service_api -> com_hack23_cia_model_internal_application_system_impl;
   com_hack23_cia_service_api -> com_hack23_cia_service_api_action_common;
   com_hack23_cia_service_api -> java_lang;
-  com_hack23_cia_service_api -> org_apache_commons_lang3_builder;
   com_hack23_cia_service_api_action_admin -> com_hack23_cia_service_api_action_common;
   com_hack23_cia_service_api_action_admin -> javax_validation_constraints;
   com_hack23_cia_service_api_action_application -> com_hack23_cia_model_internal_application_system_impl;

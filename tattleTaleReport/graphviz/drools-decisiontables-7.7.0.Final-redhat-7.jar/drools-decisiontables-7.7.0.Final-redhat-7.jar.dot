@@ -1,0 +1,10 @@
+digraph drools_decisiontables_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  drools_decisiontables_7_7_0_Final_redhat_7 -> drools_compiler_7_7_0_Final_redhat_7;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> drools_core_7_7_0_Final_redhat_7;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> drools_templates_7_7_0_Final_redhat_7;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> kie_api_7_7_0_Final_redhat_7;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> kie_internal_7_7_0_Final_redhat_7;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> poi_all_3_17;
+  drools_decisiontables_7_7_0_Final_redhat_7 -> slf4j_api_1_8_0_beta2;
+}

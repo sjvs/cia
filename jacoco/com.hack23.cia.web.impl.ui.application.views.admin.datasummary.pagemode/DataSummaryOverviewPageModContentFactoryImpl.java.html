@@ -18,18 +18,17 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.admin.datasummary.pagemode;
 
-import java.util.Arrays;
-import java.util.List;
-
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
+import com.hack23.cia.model.internal.application.data.audit.impl.ViewAuditDataSummary;
 import com.hack23.cia.service.api.DataContainer;
-import com.hack23.cia.service.api.DataSummary;
 import com.hack23.cia.service.api.action.admin.RemoveDataRequest;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.sizing.ContentRatio;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.AdminViews;
+import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RefreshDataViewsClickListener;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.RemoveDataClickListener;
 import com.hack23.cia.web.impl.ui.application.views.pageclicklistener.UpdateSearchIndexClickListener;
@@ -48,8 +47,9 @@ import com.vaadin.ui.VerticalLayout;
 @Component
 public final class DataSummaryOverviewPageModContentFactoryImpl extends AbstractDataSummaryPageModContentFactoryImpl {
 
-<span class="fc" id="L51">	private static final List&lt;String&gt; DATASUMMARY_FORM_FIELDS = Arrays.asList( &quot;personSize&quot;, &quot;totalBallotVotes&quot;, &quot;committeeProposalSize&quot;, &quot;voteSize&quot;,</span>
-			&quot;documentStatusSize&quot;, &quot;documentElementSize&quot;, &quot;documentContentSize&quot; );
+<span class="fc" id="L50">	private static final String[] HIDE_COLUMNS = new String[] { &quot;id&quot; };</span>
+
+<span class="fc" id="L52">	private static final String[] COLUMN_ORDER = new String[] { &quot;dataType&quot;, &quot;dataSize&quot; };</span>
 
 	/** The Constant REMOVE_DOCUMENTS. */
 	private static final String REMOVE_DOCUMENTS = &quot;Remove Documents&quot;;
@@ -87,7 +87,7 @@ public final class DataSummaryOverviewPageModContentFactoryImpl extends Abstract
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc" id="L90">		return NAME.equals(page);</span>
+<span class="pc bpc" id="L90" title="3 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; (StringUtils.isEmpty(parameters) || parameters.contains(PageMode.OVERVIEW.toString()));</span>
 	}
 
 	@Secured({ &quot;ROLE_ADMIN&quot; })
@@ -105,46 +105,44 @@ public final class DataSummaryOverviewPageModContentFactoryImpl extends Abstract
 <span class="fc" id="L105">		content.addComponent(horizontalLayout);</span>
 <span class="fc" id="L106">		content.setExpandRatio(horizontalLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L108">		final DataContainer&lt;DataSummary, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L109">				.getDataContainer(DataSummary.class);</span>
+<span class="fc" id="L108">		final DataContainer&lt;ViewAuditDataSummary, Long&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L109">				.getDataContainer(ViewAuditDataSummary.class);</span>
+		
+<span class="fc" id="L111">		getGridFactory()</span>
+<span class="fc" id="L112">		.createBasicBeanItemNestedPropertiesGrid(horizontalLayout, ViewAuditDataSummary.class, dataContainer.getAll(),</span>
+				ADMIN_DATA_SUMMARY,null,
+				COLUMN_ORDER, HIDE_COLUMNS,
+				null, null, null);
+		
+<span class="fc" id="L117">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
+<span class="fc" id="L118">		overviewLayout.setSizeFull();</span>
+<span class="fc" id="L119">		content.addComponent(overviewLayout);</span>
+<span class="fc" id="L120">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
 
-<span class="fc" id="L111">		final List&lt;DataSummary&gt; all = dataContainer.getAll();</span>
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">		if (!all.isEmpty()) {</span>
-<span class="fc" id="L113">			final DataSummary dataSummary = all.get(0);</span>
+<span class="fc" id="L122">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
 
-<span class="fc" id="L115">			getFormFactory().addFormPanelTextFields(horizontalLayout, dataSummary, DataSummary.class,</span>
-					DATASUMMARY_FORM_FIELDS);
-		}
+<span class="fc" id="L124">		final Button refreshViewsButton = new Button(REFRESH_VIEWS, VaadinIcons.REFRESH);</span>
+<span class="fc" id="L125">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
+<span class="fc" id="L126">		createRowItem(grid, refreshViewsButton, REFRESH_ALL_VIEWS);</span>
 
-<span class="fc" id="L119">		final VerticalLayout overviewLayout = new VerticalLayout();</span>
-<span class="fc" id="L120">		overviewLayout.setSizeFull();</span>
-<span class="fc" id="L121">		content.addComponent(overviewLayout);</span>
-<span class="fc" id="L122">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
+<span class="fc" id="L128">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX, VaadinIcons.REFRESH);</span>
+<span class="fc" id="L129">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
+<span class="fc" id="L130">		createRowItem(grid, updateSearchIndexButton, UPDATE_DOCUMENT_SEARCH_INDEX);</span>
 
-<span class="fc" id="L124">		final ResponsiveRow grid = createGridLayout(overviewLayout);</span>
+<span class="fc" id="L132">		final Button removeDataButton = new Button(REMOVE_POLITICIANS, VaadinIcons.DEL);</span>
+<span class="fc" id="L133">		removeDataButton.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.POLITICIAN));</span>
+<span class="fc" id="L134">		createRowItem(grid, removeDataButton, REMOVE_POLITICIANS);</span>
 
-<span class="fc" id="L126">		final Button refreshViewsButton = new Button(REFRESH_VIEWS, VaadinIcons.REFRESH);</span>
-<span class="fc" id="L127">		refreshViewsButton.addClickListener(new RefreshDataViewsClickListener());</span>
-<span class="fc" id="L128">		createRowItem(grid, refreshViewsButton, REFRESH_ALL_VIEWS);</span>
+<span class="fc" id="L136">		final Button removeDocumentsButton = new Button(REMOVE_DOCUMENTS, VaadinIcons.DEL);</span>
+<span class="fc" id="L137">		removeDocumentsButton.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.DOCUMENTS));</span>
+<span class="fc" id="L138">		createRowItem(grid, removeDocumentsButton, REMOVE_DOCUMENTS);</span>
 
-<span class="fc" id="L130">		final Button updateSearchIndexButton = new Button(UPDATE_SEARCH_INDEX, VaadinIcons.REFRESH);</span>
-<span class="fc" id="L131">		updateSearchIndexButton.addClickListener(new UpdateSearchIndexClickListener());</span>
-<span class="fc" id="L132">		createRowItem(grid, updateSearchIndexButton, UPDATE_DOCUMENT_SEARCH_INDEX);</span>
+<span class="fc" id="L140">		final Button removeApplicationHistoryButton = new Button(REMOVE_APPLICATION_HISTORY, VaadinIcons.DEL);</span>
+<span class="fc" id="L141">		removeApplicationHistoryButton</span>
+<span class="fc" id="L142">				.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.APPLICATION_HISTORY));</span>
+<span class="fc" id="L143">		createRowItem(grid, removeApplicationHistoryButton, REMOVE_APPLICATION_HISTORY);</span>
 
-<span class="fc" id="L134">		final Button removeDataButton = new Button(REMOVE_POLITICIANS, VaadinIcons.DEL);</span>
-<span class="fc" id="L135">		removeDataButton.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.POLITICIAN));</span>
-<span class="fc" id="L136">		createRowItem(grid, removeDataButton, REMOVE_POLITICIANS);</span>
-
-<span class="fc" id="L138">		final Button removeDocumentsButton = new Button(REMOVE_DOCUMENTS, VaadinIcons.DEL);</span>
-<span class="fc" id="L139">		removeDocumentsButton.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.DOCUMENTS));</span>
-<span class="fc" id="L140">		createRowItem(grid, removeDocumentsButton, REMOVE_DOCUMENTS);</span>
-
-<span class="fc" id="L142">		final Button removeApplicationHistoryButton = new Button(REMOVE_APPLICATION_HISTORY, VaadinIcons.DEL);</span>
-<span class="fc" id="L143">		removeApplicationHistoryButton</span>
-<span class="fc" id="L144">				.addClickListener(new RemoveDataClickListener(RemoveDataRequest.DataType.APPLICATION_HISTORY));</span>
-<span class="fc" id="L145">		createRowItem(grid, removeApplicationHistoryButton, REMOVE_APPLICATION_HISTORY);</span>
-
-<span class="fc" id="L147">		return content;</span>
+<span class="fc" id="L145">		return content;</span>
 
 	}
 

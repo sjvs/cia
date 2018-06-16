@@ -1,0 +1,5 @@
+digraph vaadin_shared_8_4_3_dependencies {
+  node [shape = box, fontsize=10.0];
+  vaadin_shared_8_4_3 -> gwt_user_2_8_2;
+  vaadin_shared_8_4_3 -> org_osgi_core_6_0_0;
+}

@@ -42,14 +42,15 @@ public final class RuleViolationPageItemRendererClickListener implements PageIte
 	/**
 	 * Instantiates a new rule violation page item renderer click listener.
 	 */
-<span class="fc" id="L45">	public RuleViolationPageItemRendererClickListener() {</span>
-<span class="fc" id="L46">	}</span>
+	public RuleViolationPageItemRendererClickListener() {
+<span class="fc" id="L46">		super();</span>
+<span class="fc" id="L47">	}</span>
 
 	@Override
 	public void click(final RendererClickEvent&lt;RuleViolation&gt; event) {
-<span class="nc" id="L50">		navigateToPage(event.getItem());</span>
+<span class="nc" id="L51">		navigateToPage(event.getItem());</span>
 		
-<span class="nc" id="L52">	}</span>
+<span class="nc" id="L53">	}</span>
 
 	/**
 	 * Navigate to page.
@@ -58,21 +59,21 @@ public final class RuleViolationPageItemRendererClickListener implements PageIte
 	 *            the violation
 	 */
 	private static void navigateToPage(final RuleViolation violation) {
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">		if (violation.getResourceType() == ResourceType.PARTY) {			</span>
-<span class="fc" id="L62">			UI.getCurrent().getNavigator().navigateTo(UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">		if (violation.getResourceType() == ResourceType.PARTY) {			</span>
+<span class="fc" id="L63">			UI.getCurrent().getNavigator().navigateTo(UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
 		} else {
-<span class="nc" id="L64">			UI.getCurrent().getNavigator().navigateTo(UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
+<span class="nc" id="L65">			UI.getCurrent().getNavigator().navigateTo(UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
 		}
-<span class="fc" id="L66">	}</span>
+<span class="fc" id="L67">	}</span>
 
 
 	@Override
 	public void selectionChange(final SelectionEvent&lt;RuleViolation&gt; event) {
-<span class="fc" id="L71">		final Set&lt;RuleViolation&gt; added =event.getAllSelectedItems();</span>
+<span class="fc" id="L72">		final Set&lt;RuleViolation&gt; added =event.getAllSelectedItems();</span>
 
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if (!added.isEmpty()) {</span>
-<span class="fc" id="L74">			navigateToPage(added.iterator().next());</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">		if (!added.isEmpty()) {</span>
+<span class="fc" id="L75">			navigateToPage(added.iterator().next());</span>
 		}
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L77">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

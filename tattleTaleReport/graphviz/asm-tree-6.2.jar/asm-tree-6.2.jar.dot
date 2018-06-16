@@ -1,0 +1,4 @@
+digraph asm_tree_6_2_dependencies {
+  node [shape = box, fontsize=10.0];
+  asm_tree_6_2 -> asm_6_2;
+}

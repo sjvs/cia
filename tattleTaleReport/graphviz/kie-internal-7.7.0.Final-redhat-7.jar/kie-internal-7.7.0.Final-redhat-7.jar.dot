@@ -1,0 +1,9 @@
+digraph kie_internal_7_7_0_Final_redhat_7_dependencies {
+  node [shape = box, fontsize=10.0];
+  kie_internal_7_7_0_Final_redhat_7 -> jaxb_api_2_3_0;
+  kie_internal_7_7_0_Final_redhat_7 -> jaxb_xjc_2_3_0_1;
+  kie_internal_7_7_0_Final_redhat_7 -> kie_api_7_7_0_Final_redhat_7;
+  kie_internal_7_7_0_Final_redhat_7 -> org_osgi_core_6_0_0;
+  kie_internal_7_7_0_Final_redhat_7 -> slf4j_api_1_8_0_beta2;
+  kie_internal_7_7_0_Final_redhat_7 -> xstream_1_4_10;
+}

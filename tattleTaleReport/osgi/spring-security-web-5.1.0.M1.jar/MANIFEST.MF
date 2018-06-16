@@ -216,32 +216,32 @@ Export-Package: org.springframework.security.web;uses:="org.springfram
  ramework.security.web.util;uses:="javax.servlet",org.springframework.
  security.web.util.matcher;uses:="org.springframework.web.accept"
 Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
- asterxml.jackson.core;version="2.9.5",com.fasterxml.jackson.core.type
- ;version="2.9.5",com.fasterxml.jackson.databind;version="2.9.5",com.f
- asterxml.jackson.databind.annotation;version="2.9.5",com.fasterxml.ja
- ckson.databind.module;version="2.9.5",com.fasterxml.jackson.databind.
- node;version="2.9.5",java.beans,java.io,java.lang,java.lang.annotatio
+ asterxml.jackson.core;version="2.9.6",com.fasterxml.jackson.core.type
+ ;version="2.9.6",com.fasterxml.jackson.databind;version="2.9.6",com.f
+ asterxml.jackson.databind.annotation;version="2.9.6",com.fasterxml.ja
+ ckson.databind.module;version="2.9.6",com.fasterxml.jackson.databind.
+ node;version="2.9.6",java.beans,java.io,java.lang,java.lang.annotatio
  n,java.lang.invoke,java.lang.reflect,java.net,java.nio.charset,java.s
  ecurity,java.security.cert,java.sql,java.text,java.time,java.util,jav
  a.util.concurrent,java.util.function,java.util.regex,java.util.stream
  ,javax.naming,javax.security.auth,javax.security.auth.login,javax.ser
  vlet,javax.servlet.http,javax.xml.parsers;version="1.0",org.apache.co
  mmons.logging;version="0.0.0",org.reactivestreams,org.springframework
- .beans;version="5.0.6.RELEASE",org.springframework.beans.factory;vers
- ion="5.0.6.RELEASE",org.springframework.context;version="5.0.6.RELEAS
- E",org.springframework.context.support;version="5.0.6.RELEASE",org.sp
- ringframework.core;version="5.0.6.RELEASE",org.springframework.core.a
- nnotation;version="5.0.6.RELEASE",org.springframework.core.io;version
- ="5.0.6.RELEASE",org.springframework.core.io.buffer;version="5.0.6.RE
- LEASE",org.springframework.dao;version="5.0.6.RELEASE",org.springfram
- ework.expression;version="5.0.6.RELEASE",org.springframework.expressi
- on.spel.standard;version="5.0.6.RELEASE",org.springframework.expressi
- on.spel.support;version="5.0.6.RELEASE",org.springframework.http;vers
- ion="5.0.6.RELEASE",org.springframework.http.server;version="5.0.6.RE
- LEASE",org.springframework.http.server.reactive;version="5.0.6.RELEAS
- E",org.springframework.jdbc.core;version="5.0.6.RELEASE",org.springfr
- amework.jdbc.core.support;version="5.0.6.RELEASE",org.springframework
- .lang;version="5.0.6.RELEASE",org.springframework.security.access;ver
+ .beans;version="5.0.7.RELEASE",org.springframework.beans.factory;vers
+ ion="5.0.7.RELEASE",org.springframework.context;version="5.0.7.RELEAS
+ E",org.springframework.context.support;version="5.0.7.RELEASE",org.sp
+ ringframework.core;version="5.0.7.RELEASE",org.springframework.core.a
+ nnotation;version="5.0.7.RELEASE",org.springframework.core.io;version
+ ="5.0.7.RELEASE",org.springframework.core.io.buffer;version="5.0.7.RE
+ LEASE",org.springframework.dao;version="5.0.7.RELEASE",org.springfram
+ ework.expression;version="5.0.7.RELEASE",org.springframework.expressi
+ on.spel.standard;version="5.0.7.RELEASE",org.springframework.expressi
+ on.spel.support;version="5.0.7.RELEASE",org.springframework.http;vers
+ ion="5.0.7.RELEASE",org.springframework.http.server;version="5.0.7.RE
+ LEASE",org.springframework.http.server.reactive;version="5.0.7.RELEAS
+ E",org.springframework.jdbc.core;version="5.0.7.RELEASE",org.springfr
+ amework.jdbc.core.support;version="5.0.7.RELEASE",org.springframework
+ .lang;version="5.0.7.RELEASE",org.springframework.security.access;ver
  sion="5.1.0.M1",org.springframework.security.access.expression;versio
  n="5.1.0.M1",org.springframework.security.access.hierarchicalroles;ve
  rsion="5.1.0.M1",org.springframework.security.access.intercept;versio
@@ -259,20 +259,20 @@ Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
  n="5.1.0.M1",org.springframework.security.core.userdetails.cache;vers
  ion="5.1.0.M1",org.springframework.security.crypto.codec;version="5.1
  .0.M1",org.springframework.security.jackson2;version="5.1.0.M1",org.s
- pringframework.util;version="5.0.6.RELEASE",org.springframework.web;v
- ersion="5.0.6.RELEASE",org.springframework.web.accept;version="5.0.6.
- RELEASE",org.springframework.web.bind.support;version="5.0.6.RELEASE"
- ,org.springframework.web.context;version="5.0.6.RELEASE",org.springfr
- amework.web.context.request;version="5.0.6.RELEASE",org.springframewo
- rk.web.context.request.async;version="5.0.6.RELEASE",org.springframew
- ork.web.context.support;version="5.0.6.RELEASE",org.springframework.w
- eb.filter;version="5.0.6.RELEASE",org.springframework.web.method.supp
- ort;version="5.0.6.RELEASE",org.springframework.web.reactive,org.spri
+ pringframework.util;version="5.0.7.RELEASE",org.springframework.web;v
+ ersion="5.0.7.RELEASE",org.springframework.web.accept;version="5.0.7.
+ RELEASE",org.springframework.web.bind.support;version="5.0.7.RELEASE"
+ ,org.springframework.web.context;version="5.0.7.RELEASE",org.springfr
+ amework.web.context.request;version="5.0.7.RELEASE",org.springframewo
+ rk.web.context.request.async;version="5.0.7.RELEASE",org.springframew
+ ork.web.context.support;version="5.0.7.RELEASE",org.springframework.w
+ eb.filter;version="5.0.7.RELEASE",org.springframework.web.method.supp
+ ort;version="5.0.7.RELEASE",org.springframework.web.reactive,org.spri
  ngframework.web.reactive.result.method,org.springframework.web.reacti
- ve.result.view,org.springframework.web.server;version="5.0.6.RELEASE"
- ,org.springframework.web.server.handler;version="5.0.6.RELEASE",org.s
- pringframework.web.servlet.handler;version="5.0.6.RELEASE",org.spring
- framework.web.servlet.support;version="5.0.6.RELEASE",org.springframe
- work.web.util;version="5.0.6.RELEASE",org.springframework.web.util.pa
- ttern;version="5.0.6.RELEASE",org.w3c.dom;version="1.0",org.xml.sax;v
+ ve.result.view,org.springframework.web.server;version="5.0.7.RELEASE"
+ ,org.springframework.web.server.handler;version="5.0.7.RELEASE",org.s
+ pringframework.web.servlet.handler;version="5.0.7.RELEASE",org.spring
+ framework.web.servlet.support;version="5.0.7.RELEASE",org.springframe
+ work.web.util;version="5.0.7.RELEASE",org.springframework.web.util.pa
+ ttern;version="5.0.7.RELEASE",org.w3c.dom;version="1.0",org.xml.sax;v
  ersion="1.0",reactor.core.publisher,reactor.util.context

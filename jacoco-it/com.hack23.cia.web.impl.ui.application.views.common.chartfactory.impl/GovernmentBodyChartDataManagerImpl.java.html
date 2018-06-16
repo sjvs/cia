@@ -229,28 +229,29 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 <span class="fc" id="L229">	}</span>
 
 	@Override
-	public void createGovernmentBodyExpenditureSummaryChart(final VerticalLayout content) {
-<span class="fc" id="L233">		addAnnualSummary(esvApi.getGovernmentBodyReportByField(EXPENDITURE_GROUP_NAME), content, ANNUAL_EXPENDITURE);</span>
-<span class="fc" id="L234">	}</span>
-
-	@Override
 	public void createGovernmentBodyIncomeSummaryChart(final VerticalLayout content, final String name) {
-<span class="fc" id="L238">		final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)</span>
-<span class="fc bfc" id="L239" title="All 2 branches covered.">				.stream().filter(p -&gt; p.getDescriptionFields().get(INKOMSTTITELSNAMN) != null)</span>
-<span class="fc" id="L240">				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(INKOMSTTITELSNAMN)));</span>
-
-<span class="fc" id="L242">		addAnnualData(content, name, ANNUAL_INCOME, collect);</span>
-
+<span class="fc" id="L233">		final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">				.stream().filter(p -&gt; p.getDescriptionFields().get(INKOMSTTITELSNAMN) != null)</span>
+<span class="fc" id="L235">				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(INKOMSTTITELSNAMN)));</span>
+		
+<span class="fc" id="L237">		addAnnualData(content, name, ANNUAL_INCOME, collect);</span>
+		
+<span class="fc" id="L239">	}</span>
+	
+	@Override
+	public void createGovernmentBodyExpenditureSummaryChart(final VerticalLayout content) {
+<span class="fc" id="L243">		addAnnualSummary(esvApi.getGovernmentBodyReportByField(EXPENDITURE_GROUP_NAME), content, ANNUAL_EXPENDITURE);</span>
 <span class="fc" id="L244">	}</span>
+
 
 	@Override
 	public void createGovernmentBodyExpenditureSummaryChart(final VerticalLayout content, final String name) {
-<span class="fc" id="L248">		final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)</span>
-<span class="fc bfc" id="L249" title="All 2 branches covered.">				.stream().filter(p -&gt; p.getDescriptionFields().get(ANSLAGSPOSTSNAMN) != null)</span>
-<span class="fc" id="L250">				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(ANSLAGSPOSTSNAMN)));</span>
+<span class="fc" id="L249">		final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect = esvApi.getGovernmentBodyReport().get(name)</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">				.stream().filter(p -&gt; p.getDescriptionFields().get(ANSLAGSPOSTSNAMN) != null)</span>
+<span class="fc" id="L251">				.collect(Collectors.groupingBy(t -&gt; t.getDescriptionFields().get(ANSLAGSPOSTSNAMN)));</span>
 
-<span class="fc" id="L252">		addAnnualData(content, name, ANNUAL_EXPENDITURE, collect);</span>
-<span class="fc" id="L253">	}</span>
+<span class="fc" id="L253">		addAnnualData(content, name, ANNUAL_EXPENDITURE, collect);</span>
+<span class="fc" id="L254">	}</span>
 
 	/**
 	 * Adds the annual summary.
@@ -265,35 +266,35 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 	private void addAnnualSummary(final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; report, final VerticalLayout content,
 			final String label) {
 
-<span class="fc" id="L268">		final DataSeries dataSeries = new DataSeries();</span>
-<span class="fc" id="L269">		final Series series = new Series();</span>
+<span class="fc" id="L269">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L270">		final Series series = new Series();</span>
 
-<span class="fc bfc" id="L271" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : report.entrySet()) {</span>
+<span class="fc bfc" id="L272" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : report.entrySet()) {</span>
 
-<span class="fc" id="L273">			final List&lt;GovernmentBodyAnnualOutcomeSummary&gt; allValues = entry.getValue();</span>
+<span class="fc" id="L274">			final List&lt;GovernmentBodyAnnualOutcomeSummary&gt; allValues = entry.getValue();</span>
 
-<span class="pc bpc" id="L275" title="1 of 2 branches missed.">			if (!allValues.isEmpty()) {</span>
-<span class="fc" id="L276">				series.addSeries(new XYseries().setLabel(entry.getKey()).setShowLabel(true));</span>
-<span class="fc" id="L277">				dataSeries.newSeries();</span>
+<span class="pc bpc" id="L276" title="1 of 2 branches missed.">			if (!allValues.isEmpty()) {</span>
+<span class="fc" id="L277">				series.addSeries(new XYseries().setLabel(entry.getKey()).setShowLabel(true));</span>
+<span class="fc" id="L278">				dataSeries.newSeries();</span>
 
-<span class="fc" id="L279">				final Map&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; map = allValues.stream()</span>
-<span class="fc" id="L280">						.collect(Collectors.groupingBy(GovernmentBodyAnnualOutcomeSummary::getYear));</span>
+<span class="fc" id="L280">				final Map&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; map = allValues.stream()</span>
+<span class="fc" id="L281">						.collect(Collectors.groupingBy(GovernmentBodyAnnualOutcomeSummary::getYear));</span>
 
-<span class="fc bfc" id="L282" title="All 2 branches covered.">				for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; data : map.entrySet()) {</span>
-<span class="fc" id="L283">					final List&lt;GovernmentBodyAnnualOutcomeSummary&gt; values = data.getValue();</span>
-<span class="fc" id="L284">					final Double sum = values.stream().mapToDouble(GovernmentBodyAnnualOutcomeSummary::getYearTotal).sum();</span>
-<span class="fc bfc" id="L285" title="All 2 branches covered.">					if (sum.intValue() &gt; 0) {</span>
-<span class="fc" id="L286">						dataSeries.add(data.getKey() + FIRST_JAN_DATA_SUFFIX, sum.intValue());</span>
+<span class="fc bfc" id="L283" title="All 2 branches covered.">				for (final Entry&lt;Integer, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; data : map.entrySet()) {</span>
+<span class="fc" id="L284">					final List&lt;GovernmentBodyAnnualOutcomeSummary&gt; values = data.getValue();</span>
+<span class="fc" id="L285">					final Double sum = values.stream().mapToDouble(GovernmentBodyAnnualOutcomeSummary::getYearTotal).sum();</span>
+<span class="fc bfc" id="L286" title="All 2 branches covered.">					if (sum.intValue() &gt; 0) {</span>
+<span class="fc" id="L287">						dataSeries.add(data.getKey() + FIRST_JAN_DATA_SUFFIX, sum.intValue());</span>
 					}
-<span class="fc" id="L288">				}</span>
+<span class="fc" id="L289">				}</span>
 			}
-<span class="fc" id="L290">		}</span>
+<span class="fc" id="L291">		}</span>
 
-<span class="fc" id="L292">		addChart(content, label,</span>
-<span class="fc" id="L293">				new DCharts().setDataSeries(dataSeries)</span>
-<span class="fc" id="L294">						.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(),</span>
+<span class="fc" id="L293">		addChart(content, label,</span>
+<span class="fc" id="L294">				new DCharts().setDataSeries(dataSeries)</span>
+<span class="fc" id="L295">						.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(),</span>
 				true);
-<span class="fc" id="L296">	}</span>
+<span class="fc" id="L297">	}</span>
 
 	/**
 	 * Adds the annual data.
@@ -309,35 +310,35 @@ public final class GovernmentBodyChartDataManagerImpl extends AbstractChartDataM
 	 */
 	private void addAnnualData(final VerticalLayout content, final String name, final String label,
 			final Map&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; collect) {
-<span class="fc" id="L312">		final DataSeries dataSeries = new DataSeries();</span>
-<span class="fc" id="L313">		final Series series = new Series();</span>
+<span class="fc" id="L313">		final DataSeries dataSeries = new DataSeries();</span>
+<span class="fc" id="L314">		final Series series = new Series();</span>
 
-<span class="fc" id="L315">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;,Locale.ENGLISH);</span>
-<span class="fc bfc" id="L316" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : collect.entrySet()) {</span>
-<span class="fc" id="L317">			series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
-<span class="fc" id="L318">			dataSeries.newSeries();</span>
+<span class="fc" id="L316">		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;,Locale.ENGLISH);</span>
+<span class="fc bfc" id="L317" title="All 2 branches covered.">		for (final Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry : collect.entrySet()) {</span>
+<span class="fc" id="L318">			series.addSeries(new XYseries().setLabel(entry.getKey()));</span>
+<span class="fc" id="L319">			dataSeries.newSeries();</span>
 			
-<span class="fc" id="L320">			addEntryData(dataSeries, simpleDateFormat, entry);</span>
-<span class="fc" id="L321">		}</span>
+<span class="fc" id="L321">			addEntryData(dataSeries, simpleDateFormat, entry);</span>
+<span class="fc" id="L322">		}</span>
 
-<span class="fc" id="L323">		addChart(content, name + label,</span>
-<span class="fc" id="L324">				new DCharts().setDataSeries(dataSeries)</span>
-<span class="fc" id="L325">						.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(),</span>
+<span class="fc" id="L324">		addChart(content, name + label,</span>
+<span class="fc" id="L325">				new DCharts().setDataSeries(dataSeries)</span>
+<span class="fc" id="L326">						.setOptions(getChartOptions().createOptionsXYDateFloatLogYAxisLegendOutside(series)).show(),</span>
 				true);
-<span class="fc" id="L327">	}</span>
+<span class="fc" id="L328">	}</span>
 
 	private static void addEntryData(final DataSeries dataSeries, final SimpleDateFormat simpleDateFormat,
 			final Entry&lt;String, List&lt;GovernmentBodyAnnualOutcomeSummary&gt;&gt; entry) {
-<span class="fc bfc" id="L331" title="All 2 branches covered.">		for (final GovernmentBodyAnnualOutcomeSummary data : entry.getValue()) {</span>
-<span class="fc" id="L332">			final Map&lt;Date, Double&gt; valueMap = data.getValueMap();</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">		for (final GovernmentBodyAnnualOutcomeSummary data : entry.getValue()) {</span>
+<span class="fc" id="L333">			final Map&lt;Date, Double&gt; valueMap = data.getValueMap();</span>
 
-<span class="fc bfc" id="L334" title="All 2 branches covered.">			for (final Entry&lt;Date, Double&gt; entryData : valueMap.entrySet()) {</span>
-<span class="pc bpc" id="L335" title="1 of 4 branches missed.">				if (entryData.getValue() != null &amp;&amp; entryData.getValue().intValue() &gt; 0) {</span>
-<span class="fc" id="L336">					dataSeries.add(simpleDateFormat.format(entryData.getKey()) , entryData.getValue().intValue());</span>
+<span class="fc bfc" id="L335" title="All 2 branches covered.">			for (final Entry&lt;Date, Double&gt; entryData : valueMap.entrySet()) {</span>
+<span class="pc bpc" id="L336" title="1 of 4 branches missed.">				if (entryData.getValue() != null &amp;&amp; entryData.getValue().intValue() &gt; 0) {</span>
+<span class="fc" id="L337">					dataSeries.add(simpleDateFormat.format(entryData.getKey()) , entryData.getValue().intValue());</span>
 				}
-<span class="fc" id="L338">			}</span>
-<span class="fc" id="L339">		}</span>
-<span class="fc" id="L340">	}</span>
+<span class="fc" id="L339">			}</span>
+<span class="fc" id="L340">		}</span>
+<span class="fc" id="L341">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

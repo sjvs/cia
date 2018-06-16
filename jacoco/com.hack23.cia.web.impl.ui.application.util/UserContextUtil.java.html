@@ -49,17 +49,14 @@ public final class UserContextUtil {
 	 * @return the user id from security context
 	 */
 	public static String getUserIdFromSecurityContext() {
-
-<span class="fc" id="L53">		final String result=null;</span>
-
-<span class="fc" id="L55">		final SecurityContext context = SecurityContextHolder.getContext();</span>
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">		if (context != null) {</span>
-<span class="fc" id="L57">			final Authentication authentication = context.getAuthentication();</span>
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">			if (authentication != null) {</span>
-<span class="fc" id="L59">				return authentication.getPrincipal().toString();</span>
+<span class="fc" id="L52">		final SecurityContext context = SecurityContextHolder.getContext();</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">		if (context != null) {</span>
+<span class="fc" id="L54">			final Authentication authentication = context.getAuthentication();</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">			if (authentication != null) {</span>
+<span class="fc" id="L56">				return authentication.getPrincipal().toString();</span>
 			}
 		}
-<span class="nc" id="L62">		return result;</span>
+<span class="nc" id="L59">		return null;</span>
 	}
 
 	/**
@@ -70,12 +67,12 @@ public final class UserContextUtil {
 	 * @return the request url
 	 */
 	public static String getRequestUrl(final Page current) {
-<span class="pc bpc" id="L73" title="1 of 2 branches missed.">		if (current != null) {</span>
-<span class="fc" id="L74">			return current.getLocation().toString();</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (current != null) {</span>
+<span class="fc" id="L71">			return current.getLocation().toString();</span>
 
 		} else {
-<span class="nc" id="L77">			final HttpServletRequest httpRequest=((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();</span>
-<span class="nc" id="L78">			return httpRequest.getRequestURL().toString();</span>
+<span class="nc" id="L74">			final HttpServletRequest httpRequest=((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();</span>
+<span class="nc" id="L75">			return httpRequest.getRequestURL().toString();</span>
 		}
 	}
 
@@ -87,18 +84,18 @@ public final class UserContextUtil {
 	 * @return true, if successful
 	 */
 	public static boolean allowRoleInSecurityContext(final String role) {
-<span class="fc" id="L90">		boolean result = false;</span>
-<span class="fc" id="L91">		final SecurityContext context = SecurityContextHolder.getContext();</span>
-<span class="pc bpc" id="L92" title="2 of 4 branches missed.">		if (context != null &amp;&amp; context.getAuthentication() != null) {</span>
-<span class="fc" id="L93">			final Collection&lt;? extends GrantedAuthority&gt; authorities = context.getAuthentication().getAuthorities();</span>
+<span class="fc" id="L87">		boolean result = false;</span>
+<span class="fc" id="L88">		final SecurityContext context = SecurityContextHolder.getContext();</span>
+<span class="pc bpc" id="L89" title="2 of 4 branches missed.">		if (context != null &amp;&amp; context.getAuthentication() != null) {</span>
+<span class="fc" id="L90">			final Collection&lt;? extends GrantedAuthority&gt; authorities = context.getAuthentication().getAuthorities();</span>
 
-<span class="fc bfc" id="L95" title="All 2 branches covered.">			for (final GrantedAuthority grantedAuthority : authorities) {</span>
-<span class="fc bfc" id="L96" title="All 2 branches covered.">				if (role.equalsIgnoreCase(grantedAuthority.getAuthority())) {</span>
-<span class="fc" id="L97">					result = true;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">			for (final GrantedAuthority grantedAuthority : authorities) {</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">				if (role.equalsIgnoreCase(grantedAuthority.getAuthority())) {</span>
+<span class="fc" id="L94">					result = true;</span>
 				}
-<span class="fc" id="L99">			}</span>
+<span class="fc" id="L96">			}</span>
 		}
-<span class="fc" id="L101">		return result;</span>
+<span class="fc" id="L98">		return result;</span>
 	}
 
 

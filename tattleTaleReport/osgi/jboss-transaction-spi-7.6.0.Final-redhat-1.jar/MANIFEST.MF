@@ -31,6 +31,6 @@ Export-Package: org.jboss.tm,org.jboss.tm.listener,org.jboss.tm.usertx
  ,org.jboss.tm.usertx.client;uses:="org.jboss.tm.usertx"
 Import-Package: java.io,java.lang,java.lang.reflect,java.util,java.uti
  l.concurrent,java.util.concurrent.atomic,java.util.concurrent.locks,j
- avax.naming,javax.naming.spi,javax.resource.spi;version="1.7",javax.r
- esource.spi.work;version="1.7",javax.transaction;version="1.2",javax.
- transaction.xa,org.jboss.logging;version="3.3.2.Final"
+ avax.naming,javax.naming.spi,javax.resource.spi,javax.resource.spi.wo
+ rk,javax.transaction;version="1.2",javax.transaction.xa,org.jboss.log
+ ging;version="3.3.2.Final"

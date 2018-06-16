@@ -1,5 +1,5 @@
 @startuml(id="Enterprise")
-scale max 2000x2000
+scale max 16384x16384
 title System Landscape for Hack23
 caption "Enterprise"
 

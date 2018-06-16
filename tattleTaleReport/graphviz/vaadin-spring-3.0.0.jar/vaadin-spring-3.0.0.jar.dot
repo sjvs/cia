@@ -1,10 +1,10 @@
 digraph vaadin_spring_3_0_0_dependencies {
   node [shape = box, fontsize=10.0];
   vaadin_spring_3_0_0 -> slf4j_api_1_8_0_beta2;
-  vaadin_spring_3_0_0 -> spring_beans_5_0_6_RELEASE;
-  vaadin_spring_3_0_0 -> spring_context_5_0_6_RELEASE;
-  vaadin_spring_3_0_0 -> spring_core_5_0_6_RELEASE;
-  vaadin_spring_3_0_0 -> spring_web_5_0_6_RELEASE;
-  vaadin_spring_3_0_0 -> vaadin_server_8_5_0_alpha1;
-  vaadin_spring_3_0_0 -> vaadin_shared_8_5_0_alpha1;
+  vaadin_spring_3_0_0 -> spring_beans_5_0_7_RELEASE;
+  vaadin_spring_3_0_0 -> spring_context_5_0_7_RELEASE;
+  vaadin_spring_3_0_0 -> spring_core_5_0_7_RELEASE;
+  vaadin_spring_3_0_0 -> spring_web_5_0_7_RELEASE;
+  vaadin_spring_3_0_0 -> vaadin_server_8_4_3;
+  vaadin_spring_3_0_0 -> vaadin_shared_8_4_3;
 }
