@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Implementation-Title: ActiveMQ :: Openwire Legacy Support
+Implementation-Version: 5.15.5
+Archiver-Version: Plexus Archiver
+Built-By: cshannon
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: ActiveMQ :: Openwire Legacy Support
+Implementation-Vendor-Id: org.apache.activemq
+Created-By: Apache Maven 3.5.0
+Build-Jdk: 1.8.0_172
+Specification-Version: 5.15.5
+Implementation-Vendor: The Apache Software Foundation
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.apache.activemq.openwire.v3
+Bundle-Description: activemq-openwire-legacy-5.15.5
+Bundle-Name: activemq-openwire-legacy-5.15.5
+Bundle-Version: 5.15.5
+Export-Package: org.apache.activemq.openwire.v2;uses:="org.apache.acti
+ vemq.command,org.apache.activemq.filter,org.apache.activemq.openwire,
+ org.apache.activemq.util,org.apache.activemq.wireformat",org.apache.a
+ ctivemq.openwire.v3;uses:="org.apache.activemq.command,org.apache.act
+ ivemq.filter,org.apache.activemq.openwire,org.apache.activemq.util,or
+ g.apache.activemq.wireformat",org.apache.activemq.openwire.v4;uses:="
+ org.apache.activemq.command,org.apache.activemq.filter,org.apache.act
+ ivemq.openwire,org.apache.activemq.util,org.apache.activemq.wireforma
+ t",org.apache.activemq.openwire.v5;uses:="org.apache.activemq.command
+ ,org.apache.activemq.filter,org.apache.activemq.openwire,org.apache.a
+ ctivemq.util,org.apache.activemq.wireformat",org.apache.activemq.open
+ wire.v6;uses:="org.apache.activemq.command,org.apache.activemq.filter
+ ,org.apache.activemq.openwire,org.apache.activemq.util,org.apache.act
+ ivemq.wireformat",org.apache.activemq.openwire.v7;uses:="org.apache.a
+ ctivemq.command,org.apache.activemq.filter,org.apache.activemq.openwi
+ re,org.apache.activemq.util,org.apache.activemq.wireformat",org.apach
+ e.activemq.openwire.v8;uses:="org.apache.activemq.command,org.apache.
+ activemq.filter,org.apache.activemq.openwire,org.apache.activemq.util
+ ,org.apache.activemq.wireformat"
+Import-Package: java.io,java.lang,java.lang.reflect,org.apache.activem
+ q.command;version="5.15.5",org.apache.activemq.filter;version="5.15.5
+ ",org.apache.activemq.openwire;version="5.15.5",org.apache.activemq.u
+ til;version="5.15.5",org.apache.activemq.wireformat;version="5.15.5"

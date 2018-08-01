@@ -1,0 +1,9 @@
+digraph javers_core_3_10_2_dependencies {
+  node [shape = box, fontsize=10.0];
+  javers_core_3_10_2 -> fast_classpath_scanner_3_1_13;
+  javers_core_3_10_2 -> gson_2_8_5;
+  javers_core_3_10_2 -> guava_25_1_jre;
+  javers_core_3_10_2 -> joda_time_2_10;
+  javers_core_3_10_2 -> picocontainer_2_15;
+  javers_core_3_10_2 -> slf4j_api_1_8_0_beta2;
+}

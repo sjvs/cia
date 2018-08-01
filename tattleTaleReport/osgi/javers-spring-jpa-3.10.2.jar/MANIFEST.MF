@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.javers.spring.jpa
+Bundle-Description: javers-spring-jpa-3.10.2
+Bundle-Name: javers-spring-jpa-3.10.2
+Bundle-Version: 0.0.0
+Export-Package: org.javers.hibernate.integration;uses:="java.lang.invo
+ ke,java.util,java.util.function,org.javers.core.graph",org.javers.spr
+ ing.auditable.aspect.springdatajpa;uses:="org.aspectj.lang,org.aspect
+ j.lang.annotation,org.javers.core,org.javers.spring.auditable,org.jav
+ ers.spring.auditable.aspect.springdata",org.javers.spring.jpa;uses:="
+ java.time,java.util,java.util.stream,javax.transaction,org.javers.com
+ mon.exception,org.javers.common.validation,org.javers.core,org.javers
+ .core.changelog,org.javers.core.commit,org.javers.core.diff,org.javer
+ s.core.diff.changetype,org.javers.core.json,org.javers.core.metamodel
+ .property,org.javers.core.metamodel.type,org.javers.repository.jql,or
+ g.javers.repository.sql"
+Import-Package: java.io,java.lang,java.lang.invoke,java.lang.reflect,j
+ ava.sql,java.time,java.util,java.util.function,java.util.stream,javax
+ .annotation,javax.persistence;version="2.2",javax.transaction;version
+ ="1.2",org.aspectj.lang;version="1.9.1",org.aspectj.lang.annotation;v
+ ersion="1.9.1",org.hibernate;version="5.3.3.Final",org.hibernate.inte
+ rnal;version="5.3.3.Final",org.hibernate.proxy;version="5.3.3.Final",
+ org.hibernate.proxy.pojo.javassist;version="5.3.3.Final",org.javers.c
+ ommon.exception;version="0.0.0",org.javers.common.validation;version=
+ "0.0.0",org.javers.core;version="0.0.0",org.javers.core.changelog;ver
+ sion="0.0.0",org.javers.core.commit;version="0.0.0",org.javers.core.d
+ iff;version="0.0.0",org.javers.core.diff.changetype;version="0.0.0",o
+ rg.javers.core.graph;version="0.0.0",org.javers.core.json;version="0.
+ 0.0",org.javers.core.metamodel.property;version="0.0.0",org.javers.co
+ re.metamodel.type;version="0.0.0",org.javers.repository.jql;version="
+ 0.0.0",org.javers.repository.sql;version="0.0.0",org.javers.spring.au
+ ditable;version="0.0.0",org.javers.spring.auditable.aspect.springdata
+ ;version="0.0.0",org.slf4j;version="0.0.0",org.springframework.transa
+ ction;version="5.1.0.RC1",org.springframework.transaction.support;ver
+ sion="5.1.0.RC1"

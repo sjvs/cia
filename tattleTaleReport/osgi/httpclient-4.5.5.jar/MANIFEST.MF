@@ -84,12 +84,12 @@ Import-Package: java.io,java.lang,java.lang.ref,java.lang.reflect,java
  x.crypto.spec,javax.naming,javax.naming.directory,javax.naming.ldap,j
  avax.net,javax.net.ssl,javax.security.auth.x500,org.apache.commons.co
  dec.binary;version="1.11",org.apache.commons.logging;version="0.0.0",
- org.apache.http;version="4.4.9",org.apache.http.annotation;version="4
- .4.9",org.apache.http.concurrent;version="4.4.9",org.apache.http.conf
- ig;version="4.4.9",org.apache.http.entity;version="4.4.9",org.apache.
- http.impl;version="4.4.9",org.apache.http.impl.entity;version="4.4.9"
- ,org.apache.http.impl.io;version="4.4.9",org.apache.http.io;version="
- 4.4.9",org.apache.http.message;version="4.4.9",org.apache.http.params
- ;version="4.4.9",org.apache.http.pool;version="4.4.9",org.apache.http
- .protocol;version="4.4.9",org.apache.http.ssl;version="4.4.9",org.apa
- che.http.util;version="4.4.9",org.ietf.jgss
+ org.apache.http;version="4.4.10",org.apache.http.annotation;version="
+ 4.4.10",org.apache.http.concurrent;version="4.4.10",org.apache.http.c
+ onfig;version="4.4.10",org.apache.http.entity;version="4.4.10",org.ap
+ ache.http.impl;version="4.4.10",org.apache.http.impl.entity;version="
+ 4.4.10",org.apache.http.impl.io;version="4.4.10",org.apache.http.io;v
+ ersion="4.4.10",org.apache.http.message;version="4.4.10",org.apache.h
+ ttp.params;version="4.4.10",org.apache.http.pool;version="4.4.10",org
+ .apache.http.protocol;version="4.4.10",org.apache.http.ssl;version="4
+ .4.10",org.apache.http.util;version="4.4.10",org.ietf.jgss

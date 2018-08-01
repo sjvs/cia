@@ -31,4 +31,4 @@ Export-Package: org.elasticsearch.client.sniff;uses:="com.fasterxml.ja
 Import-Package: com.fasterxml.jackson.core;version="2.9.6",java.io,jav
  a.lang,java.net,java.security,java.util,java.util.concurrent,java.uti
  l.concurrent.atomic,org.apache.commons.logging;version="0.0.0",org.ap
- ache.http;version="4.4.9",org.elasticsearch.client;version="5.6.8"
+ ache.http;version="4.4.10",org.elasticsearch.client;version="5.6.8"

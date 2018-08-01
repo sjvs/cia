@@ -1,9 +1,9 @@
 digraph poi_all_3_17_dependencies {
   node [shape = box, fontsize=10.0];
-  poi_all_3_17 -> bcpkix_jdk15on_1_59;
-  poi_all_3_17 -> bcprov_jdk15on_1_59;
+  poi_all_3_17 -> bcpkix_jdk15on_1_60;
+  poi_all_3_17 -> bcprov_jdk15on_1_60;
   poi_all_3_17 -> commons_codec_1_11;
-  poi_all_3_17 -> commons_collections4_4_1;
+  poi_all_3_17 -> commons_collections4_4_2;
   poi_all_3_17 -> curvesapi_1_06;
   poi_all_3_17 -> jaxb_api_2_3_0;
   poi_all_3_17 -> jcl_over_slf4j_1_8_0_beta2;

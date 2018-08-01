@@ -496,8 +496,8 @@ Import-Package: com.graphbuilder.curve;version="0.0.0",com.graphbuilde
  .xml.transform.stream;version="1.0",javax.xml.validation;version="1.0
  ",javax.xml.xpath;version="1.0",junit.framework,org.apache.commons.co
  dec.digest;version="1.11",org.apache.commons.collections4;version="4.
- 1",org.apache.commons.collections4.bidimap;version="4.1",org.apache.c
- ommons.collections4.multimap;version="4.1",org.apache.commons.logging
+ 2",org.apache.commons.collections4.bidimap;version="4.2",org.apache.c
+ ommons.collections4.multimap;version="4.2",org.apache.commons.logging
  ;version="0.0.0",org.apache.jcp.xml.dsig.internal.dom,org.apache.xml.
  security,org.apache.xml.security.c14n,org.apache.xml.security.signatu
  re,org.apache.xml.security.utils,org.apache.xmlbeans,org.apache.xmlbe

@@ -587,7 +587,7 @@ Import-Package: com.gargoylesoftware.htmlunit,com.gargoylesoftware.htm
  rsion="0.0.0",com.google.gwt.thirdparty.json;version="0.0.0",com.goog
  le.gwt.util.regexfilter;version="0.0.0",com.google.gwt.util.tools;ver
  sion="0.0.0",com.google.gwt.util.tools.shared;version="0.0.0",com.ibm
- .icu.text;version="61",com.ibm.icu.util;version="61",com.thoughtworks
+ .icu.text;version="62",com.ibm.icu.util;version="62",com.thoughtworks
  .selenium,java.awt,java.awt.geom,java.awt.image,java.beans,java.io,ja
  va.lang,java.lang.annotation,java.lang.ref,java.lang.reflect,java.mat
  h,java.net,java.nio,java.nio.charset,java.security,java.sql,java.text

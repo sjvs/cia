@@ -1,0 +1,66 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.kie.dmn.core
+Built-By: jenkins
+Bnd-LastModified: 1532440389204
+Implementation-Vendor-Id: org.kie
+Specification-Title: KIE :: Decision Model Notation :: Core
+Bundle-DocURL: http://www.jboss.org/
+Include-Resource: META-INF/kie.conf=src/main/resources/META-INF/kie.co
+ nf
+Import-Package: org.kie.dmn.model.v1_1,javax.xml.namespace,javax.xml.s
+ tream,org.antlr.v4.runtime,org.drools.compiler.builder.impl,org.drool
+ s.compiler.compiler,org.drools.compiler.kie.builder.impl,org.drools.c
+ ompiler.lang.descr,org.drools.core.common,org.drools.core.definitions
+ ,org.drools.core.impl,org.kie.api,org.kie.api.builder,org.kie.api.con
+ f,org.kie.api.definition,org.kie.api.internal.assembler,org.kie.api.i
+ nternal.io,org.kie.api.internal.runtime,org.kie.api.internal.weaver,o
+ rg.kie.api.io,org.kie.api.runtime,org.kie.dmn.api.core,org.kie.dmn.ap
+ i.core.ast,org.kie.dmn.api.core.event,org.kie.dmn.api.feel.runtime.ev
+ ents,org.kie.dmn.api.marshalling.v1_1,org.kie.dmn.backend.marshalling
+ .v1_1,org.kie.dmn.backend.marshalling.v1_1.xstream.extensions,org.kie
+ .dmn.core.api,org.kie.dmn.core.ast,org.kie.dmn.core.compiler,org.kie.
+ dmn.core.compiler.profiles,org.kie.dmn.core.impl,org.kie.dmn.core.uti
+ l,org.kie.dmn.feel,org.kie.dmn.feel.lang,org.kie.dmn.feel.lang.ast,or
+ g.kie.dmn.feel.lang.impl,org.kie.dmn.feel.lang.types,org.kie.dmn.feel
+ .parser.feel11,org.kie.dmn.feel.parser.feel11.profiles,org.kie.dmn.fe
+ el.runtime,org.kie.dmn.feel.runtime.decisiontables,org.kie.dmn.feel.r
+ untime.events,org.kie.dmn.feel.runtime.functions,org.kie.dmn.feel.uti
+ l,org.kie.dmn.model.v1_1.extensions,org.kie.internal.builder,org.kie.
+ internal.osgi,org.kie.internal.utils,org.slf4j
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Scm-Url: https://github.com/kiegroup/drools/kie-dmn/kie-dmn-core
+Export-Package: org.kie.dmn.core.api;version="7.9.0",org.kie.dmn.core.
+ api.event;version="7.9.0",org.kie.dmn.core.assembler;version="7.9.0",
+ org.kie.dmn.core.ast;version="7.9.0",org.kie.dmn.core.compiler;versio
+ n="7.9.0",org.kie.dmn.core.compiler.profiles;version="7.9.0",org.kie.
+ dmn.core.impl;version="7.9.0",org.kie.dmn.core.osgi;version="7.9.0",o
+ rg.kie.dmn.core.runtime;version="7.9.0",org.kie.dmn.core.util;version
+ ="7.9.0",org.kie.dmn.core.weaver;version="7.9.0"
+Bundle-Name: KIE :: Decision Model Notation :: Core
+Bundle-Activator: org.kie.dmn.core.osgi.Activator
+Bundle-Description: Top level pom for the KIE DMN support implementati
+ on
+Implementation-Title: KIE :: Decision Model Notation :: Core
+Automatic-Module-Name: org.kie.dmn.core
+Implementation-Version: 7.9.0.Final
+Java-Version: 1.8.0_131
+Scm-Connection: scm:git:https://github.com:kiegroup/drools.git/kie-dmn
+ /kie-dmn-core
+Bundle-ManifestVersion: 2
+Os-Arch: amd64
+Specification-Vendor: JBoss by Red Hat
+Bundle-Vendor: JBoss by Red Hat
+Java-Vendor: Oracle Corporation
+Os-Name: Linux
+Tool: Bnd-3.3.0.201609221906
+Implementation-Vendor: JBoss by Red Hat
+Os-Version: 3.10.0-514.el7.x86_64
+Bundle-Version: 7.9.0.201807241338
+Scm-Revision: 112cc585e36034c824fcf9ed55f128f95594b976
+Build-Jdk: 1.8.0_131
+Created-By: Apache Maven Bundle Plugin
+Implementation-URL: http://www.kiegroup.org/drools/kie-dmn/kie-dmn-cor
+ e
+Specification-Version: 7.9.0.Final
+

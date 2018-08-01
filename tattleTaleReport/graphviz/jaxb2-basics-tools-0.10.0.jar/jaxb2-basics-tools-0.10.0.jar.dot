@@ -7,7 +7,7 @@ digraph jaxb2_basics_tools_0_10_0_dependencies {
   jaxb2_basics_tools_0_10_0 -> jaxb_xjc_2_3_0_1;
   jaxb2_basics_tools_0_10_0 -> jaxb2_basics_runtime_0_12_0;
   jaxb2_basics_tools_0_10_0 -> jcl_over_slf4j_1_8_0_beta2;
-  jaxb2_basics_tools_0_10_0 -> spring_beans_5_0_7_RELEASE;
-  jaxb2_basics_tools_0_10_0 -> spring_context_5_0_7_RELEASE;
+  jaxb2_basics_tools_0_10_0 -> spring_beans_5_1_0_RC1;
+  jaxb2_basics_tools_0_10_0 -> spring_context_5_1_0_RC1;
   jaxb2_basics_tools_0_10_0 -> xml_apis_1_4_01;
 }

@@ -1,0 +1,46 @@
+Manifest-Version: 1.0
+Implementation-Title: ActiveMQ :: Web
+Implementation-Version: 5.15.5
+Archiver-Version: Plexus Archiver
+Built-By: cshannon
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: ActiveMQ :: Web
+Implementation-Vendor-Id: org.apache.activemq
+Created-By: Apache Maven 3.5.0
+Build-Jdk: 1.8.0_172
+Specification-Version: 5.15.5
+Implementation-Vendor: The Apache Software Foundation
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.apache.activemq.web
+Bundle-Description: activemq-web-5.15.5
+Bundle-Name: activemq-web-5.15.5
+Bundle-Version: 5.15.5
+Export-Package: org.apache.activemq.web;uses:="org.apache.activemq,org
+ .apache.activemq.broker,org.apache.activemq.broker.jmx,org.apache.act
+ ivemq.broker.region,org.apache.activemq.broker.util,org.apache.active
+ mq.command,org.apache.activemq.util,org.apache.activemq.web.config,or
+ g.apache.activemq.web.util,org.apache.activemq.web.view,org.apache.ac
+ tivemq.xbean,org.eclipse.jetty.continuation",org.apache.activemq.web.
+ config;uses:="org.apache.activemq,org.eclipse.jetty.server,org.eclips
+ e.jetty.server.handler,org.eclipse.jetty.webapp",org.apache.activemq.
+ web.util,org.apache.activemq.web.view;uses:="com.sun.syndication.feed
+ .synd,com.sun.syndication.io,com.thoughtworks.xstream"
+Import-Package: com.sun.syndication.feed.synd,com.sun.syndication.io,c
+ om.thoughtworks.xstream;version="1.4",java.io,java.lang,java.net,java
+ .util,java.util.concurrent,javax.jms;version="0.0.0",javax.management
+ ,javax.management.openmbean,javax.management.remote,javax.naming,java
+ x.servlet,javax.servlet.http,javax.xml.bind;version="2.3.0",org.apach
+ e.activemq;version="5.15.5",org.apache.activemq.broker;version="5.15.
+ 5",org.apache.activemq.broker.jmx;version="5.15.5",org.apache.activem
+ q.broker.region;version="5.15.5",org.apache.activemq.broker.util;vers
+ ion="5.15.5",org.apache.activemq.command;version="5.15.5",org.apache.
+ activemq.util;version="5.15.5",org.apache.activemq.xbean;version="5.1
+ 5.5",org.eclipse.jetty.continuation,org.eclipse.jetty.server,org.ecli
+ pse.jetty.server.handler,org.eclipse.jetty.webapp,org.slf4j;version="
+ 0.0.0",org.springframework.beans.factory;version="5.1.0.RC1",org.spri
+ ngframework.core.io;version="5.1.0.RC1",org.springframework.util;vers
+ ion="5.1.0.RC1",org.springframework.web.context.support;version="5.1.
+ 0.RC1",org.springframework.web.servlet;version="5.1.0.RC1"

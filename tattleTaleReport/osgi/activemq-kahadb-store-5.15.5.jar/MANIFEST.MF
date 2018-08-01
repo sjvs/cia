@@ -1,0 +1,72 @@
+Manifest-Version: 1.0
+Implementation-Title: ActiveMQ :: KahaDB Store
+Implementation-Version: 5.15.5
+Archiver-Version: Plexus Archiver
+Built-By: cshannon
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: ActiveMQ :: KahaDB Store
+Implementation-Vendor-Id: org.apache.activemq
+Created-By: Apache Maven 3.5.0
+Build-Jdk: 1.8.0_172
+Specification-Version: 5.15.5
+Implementation-Vendor: The Apache Software Foundation
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.apache.activemq.store.kahadb
+Bundle-Description: activemq-kahadb-store-5.15.5
+Bundle-Name: activemq-kahadb-store-5.15.5
+Bundle-Version: 5.15.5
+Export-Package: org.apache.activemq.store.kahadb;uses:="org.apache.act
+ ivemq,org.apache.activemq.broker,org.apache.activemq.broker.jmx,org.a
+ pache.activemq.broker.region,org.apache.activemq.broker.scheduler,org
+ .apache.activemq.command,org.apache.activemq.filter,org.apache.active
+ mq.management,org.apache.activemq.openwire,org.apache.activemq.protob
+ uf,org.apache.activemq.store,org.apache.activemq.store.kahadb.data,or
+ g.apache.activemq.store.kahadb.disk.index,org.apache.activemq.store.k
+ ahadb.disk.journal,org.apache.activemq.store.kahadb.disk.page,org.apa
+ che.activemq.store.kahadb.disk.util,org.apache.activemq.store.kahadb.
+ scheduler,org.apache.activemq.usage,org.apache.activemq.util,org.apac
+ he.activemq.wireformat",org.apache.activemq.store.kahadb.data;uses:="
+ org.apache.activemq.protobuf,org.apache.activemq.store.kahadb",org.ap
+ ache.activemq.store.kahadb.disk.index;uses:="org.apache.activemq.stor
+ e.kahadb.disk.page,org.apache.activemq.store.kahadb.disk.util",org.ap
+ ache.activemq.store.kahadb.disk.journal;uses:="java.lang,org.apache.a
+ ctivemq.store.kahadb.disk.util,org.apache.activemq.util",org.apache.a
+ ctivemq.store.kahadb.disk.page;uses:="org.apache.activemq.store.kahad
+ b.disk.util,org.apache.activemq.util",org.apache.activemq.store.kahad
+ b.disk.util;uses:="java.lang,org.apache.activemq.store.kahadb.disk.jo
+ urnal,org.apache.activemq.store.kahadb.disk.page,org.apache.activemq.
+ util",org.apache.activemq.store.kahadb.plist;uses:="org.apache.active
+ mq.broker,org.apache.activemq.management,org.apache.activemq.store,or
+ g.apache.activemq.store.kahadb.disk.index,org.apache.activemq.store.k
+ ahadb.disk.journal,org.apache.activemq.store.kahadb.disk.page,org.apa
+ che.activemq.store.kahadb.disk.util,org.apache.activemq.thread,org.ap
+ ache.activemq.util",org.apache.activemq.store.kahadb.scheduler;uses:=
+ "org.apache.activemq.broker.scheduler,org.apache.activemq.protobuf,or
+ g.apache.activemq.store.kahadb,org.apache.activemq.store.kahadb.data,
+ org.apache.activemq.store.kahadb.disk.index,org.apache.activemq.store
+ .kahadb.disk.journal,org.apache.activemq.store.kahadb.disk.page,org.a
+ pache.activemq.store.kahadb.disk.util,org.apache.activemq.store.kahad
+ b.scheduler.legacy,org.apache.activemq.util",org.apache.activemq.stor
+ e.kahadb.scheduler.legacy;uses:="org.apache.activemq.protobuf,org.apa
+ che.activemq.store.kahadb,org.apache.activemq.store.kahadb.data,org.a
+ pache.activemq.store.kahadb.disk.index,org.apache.activemq.store.kaha
+ db.disk.journal,org.apache.activemq.store.kahadb.disk.page,org.apache
+ .activemq.store.kahadb.disk.util,org.apache.activemq.store.kahadb.sch
+ eduler,org.apache.activemq.util",org.apache.activemq.util
+Import-Package: java.io,java.lang,java.lang.ref,java.nio,java.nio.chan
+ nels,java.nio.charset,java.util,java.util.concurrent,java.util.concur
+ rent.atomic,java.util.concurrent.locks,java.util.zip,javax.jms;versio
+ n="0.0.0",javax.management,javax.transaction.xa,org.apache.activemq;v
+ ersion="5.15.5",org.apache.activemq.broker;version="5.15.5",org.apach
+ e.activemq.broker.jmx;version="5.15.5",org.apache.activemq.broker.reg
+ ion;version="5.15.5",org.apache.activemq.broker.scheduler;version="5.
+ 15.5",org.apache.activemq.command;version="5.15.5",org.apache.activem
+ q.filter;version="5.15.5",org.apache.activemq.management;version="5.1
+ 5.5",org.apache.activemq.openwire;version="5.15.5",org.apache.activem
+ q.protobuf,org.apache.activemq.store;version="5.15.5",org.apache.acti
+ vemq.thread;version="5.15.5",org.apache.activemq.usage;version="5.15.
+ 5",org.apache.activemq.util;version="5.15.5",org.apache.activemq.wire
+ format;version="5.15.5",org.slf4j;version="0.0.0"

@@ -51,7 +51,7 @@ public final class MainViewLoginPageModContentFactoryImpl extends AbstractPageMo
 
 	private static final String LOGIN = &quot;Login&quot;;
 
-	private static final String REGISTER_A_NEW_USER = &quot;Register a new user&quot;;
+	private static final String LOGIN_USER = &quot;Login user&quot;;
 
 <span class="fc" id="L56">	private static final List&lt;String&gt; AS_LIST = Arrays.asList( &quot;email&quot;, &quot;otpCode&quot;, &quot;userpassword&quot; );</span>
 
@@ -114,7 +114,7 @@ public final class MainViewLoginPageModContentFactoryImpl extends AbstractPageMo
 <span class="fc" id="L114">		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);</span>
 
 <span class="fc" id="L116">		final ResponsiveRow grid = createGridLayout(overviewLayout);		</span>
-<span class="fc" id="L117">		createRowComponent(grid,loginLayout,REGISTER_A_NEW_USER);</span>
+<span class="fc" id="L117">		createRowComponent(grid,loginLayout,LOGIN_USER);</span>
 		
 <span class="fc" id="L119">		panel.setCaption(NAME + &quot;::&quot; + CITIZEN_INTELLIGENCE_AGENCY_MAIN);</span>
 <span class="fc" id="L120">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,</span>

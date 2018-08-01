@@ -1,0 +1,7 @@
+digraph activemq_jms_pool_5_15_5_dependencies {
+  node [shape = box, fontsize=10.0];
+  activemq_jms_pool_5_15_5 -> commons_pool2_2_6_0;
+  activemq_jms_pool_5_15_5 -> jboss_transaction_api_1_2_spec_1_1_1_Final;
+  activemq_jms_pool_5_15_5 -> jms_1_1;
+  activemq_jms_pool_5_15_5 -> slf4j_api_1_8_0_beta2;
+}

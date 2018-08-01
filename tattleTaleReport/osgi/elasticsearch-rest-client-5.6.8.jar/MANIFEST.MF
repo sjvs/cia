@@ -36,15 +36,15 @@ Export-Package: org.elasticsearch.client;uses:="java.nio.charset,java.
 Import-Package: java.io,java.lang,java.net,java.nio.charset,java.secur
  ity,java.util,java.util.concurrent,java.util.concurrent.atomic,javax.
  net.ssl,org.apache.commons.logging;version="0.0.0",org.apache.http;ve
- rsion="4.4.9",org.apache.http.auth;version="4.5.5",org.apache.http.cl
- ient;version="4.5.5",org.apache.http.client.config;version="4.5.5",or
- g.apache.http.client.methods;version="4.5.5",org.apache.http.client.p
- rotocol;version="4.5.5",org.apache.http.client.utils;version="4.5.5",
- org.apache.http.concurrent;version="4.4.9",org.apache.http.entity;ver
- sion="4.4.9",org.apache.http.impl.auth;version="4.5.5",org.apache.htt
- p.impl.client;version="4.5.5",org.apache.http.impl.nio.client;version
- ="4.1.2",org.apache.http.nio;version="4.4.5",org.apache.http.nio.clie
- nt.methods;version="4.1.2",org.apache.http.nio.entity;version="4.4.5"
- ,org.apache.http.nio.protocol;version="4.4.5",org.apache.http.nio.uti
- l;version="4.4.5",org.apache.http.protocol;version="4.4.9",org.apache
- .http.util;version="4.4.9"
+ rsion="4.4.10",org.apache.http.auth;version="4.5.5",org.apache.http.c
+ lient;version="4.5.5",org.apache.http.client.config;version="4.5.5",o
+ rg.apache.http.client.methods;version="4.5.5",org.apache.http.client.
+ protocol;version="4.5.5",org.apache.http.client.utils;version="4.5.5"
+ ,org.apache.http.concurrent;version="4.4.10",org.apache.http.entity;v
+ ersion="4.4.10",org.apache.http.impl.auth;version="4.5.5",org.apache.
+ http.impl.client;version="4.5.5",org.apache.http.impl.nio.client;vers
+ ion="4.1.2",org.apache.http.nio;version="4.4.5",org.apache.http.nio.c
+ lient.methods;version="4.1.2",org.apache.http.nio.entity;version="4.4
+ .5",org.apache.http.nio.protocol;version="4.4.5",org.apache.http.nio.
+ util;version="4.4.5",org.apache.http.protocol;version="4.4.10",org.ap
+ ache.http.util;version="4.4.10"

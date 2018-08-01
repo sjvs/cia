@@ -112,7 +112,7 @@ public final class AuthorizationFailureEventListener implements ApplicationListe
 <span class="pc bpc" id="L112" title="1 of 2 branches missed.">		if (authorizationFailureEvent.getSource() instanceof ReflectiveMethodInvocation) {</span>
 <span class="fc" id="L113">			final ReflectiveMethodInvocation methodInvocation = (ReflectiveMethodInvocation) authorizationFailureEvent</span>
 <span class="fc" id="L114">					.getSource();</span>
-<span class="pc bpc" id="L115" title="2 of 4 branches missed.">			if (methodInvocation.getMethod() != null &amp;&amp; methodInvocation.getThis() != null) {</span>
+<span class="pc bpc" id="L115" title="3 of 6 branches missed.">			if (methodInvocation != null &amp;&amp; methodInvocation.getMethod() != null &amp;&amp; methodInvocation.getThis() != null) {</span>
 <span class="fc" id="L116">				methodInfo = methodInvocation.getThis().getClass().getSimpleName() + &quot;.&quot;</span>
 <span class="fc" id="L117">						+ methodInvocation.getMethod().getName();</span>
 			}

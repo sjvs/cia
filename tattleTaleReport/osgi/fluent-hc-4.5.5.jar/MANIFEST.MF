@@ -31,16 +31,16 @@ Export-Package: org.apache.http.client.fluent;uses:="org.apache.http,o
  e.http.impl.conn,org.apache.http.util"
 Import-Package: java.io,java.lang,java.net,java.nio.charset,java.secur
  ity,java.text,java.util,java.util.concurrent,java.util.concurrent.ato
- mic,javax.net.ssl,org.apache.http;version="4.4.9",org.apache.http.aut
- h;version="4.5.5",org.apache.http.client;version="4.5.5",org.apache.h
- ttp.client.config;version="4.5.5",org.apache.http.client.methods;vers
- ion="4.5.5",org.apache.http.client.protocol;version="4.5.5",org.apach
- e.http.client.utils;version="4.5.5",org.apache.http.concurrent;versio
- n="4.4.9",org.apache.http.config;version="4.4.9",org.apache.http.conn
- ;version="4.5.5",org.apache.http.conn.scheme;version="4.5.5",org.apac
- he.http.conn.socket;version="4.5.5",org.apache.http.conn.ssl;version=
- "4.5.5",org.apache.http.entity;version="4.4.9",org.apache.http.impl.a
- uth;version="4.5.5",org.apache.http.impl.client;version="4.5.5",org.a
- pache.http.impl.conn;version="4.5.5",org.apache.http.message;version=
- "4.4.9",org.apache.http.protocol;version="4.4.9",org.apache.http.util
- ;version="4.4.9"
+ mic,javax.net.ssl,org.apache.http;version="4.4.10",org.apache.http.au
+ th;version="4.5.5",org.apache.http.client;version="4.5.5",org.apache.
+ http.client.config;version="4.5.5",org.apache.http.client.methods;ver
+ sion="4.5.5",org.apache.http.client.protocol;version="4.5.5",org.apac
+ he.http.client.utils;version="4.5.5",org.apache.http.concurrent;versi
+ on="4.4.10",org.apache.http.config;version="4.4.10",org.apache.http.c
+ onn;version="4.5.5",org.apache.http.conn.scheme;version="4.5.5",org.a
+ pache.http.conn.socket;version="4.5.5",org.apache.http.conn.ssl;versi
+ on="4.5.5",org.apache.http.entity;version="4.4.10",org.apache.http.im
+ pl.auth;version="4.5.5",org.apache.http.impl.client;version="4.5.5",o
+ rg.apache.http.impl.conn;version="4.5.5",org.apache.http.message;vers
+ ion="4.4.10",org.apache.http.protocol;version="4.4.10",org.apache.htt
+ p.util;version="4.4.10"

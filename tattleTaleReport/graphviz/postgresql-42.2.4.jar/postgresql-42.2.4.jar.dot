@@ -1,0 +1,7 @@
+digraph postgresql_42_2_4_dependencies {
+  node [shape = box, fontsize=10.0];
+  postgresql_42_2_4 -> jna_4_5_2;
+  postgresql_42_2_4 -> jna_platform_4_5_2;
+  postgresql_42_2_4 -> org_osgi_core_6_0_0;
+  postgresql_42_2_4 -> xml_apis_1_4_01;
+}

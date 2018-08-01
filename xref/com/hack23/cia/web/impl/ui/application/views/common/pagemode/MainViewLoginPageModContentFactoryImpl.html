@@ -59,7 +59,7 @@
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String LOGIN = <span class="jxr_string">"Login"</span>;
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String REGISTER_A_NEW_USER = <span class="jxr_string">"Register a new user"</span>;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String LOGIN_USER = <span class="jxr_string">"Login user"</span>;
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> List&lt;String&gt; AS_LIST = Arrays.asList( <span class="jxr_string">"email"</span>, <span class="jxr_string">"otpCode"</span>, <span class="jxr_string">"userpassword"</span> );
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>  
@@ -122,7 +122,7 @@
 <a class="jxr_linenumber" name="L114" href="#L114">114</a> 		content.setExpandRatio(overviewLayout, ContentRatio.LARGE);
 <a class="jxr_linenumber" name="L115" href="#L115">115</a> 
 <a class="jxr_linenumber" name="L116" href="#L116">116</a> 		<strong class="jxr_keyword">final</strong> ResponsiveRow grid = createGridLayout(overviewLayout);		
-<a class="jxr_linenumber" name="L117" href="#L117">117</a> 		createRowComponent(grid,loginLayout,REGISTER_A_NEW_USER);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> 		createRowComponent(grid,loginLayout,LOGIN_USER);
 <a class="jxr_linenumber" name="L118" href="#L118">118</a> 		
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> 		panel.setCaption(NAME + <span class="jxr_string">"::"</span> + CITIZEN_INTELLIGENCE_AGENCY_MAIN);
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> 		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MAIN_VIEW, ApplicationEventGroup.USER,

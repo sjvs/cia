@@ -1,0 +1,13 @@
+digraph spring_messaging_5_1_0_RC1_dependencies {
+  node [shape = box, fontsize=10.0];
+  spring_messaging_5_1_0_RC1 -> jackson_annotations_2_9_0;
+  spring_messaging_5_1_0_RC1 -> jackson_core_2_9_6;
+  spring_messaging_5_1_0_RC1 -> jackson_databind_2_9_6;
+  spring_messaging_5_1_0_RC1 -> jcl_over_slf4j_1_8_0_beta2;
+  spring_messaging_5_1_0_RC1 -> spring_beans_5_1_0_RC1;
+  spring_messaging_5_1_0_RC1 -> spring_context_5_1_0_RC1;
+  spring_messaging_5_1_0_RC1 -> spring_core_5_1_0_RC1;
+  spring_messaging_5_1_0_RC1 -> spring_expression_5_1_0_RC1;
+  spring_messaging_5_1_0_RC1 -> spring_oxm_5_1_0_RC1;
+  spring_messaging_5_1_0_RC1 -> xml_apis_1_4_01;
+}

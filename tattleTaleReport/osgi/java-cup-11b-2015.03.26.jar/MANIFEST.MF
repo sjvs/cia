@@ -14,4 +14,4 @@ Bundle-Version: 0.0.0
 Export-Package: java_cup;uses:="java_cup.runtime",java_cup.anttask;use
  s:="java_cup,org.apache.tools.ant",java_cup.runtime
 Import-Package: java.io,java.lang,java.lang.reflect,java.util,org.apac
- he.tools.ant;version="1.10.3"
+ he.tools.ant;version="1.10.5"

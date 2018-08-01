@@ -1,0 +1,58 @@
+Manifest-Version: 1.0
+Vaadin-License-Title: Apache License 2.0
+Implementation-Title: Vaadin Spring
+Implementation-Version: 3.1.0
+Archiver-Version: Plexus Archiver
+Vaadin-Package-Version: 1
+Built-By: root
+Implementation-Vendor-Id: com.vaadin
+Created-By: Apache Maven
+Build-Jdk: 1.8.0_171
+Implementation-Vendor: Vaadin Ltd
+
+
+### OSGi information
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.vaadin.spring.internal
+Bundle-Description: vaadin-spring-3.1.0
+Bundle-Name: vaadin-spring-3.1.0
+Bundle-Version: 3.1.0
+Export-Package: com.vaadin.spring;uses:="com.vaadin.spring.annotation,
+ com.vaadin.spring.internal,com.vaadin.spring.navigator,com.vaadin.ui.
+ declarative,org.springframework.beans.factory.support",com.vaadin.spr
+ ing.access;uses:="com.vaadin.navigator,com.vaadin.ui",com.vaadin.spri
+ ng.annotation;uses:="com.vaadin.spring",com.vaadin.spring.internal;us
+ es:="com.vaadin.navigator,com.vaadin.server,com.vaadin.shared,com.vaa
+ din.spring.annotation,com.vaadin.spring.navigator,com.vaadin.ui,com.v
+ aadin.ui.declarative,com.vaadin.util,java.lang.invoke,java.util.funct
+ ion,java.util.stream",com.vaadin.spring.navigator;uses:="com.vaadin.n
+ avigator,com.vaadin.server,com.vaadin.spring.access,com.vaadin.spring
+ .annotation,com.vaadin.spring.internal,com.vaadin.spring.server,com.v
+ aadin.ui,org.springframework.beans.factory,org.springframework.core.a
+ nnotation,org.springframework.core.env",com.vaadin.spring.server;uses
+ :="com.vaadin.navigator,com.vaadin.server,com.vaadin.server.communica
+ tion,com.vaadin.shared,com.vaadin.spring.annotation,com.vaadin.spring
+ .internal,com.vaadin.spring.navigator,com.vaadin.ui,com.vaadin.util,j
+ ava.lang.invoke,java.nio.charset,java.util,java.util.function,java.ut
+ il.stream,org.springframework.beans.factory,org.springframework.core.
+ env"
+Import-Package: com.vaadin.navigator;version="8.6.0.alpha1",com.vaadin
+ .server;version="8.6.0.alpha1",com.vaadin.server.communication;versio
+ n="8.6.0.alpha1",com.vaadin.shared;version="8.6.0.alpha1",com.vaadin.
+ ui;version="8.6.0.alpha1",com.vaadin.ui.declarative;version="8.6.0.al
+ pha1",com.vaadin.util;version="8.6.0.alpha1",java.io,java.lang,java.l
+ ang.annotation,java.lang.invoke,java.lang.reflect,java.net,java.nio.c
+ harset,java.util,java.util.concurrent,java.util.function,java.util.st
+ ream,javax.annotation,javax.servlet,javax.servlet.http,org.slf4j;vers
+ ion="0.0.0",org.springframework.beans;version="5.1.0.RC1",org.springf
+ ramework.beans.factory;version="5.1.0.RC1",org.springframework.beans.
+ factory.annotation;version="5.1.0.RC1",org.springframework.beans.fact
+ ory.config;version="5.1.0.RC1",org.springframework.beans.factory.supp
+ ort;version="5.1.0.RC1",org.springframework.context;version="5.1.0.RC
+ 1",org.springframework.context.annotation;version="5.1.0.RC1",org.spr
+ ingframework.core.annotation;version="5.1.0.RC1",org.springframework.
+ core.env;version="5.1.0.RC1",org.springframework.core.type;version="5
+ .1.0.RC1",org.springframework.stereotype;version="5.1.0.RC1",org.spri
+ ngframework.util;version="5.1.0.RC1",org.springframework.web.context;
+ version="5.1.0.RC1",org.springframework.web.context.support;version="
+ 5.1.0.RC1",org.springframework.web.util;version="5.1.0.RC1"

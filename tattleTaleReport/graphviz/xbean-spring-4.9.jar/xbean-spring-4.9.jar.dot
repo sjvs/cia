@@ -1,0 +1,10 @@
+digraph xbean_spring_4_9_dependencies {
+  node [shape = box, fontsize=10.0];
+  xbean_spring_4_9 -> ant_1_10_5;
+  xbean_spring_4_9 -> jcl_over_slf4j_1_8_0_beta2;
+  xbean_spring_4_9 -> spring_beans_5_1_0_RC1;
+  xbean_spring_4_9 -> spring_context_5_1_0_RC1;
+  xbean_spring_4_9 -> spring_core_5_1_0_RC1;
+  xbean_spring_4_9 -> spring_web_5_1_0_RC1;
+  xbean_spring_4_9 -> xml_apis_1_4_01;
+}

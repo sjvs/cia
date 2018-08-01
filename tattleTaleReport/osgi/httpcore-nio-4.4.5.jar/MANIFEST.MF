@@ -63,12 +63,12 @@ Export-Package: org.apache.http.impl.nio;uses:="org.apache.http,org.ap
 Import-Package: java.io,java.lang,java.lang.annotation,java.net,java.n
  io,java.nio.channels,java.nio.charset,java.security,java.util,java.ut
  il.concurrent,java.util.concurrent.atomic,java.util.concurrent.locks,
- javax.net.ssl,org.apache.http;version="4.4.9",org.apache.http.annotat
- ion;version="4.4.9",org.apache.http.concurrent;version="4.4.9",org.ap
- ache.http.config;version="4.4.9",org.apache.http.entity;version="4.4.
- 9",org.apache.http.impl;version="4.4.9",org.apache.http.impl.entity;v
- ersion="4.4.9",org.apache.http.impl.io;version="4.4.9",org.apache.htt
- p.io;version="4.4.9",org.apache.http.message;version="4.4.9",org.apac
- he.http.params;version="4.4.9",org.apache.http.pool;version="4.4.9",o
- rg.apache.http.protocol;version="4.4.9",org.apache.http.ssl;version="
- 4.4.9",org.apache.http.util;version="4.4.9"
+ javax.net.ssl,org.apache.http;version="4.4.10",org.apache.http.annota
+ tion;version="4.4.10",org.apache.http.concurrent;version="4.4.10",org
+ .apache.http.config;version="4.4.10",org.apache.http.entity;version="
+ 4.4.10",org.apache.http.impl;version="4.4.10",org.apache.http.impl.en
+ tity;version="4.4.10",org.apache.http.impl.io;version="4.4.10",org.ap
+ ache.http.io;version="4.4.10",org.apache.http.message;version="4.4.10
+ ",org.apache.http.params;version="4.4.10",org.apache.http.pool;versio
+ n="4.4.10",org.apache.http.protocol;version="4.4.10",org.apache.http.
+ ssl;version="4.4.10",org.apache.http.util;version="4.4.10"

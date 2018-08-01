@@ -18,6 +18,7 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.user.document;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ import com.vaadin.spring.annotation.SpringView;
  * The Class PartyView.
  */
 @Service
-@Scope(value = &quot;prototype&quot;)
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @SpringView(name = SearchDocumentView.NAME)
 public final class SearchDocumentView extends AbstractUserView {
 
@@ -48,9 +49,9 @@ public final class SearchDocumentView extends AbstractUserView {
 	 *            the context
 	 */
 	public SearchDocumentView(final ApplicationContext context) {
-<span class="fc" id="L51">		super(context.getBeansOfType(PageModeContentFactory.class), NAME);</span>
+<span class="fc" id="L52">		super(context.getBeansOfType(PageModeContentFactory.class), NAME);</span>
 
-<span class="fc" id="L53">	}</span>
+<span class="fc" id="L54">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>
