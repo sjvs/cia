@@ -1,7 +1,7 @@
 digraph viritin_2_1_dependencies {
   node [shape = box, fontsize=10.0];
   viritin_2_1 -> commons_io_2_6;
-  viritin_2_1 -> commons_lang3_3_7;
+  viritin_2_1 -> commons_lang3_3_8;
   viritin_2_1 -> confirmdialog_3_1_1;
   viritin_2_1 -> gwt_elemental_2_8_2;
   viritin_2_1 -> jsoup_1_11_3;

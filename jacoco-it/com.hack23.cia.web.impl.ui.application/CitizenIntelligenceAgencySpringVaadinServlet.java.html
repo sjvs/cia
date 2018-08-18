@@ -18,23 +18,17 @@
 */
 package com.hack23.cia.web.impl.ui.application;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.DefaultUIProvider;
 import com.vaadin.server.ServiceException;
-import com.vaadin.server.SessionDestroyEvent;
-import com.vaadin.server.SessionDestroyListener;
 import com.vaadin.server.SessionInitEvent;
 import com.vaadin.server.SessionInitListener;
 import com.vaadin.server.UICreateEvent;
@@ -54,120 +48,114 @@ import com.vaadin.util.CurrentInstance;
 /**
  * The Class CitizenIntelligenceAgencySpringVaadinServlet.
  */
-@WebServlet(value = &quot;/*&quot;, loadOnStartup=2, asyncSupported = true)
+@WebServlet(value = &quot;/*&quot;, loadOnStartup = 2, asyncSupported = true)
 @VaadinServletConfiguration(productionMode = true, ui = CitizenIntelligenceAgencyUI.class, widgetset = &quot;com.hack23.cia.web.widgets.WebWidgetSet&quot;)
-<span class="fc" id="L59">public final class CitizenIntelligenceAgencySpringVaadinServlet extends SpringVaadinServlet {</span>
+<span class="fc" id="L53">public final class CitizenIntelligenceAgencySpringVaadinServlet extends SpringVaadinServlet {</span>
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	
-    @Override
-    protected void servletInitialized() throws ServletException {
-<span class="fc" id="L66">        VaadinServletService service = getService();</span>
-<span class="fc" id="L67">        service.addSessionInitListener(new SessionInitListener() {</span>
 
-            private static final long serialVersionUID = -6307820453486668084L;
+	@Override
+	protected void servletInitialized() throws ServletException {
+<span class="fc" id="L60">		VaadinServletService service = getService();</span>
+<span class="fc" id="L61">		service.addSessionInitListener(new SessionInitListener() {</span>
 
-            @Override
-            public void sessionInit(SessionInitEvent sessionInitEvent)
-                    throws ServiceException {
-<span class="fc" id="L74">                WebApplicationContext webApplicationContext = WebApplicationContextUtils</span>
-<span class="fc" id="L75">                        .getWebApplicationContext(getServletContext());</span>
+			private static final long serialVersionUID = -6307820453486668084L;
 
-                // remove DefaultUIProvider instances to avoid mapping
-                // extraneous UIs if e.g. a servlet is declared as a nested
-                // class in a UI class
-<span class="fc" id="L80">                VaadinSession session = sessionInitEvent.getSession();</span>
-<span class="fc" id="L81">                List&lt;UIProvider&gt; uiProviders = new ArrayList&lt;UIProvider&gt;(</span>
-<span class="fc" id="L82">                        session.getUIProviders());</span>
-<span class="fc bfc" id="L83" title="All 2 branches covered.">                for (UIProvider provider : uiProviders) {</span>
-                    // use canonical names as these may have been loaded with
-                    // different classloaders
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                    if (DefaultUIProvider.class.getCanonicalName().equals(</span>
-<span class="fc" id="L87">                            provider.getClass().getCanonicalName())) {</span>
-<span class="fc" id="L88">                        session.removeUIProvider(provider);</span>
-                    }
-<span class="fc" id="L90">                }</span>
+			@Override
+			public void sessionInit(SessionInitEvent sessionInitEvent) throws ServiceException {
+<span class="fc" id="L67">				final VaadinSession session = sessionInitEvent.getSession();</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">				for (UIProvider provider : session.getUIProviders()) {</span>
+					// use canonical names as these may have been loaded with
+					// different classloaders
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">					if (DefaultUIProvider.class.getCanonicalName().equals(provider.getClass().getCanonicalName())) {</span>
+<span class="fc" id="L72">						session.removeUIProvider(provider);</span>
+					}
+<span class="fc" id="L74">				}</span>
 
-                // add Spring UI provider
-<span class="fc" id="L93">                SpringUIProvider uiProvider = new CustomSpringUIProvider(session);</span>
-<span class="fc" id="L94">                session.addUIProvider(uiProvider);</span>
-<span class="fc" id="L95">            }</span>
-        });
-<span class="fc" id="L97">        service.addSessionDestroyListener(new SessionDestroyListener() {</span>
-            @Override
-            public void sessionDestroy(SessionDestroyEvent event) {
-<span class="fc" id="L100">                VaadinSession session = event.getSession();</span>
+<span class="fc" id="L76">				session.addUIProvider(new CustomSpringUIProvider(session));</span>
+<span class="fc" id="L77">			}</span>
+		});
+<span class="fc" id="L79">		service.addSessionDestroyListener(event -&gt; {</span>
+<span class="fc" id="L80">			VaadinSession session = event.getSession();</span>
+<span class="fc" id="L81">			UIScopeImpl.cleanupSession(session);</span>
+<span class="fc" id="L82">			VaadinSessionScope.cleanupSession(session);</span>
+<span class="fc" id="L83">		});</span>
+<span class="fc" id="L84">	}</span>
 
-<span class="fc" id="L102">                UIScopeImpl.cleanupSession(session);</span>
-<span class="fc" id="L103">                VaadinSessionScope.cleanupSession(session);</span>
-<span class="fc" id="L104">            }</span>
-        });
-<span class="fc" id="L106">    }</span>
-    
-    public class CustomSpringUIProvider extends SpringUIProvider {
-    	
-<span class="fc" id="L110">    	private final SpringViewDisplayRegistrationBean springViewDisplayRegistrationBean = new SpringViewDisplayRegistrationBean();</span>
-    	
-<span class="fc" id="L112">        public CustomSpringUIProvider(VaadinSession vaadinSession) {</span>
-<span class="fc" id="L113">            super(vaadinSession);</span>
-<span class="fc" id="L114">        }</span>
+	/**
+	 * The Class CustomSpringUIProvider.
+	 */
+	private static class CustomSpringUIProvider extends SpringUIProvider {
 
-        @Override
-        public UI createInstance(UICreateEvent event) {
-<span class="fc" id="L118">            final Class&lt;UIID&gt; key = UIID.class;</span>
-<span class="fc" id="L119">            final UIID identifier = new UIID(event);</span>
-<span class="fc" id="L120">            CurrentInstance.set(key, identifier);</span>
-            try {
-<span class="fc" id="L122">                logger.debug(</span>
-                        &quot;Creating a new UI bean of class [{}] with identifier [{}]&quot;,
-<span class="fc" id="L124">                        event.getUIClass().getCanonicalName(), identifier);</span>
-<span class="fc" id="L125">                UI ui = getWebApplicationContext().getBean(event.getUIClass());</span>
+		/** The Constant serialVersionUID. */
+		private static final long serialVersionUID = 1L;
 
-<span class="fc" id="L127">                getSpringViewDisplayRegistrationBean().setBeanClass(event.getUIClass());</span>
+		/** The spring view display registration bean. */
+<span class="fc" id="L95">		private final SpringViewDisplayRegistrationBean springViewDisplayRegistrationBean = new SpringViewDisplayRegistrationBean();</span>
 
-<span class="fc" id="L129">                configureNavigator(ui);</span>
-<span class="fc" id="L130">                return ui;</span>
-            } finally {
-<span class="fc" id="L132">                CurrentInstance.set(key, null);</span>
-            }
-        }
-        
-        protected Object findSpringViewDisplay(UI ui) {
-            try {
-<span class="fc" id="L138">                return getSpringViewDisplayRegistrationBean()</span>
-<span class="fc" id="L139">                        .getSpringViewDisplay(getWebApplicationContext());</span>
-<span class="nc" id="L140">            } catch (NoUniqueBeanDefinitionException e) {</span>
-<span class="nc" id="L141">                throw e;</span>
-<span class="nc" id="L142">            } catch (NoSuchBeanDefinitionException e) {</span>
-                // fallback with getBeanNamesForAnnotation()
-<span class="nc" id="L144">                logger.debug(</span>
-                        &quot;Looking for a SpringViewDisplay bean based on bean level annotations&quot;);
-<span class="nc" id="L146">                final String[] springViewDisplayBeanNames = getWebApplicationContext()</span>
-<span class="nc" id="L147">                        .getBeanNamesForAnnotation(SpringViewDisplay.class);</span>
-<span class="nc bnc" id="L148" title="All 2 branches missed.">                if (springViewDisplayBeanNames.length == 0) {</span>
-<span class="nc" id="L149">                    logger.debug(</span>
-<span class="nc" id="L150">                            &quot;No view display defined for the UI &quot; + ui.getId());</span>
-<span class="nc" id="L151">                    return null;</span>
-                }
-<span class="nc bnc" id="L153" title="All 2 branches missed.">                if (springViewDisplayBeanNames.length &gt; 1) {</span>
-<span class="nc" id="L154">                    logger.error(&quot;Multiple view displays defined for the UI &quot;</span>
-<span class="nc" id="L155">                            + ui.getId() + &quot;: &quot;</span>
-<span class="nc" id="L156">                            + Arrays.toString(springViewDisplayBeanNames));</span>
-<span class="nc" id="L157">                    throw new NoUniqueBeanDefinitionException(Object.class,</span>
-<span class="nc" id="L158">                            Arrays.asList(springViewDisplayBeanNames));</span>
-                }
-<span class="nc" id="L160">                return getWebApplicationContext()</span>
-<span class="nc" id="L161">                        .getBean(springViewDisplayBeanNames[0]);</span>
-            }
-        }
+		/**
+		 * Instantiates a new custom spring UI provider.
+		 *
+		 * @param vaadinSession the vaadin session
+		 */
+		public CustomSpringUIProvider(VaadinSession vaadinSession) {
+<span class="fc" id="L103">			super(vaadinSession);</span>
+<span class="fc" id="L104">		}</span>
 
+		@Override
+		public UI createInstance(UICreateEvent event) {
+<span class="fc" id="L108">			final Class&lt;UIID&gt; key = UIID.class;</span>
+<span class="fc" id="L109">			final UIID identifier = new UIID(event);</span>
+<span class="fc" id="L110">			CurrentInstance.set(key, identifier);</span>
+			try {
+<span class="fc" id="L112">				logger.debug(&quot;Creating a new UI bean of class [{}] with identifier [{}]&quot;,</span>
+<span class="fc" id="L113">						event.getUIClass().getCanonicalName(), identifier);</span>
+<span class="fc" id="L114">				UI ui = getWebApplicationContext().getBean(event.getUIClass());</span>
 
-        private SpringViewDisplayRegistrationBean getSpringViewDisplayRegistrationBean() {
-<span class="fc" id="L167">            return springViewDisplayRegistrationBean;</span>
+<span class="fc" id="L116">				getSpringViewDisplayRegistrationBean().setBeanClass(event.getUIClass());</span>
 
-        }
-    }
-    
+<span class="fc" id="L118">				configureNavigator(ui);</span>
+<span class="fc" id="L119">				return ui;</span>
+			} finally {
+<span class="fc" id="L121">				CurrentInstance.set(key, null);</span>
+			}
+		}
+
+		@Override
+		protected Object findSpringViewDisplay(UI ui) {
+			try {
+<span class="fc" id="L128">				return getSpringViewDisplayRegistrationBean().getSpringViewDisplay(getWebApplicationContext());</span>
+<span class="nc" id="L129">			} catch (NoUniqueBeanDefinitionException e) {</span>
+<span class="nc" id="L130">				throw e;</span>
+<span class="nc" id="L131">			} catch (NoSuchBeanDefinitionException e) {</span>
+				// fallback with getBeanNamesForAnnotation()
+<span class="nc" id="L133">				logger.debug(&quot;Looking for a SpringViewDisplay bean based on bean level annotations&quot;);</span>
+<span class="nc" id="L134">				final String[] springViewDisplayBeanNames = getWebApplicationContext()</span>
+<span class="nc" id="L135">						.getBeanNamesForAnnotation(SpringViewDisplay.class);</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">				if (springViewDisplayBeanNames.length == 0) {</span>
+<span class="nc" id="L137">					logger.debug(&quot;No view display defined for the UI {}&quot;, ui.getId());</span>
+<span class="nc" id="L138">					return null;</span>
+				}
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (springViewDisplayBeanNames.length &gt; 1) {</span>
+<span class="nc" id="L141">					logger.error(&quot;Multiple view displays defined for the UI {}:{}&quot;, ui.getId(),</span>
+<span class="nc" id="L142">							Arrays.toString(springViewDisplayBeanNames));</span>
+<span class="nc" id="L143">					throw new NoUniqueBeanDefinitionException(Object.class, Arrays.asList(springViewDisplayBeanNames));</span>
+				}
+<span class="nc" id="L145">				return getWebApplicationContext().getBean(springViewDisplayBeanNames[0]);</span>
+			}
+		}
+
+		/**
+		 * Gets the spring view display registration bean.
+		 *
+		 * @return the spring view display registration bean
+		 */
+		private SpringViewDisplayRegistrationBean getSpringViewDisplayRegistrationBean() {
+<span class="fc" id="L155">			return springViewDisplayRegistrationBean;</span>
+
+		}
+	}
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.1.201803210924</span></div></body></html>

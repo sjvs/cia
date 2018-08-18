@@ -19,9 +19,7 @@
 package com.hack23.cia.web.impl.ui.application.views.user.govermentbody.pagemode;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
-import com.hack23.cia.service.external.esv.api.EsvApi;
 import com.hack23.cia.service.external.esv.api.GovernmentBodyAnnualSummary;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.GovernmentBodyChartDataManager;
@@ -56,48 +53,41 @@ public final class GovernmentBodyHeadcountPageModContentFactoryImpl extends Abst
 	@Autowired
 	private GovernmentBodyChartDataManager governmentBodyChartDataManager;
 
-	/** The esv api. */
-	@Autowired
-	private EsvApi esvApi;
-	
 	/**
 	 * Instantiates a new government body headcount page mod content factory impl.
 	 */
 	public GovernmentBodyHeadcountPageModContentFactoryImpl() {
-<span class="fc" id="L67">		super();</span>
-<span class="fc" id="L68">	}</span>
+<span class="fc" id="L60">		super();</span>
+<span class="fc" id="L61">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L72" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(GovernmentBodyPageMode.HEADCOUNT.toString());</span>
+<span class="pc bpc" id="L65" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(GovernmentBodyPageMode.HEADCOUNT.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L78">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L71">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L80">		final String pageId = getPageId(parameters);</span>
-
-<span class="fc" id="L82">		final Map&lt;String, List&lt;GovernmentBodyAnnualSummary&gt;&gt; map = esvApi.getData().get(2018).stream().collect(Collectors.groupingBy(GovernmentBodyAnnualSummary::getOrgNumber));</span>
+<span class="fc" id="L73">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L74">		final List&lt;GovernmentBodyAnnualSummary&gt; list = getItem(parameters);</span>
 		
-<span class="fc" id="L84">		final List&lt;GovernmentBodyAnnualSummary&gt; list = map.get(pageId);</span>
-		
-<span class="pc bpc" id="L86" title="2 of 4 branches missed.">		if (list != null &amp;&amp; !list.isEmpty()) {</span>
-<span class="fc" id="L87">			final Optional&lt;GovernmentBodyAnnualSummary&gt; governmentBodyAnnualSummary = list.stream().findFirst();</span>
+<span class="pc bpc" id="L76" title="2 of 4 branches missed.">		if (list != null &amp;&amp; !list.isEmpty()) {</span>
+<span class="fc" id="L77">			final Optional&lt;GovernmentBodyAnnualSummary&gt; governmentBodyAnnualSummary = list.stream().findFirst();</span>
 			
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">			if (governmentBodyAnnualSummary.isPresent()) {</span>
-<span class="fc" id="L90">				getGovernmentBodyMenuItemFactory().createGovernmentBodyMenuBar(menuBar, pageId);</span>
-<span class="fc" id="L91">				LabelFactory.createHeader2Label(panelContent,GOVERNMENT_BODIES);</span>
-<span class="fc" id="L92">				governmentBodyChartDataManager.createGovernmentBodyHeadcountSummaryChart(panelContent, governmentBodyAnnualSummary.get().getName());</span>
-<span class="fc" id="L93">				panel.setCaption(NAME + &quot;::&quot; + GOVERNMENT_BODY + governmentBodyAnnualSummary.get().getName());			</span>
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">			if (governmentBodyAnnualSummary.isPresent()) {</span>
+<span class="fc" id="L80">				getGovernmentBodyMenuItemFactory().createGovernmentBodyMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L81">				LabelFactory.createHeader2Label(panelContent,GOVERNMENT_BODIES);</span>
+<span class="fc" id="L82">				governmentBodyChartDataManager.createGovernmentBodyHeadcountSummaryChart(panelContent, governmentBodyAnnualSummary.get().getName());</span>
+<span class="fc" id="L83">				panel.setCaption(NAME + &quot;::&quot; + GOVERNMENT_BODY + governmentBodyAnnualSummary.get().getName());			</span>
 			}
-<span class="fc" id="L95">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
+<span class="fc" id="L85">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
 					parameters, pageId);
 
 		}
 
-<span class="fc" id="L100">		return panelContent;</span>
+<span class="fc" id="L90">		return panelContent;</span>
 
 	}
 

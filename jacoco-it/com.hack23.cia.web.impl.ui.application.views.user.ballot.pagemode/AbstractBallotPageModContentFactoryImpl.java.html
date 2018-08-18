@@ -18,16 +18,23 @@
 */
 package com.hack23.cia.web.impl.ui.application.views.user.ballot.pagemode;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.hack23.cia.model.internal.application.data.committee.impl.RiksdagenVoteDataBallotEmbeddedId;
+import com.hack23.cia.model.internal.application.data.committee.impl.RiksdagenVoteDataBallotEmbeddedId_;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenVoteDataBallotSummary;
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenVoteDataBallotSummary_;
+import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.BallotMenuItemFactory;
-import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractPageModContentFactoryImpl;
+import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractItemPageModContentFactoryImpl;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 
 /**
  * The Class AbstractBallotPageModContentFactoryImpl.
  */
-abstract class AbstractBallotPageModContentFactoryImpl extends AbstractPageModContentFactoryImpl {
+abstract class AbstractBallotPageModContentFactoryImpl extends AbstractItemPageModContentFactoryImpl&lt;List&lt;ViewRiksdagenVoteDataBallotSummary&gt;&gt; {
 
 	/** The Constant NAME. */
 	public static final String NAME = UserViews.BALLOT_VIEW_NAME;
@@ -39,11 +46,21 @@ abstract class AbstractBallotPageModContentFactoryImpl extends AbstractPageModCo
 	 * Instantiates a new abstract ballot page mod content factory impl.
 	 */
 	AbstractBallotPageModContentFactoryImpl() {
-<span class="fc" id="L42">		super();</span>
-<span class="fc" id="L43">	}</span>
+<span class="fc" id="L49">		super();</span>
+<span class="fc" id="L50">	}</span>
 
 	protected final BallotMenuItemFactory getBallotMenuItemFactory() {
-<span class="fc" id="L46">		return ballotMenuItemFactory;</span>
+<span class="fc" id="L53">		return ballotMenuItemFactory;</span>
+	}
+
+	@Override
+	protected List&lt;ViewRiksdagenVoteDataBallotSummary&gt; getItem(String parameters) {
+<span class="fc" id="L58">		final String pageId = getPageId(parameters);</span>
+
+<span class="fc" id="L60">		final DataContainer&lt;ViewRiksdagenVoteDataBallotSummary, RiksdagenVoteDataBallotEmbeddedId&gt; dataContainer = getApplicationManager()</span>
+<span class="fc" id="L61">				.getDataContainer(ViewRiksdagenVoteDataBallotSummary.class);</span>
+
+<span class="fc" id="L63">		return dataContainer.findListByEmbeddedProperty(ViewRiksdagenVoteDataBallotSummary.class, ViewRiksdagenVoteDataBallotSummary_.embeddedId, RiksdagenVoteDataBallotEmbeddedId.class, RiksdagenVoteDataBallotEmbeddedId_.ballotId, pageId);</span>
 	}
 
 }

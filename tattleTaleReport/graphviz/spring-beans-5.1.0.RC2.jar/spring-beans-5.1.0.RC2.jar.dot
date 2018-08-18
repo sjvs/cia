@@ -1,0 +1,7 @@
+digraph spring_beans_5_1_0_RC2_dependencies {
+  node [shape = box, fontsize=10.0];
+  spring_beans_5_1_0_RC2 -> jcl_over_slf4j_1_8_0_beta2;
+  spring_beans_5_1_0_RC2 -> snakeyaml_1_21;
+  spring_beans_5_1_0_RC2 -> spring_core_5_1_0_RC2;
+  spring_beans_5_1_0_RC2 -> xml_apis_1_4_01;
+}

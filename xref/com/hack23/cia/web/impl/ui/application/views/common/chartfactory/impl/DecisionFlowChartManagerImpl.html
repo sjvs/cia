@@ -105,18 +105,18 @@
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>  					<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream()
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  							.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  
-<a class="jxr_linenumber" name="L100" href="#L100">100</a> 					stringBuilder.append(<span class="jxr_string">"\n"</span>).append(vewRiksdagenCommittee.get().getEmbeddedId().getDetail());
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> 					stringBuilder.append('\n').append(vewRiksdagenCommittee.get().getEmbeddedId().getDetail());
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> 					<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {
 <a class="jxr_linenumber" name="L102" href="#L102">102</a> 						<strong class="jxr_keyword">if</strong> (docEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {
 <a class="jxr_linenumber" name="L103" href="#L103">103</a> 							
-<a class="jxr_linenumber" name="L104" href="#L104">104</a> 							stringBuilder.append(<span class="jxr_string">"( "</span>).append(docEntry.getValue().size()).append(<span class="jxr_string">" "</span>).append(docEntry.getKey()).append(<span class="jxr_string">" -&gt; "</span>); 
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> 							stringBuilder.append(<span class="jxr_string">"( "</span>).append(docEntry.getValue().size()).append(' ').append(docEntry.getKey()).append(<span class="jxr_string">" -&gt; "</span>); 
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 							
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 							<strong class="jxr_keyword">final</strong> Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = docEntry.getValue().stream()
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 									.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> 
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> 							<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 								<strong class="jxr_keyword">if</strong> (decisionEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {									
-<a class="jxr_linenumber" name="L111" href="#L111">111</a> 									stringBuilder.append(decisionEntry.getValue().size()).append(<span class="jxr_string">" "</span>).append(decisionEntry.getKey()).append(<span class="jxr_string">" "</span>);
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> 									stringBuilder.append(decisionEntry.getValue().size()).append(' ').append(decisionEntry.getKey()).append(' ');
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 									
 <a class="jxr_linenumber" name="L113" href="#L113">113</a> 								}
 <a class="jxr_linenumber" name="L114" href="#L114">114</a> 							}

@@ -21,7 +21,6 @@ package com.hack23.cia.web.impl.ui.application.views.user.politician.pagemode;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
-import com.hack23.cia.model.external.riksdagen.person.impl.PersonData;
 import com.hack23.cia.model.internal.application.data.document.impl.ViewRiksdagenPoliticianDocument;
 import com.hack23.cia.model.internal.application.data.document.impl.ViewRiksdagenPoliticianDocument_;
 import com.hack23.cia.model.internal.application.data.politician.impl.ViewRiksdagenPolitician;
@@ -35,18 +34,19 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 
-
 /**
  * The Class OverviewPageModContentFactoryImpl.
  */
 @Component
-public final class PoliticianDocumentHistoryPageModContentFactoryImpl extends AbstractPoliticianPageModContentFactoryImpl {
+public final class PoliticianDocumentHistoryPageModContentFactoryImpl
+		extends AbstractPoliticianPageModContentFactoryImpl {
 
-<span class="fc" id="L45">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.DOCUMENT_VIEW_NAME, &quot;docId&quot;);</span>
-<span class="fc" id="L46">	private static final String[] HIDE_COLUMNS = new String[] { &quot;id&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;, &quot;numberValue&quot;, &quot;orderNumber&quot;,</span>
-			&quot;tempLabel&quot;, &quot;referenceName&quot; , &quot;docId&quot;, &quot;label&quot;,&quot;roleDescription&quot;};
-<span class="fc" id="L48">	private static final String[] COLUMN_ORDER = new String[] { &quot;rm&quot;, &quot;madePublicDate&quot;,&quot;documentType&quot;, &quot;subType&quot;, &quot;title&quot;, &quot;subTitle&quot;, &quot;referenceName&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;, &quot;roleDescription&quot;,</span>
-			&quot;org&quot;, &quot;id&quot;,
+<span class="fc" id="L44">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(</span>
+			UserViews.DOCUMENT_VIEW_NAME, &quot;docId&quot;);
+<span class="fc" id="L46">	private static final String[] HIDE_COLUMNS = new String[] { &quot;id&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;,</span>
+			&quot;numberValue&quot;, &quot;orderNumber&quot;, &quot;tempLabel&quot;, &quot;referenceName&quot;, &quot;docId&quot;, &quot;label&quot;, &quot;roleDescription&quot; };
+<span class="fc" id="L48">	private static final String[] COLUMN_ORDER = new String[] { &quot;rm&quot;, &quot;madePublicDate&quot;, &quot;documentType&quot;, &quot;subType&quot;,</span>
+			&quot;title&quot;, &quot;subTitle&quot;, &quot;referenceName&quot;, &quot;partyShortCode&quot;, &quot;personReferenceId&quot;, &quot;roleDescription&quot;, &quot;org&quot;, &quot;id&quot;,
 			&quot;docId&quot;, &quot;tempLabel&quot;, &quot;label&quot;, &quot;numberValue&quot;, &quot;orderNumber&quot;, &quot;status&quot; };
 	private static final String DOCUMENTS = &quot;Documents&quot;;
 
@@ -70,37 +70,23 @@ public final class PoliticianDocumentHistoryPageModContentFactoryImpl extends Ab
 
 <span class="fc" id="L71">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L73">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L74">				.getDataContainer(PersonData.class);</span>
+<span class="fc" id="L73">		final ViewRiksdagenPolitician viewRiksdagenPolitician = getItem(parameters);</span>
 
-<span class="fc" id="L76">		final PersonData personData = dataContainer.load(pageId);</span>
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if (personData != null) {</span>
+<span class="fc" id="L75">		getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L79">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
-<span class="fc" id="L80">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
+<span class="fc" id="L77">		LabelFactory.createHeader2Label(panelContent, PoliticianPageMode.DOCUMENTHISTORY.toString());</span>
 
-<span class="fc" id="L82">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
+<span class="fc" id="L79">		final DataContainer&lt;ViewRiksdagenPoliticianDocument, String&gt; politicianDocumentDataContainer = getApplicationManager()</span>
+<span class="fc" id="L80">				.getDataContainer(ViewRiksdagenPoliticianDocument.class);</span>
 
-<span class="fc" id="L84">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L82">		getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenPoliticianDocument.class,</span>
+<span class="fc" id="L83">				politicianDocumentDataContainer.findOrderedListByProperty(</span>
+<span class="fc" id="L84">						ViewRiksdagenPoliticianDocument_.personReferenceId, viewRiksdagenPolitician.getPersonId(),</span>
+						ViewRiksdagenPoliticianDocument_.madePublicDate),
+				DOCUMENTS, COLUMN_ORDER, HIDE_COLUMNS, LISTENER, null, null);
 
-<span class="fc" id="L86">			LabelFactory.createHeader2Label(panelContent,PoliticianPageMode.DOCUMENTHISTORY.toString());</span>
-
-
-<span class="fc" id="L89">			final DataContainer&lt;ViewRiksdagenPoliticianDocument, String&gt; politicianDocumentDataContainer = getApplicationManager()</span>
-<span class="fc" id="L90">					.getDataContainer(ViewRiksdagenPoliticianDocument.class);</span>
-
-<span class="fc" id="L92">			getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L93">					panelContent, ViewRiksdagenPoliticianDocument.class, politicianDocumentDataContainer.findOrderedListByProperty(</span>
-<span class="fc" id="L94">							ViewRiksdagenPoliticianDocument_.personReferenceId, personData.getId(),</span>
-							ViewRiksdagenPoliticianDocument_.madePublicDate),
-					DOCUMENTS,
-					COLUMN_ORDER,
-					HIDE_COLUMNS, LISTENER, null, null);
-
-<span class="fc" id="L100">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
-
-		}
-<span class="fc" id="L103">		return panelContent;</span>
+<span class="fc" id="L88">		pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L89">		return panelContent;</span>
 
 	}
 }

@@ -12,11 +12,11 @@ digraph javamelody_core_1_73_1_dependencies {
   javamelody_core_1_73_1 -> openpdf_1_1_0;
   javamelody_core_1_73_1 -> quartz_2_3_0;
   javamelody_core_1_73_1 -> slf4j_api_1_8_0_beta2;
-  javamelody_core_1_73_1 -> spring_aop_5_1_0_RC1;
-  javamelody_core_1_73_1 -> spring_beans_5_1_0_RC1;
-  javamelody_core_1_73_1 -> spring_context_5_1_0_RC1;
-  javamelody_core_1_73_1 -> spring_core_5_1_0_RC1;
-  javamelody_core_1_73_1 -> spring_web_5_1_0_RC1;
+  javamelody_core_1_73_1 -> spring_aop_5_1_0_RC2;
+  javamelody_core_1_73_1 -> spring_beans_5_1_0_RC2;
+  javamelody_core_1_73_1 -> spring_context_5_1_0_RC2;
+  javamelody_core_1_73_1 -> spring_core_5_1_0_RC2;
+  javamelody_core_1_73_1 -> spring_web_5_1_0_RC2;
   javamelody_core_1_73_1 -> xml_apis_1_4_01;
   javamelody_core_1_73_1 -> xstream_1_4_10;
 }

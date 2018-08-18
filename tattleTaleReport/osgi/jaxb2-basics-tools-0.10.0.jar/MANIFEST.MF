@@ -57,12 +57,12 @@ Import-Package: com.sun.codemodel;version="2.3",com.sun.codemodel.fmt;
  vax.xml.namespace;version="1.0",javax.xml.parsers;version="1.0",javax
  .xml.transform;version="1.0",javax.xml.transform.dom;version="1.0",or
  g.apache.commons.beanutils;version="1.9.3.redhat-1",org.apache.common
- s.lang3;version="3.7",org.apache.commons.logging;version="0.0.0",org.
+ s.lang3;version="3.8",org.apache.commons.logging;version="0.0.0",org.
  jvnet.jaxb2_commons.lang;version="0.0.0",org.jvnet.jaxb2_commons.xml.
  bind;version="0.0.0",org.jvnet.jaxb2_commons.xml.bind.model;version="
  0.0.0",org.jvnet.jaxb2_commons.xml.bind.model.concrete;version="0.0.0
  ",org.jvnet.jaxb2_commons.xml.bind.model.concrete.origin;version="0.0
  .0",org.jvnet.jaxb2_commons.xml.bind.model.origin;version="0.0.0",org
- .springframework.beans.factory.config;version="5.1.0.RC1",org.springf
- ramework.context.support;version="5.1.0.RC1",org.w3c.dom;version="1.0
+ .springframework.beans.factory.config;version="5.1.0.RC2",org.springf
+ ramework.context.support;version="5.1.0.RC2",org.w3c.dom;version="1.0
  ",org.xml.sax;version="1.0"

@@ -1,4 +1,4 @@
 digraph commons_text_1_4_dependencies {
   node [shape = box, fontsize=10.0];
-  commons_text_1_4 -> commons_lang3_3_7;
+  commons_text_1_4 -> commons_lang3_3_8;
 }

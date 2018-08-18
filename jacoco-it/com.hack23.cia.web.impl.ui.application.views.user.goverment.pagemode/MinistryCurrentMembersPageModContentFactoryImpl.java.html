@@ -37,19 +37,19 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 
-
 /**
  * The Class MinistryCurrentMembersPageModContentFactoryImpl.
  */
 @Component
 public final class MinistryCurrentMembersPageModContentFactoryImpl extends AbstractMinistryPageModContentFactoryImpl {
 
-<span class="fc" id="L47">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;);</span>
+<span class="fc" id="L46">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(</span>
+			UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;);
 
 <span class="fc" id="L49">	private static final String[] HIDE_COLUMNS = new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot;, &quot;active&quot; };</span>
 
-<span class="fc" id="L51">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;, &quot;detail&quot;,</span>
-			&quot;fromDate&quot;, &quot;toDate&quot; };
+<span class="fc" id="L51">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;,</span>
+			&quot;lastName&quot;, &quot;party&quot;, &quot;active&quot;, &quot;totalDaysServed&quot;, &quot;detail&quot;, &quot;fromDate&quot;, &quot;toDate&quot; };
 
 	/** The Constant CURRENT_MEMBERS. */
 	private static final String CURRENT_MEMBERS = &quot;Current Members&quot;;
@@ -78,36 +78,26 @@ public final class MinistryCurrentMembersPageModContentFactoryImpl extends Abstr
 
 <span class="fc" id="L79">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L81">		final DataContainer&lt;ViewRiksdagenMinistry, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L82">				.getDataContainer(ViewRiksdagenMinistry.class);</span>
+<span class="fc" id="L81">		final ViewRiksdagenMinistry viewRiksdagenMinistry = getItem(parameters);</span>
 
-<span class="fc" id="L84">		final ViewRiksdagenMinistry viewRiksdagenMinistry = dataContainer.load(pageId);</span>
+<span class="fc" id="L83">		getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">		if (viewRiksdagenMinistry != null) {</span>
+<span class="fc" id="L85">		LabelFactory.createHeader2Label(panelContent, CURRENT_MEMBERS);</span>
 
-<span class="fc" id="L88">			getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
+<span class="fc" id="L87">		final DataContainer&lt;ViewRiksdagenGovermentRoleMember, String&gt; govermentRoleMemberDataContainer = getApplicationManager()</span>
+<span class="fc" id="L88">				.getDataContainer(ViewRiksdagenGovermentRoleMember.class);</span>
 
-<span class="fc" id="L90">			LabelFactory.createHeader2Label(panelContent,CURRENT_MEMBERS);</span>
+<span class="fc" id="L90">		getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenGovermentRoleMember.class,</span>
+<span class="fc" id="L91">				govermentRoleMemberDataContainer.findListByProperty(</span>
+<span class="fc" id="L92">						new Object[] { viewRiksdagenMinistry.getNameId(), Boolean.TRUE },</span>
+						ViewRiksdagenGovermentRoleMember_.detail, ViewRiksdagenGovermentRoleMember_.active),
+				CURRENT_MEMBERS, COLUMN_ORDER, HIDE_COLUMNS, LISTENER, null, null);
 
+<span class="fc" id="L96">		panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="fc" id="L97">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
+				parameters, pageId);
 
-<span class="fc" id="L93">			final DataContainer&lt;ViewRiksdagenGovermentRoleMember, String&gt; govermentRoleMemberDataContainer = getApplicationManager()</span>
-<span class="fc" id="L94">					.getDataContainer(ViewRiksdagenGovermentRoleMember.class);</span>
-
-<span class="fc" id="L96">			getGridFactory().createBasicBeanItemGrid(</span>
-<span class="fc" id="L97">					panelContent, ViewRiksdagenGovermentRoleMember.class, govermentRoleMemberDataContainer.findListByProperty(</span>
-<span class="fc" id="L98">							new Object[] { viewRiksdagenMinistry.getNameId(), Boolean.TRUE },</span>
-							ViewRiksdagenGovermentRoleMember_.detail, ViewRiksdagenGovermentRoleMember_.active),
-					CURRENT_MEMBERS,
-					COLUMN_ORDER, HIDE_COLUMNS,
-					LISTENER, null, null);
-
-<span class="fc" id="L104">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
-<span class="fc" id="L105">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
-					parameters, pageId);
-
-		}
-
-<span class="fc" id="L110">		return panelContent;</span>
+<span class="fc" id="L100">		return panelContent;</span>
 
 	}
 

@@ -60,49 +60,49 @@ node "Audit Account" <<Aws Account>> as 196 {
   }
 }
 node "Dev Network" <<Dev Network>> as 254 {
+  rectangle "Jenkins" <<Container>> as 264 #1168bd
   rectangle "Sonarqube" <<Container>> as 258 #1168bd
   rectangle "Nexus" <<Container>> as 256 #1168bd
-  rectangle "Jenkins" <<Container>> as 264 #1168bd
 }
 node "Github Org" <<Github Org>> as 249 {
-  rectangle "Documentation" <<Container>> as 253 #1168bd
   rectangle "SCM" <<Container>> as 251 #1168bd
+  rectangle "Documentation" <<Container>> as 253 #1168bd
 }
 node "Security Account" <<Sumologic Account>> as 269 {
   node "AWS Account Security Dashboard" <<AWS Account Security Dashboard>> as 272 {
-    rectangle "AwsConfigLogs" <<Container>> as 284 #1168bd
     rectangle "CloudTrailLogs" <<Container>> as 280 #1168bd
+    rectangle "AwsConfigLogs" <<Container>> as 284 #1168bd
   }
   node "Server Security Dashboard" <<Server Security Dashboard>> as 271 {
-    rectangle "AwsInspectorResults" <<Container>> as 296 #1168bd
     rectangle "Ec2SystemLogs" <<Container>> as 288 #1168bd
+    rectangle "AwsInspectorResults" <<Container>> as 296 #1168bd
   }
   node "Nework Security Dashboard" <<Nework Security Dashboard>> as 270 {
-    rectangle "AwsLoadbalancerAccessLogs" <<Container>> as 300 #1168bd
     rectangle "VpcFlowLogs" <<Container>> as 276 #1168bd
+    rectangle "AwsLoadbalancerAccessLogs" <<Container>> as 300 #1168bd
   }
   node "Application Security Dashboard" <<Application Security Dashboard>> as 273 {
     rectangle "Ec2ApplicationLogs" <<Container>> as 292 #1168bd
   }
 }
-231 .[#707070].> 237 : HTTPS/H2
+206 .[#707070].> 237 : Run Commands
 276 .[#707070].> 220 : Recieve logs
 264 .[#707070].> 253 : <<https>>\npublish Documentation
 288 .[#707070].> 220 : Recieve logs
-231 .[#707070].> 228 : Write logs
-264 .[#707070].> 256 : <<https>>\npublish artifacts
 194 .[#707070].> 231 : Protects/Filter
-210 .[#707070].> 244 : Loads Data
-296 .[#707070].> 202 : Recieve reports
-264 .[#707070].> 258 : <<https>>\nPublish QA metrics
-237 .[#707070].> 244 : JDBC
 264 .[#707070].> 251 : builds
+231 .[#707070].> 228 : Write logs
 244 .[#707070].> 220 : Write logs
-206 .[#707070].> 237 : Run Commands
+296 .[#707070].> 202 : Recieve reports
+264 .[#707070].> 256 : <<https>>\npublish artifacts
+237 .[#707070].> 244 : JDBC
+264 .[#707070].> 258 : <<https>>\nPublish QA metrics
+210 .[#707070].> 244 : Loads Data
+237 .[#707070].> 220 : Write logs
 280 .[#707070].> 225 : Recieve logs
 300 .[#707070].> 228 : Recieve logs
 284 .[#707070].> 199 : Recieve logs
-237 .[#707070].> 220 : Write logs
-292 .[#707070].> 220 : Recieve logs
 202 .[#707070].> 237 : Inspects
+292 .[#707070].> 220 : Recieve logs
+231 .[#707070].> 237 : HTTPS/H2
 @enduml

@@ -73,8 +73,8 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  "2.2",javax.servlet,javax.servlet.http,javax.sql,javax.xml.parsers;ve
  rsion="1.0",javax.xml.stream;version="1.0",net.sf.ehcache,net.sf.ehca
  che.config,net.sf.ehcache.management,net.sf.ehcache.store,org.aopalli
- ance.aop;version="5.1.0.RC1",org.aopalliance.intercept;version="5.1.0
- .RC1",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="2.5.0
+ ance.aop;version="5.1.0.RC2",org.aopalliance.intercept;version="5.1.0
+ .RC2",org.apache.commons.dbcp,org.apache.commons.dbcp2;version="2.5.0
  ",org.apache.log4j;version="0.0.0",org.apache.log4j.spi;version="0.0.
  0",org.apache.logging.log4j,org.apache.logging.log4j.core,org.apache.
  logging.log4j.core.appender,org.apache.logging.log4j.core.config,org.
@@ -84,12 +84,12 @@ Import-Package: ch.qos.logback.classic;version="0.0.0",ch.qos.logback.
  ="1.6.0",org.jrobin.data;version="1.6.0",org.jrobin.graph;version="1.
  6.0",org.quartz;version="0.0.0",org.quartz.impl;version="0.0.0",org.q
  uartz.impl.matchers;version="0.0.0",org.slf4j;version="0.0.0",org.spr
- ingframework.aop;version="5.1.0.RC1",org.springframework.aop.support;
- version="5.1.0.RC1",org.springframework.beans;version="5.1.0.RC1",org
- .springframework.beans.factory;version="5.1.0.RC1",org.springframewor
- k.beans.factory.config;version="5.1.0.RC1",org.springframework.contex
- t;version="5.1.0.RC1",org.springframework.core;version="5.1.0.RC1",or
- g.springframework.http;version="5.1.0.RC1",org.springframework.http.c
- lient;version="5.1.0.RC1",org.springframework.jndi;version="5.1.0.RC1
- ",org.springframework.web.client;version="5.1.0.RC1",org.w3c.dom;vers
+ ingframework.aop;version="5.1.0.RC2",org.springframework.aop.support;
+ version="5.1.0.RC2",org.springframework.beans;version="5.1.0.RC2",org
+ .springframework.beans.factory;version="5.1.0.RC2",org.springframewor
+ k.beans.factory.config;version="5.1.0.RC2",org.springframework.contex
+ t;version="5.1.0.RC2",org.springframework.core;version="5.1.0.RC2",or
+ g.springframework.http;version="5.1.0.RC2",org.springframework.http.c
+ lient;version="5.1.0.RC2",org.springframework.jndi;version="5.1.0.RC2
+ ",org.springframework.web.client;version="5.1.0.RC2",org.w3c.dom;vers
  ion="1.0",org.xml.sax;version="1.0",sun.misc,sun.nio.ch

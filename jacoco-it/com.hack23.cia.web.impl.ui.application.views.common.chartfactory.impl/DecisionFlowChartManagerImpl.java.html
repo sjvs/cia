@@ -97,18 +97,18 @@ public final class DecisionFlowChartManagerImpl implements DecisionFlowChartMana
 <span class="fc" id="L97">					final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docTypeMap = entry.getValue().stream()</span>
 <span class="fc" id="L98">							.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDocType));</span>
 
-<span class="fc" id="L100">					stringBuilder.append(&quot;\n&quot;).append(vewRiksdagenCommittee.get().getEmbeddedId().getDetail());</span>
+<span class="fc" id="L100">					stringBuilder.append('\n').append(vewRiksdagenCommittee.get().getEmbeddedId().getDetail());</span>
 <span class="fc bfc" id="L101" title="All 2 branches covered.">					for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; docEntry : docTypeMap.entrySet()) {</span>
 <span class="pc bpc" id="L102" title="2 of 4 branches missed.">						if (docEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {</span>
 							
-<span class="fc" id="L104">							stringBuilder.append(&quot;( &quot;).append(docEntry.getValue().size()).append(&quot; &quot;).append(docEntry.getKey()).append(&quot; -&gt; &quot;); </span>
+<span class="fc" id="L104">							stringBuilder.append(&quot;( &quot;).append(docEntry.getValue().size()).append(' ').append(docEntry.getKey()).append(&quot; -&gt; &quot;); </span>
 							
 <span class="fc" id="L106">							final Map&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionMap = docEntry.getValue().stream()</span>
 <span class="fc" id="L107">									.collect(Collectors.groupingBy(ProposalCommitteeeSummary::getDecision));</span>
 
 <span class="fc bfc" id="L109" title="All 2 branches covered.">							for (final Entry&lt;String, List&lt;ProposalCommitteeeSummary&gt;&gt; decisionEntry : decisionMap.entrySet()) {</span>
 <span class="pc bpc" id="L110" title="2 of 4 branches missed.">								if (decisionEntry.getKey().length() &gt; 0 &amp;&amp; entry.getKey().length() &gt; 0) {									</span>
-<span class="fc" id="L111">									stringBuilder.append(decisionEntry.getValue().size()).append(&quot; &quot;).append(decisionEntry.getKey()).append(&quot; &quot;);</span>
+<span class="fc" id="L111">									stringBuilder.append(decisionEntry.getValue().size()).append(' ').append(decisionEntry.getKey()).append(' ');</span>
 									
 								}
 <span class="fc" id="L114">							}</span>

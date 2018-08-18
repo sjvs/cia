@@ -24,7 +24,6 @@ import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommittee;
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
@@ -36,7 +35,8 @@ import com.vaadin.ui.VerticalLayout;
  * The Class CommitteePageVisitHistoryPageModContentFactoryImpl.
  */
 @Component
-public final class CommitteePageVisitHistoryPageModContentFactoryImpl extends AbstractCommitteePageModContentFactoryImpl {
+public final class CommitteePageVisitHistoryPageModContentFactoryImpl
+		extends AbstractCommitteePageModContentFactoryImpl {
 
 	/** The Constant COMMITTEE. */
 	private static final String COMMITTEE = &quot;Committee:&quot;;
@@ -51,32 +51,26 @@ public final class CommitteePageVisitHistoryPageModContentFactoryImpl extends Ab
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L54" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">				&amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L60">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L61">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L62">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L63">		final String pageId = getPageId(parameters);</span>
 
+<span class="fc" id="L65">		final ViewRiksdagenCommittee viewRiksdagenCommittee = getItem(parameters);</span>
+<span class="fc" id="L66">		getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L65">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L66">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L68">		createPageVisitHistory(NAME, pageId, panelContent);</span>
 
-<span class="fc" id="L68">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
-
-<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
-
-<span class="fc" id="L72">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L74">				createPageVisitHistory(NAME,pageId,panelContent);</span>
-
-<span class="fc" id="L76">				panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L77">				getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME, parameters, pageId);</span>
-		}
-<span class="fc" id="L79">		return panelContent;</span>
+<span class="fc" id="L70">		panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L71">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
+				parameters, pageId);
+<span class="fc" id="L73">		return panelContent;</span>
 
 	}
 

@@ -25,7 +25,6 @@ import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommittee;
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.DecisionChartDataManager;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
@@ -57,41 +56,33 @@ public final class CommitteeDecisionTypeDailySummaryPageModContentFactoryImpl2
 	 * factory impl2.
 	 */
 	public CommitteeDecisionTypeDailySummaryPageModContentFactoryImpl2() {
-<span class="fc" id="L60">		super();</span>
-<span class="fc" id="L61">	}</span>
+<span class="fc" id="L59">		super();</span>
+<span class="fc" id="L60">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L65" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
-<span class="fc bfc" id="L66" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString());</span>
+<span class="pc bpc" id="L64" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">				&amp;&amp; parameters.contains(CommitteePageMode.DECISIONTYPEDAILYSUMMARY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L72">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L71">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L74">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L73">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L76">		final DataContainer&lt;ViewRiksdagenCommittee, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L77">				.getDataContainer(ViewRiksdagenCommittee.class);</span>
+<span class="fc" id="L75">		final ViewRiksdagenCommittee viewRiksdagenCommittee = getItem(parameters);</span>
+<span class="fc" id="L76">		getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L79">		final ViewRiksdagenCommittee viewRiksdagenCommittee = dataContainer.load(pageId);</span>
+<span class="fc" id="L78">		LabelFactory.createHeader2Label(panelContent, DECISION_TYPE_DAILY_SUMMARY);</span>
 
-<span class="pc bpc" id="L81" title="1 of 2 branches missed.">		if (viewRiksdagenCommittee != null) {</span>
+<span class="fc" id="L80">		chartDataManager.createDecisionTypeChart(panelContent, viewRiksdagenCommittee.getEmbeddedId().getOrgCode());</span>
 
-<span class="fc" id="L83">			getCommitteeMenuItemFactory().createCommitteeeMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L85">			LabelFactory.createHeader2Label(panelContent,DECISION_TYPE_DAILY_SUMMARY);</span>
-
-<span class="fc" id="L87">			chartDataManager</span>
-<span class="fc" id="L88">					.createDecisionTypeChart(panelContent,viewRiksdagenCommittee.getEmbeddedId().getOrgCode());</span>
-
-<span class="fc" id="L90">			panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
-<span class="fc" id="L91">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER,</span>
-					NAME, parameters, pageId);
-		}
-<span class="fc" id="L94">		return panelContent;</span>
+<span class="fc" id="L82">		panel.setCaption(NAME + &quot;::&quot; + COMMITTEE + viewRiksdagenCommittee.getEmbeddedId().getDetail());</span>
+<span class="fc" id="L83">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_COMMITTEE_VIEW, ApplicationEventGroup.USER, NAME,</span>
+				parameters, pageId);
+<span class="fc" id="L85">		return panelContent;</span>
 
 	}
 

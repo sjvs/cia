@@ -170,4 +170,4 @@ Import-Package: com.google.gwt.core.client;version="0.0.0",com.google.
  m.vaadin.ui;version="8.6.0.alpha1",java.awt.image,java.io,java.lang,j
  ava.lang.reflect,java.net,java.text,java.util,java.util.jar,javax.ima
  geio,org.apache.commons.codec.binary;version="1.11",org.apache.common
- s.lang3;version="3.7",org.apache.commons.lang3.math;version="3.7"
+ s.lang3;version="3.8",org.apache.commons.lang3.math;version="3.8"

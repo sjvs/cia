@@ -34,17 +34,17 @@ import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.VerticalLayout;
 
-
 /**
  * The Class CurrentLeadersPageModContentFactoryImpl.
  */
 @Component
 public final class PartyCurrentLeadersPageModContentFactoryImpl extends AbstractPartyPageModContentFactoryImpl {
 
-<span class="fc" id="L44">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;);</span>
-<span class="fc" id="L45">	private static final String[] HIDE_COLUMNS = new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot; , &quot;active&quot;, &quot;party&quot;};</span>
-<span class="fc" id="L46">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;,&quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;, &quot;lastName&quot;, &quot;party&quot;,&quot;totalDaysServed&quot;, &quot;active&quot;, &quot;detail&quot;,</span>
-			 &quot;fromDate&quot;, &quot;toDate&quot; };
+<span class="fc" id="L43">	private static final PageItemPropertyClickListener LISTENER = new PageItemPropertyClickListener(</span>
+			UserViews.POLITICIAN_VIEW_NAME, &quot;personId&quot;);
+<span class="fc" id="L45">	private static final String[] HIDE_COLUMNS = new String[] { &quot;roleId&quot;, &quot;personId&quot;, &quot;detail&quot;, &quot;active&quot;, &quot;party&quot; };</span>
+<span class="fc" id="L46">	private static final String[] COLUMN_ORDER = new String[] { &quot;roleCode&quot;, &quot;roleId&quot;, &quot;personId&quot;, &quot;firstName&quot;,</span>
+			&quot;lastName&quot;, &quot;party&quot;, &quot;totalDaysServed&quot;, &quot;active&quot;, &quot;detail&quot;, &quot;fromDate&quot;, &quot;toDate&quot; };
 	/** The Constant CURRENT_LEADERS. */
 	private static final String CURRENT_LEADERS = &quot;Current Leaders&quot;;
 
@@ -66,34 +66,22 @@ public final class PartyCurrentLeadersPageModContentFactoryImpl extends Abstract
 <span class="fc" id="L66">		final VerticalLayout panelContent = createPanelContent();</span>
 
 <span class="fc" id="L68">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L69">		final ViewRiksdagenParty viewRiksdagenParty = getItem(parameters);</span>
+<span class="fc" id="L70">		getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L70">		final DataContainer&lt;ViewRiksdagenParty, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L71">				.getDataContainer(ViewRiksdagenParty.class);</span>
+<span class="fc" id="L72">		LabelFactory.createHeader2Label(panelContent, CURRENT_LEADERS);</span>
 
-<span class="fc" id="L73">		final ViewRiksdagenParty viewRiksdagenParty = dataContainer.load(pageId);</span>
+<span class="fc" id="L74">		final DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()</span>
+<span class="fc" id="L75">				.getDataContainer(ViewRiksdagenPartyRoleMember.class);</span>
 
-<span class="pc bpc" id="L75" title="1 of 2 branches missed.">		if (viewRiksdagenParty != null) {</span>
+<span class="fc" id="L77">		getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenPartyRoleMember.class,</span>
+<span class="fc" id="L78">				partyRoleMemberDataContainer.findListByProperty(</span>
+<span class="fc" id="L79">						new Object[] { viewRiksdagenParty.getPartyId(), Boolean.TRUE },</span>
+						ViewRiksdagenPartyRoleMember_.party, ViewRiksdagenPartyRoleMember_.active),
+				CURRENT_LEADERS, COLUMN_ORDER, HIDE_COLUMNS, LISTENER, null, null);
 
-<span class="fc" id="L77">			getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L79">			LabelFactory.createHeader2Label(panelContent,CURRENT_LEADERS);</span>
-
-
-<span class="fc" id="L82">			final DataContainer&lt;ViewRiksdagenPartyRoleMember, String&gt; partyRoleMemberDataContainer = getApplicationManager()</span>
-<span class="fc" id="L83">					.getDataContainer(ViewRiksdagenPartyRoleMember.class);</span>
-
-<span class="fc" id="L85">			getGridFactory().createBasicBeanItemGrid(panelContent, ViewRiksdagenPartyRoleMember.class,</span>
-<span class="fc" id="L86">					partyRoleMemberDataContainer.findListByProperty(</span>
-<span class="fc" id="L87">							new Object[] { viewRiksdagenParty.getPartyId(), Boolean.TRUE },</span>
-							ViewRiksdagenPartyRoleMember_.party, ViewRiksdagenPartyRoleMember_.active),
-					CURRENT_LEADERS,
-					COLUMN_ORDER, HIDE_COLUMNS,
-					LISTENER, null, null);
-
-
-<span class="fc" id="L94">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
-		}
-<span class="fc" id="L96">		return panelContent;</span>
+<span class="fc" id="L83">		pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L84">		return panelContent;</span>
 
 	}
 

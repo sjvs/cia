@@ -60,9 +60,9 @@ public final class RuleViolationPageItemRendererClickListener implements PageIte
 	 */
 	private static void navigateToPage(final RuleViolation violation) {
 <span class="pc bpc" id="L62" title="1 of 2 branches missed.">		if (violation.getResourceType() == ResourceType.PARTY) {			</span>
-<span class="fc" id="L63">			UI.getCurrent().getNavigator().navigateTo(UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
+<span class="nc" id="L63">			UI.getCurrent().getNavigator().navigateTo(UserViews.PARTY_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
 		} else {
-<span class="nc" id="L65">			UI.getCurrent().getNavigator().navigateTo(UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
+<span class="fc" id="L65">			UI.getCurrent().getNavigator().navigateTo(UserViews.POLITICIAN_VIEW_NAME + PAGE_SEPARATOR + violation.getId());</span>
 		}
 <span class="fc" id="L67">	}</span>
 

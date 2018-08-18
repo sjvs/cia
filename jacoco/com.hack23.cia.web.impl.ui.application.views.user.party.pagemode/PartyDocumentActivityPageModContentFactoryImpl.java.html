@@ -23,7 +23,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.party.impl.ViewRiksdagenParty;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.views.common.chartfactory.api.PartyDocumentChartDataManager;
 import com.hack23.cia.web.impl.ui.application.views.common.labelfactory.LabelFactory;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PartyPageMode;
@@ -49,37 +48,30 @@ public final class PartyDocumentActivityPageModContentFactoryImpl extends Abstra
 	 * Instantiates a new party document activity page mod content factory impl.
 	 */
 	public PartyDocumentActivityPageModContentFactoryImpl() {
-<span class="fc" id="L52">		super();</span>
-<span class="fc" id="L53">	}</span>
+<span class="fc" id="L51">		super();</span>
+<span class="fc" id="L52">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc bfc" id="L57" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PartyPageMode.DOCUMENTACTIVITY.toString());</span>
+<span class="fc bfc" id="L56" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PartyPageMode.DOCUMENTACTIVITY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L63">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L62">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L65">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L64">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L67">		final DataContainer&lt;ViewRiksdagenParty, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L68">				.getDataContainer(ViewRiksdagenParty.class);</span>
+<span class="fc" id="L66">		final ViewRiksdagenParty viewRiksdagenParty = getItem(parameters);</span>
+<span class="fc" id="L67">		getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L70">		final ViewRiksdagenParty viewRiksdagenParty = dataContainer.load(pageId);</span>
+<span class="fc" id="L69">		LabelFactory.createHeader2Label(panelContent, DOCUMENT_ACTIVITY);</span>
 
-<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (viewRiksdagenParty != null) {</span>
+<span class="fc" id="L71">		documentChartDataManager.createDocumentHistoryPartyChart(panelContent, pageId);</span>
 
-<span class="fc" id="L74">			getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L76">			LabelFactory.createHeader2Label(panelContent,DOCUMENT_ACTIVITY);</span>
-
-<span class="fc" id="L78">			documentChartDataManager.createDocumentHistoryPartyChart(panelContent,pageId);</span>
-
-<span class="fc" id="L80">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
-		}
-<span class="fc" id="L82">		return panelContent;</span>
+<span class="fc" id="L73">		pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L74">		return panelContent;</span>
 
 	}
 

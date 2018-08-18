@@ -24,7 +24,6 @@ import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.ministry.impl.ViewRiksdagenMinistry;
 import com.hack23.cia.model.internal.application.system.impl.ApplicationEventGroup;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.action.ViewAction;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
@@ -46,12 +45,13 @@ public final class MinistryPageVisitHistoryPageModContentFactoryImpl extends Abs
 	 * impl.
 	 */
 	public MinistryPageVisitHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L49">		super();</span>
-<span class="fc" id="L50">	}</span>
+<span class="fc" id="L48">		super();</span>
+<span class="fc" id="L49">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="pc bpc" id="L54" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters)</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">				&amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
@@ -61,24 +61,16 @@ public final class MinistryPageVisitHistoryPageModContentFactoryImpl extends Abs
 
 <span class="fc" id="L62">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L64">		final DataContainer&lt;ViewRiksdagenMinistry, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L65">				.getDataContainer(ViewRiksdagenMinistry.class);</span>
+<span class="fc" id="L64">		final ViewRiksdagenMinistry viewRiksdagenMinistry = getItem(parameters);</span>
+<span class="fc" id="L65">		getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L67">		final ViewRiksdagenMinistry viewRiksdagenMinistry = dataContainer.load(pageId);</span>
+<span class="fc" id="L67">		createPageVisitHistory(NAME, pageId, panelContent);</span>
 
-<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if (viewRiksdagenMinistry != null) {</span>
+<span class="fc" id="L69">		panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
+<span class="fc" id="L70">		getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
+				parameters, pageId);
 
-<span class="fc" id="L71">			getMinistryMenuItemFactory().createMinistryMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L73">			createPageVisitHistory(NAME,pageId,panelContent);</span>
-
-<span class="fc" id="L75">			panel.setCaption(NAME + &quot;::&quot; + MINISTRY + viewRiksdagenMinistry.getNameId());</span>
-<span class="fc" id="L76">			getPageActionEventHelper().createPageEvent(ViewAction.VISIT_MINISTRY_VIEW, ApplicationEventGroup.USER, NAME,</span>
-					parameters, pageId);
-
-		}
-
-<span class="fc" id="L81">		return panelContent;</span>
+<span class="fc" id="L73">		return panelContent;</span>
 
 	}
 

@@ -20,14 +20,15 @@ package com.hack23.cia.web.impl.ui.application.views.user.goverment.pagemode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.hack23.cia.model.internal.application.data.ministry.impl.ViewRiksdagenMinistry;
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.MinistryMenuItemFactory;
-import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractPageModContentFactoryImpl;
+import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractItemPageModContentFactoryImpl;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 
 /**
  * The Class AbstractMinistryPageModContentFactoryImpl.
  */
-abstract class AbstractMinistryPageModContentFactoryImpl extends AbstractPageModContentFactoryImpl {
+abstract class AbstractMinistryPageModContentFactoryImpl extends AbstractItemPageModContentFactoryImpl&lt;ViewRiksdagenMinistry&gt; {
 
 	/** The Constant NAME. */
 	public static final String NAME = UserViews.MINISTRY_VIEW_NAME;
@@ -39,11 +40,16 @@ abstract class AbstractMinistryPageModContentFactoryImpl extends AbstractPageMod
 	 * Instantiates a new abstract ministry page mod content factory impl.
 	 */
 	AbstractMinistryPageModContentFactoryImpl() {
-<span class="fc" id="L42">		super();</span>
-<span class="fc" id="L43">	}</span>
+<span class="fc" id="L43">		super();</span>
+<span class="fc" id="L44">	}</span>
 
 	protected final MinistryMenuItemFactory getMinistryMenuItemFactory() {
-<span class="fc" id="L46">		return ministryMenuItemFactory;</span>
+<span class="fc" id="L47">		return ministryMenuItemFactory;</span>
+	}
+
+	@Override
+	protected ViewRiksdagenMinistry getItem(String parameters) {
+<span class="fc" id="L52">		return getApplicationManager().getDataContainer(ViewRiksdagenMinistry.class).load(getPageId(parameters));</span>
 	}
 
 }

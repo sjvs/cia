@@ -155,28 +155,28 @@ Import-Package: com.fasterxml.jackson.annotation;version="2.9.0",com.f
  tion,java.util.regex,java.util.stream,javax.annotation.security,javax
  .crypto,javax.crypto.spec,javax.security.auth,javax.security.auth.cal
  lback,javax.security.auth.login,javax.security.auth.spi,javax.sql,net
- .sf.ehcache,org.aopalliance.aop;version="5.1.0.RC1",org.aopalliance.i
- ntercept;version="5.1.0.RC1",org.apache.commons.logging;version="0.0.
+ .sf.ehcache,org.aopalliance.aop;version="5.1.0.RC2",org.aopalliance.i
+ ntercept;version="5.1.0.RC2",org.apache.commons.logging;version="0.0.
  0",org.aspectj.lang;version="1.9.1",org.aspectj.lang.reflect;version=
  "1.9.1",org.bouncycastle.crypto;version="1.1",org.bouncycastle.crypto
  .engines;version="1.1",org.bouncycastle.crypto.generators;version="1.
  1",org.bouncycastle.crypto.modes;version="1.1",org.bouncycastle.crypt
  o.paddings;version="1.1",org.bouncycastle.crypto.params;version="1.1"
- ,org.reactivestreams,org.springframework.aop;version="5.1.0.RC1",org.
- springframework.aop.framework;version="5.1.0.RC1",org.springframework
- .aop.support;version="5.1.0.RC1",org.springframework.beans;version="5
- .1.0.RC1",org.springframework.beans.factory;version="5.1.0.RC1",org.s
- pringframework.cache;version="5.1.0.RC1",org.springframework.context;
- version="5.1.0.RC1",org.springframework.context.event;version="5.1.0.
- RC1",org.springframework.context.expression;version="5.1.0.RC1",org.s
- pringframework.context.support;version="5.1.0.RC1",org.springframewor
- k.core;version="5.1.0.RC1",org.springframework.core.annotation;versio
- n="5.1.0.RC1",org.springframework.core.io;version="5.1.0.RC1",org.spr
- ingframework.core.task;version="5.1.0.RC1",org.springframework.dao;ve
- rsion="5.1.0.RC1",org.springframework.expression;version="5.1.0.RC1",
- org.springframework.expression.spel.standard;version="5.1.0.RC1",org.
- springframework.expression.spel.support;version="5.1.0.RC1",org.sprin
- gframework.jdbc.core;version="5.1.0.RC1",org.springframework.jdbc.cor
- e.support;version="5.1.0.RC1",org.springframework.scheduling;version=
- "5.1.0.RC1",org.springframework.util;version="5.1.0.RC1",reactor.core
+ ,org.reactivestreams,org.springframework.aop;version="5.1.0.RC2",org.
+ springframework.aop.framework;version="5.1.0.RC2",org.springframework
+ .aop.support;version="5.1.0.RC2",org.springframework.beans;version="5
+ .1.0.RC2",org.springframework.beans.factory;version="5.1.0.RC2",org.s
+ pringframework.cache;version="5.1.0.RC2",org.springframework.context;
+ version="5.1.0.RC2",org.springframework.context.event;version="5.1.0.
+ RC2",org.springframework.context.expression;version="5.1.0.RC2",org.s
+ pringframework.context.support;version="5.1.0.RC2",org.springframewor
+ k.core;version="5.1.0.RC2",org.springframework.core.annotation;versio
+ n="5.1.0.RC2",org.springframework.core.io;version="5.1.0.RC2",org.spr
+ ingframework.core.task;version="5.1.0.RC2",org.springframework.dao;ve
+ rsion="5.1.0.RC2",org.springframework.expression;version="5.1.0.RC2",
+ org.springframework.expression.spel.standard;version="5.1.0.RC2",org.
+ springframework.expression.spel.support;version="5.1.0.RC2",org.sprin
+ gframework.jdbc.core;version="5.1.0.RC2",org.springframework.jdbc.cor
+ e.support;version="5.1.0.RC2",org.springframework.scheduling;version=
+ "5.1.0.RC2",org.springframework.util;version="5.1.0.RC2",reactor.core
  ,reactor.core.publisher,reactor.core.scheduler,reactor.util.context

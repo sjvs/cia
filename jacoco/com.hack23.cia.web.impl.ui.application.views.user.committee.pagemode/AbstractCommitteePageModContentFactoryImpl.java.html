@@ -20,14 +20,15 @@ package com.hack23.cia.web.impl.ui.application.views.user.committee.pagemode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.hack23.cia.model.internal.application.data.committee.impl.ViewRiksdagenCommittee;
 import com.hack23.cia.web.impl.ui.application.views.common.menufactory.api.CommitteeMenuItemFactory;
-import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractPageModContentFactoryImpl;
+import com.hack23.cia.web.impl.ui.application.views.common.pagemode.AbstractItemPageModContentFactoryImpl;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.UserViews;
 
 /**
  * The Class AbstractCommitteePageModContentFactoryImpl.
  */
-abstract class AbstractCommitteePageModContentFactoryImpl extends AbstractPageModContentFactoryImpl {
+abstract class AbstractCommitteePageModContentFactoryImpl extends AbstractItemPageModContentFactoryImpl&lt;ViewRiksdagenCommittee&gt; {
 
 	/** The Constant NAME. */
 	public static final String NAME = UserViews.COMMITTEE_VIEW_NAME;
@@ -40,8 +41,8 @@ abstract class AbstractCommitteePageModContentFactoryImpl extends AbstractPageMo
 	 * Instantiates a new abstract committee page mod content factory impl.
 	 */
 	AbstractCommitteePageModContentFactoryImpl() {
-<span class="fc" id="L43">		super();</span>
-<span class="fc" id="L44">	}</span>
+<span class="fc" id="L44">		super();</span>
+<span class="fc" id="L45">	}</span>
 
 
 	/**
@@ -50,7 +51,13 @@ abstract class AbstractCommitteePageModContentFactoryImpl extends AbstractPageMo
 	 * @return the committee menu item factory
 	 */
 	protected final CommitteeMenuItemFactory getCommitteeMenuItemFactory() {
-<span class="fc" id="L53">		return committeeMenuItemFactory;</span>
+<span class="fc" id="L54">		return committeeMenuItemFactory;</span>
+	}
+
+
+	@Override
+	protected ViewRiksdagenCommittee getItem(String parameters) {
+<span class="fc" id="L60">		return getApplicationManager().getDataContainer(ViewRiksdagenCommittee.class).load(getPageId(parameters));</span>
 	}
 
 }

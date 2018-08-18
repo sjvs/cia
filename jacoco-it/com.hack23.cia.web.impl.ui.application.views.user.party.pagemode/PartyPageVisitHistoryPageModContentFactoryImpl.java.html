@@ -22,7 +22,6 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 import com.hack23.cia.model.internal.application.data.party.impl.ViewRiksdagenParty;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
@@ -40,35 +39,28 @@ public final class PartyPageVisitHistoryPageModContentFactoryImpl extends Abstra
 	 * impl.
 	 */
 	public PartyPageVisitHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L43">		super();</span>
-<span class="fc" id="L44">	}</span>
+<span class="fc" id="L42">		super();</span>
+<span class="fc" id="L43">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc bfc" id="L48" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
+<span class="fc bfc" id="L47" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L54">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L53">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L56">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L55">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L58">		final DataContainer&lt;ViewRiksdagenParty, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L59">				.getDataContainer(ViewRiksdagenParty.class);</span>
+<span class="fc" id="L57">		final ViewRiksdagenParty viewRiksdagenParty = getItem(parameters);</span>
+<span class="fc" id="L58">		getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L61">		final ViewRiksdagenParty viewRiksdagenParty = dataContainer.load(pageId);</span>
+<span class="fc" id="L60">		createPageVisitHistory(NAME, pageId, panelContent);</span>
 
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (viewRiksdagenParty != null) {</span>
-
-<span class="fc" id="L65">			getPartyMenuItemFactory().createPartyMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L67">			createPageVisitHistory(NAME, pageId, panelContent);</span>
-
-<span class="fc" id="L69">			pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
-		}
-<span class="fc" id="L71">		return panelContent;</span>
+<span class="fc" id="L62">		pageCompleted(parameters, panel, pageId, viewRiksdagenParty);</span>
+<span class="fc" id="L63">		return panelContent;</span>
 
 	}
 

@@ -71,7 +71,7 @@ public final class CommitteeRankingCommitteeByPartyChartsPageModContentFactoryIm
 	@Override
 	public boolean matches(final String page, final String parameters) {
 <span class="pc bpc" id="L73" title="1 of 6 branches missed.">		return NAME.equals(page) &amp;&amp; !StringUtils.isEmpty(parameters) &amp;&amp; parameters.contains(PageMode.CHARTS.toString())</span>
-<span class="fc bfc" id="L74" title="All 2 branches covered.">				&amp;&amp; parameters.contains(ChartIndicators.COMMITTEESBYPARTY.toString());</span>
+<span class="fc bfc" id="L74" title="All 4 branches covered.">				&amp;&amp; parameters.contains(ChartIndicators.COMMITTEESBYPARTY.toString()) &amp;&amp; !parameters.contains(ChartIndicators.CURRENTCOMMITTEESBYPARTYDAYSSERVED.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })

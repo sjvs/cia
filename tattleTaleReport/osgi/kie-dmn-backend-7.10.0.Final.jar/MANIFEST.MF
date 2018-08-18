@@ -1,0 +1,49 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.kie.dmn.backend
+Built-By: jenkins
+Bnd-LastModified: 1534186253778
+Implementation-Vendor-Id: org.kie
+Specification-Title: KIE :: Decision Model Notation :: Backend
+Bundle-DocURL: http://www.jboss.org/
+Import-Package: org.kie.dmn.model.v1_1,com.thoughtworks.xstream,com.th
+ oughtworks.xstream.converters,com.thoughtworks.xstream.converters.col
+ lections,com.thoughtworks.xstream.io,com.thoughtworks.xstream.io.nami
+ ng,com.thoughtworks.xstream.io.xml,com.thoughtworks.xstream.mapper,ja
+ vax.xml.namespace,javax.xml.stream,javax.xml.transform,javax.xml.tran
+ sform.sax,javax.xml.transform.stream,org.kie.dmn.api.marshalling.v1_1
+ ,org.kie.dmn.backend.marshalling,org.kie.dmn.backend.marshalling.v1_1
+ .xstream,org.kie.dmn.model.v1_1.extensions,org.kie.soup.commons.xstre
+ am,org.slf4j,org.xml.sax
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Scm-Url: https://github.com/kiegroup/drools/kie-dmn/kie-dmn-backend
+Export-Package: org.kie.dmn.backend.marshalling;version="7.10.0",org.k
+ ie.dmn.backend.marshalling.v1_1;version="7.10.0",org.kie.dmn.backend.
+ marshalling.v1_1.xstream;version="7.10.0",org.kie.dmn.backend.marshal
+ ling.v1_1.xstream.extensions;version="7.10.0"
+Bundle-Name: KIE :: Decision Model Notation :: Backend
+Bundle-Description: Top level pom for the KIE DMN support implementati
+ on
+Implementation-Title: KIE :: Decision Model Notation :: Backend
+Automatic-Module-Name: org.kie.dmn.backend
+Implementation-Version: 7.10.0.Final
+Java-Version: 1.8.0_131
+Scm-Connection: scm:git:https://github.com:kiegroup/drools.git/kie-dmn
+ /kie-dmn-backend
+Bundle-ManifestVersion: 2
+Os-Arch: amd64
+Specification-Vendor: JBoss by Red Hat
+Bundle-Vendor: JBoss by Red Hat
+Java-Vendor: Oracle Corporation
+Os-Name: Linux
+Tool: Bnd-3.3.0.201609221906
+Implementation-Vendor: JBoss by Red Hat
+Os-Version: 3.10.0-514.el7.x86_64
+Bundle-Version: 7.10.0.201808131849
+Scm-Revision: 8af7475e4d8c3ba09af91592196b0744ed321346
+Build-Jdk: 1.8.0_131
+Created-By: Apache Maven Bundle Plugin
+Implementation-URL: http://www.kiegroup.org/drools/kie-dmn/kie-dmn-bac
+ kend
+Specification-Version: 7.10.0.Final
+

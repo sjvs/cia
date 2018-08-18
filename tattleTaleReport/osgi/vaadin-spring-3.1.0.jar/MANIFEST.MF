@@ -44,15 +44,15 @@ Import-Package: com.vaadin.navigator;version="8.6.0.alpha1",com.vaadin
  ang.annotation,java.lang.invoke,java.lang.reflect,java.net,java.nio.c
  harset,java.util,java.util.concurrent,java.util.function,java.util.st
  ream,javax.annotation,javax.servlet,javax.servlet.http,org.slf4j;vers
- ion="0.0.0",org.springframework.beans;version="5.1.0.RC1",org.springf
- ramework.beans.factory;version="5.1.0.RC1",org.springframework.beans.
- factory.annotation;version="5.1.0.RC1",org.springframework.beans.fact
- ory.config;version="5.1.0.RC1",org.springframework.beans.factory.supp
- ort;version="5.1.0.RC1",org.springframework.context;version="5.1.0.RC
- 1",org.springframework.context.annotation;version="5.1.0.RC1",org.spr
- ingframework.core.annotation;version="5.1.0.RC1",org.springframework.
- core.env;version="5.1.0.RC1",org.springframework.core.type;version="5
- .1.0.RC1",org.springframework.stereotype;version="5.1.0.RC1",org.spri
- ngframework.util;version="5.1.0.RC1",org.springframework.web.context;
- version="5.1.0.RC1",org.springframework.web.context.support;version="
- 5.1.0.RC1",org.springframework.web.util;version="5.1.0.RC1"
+ ion="0.0.0",org.springframework.beans;version="5.1.0.RC2",org.springf
+ ramework.beans.factory;version="5.1.0.RC2",org.springframework.beans.
+ factory.annotation;version="5.1.0.RC2",org.springframework.beans.fact
+ ory.config;version="5.1.0.RC2",org.springframework.beans.factory.supp
+ ort;version="5.1.0.RC2",org.springframework.context;version="5.1.0.RC
+ 2",org.springframework.context.annotation;version="5.1.0.RC2",org.spr
+ ingframework.core.annotation;version="5.1.0.RC2",org.springframework.
+ core.env;version="5.1.0.RC2",org.springframework.core.type;version="5
+ .1.0.RC2",org.springframework.stereotype;version="5.1.0.RC2",org.spri
+ ngframework.util;version="5.1.0.RC2",org.springframework.web.context;
+ version="5.1.0.RC2",org.springframework.web.context.support;version="
+ 5.1.0.RC2",org.springframework.web.util;version="5.1.0.RC2"

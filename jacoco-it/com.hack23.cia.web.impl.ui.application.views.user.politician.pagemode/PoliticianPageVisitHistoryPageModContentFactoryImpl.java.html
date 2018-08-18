@@ -21,9 +21,7 @@ package com.hack23.cia.web.impl.ui.application.views.user.politician.pagemode;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
-import com.hack23.cia.model.external.riksdagen.person.impl.PersonData;
 import com.hack23.cia.model.internal.application.data.politician.impl.ViewRiksdagenPolitician;
-import com.hack23.cia.service.api.DataContainer;
 import com.hack23.cia.web.impl.ui.application.views.common.viewnames.PageMode;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.MenuBar;
@@ -34,48 +32,36 @@ import com.vaadin.ui.VerticalLayout;
  * The Class OverviewPageModContentFactoryImpl.
  */
 @Component
-public final class PoliticianPageVisitHistoryPageModContentFactoryImpl extends AbstractPoliticianPageModContentFactoryImpl {
+public final class PoliticianPageVisitHistoryPageModContentFactoryImpl
+		extends AbstractPoliticianPageModContentFactoryImpl {
 
 	/**
 	 * Instantiates a new politician page visit history page mod content factory
 	 * impl.
 	 */
 	public PoliticianPageVisitHistoryPageModContentFactoryImpl() {
-<span class="fc" id="L44">		super();</span>
-<span class="fc" id="L45">	}</span>
+<span class="fc" id="L43">		super();</span>
+<span class="fc" id="L44">	}</span>
 
 	@Override
 	public boolean matches(final String page, final String parameters) {
-<span class="fc bfc" id="L49" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
+<span class="fc bfc" id="L48" title="All 4 branches covered.">		return NAME.equals(page) &amp;&amp; parameters.contains(PageMode.PAGEVISITHISTORY.toString());</span>
 	}
 
 	@Secured({ &quot;ROLE_ANONYMOUS&quot;, &quot;ROLE_USER&quot;, &quot;ROLE_ADMIN&quot; })
 	@Override
 	public Layout createContent(final String parameters, final MenuBar menuBar, final Panel panel) {
-<span class="fc" id="L55">		final VerticalLayout panelContent = createPanelContent();</span>
+<span class="fc" id="L54">		final VerticalLayout panelContent = createPanelContent();</span>
 
-<span class="fc" id="L57">		final String pageId = getPageId(parameters);</span>
+<span class="fc" id="L56">		final String pageId = getPageId(parameters);</span>
 
-<span class="fc" id="L59">		final DataContainer&lt;PersonData, String&gt; dataContainer = getApplicationManager()</span>
-<span class="fc" id="L60">				.getDataContainer(PersonData.class);</span>
+<span class="fc" id="L58">		final ViewRiksdagenPolitician viewRiksdagenPolitician = getItem(parameters);</span>
+<span class="fc" id="L59">		getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
 
-<span class="fc" id="L62">		final PersonData personData = dataContainer.load(pageId);</span>
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (personData != null) {</span>
+<span class="fc" id="L61">		createPageVisitHistory(NAME, pageId, panelContent);</span>
 
-<span class="fc" id="L65">			final DataContainer&lt;ViewRiksdagenPolitician, String&gt; politicianDataContainer = getApplicationManager()</span>
-<span class="fc" id="L66">					.getDataContainer(ViewRiksdagenPolitician.class);</span>
-
-<span class="fc" id="L68">			final ViewRiksdagenPolitician viewRiksdagenPolitician = politicianDataContainer.load(personData.getId());</span>
-
-<span class="fc" id="L70">			getPoliticianMenuItemFactory().createPoliticianMenuBar(menuBar, pageId);</span>
-
-<span class="fc" id="L72">			createPageVisitHistory(NAME,pageId,panelContent);</span>
-
-
-<span class="fc" id="L75">			pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
-
-		}
-<span class="fc" id="L78">		return panelContent;</span>
+<span class="fc" id="L63">		pageCompleted(parameters, panel, pageId, viewRiksdagenPolitician);</span>
+<span class="fc" id="L64">		return panelContent;</span>
 
 	}
 }
